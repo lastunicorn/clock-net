@@ -1,0 +1,54 @@
+1) Dial back color, border color, border width
+2) Create a list of DialOrnamentShapes.
+3) Add a Skin property.
+4) expose properties to control the image quality.
+5) Create a Shape object for the text.
+5) Use ticks1 instead of ticks5
+
+5) Add design time support for changing the hands, numbers and ticks.
+6) Add design time support for changing the time provider.
+
+7) The shape of the clock: Round, Square, Romb. Create a pluggable object for that.
+7) Try to create a compas
+
+
+
+UITypeEditors
+TypeConverter
+Designers
+
+
+
+http://www.codeproject.com/KB/cs/propertyeditor.aspx
+UITypeEditors
+-------------
+[Editor(typeof(WidthEditor), typeof(UITypeEditor))]
+
+WidthEditor : System.Drawing.Design.UITypeEditor
+GetEditStyle()
+
+EditValue()
+IWindowsFormsEditorService frmsvr = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
+frmsvr.DropDownControl(tbr); //tbr = Object of Type track bar
+
+
+
+
+TypeConverter
+-------------
+[TypeConverter(typeof(PhoneTypeConverter))]
+public class PhoneNumber
+{
+}
+
+
+PhoneTypeConverter : System.ComponentModel.TypeConverter 
+GetPropertiesSupported()
+GetProperties()
+
+
+
+
+
+Designers
+---------
