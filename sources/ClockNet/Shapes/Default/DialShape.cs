@@ -36,13 +36,23 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Gets or sets the color used to draw the dial's background.
         /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(typeof(Color), "Red")]
+        [DefaultValue(typeof(Color), "Empty")]
         [Description("The color used to draw the dial's background.")]
         public override Color OutlineColor
         {
             get { return base.OutlineColor; }
             set { base.OutlineColor = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the color used to draw the border of the dial.
+        /// </summary>
+        [DefaultValue(typeof(Color), "Empty")]
+        [Description("The color used to draw the border of the dial.")]
+        public override Color FillColor
+        {
+            get { return base.FillColor; }
+            set { base.FillColor = value; }
         }
 
         #region Constructors
@@ -86,21 +96,18 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the dial.</param>
         public override void Draw(Graphics g)
         {
-            if (outlineColor != Color.Empty)
+            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill && fillColor != Color.Empty)
             {
-                if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
-                {
-                    CreateBrushIfNull();
+                CreateBrushIfNull();
 
-                    g.FillEllipse(brush, locationX, locationY, diameter, diameter);
-                }
+                g.FillEllipse(brush, locationX, locationY, diameter, diameter);
+            }
 
-                if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
-                {
-                    CreatePenIfNull();
+            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline && outlineColor != Color.Empty)
+            {
+                CreatePenIfNull();
 
-                    g.DrawEllipse(pen, locationX, locationY, diameter, diameter);
-                }
+                g.DrawEllipse(pen, locationX, locationY, diameter, diameter);
             }
         }
     }

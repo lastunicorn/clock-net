@@ -37,12 +37,12 @@ namespace DustInTheWind.Clock.Demo
             analogClockIndia.TimeProvider = new UtcOffsetTimeProvider(new TimeSpan(5, 30, 0));
 
             ImageHand hourHandShape = new ImageHand(Resources.hour_hand);
-            hourHandShape.Height = 80;
+            hourHandShape.Height = 25;
             hourHandShape.Origin = new PointF(32f, 155.5f);
             analogClockImages.HourHandShape = hourHandShape;
 
             ImageHand minuteHandShape = new ImageHand(Resources.minute_hand);
-            minuteHandShape.Height = 110;
+            minuteHandShape.Height = 35;
             minuteHandShape.Origin = new PointF(14.5f, 206f);
             analogClockImages.MinuteHandShape = minuteHandShape;
 

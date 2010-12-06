@@ -42,9 +42,23 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
         public override string Name
         {
             get { return "Default Hour Hand Shape"; }
+        }
+
+        /// <summary>
+        /// Gets or sets the color used to draw the hour hand.
+        /// </summary>
+        [DefaultValue(typeof(Color), "Empty")]
+        [Description("The color used to draw the outline of the hour hand.")]
+        public override Color OutlineColor
+        {
+            get { return base.OutlineColor; }
+            set { base.OutlineColor = value; }
         }
 
         /// <summary>
@@ -56,6 +70,14 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             get { return base.FillColor; }
             set { base.FillColor = value; }
+        }
+
+        [DefaultValue(typeof(VectorialDrawMode), "Fill")]
+        [Description("Specifies if the hour hand shape should be filled with color or only draw the outline.")]
+        public override VectorialDrawMode DrawMode
+        {
+            get { return base.DrawMode; }
+            set { base.DrawMode = value; }
         }
 
         /// <summary>
@@ -79,15 +101,23 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
+        #region Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HourHandShape"/> class with
         /// default values.
         /// </summary>
         public HourHandShape()
-            : this(Color.RoyalBlue, Color.RoyalBlue, VectorialDrawMode.Fill, HEIGHT)
+            : this(Color.Empty, Color.RoyalBlue, VectorialDrawMode.Fill, HEIGHT)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HourHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline.</param>
+        /// <param name="fillColor">The color used to fill the shape.</param>
+        /// <param name="drawMode">Specifies if the hour hand shape should be filled with color or only draw the outline.</param>
         public HourHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
             : this(outlineColor, fillColor, drawMode, HEIGHT)
         {
@@ -96,16 +126,19 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Initializes a new instance of the <see cref="HourHandShape"/> class.
         /// </summary>
-        /// <param name="color"></param>
-        /// <param name="fill"></param>
-        /// <param name="height"></param>
+        /// <param name="outlineColor">The color used to draw the outline.</param>
+        /// <param name="fillColor">The color used to fill the shape.</param>
+        /// <param name="drawMode">Specifies if the hour hand shape should be filled with color or only draw the outline.</param>
+        /// <param name="height">The length of the hour hand for a clock with the diameter of 100px.</param>
         public HourHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height)
             : base(outlineColor, fillColor, drawMode)
         {
-            path = new PointF[] { new PointF(0f, 6f), new PointF(-3f, 0f), new PointF(0F, -24.2f), new PointF(3f, 0f) };
+            path = new PointF[] { new PointF(0f, 6f), new PointF(-2.5f, 0f), new PointF(0F, -24.2f), new PointF(2.5f, 0f) };
             this.height = height;
             CalculateDimensions();
         }
+
+        #endregion
 
         protected float pathHeight;
 
@@ -119,7 +152,7 @@ namespace DustInTheWind.Clock.Shapes.Default
                     h = point.Y;
             }
 
-            pathHeight = h;
+            pathHeight = Math.Abs(h);
         }
 
         public override void Draw(Graphics g)

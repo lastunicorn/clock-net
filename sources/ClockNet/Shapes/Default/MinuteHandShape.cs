@@ -107,7 +107,7 @@ namespace DustInTheWind.Clock.Shapes.Default
                     h = point.Y;
             }
 
-            pathHeight = h;
+            pathHeight = Math.Abs(h);
         }
 
         public override void Draw(Graphics g)

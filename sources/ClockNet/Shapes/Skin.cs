@@ -33,7 +33,7 @@ namespace DustInTheWind.Clock.Shapes
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(),
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(),
-                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(new Font("Arial", 18, FontStyle.Regular, GraphicsUnit.Point)),
+                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point)),
                     textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point), VectorialDrawMode.Fill)
                 };
             }
@@ -51,7 +51,7 @@ namespace DustInTheWind.Clock.Shapes
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Navy, Color.Navy, VectorialDrawMode.Fill),
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.RoyalBlue, Color.RoyalBlue, 7.5f, 0.75f, 5f),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(Color.Navy, Color.Navy, 15f, 5f),
-                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy, Color.Navy, new Font("Arial", 18, FontStyle.Regular, GraphicsUnit.Point)),
+                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy, Color.Navy, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point)),
                     textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point), VectorialDrawMode.Fill)
                 };
             }

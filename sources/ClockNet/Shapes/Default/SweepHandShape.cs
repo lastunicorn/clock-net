@@ -43,6 +43,27 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.LineWidth = value; }
         }
 
+        [DefaultValue(typeof(Color), "Red")]
+        public override Color OutlineColor
+        {
+            get { return base.OutlineColor; }
+            set { base.OutlineColor = value; }
+        }
+
+        [DefaultValue(typeof(Color), "Empty")]
+        public override Color FillColor
+        {
+            get { return base.FillColor; }
+            set { base.FillColor = value; }
+        }
+
+        [DefaultValue(typeof(VectorialDrawMode), "Outline")]
+        public override VectorialDrawMode DrawMode
+        {
+            get { return base.DrawMode; }
+            set { base.DrawMode = value; }
+        }
+
         /// <summary>
         /// The length of the sweep hand. For a clock with the diameter of 100px.
         /// </summary>
@@ -69,7 +90,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public SweepHandShape()
-            : this(Color.Red, Color.Red, HEIGHT)
+            : this(Color.Red, Color.Empty, HEIGHT)
         {
         }
 
@@ -79,7 +100,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         public SweepHandShape(Color outlineColor, Color fillColor, float height)
-            : base(outlineColor, fillColor, VectorialDrawMode.Fill)
+            : base(outlineColor, fillColor, VectorialDrawMode.Outline)
         {
             path = new PointF[] { new PointF(0f, 4.72f), new PointF(0f, -42.5f) };
             this.height = height;
@@ -99,7 +120,7 @@ namespace DustInTheWind.Clock.Shapes.Default
                     h = point.Y;
             }
 
-            pathHeight = h;
+            pathHeight = Math.Abs(h);
         }
 
         public override void Draw(Graphics g)

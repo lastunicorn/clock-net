@@ -39,7 +39,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Gets or sets the color used to draw the pin.
         /// </summary>
-        [Category("Appearance")]
         [DefaultValue(typeof(Color), "Red")]
         [Description("The color used to draw the pin.")]
         public override Color OutlineColor
@@ -48,16 +47,16 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.OutlineColor = value; }
         }
 
-        private string text;
+        private string txt;
 
-        [Category("Appearance")]
-        [DefaultValue("")]
-        public string Text
+        [DefaultValue("qwe")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public string Txt
         {
-            get { return text; }
+            get { return txt; }
             set
             {
-                text = value;
+                txt = value;
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -118,16 +117,16 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
         public override void Draw(Graphics g)
         {
-            if (font != null && text != null && text.Length > 0)
+            if (font != null && txt != null && txt.Length > 0)
             {
                 if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
                 {
                     CreateBrushIfNull();
 
-                    SizeF textSize = g.MeasureString(text, font, (int)maxWidth);
+                    SizeF textSize = g.MeasureString(txt, font, (int)maxWidth);
                     PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
 
-                    g.DrawString(text, font, brush, new RectangleF(textLocation, textSize), stringFormat);
+                    g.DrawString(txt, font, brush, new RectangleF(textLocation, textSize), stringFormat);
                 }
             }
         }

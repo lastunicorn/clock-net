@@ -28,17 +28,17 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// The default value of the length.
         /// </summary>
-        private const float LENGTH = 2.5f;
+        public const float LENGTH = 2.5f;
 
         /// <summary>
         /// The default value of the thickness.
         /// </summary>
-        private const float THICKNESS = 0.25f;
+        public const float THICKNESS = 0.25f;
 
         /// <summary>
         /// The default value of the position offset.
         /// </summary>
-        private const float POSITION_OFFSET = 0f;
+        public const float POSITION_OFFSET = 0f;
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -80,26 +80,37 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        /// <summary>
-        /// The width of the 1 second ticks. This value is given for a clock with diameter of 100px.
-        /// </summary>
-        private float thickness = THICKNESS;
+        ///// <summary>
+        ///// The width of the 1 second ticks. This value is given for a clock with diameter of 100px.
+        ///// </summary>
+        //private float thickness = THICKNESS;
+
+        ///// <summary>
+        ///// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 100px.
+        ///// </summary>
+        //[Category("Appearance")]
+        //[DefaultValue(THICKNESS)]
+        //[Description("The width of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
+        //public float Thickness
+        //{
+        //    get { return thickness; }
+        //    set
+        //    {
+        //        thickness = value;
+        //        InvalidateDrawingTools();
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
-        [Category("Appearance")]
         [DefaultValue(THICKNESS)]
         [Description("The width of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
-        public float Thickness
+        public override float LineWidth
         {
-            get { return thickness; }
-            set
-            {
-                thickness = value;
-                InvalidateDrawingTools();
-                OnChanged(EventArgs.Empty);
-            }
+            get { return base.LineWidth; }
+            set { base.LineWidth = value; }
         }
 
         private float positionOffset = POSITION_OFFSET;
@@ -133,13 +144,13 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="color"></param>
         /// <param name="length"></param>
-        /// <param name="thickness"></param>
+        /// <param name="lineWidth"></param>
         /// <param name="positionOffset"></param>
-        public Ticks1Shape(Color outlineColor, Color fillColor, float length, float thickness, float positionOffset)
-            : base(outlineColor, fillColor, VectorialDrawMode.Fill)
+        public Ticks1Shape(Color outlineColor, Color fillColor, float length, float lineWidth, float positionOffset)
+            : base(outlineColor, fillColor, VectorialDrawMode.Outline)
         {
             this.length = length;
-            this.thickness = thickness;
+            this.lineWidth = lineWidth;
             this.positionOffset = positionOffset;
         }
 
@@ -148,12 +159,14 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         public override void Draw(Graphics g)
         {
-            if (length > 0 && thickness > 0)
+            if (length > 0 && lineWidth > 0)
             {
-                if (pen == null)
-                    pen = new Pen(outlineColor, thickness);
+                if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+                {
+                    CreatePenIfNull();
 
-                g.DrawLine(pen, 0, positionOffset, 0, length + positionOffset);
+                    g.DrawLine(pen, 0, positionOffset, 0, length + positionOffset);
+                }
             }
         }
     }

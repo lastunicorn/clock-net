@@ -80,26 +80,37 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        /// <summary>
-        /// The width of the 5 second ticks. This value is given for a clock with diameter of 100px.
-        /// </summary>
-        private float thickness = THICKNESS;
+        ///// <summary>
+        ///// The width of the 5 second ticks. This value is given for a clock with diameter of 100px.
+        ///// </summary>
+        //private float thickness = THICKNESS;
+
+        ///// <summary>
+        ///// Gets or sets the width of the 5 second ticks. This value is given for a clock with diameter of 100px.
+        ///// </summary>
+        //[Category("Appearance")]
+        //[DefaultValue(THICKNESS)]
+        //[Description("The width of the 5 second ticks. This value is given for a clock with diameter of 100px.")]
+        //public float Thickness
+        //{
+        //    get { return thickness; }
+        //    set
+        //    {
+        //        thickness = value;
+        //        InvalidateDrawingTools();
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the width of the 5 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
-        [Category("Appearance")]
         [DefaultValue(THICKNESS)]
         [Description("The width of the 5 second ticks. This value is given for a clock with diameter of 100px.")]
-        public float Thickness
+        public override float LineWidth
         {
-            get { return thickness; }
-            set
-            {
-                thickness = value;
-                InvalidateDrawingTools();
-                OnChanged(EventArgs.Empty);
-            }
+            get { return base.LineWidth; }
+            set { base.LineWidth = value; }
         }
 
         private float positionOffset = POSITION_OFFSET;
@@ -131,21 +142,23 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color"></param>
         /// <param name="length"></param>
         /// <param name="thickness"></param>
-        public Ticks5Shape(Color outlineColor, Color fillColor, float length, float thickness)
-            : base(outlineColor, fillColor, VectorialDrawMode.Fill)
+        public Ticks5Shape(Color outlineColor, Color fillColor, float length, float lineWidth)
+            : base(outlineColor, fillColor, VectorialDrawMode.Outline)
         {
             this.length = length;
-            this.thickness = thickness;
+            this.lineWidth = lineWidth;
         }
 
         public override void Draw(Graphics g)
         {
-            if (length > 0 && thickness > 0)
+            if (length > 0 && lineWidth > 0)
             {
-                if (pen == null)
-                    pen = new Pen(outlineColor, thickness);
+                if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+                {
+                    CreatePenIfNull();
 
-                g.DrawLine(pen, 0, 0 + positionOffset, 0, length + positionOffset);
+                    g.DrawLine(pen, 0, 0 + positionOffset, 0, length + positionOffset);
+                }
             }
         }
     }

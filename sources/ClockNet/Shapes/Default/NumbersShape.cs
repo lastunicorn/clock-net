@@ -77,7 +77,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Gets the font used to draw the numbers.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(typeof(Font), "Microsoft Sans Serif; 8.25pt")]
+        [DefaultValue(typeof(Font), "Arial; 7pt")]
         [Description("The font used to draw the numbers.")]
         public Font Font
         {
@@ -152,7 +152,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public NumbersShape()
-            : this(Color.Black, Color.Black, null)
+            : this(Color.Black, Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point))
         {
         }
 
@@ -173,7 +173,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public NumbersShape(Color outlineColor, Color fillColor, Font font)
             : base(outlineColor, fillColor, VectorialDrawMode.Fill)
         {
-            this.font = font;
+            this.font = font == null ? new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point) : font;
 
             numbersStringFormat = new StringFormat(StringFormatFlags.NoWrap);
             numbersStringFormat.Alignment = StringAlignment.Center;
@@ -189,16 +189,15 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the number.</param>
         public override void Draw(Graphics g)
         {
-            if (font != null && numbers != null && currentIndex >= 0 && currentIndex < numbers.Length)
+            if (font != null && numbers != null && currentIndex >= 0 && currentIndex < numbers.Length && fillColor != Color.Empty)
             {
                 string number = numbers[currentIndex];
 
                 if (number != null && number.Length > 0)
                 {
-                    if (brush == null)
-                        brush = new SolidBrush(outlineColor);
+                    CreateBrushIfNull();
 
-                    SizeF numberSize = g.MeasureString(number, font);
+                    SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
                     PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
 
                     Matrix originalMatrix = null;
@@ -225,7 +224,7 @@ namespace DustInTheWind.Clock.Shapes.Default
                             break;
                     }
 
-
+                    //g.DrawRectangle(Pens.Black, new Rectangle((int)numberPosition.X, (int)numberPosition.Y, (int)numberSize.Width, (int)numberSize.Height));
                     g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
 
                     if (originalMatrix != null)

@@ -61,15 +61,32 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         /// <summary>
-        /// Gets or sets the color used to draw the pin.
+        /// Gets or sets the color used to fill the pin.
         /// </summary>
-        [Category("Appearance")]
         [DefaultValue(typeof(Color), "Red")]
-        [Description("The color used to draw the pin.")]
+        [Description("The color used to fill the pin.")]
+        public override Color FillColor
+        {
+            get { return base.FillColor; }
+            set { base.FillColor = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the color used to draw the outline of the pin.
+        /// </summary>
+        [DefaultValue(typeof(Color), "Empty")]
+        [Description("The color used to draw the outline of the pin.")]
         public override Color OutlineColor
         {
             get { return base.OutlineColor; }
             set { base.OutlineColor = value; }
+        }
+
+        [DefaultValue(typeof(VectorialDrawMode), "Fill")]
+        public override VectorialDrawMode DrawMode
+        {
+            get { return base.DrawMode; }
+            set { base.DrawMode = value; }
         }
 
 
