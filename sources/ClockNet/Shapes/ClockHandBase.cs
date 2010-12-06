@@ -23,16 +23,16 @@ namespace DustInTheWind.Clock.Shapes
     public abstract class ClockHandBase : ShapeBase
     {
         /// <summary>
-        /// The length of the clock hand. For a clock with the diameter of 300px.
+        /// The length of the clock hand. For a clock with the diameter of 100px.
         /// </summary>
         protected float height;
 
         /// <summary>
-        /// Gets or sets the length of the clock hand. For a clock with the diameter of 300px.
+        /// Gets or sets the length of the clock hand. For a clock with the diameter of 100px.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(150)]
-        [Description("The length of the clock hand. For a clock with the diameter of 300px.")]
+        [DefaultValue(50)]
+        [Description("The length of the clock hand. For a clock with the diameter of 100px.")]
         public virtual float Height
         {
             get { return height; }

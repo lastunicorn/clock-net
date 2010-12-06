@@ -92,7 +92,7 @@ namespace DustInTheWind.Clock.Shapes
         [Category("Appearance")]
         [DefaultValue(LINE_WIDTH)]
         [Description("The width of the outline's line.")]
-        public float LineWidth
+        public virtual float LineWidth
         {
             get { return lineWidth; }
             set
@@ -132,11 +132,12 @@ namespace DustInTheWind.Clock.Shapes
         /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
         /// </summary>
         /// <param name="color">The color to be used when drawing the shape.</param>
-        /// <param name="drawMode">A value specifying if the vectorial shape should be filled with color or only the outline should be drown.</param>
-        public VectorialShapeBase(Color color, VectorialDrawMode drawMode)
+        /// <param name="drawMode">A value specifying if the vectorial shape should be filled with color or only the outline should be drawn.</param>
+        public VectorialShapeBase(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
             : base()
         {
-            this.outlineColor = color;
+            this.outlineColor = outlineColor;
+            this.fillColor = fillColor;
             this.drawMode = drawMode;
         }
 

@@ -47,14 +47,14 @@ namespace DustInTheWind.Clock.Shapes
             {
                 return new Skin()
                 {
-                    dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(Color.LightBlue, VectorialDrawMode.Fill),
-                    hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(Color.Navy, true),
-                    minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(Color.RoyalBlue, true),
-                    sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(Color.DeepSkyBlue),
-                    pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Navy, VectorialDrawMode.Fill),
-                    ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.RoyalBlue, 7.5f, 0.75f, 5f),
-                    ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(Color.Navy, 15f, 5f),
-                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy, new Font("Arial", 18, FontStyle.Regular, GraphicsUnit.Point))
+                    dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(Color.LightBlue, Color.LightBlue, VectorialDrawMode.Fill),
+                    hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(Color.Navy, Color.Navy, VectorialDrawMode.Fill),
+                    minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(Color.RoyalBlue, Color.RoyalBlue, VectorialDrawMode.Fill),
+                    sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(Color.DeepSkyBlue, Color.DeepSkyBlue),
+                    pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Navy, Color.Navy, VectorialDrawMode.Fill),
+                    ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.RoyalBlue, Color.RoyalBlue, 7.5f, 0.75f, 5f),
+                    ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(Color.Navy, Color.Navy, 15f, 5f),
+                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy, Color.Navy, new Font("Arial", 18, FontStyle.Regular, GraphicsUnit.Point))
                 };
             }
         }

@@ -17,49 +17,51 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System;
 
 namespace DustInTheWind.Clock.Shapes.Default
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the sweep hand.
     /// </summary>
-    public class SweepHandShape : VectorialClockHandBase
+    public class SweepHandShape : VectorialShapeBase
     {
-        protected float pathHeight;
+        public const float HEIGHT = 42.5f;
+        public const float LINE_WIDTH = 0.3f;
+
+        protected PointF[] path;
 
         public override string Name
         {
             get { return "Default Sweep Hand Shape"; }
         }
 
-        [DefaultValue(typeof(Color), "Red")]
-        [Description("The color used to draw the sweep hand.")]
-        public override Color Color
+        [DefaultValue(LINE_WIDTH)]
+        public override float LineWidth
         {
-            get { return base.Color; }
-            set { base.Color = value; }
+            get { return base.LineWidth; }
+            set { base.LineWidth = value; }
         }
 
         /// <summary>
-        /// Gets or sets the length of the sweep hand. For a clock with the diameter of 300px.
+        /// The length of the sweep hand. For a clock with the diameter of 100px.
         /// </summary>
-        [DefaultValue(127.5f)]
-        [Description("The length of the sweep hand. For a clock with the diameter of 300px.")]
-        public override float Height
-        {
-            get { return base.Height; }
-            set { base.Height = value; }
-        }
+        protected float height;
 
         /// <summary>
-        /// Not used.
+        /// Gets or sets the length of the sweep hand. For a clock with the diameter of 100px.
         /// </summary>
-        //[DefaultValue(false)]
-        [Browsable(false)]
-        public override bool Fill
+        [Category("Appearance")]
+        [DefaultValue(HEIGHT)]
+        [Description("The length of the sweep hand. For a clock with the diameter of 100px.")]
+        public virtual float Height
         {
-            get { return base.Fill; }
-            set { base.Fill = value; }
+            get { return height; }
+            set
+            {
+                height = value;
+                OnChanged(EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -67,19 +69,37 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public SweepHandShape()
-            : this(Color.Red, 127.5f)
+            : this(Color.Red, Color.Red, HEIGHT)
         {
         }
 
-        public SweepHandShape(Color color)
-            : this(color, 127.5f)
+        public SweepHandShape(Color outlineColor, Color fillColor)
+            : this(outlineColor, fillColor, HEIGHT)
         {
         }
 
-        public SweepHandShape(Color color, float height)
-            : base(color, false, height)
+        public SweepHandShape(Color outlineColor, Color fillColor, float height)
+            : base(outlineColor, fillColor, VectorialDrawMode.Fill)
         {
-            pathHeight = 127.5f;
+            path = new PointF[] { new PointF(0f, 4.72f), new PointF(0f, -42.5f) };
+            this.height = height;
+            this.lineWidth = LINE_WIDTH;
+            CalculateDimensions();
+        }
+
+        protected float pathHeight;
+
+        private void CalculateDimensions()
+        {
+            float h = 0;
+
+            foreach (PointF point in path)
+            {
+                if (point.Y < h)
+                    h = point.Y;
+            }
+
+            pathHeight = h;
         }
 
         public override void Draw(Graphics g)
@@ -94,11 +114,19 @@ namespace DustInTheWind.Clock.Shapes.Default
                 g.ScaleTransform(scaleFactor, scaleFactor);
             }
 
-            if (pen == null)
-                pen = new Pen(color);
+            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+            {
+                CreateBrushIfNull();
 
-            g.DrawLine(pen, new PointF(0f, 14.16f), new PointF(0f, -127.5f));
+                g.FillPolygon(brush, path);
+            }
 
+            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+            {
+                CreatePenIfNull();
+
+                g.DrawPolygon(pen, path);
+            }
 
             if (originalTransformMatrix != null)
             {

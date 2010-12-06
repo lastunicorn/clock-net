@@ -53,6 +53,7 @@
     </Compile>
     <Compile Include="PointFConverter.cs" />
     <Compile Include="Shapes\ClockHandBase.cs" />
+    <Compile Include="Shapes\Default\TextShape.cs" />
     <Compile Include="Shapes\Fancy\NumbersShape.cs" />
     <Compile Include="Shapes\INumbersShape.cs" />
     <Compile Include="Shapes\Default\DialShape.cs" />
@@ -60,7 +61,6 @@
     <Compile Include="Shapes\IArrayShape.cs" />
     <Compile Include="Shapes\NumberOrientation.cs" />
     <Compile Include="Shapes\Skin.cs" />
-    <Compile Include="Shapes\VectorialClockHandBase.cs" />
     <Compile Include="Shapes\Default\NumbersShape.cs" />
     <Compile Include="Shapes\Default\Ticks1Shape.cs" />
     <Compile Include="Shapes\Default\Ticks5Shape.cs" />

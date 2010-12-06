@@ -33,13 +33,7 @@ namespace DustInTheWind.Clock.Shapes
         string Name { get; }
 
         /// <summary>
-        /// Gets or sets the clock's real width. Usefull for the shape to know how big it should draw itself.
-        /// </summary>
-        [Browsable(false)]
-        float ClockWidth { get; set; }
-
-        /// <summary>
-        /// Event raised when the shape's parameters are changed and it should be redrown.
+        /// Event raised when the shape's parameters are changed and it should be redrawn.
         /// </summary>
         event EventHandler Changed;
 

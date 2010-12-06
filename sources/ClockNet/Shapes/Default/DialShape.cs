@@ -46,51 +46,23 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         #region Constructors
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DialShape"/> class with
         /// default values.
         /// </summary>
         public DialShape()
-            : this(Color.Empty, VectorialDrawMode.Fill)
+            : this(Color.Empty, Color.Empty, VectorialDrawMode.Fill)
         {
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="DialShape"/> class.
         /// </summary>
         /// <param name="color">The color used to draw the dial's background.</param>
-        /// <param name="fill">A value specifying if the dial should be filled with color or only the border should be drown.</param>
-        public DialShape(Color color, VectorialDrawMode drawMode)
-            : base(color, drawMode)
+        /// <param name="fill">A value specifying if the dial should be filled with color or only the border should be drawn.</param>
+        public DialShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
+            : base(outlineColor, fillColor, drawMode)
         {
-        }
-
-        #endregion
-
-        protected override void OnClockWidthChanged()
-        {
-            base.OnClockWidthChanged();
-            CalculateDimensions();
-        }
-
-        #region Calculated Dimensions
-
-        private float _locationX;
-        private float _locationY;
-        private float _width;
-        private float _height;
-
-        protected virtual void CalculateDimensions()
-        {
-            //_locationX = -clockWidth / 2f + lineWidth / 2f;
-            //_locationY = -clockWidth / 2f + lineWidth / 2f;
-            //_width = clockWidth - lineWidth;
-            //_height = clockWidth - lineWidth;
-            
-            _locationX = -clockWidth / 2f;
-            _locationY = -clockWidth / 2f;
-            _width = clockWidth;
-            _height = clockWidth;
         }
 
         #endregion
@@ -104,6 +76,10 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
+        private float locationX = -50;
+        private float locationY = -50;
+        private float diameter = 100;
+
         /// <summary>
         /// Draws the dial's background using the provided <see cref="Graphics"/> object.
         /// </summary>
@@ -116,14 +92,14 @@ namespace DustInTheWind.Clock.Shapes.Default
                 {
                     CreateBrushIfNull();
 
-                    g.FillEllipse(brush, _locationX, _locationY, _width, _height);
+                    g.FillEllipse(brush, locationX, locationY, diameter, diameter);
                 }
 
                 if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
                 {
                     CreatePenIfNull();
 
-                    g.DrawEllipse(pen, _locationX, _locationY, _width, _height);
+                    g.DrawEllipse(pen, locationX, locationY, diameter, diameter);
                 }
             }
         }

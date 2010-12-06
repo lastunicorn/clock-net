@@ -450,7 +450,6 @@ namespace DustInTheWind.Clock
                 if (hourHandShape != null)
                     hourHandShape.Changed -= new EventHandler(hourHandShape_Changed);
 
-                value.ClockWidth = diameter;
                 hourHandShape = value;
 
                 if (hourHandShape != null)
@@ -528,7 +527,6 @@ namespace DustInTheWind.Clock
                 if (minuteHandShape != null)
                     minuteHandShape.Changed -= new EventHandler(minuteHandShape_Changed);
 
-                value.ClockWidth = diameter;
                 minuteHandShape = value;
 
                 if (minuteHandShape != null)
@@ -606,7 +604,6 @@ namespace DustInTheWind.Clock
                 if (sweepHandShape != null)
                     sweepHandShape.Changed -= new EventHandler(sweepHandShape_Changed);
 
-                value.ClockWidth = diameter;
                 sweepHandShape = value;
 
                 if (sweepHandShape != null)
@@ -663,7 +660,6 @@ namespace DustInTheWind.Clock
                 if (pinShape != null)
                     pinShape.Changed -= new EventHandler(pinShape_Changed);
 
-                value.ClockWidth = diameter;
                 pinShape = value;
 
                 if (pinShape != null)
@@ -720,7 +716,6 @@ namespace DustInTheWind.Clock
                 if (ticks1Shape != null)
                     ticks1Shape.Changed -= new EventHandler(ticks1Shape_Changed);
 
-                value.ClockWidth = diameter;
                 ticks1Shape = value;
 
                 if (ticks1Shape != null)
@@ -777,7 +772,6 @@ namespace DustInTheWind.Clock
                 if (ticks5Shape != null)
                     ticks5Shape.Changed -= new EventHandler(ticks5Shape_Changed);
 
-                value.ClockWidth = diameter;
                 ticks5Shape = value;
 
                 if (ticks5Shape != null)
@@ -834,7 +828,6 @@ namespace DustInTheWind.Clock
                 if (numbersShape != null)
                     numbersShape.Changed -= new EventHandler(numbersShape_Changed);
 
-                value.ClockWidth = diameter;
                 numbersShape = value;
 
                 if (numbersShape != null)
@@ -870,7 +863,6 @@ namespace DustInTheWind.Clock
                 if (dialShape != null)
                     dialShape.Changed -= new EventHandler(dialShape_Changed);
 
-                value.ClockWidth = diameter;
                 dialShape = value;
 
                 if (dialShape != null)
@@ -991,56 +983,48 @@ namespace DustInTheWind.Clock
 
             if (dialShape != null)
             {
-                dialShape.ClockWidth = diameter;
                 this.dialShape = dialShape;
                 this.dialShape.Changed += new EventHandler(dialShape_Changed);
             }
 
             if (hourHandShape != null)
             {
-                hourHandShape.ClockWidth = diameter;
                 this.hourHandShape = hourHandShape;
                 this.hourHandShape.Changed += new EventHandler(hourHandShape_Changed);
             }
 
             if (minuteHandShape != null)
             {
-                minuteHandShape.ClockWidth = diameter;
                 this.minuteHandShape = minuteHandShape;
                 this.minuteHandShape.Changed += new EventHandler(minuteHandShape_Changed);
             }
 
             if (sweepHandShape != null)
             {
-                sweepHandShape.ClockWidth = diameter;
                 this.sweepHandShape = sweepHandShape;
                 this.sweepHandShape.Changed += new EventHandler(sweepHandShape_Changed);
             }
 
             if (pinShape != null)
             {
-                pinShape.ClockWidth = diameter;
                 this.pinShape = pinShape;
                 this.pinShape.Changed += new EventHandler(pinShape_Changed);
             }
 
             if (ticks1Shape != null)
             {
-                ticks1Shape.ClockWidth = diameter;
                 this.ticks1Shape = ticks1Shape;
                 this.ticks1Shape.Changed += new EventHandler(ticks1Shape_Changed);
             }
 
             if (ticks5Shape != null)
             {
-                ticks5Shape.ClockWidth = diameter;
                 this.ticks5Shape = ticks5Shape;
                 this.ticks5Shape.Changed += new EventHandler(ticks5Shape_Changed);
             }
 
             if (numbersShape != null)
             {
-                numbersShape.ClockWidth = diameter;
                 this.numbersShape = numbersShape;
                 this.numbersShape.Changed += new EventHandler(numbersShape_Changed);
             }
@@ -1190,8 +1174,6 @@ namespace DustInTheWind.Clock
 
         #region Calculated Dimensions
 
-        //private float realDiameter = 300f;
-
         /// <summary>
         /// The calculated diameter of the clock.
         /// </summary>
@@ -1313,13 +1295,6 @@ namespace DustInTheWind.Clock
             {
                 dialShape.Draw(g);
             }
-            //if (dialBackColor != Color.Empty)
-            //{
-            //    using (Brush dialBackBrush = new SolidBrush(dialBackColor))
-            //    {
-            //        g.FillEllipse(dialBackBrush, -radius, -radius, diameter, diameter);
-            //    }
-            //}
 
             for (int i = 1; i <= 60; i++)
             {

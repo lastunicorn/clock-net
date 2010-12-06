@@ -17,16 +17,18 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System;
 
 namespace DustInTheWind.Clock.Shapes.Default
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the minute hand.
     /// </summary>
-    public class MinuteHandShape : VectorialClockHandBase
+    public class MinuteHandShape : VectorialShapeBase
     {
+        public const float HEIGHT = 37.2f;
+
         protected PointF[] path;
-        protected float pathHeight;
 
         public override string Name
         {
@@ -38,21 +40,31 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         [DefaultValue(typeof(Color), "LimeGreen")]
         [Description("The color used to draw the minute hand.")]
-        public override Color Color
+        public override Color FillColor
         {
-            get { return base.Color; }
-            set { base.Color = value; }
+            get { return base.FillColor; }
+            set { base.FillColor = value; }
         }
 
         /// <summary>
-        /// Gets or sets the length of the minute hand. For a clock with the diameter of 300px.
+        /// The length of the minute hand. For a clock with the diameter of 100px.
         /// </summary>
-        [DefaultValue(112.5f)]
-        [Description("The length of the minute hand. For a clock with the diameter of 300px.")]
-        public override float Height
+        protected float height;
+
+        /// <summary>
+        /// Gets or sets the length of the minute hand. For a clock with the diameter of 100px.
+        /// </summary>
+        [Category("Appearance")]
+        [DefaultValue(HEIGHT)]
+        [Description("The length of the hour minute. For a clock with the diameter of 100px.")]
+        public virtual float Height
         {
-            get { return base.Height; }
-            set { base.Height = value; }
+            get { return height; }
+            set
+            {
+                height = value;
+                OnChanged(EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -60,12 +72,12 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public MinuteHandShape()
-            : this(Color.LimeGreen, true, 112.5f)
+            : this(Color.LimeGreen, Color.LimeGreen, VectorialDrawMode.Fill, HEIGHT)
         {
         }
 
-        public MinuteHandShape(Color color, bool fill)
-            : this(color, fill, 112.5f)
+        public MinuteHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
+            : this(outlineColor, fillColor, drawMode, HEIGHT)
         {
         }
 
@@ -75,12 +87,27 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color">The color of the hand.</param>
         /// <param name="fill">A value specifying if the background or the outline of the hand should be drawn.</param>
         /// <param name="height">The height of the hend for a clock of 300px.</param>
-        public MinuteHandShape(Color color, bool fill, float height)
-            : base(color, fill, height)
+        public MinuteHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height)
+            : base(outlineColor, fillColor, drawMode)
         {
-            //path = new PointF[] { new PointF(0f, 7.98f), new PointF(-3.99f, 0f), new PointF(0f, -112.5f), new PointF(3.99f, 0f) };
-            path = new PointF[] { new PointF(0f, 7.98f), new PointF(-3.99f, 0f), new PointF(0f, -120f), new PointF(3.99f, 0f) };
-            pathHeight = 112.5f;
+            path = new PointF[] { new PointF(0f, 2.66f), new PointF(-1.33f, 0f), new PointF(0f, -40f), new PointF(1.33f, 0f) };
+            this.height = height;
+            CalculateDimensions();
+        }
+
+        protected float pathHeight;
+
+        private void CalculateDimensions()
+        {
+            float h = 0;
+
+            foreach (PointF point in path)
+            {
+                if (point.Y < h)
+                    h = point.Y;
+            }
+
+            pathHeight = h;
         }
 
         public override void Draw(Graphics g)
@@ -95,17 +122,16 @@ namespace DustInTheWind.Clock.Shapes.Default
                 g.ScaleTransform(scaleFactor, scaleFactor);
             }
 
-            if (fill)
+            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
             {
-                if (brush == null)
-                    brush = new SolidBrush(color);
+                CreateBrushIfNull();
 
                 g.FillPolygon(brush, path);
             }
-            else
+
+            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
             {
-                if (pen == null)
-                    pen = new Pen(color);
+                CreatePenIfNull();
 
                 g.DrawPolygon(pen, path);
             }

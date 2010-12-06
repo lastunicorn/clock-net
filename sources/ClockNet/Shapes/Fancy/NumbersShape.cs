@@ -104,12 +104,12 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
         /// <summary>
-        /// The index of the number to be drown.
+        /// The index of the number to be drawn.
         /// </summary>
         protected int currentIndex;
 
         /// <summary>
-        /// Gets or sets the index of the number to be drown.
+        /// Gets or sets the index of the number to be drawn.
         /// </summary>
         [Browsable(false)]
         public int CurrentIndex
@@ -131,7 +131,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public NumbersShape()
-            : this(Color.Black, null)
+            : this(Color.Black, Color.Black, null)
         {
         }
 
@@ -140,7 +140,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public NumbersShape(Font font)
-            : this(Color.Black, font)
+            : this(Color.Black, Color.Black, font)
         {
         }
 
@@ -149,8 +149,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </summary>
         /// <param name="color"></param>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Color color, Font font)
-            : base(color, VectorialDrawMode.Fill)
+        public NumbersShape(Color outlineColor, Color fillColor, Font font)
+            : base(outlineColor, fillColor, VectorialDrawMode.Fill)
         {
             this.font = font;
 

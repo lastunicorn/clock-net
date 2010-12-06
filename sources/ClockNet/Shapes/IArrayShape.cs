@@ -21,12 +21,12 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes
 {
     /// <summary>
-    /// Represents a shape that contains an array of items to de drown.
+    /// Represents a shape that contains an array of items to de drawn.
     /// </summary>
     public interface IArrayShape: IShape
     {
         /// <summary>
-        /// Gets or sets the index of the item to be drown.
+        /// Gets or sets the index of the item to be drawn.
         /// </summary>
         /// <exception cref="IndexOutOfRangeException"></exception>
         [Browsable(false)]

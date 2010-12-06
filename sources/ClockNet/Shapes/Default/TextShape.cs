@@ -21,43 +21,19 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes.Default
 {
     /// <summary>
-    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the pin from the center of the dial.
+    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the text displayed on the background of the dial.
     /// </summary>
-    public class PinShape : VectorialShapeBase
+    public class TextShape : VectorialShapeBase
     {
         private const float RADIUS = 1.33f;
+        protected StringFormat stringFormat;
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Default Pin Shape"; }
-        }
-
-        /// <summary>
-        /// The radius of the pin.
-        /// </summary>
-        protected float radius;
-
-        /// <summary>
-        /// Gets or sets the radius of the pin.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(RADIUS)]
-        [Description("The radius of the pin.")]
-        public float Radius
-        {
-            get { return radius; }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
-
-                radius = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
+            get { return "Default Text Shape"; }
         }
 
         /// <summary>
@@ -72,27 +48,31 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.OutlineColor = value; }
         }
 
+        private string text;
+        public string Text
+        {
+            get { return text; }
+            set
+            {
+                text = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        private Font font;
+        public Font Font
+        {
+            get { return font; }
+            set
+            {
+                font = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        private float maxWidth = 50;
 
         #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PinShape"/> class with
-        /// default values.
-        /// </summary>
-        public PinShape()
-            : this(Color.Red, Color.Red, VectorialDrawMode.Fill, RADIUS)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PinShape"/> class.
-        /// </summary>
-        /// <param name="color">The color used to draw the pin.</param>
-        /// <param name="fill">A value specifying if the pin should be filled with color.</param>
-        public PinShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
-            : this(outlineColor, fillColor, drawMode, RADIUS)
-        {
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PinShape"/> class.
@@ -100,10 +80,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color">The color used to draw the pin.</param>
         /// <param name="fill">A value specifying if the pin should be filled with color.</param>
         /// <param name="radiusPercentage">The radius of the pin as percentage from the width of the clock.</param>
-        public PinShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float radiusPercentage)
-            : base(outlineColor, fillColor, drawMode)
+        public TextShape(Color color, VectorialDrawMode drawMode)
+            : base(Color.Empty, color, drawMode)
         {
-            this.radius = radiusPercentage;
             CalculateDimensions();
         }
 
@@ -133,15 +112,34 @@ namespace DustInTheWind.Clock.Shapes.Default
             {
                 CreateBrushIfNull();
 
-                g.FillEllipse(brush, _locationX, _locationY, radius, radius);
-            }
+                stringFormat.Alignment = StringAlignment.Center;
+                stringFormat.LineAlignment = StringAlignment.Center;
+                stringFormat.Trimming = StringTrimming.None;
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
-            {
-                CreatePenIfNull();
+                SizeF textSize = g.MeasureString(text, font, (int)maxWidth);
+                PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
 
-                g.DrawEllipse(pen, _locationX, _locationY, radius, radius);
+                g.DrawString(text, font, brush, new RectangleF(textLocation, textSize), stringFormat);
             }
         }
+
+        #region Dispose
+
+        /// <summary>
+        /// Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
+        /// </summary>
+        /// <param name="disposing">Speifies if the managed resources should be disposed, too.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (stringFormat != null)
+                    stringFormat.Dispose();
+            }
+
+            base.Dispose(disposing);
+        }
+
+        #endregion
     }
 }

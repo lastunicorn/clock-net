@@ -25,6 +25,24 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class Ticks5Shape : VectorialShapeBase
     {
+        /// <summary>
+        /// The default value of the length.
+        /// </summary>
+        private const float LENGTH = 5f;
+
+        /// <summary>
+        /// The default value of the thickness.
+        /// </summary>
+        private const float THICKNESS = 0.5f;
+
+        /// <summary>
+        /// The default value of the position offset.
+        /// </summary>
+        private const float POSITION_OFFSET = 0f;
+
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
         public override string Name
         {
             get { return "Default Ticks5 Shape"; }
@@ -42,16 +60,16 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         /// <summary>
-        /// The length of the 5 second ticks. This value is given for a clock with diameter of 300px.
+        /// The length of the 5 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
-        private float length = 15f;
+        private float length = LENGTH;
 
         /// <summary>
-        /// Gets or sets the length of the 5 second ticks. This value is given for a clock with diameter of 300px.
+        /// Gets or sets the length of the 5 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(15f)]
-        [Description("The length of the 5 second ticks. This value is given for a clock with diameter of 300px.")]
+        [DefaultValue(LENGTH)]
+        [Description("The length of the 5 second ticks. This value is given for a clock with diameter of 100px.")]
         public float Length
         {
             get { return length; }
@@ -63,16 +81,16 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         /// <summary>
-        /// The width of the 5 second ticks. This value is given for a clock with diameter of 300px.
+        /// The width of the 5 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
-        private float thickness = 1.5f;
+        private float thickness = THICKNESS;
 
         /// <summary>
-        /// Gets or sets the width of the 5 second ticks. This value is given for a clock with diameter of 300px.
+        /// Gets or sets the width of the 5 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(1.5f)]
-        [Description("The width of the 5 second ticks. This value is given for a clock with diameter of 300px.")]
+        [DefaultValue(THICKNESS)]
+        [Description("The width of the 5 second ticks. This value is given for a clock with diameter of 100px.")]
         public float Thickness
         {
             get { return thickness; }
@@ -84,10 +102,10 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        private float positionOffset = 0f;
+        private float positionOffset = POSITION_OFFSET;
 
         [Category("Appearance")]
-        [DefaultValue(0f)]
+        [DefaultValue(POSITION_OFFSET)]
         public float PositionOffset
         {
             get { return positionOffset; }
@@ -103,7 +121,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public Ticks5Shape()
-            : this(Color.Black, 15f, 1.5f)
+            : this(Color.Black, Color.Black, LENGTH, THICKNESS)
         {
         }
 
@@ -113,8 +131,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color"></param>
         /// <param name="length"></param>
         /// <param name="thickness"></param>
-        public Ticks5Shape(Color color, float length, float thickness)
-            : base(color, VectorialDrawMode.Fill)
+        public Ticks5Shape(Color outlineColor, Color fillColor, float length, float thickness)
+            : base(outlineColor, fillColor, VectorialDrawMode.Fill)
         {
             this.length = length;
             this.thickness = thickness;

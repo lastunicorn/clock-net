@@ -31,37 +31,10 @@ namespace DustInTheWind.Clock.Shapes
         [Browsable(false)]
         public abstract string Name { get; }
 
-        /// <summary>
-        /// The clock's real width. Usefull for the shape to know how big it should draw itself.
-        /// </summary>
-        protected float clockWidth = 100;
-
-        /// <summary>
-        /// Gets or sets the clock's real width. Usefull for the shape to know how big it should draw itself.
-        /// Default value = 100
-        /// </summary>
-        [Browsable(false)]
-        public float ClockWidth
-        {
-            get { return clockWidth; }
-            set
-            {
-                if (clockWidth <= 0)
-                    throw new ArgumentOutOfRangeException("value", "The clock's width should be a number greater then zero.");
-
-                clockWidth = value;
-                OnClockWidthChanged();
-            }
-        }
-
-        protected virtual void OnClockWidthChanged()
-        {
-        }
-
         #region Event Changed
 
         /// <summary>
-        /// Event raised when the shape's parameters are changed and it should be redrown.
+        /// Event raised when the shape's parameters are changed and it should be redrawn.
         /// </summary>
         public event EventHandler Changed;
 

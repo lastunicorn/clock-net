@@ -28,12 +28,12 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// The default value of the length.
         /// </summary>
-        private const float LENGTH = 7.5f;
+        private const float LENGTH = 2.5f;
 
         /// <summary>
         /// The default value of the thickness.
         /// </summary>
-        private const float THICKNESS = 0.75f;
+        private const float THICKNESS = 0.25f;
 
         /// <summary>
         /// The default value of the position offset.
@@ -60,16 +60,16 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         /// <summary>
-        /// The length of the 1 second ticks. This value is given for a clock with diameter of 300px.
+        /// The length of the 1 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
         private float length = LENGTH;
 
         /// <summary>
-        /// Gets or sets the length of the 1 second ticks. This value is given for a clock with diameter of 300px.
+        /// Gets or sets the length of the 1 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
         [Category("Appearance")]
         [DefaultValue(LENGTH)]
-        [Description("The length of the 1 second ticks. This value is given for a clock with diameter of 300px.")]
+        [Description("The length of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
         public float Length
         {
             get { return length; }
@@ -81,16 +81,16 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         /// <summary>
-        /// The width of the 1 second ticks. This value is given for a clock with diameter of 300px.
+        /// The width of the 1 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
         private float thickness = THICKNESS;
 
         /// <summary>
-        /// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 300px.
+        /// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
         [Category("Appearance")]
         [DefaultValue(THICKNESS)]
-        [Description("The width of the 1 second ticks. This value is given for a clock with diameter of 300px.")]
+        [Description("The width of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
         public float Thickness
         {
             get { return thickness; }
@@ -124,7 +124,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public Ticks1Shape()
-            : this(Color.Black, LENGTH, THICKNESS, POSITION_OFFSET)
+            : this(Color.Black, Color.Black, LENGTH, THICKNESS, POSITION_OFFSET)
         {
         }
 
@@ -135,8 +135,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="length"></param>
         /// <param name="thickness"></param>
         /// <param name="positionOffset"></param>
-        public Ticks1Shape(Color color, float length, float thickness, float positionOffset)
-            : base(color, VectorialDrawMode.Fill)
+        public Ticks1Shape(Color outlineColor, Color fillColor, float length, float thickness, float positionOffset)
+            : base(outlineColor, fillColor, VectorialDrawMode.Fill)
         {
             this.length = length;
             this.thickness = thickness;

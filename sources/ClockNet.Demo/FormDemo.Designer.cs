@@ -1057,15 +1057,15 @@ namespace DustInTheWind.Clock.Demo
             // 
             // analogClock1
             // 
-            dialShape1.ClockWidth = 100F;
             dialShape1.DrawMode = ((DustInTheWind.Clock.Shapes.VectorialDrawMode)((DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill | DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline)));
             dialShape1.FillColor = System.Drawing.Color.DimGray;
-            dialShape1.LineWidth = 10F;
+            dialShape1.LineWidth = 3F;
             dialShape1.OutlineColor = System.Drawing.Color.Black;
             this.analogClock1.DialShape = dialShape1;
             this.analogClock1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.analogClock1.ForeColor = System.Drawing.Color.White;
-            hourHandShape1.ClockWidth = 100F;
+            hourHandShape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
+            hourHandShape1.OutlineColor = System.Drawing.Color.RoyalBlue;
             hourHandShape1.Path = new System.Drawing.PointF[] {
         ((System.Drawing.PointF)(resources.GetObject("hourHandShape1.Path"))),
         ((System.Drawing.PointF)(resources.GetObject("hourHandShape1.Path1"))),
@@ -1073,14 +1073,14 @@ namespace DustInTheWind.Clock.Demo
         ((System.Drawing.PointF)(resources.GetObject("hourHandShape1.Path3")))};
             this.analogClock1.HourHandShape = hourHandShape1;
             this.analogClock1.Location = new System.Drawing.Point(8, 8);
-            minuteHandShape1.ClockWidth = 100F;
+            minuteHandShape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
+            minuteHandShape1.OutlineColor = System.Drawing.Color.LimeGreen;
             this.analogClock1.MinuteHandShape = minuteHandShape1;
             this.analogClock1.Name = "analogClock1";
-            numbersShape1.ClockWidth = 100F;
             numbersShape1.CurrentIndex = 11;
             numbersShape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
             numbersShape1.FillColor = System.Drawing.Color.Empty;
-            numbersShape1.Font = new System.Drawing.Font("Vivaldi", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             numbersShape1.Numbers = new string[] {
         "1",
         "2",
@@ -1095,31 +1095,31 @@ namespace DustInTheWind.Clock.Demo
         "11",
         "12"};
             numbersShape1.OutlineColor = System.Drawing.Color.Maroon;
+            numbersShape1.PositionOffset = 10F;
             this.analogClock1.NumbersShape = numbersShape1;
-            pinShape1.ClockWidth = 100F;
-            pinShape1.DrawMode = ((DustInTheWind.Clock.Shapes.VectorialDrawMode)((DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill | DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline)));
+            pinShape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
             pinShape1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            pinShape1.Radius = 10F;
+            pinShape1.Radius = 1.8F;
             this.analogClock1.PinShape = pinShape1;
             this.analogClock1.Size = new System.Drawing.Size(700, 611);
-            sweepHandShape1.ClockWidth = 100F;
-            sweepHandShape1.Fill = false;
+            sweepHandShape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
+            sweepHandShape1.FillColor = System.Drawing.Color.Red;
+            sweepHandShape1.LineWidth = 0.3F;
+            sweepHandShape1.OutlineColor = System.Drawing.Color.Red;
             this.analogClock1.SweepHandShape = sweepHandShape1;
             this.analogClock1.TabIndex = 11;
             this.analogClock1.Text = "Cool";
-            ticks1Shape1.ClockWidth = 100F;
             ticks1Shape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
             ticks1Shape1.FillColor = System.Drawing.Color.Empty;
             ticks1Shape1.OutlineColor = System.Drawing.Color.White;
             ticks1Shape1.PositionOffset = 7.5F;
             this.analogClock1.Ticks1Shape = ticks1Shape1;
-            ticks5Shape1.ClockWidth = 100F;
             ticks5Shape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             ticks5Shape1.FillColor = System.Drawing.Color.Empty;
             ticks5Shape1.OutlineColor = System.Drawing.Color.White;
             ticks5Shape1.PositionOffset = 5F;
             this.analogClock1.Ticks5Shape = ticks5Shape1;
-            this.analogClock1.Time = System.TimeSpan.Parse("15:01:42.6093750");
+            this.analogClock1.Time = System.TimeSpan.Parse("15:32:24.6878075");
             this.analogClock1.TimeProvider = localTimeProvider1;
             this.analogClock1.Timer = this.timer1;
             this.analogClock1.TimeProviderChanged += new System.EventHandler(this.analogClock1_TimeProviderChanged);

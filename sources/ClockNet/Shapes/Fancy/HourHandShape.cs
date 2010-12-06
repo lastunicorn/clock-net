@@ -17,11 +17,14 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.ComponentModel;
 
 namespace DustInTheWind.Clock.Shapes.Fancy
 {
-    public class HourHandShape : VectorialClockHandBase
+    public class HourHandShape : VectorialShapeBase
     {
+        public const float HEIGHT = 27.5f;
+
         private GraphicsPath path;
 
         public override string Name
@@ -29,24 +32,46 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             get { return "Fancy Hour Hand Shape"; }
         }
 
+        /// <summary>
+        /// The length of the hour hand. For a clock with the diameter of 100px.
+        /// </summary>
+        protected float height;
+
+        /// <summary>
+        /// Gets or sets the length of the hour hand. For a clock with the diameter of 100px.
+        /// </summary>
+        [Category("Appearance")]
+        [DefaultValue(HEIGHT)]
+        [Description("The length of the hour hand. For a clock with the diameter of 100px.")]
+        public virtual float Height
+        {
+            get { return height; }
+            set
+            {
+                height = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
         private double GetDegries(double radians)
         {
             return (radians * 180) / Math.PI;
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HourHandShape"/> class with
         /// default values.
         /// </summary>
         public HourHandShape()
-            : this(Color.RoyalBlue, true, 82.5f)
+            : this(Color.RoyalBlue, Color.RoyalBlue, VectorialDrawMode.Fill, HEIGHT)
         {
         }
 
-        public HourHandShape(Color color, bool fill, float height)
-            : base(color, fill, height)
+        public HourHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height)
+            : base(outlineColor, fillColor, drawMode)
         {
             path = new GraphicsPath(FillMode.Alternate);
+            this.height = height;
             //path.AddEllipse(-15, -15, 30, 30);
             //path.AddEllipse(-7, -7, 14, 14);
             //path.AddLines(new Point[] { new Point(-7, 0), new Point(-7, -50), new Point(-15, -50), new Point(0, -100), new Point(15, -50), new Point(7, -50), new Point(7, 0) });
@@ -70,17 +95,16 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
         public override void Draw(Graphics g)
         {
-            if (fill)
+            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
             {
-                if (brush == null)
-                    brush = new SolidBrush(color);
+                CreateBrushIfNull();
 
                 g.FillPath(brush, path);
             }
-            else
+
+            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
             {
-                if (pen == null)
-                    pen = new Pen(color);
+                CreatePenIfNull();
 
                 g.DrawPath(pen, path);
             }

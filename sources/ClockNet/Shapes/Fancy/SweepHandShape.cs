@@ -17,45 +17,41 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System;
 
 namespace DustInTheWind.Clock.Shapes.Fancy
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the sweep hand.
     /// </summary>
-    public class SweepHandShape : VectorialClockHandBase
+    public class SweepHandShape : VectorialShapeBase
     {
-        protected float pathHeight;
+        public const float HEIGHT = 42.5f;
 
         public override string Name
         {
             get { return "Default Sweep Hand Shape"; }
         }
 
-        [DefaultValue(typeof(Color), "Red")]
-        [Description("The color used to draw the sweep hand.")]
-        public override Color Color
-        {
-            get { return base.Color; }
-            set { base.Color = value; }
-        }
+        /// <summary>
+        /// The length of the sweep hand. For a clock with the diameter of 100px.
+        /// </summary>
+        protected float height;
 
         /// <summary>
-        /// Gets or sets the length of the sweep hand. For a clock with the diameter of 300px.
+        /// Gets or sets the length of the sweep hand. For a clock with the diameter of 100px.
         /// </summary>
-        [DefaultValue(127.5f)]
-        [Description("The length of the sweep hand. For a clock with the diameter of 300px.")]
-        public override float Height
+        [Category("Appearance")]
+        [DefaultValue(HEIGHT)]
+        [Description("The length of the sweep hand. For a clock with the diameter of 100px.")]
+        public virtual float Height
         {
-            get { return base.Height; }
-            set { base.Height = value; }
-        }
-
-        [DefaultValue(false)]
-        public override bool Fill
-        {
-            get { return base.Fill; }
-            set { base.Fill = value; }
+            get { return height; }
+            set
+            {
+                height = value;
+                OnChanged(EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -63,14 +59,30 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public SweepHandShape()
-            : this(Color.Red, 127.5f)
+            : this(Color.Red, Color.Red, HEIGHT)
         {
         }
 
-        public SweepHandShape(Color color, float height)
-            : base(color, false, height)
+        public SweepHandShape(Color outlineColor, Color fillColor, float height)
+            : base(outlineColor, fillColor, VectorialDrawMode.Outline)
         {
-            pathHeight = 127.5f;
+            this.height = height;
+            CalculateDimensions();
+        }
+
+        protected float pathHeight = 127.5f;
+
+        private void CalculateDimensions()
+        {
+            //float h = 0;
+
+            //foreach (PointF point in path)
+            //{
+            //    if (point.Y < h)
+            //        h = point.Y;
+            //}
+
+            //pathHeight = h;
         }
 
         public override void Draw(Graphics g)
@@ -85,15 +97,16 @@ namespace DustInTheWind.Clock.Shapes.Fancy
                 g.ScaleTransform(scaleFactor, scaleFactor);
             }
 
-            if (pen == null)
-                pen = new Pen(color);
+            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+            {
+                CreatePenIfNull();
 
-            //g.DrawLines(pen, path);
+                //g.DrawLines(pen, path);
 
-            g.DrawLine(pen, new PointF(0f, 14.16f), new PointF(0f, -80f));
-            g.DrawEllipse(pen, -10, -100, 20, 20);
-            g.DrawLine(pen, new PointF(0f, -100f), new PointF(0f, -127.5f));
-
+                g.DrawLine(pen, new PointF(0f, 14.16f), new PointF(0f, -80f));
+                g.DrawEllipse(pen, -10, -100, 20, 20);
+                g.DrawLine(pen, new PointF(0f, -100f), new PointF(0f, -127.5f));
+            }
 
             if (originalTransformMatrix != null)
             {
