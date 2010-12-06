@@ -49,6 +49,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         private string text;
+
+        [Category("Appearance")]
+        [DefaultValue("")]
         public string Text
         {
             get { return text; }
@@ -60,6 +63,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         private Font font;
+
+        [Category("Appearance")]
         public Font Font
         {
             get { return font; }
