@@ -90,7 +90,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public MinuteHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height)
             : base(outlineColor, fillColor, drawMode)
         {
-            path = new PointF[] { new PointF(0f, 2.66f), new PointF(-1.33f, 0f), new PointF(0f, -40f), new PointF(1.33f, 0f) };
+            path = new PointF[] { new PointF(0f, 4f), new PointF(-2f, 0f), new PointF(0f, -40f), new PointF(2f, 0f) };
             this.height = height;
             CalculateDimensions();
         }

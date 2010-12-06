@@ -26,6 +26,8 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class NumbersShape : VectorialShapeBase, INumbersShape
     {
+        public const float POSITION_OFFSET = 7f;
+
         protected StringFormat numbersStringFormat;
 
         /// <summary>
@@ -87,10 +89,10 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        private float positionOffset = 20f;
+        private float positionOffset = POSITION_OFFSET;
 
         [Category("Appearance")]
-        [DefaultValue(20f)]
+        [DefaultValue(POSITION_OFFSET)]
         public float PositionOffset
         {
             get { return positionOffset; }

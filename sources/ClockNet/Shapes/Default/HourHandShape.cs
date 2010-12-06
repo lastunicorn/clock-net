@@ -30,6 +30,7 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         protected PointF[] path;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PointF[] Path
         {
             get { return path; }
@@ -101,7 +102,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public HourHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height)
             : base(outlineColor, fillColor, drawMode)
         {
-            path = new PointF[] { new PointF(0f, 4f), new PointF(-2f, 0f), new PointF(0F, -24.2f), new PointF(2f, 0f) };
+            path = new PointF[] { new PointF(0f, 6f), new PointF(-3f, 0f), new PointF(0F, -24.2f), new PointF(3f, 0f) };
             this.height = height;
             CalculateDimensions();
         }
