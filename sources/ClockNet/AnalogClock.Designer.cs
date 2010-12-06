@@ -52,6 +52,9 @@ namespace DustInTheWind.Clock
                 if (numbersShape != null)
                     numbersShape.Dispose();
 
+                if (textShape != null)
+                    textShape.Dispose();
+
                 //if (hourHandShape != null && hourHandShape != defaultHourHandShape)
                 //    hourHandShape.Dispose();
 

@@ -21,7 +21,6 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.Shapes.Default;
 using DustInTheWind.Clock.TimeProviders;
 
 namespace DustInTheWind.Clock
@@ -233,6 +232,29 @@ namespace DustInTheWind.Clock
             if (NumbersShapeChanged != null)
             {
                 NumbersShapeChanged(this, e);
+            }
+        }
+
+        #endregion
+
+        #region Event TextShapeChanged
+
+        /// <summary>
+        /// Event raised when the value of the <see cref="TextShape"/> property is changed.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Event raised when the value of the TextShape property is changed.")]
+        public event EventHandler TextShapeChanged;
+
+        /// <summary>
+        /// Raises the <see cref="TextShapeChanged"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        protected virtual void OnTextShapeChanged(EventArgs e)
+        {
+            if (TextShapeChanged != null)
+            {
+                TextShapeChanged(this, e);
             }
         }
 
@@ -923,6 +945,37 @@ namespace DustInTheWind.Clock
             }
         }
 
+        /// <summary>
+        /// An instance of <see cref="IShape"/> responsable to paint the text displayed on the background of the clock.
+        /// </summary>
+        private IShape textShape;
+
+        /// <summary>
+        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the text displayed on the background of the clock.
+        /// </summary>
+        [Category("Shapes")]
+        [TypeConverter(typeof(ShapeConverter))]
+        [DefaultValue(null)]
+        [Description("An instance of INumbersShape responsable to paint the text displayed on the background of the clock.")]
+        public IShape TextShape
+        {
+            get { return textShape; }
+            set
+            {
+                if (textShape != null)
+                    textShape.Changed -= new EventHandler(textShape_Changed);
+
+                textShape = value;
+
+                if (textShape != null)
+                    textShape.Changed += new EventHandler(textShape_Changed);
+
+                Invalidate();
+
+                OnTextShapeChanged(EventArgs.Empty);
+            }
+        }
+
         #endregion
 
 
@@ -955,7 +1008,6 @@ namespace DustInTheWind.Clock
         /// default aspect of the interface.
         /// </summary>
         public AnalogClock()
-            //: this(null, null, null, null, null, null, null, null)
             : this(Skin.Default, new LocalTimeProvider())
         {
         }
@@ -965,7 +1017,7 @@ namespace DustInTheWind.Clock
         /// a skin and a time provider.
         /// </summary>
         public AnalogClock(Skin skin, ITimeProvider timeProvider)
-            : this(skin.DialShape, skin.HourHandShape, skin.MinuteHandShape, skin.SweepHandShape, skin.PinShape, skin.Ticks1Shape, skin.Ticks5Shape, skin.NumbersShape, timeProvider)
+            : this(skin.DialShape, skin.HourHandShape, skin.MinuteHandShape, skin.SweepHandShape, skin.PinShape, skin.Ticks1Shape, skin.Ticks5Shape, skin.NumbersShape, skin.TextShape, timeProvider)
         {
         }
 
@@ -974,7 +1026,7 @@ namespace DustInTheWind.Clock
         /// the necessary shapes to create the interface.
         /// </summary>
         public AnalogClock(IShape dialShape, IShape hourHandShape, IShape minuteHandShape, IShape sweepHandShape, IShape pinShape,
-            IShape ticks1Shape, IShape ticks5Shape, IArrayShape numbersShape, ITimeProvider timeProvider)
+            IShape ticks1Shape, IShape ticks5Shape, IArrayShape numbersShape, IShape textShape, ITimeProvider timeProvider)
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             //SetStyle(ControlStyles.Opaque, true);
@@ -1027,6 +1079,12 @@ namespace DustInTheWind.Clock
             {
                 this.numbersShape = numbersShape;
                 this.numbersShape.Changed += new EventHandler(numbersShape_Changed);
+            }
+
+            if (textShape != null)
+            {
+                this.textShape = textShape;
+                this.textShape.Changed += new EventHandler(textShape_Changed);
             }
 
             if (timeProvider != null)
@@ -1157,6 +1215,16 @@ namespace DustInTheWind.Clock
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void dialShape_Changed(object sender, EventArgs e)
+        {
+            Invalidate();
+        }
+
+        /// <summary>
+        /// Call-back function called when the <see cref="TextShape"/> is changed. And the clock needs repainting.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textShape_Changed(object sender, EventArgs e)
         {
             Invalidate();
         }
@@ -1336,17 +1404,21 @@ namespace DustInTheWind.Clock
                 textBrush = new SolidBrush(ForeColor);
 
             // Draw the text.
-            using (StringFormat sf = new StringFormat())
+            if (textShape != null)
             {
-                sf.Alignment = StringAlignment.Center;
-                sf.LineAlignment = StringAlignment.Center;
-                sf.Trimming = StringTrimming.None;
-
-                SizeF textSize = g.MeasureString(Text, Font, (int)radius);
-                PointF textLocation = new PointF(-textSize.Width / 2F, radius / 5F);
-
-                g.DrawString(Text, Font, textBrush, new RectangleF(textLocation, textSize), sf);
+                textShape.Draw(g);
             }
+            //using (StringFormat sf = new StringFormat())
+            //{
+            //    sf.Alignment = StringAlignment.Center;
+            //    sf.LineAlignment = StringAlignment.Center;
+            //    sf.Trimming = StringTrimming.None;
+
+            //    SizeF textSize = g.MeasureString(Text, Font, (int)radius);
+            //    PointF textLocation = new PointF(-textSize.Width / 2F, radius / 5F);
+
+            //    g.DrawString(Text, Font, textBrush, new RectangleF(textLocation, textSize), sf);
+            //}
 
             // Draw the hour hand.
             if (hourHandVisible && hourHandShape != null)

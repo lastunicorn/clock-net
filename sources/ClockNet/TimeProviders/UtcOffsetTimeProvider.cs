@@ -16,8 +16,6 @@
 
 using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Drawing.Design;
 
 namespace DustInTheWind.Clock.TimeProviders
 {

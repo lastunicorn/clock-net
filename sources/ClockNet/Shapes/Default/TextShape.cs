@@ -80,10 +80,15 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color">The color used to draw the pin.</param>
         /// <param name="fill">A value specifying if the pin should be filled with color.</param>
         /// <param name="radiusPercentage">The radius of the pin as percentage from the width of the clock.</param>
-        public TextShape(Color color, VectorialDrawMode drawMode)
+        public TextShape(Color color, Font font, VectorialDrawMode drawMode)
             : base(Color.Empty, color, drawMode)
         {
-            CalculateDimensions();
+            this.font = font;
+
+            stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            stringFormat.Trimming = StringTrimming.None;
         }
 
         #endregion
@@ -91,14 +96,14 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         #region Calculated Values
 
-        private float _locationX;
-        private float _locationY;
+        //private SizeF textSize;
+        //private PointF textLocation;
 
-        private void CalculateDimensions()
-        {
-            _locationX = -radius / 2f;
-            _locationY = -radius / 2f;
-        }
+        //private void CalculateDimensions()
+        //{
+        //    textSize = g.MeasureString(text, font, (int)maxWidth);
+        //    textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
+        //}
 
         #endregion
 
@@ -108,18 +113,17 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
         public override void Draw(Graphics g)
         {
-            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+            if (font != null && text != null && text.Length > 0)
             {
-                CreateBrushIfNull();
+                if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+                {
+                    CreateBrushIfNull();
 
-                stringFormat.Alignment = StringAlignment.Center;
-                stringFormat.LineAlignment = StringAlignment.Center;
-                stringFormat.Trimming = StringTrimming.None;
+                    SizeF textSize = g.MeasureString(text, font, (int)maxWidth);
+                    PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
 
-                SizeF textSize = g.MeasureString(text, font, (int)maxWidth);
-                PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
-
-                g.DrawString(text, font, brush, new RectangleF(textLocation, textSize), stringFormat);
+                    g.DrawString(text, font, brush, new RectangleF(textLocation, textSize), stringFormat);
+                }
             }
         }
 

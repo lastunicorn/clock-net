@@ -1104,7 +1104,6 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock1.Size = new System.Drawing.Size(700, 611);
             sweepHandShape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             sweepHandShape1.FillColor = System.Drawing.Color.Red;
-            sweepHandShape1.LineWidth = 0.3F;
             sweepHandShape1.OutlineColor = System.Drawing.Color.Red;
             this.analogClock1.SweepHandShape = sweepHandShape1;
             this.analogClock1.TabIndex = 11;
@@ -1119,7 +1118,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape1.OutlineColor = System.Drawing.Color.White;
             ticks5Shape1.PositionOffset = 5F;
             this.analogClock1.Ticks5Shape = ticks5Shape1;
-            this.analogClock1.Time = System.TimeSpan.Parse("15:32:24.6878075");
+            this.analogClock1.Time = System.TimeSpan.Parse("17:27:53.9871861");
             this.analogClock1.TimeProvider = localTimeProvider1;
             this.analogClock1.Timer = this.timer1;
             this.analogClock1.TimeProviderChanged += new System.EventHandler(this.analogClock1_TimeProviderChanged);

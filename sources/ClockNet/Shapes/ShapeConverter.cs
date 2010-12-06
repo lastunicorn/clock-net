@@ -16,7 +16,6 @@
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Globalization;
 using DustInTheWind.Clock.Shapes;
 
