@@ -155,6 +155,14 @@ namespace DustInTheWind.Clock.Shapes.Default
             pathHeight = Math.Abs(h);
         }
 
+        /// <summary>
+        /// Draws the hour hand using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
+        /// <remarks>
+        /// The hand is drawn in vertical position from the origin of the coordinate system.
+        /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
+        /// </remarks>
         public override void Draw(Graphics g)
         {
             Matrix originalTransformMatrix = null;

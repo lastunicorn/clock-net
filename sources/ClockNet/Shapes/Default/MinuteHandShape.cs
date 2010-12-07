@@ -30,6 +30,9 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         protected PointF[] path;
 
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
         public override string Name
         {
             get { return "Default Minute Hand Shape"; }
@@ -110,6 +113,14 @@ namespace DustInTheWind.Clock.Shapes.Default
             pathHeight = Math.Abs(h);
         }
 
+        /// <summary>
+        /// Draws the minute hand using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
+        /// <remarks>
+        /// The hand is drawn in vertical position from the origin of the coordinate system.
+        /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
+        /// </remarks>
         public override void Draw(Graphics g)
         {
             Matrix originalTransformMatrix = null;

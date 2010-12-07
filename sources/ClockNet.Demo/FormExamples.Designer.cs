@@ -236,32 +236,32 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.TimeProviders.LocalTimeProvider localTimeProvider21 = new DustInTheWind.Clock.TimeProviders.LocalTimeProvider();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanelTicksAndNumbers = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageTicksAndNumbers = new System.Windows.Forms.TabPage();
-            this.tabPageFancy = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanelColours = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabPageTimeZones = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClockDefault = new DustInTheWind.Clock.AnalogClock();
             this.analogClockSimple = new DustInTheWind.Clock.AnalogClock();
             this.analogClockNoNumbers = new DustInTheWind.Clock.AnalogClock();
             this.analogClockCleared = new DustInTheWind.Clock.AnalogClock();
             this.analogClock6 = new DustInTheWind.Clock.AnalogClock();
             this.analogClockOnlyNumbers = new DustInTheWind.Clock.AnalogClock();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageTicksAndNumbers = new System.Windows.Forms.TabPage();
+            this.tabPageFancy = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelColours = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClock1 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock5 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock7 = new DustInTheWind.Clock.AnalogClock();
             this.analogClockImages = new DustInTheWind.Clock.AnalogClock();
             this.analogClock11 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock12 = new DustInTheWind.Clock.AnalogClock();
+            this.tabPageTimeZones = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClockLocal = new DustInTheWind.Clock.AnalogClock();
             this.analogClockUTC = new DustInTheWind.Clock.AnalogClock();
             this.analogClockNewYork = new DustInTheWind.Clock.AnalogClock();
             this.analogClockTokyo = new DustInTheWind.Clock.AnalogClock();
             this.analogClockHongKong = new DustInTheWind.Clock.AnalogClock();
             this.analogClockIndia = new DustInTheWind.Clock.AnalogClock();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClock13 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock14 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock8 = new DustInTheWind.Clock.AnalogClock();
@@ -294,104 +294,6 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanelTicksAndNumbers.Name = "flowLayoutPanelTicksAndNumbers";
             this.flowLayoutPanelTicksAndNumbers.Size = new System.Drawing.Size(988, 636);
             this.flowLayoutPanelTicksAndNumbers.TabIndex = 9;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageTicksAndNumbers);
-            this.tabControl1.Controls.Add(this.tabPageFancy);
-            this.tabControl1.Controls.Add(this.tabPageTimeZones);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1016, 682);
-            this.tabControl1.TabIndex = 10;
-            // 
-            // tabPageTicksAndNumbers
-            // 
-            this.tabPageTicksAndNumbers.Controls.Add(this.flowLayoutPanelTicksAndNumbers);
-            this.tabPageTicksAndNumbers.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTicksAndNumbers.Name = "tabPageTicksAndNumbers";
-            this.tabPageTicksAndNumbers.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPageTicksAndNumbers.Size = new System.Drawing.Size(1008, 656);
-            this.tabPageTicksAndNumbers.TabIndex = 0;
-            this.tabPageTicksAndNumbers.Text = "Ticks and Numbers";
-            this.tabPageTicksAndNumbers.UseVisualStyleBackColor = true;
-            // 
-            // tabPageFancy
-            // 
-            this.tabPageFancy.Controls.Add(this.flowLayoutPanelColours);
-            this.tabPageFancy.Location = new System.Drawing.Point(4, 22);
-            this.tabPageFancy.Name = "tabPageFancy";
-            this.tabPageFancy.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPageFancy.Size = new System.Drawing.Size(1008, 656);
-            this.tabPageFancy.TabIndex = 1;
-            this.tabPageFancy.Text = "Fancy";
-            this.tabPageFancy.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanelColours
-            // 
-            this.flowLayoutPanelColours.AutoScroll = true;
-            this.flowLayoutPanelColours.Controls.Add(this.analogClock1);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClock5);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClock7);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClockImages);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClock11);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClock12);
-            this.flowLayoutPanelColours.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelColours.Location = new System.Drawing.Point(10, 10);
-            this.flowLayoutPanelColours.Name = "flowLayoutPanelColours";
-            this.flowLayoutPanelColours.Size = new System.Drawing.Size(988, 636);
-            this.flowLayoutPanelColours.TabIndex = 10;
-            // 
-            // tabPageTimeZones
-            // 
-            this.tabPageTimeZones.Controls.Add(this.flowLayoutPanel1);
-            this.tabPageTimeZones.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTimeZones.Name = "tabPageTimeZones";
-            this.tabPageTimeZones.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPageTimeZones.Size = new System.Drawing.Size(1008, 656);
-            this.tabPageTimeZones.TabIndex = 2;
-            this.tabPageTimeZones.Text = "Time Zones";
-            this.tabPageTimeZones.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.analogClockLocal);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockUTC);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockNewYork);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockTokyo);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockHongKong);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockIndia);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 10);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 636);
-            this.flowLayoutPanel1.TabIndex = 11;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.flowLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPage1.Size = new System.Drawing.Size(1008, 656);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.Controls.Add(this.analogClock13);
-            this.flowLayoutPanel2.Controls.Add(this.analogClock14);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(10, 10);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(988, 636);
-            this.flowLayoutPanel2.TabIndex = 12;
             // 
             // analogClockDefault
             // 
@@ -434,7 +336,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockDefault.Ticks1Shape = ticks1Shape1;
             ticks5Shape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             this.analogClockDefault.Ticks5Shape = ticks5Shape1;
-            this.analogClockDefault.Time = System.TimeSpan.Parse("00:19:11.0276821");
+            this.analogClockDefault.Time = System.TimeSpan.Parse("13:03:37.1828925");
             this.analogClockDefault.TimeProvider = localTimeProvider1;
             this.analogClockDefault.Timer = this.timer1;
             // 
@@ -484,7 +386,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape2.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             ticks5Shape2.FillColor = System.Drawing.Color.Empty;
             this.analogClockSimple.Ticks5Shape = ticks5Shape2;
-            this.analogClockSimple.Time = System.TimeSpan.Parse("00:19:11.0433071");
+            this.analogClockSimple.Time = System.TimeSpan.Parse("13:03:37.1868927");
             this.analogClockSimple.TimeProvider = localTimeProvider2;
             this.analogClockSimple.Timer = this.timer1;
             // 
@@ -535,7 +437,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape3.FillColor = System.Drawing.Color.Empty;
             ticks5Shape3.Length = 7F;
             this.analogClockNoNumbers.Ticks5Shape = ticks5Shape3;
-            this.analogClockNoNumbers.Time = System.TimeSpan.Parse("00:19:11.0433071");
+            this.analogClockNoNumbers.Time = System.TimeSpan.Parse("13:03:37.1898929");
             this.analogClockNoNumbers.TimeProvider = localTimeProvider3;
             this.analogClockNoNumbers.Timer = this.timer1;
             // 
@@ -586,7 +488,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape4.FillColor = System.Drawing.Color.Empty;
             this.analogClockCleared.Ticks5Shape = ticks5Shape4;
             this.analogClockCleared.Ticks5Visible = false;
-            this.analogClockCleared.Time = System.TimeSpan.Parse("00:19:11.0433071");
+            this.analogClockCleared.Time = System.TimeSpan.Parse("13:03:37.1938931");
             this.analogClockCleared.TimeProvider = localTimeProvider4;
             this.analogClockCleared.Timer = this.timer1;
             // 
@@ -635,7 +537,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape5.FillColor = System.Drawing.Color.Empty;
             ticks5Shape5.LineWidth = 2F;
             this.analogClock6.Ticks5Shape = ticks5Shape5;
-            this.analogClock6.Time = System.TimeSpan.Parse("00:19:11.0589321");
+            this.analogClock6.Time = System.TimeSpan.Parse("13:03:37.1968933");
             this.analogClock6.TimeProvider = localTimeProvider5;
             this.analogClock6.Timer = this.timer1;
             // 
@@ -685,9 +587,59 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape6.FillColor = System.Drawing.Color.Empty;
             this.analogClockOnlyNumbers.Ticks5Shape = ticks5Shape6;
             this.analogClockOnlyNumbers.Ticks5Visible = false;
-            this.analogClockOnlyNumbers.Time = System.TimeSpan.Parse("00:19:11.0589321");
+            this.analogClockOnlyNumbers.Time = System.TimeSpan.Parse("13:03:37.1998935");
             this.analogClockOnlyNumbers.TimeProvider = localTimeProvider6;
             this.analogClockOnlyNumbers.Timer = this.timer1;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageTicksAndNumbers);
+            this.tabControl1.Controls.Add(this.tabPageFancy);
+            this.tabControl1.Controls.Add(this.tabPageTimeZones);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1016, 682);
+            this.tabControl1.TabIndex = 10;
+            // 
+            // tabPageTicksAndNumbers
+            // 
+            this.tabPageTicksAndNumbers.Controls.Add(this.flowLayoutPanelTicksAndNumbers);
+            this.tabPageTicksAndNumbers.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTicksAndNumbers.Name = "tabPageTicksAndNumbers";
+            this.tabPageTicksAndNumbers.Padding = new System.Windows.Forms.Padding(10);
+            this.tabPageTicksAndNumbers.Size = new System.Drawing.Size(1008, 656);
+            this.tabPageTicksAndNumbers.TabIndex = 0;
+            this.tabPageTicksAndNumbers.Text = "Ticks and Numbers";
+            this.tabPageTicksAndNumbers.UseVisualStyleBackColor = true;
+            // 
+            // tabPageFancy
+            // 
+            this.tabPageFancy.Controls.Add(this.flowLayoutPanelColours);
+            this.tabPageFancy.Location = new System.Drawing.Point(4, 22);
+            this.tabPageFancy.Name = "tabPageFancy";
+            this.tabPageFancy.Padding = new System.Windows.Forms.Padding(10);
+            this.tabPageFancy.Size = new System.Drawing.Size(1008, 656);
+            this.tabPageFancy.TabIndex = 1;
+            this.tabPageFancy.Text = "Fancy";
+            this.tabPageFancy.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelColours
+            // 
+            this.flowLayoutPanelColours.AutoScroll = true;
+            this.flowLayoutPanelColours.Controls.Add(this.analogClock1);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClock5);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClock7);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClockImages);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClock11);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClock12);
+            this.flowLayoutPanelColours.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelColours.Location = new System.Drawing.Point(10, 10);
+            this.flowLayoutPanelColours.Name = "flowLayoutPanelColours";
+            this.flowLayoutPanelColours.Size = new System.Drawing.Size(988, 636);
+            this.flowLayoutPanelColours.TabIndex = 10;
             // 
             // analogClock1
             // 
@@ -742,7 +694,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape7.OutlineColor = System.Drawing.Color.Navy;
             ticks5Shape7.PositionOffset = 2F;
             this.analogClock1.Ticks5Shape = ticks5Shape7;
-            this.analogClock1.Time = System.TimeSpan.Parse("00:19:11.0745571");
+            this.analogClock1.Time = System.TimeSpan.Parse("13:03:37.2128942");
             this.analogClock1.TimeProvider = localTimeProvider7;
             this.analogClock1.Timer = this.timer1;
             // 
@@ -789,7 +741,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape8.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             ticks5Shape8.FillColor = System.Drawing.Color.Empty;
             this.analogClock5.Ticks5Shape = ticks5Shape8;
-            this.analogClock5.Time = System.TimeSpan.Parse("00:19:11.0745571");
+            this.analogClock5.Time = System.TimeSpan.Parse("13:03:37.2158944");
             this.analogClock5.TimeProvider = localTimeProvider8;
             this.analogClock5.Timer = this.timer1;
             // 
@@ -840,7 +792,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape9.FillColor = System.Drawing.Color.Empty;
             ticks5Shape9.LineWidth = 2.66F;
             this.analogClock7.Ticks5Shape = ticks5Shape9;
-            this.analogClock7.Time = System.TimeSpan.Parse("00:19:11.0745571");
+            this.analogClock7.Time = System.TimeSpan.Parse("13:03:37.2188946");
             this.analogClock7.TimeProvider = localTimeProvider9;
             this.analogClock7.Timer = this.timer1;
             // 
@@ -890,7 +842,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape10.FillColor = System.Drawing.Color.Empty;
             ticks5Shape10.LineWidth = 3.33F;
             this.analogClockImages.Ticks5Shape = ticks5Shape10;
-            this.analogClockImages.Time = System.TimeSpan.Parse("00:19:11.0901821");
+            this.analogClockImages.Time = System.TimeSpan.Parse("13:03:37.2218947");
             this.analogClockImages.TimeProvider = localTimeProvider10;
             this.analogClockImages.Timer = this.timer1;
             // 
@@ -909,7 +861,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock11.Name = "analogClock11";
             numbersShape11.CurrentIndex = 11;
             numbersShape11.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
-            numbersShape11.Font = new System.Drawing.Font("Vrinda", 18.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape11.Font = new System.Drawing.Font("Vrinda", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             numbersShape11.Numbers = new string[] {
         "",
         "",
@@ -938,7 +890,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape11.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             ticks5Shape11.FillColor = System.Drawing.Color.Empty;
             this.analogClock11.Ticks5Shape = ticks5Shape11;
-            this.analogClock11.Time = System.TimeSpan.Parse("00:19:11.0901821");
+            this.analogClock11.Time = System.TimeSpan.Parse("13:03:37.2248949");
             this.analogClock11.TimeProvider = localTimeProvider11;
             this.analogClock11.Timer = this.timer1;
             // 
@@ -992,9 +944,35 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape12.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             ticks5Shape12.FillColor = System.Drawing.Color.Empty;
             this.analogClock12.Ticks5Shape = ticks5Shape12;
-            this.analogClock12.Time = System.TimeSpan.Parse("00:19:11.0901821");
+            this.analogClock12.Time = System.TimeSpan.Parse("13:03:37.2268950");
             this.analogClock12.TimeProvider = localTimeProvider12;
             this.analogClock12.Timer = this.timer1;
+            // 
+            // tabPageTimeZones
+            // 
+            this.tabPageTimeZones.Controls.Add(this.flowLayoutPanel1);
+            this.tabPageTimeZones.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTimeZones.Name = "tabPageTimeZones";
+            this.tabPageTimeZones.Padding = new System.Windows.Forms.Padding(10);
+            this.tabPageTimeZones.Size = new System.Drawing.Size(1008, 656);
+            this.tabPageTimeZones.TabIndex = 2;
+            this.tabPageTimeZones.Text = "Time Zones";
+            this.tabPageTimeZones.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.analogClockLocal);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockUTC);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockNewYork);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockTokyo);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockHongKong);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockIndia);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 10);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 636);
+            this.flowLayoutPanel1.TabIndex = 11;
             // 
             // analogClockLocal
             // 
@@ -1044,7 +1022,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape13.Length = 7F;
             ticks5Shape13.LineWidth = 1F;
             this.analogClockLocal.Ticks5Shape = ticks5Shape13;
-            this.analogClockLocal.Time = System.TimeSpan.Parse("00:19:11.1058071");
+            this.analogClockLocal.Time = System.TimeSpan.Parse("13:03:37.2388957");
             this.analogClockLocal.TimeProvider = localTimeProvider13;
             this.analogClockLocal.Timer = this.timer1;
             // 
@@ -1096,7 +1074,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape14.Length = 7F;
             ticks5Shape14.LineWidth = 1F;
             this.analogClockUTC.Ticks5Shape = ticks5Shape14;
-            this.analogClockUTC.Time = System.TimeSpan.Parse("00:19:11.1058071");
+            this.analogClockUTC.Time = System.TimeSpan.Parse("13:03:37.2418959");
             this.analogClockUTC.TimeProvider = localTimeProvider14;
             this.analogClockUTC.Timer = this.timer1;
             // 
@@ -1148,7 +1126,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape15.Length = 7F;
             ticks5Shape15.LineWidth = 1F;
             this.analogClockNewYork.Ticks5Shape = ticks5Shape15;
-            this.analogClockNewYork.Time = System.TimeSpan.Parse("00:19:11.1214321");
+            this.analogClockNewYork.Time = System.TimeSpan.Parse("13:03:37.2448961");
             this.analogClockNewYork.TimeProvider = localTimeProvider15;
             this.analogClockNewYork.Timer = this.timer1;
             // 
@@ -1200,7 +1178,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape16.Length = 7F;
             ticks5Shape16.LineWidth = 1F;
             this.analogClockTokyo.Ticks5Shape = ticks5Shape16;
-            this.analogClockTokyo.Time = System.TimeSpan.Parse("00:19:11.1214321");
+            this.analogClockTokyo.Time = System.TimeSpan.Parse("13:03:37.2478962");
             this.analogClockTokyo.TimeProvider = localTimeProvider16;
             this.analogClockTokyo.Timer = this.timer1;
             // 
@@ -1252,7 +1230,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape17.Length = 7F;
             ticks5Shape17.LineWidth = 1F;
             this.analogClockHongKong.Ticks5Shape = ticks5Shape17;
-            this.analogClockHongKong.Time = System.TimeSpan.Parse("00:19:11.1214321");
+            this.analogClockHongKong.Time = System.TimeSpan.Parse("13:03:37.2508964");
             this.analogClockHongKong.TimeProvider = localTimeProvider17;
             this.analogClockHongKong.Timer = this.timer1;
             // 
@@ -1304,9 +1282,31 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape18.Length = 7F;
             ticks5Shape18.LineWidth = 1F;
             this.analogClockIndia.Ticks5Shape = ticks5Shape18;
-            this.analogClockIndia.Time = System.TimeSpan.Parse("00:19:11.1370571");
+            this.analogClockIndia.Time = System.TimeSpan.Parse("13:03:37.2538966");
             this.analogClockIndia.TimeProvider = localTimeProvider18;
             this.analogClockIndia.Timer = this.timer1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.flowLayoutPanel2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(10);
+            this.tabPage1.Size = new System.Drawing.Size(1008, 656);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.Controls.Add(this.analogClock13);
+            this.flowLayoutPanel2.Controls.Add(this.analogClock14);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(10, 10);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(988, 636);
+            this.flowLayoutPanel2.TabIndex = 12;
             // 
             // analogClock13
             // 
@@ -1324,7 +1324,6 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock13.Name = "analogClock13";
             numbersShape19.CurrentIndex = 11;
             numbersShape19.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
-            numbersShape19.FillColor = System.Drawing.Color.Empty;
             numbersShape19.Font = new System.Drawing.Font("Arial", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             numbersShape19.Numbers = new string[] {
         "1",
@@ -1339,6 +1338,7 @@ namespace DustInTheWind.Clock.Demo
         "10",
         "11",
         "12"};
+            numbersShape19.OutlineColor = System.Drawing.Color.Empty;
             numbersShape19.PositionOffset = 0F;
             this.analogClock13.NumbersShape = numbersShape19;
             pinShape19.OutlineColor = System.Drawing.Color.Red;
@@ -1349,16 +1349,16 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock13.SweepHandShape = sweepHandShape19;
             this.analogClock13.TabIndex = 0;
             this.analogClock13.Text = "analogClock13";
-            ticks1Shape19.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
+            ticks1Shape19.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             ticks1Shape19.FillColor = System.Drawing.Color.Empty;
             ticks1Shape19.PositionOffset = 1.66F;
             this.analogClock13.Ticks1Shape = ticks1Shape19;
-            ticks5Shape19.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
+            ticks5Shape19.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             ticks5Shape19.FillColor = System.Drawing.Color.Empty;
             ticks5Shape19.LineWidth = 0.66F;
             ticks5Shape19.PositionOffset = 8F;
             this.analogClock13.Ticks5Shape = ticks5Shape19;
-            this.analogClock13.Time = System.TimeSpan.Parse("00:19:11.1370571");
+            this.analogClock13.Time = System.TimeSpan.Parse("13:03:37.2678974");
             this.analogClock13.TimeProvider = localTimeProvider19;
             this.analogClock13.Timer = this.timer1;
             // 
@@ -1377,7 +1377,6 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock14.Name = "analogClock14";
             numbersShape20.CurrentIndex = 11;
             numbersShape20.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
-            numbersShape20.FillColor = System.Drawing.Color.Empty;
             numbersShape20.Font = new System.Drawing.Font("Arial", 6F);
             numbersShape20.Numbers = new string[] {
         "1",
@@ -1392,6 +1391,7 @@ namespace DustInTheWind.Clock.Demo
         "10",
         "11",
         "12"};
+            numbersShape20.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock14.NumbersShape = numbersShape20;
             pinShape20.OutlineColor = System.Drawing.Color.Red;
             this.analogClock14.PinShape = pinShape20;
@@ -1400,13 +1400,13 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock14.SweepHandShape = sweepHandShape20;
             this.analogClock14.TabIndex = 1;
             this.analogClock14.Text = "analogClock14";
-            ticks1Shape20.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
+            ticks1Shape20.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             ticks1Shape20.FillColor = System.Drawing.Color.Empty;
             this.analogClock14.Ticks1Shape = ticks1Shape20;
-            ticks5Shape20.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
+            ticks5Shape20.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Outline;
             ticks5Shape20.FillColor = System.Drawing.Color.Empty;
             this.analogClock14.Ticks5Shape = ticks5Shape20;
-            this.analogClock14.Time = System.TimeSpan.Parse("00:19:11.1526821");
+            this.analogClock14.Time = System.TimeSpan.Parse("13:03:37.2798981");
             this.analogClock14.TimeProvider = localTimeProvider20;
             this.analogClock14.Timer = this.timer1;
             // 
@@ -1462,7 +1462,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape21.LineWidth = 5F;
             ticks5Shape21.OutlineColor = System.Drawing.Color.Navy;
             this.analogClock8.Ticks5Shape = ticks5Shape21;
-            this.analogClock8.Time = System.TimeSpan.Parse("00:19:11.1526821");
+            this.analogClock8.Time = System.TimeSpan.Parse("13:03:37.2948989");
             this.analogClock8.TimeProvider = localTimeProvider21;
             this.analogClock8.Timer = this.timer1;
             // 

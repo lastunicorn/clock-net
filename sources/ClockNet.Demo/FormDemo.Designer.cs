@@ -980,6 +980,7 @@ namespace DustInTheWind.Clock.Demo
             // 
             // panelClock
             // 
+            this.panelClock.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panelClock.Controls.Add(this.analogClock1);
             this.panelClock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelClock.Location = new System.Drawing.Point(8, 8);
@@ -1062,11 +1063,11 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock1.DialShape = dialShape1;
             this.analogClock1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.analogClock1.ForeColor = System.Drawing.Color.White;
-            hourHandShape1.OutlineColor = System.Drawing.Color.RoyalBlue;
+            hourHandShape1.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock1.HourHandShape = hourHandShape1;
             this.analogClock1.Location = new System.Drawing.Point(8, 8);
             minuteHandShape1.DrawMode = DustInTheWind.Clock.Shapes.VectorialDrawMode.Fill;
-            minuteHandShape1.OutlineColor = System.Drawing.Color.LimeGreen;
+            minuteHandShape1.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock1.MinuteHandShape = minuteHandShape1;
             this.analogClock1.Name = "analogClock1";
             numbersShape1.CurrentIndex = 11;
@@ -1103,7 +1104,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape1.FillColor = System.Drawing.Color.Empty;
             ticks5Shape1.PositionOffset = 3F;
             this.analogClock1.Ticks5Shape = ticks5Shape1;
-            this.analogClock1.Time = System.TimeSpan.Parse("00:30:30.8558071");
+            this.analogClock1.Time = System.TimeSpan.Parse("13:02:32.2231770");
             this.analogClock1.TimeProvider = localTimeProvider1;
             this.analogClock1.Timer = this.timer1;
             this.analogClock1.TimeProviderChanged += new System.EventHandler(this.analogClock1_TimeProviderChanged);

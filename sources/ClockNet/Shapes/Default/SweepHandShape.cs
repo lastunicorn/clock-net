@@ -31,6 +31,9 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         protected PointF[] path;
 
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
         public override string Name
         {
             get { return "Default Sweep Hand Shape"; }
@@ -85,6 +88,8 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
+        #region Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SweepHandShape"/> class with
         /// default values.
@@ -94,11 +99,22 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SweepHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline of the sweep hand.</param>
+        /// <param name="fillColor">The color used to draw the background of the sweep hand.</param>
         public SweepHandShape(Color outlineColor, Color fillColor)
             : this(outlineColor, fillColor, HEIGHT)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SweepHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline of the sweep hand.</param>
+        /// <param name="fillColor">The color used to draw the background of the sweep hand.</param>
+        /// <param name="height">The length of the sweep hand for a clock with the diameter of 100px.</param>
         public SweepHandShape(Color outlineColor, Color fillColor, float height)
             : base(outlineColor, fillColor, VectorialDrawMode.Outline)
         {
@@ -107,6 +123,8 @@ namespace DustInTheWind.Clock.Shapes.Default
             this.lineWidth = LINE_WIDTH;
             CalculateDimensions();
         }
+
+        #endregion
 
         protected float pathHeight;
 
@@ -123,6 +141,14 @@ namespace DustInTheWind.Clock.Shapes.Default
             pathHeight = Math.Abs(h);
         }
 
+        /// <summary>
+        /// Draws the sweep hand using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
+        /// <remarks>
+        /// The hand is drawn in vertical position from the origin of the coordinate system.
+        /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
+        /// </remarks>
         public override void Draw(Graphics g)
         {
             Matrix originalTransformMatrix = null;
