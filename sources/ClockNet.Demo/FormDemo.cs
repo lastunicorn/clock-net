@@ -42,7 +42,7 @@ namespace DustInTheWind.Clock.Demo
 
             //analogClock1.TimeProvider = new UtcOffsetTimeProvider(TimeSpan.FromHours(9));
 
-            analogClock1.SetShapes(ShapeSet.BlackDot);
+            analogClock1.SetShapes(DustInTheWind.Clock.Shapes.ShapeSet.BlackDot);
         }
 
         private void Form1_Load(object sender, EventArgs e)
