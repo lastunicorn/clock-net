@@ -152,7 +152,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public NumbersShape()
-            : this(Color.Black, Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point))
+            : this(Color.Empty, Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point))
         {
         }
 
@@ -171,7 +171,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color"></param>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public NumbersShape(Color outlineColor, Color fillColor, Font font)
-            : base(outlineColor, fillColor, VectorialDrawMode.Fill)
+            : base(outlineColor, fillColor)
         {
             this.font = font == null ? new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point) : font;
 
@@ -189,7 +189,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the number.</param>
         public override void Draw(Graphics g)
         {
-            if (font != null && numbers != null && currentIndex >= 0 && currentIndex < numbers.Length && fillColor != Color.Empty)
+            if (font != null && numbers != null && currentIndex >= 0 && currentIndex < numbers.Length && !fillColor.IsEmpty)
             {
                 string number = numbers[currentIndex];
 

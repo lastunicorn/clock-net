@@ -26,7 +26,8 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class MinuteHandShape : VectorialShapeBase
     {
-        public const float HEIGHT = 37.2f;
+        public const float HEIGHT = 37f;
+        public const float TAIL_LENGTH = 4f;
 
         protected PointF[] path;
 
@@ -66,21 +67,40 @@ namespace DustInTheWind.Clock.Shapes.Default
             set
             {
                 height = value;
+                CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        private float tailLength = TAIL_LENGTH;
+
+        [Category("Appearance")]
+        [DefaultValue(TAIL_LENGTH)]
+        public virtual float TailLength
+        {
+            get { return tailLength; }
+            set
+            {
+                tailLength = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+
+        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MinuteHandShape"/> class with
         /// default values.
         /// </summary>
         public MinuteHandShape()
-            : this(Color.LimeGreen, Color.LimeGreen, VectorialDrawMode.Fill, HEIGHT)
+            : this(Color.Empty, Color.LimeGreen, HEIGHT)
         {
         }
 
-        public MinuteHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
-            : this(outlineColor, fillColor, drawMode, HEIGHT)
+        public MinuteHandShape(Color outlineColor, Color fillColor)
+            : this(outlineColor, fillColor, HEIGHT)
         {
         }
 
@@ -90,27 +110,20 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color">The color of the hand.</param>
         /// <param name="fill">A value specifying if the background or the outline of the hand should be drawn.</param>
         /// <param name="height">The height of the hend for a clock of 300px.</param>
-        public MinuteHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height)
-            : base(outlineColor, fillColor, drawMode)
+        public MinuteHandShape(Color outlineColor, Color fillColor, float height)
+            : base(outlineColor, fillColor)
         {
-            path = new PointF[] { new PointF(0f, 4f), new PointF(-2f, 0f), new PointF(0f, -40f), new PointF(2f, 0f) };
+            //path = new PointF[] { new PointF(0f, 4f), new PointF(-2f, 0f), new PointF(0f, -40f), new PointF(2f, 0f) };
             this.height = height;
             CalculateDimensions();
         }
 
-        protected float pathHeight;
+        #endregion
+
 
         private void CalculateDimensions()
         {
-            float h = 0;
-
-            foreach (PointF point in path)
-            {
-                if (point.Y < h)
-                    h = point.Y;
-            }
-
-            pathHeight = Math.Abs(h);
+            path = new PointF[] { new PointF(0f, tailLength), new PointF(-2f, 0f), new PointF(0f, -height), new PointF(2f, 0f) };
         }
 
         /// <summary>
@@ -123,33 +136,18 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </remarks>
         public override void Draw(Graphics g)
         {
-            Matrix originalTransformMatrix = null;
-
-            if (height > 0)
-            {
-                originalTransformMatrix = g.Transform;
-
-                float scaleFactor = height / pathHeight;
-                g.ScaleTransform(scaleFactor, scaleFactor);
-            }
-
-            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+            if (!fillColor.IsEmpty)
             {
                 CreateBrushIfNull();
 
                 g.FillPolygon(brush, path);
             }
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+            if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 
                 g.DrawPolygon(pen, path);
-            }
-
-            if (originalTransformMatrix != null)
-            {
-                g.Transform = originalTransformMatrix;
             }
         }
     }

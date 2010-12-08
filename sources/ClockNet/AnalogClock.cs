@@ -1344,7 +1344,7 @@ namespace DustInTheWind.Clock
 
         #region Performance
 
-#if PERFORMANCE_TEST
+#if PERFORMANCE_INFO
 
         private long paintCount = 0;
         private long paintTotalTicks = 0;
@@ -1358,7 +1358,7 @@ namespace DustInTheWind.Clock
         protected override void OnPaint(PaintEventArgs e)
         {
 
-#if PERFORMANCE_TEST
+#if PERFORMANCE_INFO
             System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
 #endif
 
@@ -1496,7 +1496,7 @@ namespace DustInTheWind.Clock
             if (pinVisible)
                 pinShape.Draw(g);
 
-#if PERFORMANCE_TEST
+#if PERFORMANCE_INFO
 
             stopwatch.Stop();
 
@@ -1505,10 +1505,12 @@ namespace DustInTheWind.Clock
 
             long averageTicks = paintTotalTicks / paintCount;
 
+            string text = string.Format("average: {1} ms\ninstant: {0} ms\ncount: {2}", TimeSpan.FromTicks(stopwatch.ElapsedTicks).TotalMilliseconds, TimeSpan.FromTicks(averageTicks).TotalMilliseconds, paintCount);
+
             g.Transform = originalMatrix;
             using (Font performanceTestFont = new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point))
             {
-                g.DrawString(TimeSpan.FromTicks(averageTicks).TotalMilliseconds.ToString() + " ms", performanceTestFont, Brushes.Black, 0, 0);
+                g.DrawString(text, performanceTestFont, Brushes.Black, 0, 0);
             }
 
             // 0.36 ms - intel core i5 2.4GHz - win7

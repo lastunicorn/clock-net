@@ -46,7 +46,11 @@ namespace DustInTheWind.Clock.Demo
             minuteHandShape.Origin = new PointF(14.5f, 206f);
             analogClockImages.MinuteHandShape = minuteHandShape;
 
-            analogClock5.SweepHandShape = new DustInTheWind.Clock.Shapes.Fancy.SweepHandShape();
+            //analogClock5.SweepHandShape = new DustInTheWind.Clock.Shapes.Fancy.SweepHandShape();
+
+            analogClock1.SetShapes(ShapeSet.BlackDot);
+            analogClock5.SetShapes(ShapeSet.Fancy);
+            analogClock7.SetShapes(ShapeSet.WhiteFancy);
         }
 
         private void Form2_Load(object sender, EventArgs e)

@@ -84,8 +84,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color">The color used to draw the pin.</param>
         /// <param name="fill">A value specifying if the pin should be filled with color.</param>
         /// <param name="radiusPercentage">The radius of the pin as percentage from the width of the clock.</param>
-        public TextShape(Color color, Font font, VectorialDrawMode drawMode)
-            : base(Color.Empty, color, drawMode)
+        public TextShape(Color color, Font font)
+            : base(Color.Empty, color)
         {
             this.font = font;
 
@@ -119,7 +119,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             if (font != null && txt != null && txt.Length > 0)
             {
-                if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+                if (!fillColor.IsEmpty)
                 {
                     CreateBrushIfNull();
 

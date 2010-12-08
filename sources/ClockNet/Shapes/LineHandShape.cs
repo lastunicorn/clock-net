@@ -61,12 +61,12 @@ namespace DustInTheWind.Clock.Shapes
             set { base.FillColor = value; }
         }
 
-        [DefaultValue(typeof(VectorialDrawMode), "Outline")]
-        public override VectorialDrawMode DrawMode
-        {
-            get { return base.DrawMode; }
-            set { base.DrawMode = value; }
-        }
+        //[DefaultValue(typeof(VectorialDrawMode), "Outline")]
+        //public override VectorialDrawMode DrawMode
+        //{
+        //    get { return base.DrawMode; }
+        //    set { base.DrawMode = value; }
+        //}
 
         /// <summary>
         /// The length of the sweep hand. For a clock with the diameter of 100px.
@@ -119,7 +119,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="fillColor">The color used to draw the background of the sweep hand.</param>
         /// <param name="height">The length of the sweep hand for a clock with the diameter of 100px.</param>
         public LineHandShape(Color color, float height, float width, float tailLength)
-            : base(color, Color.Empty, VectorialDrawMode.FillAndOutline)
+            : base(color, Color.Empty)
         {
             this.height = height;
             this.lineWidth = width;
@@ -157,9 +157,12 @@ namespace DustInTheWind.Clock.Shapes
         /// </remarks>
         public override void Draw(Graphics g)
         {
-            CreatePenIfNull();
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-            g.DrawLine(pen, startPoint, endPoint);
+                g.DrawLine(pen, startPoint, endPoint);
+            }
         }
     }
 }

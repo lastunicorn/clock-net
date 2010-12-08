@@ -30,7 +30,7 @@ namespace DustInTheWind.Clock.Shapes
         }
 
         public PathShape(Color outlineColor, Color fillColor, GraphicsPath path)
-            : base(outlineColor, fillColor, VectorialDrawMode.FillAndOutline)
+            : base(outlineColor, fillColor)
         {
             this.path = path;
         }

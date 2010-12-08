@@ -132,7 +132,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public Ticks5Shape()
-            : this(Color.Black, Color.Black, LENGTH, THICKNESS)
+            : this(Color.Black, Color.Empty, LENGTH, THICKNESS)
         {
         }
 
@@ -143,7 +143,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="length"></param>
         /// <param name="thickness"></param>
         public Ticks5Shape(Color outlineColor, Color fillColor, float length, float lineWidth)
-            : base(outlineColor, fillColor, VectorialDrawMode.Outline)
+            : base(outlineColor, fillColor)
         {
             this.length = length;
             this.lineWidth = lineWidth;
@@ -153,7 +153,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             if (length > 0 && lineWidth > 0)
             {
-                if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+                if (!outlineColor.IsEmpty)
                 {
                     CreatePenIfNull();
 

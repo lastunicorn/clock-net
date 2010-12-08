@@ -82,7 +82,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color">The color used to draw the dial's background.</param>
         /// <param name="fill">A value specifying if the dial should be filled with color or only the border should be drawn.</param>
         public DialShape(Color outlineColor, Color fillColor, float lineWidth)
-            : base(outlineColor, fillColor, VectorialDrawMode.FillAndOutline)
+            : base(outlineColor, fillColor)
         {
             this.lineWidth = lineWidth;
         }
@@ -108,14 +108,14 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the dial.</param>
         public override void Draw(Graphics g)
         {
-            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill && fillColor != Color.Empty)
+            if (!fillColor.IsEmpty)
             {
                 CreateBrushIfNull();
 
                 g.FillEllipse(brush, locationX, locationY, diameter, diameter);
             }
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline && outlineColor != Color.Empty)
+            if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 

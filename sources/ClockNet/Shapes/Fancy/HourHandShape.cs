@@ -58,12 +58,12 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public HourHandShape()
-            : this(Color.RoyalBlue, Color.RoyalBlue, VectorialDrawMode.Fill, HEIGHT)
+            : this(Color.Empty, Color.RoyalBlue, HEIGHT)
         {
         }
 
-        public HourHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height)
-            : base(outlineColor, fillColor, drawMode)
+        public HourHandShape(Color outlineColor, Color fillColor, float height)
+            : base(outlineColor, fillColor)
         {
             path = new GraphicsPath(FillMode.Alternate);
             this.height = height;
@@ -90,14 +90,14 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
         public override void Draw(Graphics g)
         {
-            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+            if (!fillColor.IsEmpty)
             {
                 CreateBrushIfNull();
 
                 g.FillPath(brush, path);
             }
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+            if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 

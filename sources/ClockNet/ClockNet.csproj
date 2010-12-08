@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;PERFORMANCE_TEST</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;PERFORMANCE_INFO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>ClockControl.xml</DocumentationFile>
@@ -71,7 +71,6 @@
     <Compile Include="Shapes\Default\PinShape.cs" />
     <Compile Include="Shapes\ShapeConverter.cs" />
     <Compile Include="Shapes\LineHandShape.cs" />
-    <Compile Include="Shapes\VectorialDrawMode.cs" />
     <Compile Include="Shapes\VectorialShapeBase.cs" />
     <Compile Include="Shapes\ShapeBase.cs" />
     <Compile Include="Shapes\Default\SweepHandShape.cs" />

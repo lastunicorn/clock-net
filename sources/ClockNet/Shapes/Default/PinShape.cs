@@ -82,12 +82,12 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.OutlineColor = value; }
         }
 
-        [DefaultValue(typeof(VectorialDrawMode), "Fill")]
-        public override VectorialDrawMode DrawMode
-        {
-            get { return base.DrawMode; }
-            set { base.DrawMode = value; }
-        }
+        //[DefaultValue(typeof(VectorialDrawMode), "Fill")]
+        //public override VectorialDrawMode DrawMode
+        //{
+        //    get { return base.DrawMode; }
+        //    set { base.DrawMode = value; }
+        //}
 
 
         #region Constructors
@@ -97,7 +97,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public PinShape()
-            : this(Color.Empty, Color.Red, VectorialDrawMode.Fill, RADIUS)
+            : this(Color.Empty, Color.Red,  RADIUS)
         {
         }
 
@@ -107,7 +107,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color">The color used to draw the pin.</param>
         /// <param name="fill">A value specifying if the pin should be filled with color.</param>
         public PinShape(Color color, float radius)
-            : this(Color.Empty, color, VectorialDrawMode.Fill, radius)
+            : this(Color.Empty, color,  radius)
         {
         }
 
@@ -116,8 +116,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="color">The color used to draw the pin.</param>
         /// <param name="fill">A value specifying if the pin should be filled with color.</param>
-        public PinShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
-            : this(outlineColor, fillColor, drawMode, RADIUS)
+        public PinShape(Color outlineColor, Color fillColor)
+            : this(outlineColor, fillColor, RADIUS)
         {
         }
 
@@ -127,8 +127,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color">The color used to draw the pin.</param>
         /// <param name="fill">A value specifying if the pin should be filled with color.</param>
         /// <param name="radius">The radius of the pin.</param>
-        public PinShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float radius)
-            : base(outlineColor, fillColor, drawMode)
+        public PinShape(Color outlineColor, Color fillColor,  float radius)
+            : base(outlineColor, fillColor)
         {
             this.radius = radius;
             CalculateDimensions();
@@ -156,14 +156,14 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
         public override void Draw(Graphics g)
         {
-            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+            if (!fillColor.IsEmpty)
             {
                 CreateBrushIfNull();
 
                 g.FillEllipse(brush, _locationX, _locationY, radius, radius);
             }
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+            if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 

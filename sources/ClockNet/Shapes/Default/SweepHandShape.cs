@@ -60,12 +60,12 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.FillColor = value; }
         }
 
-        [DefaultValue(typeof(VectorialDrawMode), "Outline")]
-        public override VectorialDrawMode DrawMode
-        {
-            get { return base.DrawMode; }
-            set { base.DrawMode = value; }
-        }
+        //[DefaultValue(typeof(VectorialDrawMode), "Outline")]
+        //public override VectorialDrawMode DrawMode
+        //{
+        //    get { return base.DrawMode; }
+        //    set { base.DrawMode = value; }
+        //}
 
         /// <summary>
         /// The length of the sweep hand. For a clock with the diameter of 100px.
@@ -116,7 +116,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="fillColor">The color used to draw the background of the sweep hand.</param>
         /// <param name="height">The length of the sweep hand for a clock with the diameter of 100px.</param>
         public SweepHandShape(Color outlineColor, Color fillColor, float height)
-            : base(outlineColor, fillColor, VectorialDrawMode.Outline)
+            : base(outlineColor, fillColor)
         {
             path = new PointF[] { new PointF(0f, 4.72f), new PointF(0f, -42.5f) };
             this.height = height;
@@ -161,14 +161,14 @@ namespace DustInTheWind.Clock.Shapes.Default
                 g.ScaleTransform(scaleFactor, scaleFactor);
             }
 
-            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+            if (!fillColor.IsEmpty)
             {
                 CreateBrushIfNull();
 
                 g.FillPolygon(brush, path);
             }
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+            if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 

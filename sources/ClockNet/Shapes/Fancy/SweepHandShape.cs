@@ -27,6 +27,11 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     public class SweepHandShape : VectorialShapeBase
     {
         public const float HEIGHT = 42.5f;
+        public const float CIRCLE_RADIUS = 3.5f;
+        public const float CIRCLE_OFFSET = 12f;
+        public const float TAIL_LENGTH = 5f;
+
+        GraphicsPath path;
 
         public override string Name
         {
@@ -50,6 +55,52 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             set
             {
                 height = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        protected float circleRadius = CIRCLE_RADIUS;
+
+        [Category("Appearance")]
+        [DefaultValue(CIRCLE_RADIUS)]
+        public virtual float CircleRadius
+        {
+            get { return circleRadius; }
+            set
+            {
+                circleRadius = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        protected float circleOffset = CIRCLE_OFFSET;
+
+        [Category("Appearance")]
+        [DefaultValue(CIRCLE_OFFSET)]
+        public virtual float CircleOffset
+        {
+            get { return circleOffset; }
+            set
+            {
+                circleOffset = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        private float tailLength = TAIL_LENGTH;
+
+        [Category("Appearance")]
+        [DefaultValue(TAIL_LENGTH)]
+        public virtual float TailLength
+        {
+            get { return tailLength; }
+            set
+            {
+                tailLength = value;
+                CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -59,59 +110,72 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public SweepHandShape()
-            : this(Color.Red, Color.Red, HEIGHT)
+            : this(Color.Red, Color.Empty, HEIGHT)
         {
         }
 
         public SweepHandShape(Color outlineColor, Color fillColor, float height)
-            : base(outlineColor, fillColor, VectorialDrawMode.Outline)
+            : base(outlineColor, fillColor)
         {
             this.height = height;
+            this.lineWidth = 0.1f;
+            this.path = new GraphicsPath();
             CalculateDimensions();
         }
 
-        protected float pathHeight = 127.5f;
-
         private void CalculateDimensions()
         {
-            //float h = 0;
+            path.Reset();
 
-            //foreach (PointF point in path)
-            //{
-            //    if (point.Y < h)
-            //        h = point.Y;
-            //}
+            float circleCenterX = -height + circleOffset;
 
-            //pathHeight = h;
+            path.AddLine(new PointF(0f, tailLength), new PointF(0f, circleCenterX + circleRadius));
+            path.AddEllipse(-circleRadius, circleCenterX - circleRadius, circleRadius * 2f, circleRadius * 2f);
+            path.AddLine(new PointF(0f, circleCenterX - circleRadius), new PointF(0f, -height));
         }
 
         public override void Draw(Graphics g)
         {
-            Matrix originalTransformMatrix = null;
-
-            if (height > 0)
+            if (!fillColor.IsEmpty)
             {
-                originalTransformMatrix = g.Transform;
+                CreateBrushIfNull();
 
-                float scaleFactor = height / pathHeight;
-                g.ScaleTransform(scaleFactor, scaleFactor);
+                g.FillPath(brush, path);
+
+                //path.AddLine(new PointF(0f, 4.72f), new PointF(0f, -27f));
+                //g.DrawEllipse(pen, -3.33f, -33.33, 7, 7);
+                //g.DrawLine(pen, new PointF(0f, -33.33f), new PointF(0f, -42.5f));
+
+                //g.DrawLine(pen, new PointF(0f, 14.16f), new PointF(0f, -80f));
+                //g.DrawEllipse(pen, -10, -100, 20, 20);
+                //g.DrawLine(pen, new PointF(0f, -100f), new PointF(0f, -127.5f));
             }
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+            if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 
-                //g.DrawLines(pen, path);
+                g.DrawPath(pen, path);
 
-                g.DrawLine(pen, new PointF(0f, 14.16f), new PointF(0f, -80f));
-                g.DrawEllipse(pen, -10, -100, 20, 20);
-                g.DrawLine(pen, new PointF(0f, -100f), new PointF(0f, -127.5f));
+                //path.AddLine(new PointF(0f, 4.72f), new PointF(0f, -27f));
+                //g.DrawEllipse(pen, -3.33f, -33.33, 7, 7);
+                //g.DrawLine(pen, new PointF(0f, -33.33f), new PointF(0f, -42.5f));
+
+                //g.DrawLine(pen, new PointF(0f, 14.16f), new PointF(0f, -80f));
+                //g.DrawEllipse(pen, -10, -100, 20, 20);
+                //g.DrawLine(pen, new PointF(0f, -100f), new PointF(0f, -127.5f));
             }
+        }
 
-            if (originalTransformMatrix != null)
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                g.Transform = originalTransformMatrix;
+                if (path != null)
+                    path.Dispose();
             }
+
+            base.Dispose(disposing);
         }
     }
 }

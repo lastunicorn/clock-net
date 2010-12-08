@@ -34,7 +34,7 @@ namespace DustInTheWind.Clock.Shapes
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(),
                     numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point)),
-                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point), VectorialDrawMode.Fill)
+                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
                 };
             }
         }
@@ -46,14 +46,14 @@ namespace DustInTheWind.Clock.Shapes
                 return new ShapeSet()
                 {
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(Color.LightBlue, Color.LightBlue, 1),
-                    hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(Color.Navy, Color.Navy, VectorialDrawMode.Fill),
-                    minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(Color.RoyalBlue, Color.RoyalBlue, VectorialDrawMode.Fill),
+                    hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(Color.Empty, Color.Navy),
+                    minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(Color.Empty, Color.RoyalBlue),
                     sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(Color.DeepSkyBlue, Color.DeepSkyBlue),
-                    pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Navy, Color.Navy, VectorialDrawMode.Fill),
+                    pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Empty, Color.Navy),
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.RoyalBlue, Color.RoyalBlue, 7.5f, 0.75f, 5f),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(Color.Navy, Color.Navy, 15f, 5f),
                     numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy, Color.Navy, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point)),
-                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point), VectorialDrawMode.Fill)
+                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
                 };
             }
         }
@@ -65,7 +65,7 @@ namespace DustInTheWind.Clock.Shapes
                 return new ShapeSet()
                 {
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(),
-                    hourHandShape = new DustInTheWind.Clock.Shapes.Fancy.HourHandShape(),
+                    hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(),
                     minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(),
                     sweepHandShape = new DustInTheWind.Clock.Shapes.Fancy.SweepHandShape(),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(),
@@ -84,9 +84,9 @@ namespace DustInTheWind.Clock.Shapes
                 {
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(Color.Black, Color.White, 2),
                     hourHandShape = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape(Color.Black, 15, 10),
-                    minuteHandShape = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape(Color.Black, 38, 5),
+                    minuteHandShape = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape(Color.Black, 36, 5.5f),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Black, 9),
-                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point), VectorialDrawMode.Fill)
+                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
                 };
             }
         }
@@ -102,9 +102,11 @@ namespace DustInTheWind.Clock.Shapes
                     minuteHandShape = new DustInTheWind.Clock.Shapes.LineHandShape(Color.Black, 42, 3, 0),
                     sweepHandShape = new DustInTheWind.Clock.Shapes.LineHandShape(Color.Black, 45, 1, 15),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Black, 9),
-                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.White, new Font("Arial", 12, FontStyle.Regular, GraphicsUnit.Point)),
-                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point), VectorialDrawMode.Fill)
+                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.White, new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point)),
+                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
                 };
+
+                ((DustInTheWind.Clock.Shapes.Default.NumbersShape)set.numbersShape).PositionOffset = 13;
 
                 return set;
             }

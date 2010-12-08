@@ -24,6 +24,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     public class DotHandShape : VectorialShapeBase
     {
         public const float HEIGHT = 27.5f;
+        public const float RADIUS = 10f;
 
         public override string Name
         {
@@ -53,6 +54,18 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
         protected float radius;
 
+        [Category("Appearance")]
+        [DefaultValue(RADIUS)]
+        public virtual float Radius
+        {
+            get { return radius; }
+            set
+            {
+                radius = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
         #region Constructors
 
         /// <summary>
@@ -60,12 +73,12 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public DotHandShape()
-            : this(Color.Empty, Color.RoyalBlue, VectorialDrawMode.Fill, HEIGHT, 10)
+            : this(Color.Empty, Color.RoyalBlue, HEIGHT, RADIUS)
         {
         }
 
         public DotHandShape(Color fillColor, float height, float radius)
-            : this(Color.Empty, fillColor, VectorialDrawMode.Fill, height, radius)
+            : this(Color.Empty, fillColor, height, radius)
         {
         }
 
@@ -76,8 +89,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="fillColor"></param>
         /// <param name="drawMode"></param>
         /// <param name="height"></param>
-        public DotHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height, float radius)
-            : base(outlineColor, fillColor, drawMode)
+        public DotHandShape(Color outlineColor, Color fillColor, float height, float radius)
+            : base(outlineColor, fillColor)
         {
             this.height = height;
             this.radius = radius;
@@ -95,14 +108,14 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </remarks>
         public override void Draw(Graphics g)
         {
-            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+            if (!fillColor.IsEmpty)
             {
                 CreateBrushIfNull();
 
                 g.FillEllipse(brush, -radius, -height - radius, radius, radius);
             }
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+            if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 

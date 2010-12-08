@@ -128,7 +128,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public NumbersShape()
-            : this(Color.Black, Color.Black, null)
+            : this(Color.Empty, Color.Black, null)
         {
         }
 
@@ -137,7 +137,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public NumbersShape(Font font)
-            : this(Color.Black, Color.Black, font)
+            : this(Color.Empty, Color.Black, font)
         {
         }
 
@@ -147,7 +147,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="color"></param>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public NumbersShape(Color outlineColor, Color fillColor, Font font)
-            : base(outlineColor, fillColor, VectorialDrawMode.Fill)
+            : base(outlineColor, fillColor)
         {
             this.font = font;
 
@@ -170,8 +170,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
                 if (number != null && number.Length > 0)
                 {
-                    if (brush == null)
-                        brush = new SolidBrush(outlineColor);
+                    CreateBrushIfNull();
 
                     SizeF numberSize = g.MeasureString(number, font);
                     PointF numberPosition = new PointF(-numberSize.Width / 2f, positionOffset);

@@ -64,7 +64,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public SlotHandShape()
-            : this(Color.RoyalBlue, Color.RoyalBlue, HEIGHT, SLOT_HEIGHT, SLOT_WIDTH)
+            : this(Color.Empty, Color.RoyalBlue, HEIGHT, SLOT_HEIGHT, SLOT_WIDTH)
         {
         }
 

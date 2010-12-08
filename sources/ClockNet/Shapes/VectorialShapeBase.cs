@@ -104,26 +104,26 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
-        /// <summary>
-        /// A value specifying if the vectorial shape should be filled with color or only draw the outline.
-        /// </summary>
-        protected VectorialDrawMode drawMode;
+        ///// <summary>
+        ///// A value specifying if the vectorial shape should be filled with color or only draw the outline.
+        ///// </summary>
+        //protected VectorialDrawMode drawMode;
 
-        /// <summary>
-        /// Gets or sets a value specifying if the vectorial shape should be filled with color or only draw the outline.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(true)]
-        [Description("Specifies if the vectorial shape should be filled with color or only draw the outline.")]
-        public virtual VectorialDrawMode DrawMode
-        {
-            get { return drawMode; }
-            set
-            {
-                drawMode = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        ///// <summary>
+        ///// Gets or sets a value specifying if the vectorial shape should be filled with color or only draw the outline.
+        ///// </summary>
+        //[Category("Appearance")]
+        //[DefaultValue(true)]
+        //[Description("Specifies if the vectorial shape should be filled with color or only draw the outline.")]
+        //public virtual VectorialDrawMode DrawMode
+        //{
+        //    get { return drawMode; }
+        //    set
+        //    {
+        //        drawMode = value;
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
 
         #region Constructor
@@ -133,12 +133,11 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         /// <param name="color">The color to be used when drawing the shape.</param>
         /// <param name="drawMode">A value specifying if the vectorial shape should be filled with color or only the outline should be drawn.</param>
-        public VectorialShapeBase(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
+        public VectorialShapeBase(Color outlineColor, Color fillColor)
             : base()
         {
             this.outlineColor = outlineColor;
             this.fillColor = fillColor;
-            this.drawMode = drawMode;
         }
 
         #endregion

@@ -27,20 +27,9 @@ namespace DustInTheWind.Clock.Shapes.Default
     public class HourHandShape : VectorialShapeBase
     {
         public const float HEIGHT = 24.2f;
+        public const float TAIL_LENGTH = 6f;
 
         protected PointF[] path;
-
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PointF[] Path
-        {
-            get { return path; }
-            set
-            {
-                path = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -72,13 +61,13 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.FillColor = value; }
         }
 
-        [DefaultValue(typeof(VectorialDrawMode), "Fill")]
-        [Description("Specifies if the hour hand shape should be filled with color or only draw the outline.")]
-        public override VectorialDrawMode DrawMode
-        {
-            get { return base.DrawMode; }
-            set { base.DrawMode = value; }
-        }
+        //[DefaultValue(typeof(VectorialDrawMode), "Fill")]
+        //[Description("Specifies if the hour hand shape should be filled with color or only draw the outline.")]
+        //public override VectorialDrawMode DrawMode
+        //{
+        //    get { return base.DrawMode; }
+        //    set { base.DrawMode = value; }
+        //}
 
         /// <summary>
         /// The length of the hour hand. For a clock with the diameter of 100px.
@@ -97,9 +86,26 @@ namespace DustInTheWind.Clock.Shapes.Default
             set
             {
                 height = value;
+                CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        private float tailLength = TAIL_LENGTH;
+
+        [Category("Appearance")]
+        [DefaultValue(TAIL_LENGTH)]
+        public virtual float TailLength
+        {
+            get { return tailLength; }
+            set
+            {
+                tailLength = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
 
         #region Constructors
 
@@ -108,7 +114,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public HourHandShape()
-            : this(Color.Empty, Color.RoyalBlue, VectorialDrawMode.Fill, HEIGHT)
+            : this(Color.Empty, Color.RoyalBlue, HEIGHT)
         {
         }
 
@@ -118,8 +124,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="outlineColor">The color used to draw the outline.</param>
         /// <param name="fillColor">The color used to fill the shape.</param>
         /// <param name="drawMode">Specifies if the hour hand shape should be filled with color or only draw the outline.</param>
-        public HourHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
-            : this(outlineColor, fillColor, drawMode, HEIGHT)
+        public HourHandShape(Color outlineColor, Color fillColor)
+            : this(outlineColor, fillColor, HEIGHT)
         {
         }
 
@@ -130,29 +136,20 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="fillColor">The color used to fill the shape.</param>
         /// <param name="drawMode">Specifies if the hour hand shape should be filled with color or only draw the outline.</param>
         /// <param name="height">The length of the hour hand for a clock with the diameter of 100px.</param>
-        public HourHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height)
-            : base(outlineColor, fillColor, drawMode)
+        public HourHandShape(Color outlineColor, Color fillColor, float height)
+            : base(outlineColor, fillColor)
         {
-            path = new PointF[] { new PointF(0f, 6f), new PointF(-2.5f, 0f), new PointF(0F, -24.2f), new PointF(2.5f, 0f) };
             this.height = height;
             CalculateDimensions();
         }
 
         #endregion
 
-        protected float pathHeight;
 
         private void CalculateDimensions()
         {
-            float h = 0;
-
-            foreach (PointF point in path)
-            {
-                if (point.Y < h)
-                    h = point.Y;
-            }
-
-            pathHeight = Math.Abs(h);
+            path = new PointF[] { new PointF(0f, tailLength), new PointF(-2.5f, 0f), new PointF(0F, -height), new PointF(2.5f, 0f) };
+            
         }
 
         /// <summary>
@@ -165,34 +162,34 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </remarks>
         public override void Draw(Graphics g)
         {
-            Matrix originalTransformMatrix = null;
+            //Matrix originalTransformMatrix = null;
 
-            if (height > 0)
-            {
-                originalTransformMatrix = g.Transform;
+            //if (height > 0)
+            //{
+            //    originalTransformMatrix = g.Transform;
 
-                float scaleFactor = height / pathHeight;
-                g.ScaleTransform(scaleFactor, scaleFactor);
-            }
+            //    float scaleFactor = height / pathHeight;
+            //    g.ScaleTransform(scaleFactor, scaleFactor);
+            //}
 
-            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+            if (!fillColor.IsEmpty)
             {
                 CreateBrushIfNull();
 
                 g.FillPolygon(brush, path);
             }
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+            if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 
                 g.DrawPolygon(pen, path);
             }
 
-            if (originalTransformMatrix != null)
-            {
-                g.Transform = originalTransformMatrix;
-            }
+            //if (originalTransformMatrix != null)
+            //{
+            //    g.Transform = originalTransformMatrix;
+            //}
         }
     }
 }
