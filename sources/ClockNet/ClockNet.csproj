@@ -52,15 +52,17 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
     </Compile>
     <Compile Include="PointFConverter.cs" />
-    <Compile Include="Shapes\BlackDot\DotHandShape.cs" />
+    <Compile Include="Shapes\Fancy\DotHandShape.cs" />
     <Compile Include="Shapes\ClockHandBase.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />
+    <Compile Include="Shapes\Fancy\SlotHandShape.cs" />
     <Compile Include="Shapes\Fancy\NumbersShape.cs" />
     <Compile Include="Shapes\INumbersShape.cs" />
     <Compile Include="Shapes\Default\DialShape.cs" />
     <Compile Include="Shapes\Fancy\SweepHandShape.cs" />
     <Compile Include="Shapes\IArrayShape.cs" />
     <Compile Include="Shapes\NumberOrientation.cs" />
+    <Compile Include="Shapes\PathShape.cs" />
     <Compile Include="Shapes\ShapeSet.cs" />
     <Compile Include="Shapes\Default\NumbersShape.cs" />
     <Compile Include="Shapes\Default\Ticks1Shape.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Shapes\ImageShape.cs" />
     <Compile Include="Shapes\Default\PinShape.cs" />
     <Compile Include="Shapes\ShapeConverter.cs" />
+    <Compile Include="Shapes\LineHandShape.cs" />
     <Compile Include="Shapes\VectorialDrawMode.cs" />
     <Compile Include="Shapes\VectorialShapeBase.cs" />
     <Compile Include="Shapes\ShapeBase.cs" />

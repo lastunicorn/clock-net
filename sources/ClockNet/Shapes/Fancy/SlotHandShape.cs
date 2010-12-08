@@ -19,11 +19,13 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace DustInTheWind.Clock.Shapes.BlackDot
+namespace DustInTheWind.Clock.Shapes.Fancy
 {
-    public class DotHandShape : VectorialShapeBase
+    public class SlotHandShape : PathShape
     {
-        public const float HEIGHT = 27.5f;
+        public const float SLOT_WIDTH = 5f;
+        public const float SLOT_HEIGHT = 40f;
+        public const float HEIGHT = 50f;
 
         public override string Name
         {
@@ -47,11 +49,13 @@ namespace DustInTheWind.Clock.Shapes.BlackDot
             set
             {
                 height = value;
+                CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
         }
 
-        protected float radius;
+        protected float slotWidth;
+        protected float slotHeight;
 
         #region Constructors
 
@@ -59,55 +63,59 @@ namespace DustInTheWind.Clock.Shapes.BlackDot
         /// Initializes a new instance of the <see cref="HourHandShape"/> class with
         /// default values.
         /// </summary>
-        public DotHandShape()
-            : this(Color.Empty, Color.RoyalBlue, VectorialDrawMode.Fill, HEIGHT, 10)
+        public SlotHandShape()
+            : this(Color.RoyalBlue, Color.RoyalBlue, HEIGHT, SLOT_HEIGHT, SLOT_WIDTH)
         {
         }
 
-        public DotHandShape(Color fillColor, float height, float radius)
-            : this(Color.Empty, fillColor, VectorialDrawMode.Fill, height, radius)
+        public SlotHandShape(Color fillColor, float height, float slotHeight, float slotWidth)
+            : this(Color.Empty, fillColor, height, slotHeight, slotWidth)
         {
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HourHandShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor"></param>
-        /// <param name="fillColor"></param>
-        /// <param name="drawMode"></param>
-        /// <param name="height"></param>
-        public DotHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height, float radius)
-            : base(outlineColor, fillColor, drawMode)
+        public SlotHandShape(Color outlineColor, Color fillColor, float height, float slotHeight, float slotWidth)
+            : base(outlineColor, fillColor, new GraphicsPath())
         {
             this.height = height;
-            this.radius = radius;
+            this.slotHeight = slotHeight;
+            this.slotWidth = slotWidth;
+
+            CalculateDimensions();
         }
 
         #endregion
 
-        /// <summary>
-        /// Draws the hour hand using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the dot.</param>
-        /// <remarks>
-        /// The hand is drawn in vertical position from the origin of the coordinate system.
-        /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
-        /// </remarks>
-        public override void Draw(Graphics g)
+        private void CalculateDimensions()
         {
-            if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
-            {
-                CreateBrushIfNull();
+            path.Reset();
+            path.AddEllipse(-height, -height, height * 2f, height * 2f);
+            path.AddRectangle(new RectangleF(-slotWidth / 2f, -slotHeight, slotWidth, slotHeight));
+            //float h = 0;
 
-                g.FillEllipse(brush, -radius, -height - radius, radius, radius);
-            }
+            //foreach (PointF point in path)
+            //{
+            //    if (point.Y < h)
+            //        h = point.Y;
+            //}
 
-            if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
-            {
-                CreatePenIfNull();
-
-                g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
-            }
+            //pathHeight = Math.Abs(h);
         }
+
+        //public override void Draw(Graphics g)
+        //{
+        //    if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
+        //    {
+        //        CreateBrushIfNull();
+
+        //        g.FillPath(brush, path);
+        //    }
+
+        //    if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
+        //    {
+        //        CreatePenIfNull();
+
+        //        g.DrawPath(pen, path);
+        //    }
+        //}
     }
 }

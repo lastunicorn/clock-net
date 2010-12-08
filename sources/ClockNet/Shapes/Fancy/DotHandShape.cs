@@ -21,11 +21,9 @@ using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes.Fancy
 {
-    public class HourHandShape : VectorialShapeBase
+    public class DotHandShape : VectorialShapeBase
     {
         public const float HEIGHT = 27.5f;
-
-        private GraphicsPath path;
 
         public override string Name
         {
@@ -53,55 +51,62 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             }
         }
 
+        protected float radius;
+
+        #region Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HourHandShape"/> class with
         /// default values.
         /// </summary>
-        public HourHandShape()
-            : this(Color.RoyalBlue, Color.RoyalBlue, VectorialDrawMode.Fill, HEIGHT)
+        public DotHandShape()
+            : this(Color.Empty, Color.RoyalBlue, VectorialDrawMode.Fill, HEIGHT, 10)
         {
         }
 
-        public HourHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height)
+        public DotHandShape(Color fillColor, float height, float radius)
+            : this(Color.Empty, fillColor, VectorialDrawMode.Fill, height, radius)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HourHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor"></param>
+        /// <param name="fillColor"></param>
+        /// <param name="drawMode"></param>
+        /// <param name="height"></param>
+        public DotHandShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float height, float radius)
             : base(outlineColor, fillColor, drawMode)
         {
-            path = new GraphicsPath(FillMode.Alternate);
             this.height = height;
-            //path.AddEllipse(-15, -15, 30, 30);
-            //path.AddEllipse(-7, -7, 14, 14);
-            //path.AddLines(new Point[] { new Point(-7, 0), new Point(-7, -50), new Point(-15, -50), new Point(0, -100), new Point(15, -50), new Point(7, -50), new Point(7, 0) });
-
-            float r = 10;
-            float d = r * 2;
-            float l = 1.5f;
-            float startAlpha = 360 - (float)GetDegries(Math.Acos(l / r));
-            float alpha = 360 - 2 * (startAlpha - 270);
-
-            // Outline
-            path.AddArc(-r, -r, d, d, startAlpha, alpha);
-            path.AddLines(new PointF[] { new PointF(-l, -50), new PointF(-5, -50), new PointF(0, -100), new PointF(5, -50), new PointF(l, -50) });
-
-            //path.AddLines(new Point[] { new Point(0, 0), new Point(0, -100), new Point(100, -100), new Point(100, 0) });
-            //path.CloseFigure();
-            //path.AddLines(new Point[] { new Point(50, -50), new Point(50, -80), new Point(80, -80), new Point(80, -50) });
-            //path.CloseFigure();
-            //path.AddLines(new Point[] { new Point(20, -20), new Point(30, -20), new Point(30, -30), new Point(20, -30) });
+            this.radius = radius;
         }
 
+        #endregion
+
+        /// <summary>
+        /// Draws the hour hand using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the dot.</param>
+        /// <remarks>
+        /// The hand is drawn in vertical position from the origin of the coordinate system.
+        /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
+        /// </remarks>
         public override void Draw(Graphics g)
         {
             if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
             {
                 CreateBrushIfNull();
 
-                g.FillPath(brush, path);
+                g.FillEllipse(brush, -radius, -height - radius, radius, radius);
             }
 
             if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
             {
                 CreatePenIfNull();
 
-                g.DrawPath(pen, path);
+                g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
             }
         }
     }

@@ -29,25 +29,24 @@ namespace DustInTheWind.Clock.Shapes
             get { return "Path Shape"; }
         }
 
-        public PathShape(GraphicsPath path, Color color, bool fill)
-            : base(color, fill)
+        public PathShape(Color outlineColor, Color fillColor, GraphicsPath path)
+            : base(outlineColor, fillColor, VectorialDrawMode.FillAndOutline)
         {
             this.path = path;
         }
 
         public override void Draw(Graphics g)
         {
-            if (fill)
+            if (!fillColor.IsEmpty)
             {
-                if (brush == null)
-                    brush = new SolidBrush(outlineColor);
+                CreateBrushIfNull();
 
                 g.FillPath(brush, path);
             }
-            else
+            
+            if(!outlineColor.IsEmpty)
             {
-                if (pen == null)
-                    pen = new Pen(outlineColor);
+                CreatePenIfNull();
 
                 g.DrawPath(pen, path);
             }

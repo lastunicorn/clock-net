@@ -160,8 +160,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Initializes a new instance of the <see cref="NumbersShape"/> class.
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Font font)
-            : this(Color.Black, Color.Black, font)
+        public NumbersShape(Color color, Font font)
+            : this(Color.Empty, color, font)
         {
         }
 
