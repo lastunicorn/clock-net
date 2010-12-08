@@ -97,7 +97,17 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public PinShape()
-            : this(Color.Red, Color.Red, VectorialDrawMode.Fill, RADIUS)
+            : this(Color.Empty, Color.Red, VectorialDrawMode.Fill, RADIUS)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PinShape"/> class.
+        /// </summary>
+        /// <param name="color">The color used to draw the pin.</param>
+        /// <param name="fill">A value specifying if the pin should be filled with color.</param>
+        public PinShape(Color color, float radius)
+            : this(Color.Empty, color, VectorialDrawMode.Fill, radius)
         {
         }
 
@@ -116,11 +126,11 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="color">The color used to draw the pin.</param>
         /// <param name="fill">A value specifying if the pin should be filled with color.</param>
-        /// <param name="radiusPercentage">The radius of the pin as percentage from the width of the clock.</param>
-        public PinShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float radiusPercentage)
+        /// <param name="radius">The radius of the pin.</param>
+        public PinShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode, float radius)
             : base(outlineColor, fillColor, drawMode)
         {
-            this.radius = radiusPercentage;
+            this.radius = radius;
             CalculateDimensions();
         }
 

@@ -1008,16 +1008,16 @@ namespace DustInTheWind.Clock
         /// default aspect of the interface.
         /// </summary>
         public AnalogClock()
-            : this(Skin.Default, new LocalTimeProvider())
+            : this(ShapeSet.Default, new LocalTimeProvider())
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalogClock"/> class with
-        /// a skin and a time provider.
+        /// a set of shapes and a time provider.
         /// </summary>
-        public AnalogClock(Skin skin, ITimeProvider timeProvider)
-            : this(skin.DialShape, skin.HourHandShape, skin.MinuteHandShape, skin.SweepHandShape, skin.PinShape, skin.Ticks1Shape, skin.Ticks5Shape, skin.NumbersShape, skin.TextShape, timeProvider)
+        public AnalogClock(ShapeSet shapeSet, ITimeProvider timeProvider)
+            : this(shapeSet.DialShape, shapeSet.HourHandShape, shapeSet.MinuteHandShape, shapeSet.SweepHandShape, shapeSet.PinShape, shapeSet.Ticks1Shape, shapeSet.Ticks5Shape, shapeSet.NumbersShape, shapeSet.TextShape, timeProvider)
         {
         }
 
@@ -1139,6 +1139,8 @@ namespace DustInTheWind.Clock
         //    }
         //}
 
+        #region Shapes call-backs
+
         /// <summary>
         /// Call-back function called when the <see cref="HourHandShape"/> is changed. And the clock needs repainting.
         /// </summary>
@@ -1228,6 +1230,8 @@ namespace DustInTheWind.Clock
         {
             Invalidate();
         }
+
+        #endregion
 
         /// <summary>
         /// Call-back function called when the <see cref="TimeProvider"/> is changed. And the clock needs repainting.
@@ -1338,10 +1342,26 @@ namespace DustInTheWind.Clock
             Invalidate();
         }
 
+        #region Performance
+
+#if PERFORMANCE_TEST
+
+        private long paintCount = 0;
+        private long paintTotalTicks = 0;
+
+#endif
+
+        #endregion
+
         #region OnPaint
 
         protected override void OnPaint(PaintEventArgs e)
         {
+
+#if PERFORMANCE_TEST
+            System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+#endif
+
             base.OnPaint(e);
 
             if (radius <= 0)
@@ -1353,7 +1373,7 @@ namespace DustInTheWind.Clock
             g.TextRenderingHint = TextRenderingHint.AntiAlias;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-            Matrix initialMatrix = e.Graphics.Transform;
+            Matrix originalMatrix = e.Graphics.Transform;
 
             g.TranslateTransform(centerX, centerY);
             g.ScaleTransform(scaleX, scaleY);
@@ -1475,20 +1495,39 @@ namespace DustInTheWind.Clock
 
             if (pinVisible)
                 pinShape.Draw(g);
+
+#if PERFORMANCE_TEST
+
+            stopwatch.Stop();
+
+            paintCount++;
+            paintTotalTicks += stopwatch.ElapsedTicks;
+
+            long averageTicks = paintTotalTicks / paintCount;
+
+            g.Transform = originalMatrix;
+            using (Font performanceTestFont = new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point))
+            {
+                g.DrawString(TimeSpan.FromTicks(averageTicks).TotalMilliseconds.ToString() + " ms", performanceTestFont, Brushes.Black, 0, 0);
+            }
+
+            // 0.36 ms - intel core i5 2.4GHz - win7
+
+#endif
         }
 
         #endregion
 
-        public void SetSkin(Skin skin)
+        public void SetShapes(ShapeSet shapeSet)
         {
-            DialShape = skin.DialShape;
-            HourHandShape = skin.HourHandShape;
-            MinuteHandShape = skin.MinuteHandShape;
-            SweepHandShape = skin.SweepHandShape;
-            PinShape = skin.PinShape;
-            Ticks1Shape = skin.Ticks1Shape;
-            Ticks5Shape = skin.Ticks5Shape;
-            NumbersShape = skin.NumbersShape;
+            DialShape = shapeSet.DialShape;
+            HourHandShape = shapeSet.HourHandShape;
+            MinuteHandShape = shapeSet.MinuteHandShape;
+            SweepHandShape = shapeSet.SweepHandShape;
+            PinShape = shapeSet.PinShape;
+            Ticks1Shape = shapeSet.Ticks1Shape;
+            Ticks5Shape = shapeSet.Ticks5Shape;
+            NumbersShape = shapeSet.NumbersShape;
         }
     }
 }

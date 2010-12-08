@@ -62,17 +62,29 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public DialShape()
-            : this(Color.Empty, Color.Empty, VectorialDrawMode.Fill)
+            : this(Color.Empty, Color.Empty, LINE_WIDTH)
         {
         }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DialShape"/> class.
         /// </summary>
         /// <param name="color">The color used to draw the dial's background.</param>
         /// <param name="fill">A value specifying if the dial should be filled with color or only the border should be drawn.</param>
-        public DialShape(Color outlineColor, Color fillColor, VectorialDrawMode drawMode)
-            : base(outlineColor, fillColor, drawMode)
+        public DialShape(Color fillColor)
+            : this(Color.Empty, fillColor, LINE_WIDTH)
         {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DialShape"/> class.
+        /// </summary>
+        /// <param name="color">The color used to draw the dial's background.</param>
+        /// <param name="fill">A value specifying if the dial should be filled with color or only the border should be drawn.</param>
+        public DialShape(Color outlineColor, Color fillColor, float lineWidth)
+            : base(outlineColor, fillColor, VectorialDrawMode.FillAndOutline)
+        {
+            this.lineWidth = lineWidth;
         }
 
         #endregion

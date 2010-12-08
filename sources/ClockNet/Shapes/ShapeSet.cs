@@ -18,13 +18,13 @@ using System.Drawing;
 
 namespace DustInTheWind.Clock.Shapes
 {
-    public class Skin
+    public class ShapeSet
     {
-        public static Skin Default
+        public static ShapeSet Default
         {
             get
             {
-                return new Skin()
+                return new ShapeSet()
                 {
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(),
                     hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(),
@@ -38,13 +38,14 @@ namespace DustInTheWind.Clock.Shapes
                 };
             }
         }
-        public static Skin Blue
+
+        public static ShapeSet Blue
         {
             get
             {
-                return new Skin()
+                return new ShapeSet()
                 {
-                    dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(Color.LightBlue, Color.LightBlue, VectorialDrawMode.Fill),
+                    dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(Color.LightBlue, Color.LightBlue, 1),
                     hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(Color.Navy, Color.Navy, VectorialDrawMode.Fill),
                     minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(Color.RoyalBlue, Color.RoyalBlue, VectorialDrawMode.Fill),
                     sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(Color.DeepSkyBlue, Color.DeepSkyBlue),
@@ -57,11 +58,11 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
-        public static Skin Fancy
+        public static ShapeSet Fancy
         {
             get
             {
-                return new Skin()
+                return new ShapeSet()
                 {
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(),
                     hourHandShape = new DustInTheWind.Clock.Shapes.Fancy.HourHandShape(),
@@ -71,6 +72,21 @@ namespace DustInTheWind.Clock.Shapes
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(),
                     numbersShape = new DustInTheWind.Clock.Shapes.Fancy.NumbersShape()
+                };
+            }
+        }
+
+        public static ShapeSet BlackDot
+        {
+            get
+            {
+                return new ShapeSet()
+                {
+                    dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(Color.Black, Color.White, 2),
+                    hourHandShape = new DustInTheWind.Clock.Shapes.BlackDot.DotHandShape(Color.Black, 15, 10),
+                    minuteHandShape = new DustInTheWind.Clock.Shapes.BlackDot.DotHandShape(Color.Black, 38, 5),
+                    pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Black, 9),
+                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point), VectorialDrawMode.Fill)
                 };
             }
         }

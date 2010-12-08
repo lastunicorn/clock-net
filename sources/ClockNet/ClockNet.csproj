@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;PERFORMANCE_TEST</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>ClockControl.xml</DocumentationFile>
@@ -52,6 +52,7 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
     </Compile>
     <Compile Include="PointFConverter.cs" />
+    <Compile Include="Shapes\BlackDot\DotHandShape.cs" />
     <Compile Include="Shapes\ClockHandBase.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />
     <Compile Include="Shapes\Fancy\NumbersShape.cs" />
@@ -60,7 +61,7 @@
     <Compile Include="Shapes\Fancy\SweepHandShape.cs" />
     <Compile Include="Shapes\IArrayShape.cs" />
     <Compile Include="Shapes\NumberOrientation.cs" />
-    <Compile Include="Shapes\Skin.cs" />
+    <Compile Include="Shapes\ShapeSet.cs" />
     <Compile Include="Shapes\Default\NumbersShape.cs" />
     <Compile Include="Shapes\Default\Ticks1Shape.cs" />
     <Compile Include="Shapes\Default\Ticks5Shape.cs" />
