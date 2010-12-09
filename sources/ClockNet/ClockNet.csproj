@@ -21,7 +21,7 @@
     <DefineConstants>TRACE;DEBUG;PERFORMANCE_INFO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>ClockControl.xml</DocumentationFile>
+    <DocumentationFile>ClockNet.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>ClockControl.xml</DocumentationFile>
+    <DocumentationFile>ClockNet.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,6 +52,11 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
     </Compile>
     <Compile Include="PointFConverter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Shapes\Fancy\DotHandShape.cs" />
     <Compile Include="Shapes\ClockHandBase.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />
@@ -91,6 +96,15 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\hour_hand.png" />
+    <Content Include="Resources\minute_hand.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -23,6 +23,8 @@ namespace DustInTheWind.Clock.Shapes
 {
     public class ImageHand : ImageShape
     {
+        public const float HEIGHT = 45f;
+
         protected float height;
 
         [Category("Appearance")]
@@ -38,13 +40,14 @@ namespace DustInTheWind.Clock.Shapes
         }
 
         public ImageHand(Image image)
-            : base(image, PointF.Empty)
+            : this(image, PointF.Empty, HEIGHT)
         {
         }
 
-        public ImageHand(Image image, PointF origin)
+        public ImageHand(Image image, PointF origin, float height)
             : base(image, origin)
         {
+            this.height = height;
         }
 
         public override void Draw(Graphics g)
@@ -68,16 +71,6 @@ namespace DustInTheWind.Clock.Shapes
                     g.Transform = originalTransformMatrix;
                 }
             }
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-
-            }
-
-            base.Dispose(disposing);
         }
     }
 }

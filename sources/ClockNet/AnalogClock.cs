@@ -28,6 +28,12 @@ namespace DustInTheWind.Clock
     /// <summary>
     /// An Windows Forms control that displays a time as an old style analog clock.
     /// </summary>
+    /// <remarks>
+    /// <para>If the compilation symbol "PERFORMANCE_INFO" is used at compile time, additional information about the
+    /// time consumed with the OnPaint method are displayed in the upper left corner of the control.</para>
+    /// <para>If the "PERFORMANCE_INFO" symbol is not used, the code necessary to colect performance information will
+    /// not be compiled at all, so it will not influence the performance.</para>
+    /// </remarks>
     public partial class AnalogClock : Control
     {
         #region Event TimeProviderChanged
@@ -1016,6 +1022,8 @@ namespace DustInTheWind.Clock
         /// Initializes a new instance of the <see cref="AnalogClock"/> class with
         /// a set of shapes and a time provider.
         /// </summary>
+        /// <param name="shapeSet">An <see cref="ShapeSet"/> object containing the shapes that creats the interface.</param>
+        /// <param name="timeProvider">An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed in the control.</param>
         public AnalogClock(ShapeSet shapeSet, ITimeProvider timeProvider)
             : this(shapeSet.DialShape, shapeSet.HourHandShape, shapeSet.MinuteHandShape, shapeSet.SweepHandShape, shapeSet.PinShape, shapeSet.Ticks1Shape, shapeSet.Ticks5Shape, shapeSet.NumbersShape, shapeSet.TextShape, timeProvider)
         {
@@ -1023,7 +1031,8 @@ namespace DustInTheWind.Clock
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalogClock"/> class with
-        /// the necessary shapes to create the interface.
+        /// the necessary shapes to create the interface and
+        /// the time provider.
         /// </summary>
         public AnalogClock(IShape dialShape, IShape hourHandShape, IShape minuteHandShape, IShape sweepHandShape, IShape pinShape,
             IShape ticks1Shape, IShape ticks5Shape, IArrayShape numbersShape, IShape textShape, ITimeProvider timeProvider)
@@ -1342,11 +1351,20 @@ namespace DustInTheWind.Clock
             Invalidate();
         }
 
-        #region Performance
+        #region Performance Info
 
 #if PERFORMANCE_INFO
 
+        // >> Needed to display performance info.
+
+        /// <summary>
+        /// Counts the times the control has been repainted.
+        /// </summary>
         private long paintCount = 0;
+
+        /// <summary>
+        /// Keeps the total time (in ticks) the control consumed executing the <see cref="OnPaint"/> method.
+        /// </summary>
         private long paintTotalTicks = 0;
 
 #endif
@@ -1359,7 +1377,12 @@ namespace DustInTheWind.Clock
         {
 
 #if PERFORMANCE_INFO
+
+            // >> Needed to display performance info.
+
+            // Create and start a new Stopwatch.
             System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
 #endif
 
             base.OnPaint(e);
@@ -1498,6 +1521,8 @@ namespace DustInTheWind.Clock
 
 #if PERFORMANCE_INFO
 
+            // >> Needed to display performance info.
+
             stopwatch.Stop();
 
             paintCount++;
@@ -1505,7 +1530,10 @@ namespace DustInTheWind.Clock
 
             long averageTicks = paintTotalTicks / paintCount;
 
-            string text = string.Format("average: {1} ms\ninstant: {0} ms\ncount: {2}", TimeSpan.FromTicks(stopwatch.ElapsedTicks).TotalMilliseconds, TimeSpan.FromTicks(averageTicks).TotalMilliseconds, paintCount);
+            string text = string.Format("average: {1} ms\ninstant: {0} ms\ncount: {2}",
+                TimeSpan.FromTicks(stopwatch.ElapsedTicks).TotalMilliseconds,
+                TimeSpan.FromTicks(averageTicks).TotalMilliseconds,
+                paintCount);
 
             g.Transform = originalMatrix;
             using (Font performanceTestFont = new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point))
@@ -1513,13 +1541,16 @@ namespace DustInTheWind.Clock
                 g.DrawString(text, performanceTestFont, Brushes.Black, 0, 0);
             }
 
-            // 0.36 ms - intel core i5 2.4GHz - win7
-
 #endif
+
         }
 
         #endregion
 
+        /// <summary>
+        /// Sets a new set of shapes to be used by the clock.
+        /// </summary>
+        /// <param name="shapeSet">An instance of <see cref="ShapeSet"/> class containing the <see cref="IShape"/> instances.</param>
         public void SetShapes(ShapeSet shapeSet)
         {
             DialShape = shapeSet.DialShape;
@@ -1530,6 +1561,7 @@ namespace DustInTheWind.Clock
             Ticks1Shape = shapeSet.Ticks1Shape;
             Ticks5Shape = shapeSet.Ticks5Shape;
             NumbersShape = shapeSet.NumbersShape;
+            TextShape = shapeSet.TextShape;
         }
     }
 }

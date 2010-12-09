@@ -17,7 +17,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using DustInTheWind.Clock.Demo.Properties;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.TimeProviders;
 
@@ -36,26 +35,10 @@ namespace DustInTheWind.Clock.Demo
             analogClockHongKong.TimeProvider = new UtcOffsetTimeProvider(TimeSpan.FromHours(8));
             analogClockIndia.TimeProvider = new UtcOffsetTimeProvider(new TimeSpan(5, 30, 0));
 
-            ImageHand hourHandShape = new ImageHand(Resources.hour_hand);
-            hourHandShape.Height = 25;
-            hourHandShape.Origin = new PointF(32f, 155.5f);
-            analogClockImages.HourHandShape = hourHandShape;
-
-            ImageHand minuteHandShape = new ImageHand(Resources.minute_hand);
-            minuteHandShape.Height = 35;
-            minuteHandShape.Origin = new PointF(14.5f, 206f);
-            analogClockImages.MinuteHandShape = minuteHandShape;
-
-            //analogClock5.SweepHandShape = new DustInTheWind.Clock.Shapes.Fancy.SweepHandShape();
-
+            analogClockImages.SetShapes(ShapeSet.ImageShapes);
             analogClock1.SetShapes(ShapeSet.BlackDot);
             analogClock5.SetShapes(ShapeSet.Fancy);
             analogClock7.SetShapes(ShapeSet.WhiteFancy);
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

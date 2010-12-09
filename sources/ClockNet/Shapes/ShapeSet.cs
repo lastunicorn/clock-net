@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Drawing;
+using DustInTheWind.Clock.Properties;
 
 namespace DustInTheWind.Clock.Shapes
 {
@@ -34,7 +35,7 @@ namespace DustInTheWind.Clock.Shapes
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(),
                     numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point)),
-                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
+                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape("Dust in the Wind", Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
                 };
             }
         }
@@ -52,8 +53,7 @@ namespace DustInTheWind.Clock.Shapes
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Empty, Color.Navy),
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.RoyalBlue, Color.RoyalBlue, 7.5f, 0.75f, 5f),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(Color.Navy, Color.Navy, 15f, 5f),
-                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy, Color.Navy, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point)),
-                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
+                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point))
                 };
             }
         }
@@ -86,7 +86,6 @@ namespace DustInTheWind.Clock.Shapes
                     hourHandShape = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape(Color.Black, 15, 10),
                     minuteHandShape = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape(Color.Black, 36, 5.5f),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Black, 9),
-                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
                 };
             }
         }
@@ -102,11 +101,31 @@ namespace DustInTheWind.Clock.Shapes
                     minuteHandShape = new DustInTheWind.Clock.Shapes.LineHandShape(Color.Black, 42, 3, 0),
                     sweepHandShape = new DustInTheWind.Clock.Shapes.LineHandShape(Color.Black, 45, 1, 15),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Black, 9),
-                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.White, new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point)),
-                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape(Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
+                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.White, new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point), 13)
                 };
 
-                ((DustInTheWind.Clock.Shapes.Default.NumbersShape)set.numbersShape).PositionOffset = 13;
+                //((DustInTheWind.Clock.Shapes.Default.NumbersShape)set.numbersShape).PositionOffset = 13;
+
+                return set;
+            }
+        }
+
+        public static ShapeSet ImageShapes
+        {
+            get
+            {
+                ShapeSet set = new ShapeSet()
+                {
+                    dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(),
+                    hourHandShape = new ImageHand(Resources.hour_hand, new PointF(32f, 155.5f), 25),
+                    minuteHandShape = new ImageHand(Resources.minute_hand, new PointF(14.5f, 206f), 35),
+                    sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(),
+                    pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(),
+                    ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.Black, Color.Empty, 3.33f, 0.25f, 0f),
+                    ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(Color.Black, Color.Empty, 5, 3.33f),
+                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Black, new Font("Viner Hand ITC", 7.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)))),
+                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape("Image Hands", Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
+                };
 
                 return set;
             }

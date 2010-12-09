@@ -89,7 +89,7 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        private float positionOffset = POSITION_OFFSET;
+        private float positionOffset;
 
         [Category("Appearance")]
         [DefaultValue(POSITION_OFFSET)]
@@ -152,7 +152,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public NumbersShape()
-            : this(Color.Empty, Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point))
+            : this(Color.Empty, Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
         {
         }
 
@@ -161,7 +161,16 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public NumbersShape(Color color, Font font)
-            : this(Color.Empty, color, font)
+            : this(Color.Empty, color, font, POSITION_OFFSET)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NumbersShape"/> class.
+        /// </summary>
+        /// <param name="font">The font to be used to draw the numbers.</param>
+        public NumbersShape(Color color, Font font, float positionOffset)
+            : this(Color.Empty, color, font, positionOffset)
         {
         }
 
@@ -170,10 +179,11 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="color"></param>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Color outlineColor, Color fillColor, Font font)
+        public NumbersShape(Color outlineColor, Color fillColor, Font font, float positionOffset)
             : base(outlineColor, fillColor)
         {
             this.font = font == null ? new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point) : font;
+            this.positionOffset = positionOffset;
 
             numbersStringFormat = new StringFormat(StringFormatFlags.NoWrap);
             numbersStringFormat.Alignment = StringAlignment.Center;

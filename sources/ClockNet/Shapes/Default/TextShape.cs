@@ -84,9 +84,10 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="color">The color used to draw the pin.</param>
         /// <param name="fill">A value specifying if the pin should be filled with color.</param>
         /// <param name="radiusPercentage">The radius of the pin as percentage from the width of the clock.</param>
-        public TextShape(Color color, Font font)
+        public TextShape(string text, Color color, Font font)
             : base(Color.Empty, color)
         {
+            this.txt = text;
             this.font = font;
 
             stringFormat = new StringFormat();
