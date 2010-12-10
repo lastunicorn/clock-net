@@ -1,4 +1,4 @@
-﻿// ClockControl
+﻿// ClockNet
 // Copyright (C) 2010 Dust in the Wind
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -16,43 +16,76 @@
 
 using System;
 using System.Drawing;
+using System.ComponentModel;
 
 namespace DustInTheWind.Clock.Shapes
 {
+    /// <summary>
+    /// A shape that draws a simple straight line.
+    /// </summary>
     public class LineShape : VectorialShapeBase
     {
-        protected PointF[] path = new PointF[0];
+        /// <summary>
+        /// The default value of the hand width.
+        /// </summary>
+        public new const float LINE_WIDTH = 0.3f;
 
+
+        /// <summary>
+        /// The location of the tail tip.
+        /// </summary>
+        protected PointF startPoint;
+
+        /// <summary>
+        /// The lcation of the hand top.
+        /// </summary>
+        protected PointF endPoint;
+
+
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
         public override string Name
         {
             get { return "Line Shape"; }
         }
 
-        protected float lineWidth;
-        public float LineWidth
+
+        [DefaultValue(LINE_WIDTH)]
+        public override float LineWidth
         {
-            get { return lineWidth; }
-            set
-            {
-                lineWidth = value;
-                InvalidateDrawingTools();
-                OnChanged(EventArgs.Empty);
-            }
+            get { return base.LineWidth; }
+            set { base.LineWidth = value; }
         }
 
-        public LineShape(PointF[] path, Color color, float lineWidth)
-            : base(color, false)
+
+        #region Constructor
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// </summary>
+        /// <param name="color">The color that will be used to draw the line.</param>
+        /// <param name="lineWidth">The width of the line.</param>
+        public LineShape(Color color, float lineWidth)
+            : base(color, Color.Empty, lineWidth)
         {
-            this.path = path;
-            this.lineWidth = lineWidth;
         }
 
+        #endregion
+
+
+        /// <summary>
+        /// Draws the line using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the line.</param>
         public override void Draw(Graphics g)
         {
-            if (pen == null)
-                pen = new Pen(outlineColor, lineWidth);
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-            g.DrawLines(pen, path);
+                g.DrawLine(pen, startPoint, endPoint);
+            }
         }
     }
 }

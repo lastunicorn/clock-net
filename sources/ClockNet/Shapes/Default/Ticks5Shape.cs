@@ -80,28 +80,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        ///// <summary>
-        ///// The width of the 5 second ticks. This value is given for a clock with diameter of 100px.
-        ///// </summary>
-        //private float thickness = THICKNESS;
-
-        ///// <summary>
-        ///// Gets or sets the width of the 5 second ticks. This value is given for a clock with diameter of 100px.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(THICKNESS)]
-        //[Description("The width of the 5 second ticks. This value is given for a clock with diameter of 100px.")]
-        //public float Thickness
-        //{
-        //    get { return thickness; }
-        //    set
-        //    {
-        //        thickness = value;
-        //        InvalidateDrawingTools();
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
-
         /// <summary>
         /// Gets or sets the width of the 5 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
@@ -127,6 +105,9 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
+
+        #region Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Ticks5Shape"/> class with
         /// default values.
@@ -148,6 +129,9 @@ namespace DustInTheWind.Clock.Shapes.Default
             this.length = length;
             this.lineWidth = lineWidth;
         }
+
+        #endregion
+
 
         public override void Draw(Graphics g)
         {

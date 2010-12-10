@@ -51,6 +51,7 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.NumbersShape numbersShape1 = new DustInTheWind.Clock.Shapes.Default.NumbersShape();
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.SweepHandShape sweepHandShape1 = new DustInTheWind.Clock.Shapes.Default.SweepHandShape();
+            DustInTheWind.Clock.Shapes.Default.TextShape textShape1 = new DustInTheWind.Clock.Shapes.Default.TextShape();
             DustInTheWind.Clock.Shapes.Default.Ticks1Shape ticks1Shape1 = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape();
             DustInTheWind.Clock.Shapes.Default.Ticks5Shape ticks5Shape1 = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape();
             DustInTheWind.Clock.TimeProviders.LocalTimeProvider localTimeProvider1 = new DustInTheWind.Clock.TimeProviders.LocalTimeProvider();
@@ -1028,13 +1029,16 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock1.SweepHandShape = sweepHandShape1;
             this.analogClock1.TabIndex = 11;
             this.analogClock1.Text = "Cool";
+            textShape1.Font = new System.Drawing.Font("Arial", 3F);
+            textShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.TextShape = textShape1;
             ticks1Shape1.FillColor = System.Drawing.Color.Empty;
             ticks1Shape1.PositionOffset = 5.5F;
             this.analogClock1.Ticks1Shape = ticks1Shape1;
             ticks5Shape1.FillColor = System.Drawing.Color.Empty;
             ticks5Shape1.PositionOffset = 3F;
             this.analogClock1.Ticks5Shape = ticks5Shape1;
-            this.analogClock1.Time = System.TimeSpan.Parse("23:29:53.6566922");
+            this.analogClock1.Time = System.TimeSpan.Parse("15:56:09.2695380");
             this.analogClock1.TimeProvider = localTimeProvider1;
             this.analogClock1.Timer = this.timer1;
             this.analogClock1.TimeProviderChanged += new System.EventHandler(this.analogClock1_TimeProviderChanged);

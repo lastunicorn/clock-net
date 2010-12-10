@@ -21,7 +21,7 @@ using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes
 {
-    public class ImageHand : ImageShape
+    public class ImageHandShape : ImageShape
     {
         public const float HEIGHT = 45f;
 
@@ -39,12 +39,12 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
-        public ImageHand(Image image)
+        public ImageHandShape(Image image)
             : this(image, PointF.Empty, HEIGHT)
         {
         }
 
-        public ImageHand(Image image, PointF origin, float height)
+        public ImageHandShape(Image image, PointF origin, float height)
             : base(image, origin)
         {
             this.height = height;

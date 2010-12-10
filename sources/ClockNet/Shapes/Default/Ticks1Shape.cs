@@ -80,28 +80,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        ///// <summary>
-        ///// The width of the 1 second ticks. This value is given for a clock with diameter of 100px.
-        ///// </summary>
-        //private float thickness = THICKNESS;
-
-        ///// <summary>
-        ///// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 100px.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(THICKNESS)]
-        //[Description("The width of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
-        //public float Thickness
-        //{
-        //    get { return thickness; }
-        //    set
-        //    {
-        //        thickness = value;
-        //        InvalidateDrawingTools();
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
-
         /// <summary>
         /// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>

@@ -21,11 +21,15 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes
 {
     /// <summary>
-    /// Provides common functionality for a shape created with vectorial paths.
+    /// Provides common functionality for a vectorial shape.
     /// </summary>
     public abstract class VectorialShapeBase : ShapeBase
     {
+        /// <summary>
+        /// The default width of the line used to draw the shape.
+        /// </summary>
         public const float LINE_WIDTH = 1f;
+
 
         /// <summary>
         /// The brush used to fill the shape.
@@ -36,6 +40,7 @@ namespace DustInTheWind.Clock.Shapes
         /// The pen used to draw the outline of the shape
         /// </summary>
         protected Pen pen;
+
 
         /// <summary>
         /// The color used to draw the outline of the shape.
@@ -59,6 +64,7 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+
         /// <summary>
         /// The color used to draw the background of the shape.
         /// </summary>
@@ -81,17 +87,18 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+
         /// <summary>
-        /// The width of the outline's line.
+        /// The width of the outline.
         /// </summary>
         protected float lineWidth = LINE_WIDTH;
 
         /// <summary>
-        /// Gets or sets the width of the outline's line.
+        /// Gets or sets the width of the outline.
         /// </summary>
         [Category("Appearance")]
         [DefaultValue(LINE_WIDTH)]
-        [Description("The width of the outline's line.")]
+        [Description("The width of the outline.")]
         public virtual float LineWidth
         {
             get { return lineWidth; }
@@ -104,43 +111,35 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
-        ///// <summary>
-        ///// A value specifying if the vectorial shape should be filled with color or only draw the outline.
-        ///// </summary>
-        //protected VectorialDrawMode drawMode;
-
-        ///// <summary>
-        ///// Gets or sets a value specifying if the vectorial shape should be filled with color or only draw the outline.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(true)]
-        //[Description("Specifies if the vectorial shape should be filled with color or only draw the outline.")]
-        //public virtual VectorialDrawMode DrawMode
-        //{
-        //    get { return drawMode; }
-        //    set
-        //    {
-        //        drawMode = value;
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
-
 
         #region Constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
         /// </summary>
-        /// <param name="color">The color to be used when drawing the shape.</param>
-        /// <param name="drawMode">A value specifying if the vectorial shape should be filled with color or only the outline should be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
+        /// <param name="fillColor">The color used to draw the background of the shape.</param>
         public VectorialShapeBase(Color outlineColor, Color fillColor)
+            : this(outlineColor, fillColor, LINE_WIDTH)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
+        /// <param name="fillColor">The color used to draw the background of the shape.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
+        public VectorialShapeBase(Color outlineColor, Color fillColor, float lineWidth)
             : base()
         {
             this.outlineColor = outlineColor;
             this.fillColor = fillColor;
+            this.lineWidth = lineWidth;
         }
 
         #endregion
+
 
         /// <summary>
         /// Disposes all the classes used in the drawing process.
@@ -162,6 +161,9 @@ namespace DustInTheWind.Clock.Shapes
             base.InvalidateDrawingTools();
         }
 
+        /// <summary>
+        /// Creates a new <see cref="Brush"/> object only if it does not already exist.
+        /// </summary>
         protected virtual void CreateBrushIfNull()
         {
             if (brush == null)
@@ -174,6 +176,9 @@ namespace DustInTheWind.Clock.Shapes
             //System.Drawing..::.TextureBrush
         }
 
+        /// <summary>
+        /// Creates a new <see cref="Pen"/> object only if it does not already exist.
+        /// </summary>
         protected virtual void CreatePenIfNull()
         {
             if (pen == null)
@@ -185,7 +190,7 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         /// <param name="radians">The radians to be transformed.</param>
         /// <returns>The degries representing the specified radians.</returns>
-        protected double GetDegries(double radians)
+        protected double GetDegrees(double radians)
         {
             return (radians * 180) / Math.PI;
         }

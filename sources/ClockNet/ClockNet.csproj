@@ -51,6 +51,7 @@
     <Compile Include="AnalogClock.Designer.cs">
       <DependentUpon>AnalogClock.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnalogClockDesigner.cs" />
     <Compile Include="PointFConverter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -58,14 +59,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Shapes\Fancy\DotHandShape.cs" />
-    <Compile Include="Shapes\ClockHandBase.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />
     <Compile Include="Shapes\Fancy\SlotHandShape.cs" />
     <Compile Include="Shapes\Fancy\NumbersShape.cs" />
     <Compile Include="Shapes\INumbersShape.cs" />
     <Compile Include="Shapes\Default\DialShape.cs" />
-    <Compile Include="Shapes\Fancy\SweepHandShape.cs" />
+    <Compile Include="Shapes\Fancy\FancySweepHandShape.cs" />
     <Compile Include="Shapes\IArrayShape.cs" />
+    <Compile Include="Shapes\LineShape.cs" />
     <Compile Include="Shapes\NumberOrientation.cs" />
     <Compile Include="Shapes\PathShape.cs" />
     <Compile Include="Shapes\ShapeSet.cs" />
@@ -81,8 +82,7 @@
     <Compile Include="Shapes\Default\SweepHandShape.cs" />
     <Compile Include="Shapes\Default\MinuteHandShape.cs" />
     <Compile Include="Shapes\Default\HourHandShape.cs" />
-    <Compile Include="Shapes\Fancy\HourHandShape.cs" />
-    <Compile Include="Shapes\ImageHand.cs" />
+    <Compile Include="Shapes\ImageHandShape.cs" />
     <Compile Include="Shapes\IShape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeProviders\TimeProviderBase.cs" />

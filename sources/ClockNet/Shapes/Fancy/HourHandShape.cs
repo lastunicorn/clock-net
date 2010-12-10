@@ -74,7 +74,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             float r = 10;
             float d = r * 2;
             float l = 1.5f;
-            float startAlpha = 360 - (float)GetDegries(Math.Acos(l / r));
+            float startAlpha = 360 - (float)GetDegrees(Math.Acos(l / r));
             float alpha = 360 - 2 * (startAlpha - 270);
 
             // Outline

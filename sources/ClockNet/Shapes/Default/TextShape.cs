@@ -25,7 +25,11 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class TextShape : VectorialShapeBase
     {
-        private const float RADIUS = 1.33f;
+        /// <summary>
+        /// The default text drawn.
+        /// </summary>
+        public const string TEXT = "Dust in the Wind";
+
         protected StringFormat stringFormat;
 
         /// <summary>
@@ -37,21 +41,27 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         /// <summary>
-        /// Gets or sets the color used to draw the pin.
+        /// Gets or sets the color used to draw the text.
         /// </summary>
-        [DefaultValue(typeof(Color), "Red")]
-        [Description("The color used to draw the pin.")]
-        public override Color OutlineColor
+        [DefaultValue(typeof(Color), "Black")]
+        [Description("The color used to draw the text.")]
+        public override Color FillColor
         {
-            get { return base.OutlineColor; }
-            set { base.OutlineColor = value; }
+            get { return base.FillColor; }
+            set { base.FillColor = value; }
         }
 
+        /// <summary>
+        /// The text that is drawn.
+        /// </summary>
         private string txt;
 
-        [DefaultValue("qwe")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public string Txt
+        /// <summary>
+        /// Gets or sets the text that is drawn.
+        /// </summary>
+        [DefaultValue(TEXT)]
+        [Description("The text that is drawn.")]
+        public virtual string Txt
         {
             get { return txt; }
             set
@@ -64,7 +74,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         private Font font;
 
         [Category("Appearance")]
-        public Font Font
+        public virtual Font Font
         {
             get { return font; }
             set
@@ -74,12 +84,31 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        private float maxWidth = 50;
+        protected float maxWidth = 50;
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PinShape"/> class.
+        /// Initializes a new instance of the <see cref="TextShape"/> class with
+        /// default values.
+        /// </summary>
+        public TextShape()
+            : this(TEXT, Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
+        {
+        }
+
+        public TextShape(string text)
+            : this(text, Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
+        {
+        }
+
+        public TextShape(string text, Color color)
+            : this(text, color, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextShape"/> class.
         /// </summary>
         /// <param name="color">The color used to draw the pin.</param>
         /// <param name="fill">A value specifying if the pin should be filled with color.</param>

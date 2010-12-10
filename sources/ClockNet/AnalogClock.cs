@@ -26,7 +26,7 @@ using DustInTheWind.Clock.TimeProviders;
 namespace DustInTheWind.Clock
 {
     /// <summary>
-    /// An Windows Forms control that displays a time as an old style analog clock.
+    /// An Windows Forms control that displays an old style analog clock.
     /// </summary>
     /// <remarks>
     /// <para>If the compilation symbol "PERFORMANCE_INFO" is used at compile time, additional information about the
@@ -34,6 +34,7 @@ namespace DustInTheWind.Clock
     /// <para>If the "PERFORMANCE_INFO" symbol is not used, the code necessary to colect performance information will
     /// not be compiled at all, so it will not influence the performance.</para>
     /// </remarks>
+    [Designer(typeof(AnalogClockDesigner))]
     public partial class AnalogClock : Control
     {
         #region Event TimeProviderChanged
@@ -466,8 +467,6 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the hour hand in the position specified by the clock.
         /// </summary>
         [Category("Shapes")]
-        //[Editor(typeof(ShapeSelectorEditor), typeof(UITypeEditor))]
-        [TypeConverter(typeof(ShapeConverter))]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the hour hand in the position specified by the clock.")]
         public IShape HourHandShape
@@ -544,7 +543,6 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the minute hand in the position specified by the clock.
         /// </summary>
         [Category("Shapes")]
-        [TypeConverter(typeof(ShapeConverter))]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the minute hand in the position specified by the clock.")]
         public IShape MinuteHandShape
@@ -621,7 +619,6 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the sweep hand in the position specified by the clock.
         /// </summary>
         [Category("Shapes")]
-        [TypeConverter(typeof(ShapeConverter))]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the sweep hand in the position specified by the clock.")]
         public IShape SweepHandShape
@@ -677,7 +674,6 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
         /// </summary>
         [Category("Shapes")]
-        [TypeConverter(typeof(ShapeConverter))]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the pin from the center of the clock.")]
         public IShape PinShape
@@ -733,7 +729,6 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the tick lines that marks the seconds.
         /// </summary>
         [Category("Shapes")]
-        [TypeConverter(typeof(ShapeConverter))]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the tick lines that marks the seconds.")]
         public IShape Ticks1Shape
@@ -789,7 +784,6 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the tick lines that marks every 5 seconds.
         /// </summary>
         [Category("Shapes")]
-        [TypeConverter(typeof(ShapeConverter))]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the tick lines that marks every 5 seconds.")]
         public IShape Ticks5Shape
@@ -845,7 +839,6 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="INumbersShape"/> responsable to paint the numbers that marks the hours.
         /// </summary>
         [Category("Shapes")]
-        [TypeConverter(typeof(ShapeConverter))]
         [DefaultValue(null)]
         [Description("An instance of INumbersShape responsable to paint the numbers that marks the hours.")]
         public IArrayShape NumbersShape
@@ -880,7 +873,6 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the background of the dial.
         /// </summary>
         [Category("Shapes")]
-        [TypeConverter(typeof(ShapeConverter))]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the background of the dial.")]
         public IShape DialShape
@@ -904,52 +896,7 @@ namespace DustInTheWind.Clock
 
         #endregion
 
-        #region Miscellaneous
-
-        private bool keepProportions = true;
-
-        [Category("Appearance")]
-        [DefaultValue(true)]
-        public bool KeepProportions
-        {
-            get { return keepProportions; }
-            set
-            {
-                keepProportions = value;
-                CalculateDimmensions();
-                Invalidate();
-            }
-        }
-
-        #endregion
-
         #region Text
-
-        /// <summary>
-        /// Gets or sets the text displayed on the dial of the clock.
-        /// </summary>
-        public override string Text
-        {
-            get { return base.Text; }
-            set
-            {
-                base.Text = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the color used to draw the text from the dial of the clock.
-        /// </summary>
-        public override Color ForeColor
-        {
-            get { return base.ForeColor; }
-            set
-            {
-                base.ForeColor = value;
-                InvalidateTextBrush();
-            }
-        }
 
         /// <summary>
         /// An instance of <see cref="IShape"/> responsable to paint the text displayed on the background of the clock.
@@ -960,7 +907,6 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the text displayed on the background of the clock.
         /// </summary>
         [Category("Shapes")]
-        [TypeConverter(typeof(ShapeConverter))]
         [DefaultValue(null)]
         [Description("An instance of INumbersShape responsable to paint the text displayed on the background of the clock.")]
         public IShape TextShape
@@ -985,22 +931,20 @@ namespace DustInTheWind.Clock
         #endregion
 
 
-        #region Brushes and Pens
+        #region Miscellaneous
 
-        /// <summary>
-        /// The brush used to draw the text in the middle of the clock.
-        /// </summary>
-        private Brush textBrush;
+        private bool keepProportions = true;
 
-        /// <summary>
-        /// Disposes the brush used to draw the text in the middle of the clock.
-        /// </summary>
-        private void InvalidateTextBrush()
+        [Category("Appearance")]
+        [DefaultValue(true)]
+        public bool KeepProportions
         {
-            if (textBrush != null)
+            get { return keepProportions; }
+            set
             {
-                textBrush.Dispose();
-                textBrush = null;
+                keepProportions = value;
+                CalculateDimmensions();
+                Invalidate();
             }
         }
 
@@ -1014,7 +958,7 @@ namespace DustInTheWind.Clock
         /// default aspect of the interface.
         /// </summary>
         public AnalogClock()
-            : this(ShapeSet.Default, new LocalTimeProvider())
+            : this(null, null)
         {
         }
 
@@ -1025,75 +969,67 @@ namespace DustInTheWind.Clock
         /// <param name="shapeSet">An <see cref="ShapeSet"/> object containing the shapes that creats the interface.</param>
         /// <param name="timeProvider">An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed in the control.</param>
         public AnalogClock(ShapeSet shapeSet, ITimeProvider timeProvider)
-            : this(shapeSet.DialShape, shapeSet.HourHandShape, shapeSet.MinuteHandShape, shapeSet.SweepHandShape, shapeSet.PinShape, shapeSet.Ticks1Shape, shapeSet.Ticks5Shape, shapeSet.NumbersShape, shapeSet.TextShape, timeProvider)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AnalogClock"/> class with
-        /// the necessary shapes to create the interface and
-        /// the time provider.
-        /// </summary>
-        public AnalogClock(IShape dialShape, IShape hourHandShape, IShape minuteHandShape, IShape sweepHandShape, IShape pinShape,
-            IShape ticks1Shape, IShape ticks5Shape, IArrayShape numbersShape, IShape textShape, ITimeProvider timeProvider)
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             //SetStyle(ControlStyles.Opaque, true);
 
             InitializeComponent();
 
-            if (dialShape != null)
+            if (shapeSet != null)
             {
-                this.dialShape = dialShape;
-                this.dialShape.Changed += new EventHandler(dialShape_Changed);
-            }
+                if (shapeSet.DialShape != null)
+                {
+                    dialShape = shapeSet.DialShape;
+                    dialShape.Changed += new EventHandler(dialShape_Changed);
+                }
 
-            if (hourHandShape != null)
-            {
-                this.hourHandShape = hourHandShape;
-                this.hourHandShape.Changed += new EventHandler(hourHandShape_Changed);
-            }
+                if (shapeSet.HourHandShape != null)
+                {
+                    hourHandShape = shapeSet.HourHandShape;
+                    hourHandShape.Changed += new EventHandler(hourHandShape_Changed);
+                }
 
-            if (minuteHandShape != null)
-            {
-                this.minuteHandShape = minuteHandShape;
-                this.minuteHandShape.Changed += new EventHandler(minuteHandShape_Changed);
-            }
+                if (shapeSet.MinuteHandShape != null)
+                {
+                    minuteHandShape = shapeSet.MinuteHandShape;
+                    minuteHandShape.Changed += new EventHandler(minuteHandShape_Changed);
+                }
 
-            if (sweepHandShape != null)
-            {
-                this.sweepHandShape = sweepHandShape;
-                this.sweepHandShape.Changed += new EventHandler(sweepHandShape_Changed);
-            }
+                if (shapeSet.SweepHandShape != null)
+                {
+                    sweepHandShape = shapeSet.SweepHandShape;
+                    sweepHandShape.Changed += new EventHandler(sweepHandShape_Changed);
+                }
 
-            if (pinShape != null)
-            {
-                this.pinShape = pinShape;
-                this.pinShape.Changed += new EventHandler(pinShape_Changed);
-            }
+                if (shapeSet.PinShape != null)
+                {
+                    pinShape = shapeSet.PinShape;
+                    pinShape.Changed += new EventHandler(pinShape_Changed);
+                }
 
-            if (ticks1Shape != null)
-            {
-                this.ticks1Shape = ticks1Shape;
-                this.ticks1Shape.Changed += new EventHandler(ticks1Shape_Changed);
-            }
+                if (shapeSet.Ticks1Shape != null)
+                {
+                    ticks1Shape = shapeSet.Ticks1Shape;
+                    ticks1Shape.Changed += new EventHandler(ticks1Shape_Changed);
+                }
 
-            if (ticks5Shape != null)
-            {
-                this.ticks5Shape = ticks5Shape;
-                this.ticks5Shape.Changed += new EventHandler(ticks5Shape_Changed);
-            }
+                if (shapeSet.Ticks5Shape != null)
+                {
+                    ticks5Shape = shapeSet.Ticks5Shape;
+                    ticks5Shape.Changed += new EventHandler(ticks5Shape_Changed);
+                }
 
-            if (numbersShape != null)
-            {
-                this.numbersShape = numbersShape;
-                this.numbersShape.Changed += new EventHandler(numbersShape_Changed);
-            }
+                if (shapeSet.NumbersShape != null)
+                {
+                    numbersShape = shapeSet.NumbersShape;
+                    numbersShape.Changed += new EventHandler(numbersShape_Changed);
+                }
 
-            if (textShape != null)
-            {
-                this.textShape = textShape;
-                this.textShape.Changed += new EventHandler(textShape_Changed);
+                if (shapeSet.TextShape != null)
+                {
+                    textShape = shapeSet.TextShape;
+                    textShape.Changed += new EventHandler(textShape_Changed);
+                }
             }
 
             if (timeProvider != null)
@@ -1101,33 +1037,6 @@ namespace DustInTheWind.Clock
                 this.timeProvider = timeProvider;
                 this.timeProvider.Changed += new EventHandler(timeProvider_Changed);
             }
-
-            //this.hourHandShape = hourHandShape == null ? new HourHandShape() : hourHandShape;
-            //this.hourHandShape.Changed += new EventHandler(hourHandShape_Changed);
-
-            //this.minuteHandShape = minuteHandShape == null ? new MinuteHandShape() : minuteHandShape;
-            //this.minuteHandShape.Changed += new EventHandler(minuteHandShape_Changed);
-
-            //this.sweepHandShape = sweepHandShape == null ? new SweepHandShape() : sweepHandShape;
-            //this.sweepHandShape.Changed += new EventHandler(sweepHandShape_Changed);
-
-            //this.pinShape = pinShape == null ? new PinShape() : pinShape;
-            //this.pinShape.Changed += new EventHandler(pinShape_Changed);
-
-            //this.ticks1Shape = ticks1Shape == null ? new Ticks1Shape() : ticks1Shape;
-            //this.ticks1Shape.Changed += new EventHandler(ticks1Shape_Changed);
-
-            //this.ticks5Shape = ticks5Shape == null ? new Ticks5Shape() : ticks5Shape;
-            //this.ticks5Shape.Changed += new EventHandler(ticks5Shape_Changed);
-
-            //this.numbersShape = numbersShape == null ? new NumbersShape(Font) : numbersShape;
-            //this.numbersShape.Changed += new EventHandler(numbersShape_Changed);
-
-            //this.timeProvider = timeProvider == null ? new LocalTimeProvider() : timeProvider;
-            //this.timeProvider.Changed += new EventHandler(timeProvider_Changed);
-
-            //this.dialShape = new DialShape(Color.Empty, true);
-            //this.dialShape.Changed += new EventHandler(dialShape_Changed);
 
             DoubleBuffered = true;
             Text = "Dust in the Wind";
@@ -1324,8 +1233,6 @@ namespace DustInTheWind.Clock
                     scaleY = drawableHeight / diameter;
                 }
 
-
-                //diameter = realDiameter;
                 radius = diameter / 2;
                 centerX = Padding.Left + drawableWidth / 2;
                 centerY = Padding.Top + drawableHeight / 2;
@@ -1442,15 +1349,16 @@ namespace DustInTheWind.Clock
             g.Transform = centerMatrix;
 
 
-            // Create the brush if it does not exist.
-            if (textBrush == null)
-                textBrush = new SolidBrush(ForeColor);
+            //// Create the brush if it does not exist.
+            //if (textBrush == null)
+            //    textBrush = new SolidBrush(ForeColor);
 
             // Draw the text.
             if (textShape != null)
             {
                 textShape.Draw(g);
             }
+
             //using (StringFormat sf = new StringFormat())
             //{
             //    sf.Alignment = StringAlignment.Center;
@@ -1516,7 +1424,7 @@ namespace DustInTheWind.Clock
 
             g.Transform = centerMatrix;
 
-            if (pinVisible)
+            if (pinVisible && pinShape != null)
                 pinShape.Draw(g);
 
 #if PERFORMANCE_INFO
@@ -1553,15 +1461,18 @@ namespace DustInTheWind.Clock
         /// <param name="shapeSet">An instance of <see cref="ShapeSet"/> class containing the <see cref="IShape"/> instances.</param>
         public void SetShapes(ShapeSet shapeSet)
         {
-            DialShape = shapeSet.DialShape;
-            HourHandShape = shapeSet.HourHandShape;
-            MinuteHandShape = shapeSet.MinuteHandShape;
-            SweepHandShape = shapeSet.SweepHandShape;
-            PinShape = shapeSet.PinShape;
-            Ticks1Shape = shapeSet.Ticks1Shape;
-            Ticks5Shape = shapeSet.Ticks5Shape;
-            NumbersShape = shapeSet.NumbersShape;
-            TextShape = shapeSet.TextShape;
+            if (shapeSet != null)
+            {
+                DialShape = shapeSet.DialShape;
+                HourHandShape = shapeSet.HourHandShape;
+                MinuteHandShape = shapeSet.MinuteHandShape;
+                SweepHandShape = shapeSet.SweepHandShape;
+                PinShape = shapeSet.PinShape;
+                Ticks1Shape = shapeSet.Ticks1Shape;
+                Ticks5Shape = shapeSet.Ticks5Shape;
+                NumbersShape = shapeSet.NumbersShape;
+                TextShape = shapeSet.TextShape;
+            }
         }
     }
 }

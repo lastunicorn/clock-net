@@ -28,8 +28,8 @@ namespace DustInTheWind.Clock
                 if (components != null)
                     components.Dispose();
 
-                if (textBrush != null)
-                    textBrush.Dispose();
+                //if (textBrush != null)
+                //    textBrush.Dispose();
 
                 if (hourHandShape != null)
                     hourHandShape.Dispose();

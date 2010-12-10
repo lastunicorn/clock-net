@@ -21,6 +21,11 @@ namespace DustInTheWind.Clock.Shapes
 {
     public class ShapeSet
     {
+        public static ShapeSet Empty
+        {
+            get { return new ShapeSet(); }
+        }
+
         public static ShapeSet Default
         {
             get
@@ -34,8 +39,8 @@ namespace DustInTheWind.Clock.Shapes
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(),
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(),
-                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point)),
-                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape("Dust in the Wind", Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
+                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(),
+                    textShape = new DustInTheWind.Clock.Shapes.Default.TextShape()
                 };
             }
         }
@@ -49,11 +54,11 @@ namespace DustInTheWind.Clock.Shapes
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(Color.LightBlue, Color.LightBlue, 1),
                     hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(Color.Empty, Color.Navy),
                     minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(Color.Empty, Color.RoyalBlue),
-                    sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(Color.DeepSkyBlue, Color.DeepSkyBlue),
+                    sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(Color.DeepSkyBlue),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Empty, Color.Navy),
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.RoyalBlue, Color.RoyalBlue, 7.5f, 0.75f, 5f),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(Color.Navy, Color.Navy, 15f, 5f),
-                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point))
+                    numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy)
                 };
             }
         }
@@ -67,7 +72,7 @@ namespace DustInTheWind.Clock.Shapes
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(),
                     hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(),
                     minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(),
-                    sweepHandShape = new DustInTheWind.Clock.Shapes.Fancy.SweepHandShape(),
+                    sweepHandShape = new DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape(),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(),
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(),
@@ -104,8 +109,6 @@ namespace DustInTheWind.Clock.Shapes
                     numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.White, new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point), 13)
                 };
 
-                //((DustInTheWind.Clock.Shapes.Default.NumbersShape)set.numbersShape).PositionOffset = 13;
-
                 return set;
             }
         }
@@ -117,8 +120,8 @@ namespace DustInTheWind.Clock.Shapes
                 ShapeSet set = new ShapeSet()
                 {
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(),
-                    hourHandShape = new ImageHand(Resources.hour_hand, new PointF(32f, 155.5f), 25),
-                    minuteHandShape = new ImageHand(Resources.minute_hand, new PointF(14.5f, 206f), 35),
+                    hourHandShape = new ImageHandShape(Resources.hour_hand, new PointF(32f, 155.5f), 25),
+                    minuteHandShape = new ImageHandShape(Resources.minute_hand, new PointF(14.5f, 206f), 35),
                     sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(),
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.Black, Color.Empty, 3.33f, 0.25f, 0f),

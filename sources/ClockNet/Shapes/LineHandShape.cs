@@ -17,7 +17,6 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes
 {
@@ -26,19 +25,41 @@ namespace DustInTheWind.Clock.Shapes
     /// </summary>
     public class LineHandShape : VectorialShapeBase
     {
+        /// <summary>
+        /// The default value of the hand length from the pin to the top.
+        /// </summary>
         public const float HEIGHT = 42.5f;
-        public const float LINE_WIDTH = 0.3f;
 
+        /// <summary>
+        /// The default value of the hand width.
+        /// </summary>
+        public new const float LINE_WIDTH = 0.3f;
+
+        /// <summary>
+        /// The default value of the hand's tail length.
+        /// </summary>
+        public const float TAIL_LENGTH = 4.5f;
+
+
+        /// <summary>
+        /// The location of the tail tip.
+        /// </summary>
         protected PointF startPoint;
+
+        /// <summary>
+        /// The lcation of the hand top.
+        /// </summary>
         protected PointF endPoint;
+
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Default Sweep Hand Shape"; }
+            get { return "Line Hand Shape"; }
         }
+
 
         [DefaultValue(LINE_WIDTH)]
         public override float LineWidth
@@ -61,63 +82,73 @@ namespace DustInTheWind.Clock.Shapes
             set { base.FillColor = value; }
         }
 
-        //[DefaultValue(typeof(VectorialDrawMode), "Outline")]
-        //public override VectorialDrawMode DrawMode
-        //{
-        //    get { return base.DrawMode; }
-        //    set { base.DrawMode = value; }
-        //}
-
         /// <summary>
-        /// The length of the sweep hand. For a clock with the diameter of 100px.
+        /// The length of the hand. For a clock with the diameter of 100px.
         /// </summary>
         protected float height;
 
         /// <summary>
-        /// Gets or sets the length of the sweep hand. For a clock with the diameter of 100px.
+        /// Gets or sets the length of the hand. For a clock with the diameter of 100px.
         /// </summary>
         [Category("Appearance")]
         [DefaultValue(HEIGHT)]
-        [Description("The length of the sweep hand. For a clock with the diameter of 100px.")]
+        [Description("The length of the hand. For a clock with the diameter of 100px.")]
         public virtual float Height
         {
             get { return height; }
             set
             {
                 height = value;
+                CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
         }
 
+        /// <summary>
+        /// The length of the hand's tail that is drawn on the other side of the pin.
+        /// </summary>
         private float tailLength;
+
+        /// <summary>
+        /// Gets or set the length of the hand's tail that is drawn on the other side of the pin.
+        /// </summary>
+        [Category("Appearance")]
+        [DefaultValue(TAIL_LENGTH)]
+        [Description("The length of the hand's tail that is drawn on the other side of the pin.")]
+        public virtual float TailLength
+        {
+            get { return tailLength; }
+            set
+            {
+                tailLength = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SweepHandShape"/> class with
+        /// Initializes a new instance of the <see cref="LineHandShape"/> class with
         /// default values.
         /// </summary>
         public LineHandShape()
-            : this(Color.Black, HEIGHT, 1, 4.5f)
+            : this(Color.Black, HEIGHT, LINE_WIDTH, TAIL_LENGTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SweepHandShape"/> class.
+        /// Initializes a new instance of the <see cref="LineHandShape"/> class.
         /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the sweep hand.</param>
-        /// <param name="fillColor">The color used to draw the background of the sweep hand.</param>
         public LineHandShape(Color color)
-            : this(color, HEIGHT, LINE_WIDTH, 4.5f)
+            : this(color, HEIGHT, LINE_WIDTH, TAIL_LENGTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SweepHandShape"/> class.
+        /// Initializes a new instance of the <see cref="LineHandShape"/> class.
         /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the sweep hand.</param>
-        /// <param name="fillColor">The color used to draw the background of the sweep hand.</param>
-        /// <param name="height">The length of the sweep hand for a clock with the diameter of 100px.</param>
         public LineHandShape(Color color, float height, float width, float tailLength)
             : base(color, Color.Empty)
         {
@@ -130,27 +161,17 @@ namespace DustInTheWind.Clock.Shapes
 
         #endregion
 
-        //protected float pathHeight;
 
         private void CalculateDimensions()
         {
             startPoint = new PointF(0f, tailLength);
             endPoint = new PointF(0f, -height);
-            //float h = 0;
-
-            //foreach (PointF point in path)
-            //{
-            //    if (point.Y < h)
-            //        h = point.Y;
-            //}
-
-            //pathHeight = Math.Abs(h);
         }
 
         /// <summary>
-        /// Draws the sweep hand using the provided <see cref="Graphics"/> object.
+        /// Draws the hand hand using the provided <see cref="Graphics"/> object.
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the hand.</param>
         /// <remarks>
         /// The hand is drawn in vertical position from the origin of the coordinate system.
         /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
