@@ -23,7 +23,7 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the minute hand.
     /// </summary>
-    public class MinuteHandShape : VectorialShapeBase
+    public class MinuteHandShape : VectorialShapeBase, IHandShape
     {
         public const float HEIGHT = 37f;
         public const float TAIL_LENGTH = 4f;

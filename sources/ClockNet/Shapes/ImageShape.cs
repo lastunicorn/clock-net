@@ -20,20 +20,32 @@ using System.Drawing;
 
 namespace DustInTheWind.Clock.Shapes
 {
+    /// <summary>
+    /// Displays an image in the <see cref="AnalogClock"/> control.
+    /// </summary>
     public class ImageShape : ShapeBase
     {
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
         public override string Name
         {
             get { return "Image Shape"; }
         }
 
+
+        /// <summary>
+        /// The image to be drawn.
+        /// </summary>
         protected Image image;
 
+        /// <summary>
+        /// Gets or sets the image to be drawn.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(null)]
-        //[TypeConverter(typeof(ImageConverter))]
-        //[Editor(typeof(ImageEditor), typeof(UITypeEditor))]
-        public Image Image
+        [Description("The image to be drawn.")]
+        public virtual Image Image
         {
             get { return image; }
             set
@@ -43,11 +55,19 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+
+        /// <summary>
+        /// The location of the coordinate system's origin relative to the upper left corner of the image.
+        /// </summary>
         protected PointF origin;
 
+        /// <summary>
+        /// Gets or sets the location of the coordinate system's origin relative to the upper left corner of the image.
+        /// </summary>
         [Category("Behaviour")]
         [TypeConverter(typeof(PointFConverter))]
-        public PointF Origin
+        [Description("The location of the coordinate system's origin relative to the upper left corner of the image.")]
+        public virtual PointF Origin
         {
             get { return origin; }
             set
@@ -57,11 +77,32 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageShape"/> class with
+        /// default values.
+        /// </summary>
+        public ImageShape()
+            : this(null, PointF.Empty)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageShape"/> class.
+        /// </summary>
+        /// <param name="image">The image to be drawn.</param>
         public ImageShape(Image image)
             : this(image, PointF.Empty)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageShape"/> class.
+        /// </summary>
+        /// <param name="image">The image to be drawn.</param>
+        /// <param name="origin">The location of the coordinate system's origin relative to the upper left corner of the image.</param>
         public ImageShape(Image image, PointF origin)
             : base()
         {
@@ -69,22 +110,19 @@ namespace DustInTheWind.Clock.Shapes
             this.origin = origin;
         }
 
+        #endregion
+
+
+        /// <summary>
+        /// Draws the image using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
         public override void Draw(Graphics g)
         {
             if (image != null)
             {
                 g.DrawImage(image, -origin.X, -origin.Y, image.Width, image.Height);
             }
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-
-            }
-
-            base.Dispose(disposing);
         }
     }
 }

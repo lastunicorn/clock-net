@@ -62,7 +62,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// The length of the 5 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
-        private float length = LENGTH;
+        protected float length = LENGTH;
 
         /// <summary>
         /// Gets or sets the length of the 5 second ticks. This value is given for a clock with diameter of 100px.
@@ -70,7 +70,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         [Category("Appearance")]
         [DefaultValue(LENGTH)]
         [Description("The length of the 5 second ticks. This value is given for a clock with diameter of 100px.")]
-        public float Length
+        public virtual float Length
         {
             get { return length; }
             set
@@ -91,11 +91,11 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.LineWidth = value; }
         }
 
-        private float positionOffset = POSITION_OFFSET;
+        protected float positionOffset = POSITION_OFFSET;
 
         [Category("Appearance")]
         [DefaultValue(POSITION_OFFSET)]
-        public float PositionOffset
+        public virtual float PositionOffset
         {
             get { return positionOffset; }
             set

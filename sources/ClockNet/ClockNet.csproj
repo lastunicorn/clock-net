@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Shapes\Fancy\DotHandShape.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />
+    <Compile Include="Shapes\IHandShape.cs" />
     <Compile Include="Shapes\Fancy\SlotHandShape.cs" />
     <Compile Include="Shapes\Fancy\NumbersShape.cs" />
     <Compile Include="Shapes\INumbersShape.cs" />

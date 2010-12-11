@@ -21,15 +21,38 @@ using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes
 {
-    public class ImageHandShape : ImageShape
+    /// <summary>
+    /// Displays an image hand in the <see cref="AnalogClock"/> control.
+    /// </summary>
+    public class ImageHandShape : ImageShape, IHandShape
     {
+        /// <summary>
+        /// The default height of the hand.
+        /// </summary>
         public const float HEIGHT = 45f;
 
+
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
+        public override string Name
+        {
+            get { return "Image Hand Shape"; }
+        }
+
+
+        /// <summary>
+        /// The height of the hand. If the image's height is different then this value, a scale is performed.
+        /// </summary>
         protected float height;
 
+        /// <summary>
+        /// Gets or sets the height of the hand. If the image's height is different then this value, a scale is performed.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(150)]
-        public float Height
+        [Description("The height of the hand.")]
+        public virtual float Height
         {
             get { return height; }
             set
@@ -39,17 +62,62 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+
+        /// <summary>
+        /// Not used. Returns always 0.
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public float TailLength
+        {
+            get { return 0f; }
+            set { }
+        }
+
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageHandShape"/> class with
+        /// default values.
+        /// </summary>
+        public ImageHandShape()
+            : this(null, PointF.Empty, HEIGHT)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageHandShape"/> class.
+        /// </summary>
+        /// <param name="image">The immage to be used as a clock hand.</param>
         public ImageHandShape(Image image)
             : this(image, PointF.Empty, HEIGHT)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageHandShape"/> class.
+        /// </summary>
+        /// <param name="image">The immage to be used as a clock hand.</param>
+        /// <param name="origin">The location of the pin relative of the top left corner of the image.</param>
+        /// <param name="height">The height of the hand from the pin to the top.</param>
         public ImageHandShape(Image image, PointF origin, float height)
             : base(image, origin)
         {
             this.height = height;
         }
 
+        #endregion
+
+
+        /// <summary>
+        /// Draws the image representing the hand using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
+        /// <remarks>
+        /// The hand is drawn in vertical position from the origin of the coordinate system.
+        /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
+        /// </remarks>
         public override void Draw(Graphics g)
         {
             if (image != null)

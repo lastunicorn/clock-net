@@ -40,6 +40,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public const float POSITION_OFFSET = 0f;
 
+
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
@@ -47,6 +48,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             get { return "Default Ticks1 Shape"; }
         }
+
 
         /// <summary>
         /// Gets or sets the color used to draw the ticks that mark the seconds.
@@ -59,10 +61,11 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.OutlineColor = value; }
         }
 
+
         /// <summary>
         /// The length of the 1 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
-        private float length = LENGTH;
+        protected float length = LENGTH;
 
         /// <summary>
         /// Gets or sets the length of the 1 second ticks. This value is given for a clock with diameter of 100px.
@@ -70,7 +73,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         [Category("Appearance")]
         [DefaultValue(LENGTH)]
         [Description("The length of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
-        public float Length
+        public virtual float Length
         {
             get { return length; }
             set
@@ -79,6 +82,7 @@ namespace DustInTheWind.Clock.Shapes.Default
                 OnChanged(EventArgs.Empty);
             }
         }
+
 
         /// <summary>
         /// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 100px.
@@ -91,11 +95,19 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.LineWidth = value; }
         }
 
-        private float positionOffset = POSITION_OFFSET;
 
+        /// <summary>
+        /// The position offset relativelly to the edge of the dial.
+        /// </summary>
+        protected float positionOffset = POSITION_OFFSET;
+
+        /// <summary>
+        /// Gets or sets the position offset relativelly to the edge of the dial.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(POSITION_OFFSET)]
-        public float PositionOffset
+        [Description("The position offset relativelly to the edge of the dial.")]
+        public virtual float PositionOffset
         {
             get { return positionOffset; }
             set
@@ -113,19 +125,19 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public Ticks1Shape()
-            : this(Color.Black, Color.Empty, LENGTH, THICKNESS, POSITION_OFFSET)
+            : this(Color.Black, LENGTH, THICKNESS, POSITION_OFFSET)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Ticks1Shape"/> class.
         /// </summary>
-        /// <param name="color"></param>
-        /// <param name="length"></param>
-        /// <param name="lineWidth"></param>
-        /// <param name="positionOffset"></param>
-        public Ticks1Shape(Color outlineColor, Color fillColor, float length, float lineWidth, float positionOffset)
-            : base(outlineColor, fillColor)
+        /// <param name="color">The color used to draw the tick shapes.</param>
+        /// <param name="length">The length of the ticks.</param>
+        /// <param name="lineWidth">The width of the ticks.</param>
+        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
+        public Ticks1Shape(Color color, float length, float lineWidth, float positionOffset)
+            : base(color, Color.Empty)
         {
             this.length = length;
             this.lineWidth = lineWidth;
@@ -135,6 +147,14 @@ namespace DustInTheWind.Clock.Shapes.Default
         #endregion
 
 
+        /// <summary>
+        /// Draws one tick using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
+        /// <remarks>
+        /// Before calling this method, the origin should be already moved to the edje of the dial,
+        /// in the place where the tick should be drawn.
+        /// </remarks>
         public override void Draw(Graphics g)
         {
             if (length > 0 && lineWidth > 0)

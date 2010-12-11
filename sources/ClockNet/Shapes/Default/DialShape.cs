@@ -33,6 +33,7 @@ namespace DustInTheWind.Clock.Shapes.Default
             get { return "Default Dial Shape"; }
         }
 
+
         /// <summary>
         /// Gets or sets the color used to draw the dial's background.
         /// </summary>
@@ -44,6 +45,7 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.OutlineColor = value; }
         }
 
+
         /// <summary>
         /// Gets or sets the color used to draw the border of the dial.
         /// </summary>
@@ -54,6 +56,7 @@ namespace DustInTheWind.Clock.Shapes.Default
             get { return base.FillColor; }
             set { base.FillColor = value; }
         }
+
 
         #region Constructors
 
@@ -69,8 +72,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Initializes a new instance of the <see cref="DialShape"/> class.
         /// </summary>
-        /// <param name="color">The color used to draw the dial's background.</param>
-        /// <param name="fill">A value specifying if the dial should be filled with color or only the border should be drawn.</param>
+        /// <param name="fillColor">The color used to draw the dial's background.</param>
         public DialShape(Color fillColor)
             : this(Color.Empty, fillColor, LINE_WIDTH)
         {
@@ -79,16 +81,20 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Initializes a new instance of the <see cref="DialShape"/> class.
         /// </summary>
-        /// <param name="color">The color used to draw the dial's background.</param>
-        /// <param name="fill">A value specifying if the dial should be filled with color or only the border should be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the dial.</param>
+        /// <param name="fillColor">The color used to draw the dial's background.</param>
         public DialShape(Color outlineColor, Color fillColor, float lineWidth)
-            : base(outlineColor, fillColor)
+            : base(outlineColor, fillColor, lineWidth)
         {
-            this.lineWidth = lineWidth;
         }
 
         #endregion
 
+
+        /// <summary>
+        /// Creates a new <see cref="Pen"/> object if it does not exist already.
+        /// The pen will have an Inset alignment.
+        /// </summary>
         protected override void CreatePenIfNull()
         {
             if (pen == null)

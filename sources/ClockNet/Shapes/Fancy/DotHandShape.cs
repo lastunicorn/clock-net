@@ -20,14 +20,17 @@ using System.Drawing;
 
 namespace DustInTheWind.Clock.Shapes.Fancy
 {
-    public class DotHandShape : VectorialShapeBase
+    public class DotHandShape : VectorialShapeBase, IHandShape
     {
         public const float HEIGHT = 27.5f;
         public const float RADIUS = 10f;
 
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
         public override string Name
         {
-            get { return "Fancy Hour Hand Shape"; }
+            get { return "Dot Hand Shape"; }
         }
 
         /// <summary>
@@ -49,6 +52,17 @@ namespace DustInTheWind.Clock.Shapes.Fancy
                 height = value;
                 OnChanged(EventArgs.Empty);
             }
+        }
+
+        /// <summary>
+        /// Not used. Returns always 0.
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public float TailLength
+        {
+            get { return 0f; }
+            set { }
         }
 
         protected float radius;

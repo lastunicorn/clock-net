@@ -56,7 +56,7 @@ namespace DustInTheWind.Clock.Shapes
                     minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(Color.Empty, Color.RoyalBlue),
                     sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(Color.DeepSkyBlue),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Empty, Color.Navy),
-                    ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.RoyalBlue, Color.RoyalBlue, 7.5f, 0.75f, 5f),
+                    ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.RoyalBlue, 7.5f, 0.75f, 5f),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(Color.Navy, Color.Navy, 15f, 5f),
                     numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy)
                 };
@@ -124,7 +124,7 @@ namespace DustInTheWind.Clock.Shapes
                     minuteHandShape = new ImageHandShape(Resources.minute_hand, new PointF(14.5f, 206f), 35),
                     sweepHandShape = new DustInTheWind.Clock.Shapes.Default.SweepHandShape(),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(),
-                    ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.Black, Color.Empty, 3.33f, 0.25f, 0f),
+                    ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(Color.Black, 3.33f, 0.25f, 0f),
                     ticks5Shape = new DustInTheWind.Clock.Shapes.Default.Ticks5Shape(Color.Black, Color.Empty, 5, 3.33f),
                     numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Black, new Font("Viner Hand ITC", 7.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)))),
                     textShape = new DustInTheWind.Clock.Shapes.Default.TextShape("Image Hands", Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
@@ -149,42 +149,42 @@ namespace DustInTheWind.Clock.Shapes
         }
 
         /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the hour hand in the position specified by the clock.
+        /// An instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
         /// </summary>
-        private IShape hourHandShape;
+        private IHandShape hourHandShape;
 
         /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the hour hand in the position specified by the clock.
+        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
         /// </summary>
-        public IShape HourHandShape
+        public IHandShape HourHandShape
         {
             get { return hourHandShape; }
             set { hourHandShape = value; }
         }
 
         /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the minute hand in the position specified by the clock.
+        /// An instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
         /// </summary>
-        private IShape minuteHandShape;
+        private IHandShape minuteHandShape;
 
         /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the minute hand in the position specified by the clock.
+        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
         /// </summary>
-        public IShape MinuteHandShape
+        public IHandShape MinuteHandShape
         {
             get { return minuteHandShape; }
             set { minuteHandShape = value; }
         }
 
         /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the sweep hand in the position specified by the clock.
+        /// An instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
         /// </summary>
-        private IShape sweepHandShape;
+        private IHandShape sweepHandShape;
 
         /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the sweep hand in the position specified by the clock.
+        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
         /// </summary>
-        public IShape SweepHandShape
+        public IHandShape SweepHandShape
         {
             get { return sweepHandShape; }
             set { sweepHandShape = value; }

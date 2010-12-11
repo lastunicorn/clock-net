@@ -14,26 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
 
-namespace DustInTheWind.Clock.TimeProviders
+namespace DustInTheWind.Clock.Shapes
 {
     /// <summary>
-    /// Provides the time to be displayed by the a clock. The time is provided as <see cref="TimeSpan"/> objects.
+    /// Represents a clock hand to be displayed in the <see cref="AnalogClock"/> control.
     /// </summary>
-    public interface ITimeProvider
+    public interface IHandShape : IShape
     {
         /// <summary>
-        /// Event raised when the internal mechanism that generates time values is changed and therefore
-        /// the already generated time values are obsolete. The clients should request new time values using
-        /// <see cref="GetTime"/> method.
+        /// When implemented in a derived class, gets or sets the height of the hand from the pin to the top.
         /// </summary>
-        event EventHandler Changed;
-
+        float Height { get; set; }
+        
         /// <summary>
-        /// Returns a new time value.
+        /// When implemented in a derived class, gets or sets the length of the tail.
         /// </summary>
-        /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        TimeSpan GetTime();
+        float TailLength { get; set; }
     }
 }

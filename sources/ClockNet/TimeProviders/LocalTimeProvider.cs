@@ -19,7 +19,7 @@ using System;
 namespace DustInTheWind.Clock.TimeProviders
 {
     /// <summary>
-    /// Provides the system's local time from the moment of the request.
+    /// Provides the system's local time.
     /// </summary>
     public class LocalTimeProvider : TimeProviderBase
     {

@@ -459,17 +459,17 @@ namespace DustInTheWind.Clock
         }
 
         /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the hour hand in the position specified by the clock.
+        /// An instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
         /// </summary>
-        private IShape hourHandShape;
+        private IHandShape hourHandShape;
 
         /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the hour hand in the position specified by the clock.
+        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
         /// </summary>
         [Category("Shapes")]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the hour hand in the position specified by the clock.")]
-        public IShape HourHandShape
+        public IHandShape HourHandShape
         {
             get { return hourHandShape; }
             set
@@ -535,17 +535,17 @@ namespace DustInTheWind.Clock
         }
 
         /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the minute hand in the position specified by the clock.
+        /// An instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
         /// </summary>
-        private IShape minuteHandShape;
+        private IHandShape minuteHandShape;
 
         /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the minute hand in the position specified by the clock.
+        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
         /// </summary>
         [Category("Shapes")]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the minute hand in the position specified by the clock.")]
-        public IShape MinuteHandShape
+        public IHandShape MinuteHandShape
         {
             get { return minuteHandShape; }
             set
@@ -611,17 +611,17 @@ namespace DustInTheWind.Clock
         }
 
         /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the sweep hand in the position specified by the clock.
+        /// An instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
         /// </summary>
-        private IShape sweepHandShape;
+        private IHandShape sweepHandShape;
 
         /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the sweep hand in the position specified by the clock.
+        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
         /// </summary>
         [Category("Shapes")]
         [DefaultValue(null)]
         [Description("An instance of IShape responsable to paint the sweep hand in the position specified by the clock.")]
-        public IShape SweepHandShape
+        public IHandShape SweepHandShape
         {
             get { return sweepHandShape; }
             set

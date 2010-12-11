@@ -23,7 +23,7 @@ namespace DustInTheWind.Clock.Shapes
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the sweep hand.
     /// </summary>
-    public class LineHandShape : VectorialShapeBase
+    public class LineHandShape : VectorialShapeBase, IHandShape
     {
         /// <summary>
         /// The default value of the hand length from the pin to the top.

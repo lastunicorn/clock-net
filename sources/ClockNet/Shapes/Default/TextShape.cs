@@ -30,7 +30,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public const string TEXT = "Dust in the Wind";
 
+
         protected StringFormat stringFormat;
+
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -39,6 +41,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             get { return "Default Text Shape"; }
         }
+
 
         /// <summary>
         /// Gets or sets the color used to draw the text.
@@ -51,40 +54,64 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.FillColor = value; }
         }
 
+
         /// <summary>
         /// The text that is drawn.
         /// </summary>
-        private string txt;
+        protected string text;
 
         /// <summary>
         /// Gets or sets the text that is drawn.
         /// </summary>
         [DefaultValue(TEXT)]
         [Description("The text that is drawn.")]
-        public virtual string Txt
+        public virtual string Text
         {
-            get { return txt; }
+            get { return text; }
             set
             {
-                txt = value;
+                text = value;
+                recalculateNeeded = true;
                 OnChanged(EventArgs.Empty);
             }
         }
 
-        private Font font;
 
+        /// <summary>
+        /// The font used to draw the text.
+        /// </summary>
+        protected Font font;
+
+        /// <summary>
+        /// Gets or sets the font used to draw the text.
+        /// </summary>
         [Category("Appearance")]
+        [Description("The font used to draw the text.")]
         public virtual Font Font
         {
             get { return font; }
             set
             {
                 font = value;
+                recalculateNeeded = true;
                 OnChanged(EventArgs.Empty);
             }
         }
 
         protected float maxWidth = 50;
+
+        [Category("Appearance")]
+        public virtual float MaxWidth
+        {
+            get { return maxWidth; }
+            set
+            {
+                maxWidth = value;
+                recalculateNeeded = true;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
 
         #region Constructors
 
@@ -97,11 +124,20 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextShape"/> class.
+        /// </summary>
+        /// <param name="text">The text that should be drawn.</param>
         public TextShape(string text)
             : this(text, Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextShape"/> class.
+        /// </summary>
+        /// <param name="text">The text that should be drawn.</param>
+        /// <param name="color">The color used to draw the text.</param>
         public TextShape(string text, Color color)
             : this(text, color, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
         {
@@ -110,13 +146,13 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Initializes a new instance of the <see cref="TextShape"/> class.
         /// </summary>
-        /// <param name="color">The color used to draw the pin.</param>
-        /// <param name="fill">A value specifying if the pin should be filled with color.</param>
-        /// <param name="radiusPercentage">The radius of the pin as percentage from the width of the clock.</param>
+        /// <param name="text">The text that should be drawn.</param>
+        /// <param name="color">The color used to draw the text.</param>
+        /// <param name="font">The font used to draw the text.</param>
         public TextShape(string text, Color color, Font font)
             : base(Color.Empty, color)
         {
-            this.txt = text;
+            this.text = text;
             this.font = font;
 
             stringFormat = new StringFormat();
@@ -130,16 +166,20 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         #region Calculated Values
 
-        //private SizeF textSize;
-        //private PointF textLocation;
+        private bool recalculateNeeded = true;
+        private RectangleF textRectangle;
 
-        //private void CalculateDimensions()
-        //{
-        //    textSize = g.MeasureString(text, font, (int)maxWidth);
-        //    textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
-        //}
+        private void CalculateDimensions(Graphics g)
+        {
+            SizeF textSize = g.MeasureString(text, font, (int)maxWidth);
+            PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
+            textRectangle = new RectangleF(textLocation, textSize);
+
+            recalculateNeeded = false;
+        }
 
         #endregion
+
 
         /// <summary>
         /// Draws the pin using the provided <see cref="Graphics"/> object.
@@ -147,16 +187,16 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
         public override void Draw(Graphics g)
         {
-            if (font != null && txt != null && txt.Length > 0)
+            if (font != null && text != null && text.Length > 0)
             {
                 if (!fillColor.IsEmpty)
                 {
                     CreateBrushIfNull();
 
-                    SizeF textSize = g.MeasureString(txt, font, (int)maxWidth);
-                    PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
+                    if (recalculateNeeded)
+                        CalculateDimensions(g);
 
-                    g.DrawString(txt, font, brush, new RectangleF(textLocation, textSize), stringFormat);
+                    g.DrawString(text, font, brush, textRectangle, stringFormat);
                 }
             }
         }
@@ -166,7 +206,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
         /// </summary>
-        /// <param name="disposing">Speifies if the managed resources should be disposed, too.</param>
+        /// <param name="disposing">Specifies if the managed resources should be disposed, too.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

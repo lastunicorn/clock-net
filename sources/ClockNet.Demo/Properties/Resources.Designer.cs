@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DustInTheWind.Clock.Demo.Properties {
-    using System;
-    
-    
+namespace DustInTheWind.Clock.Demo.Properties
+{
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>

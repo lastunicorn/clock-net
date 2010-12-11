@@ -21,16 +21,20 @@ using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes.Fancy
 {
-    public class SlotHandShape : PathShape
+    public class SlotHandShape : PathShape, IHandShape
     {
         public const float SLOT_WIDTH = 5f;
         public const float SLOT_HEIGHT = 40f;
         public const float HEIGHT = 50f;
 
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
         public override string Name
         {
-            get { return "Fancy Hour Hand Shape"; }
+            get { return "Slot Hand Shape"; }
         }
+
 
         /// <summary>
         /// The length of the hour hand. For a clock with the diameter of 100px.
@@ -54,13 +58,50 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             }
         }
 
+
+        protected float tailLength;
+        public virtual float TailLength
+        {
+            get { return tailLength; }
+            set
+            {
+                tailLength = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+
         protected float slotWidth;
+        public virtual float SlotWidth
+        {
+            get { return slotWidth; }
+            set
+            {
+                slotWidth = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+
         protected float slotHeight;
+        public virtual float SlotHeight
+        {
+            get { return slotHeight; }
+            set
+            {
+                slotHeight = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HourHandShape"/> class with
+        /// Initializes a new instance of the <see cref="SlotHandShape"/> class with
         /// default values.
         /// </summary>
         public SlotHandShape()
@@ -89,33 +130,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         {
             path.Reset();
             path.AddEllipse(-height, -height, height * 2f, height * 2f);
-            path.AddRectangle(new RectangleF(-slotWidth / 2f, -slotHeight, slotWidth, slotHeight));
-            //float h = 0;
-
-            //foreach (PointF point in path)
-            //{
-            //    if (point.Y < h)
-            //        h = point.Y;
-            //}
-
-            //pathHeight = Math.Abs(h);
+            path.AddRectangle(new RectangleF(-slotWidth / 2f, -slotHeight, slotWidth, slotHeight + tailLength));
         }
-
-        //public override void Draw(Graphics g)
-        //{
-        //    if ((drawMode & VectorialDrawMode.Fill) == VectorialDrawMode.Fill)
-        //    {
-        //        CreateBrushIfNull();
-
-        //        g.FillPath(brush, path);
-        //    }
-
-        //    if ((drawMode & VectorialDrawMode.Outline) == VectorialDrawMode.Outline)
-        //    {
-        //        CreatePenIfNull();
-
-        //        g.DrawPath(pen, path);
-        //    }
-        //}
     }
 }
