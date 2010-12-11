@@ -31,6 +31,20 @@ namespace DustInTheWind.Clock.Shapes
         [Browsable(false)]
         public abstract string Name { get; }
 
+        protected bool visible = true;
+
+        [Category("Appearance")]
+        [DefaultValue(true)]
+        public virtual bool Visible
+        {
+            get { return visible; }
+            set
+            {
+                visible = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
         #region Event Changed
 
         /// <summary>
@@ -51,6 +65,7 @@ namespace DustInTheWind.Clock.Shapes
         }
 
         #endregion
+
 
         /// <summary>
         /// Disposes all the classes used in the drawing process.

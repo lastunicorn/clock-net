@@ -52,26 +52,21 @@ namespace DustInTheWind.Clock.Demo
 
 
             // Hour Hand
-            checkBoxHourHandVisible.Checked = analogClock1.HourHandVisible;
             checkBoxIntegralHours.Checked = analogClock1.IntegralHour;
             propertyGridHourHand.SelectedObject = analogClock1.HourHandShape;
 
             // Minute Hand
-            checkBoxMinuteHandVisible.Checked = analogClock1.MinuteHandVisible;
             checkBoxIntegralMinutes.Checked = analogClock1.IntegralMinute;
             propertyGridMinuteHand.SelectedObject = analogClock1.MinuteHandShape;
 
             // Sweep Hand
-            checkBoxSweepHandVisible.Checked = analogClock1.SweepHandVisible;
             checkBoxIntegralSeconds.Checked = analogClock1.IntegralSecond;
             propertyGridSweepHand.SelectedObject = analogClock1.SweepHandShape;
 
             // Ticks 1
-            checkBoxTicks1SecVisible.Checked = analogClock1.Ticks1Visible;
             propertyGridTicks1.SelectedObject = analogClock1.Ticks1Shape;
 
             // Ticks 5
-            checkBoxTicks5SecVisible.Checked = analogClock1.Ticks5Visible;
             propertyGridTicks5.SelectedObject = analogClock1.Ticks5Shape;
 
             // Value
@@ -82,11 +77,9 @@ namespace DustInTheWind.Clock.Demo
             checkBoxUseExternalTimer.Checked = analogClock1.Timer != null;
 
             // Numbers
-            checkBoxNumbersVisible.Checked = analogClock1.NumbersVisible;
             propertyGridNumbers.SelectedObject = analogClock1.NumbersShape;
 
             // Pin
-            checkBoxPinVisible.Checked = analogClock1.PinVisible;
             propertyGridPin.SelectedObject = analogClock1.PinShape;
 
             // Time Provider
@@ -135,31 +128,6 @@ namespace DustInTheWind.Clock.Demo
         private void checkBoxIntegralSeconds_CheckedChanged(object sender, EventArgs e)
         {
             analogClock1.IntegralSecond = checkBoxIntegralSeconds.Checked;
-        }
-
-        private void checkBoxDrawHourHand_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.HourHandVisible = checkBoxHourHandVisible.Checked;
-        }
-
-        private void checkBoxDrawMinuteHand_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.MinuteHandVisible = checkBoxMinuteHandVisible.Checked;
-        }
-
-        private void checkBoxDrawSweepHand_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.SweepHandVisible = checkBoxSweepHandVisible.Checked;
-        }
-
-        private void checkBoxDraw1SecTicks_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.Ticks1Visible = checkBoxTicks1SecVisible.Checked;
-        }
-
-        private void checkBoxDraw5SecTicks_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.Ticks5Visible = checkBoxTicks5SecVisible.Checked;
         }
 
         private void dateTimePickerTime_ValueChanged(object sender, EventArgs e)
@@ -225,16 +193,6 @@ namespace DustInTheWind.Clock.Demo
         private void checkBoxKeepProportions_CheckedChanged(object sender, EventArgs e)
         {
             analogClock1.KeepProportions = checkBoxKeepProportions.Checked;
-        }
-
-        private void checkBoxNumbersVisible_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.NumbersVisible = checkBoxNumbersVisible.Checked;
-        }
-
-        private void checkBoxPinVisible_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.PinVisible = checkBoxPinVisible.Checked;
         }
 
         private void buttonBrowseTextFont_Click(object sender, EventArgs e)

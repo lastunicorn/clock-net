@@ -164,7 +164,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="g">The <see cref="Graphics"/> on which to draw the number.</param>
         public override void Draw(Graphics g)
         {
-            if (font != null && numbers != null && currentIndex >= 0 && currentIndex < numbers.Length)
+            if (visible && font != null && numbers != null && currentIndex >= 0 && currentIndex < numbers.Length)
             {
                 string number = numbers[currentIndex];
 

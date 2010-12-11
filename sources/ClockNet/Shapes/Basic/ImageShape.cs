@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
     /// Displays an image in the <see cref="AnalogClock"/> control.
@@ -119,7 +119,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
         public override void Draw(Graphics g)
         {
-            if (image != null)
+            if (visible && image != null)
             {
                 g.DrawImage(image, -origin.X, -origin.Y, image.Width, image.Height);
             }

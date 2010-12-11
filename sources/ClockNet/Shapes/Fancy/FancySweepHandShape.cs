@@ -18,6 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using DustInTheWind.Clock.Shapes.Basic;
 
 namespace DustInTheWind.Clock.Shapes.Fancy
 {

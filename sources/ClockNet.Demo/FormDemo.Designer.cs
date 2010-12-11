@@ -72,11 +72,6 @@ namespace DustInTheWind.Clock.Demo
             this.checkBoxIntegralSeconds = new System.Windows.Forms.CheckBox();
             this.checkBoxIntegralMinutes = new System.Windows.Forms.CheckBox();
             this.checkBoxIntegralHours = new System.Windows.Forms.CheckBox();
-            this.checkBoxTicks5SecVisible = new System.Windows.Forms.CheckBox();
-            this.checkBoxTicks1SecVisible = new System.Windows.Forms.CheckBox();
-            this.checkBoxSweepHandVisible = new System.Windows.Forms.CheckBox();
-            this.checkBoxMinuteHandVisible = new System.Windows.Forms.CheckBox();
-            this.checkBoxHourHandVisible = new System.Windows.Forms.CheckBox();
             this.groupBoxValue = new System.Windows.Forms.GroupBox();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -91,7 +86,6 @@ namespace DustInTheWind.Clock.Demo
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.checkBoxNumbersVisible = new System.Windows.Forms.CheckBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.propertyGridHourHand = new System.Windows.Forms.PropertyGrid();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -110,7 +104,6 @@ namespace DustInTheWind.Clock.Demo
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.checkBoxPinVisible = new System.Windows.Forms.CheckBox();
             this.tabPageTicks = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -141,8 +134,6 @@ namespace DustInTheWind.Clock.Demo
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingLeft)).BeginInit();
             this.groupBoxValue.SuspendLayout();
-            this.groupBoxTicks1.SuspendLayout();
-            this.groupBoxTicks5.SuspendLayout();
             this.groupBoxTimer.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxMiscellaneous.SuspendLayout();
@@ -158,7 +149,6 @@ namespace DustInTheWind.Clock.Demo
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.tabPageTicks.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -166,7 +156,6 @@ namespace DustInTheWind.Clock.Demo
             this.tabPageTicks5.SuspendLayout();
             this.tabPageNumbers.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.groupBoxNumbers.SuspendLayout();
             this.tabPageTimeProviders.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBoxTimeProviders.SuspendLayout();
@@ -326,61 +315,6 @@ namespace DustInTheWind.Clock.Demo
             this.checkBoxIntegralHours.UseVisualStyleBackColor = true;
             this.checkBoxIntegralHours.CheckedChanged += new System.EventHandler(this.checkBoxIntegralHours_CheckedChanged);
             // 
-            // checkBoxTicks5SecVisible
-            // 
-            this.checkBoxTicks5SecVisible.AutoSize = true;
-            this.checkBoxTicks5SecVisible.Location = new System.Drawing.Point(20, 22);
-            this.checkBoxTicks5SecVisible.Name = "checkBoxTicks5SecVisible";
-            this.checkBoxTicks5SecVisible.Size = new System.Drawing.Size(115, 17);
-            this.checkBoxTicks5SecVisible.TabIndex = 0;
-            this.checkBoxTicks5SecVisible.Text = "Tisks 5 Sec Visible";
-            this.checkBoxTicks5SecVisible.UseVisualStyleBackColor = true;
-            this.checkBoxTicks5SecVisible.CheckedChanged += new System.EventHandler(this.checkBoxDraw5SecTicks_CheckedChanged);
-            // 
-            // checkBoxTicks1SecVisible
-            // 
-            this.checkBoxTicks1SecVisible.AutoSize = true;
-            this.checkBoxTicks1SecVisible.Location = new System.Drawing.Point(20, 22);
-            this.checkBoxTicks1SecVisible.Name = "checkBoxTicks1SecVisible";
-            this.checkBoxTicks1SecVisible.Size = new System.Drawing.Size(116, 17);
-            this.checkBoxTicks1SecVisible.TabIndex = 0;
-            this.checkBoxTicks1SecVisible.Text = "Ticks 1 Sec Visible";
-            this.checkBoxTicks1SecVisible.UseVisualStyleBackColor = true;
-            this.checkBoxTicks1SecVisible.CheckedChanged += new System.EventHandler(this.checkBoxDraw1SecTicks_CheckedChanged);
-            // 
-            // checkBoxSweepHandVisible
-            // 
-            this.checkBoxSweepHandVisible.AutoSize = true;
-            this.checkBoxSweepHandVisible.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxSweepHandVisible.Name = "checkBoxSweepHandVisible";
-            this.checkBoxSweepHandVisible.Size = new System.Drawing.Size(121, 17);
-            this.checkBoxSweepHandVisible.TabIndex = 0;
-            this.checkBoxSweepHandVisible.Text = "Sweep Hand Visible";
-            this.checkBoxSweepHandVisible.UseVisualStyleBackColor = true;
-            this.checkBoxSweepHandVisible.CheckedChanged += new System.EventHandler(this.checkBoxDrawSweepHand_CheckedChanged);
-            // 
-            // checkBoxMinuteHandVisible
-            // 
-            this.checkBoxMinuteHandVisible.AutoSize = true;
-            this.checkBoxMinuteHandVisible.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxMinuteHandVisible.Name = "checkBoxMinuteHandVisible";
-            this.checkBoxMinuteHandVisible.Size = new System.Drawing.Size(120, 17);
-            this.checkBoxMinuteHandVisible.TabIndex = 0;
-            this.checkBoxMinuteHandVisible.Text = "Minute Hand Visible";
-            this.checkBoxMinuteHandVisible.UseVisualStyleBackColor = true;
-            this.checkBoxMinuteHandVisible.CheckedChanged += new System.EventHandler(this.checkBoxDrawMinuteHand_CheckedChanged);
-            // 
-            // checkBoxHourHandVisible
-            // 
-            this.checkBoxHourHandVisible.AutoSize = true;
-            this.checkBoxHourHandVisible.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxHourHandVisible.Name = "checkBoxHourHandVisible";
-            this.checkBoxHourHandVisible.Size = new System.Drawing.Size(111, 17);
-            this.checkBoxHourHandVisible.TabIndex = 0;
-            this.checkBoxHourHandVisible.Text = "Hour Hand Visible";
-            this.checkBoxHourHandVisible.UseVisualStyleBackColor = true;
-            this.checkBoxHourHandVisible.CheckedChanged += new System.EventHandler(this.checkBoxDrawHourHand_CheckedChanged);
-            // 
             // groupBoxValue
             // 
             this.groupBoxValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -429,7 +363,6 @@ namespace DustInTheWind.Clock.Demo
             // 
             this.groupBoxTicks1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxTicks1.Controls.Add(this.checkBoxTicks1SecVisible);
             this.groupBoxTicks1.Location = new System.Drawing.Point(3, 3);
             this.groupBoxTicks1.Name = "groupBoxTicks1";
             this.groupBoxTicks1.Size = new System.Drawing.Size(180, 115);
@@ -441,7 +374,6 @@ namespace DustInTheWind.Clock.Demo
             // 
             this.groupBoxTicks5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxTicks5.Controls.Add(this.checkBoxTicks5SecVisible);
             this.groupBoxTicks5.Location = new System.Drawing.Point(189, 3);
             this.groupBoxTicks5.Name = "groupBoxTicks5";
             this.groupBoxTicks5.Size = new System.Drawing.Size(180, 115);
@@ -555,17 +487,6 @@ namespace DustInTheWind.Clock.Demo
             this.label8.Size = new System.Drawing.Size(25, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Left";
-            // 
-            // checkBoxNumbersVisible
-            // 
-            this.checkBoxNumbersVisible.AutoSize = true;
-            this.checkBoxNumbersVisible.Location = new System.Drawing.Point(20, 22);
-            this.checkBoxNumbersVisible.Name = "checkBoxNumbersVisible";
-            this.checkBoxNumbersVisible.Size = new System.Drawing.Size(101, 17);
-            this.checkBoxNumbersVisible.TabIndex = 0;
-            this.checkBoxNumbersVisible.Text = "Numbers Visible";
-            this.checkBoxNumbersVisible.UseVisualStyleBackColor = true;
-            this.checkBoxNumbersVisible.CheckedChanged += new System.EventHandler(this.checkBoxNumbersVisible_CheckedChanged);
             // 
             // propertyGridHourHand
             // 
@@ -716,7 +637,6 @@ namespace DustInTheWind.Clock.Demo
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.checkBoxHourHandVisible);
             this.groupBox2.Controls.Add(this.checkBoxIntegralHours);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
@@ -729,7 +649,6 @@ namespace DustInTheWind.Clock.Demo
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.checkBoxMinuteHandVisible);
             this.groupBox3.Controls.Add(this.checkBoxIntegralMinutes);
             this.groupBox3.Location = new System.Drawing.Point(189, 3);
             this.groupBox3.Name = "groupBox3";
@@ -742,7 +661,6 @@ namespace DustInTheWind.Clock.Demo
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.checkBoxSweepHandVisible);
             this.groupBox1.Controls.Add(this.checkBoxIntegralSeconds);
             this.groupBox1.Location = new System.Drawing.Point(3, 124);
             this.groupBox1.Name = "groupBox1";
@@ -755,24 +673,12 @@ namespace DustInTheWind.Clock.Demo
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.checkBoxPinVisible);
             this.groupBox4.Location = new System.Drawing.Point(189, 124);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(180, 115);
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Pin";
-            // 
-            // checkBoxPinVisible
-            // 
-            this.checkBoxPinVisible.AutoSize = true;
-            this.checkBoxPinVisible.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxPinVisible.Name = "checkBoxPinVisible";
-            this.checkBoxPinVisible.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxPinVisible.TabIndex = 1;
-            this.checkBoxPinVisible.Text = "Pin Visible";
-            this.checkBoxPinVisible.UseVisualStyleBackColor = true;
-            this.checkBoxPinVisible.CheckedChanged += new System.EventHandler(this.checkBoxPinVisible_CheckedChanged);
             // 
             // tabPageTicks
             // 
@@ -897,7 +803,6 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxNumbers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.SetColumnSpan(this.groupBoxNumbers, 2);
-            this.groupBoxNumbers.Controls.Add(this.checkBoxNumbersVisible);
             this.groupBoxNumbers.Location = new System.Drawing.Point(3, 3);
             this.groupBoxNumbers.Name = "groupBoxNumbers";
             this.groupBoxNumbers.Size = new System.Drawing.Size(366, 115);
@@ -1038,7 +943,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape1.FillColor = System.Drawing.Color.Empty;
             ticks5Shape1.PositionOffset = 3F;
             this.analogClock1.Ticks5Shape = ticks5Shape1;
-            this.analogClock1.Time = System.TimeSpan.Parse("15:56:09.2695380");
+            this.analogClock1.Time = System.TimeSpan.Parse("13:37:57.9097201");
             this.analogClock1.TimeProvider = localTimeProvider1;
             this.analogClock1.Timer = this.timer1;
             this.analogClock1.TimeProviderChanged += new System.EventHandler(this.analogClock1_TimeProviderChanged);
@@ -1138,10 +1043,6 @@ namespace DustInTheWind.Clock.Demo
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingLeft)).EndInit();
             this.groupBoxValue.ResumeLayout(false);
             this.groupBoxValue.PerformLayout();
-            this.groupBoxTicks1.ResumeLayout(false);
-            this.groupBoxTicks1.PerformLayout();
-            this.groupBoxTicks5.ResumeLayout(false);
-            this.groupBoxTicks5.PerformLayout();
             this.groupBoxTimer.ResumeLayout(false);
             this.groupBoxTimer.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1164,8 +1065,6 @@ namespace DustInTheWind.Clock.Demo
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.tabPageTicks.ResumeLayout(false);
             this.tabPageTicks.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1175,8 +1074,6 @@ namespace DustInTheWind.Clock.Demo
             this.tabPageNumbers.ResumeLayout(false);
             this.tabPageNumbers.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.groupBoxNumbers.ResumeLayout(false);
-            this.groupBoxNumbers.PerformLayout();
             this.tabPageTimeProviders.ResumeLayout(false);
             this.tabPageTimeProviders.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -1201,11 +1098,6 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.CheckBox checkBoxIntegralSeconds;
         private System.Windows.Forms.CheckBox checkBoxIntegralMinutes;
         private System.Windows.Forms.CheckBox checkBoxIntegralHours;
-        private System.Windows.Forms.CheckBox checkBoxTicks5SecVisible;
-        private System.Windows.Forms.CheckBox checkBoxTicks1SecVisible;
-        private System.Windows.Forms.CheckBox checkBoxSweepHandVisible;
-        private System.Windows.Forms.CheckBox checkBoxMinuteHandVisible;
-        private System.Windows.Forms.CheckBox checkBoxHourHandVisible;
         private System.Windows.Forms.GroupBox groupBoxValue;
         private System.Windows.Forms.DateTimePicker dateTimePickerTime;
         private System.Windows.Forms.Label label4;
@@ -1226,7 +1118,6 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.TextBox textBoxTextFont;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.CheckBox checkBoxKeepProportions;
-        private System.Windows.Forms.CheckBox checkBoxNumbersVisible;
         private System.Windows.Forms.PropertyGrid propertyGridHourHand;
         private DustInTheWind.Clock.AnalogClock analogClock1;
         private System.Windows.Forms.TabControl tabControl;
@@ -1242,7 +1133,6 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.Panel panelClock;
         private System.Windows.Forms.TabPage tabPagePin;
         private System.Windows.Forms.PropertyGrid propertyGridPin;
-        private System.Windows.Forms.CheckBox checkBoxPinVisible;
         private System.Windows.Forms.TabPage tabPageClockHands;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox2;

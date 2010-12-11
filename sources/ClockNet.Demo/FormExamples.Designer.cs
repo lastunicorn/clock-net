@@ -287,46 +287,46 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.TimeProviders.LocalTimeProvider localTimeProvider24 = new DustInTheWind.Clock.TimeProviders.LocalTimeProvider();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanelTicksAndNumbers = new System.Windows.Forms.FlowLayoutPanel();
-            this.analogClockDefault = new DustInTheWind.Clock.AnalogClock();
-            this.analogClockSimple = new DustInTheWind.Clock.AnalogClock();
-            this.analogClockNoNumbers = new DustInTheWind.Clock.AnalogClock();
-            this.analogClockCleared = new DustInTheWind.Clock.AnalogClock();
-            this.analogClock6 = new DustInTheWind.Clock.AnalogClock();
-            this.analogClockOnlyNumbers = new DustInTheWind.Clock.AnalogClock();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageDefault1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.labelDefault1 = new System.Windows.Forms.Label();
             this.tabPageDefault2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabPageFancy = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelColours = new System.Windows.Forms.FlowLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tabPageTimeZones = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.analogClockDefault = new DustInTheWind.Clock.AnalogClock();
+            this.analogClockSimple = new DustInTheWind.Clock.AnalogClock();
+            this.analogClockNoNumbers = new DustInTheWind.Clock.AnalogClock();
+            this.analogClockCleared = new DustInTheWind.Clock.AnalogClock();
+            this.analogClock6 = new DustInTheWind.Clock.AnalogClock();
+            this.analogClockOnlyNumbers = new DustInTheWind.Clock.AnalogClock();
             this.analogClock2 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock3 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock4 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock15 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock10 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock13 = new DustInTheWind.Clock.AnalogClock();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tabPageFancy = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanelColours = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClockImages = new DustInTheWind.Clock.AnalogClock();
             this.analogClock1 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock5 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock7 = new DustInTheWind.Clock.AnalogClock();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tabPageTimeZones = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClockLocal = new DustInTheWind.Clock.AnalogClock();
             this.analogClockUTC = new DustInTheWind.Clock.AnalogClock();
             this.analogClockNewYork = new DustInTheWind.Clock.AnalogClock();
             this.analogClockTokyo = new DustInTheWind.Clock.AnalogClock();
             this.analogClockHongKong = new DustInTheWind.Clock.AnalogClock();
             this.analogClockIndia = new DustInTheWind.Clock.AnalogClock();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClock14 = new DustInTheWind.Clock.AnalogClock();
             this.analogClock8 = new DustInTheWind.Clock.AnalogClock();
             this.flowLayoutPanelTicksAndNumbers.SuspendLayout();
@@ -360,304 +360,6 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanelTicksAndNumbers.Name = "flowLayoutPanelTicksAndNumbers";
             this.flowLayoutPanelTicksAndNumbers.Size = new System.Drawing.Size(988, 628);
             this.flowLayoutPanelTicksAndNumbers.TabIndex = 9;
-            // 
-            // analogClockDefault
-            // 
-            dialShape1.FillColor = System.Drawing.Color.Empty;
-            dialShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockDefault.DialShape = dialShape1;
-            hourHandShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockDefault.HourHandShape = hourHandShape1;
-            this.analogClockDefault.Location = new System.Drawing.Point(3, 3);
-            minuteHandShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockDefault.MinuteHandShape = minuteHandShape1;
-            this.analogClockDefault.Name = "analogClockDefault";
-            numbersShape1.CurrentIndex = 11;
-            numbersShape1.Font = new System.Drawing.Font("Arial", 7F);
-            numbersShape1.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockDefault.NumbersShape = numbersShape1;
-            pinShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockDefault.PinShape = pinShape1;
-            this.analogClockDefault.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape1.FillColor = System.Drawing.Color.Empty;
-            this.analogClockDefault.SweepHandShape = sweepHandShape1;
-            this.analogClockDefault.TabIndex = 15;
-            this.analogClockDefault.Text = "Dust in the Wind";
-            textShape1.Font = new System.Drawing.Font("Arial", 3F);
-            textShape1.OutlineColor = System.Drawing.Color.Empty;
-            textShape1.Text = "Default values";
-            this.analogClockDefault.TextShape = textShape1;
-            ticks1Shape1.FillColor = System.Drawing.Color.Empty;
-            this.analogClockDefault.Ticks1Shape = ticks1Shape1;
-            ticks5Shape1.FillColor = System.Drawing.Color.Empty;
-            this.analogClockDefault.Ticks5Shape = ticks5Shape1;
-            this.analogClockDefault.Time = System.TimeSpan.Parse("00:21:53.8268420");
-            this.analogClockDefault.TimeProvider = localTimeProvider1;
-            this.analogClockDefault.Timer = this.timer1;
-            // 
-            // analogClockSimple
-            // 
-            dialShape2.FillColor = System.Drawing.Color.Empty;
-            dialShape2.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockSimple.DialShape = dialShape2;
-            hourHandShape2.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockSimple.HourHandShape = hourHandShape2;
-            this.analogClockSimple.Location = new System.Drawing.Point(309, 3);
-            minuteHandShape2.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockSimple.MinuteHandShape = minuteHandShape2;
-            this.analogClockSimple.Name = "analogClockSimple";
-            numbersShape2.CurrentIndex = 11;
-            numbersShape2.FillColor = System.Drawing.Color.Empty;
-            numbersShape2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape2.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape2.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockSimple.NumbersShape = numbersShape2;
-            this.analogClockSimple.NumbersVisible = false;
-            pinShape2.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockSimple.PinShape = pinShape2;
-            this.analogClockSimple.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape2.FillColor = System.Drawing.Color.Empty;
-            this.analogClockSimple.SweepHandShape = sweepHandShape2;
-            this.analogClockSimple.TabIndex = 1;
-            this.analogClockSimple.Text = "Dust in the Wind";
-            textShape2.Font = new System.Drawing.Font("Arial", 3F);
-            textShape2.OutlineColor = System.Drawing.Color.Empty;
-            textShape2.Text = "Simple";
-            this.analogClockSimple.TextShape = textShape2;
-            ticks1Shape2.FillColor = System.Drawing.Color.Empty;
-            this.analogClockSimple.Ticks1Shape = ticks1Shape2;
-            this.analogClockSimple.Ticks1Visible = false;
-            ticks5Shape2.FillColor = System.Drawing.Color.Empty;
-            this.analogClockSimple.Ticks5Shape = ticks5Shape2;
-            this.analogClockSimple.Time = System.TimeSpan.Parse("00:21:53.8318423");
-            this.analogClockSimple.TimeProvider = localTimeProvider2;
-            this.analogClockSimple.Timer = this.timer1;
-            // 
-            // analogClockNoNumbers
-            // 
-            this.analogClockNoNumbers.BackColor = System.Drawing.Color.Transparent;
-            dialShape3.FillColor = System.Drawing.Color.Empty;
-            dialShape3.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockNoNumbers.DialShape = dialShape3;
-            hourHandShape3.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockNoNumbers.HourHandShape = hourHandShape3;
-            this.analogClockNoNumbers.Location = new System.Drawing.Point(615, 3);
-            minuteHandShape3.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockNoNumbers.MinuteHandShape = minuteHandShape3;
-            this.analogClockNoNumbers.Name = "analogClockNoNumbers";
-            numbersShape3.CurrentIndex = 11;
-            numbersShape3.FillColor = System.Drawing.Color.Empty;
-            numbersShape3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape3.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape3.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockNoNumbers.NumbersShape = numbersShape3;
-            this.analogClockNoNumbers.NumbersVisible = false;
-            pinShape3.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockNoNumbers.PinShape = pinShape3;
-            this.analogClockNoNumbers.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape3.FillColor = System.Drawing.Color.Empty;
-            this.analogClockNoNumbers.SweepHandShape = sweepHandShape3;
-            this.analogClockNoNumbers.TabIndex = 10;
-            this.analogClockNoNumbers.Text = "Dust in the Wind";
-            textShape3.Font = new System.Drawing.Font("Arial", 3F);
-            textShape3.OutlineColor = System.Drawing.Color.Empty;
-            textShape3.Text = "No Numbers";
-            this.analogClockNoNumbers.TextShape = textShape3;
-            ticks1Shape3.FillColor = System.Drawing.Color.Empty;
-            this.analogClockNoNumbers.Ticks1Shape = ticks1Shape3;
-            ticks5Shape3.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape3.Length = 7F;
-            this.analogClockNoNumbers.Ticks5Shape = ticks5Shape3;
-            this.analogClockNoNumbers.Time = System.TimeSpan.Parse("00:21:53.8358425");
-            this.analogClockNoNumbers.TimeProvider = localTimeProvider3;
-            this.analogClockNoNumbers.Timer = this.timer1;
-            // 
-            // analogClockCleared
-            // 
-            dialShape4.FillColor = System.Drawing.Color.Empty;
-            dialShape4.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockCleared.DialShape = dialShape4;
-            hourHandShape4.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockCleared.HourHandShape = hourHandShape4;
-            this.analogClockCleared.Location = new System.Drawing.Point(3, 309);
-            minuteHandShape4.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockCleared.MinuteHandShape = minuteHandShape4;
-            this.analogClockCleared.Name = "analogClockCleared";
-            numbersShape4.CurrentIndex = 11;
-            numbersShape4.FillColor = System.Drawing.Color.Empty;
-            numbersShape4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape4.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape4.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockCleared.NumbersShape = numbersShape4;
-            this.analogClockCleared.NumbersVisible = false;
-            pinShape4.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockCleared.PinShape = pinShape4;
-            this.analogClockCleared.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape4.FillColor = System.Drawing.Color.Empty;
-            this.analogClockCleared.SweepHandShape = sweepHandShape4;
-            this.analogClockCleared.TabIndex = 12;
-            this.analogClockCleared.Text = "Dust in the Wind";
-            textShape4.Font = new System.Drawing.Font("Arial", 3F);
-            textShape4.OutlineColor = System.Drawing.Color.Empty;
-            textShape4.Text = "Cleared";
-            this.analogClockCleared.TextShape = textShape4;
-            ticks1Shape4.FillColor = System.Drawing.Color.Empty;
-            this.analogClockCleared.Ticks1Shape = ticks1Shape4;
-            this.analogClockCleared.Ticks1Visible = false;
-            ticks5Shape4.FillColor = System.Drawing.Color.Empty;
-            this.analogClockCleared.Ticks5Shape = ticks5Shape4;
-            this.analogClockCleared.Ticks5Visible = false;
-            this.analogClockCleared.Time = System.TimeSpan.Parse("00:21:53.8398428");
-            this.analogClockCleared.TimeProvider = localTimeProvider4;
-            this.analogClockCleared.Timer = this.timer1;
-            // 
-            // analogClock6
-            // 
-            dialShape5.FillColor = System.Drawing.Color.Empty;
-            dialShape5.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock6.DialShape = dialShape5;
-            hourHandShape5.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock6.HourHandShape = hourHandShape5;
-            this.analogClock6.Location = new System.Drawing.Point(309, 309);
-            minuteHandShape5.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock6.MinuteHandShape = minuteHandShape5;
-            this.analogClock6.Name = "analogClock6";
-            numbersShape5.CurrentIndex = 11;
-            numbersShape5.Font = new System.Drawing.Font("Vivaldi", 5.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape5.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape5.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock6.NumbersShape = numbersShape5;
-            pinShape5.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock6.PinShape = pinShape5;
-            this.analogClock6.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape5.FillColor = System.Drawing.Color.Empty;
-            this.analogClock6.SweepHandShape = sweepHandShape5;
-            this.analogClock6.TabIndex = 13;
-            this.analogClock6.Text = "Dust in the Wind";
-            textShape5.Font = new System.Drawing.Font("Arial", 3F);
-            textShape5.OutlineColor = System.Drawing.Color.Empty;
-            textShape5.Text = "Fancy Numbers";
-            this.analogClock6.TextShape = textShape5;
-            ticks1Shape5.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape5.Length = 3F;
-            this.analogClock6.Ticks1Shape = ticks1Shape5;
-            ticks5Shape5.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape5.LineWidth = 2F;
-            this.analogClock6.Ticks5Shape = ticks5Shape5;
-            this.analogClock6.Time = System.TimeSpan.Parse("00:21:53.8428429");
-            this.analogClock6.TimeProvider = localTimeProvider5;
-            this.analogClock6.Timer = this.timer1;
-            // 
-            // analogClockOnlyNumbers
-            // 
-            dialShape6.FillColor = System.Drawing.Color.Empty;
-            dialShape6.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockOnlyNumbers.DialShape = dialShape6;
-            hourHandShape6.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockOnlyNumbers.HourHandShape = hourHandShape6;
-            this.analogClockOnlyNumbers.Location = new System.Drawing.Point(615, 309);
-            minuteHandShape6.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockOnlyNumbers.MinuteHandShape = minuteHandShape6;
-            this.analogClockOnlyNumbers.Name = "analogClockOnlyNumbers";
-            numbersShape6.CurrentIndex = 11;
-            numbersShape6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape6.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape6.OutlineColor = System.Drawing.Color.Empty;
-            numbersShape6.PositionOffset = 3.33F;
-            this.analogClockOnlyNumbers.NumbersShape = numbersShape6;
-            pinShape6.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockOnlyNumbers.PinShape = pinShape6;
-            this.analogClockOnlyNumbers.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape6.FillColor = System.Drawing.Color.Empty;
-            this.analogClockOnlyNumbers.SweepHandShape = sweepHandShape6;
-            this.analogClockOnlyNumbers.TabIndex = 14;
-            this.analogClockOnlyNumbers.Text = "Dust in the Wind";
-            textShape6.Font = new System.Drawing.Font("Arial", 3F);
-            textShape6.OutlineColor = System.Drawing.Color.Empty;
-            textShape6.Text = "Only Numbers";
-            this.analogClockOnlyNumbers.TextShape = textShape6;
-            ticks1Shape6.FillColor = System.Drawing.Color.Empty;
-            this.analogClockOnlyNumbers.Ticks1Shape = ticks1Shape6;
-            this.analogClockOnlyNumbers.Ticks1Visible = false;
-            ticks5Shape6.FillColor = System.Drawing.Color.Empty;
-            this.analogClockOnlyNumbers.Ticks5Shape = ticks5Shape6;
-            this.analogClockOnlyNumbers.Ticks5Visible = false;
-            this.analogClockOnlyNumbers.Time = System.TimeSpan.Parse("00:21:53.8458431");
-            this.analogClockOnlyNumbers.TimeProvider = localTimeProvider6;
-            this.analogClockOnlyNumbers.Timer = this.timer1;
             // 
             // tabControl1
             // 
@@ -734,313 +436,6 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanel3.Size = new System.Drawing.Size(988, 628);
             this.flowLayoutPanel3.TabIndex = 11;
             // 
-            // analogClock2
-            // 
-            dialShape7.FillColor = System.Drawing.Color.LightBlue;
-            dialShape7.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock2.DialShape = dialShape7;
-            hourHandShape7.FillColor = System.Drawing.Color.Navy;
-            hourHandShape7.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock2.HourHandShape = hourHandShape7;
-            this.analogClock2.Location = new System.Drawing.Point(3, 3);
-            minuteHandShape7.FillColor = System.Drawing.Color.RoyalBlue;
-            minuteHandShape7.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock2.MinuteHandShape = minuteHandShape7;
-            this.analogClock2.Name = "analogClock2";
-            numbersShape7.CurrentIndex = 11;
-            numbersShape7.FillColor = System.Drawing.Color.Navy;
-            numbersShape7.Font = new System.Drawing.Font("Showcard Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape7.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape7.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock2.NumbersShape = numbersShape7;
-            pinShape7.FillColor = System.Drawing.Color.Navy;
-            pinShape7.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock2.PinShape = pinShape7;
-            this.analogClock2.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape7.FillColor = System.Drawing.Color.Empty;
-            this.analogClock2.SweepHandShape = sweepHandShape7;
-            this.analogClock2.TabIndex = 0;
-            this.analogClock2.Text = "Dust in the Wind";
-            textShape7.Font = new System.Drawing.Font("Arial", 3F);
-            textShape7.OutlineColor = System.Drawing.Color.Empty;
-            textShape7.Text = "Blue";
-            this.analogClock2.TextShape = textShape7;
-            ticks1Shape7.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape7.OutlineColor = System.Drawing.Color.RoyalBlue;
-            ticks1Shape7.PositionOffset = 1.66F;
-            this.analogClock2.Ticks1Shape = ticks1Shape7;
-            ticks5Shape7.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape7.LineWidth = 1.66F;
-            ticks5Shape7.OutlineColor = System.Drawing.Color.Navy;
-            ticks5Shape7.PositionOffset = 2F;
-            this.analogClock2.Ticks5Shape = ticks5Shape7;
-            this.analogClock2.Time = System.TimeSpan.Parse("00:21:53.9068466");
-            this.analogClock2.TimeProvider = localTimeProvider7;
-            this.analogClock2.Timer = this.timer1;
-            // 
-            // analogClock3
-            // 
-            dialShape8.FillColor = System.Drawing.Color.Empty;
-            dialShape8.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock3.DialShape = dialShape8;
-            hourHandShape8.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock3.HourHandShape = hourHandShape8;
-            this.analogClock3.Location = new System.Drawing.Point(309, 3);
-            minuteHandShape8.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock3.MinuteHandShape = minuteHandShape8;
-            this.analogClock3.Name = "analogClock3";
-            numbersShape8.CurrentIndex = 11;
-            numbersShape8.Font = new System.Drawing.Font("Vrinda", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape8.Numbers = new string[] {
-        "I",
-        "II",
-        "III",
-        "IV",
-        "V",
-        "VI",
-        "VII",
-        "VIII",
-        "IX",
-        "X",
-        "XI",
-        "XII"};
-            numbersShape8.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock3.NumbersShape = numbersShape8;
-            pinShape8.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock3.PinShape = pinShape8;
-            this.analogClock3.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape8.FillColor = System.Drawing.Color.Empty;
-            this.analogClock3.SweepHandShape = sweepHandShape8;
-            this.analogClock3.TabIndex = 11;
-            this.analogClock3.Text = "Dust in the Wind";
-            textShape8.Font = new System.Drawing.Font("Arial", 3F);
-            textShape8.OutlineColor = System.Drawing.Color.Empty;
-            textShape8.Text = "Roman";
-            this.analogClock3.TextShape = textShape8;
-            ticks1Shape8.FillColor = System.Drawing.Color.Empty;
-            this.analogClock3.Ticks1Shape = ticks1Shape8;
-            ticks5Shape8.FillColor = System.Drawing.Color.Empty;
-            this.analogClock3.Ticks5Shape = ticks5Shape8;
-            this.analogClock3.Time = System.TimeSpan.Parse("00:21:53.9108468");
-            this.analogClock3.TimeProvider = localTimeProvider8;
-            this.analogClock3.Timer = this.timer1;
-            // 
-            // analogClock4
-            // 
-            dialShape9.FillColor = System.Drawing.Color.LightGreen;
-            dialShape9.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock4.DialShape = dialShape9;
-            hourHandShape9.FillColor = System.Drawing.Color.DarkGreen;
-            hourHandShape9.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock4.HourHandShape = hourHandShape9;
-            this.analogClock4.Location = new System.Drawing.Point(615, 3);
-            minuteHandShape9.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock4.MinuteHandShape = minuteHandShape9;
-            this.analogClock4.Name = "analogClock4";
-            numbersShape9.CurrentIndex = 11;
-            numbersShape9.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape9.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape9.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock4.NumbersShape = numbersShape9;
-            pinShape9.FillColor = System.Drawing.Color.DarkGreen;
-            pinShape9.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock4.PinShape = pinShape9;
-            this.analogClock4.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape9.FillColor = System.Drawing.Color.Empty;
-            this.analogClock4.SweepHandShape = sweepHandShape9;
-            this.analogClock4.TabIndex = 11;
-            this.analogClock4.Text = "Dust in the Wind";
-            textShape9.Font = new System.Drawing.Font("Arial", 3F);
-            textShape9.OutlineColor = System.Drawing.Color.Empty;
-            textShape9.Text = "Green";
-            this.analogClock4.TextShape = textShape9;
-            ticks1Shape9.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape9.PositionOffset = 2.66F;
-            this.analogClock4.Ticks1Shape = ticks1Shape9;
-            ticks5Shape9.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape9.LineWidth = 2.66F;
-            this.analogClock4.Ticks5Shape = ticks5Shape9;
-            this.analogClock4.Time = System.TimeSpan.Parse("00:21:53.9168472");
-            this.analogClock4.TimeProvider = localTimeProvider9;
-            this.analogClock4.Timer = this.timer1;
-            // 
-            // analogClock15
-            // 
-            dialShape10.FillColor = System.Drawing.Color.Empty;
-            dialShape10.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock15.DialShape = dialShape10;
-            hourHandShape10.LineWidth = 0.33F;
-            hourHandShape10.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock15.HourHandShape = hourHandShape10;
-            this.analogClock15.Location = new System.Drawing.Point(3, 309);
-            minuteHandShape10.LineWidth = 0.33F;
-            minuteHandShape10.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock15.MinuteHandShape = minuteHandShape10;
-            this.analogClock15.Name = "analogClock15";
-            numbersShape10.CurrentIndex = 11;
-            numbersShape10.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape10.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape10.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock15.NumbersShape = numbersShape10;
-            pinShape10.FillColor = System.Drawing.Color.Empty;
-            pinShape10.LineWidth = 0.33F;
-            pinShape10.OutlineColor = System.Drawing.Color.Red;
-            pinShape10.Radius = 17F;
-            this.analogClock15.PinShape = pinShape10;
-            this.analogClock15.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape10.FillColor = System.Drawing.Color.Empty;
-            this.analogClock15.SweepHandShape = sweepHandShape10;
-            this.analogClock15.TabIndex = 11;
-            this.analogClock15.Text = "Dust in the Wind";
-            textShape10.Font = new System.Drawing.Font("Arial", 3F);
-            textShape10.OutlineColor = System.Drawing.Color.Empty;
-            textShape10.Text = "Outlines";
-            this.analogClock15.TextShape = textShape10;
-            ticks1Shape10.FillColor = System.Drawing.Color.Empty;
-            this.analogClock15.Ticks1Shape = ticks1Shape10;
-            ticks5Shape10.FillColor = System.Drawing.Color.Empty;
-            this.analogClock15.Ticks5Shape = ticks5Shape10;
-            this.analogClock15.Time = System.TimeSpan.Parse("00:21:53.9208474");
-            this.analogClock15.TimeProvider = localTimeProvider10;
-            this.analogClock15.Timer = this.timer1;
-            // 
-            // analogClock10
-            // 
-            dialShape11.FillColor = System.Drawing.Color.Empty;
-            dialShape11.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock10.DialShape = dialShape11;
-            hourHandShape11.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock10.HourHandShape = hourHandShape11;
-            this.analogClock10.Location = new System.Drawing.Point(309, 309);
-            minuteHandShape11.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock10.MinuteHandShape = minuteHandShape11;
-            this.analogClock10.Name = "analogClock10";
-            numbersShape11.CurrentIndex = 11;
-            numbersShape11.Font = new System.Drawing.Font("Vrinda", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            numbersShape11.Numbers = new string[] {
-        "",
-        "",
-        "3",
-        "",
-        "",
-        "6",
-        "",
-        "",
-        "9",
-        "",
-        "",
-        "12"};
-            numbersShape11.OutlineColor = System.Drawing.Color.Empty;
-            numbersShape11.PositionOffset = 2.33F;
-            this.analogClock10.NumbersShape = numbersShape11;
-            pinShape11.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock10.PinShape = pinShape11;
-            this.analogClock10.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape11.FillColor = System.Drawing.Color.Empty;
-            this.analogClock10.SweepHandShape = sweepHandShape11;
-            this.analogClock10.TabIndex = 13;
-            this.analogClock10.Text = "Dust in the Wind";
-            textShape11.Font = new System.Drawing.Font("Arial", 3F);
-            textShape11.OutlineColor = System.Drawing.Color.Empty;
-            textShape11.Text = "Few Numbers";
-            this.analogClock10.TextShape = textShape11;
-            ticks1Shape11.FillColor = System.Drawing.Color.Empty;
-            this.analogClock10.Ticks1Shape = ticks1Shape11;
-            ticks5Shape11.FillColor = System.Drawing.Color.Empty;
-            this.analogClock10.Ticks5Shape = ticks5Shape11;
-            this.analogClock10.Time = System.TimeSpan.Parse("00:21:53.9238476");
-            this.analogClock10.TimeProvider = localTimeProvider11;
-            this.analogClock10.Timer = this.timer1;
-            // 
-            // analogClock13
-            // 
-            dialShape12.FillColor = System.Drawing.Color.Empty;
-            dialShape12.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock13.DialShape = dialShape12;
-            this.analogClock13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            hourHandShape12.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock13.HourHandShape = hourHandShape12;
-            this.analogClock13.Location = new System.Drawing.Point(615, 309);
-            minuteHandShape12.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock13.MinuteHandShape = minuteHandShape12;
-            this.analogClock13.Name = "analogClock13";
-            numbersShape12.CurrentIndex = 11;
-            numbersShape12.Font = new System.Drawing.Font("Arial", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape12.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape12.OutlineColor = System.Drawing.Color.Empty;
-            numbersShape12.PositionOffset = 0F;
-            this.analogClock13.NumbersShape = numbersShape12;
-            pinShape12.OutlineColor = System.Drawing.Color.Empty;
-            pinShape12.Radius = 2F;
-            this.analogClock13.PinShape = pinShape12;
-            this.analogClock13.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape12.FillColor = System.Drawing.Color.Red;
-            this.analogClock13.SweepHandShape = sweepHandShape12;
-            this.analogClock13.TabIndex = 0;
-            this.analogClock13.Text = "analogClock13";
-            textShape12.Font = new System.Drawing.Font("Arial", 3F);
-            textShape12.OutlineColor = System.Drawing.Color.Empty;
-            textShape12.Text = "Small Numbers";
-            this.analogClock13.TextShape = textShape12;
-            ticks1Shape12.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape12.PositionOffset = 1.66F;
-            this.analogClock13.Ticks1Shape = ticks1Shape12;
-            ticks5Shape12.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape12.LineWidth = 0.66F;
-            ticks5Shape12.PositionOffset = 8F;
-            this.analogClock13.Ticks5Shape = ticks5Shape12;
-            this.analogClock13.Time = System.TimeSpan.Parse("00:21:53.9278478");
-            this.analogClock13.TimeProvider = localTimeProvider12;
-            this.analogClock13.Timer = this.timer1;
-            // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1086,190 +481,6 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanelColours.Name = "flowLayoutPanelColours";
             this.flowLayoutPanelColours.Size = new System.Drawing.Size(988, 628);
             this.flowLayoutPanelColours.TabIndex = 10;
-            // 
-            // analogClockImages
-            // 
-            dialShape13.FillColor = System.Drawing.Color.Empty;
-            dialShape13.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockImages.DialShape = dialShape13;
-            hourHandShape13.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockImages.HourHandShape = hourHandShape13;
-            this.analogClockImages.Location = new System.Drawing.Point(3, 3);
-            minuteHandShape13.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockImages.MinuteHandShape = minuteHandShape13;
-            this.analogClockImages.Name = "analogClockImages";
-            numbersShape13.CurrentIndex = 11;
-            numbersShape13.Font = new System.Drawing.Font("Arial", 7F);
-            numbersShape13.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape13.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockImages.NumbersShape = numbersShape13;
-            pinShape13.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockImages.PinShape = pinShape13;
-            this.analogClockImages.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape13.FillColor = System.Drawing.Color.Empty;
-            this.analogClockImages.SweepHandShape = sweepHandShape13;
-            this.analogClockImages.TabIndex = 14;
-            this.analogClockImages.Text = "analogClock9";
-            textShape13.Font = new System.Drawing.Font("Arial", 3F);
-            textShape13.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockImages.TextShape = textShape13;
-            ticks1Shape13.FillColor = System.Drawing.Color.Empty;
-            this.analogClockImages.Ticks1Shape = ticks1Shape13;
-            ticks5Shape13.FillColor = System.Drawing.Color.Empty;
-            this.analogClockImages.Ticks5Shape = ticks5Shape13;
-            this.analogClockImages.Time = System.TimeSpan.Parse("00:21:53.9578495");
-            this.analogClockImages.TimeProvider = localTimeProvider13;
-            this.analogClockImages.Timer = this.timer1;
-            // 
-            // analogClock1
-            // 
-            dialShape14.FillColor = System.Drawing.Color.Empty;
-            dialShape14.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.DialShape = dialShape14;
-            hourHandShape14.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.HourHandShape = hourHandShape14;
-            this.analogClock1.Location = new System.Drawing.Point(309, 3);
-            minuteHandShape14.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.MinuteHandShape = minuteHandShape14;
-            this.analogClock1.Name = "analogClock1";
-            numbersShape14.CurrentIndex = 11;
-            numbersShape14.Font = new System.Drawing.Font("Arial", 7F);
-            numbersShape14.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape14.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.NumbersShape = numbersShape14;
-            pinShape14.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.PinShape = pinShape14;
-            this.analogClock1.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape14.FillColor = System.Drawing.Color.Empty;
-            this.analogClock1.SweepHandShape = sweepHandShape14;
-            this.analogClock1.TabIndex = 13;
-            this.analogClock1.Text = "analogClock1";
-            textShape14.Font = new System.Drawing.Font("Arial", 3F);
-            textShape14.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.TextShape = textShape14;
-            ticks1Shape14.FillColor = System.Drawing.Color.Empty;
-            this.analogClock1.Ticks1Shape = ticks1Shape14;
-            ticks5Shape14.FillColor = System.Drawing.Color.Empty;
-            this.analogClock1.Ticks5Shape = ticks5Shape14;
-            this.analogClock1.Time = System.TimeSpan.Parse("00:21:53.9658500");
-            this.analogClock1.TimeProvider = localTimeProvider14;
-            this.analogClock1.Timer = this.timer1;
-            // 
-            // analogClock5
-            // 
-            dialShape15.FillColor = System.Drawing.Color.Empty;
-            dialShape15.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock5.DialShape = dialShape15;
-            hourHandShape15.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock5.HourHandShape = hourHandShape15;
-            this.analogClock5.Location = new System.Drawing.Point(615, 3);
-            minuteHandShape15.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock5.MinuteHandShape = minuteHandShape15;
-            this.analogClock5.Name = "analogClock5";
-            numbersShape15.CurrentIndex = 11;
-            numbersShape15.Font = new System.Drawing.Font("Arial", 7F);
-            numbersShape15.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape15.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock5.NumbersShape = numbersShape15;
-            pinShape15.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock5.PinShape = pinShape15;
-            this.analogClock5.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape15.FillColor = System.Drawing.Color.Empty;
-            this.analogClock5.SweepHandShape = sweepHandShape15;
-            this.analogClock5.TabIndex = 13;
-            this.analogClock5.Text = "analogClock1";
-            textShape15.Font = new System.Drawing.Font("Arial", 3F);
-            textShape15.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock5.TextShape = textShape15;
-            ticks1Shape15.FillColor = System.Drawing.Color.Empty;
-            this.analogClock5.Ticks1Shape = ticks1Shape15;
-            ticks5Shape15.FillColor = System.Drawing.Color.Empty;
-            this.analogClock5.Ticks5Shape = ticks5Shape15;
-            this.analogClock5.Time = System.TimeSpan.Parse("00:21:53.9698502");
-            this.analogClock5.TimeProvider = localTimeProvider15;
-            this.analogClock5.Timer = this.timer1;
-            // 
-            // analogClock7
-            // 
-            dialShape16.FillColor = System.Drawing.Color.Empty;
-            dialShape16.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock7.DialShape = dialShape16;
-            hourHandShape16.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock7.HourHandShape = hourHandShape16;
-            this.analogClock7.Location = new System.Drawing.Point(3, 309);
-            minuteHandShape16.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock7.MinuteHandShape = minuteHandShape16;
-            this.analogClock7.Name = "analogClock7";
-            numbersShape16.CurrentIndex = 11;
-            numbersShape16.Font = new System.Drawing.Font("Arial", 7F);
-            numbersShape16.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape16.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock7.NumbersShape = numbersShape16;
-            pinShape16.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock7.PinShape = pinShape16;
-            this.analogClock7.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape16.FillColor = System.Drawing.Color.Empty;
-            this.analogClock7.SweepHandShape = sweepHandShape16;
-            this.analogClock7.TabIndex = 13;
-            this.analogClock7.Text = "analogClock1";
-            textShape16.Font = new System.Drawing.Font("Arial", 3F);
-            textShape16.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock7.TextShape = textShape16;
-            ticks1Shape16.FillColor = System.Drawing.Color.Empty;
-            this.analogClock7.Ticks1Shape = ticks1Shape16;
-            ticks5Shape16.FillColor = System.Drawing.Color.Empty;
-            this.analogClock7.Ticks5Shape = ticks5Shape16;
-            this.analogClock7.Time = System.TimeSpan.Parse("00:21:53.9728504");
-            this.analogClock7.TimeProvider = localTimeProvider16;
-            this.analogClock7.Timer = this.timer1;
             // 
             // label4
             // 
@@ -1319,318 +530,6 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 628);
             this.flowLayoutPanel1.TabIndex = 11;
             // 
-            // analogClockLocal
-            // 
-            dialShape17.FillColor = System.Drawing.Color.Empty;
-            dialShape17.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockLocal.DialShape = dialShape17;
-            hourHandShape17.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockLocal.HourHandShape = hourHandShape17;
-            this.analogClockLocal.Location = new System.Drawing.Point(3, 3);
-            minuteHandShape17.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockLocal.MinuteHandShape = minuteHandShape17;
-            this.analogClockLocal.Name = "analogClockLocal";
-            numbersShape17.CurrentIndex = 11;
-            numbersShape17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape17.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape17.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockLocal.NumbersShape = numbersShape17;
-            this.analogClockLocal.NumbersVisible = false;
-            pinShape17.OutlineColor = System.Drawing.Color.Empty;
-            pinShape17.Radius = 1.5F;
-            this.analogClockLocal.PinShape = pinShape17;
-            this.analogClockLocal.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape17.FillColor = System.Drawing.Color.Empty;
-            this.analogClockLocal.SweepHandShape = sweepHandShape17;
-            this.analogClockLocal.TabIndex = 0;
-            this.analogClockLocal.Text = "Local";
-            textShape17.Font = new System.Drawing.Font("Arial", 3F);
-            textShape17.OutlineColor = System.Drawing.Color.Empty;
-            textShape17.Text = "Local Time";
-            this.analogClockLocal.TextShape = textShape17;
-            ticks1Shape17.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape17.LineWidth = 0.33F;
-            this.analogClockLocal.Ticks1Shape = ticks1Shape17;
-            ticks5Shape17.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape17.Length = 7F;
-            ticks5Shape17.LineWidth = 1F;
-            this.analogClockLocal.Ticks5Shape = ticks5Shape17;
-            this.analogClockLocal.Time = System.TimeSpan.Parse("00:21:53.9918515");
-            this.analogClockLocal.TimeProvider = localTimeProvider17;
-            this.analogClockLocal.Timer = this.timer1;
-            // 
-            // analogClockUTC
-            // 
-            dialShape18.FillColor = System.Drawing.Color.Empty;
-            dialShape18.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockUTC.DialShape = dialShape18;
-            hourHandShape18.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockUTC.HourHandShape = hourHandShape18;
-            this.analogClockUTC.Location = new System.Drawing.Point(309, 3);
-            minuteHandShape18.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockUTC.MinuteHandShape = minuteHandShape18;
-            this.analogClockUTC.Name = "analogClockUTC";
-            numbersShape18.CurrentIndex = 11;
-            numbersShape18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape18.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape18.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockUTC.NumbersShape = numbersShape18;
-            this.analogClockUTC.NumbersVisible = false;
-            pinShape18.OutlineColor = System.Drawing.Color.Empty;
-            pinShape18.Radius = 1.5F;
-            this.analogClockUTC.PinShape = pinShape18;
-            this.analogClockUTC.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape18.FillColor = System.Drawing.Color.Empty;
-            this.analogClockUTC.SweepHandShape = sweepHandShape18;
-            this.analogClockUTC.TabIndex = 1;
-            this.analogClockUTC.Text = "UTC";
-            textShape18.Font = new System.Drawing.Font("Arial", 3F);
-            textShape18.OutlineColor = System.Drawing.Color.Empty;
-            textShape18.Text = "UTC Time";
-            this.analogClockUTC.TextShape = textShape18;
-            ticks1Shape18.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape18.LineWidth = 0.33F;
-            this.analogClockUTC.Ticks1Shape = ticks1Shape18;
-            ticks5Shape18.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape18.Length = 7F;
-            ticks5Shape18.LineWidth = 1F;
-            this.analogClockUTC.Ticks5Shape = ticks5Shape18;
-            this.analogClockUTC.Time = System.TimeSpan.Parse("00:21:53.9958517");
-            this.analogClockUTC.TimeProvider = localTimeProvider18;
-            this.analogClockUTC.Timer = this.timer1;
-            // 
-            // analogClockNewYork
-            // 
-            dialShape19.FillColor = System.Drawing.Color.Empty;
-            dialShape19.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockNewYork.DialShape = dialShape19;
-            hourHandShape19.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockNewYork.HourHandShape = hourHandShape19;
-            this.analogClockNewYork.Location = new System.Drawing.Point(615, 3);
-            minuteHandShape19.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockNewYork.MinuteHandShape = minuteHandShape19;
-            this.analogClockNewYork.Name = "analogClockNewYork";
-            numbersShape19.CurrentIndex = 11;
-            numbersShape19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape19.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape19.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockNewYork.NumbersShape = numbersShape19;
-            this.analogClockNewYork.NumbersVisible = false;
-            pinShape19.OutlineColor = System.Drawing.Color.Empty;
-            pinShape19.Radius = 1.5F;
-            this.analogClockNewYork.PinShape = pinShape19;
-            this.analogClockNewYork.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape19.FillColor = System.Drawing.Color.Empty;
-            this.analogClockNewYork.SweepHandShape = sweepHandShape19;
-            this.analogClockNewYork.TabIndex = 2;
-            this.analogClockNewYork.Text = "New York";
-            textShape19.Font = new System.Drawing.Font("Arial", 3F);
-            textShape19.OutlineColor = System.Drawing.Color.Empty;
-            textShape19.Text = "New York Time";
-            this.analogClockNewYork.TextShape = textShape19;
-            ticks1Shape19.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape19.LineWidth = 0.33F;
-            this.analogClockNewYork.Ticks1Shape = ticks1Shape19;
-            ticks5Shape19.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape19.Length = 7F;
-            ticks5Shape19.LineWidth = 1F;
-            this.analogClockNewYork.Ticks5Shape = ticks5Shape19;
-            this.analogClockNewYork.Time = System.TimeSpan.Parse("00:21:53.9988519");
-            this.analogClockNewYork.TimeProvider = localTimeProvider19;
-            this.analogClockNewYork.Timer = this.timer1;
-            // 
-            // analogClockTokyo
-            // 
-            dialShape20.FillColor = System.Drawing.Color.Empty;
-            dialShape20.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockTokyo.DialShape = dialShape20;
-            hourHandShape20.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockTokyo.HourHandShape = hourHandShape20;
-            this.analogClockTokyo.Location = new System.Drawing.Point(3, 309);
-            minuteHandShape20.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockTokyo.MinuteHandShape = minuteHandShape20;
-            this.analogClockTokyo.Name = "analogClockTokyo";
-            numbersShape20.CurrentIndex = 11;
-            numbersShape20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape20.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape20.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockTokyo.NumbersShape = numbersShape20;
-            this.analogClockTokyo.NumbersVisible = false;
-            pinShape20.OutlineColor = System.Drawing.Color.Empty;
-            pinShape20.Radius = 1.5F;
-            this.analogClockTokyo.PinShape = pinShape20;
-            this.analogClockTokyo.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape20.FillColor = System.Drawing.Color.Empty;
-            this.analogClockTokyo.SweepHandShape = sweepHandShape20;
-            this.analogClockTokyo.TabIndex = 3;
-            this.analogClockTokyo.Text = "Tokyo";
-            textShape20.Font = new System.Drawing.Font("Arial", 3F);
-            textShape20.OutlineColor = System.Drawing.Color.Empty;
-            textShape20.Text = "Tokyo Time";
-            this.analogClockTokyo.TextShape = textShape20;
-            ticks1Shape20.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape20.LineWidth = 0.33F;
-            this.analogClockTokyo.Ticks1Shape = ticks1Shape20;
-            ticks5Shape20.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape20.Length = 7F;
-            ticks5Shape20.LineWidth = 1F;
-            this.analogClockTokyo.Ticks5Shape = ticks5Shape20;
-            this.analogClockTokyo.Time = System.TimeSpan.Parse("00:21:54.0018520");
-            this.analogClockTokyo.TimeProvider = localTimeProvider20;
-            this.analogClockTokyo.Timer = this.timer1;
-            // 
-            // analogClockHongKong
-            // 
-            dialShape21.FillColor = System.Drawing.Color.Empty;
-            dialShape21.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockHongKong.DialShape = dialShape21;
-            hourHandShape21.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockHongKong.HourHandShape = hourHandShape21;
-            this.analogClockHongKong.Location = new System.Drawing.Point(309, 309);
-            minuteHandShape21.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockHongKong.MinuteHandShape = minuteHandShape21;
-            this.analogClockHongKong.Name = "analogClockHongKong";
-            numbersShape21.CurrentIndex = 11;
-            numbersShape21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape21.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape21.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockHongKong.NumbersShape = numbersShape21;
-            this.analogClockHongKong.NumbersVisible = false;
-            pinShape21.OutlineColor = System.Drawing.Color.Empty;
-            pinShape21.Radius = 1.5F;
-            this.analogClockHongKong.PinShape = pinShape21;
-            this.analogClockHongKong.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape21.FillColor = System.Drawing.Color.Empty;
-            this.analogClockHongKong.SweepHandShape = sweepHandShape21;
-            this.analogClockHongKong.TabIndex = 4;
-            this.analogClockHongKong.Text = "Hong Kong";
-            textShape21.Font = new System.Drawing.Font("Arial", 3F);
-            textShape21.OutlineColor = System.Drawing.Color.Empty;
-            textShape21.Text = "Hong Kong Time";
-            this.analogClockHongKong.TextShape = textShape21;
-            ticks1Shape21.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape21.LineWidth = 0.33F;
-            this.analogClockHongKong.Ticks1Shape = ticks1Shape21;
-            ticks5Shape21.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape21.Length = 7F;
-            ticks5Shape21.LineWidth = 1F;
-            this.analogClockHongKong.Ticks5Shape = ticks5Shape21;
-            this.analogClockHongKong.Time = System.TimeSpan.Parse("00:21:54.0048522");
-            this.analogClockHongKong.TimeProvider = localTimeProvider21;
-            this.analogClockHongKong.Timer = this.timer1;
-            // 
-            // analogClockIndia
-            // 
-            dialShape22.FillColor = System.Drawing.Color.Empty;
-            dialShape22.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockIndia.DialShape = dialShape22;
-            hourHandShape22.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockIndia.HourHandShape = hourHandShape22;
-            this.analogClockIndia.Location = new System.Drawing.Point(615, 309);
-            minuteHandShape22.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockIndia.MinuteHandShape = minuteHandShape22;
-            this.analogClockIndia.Name = "analogClockIndia";
-            numbersShape22.CurrentIndex = 11;
-            numbersShape22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numbersShape22.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            numbersShape22.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockIndia.NumbersShape = numbersShape22;
-            this.analogClockIndia.NumbersVisible = false;
-            pinShape22.OutlineColor = System.Drawing.Color.Empty;
-            pinShape22.Radius = 1.5F;
-            this.analogClockIndia.PinShape = pinShape22;
-            this.analogClockIndia.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape22.FillColor = System.Drawing.Color.Empty;
-            this.analogClockIndia.SweepHandShape = sweepHandShape22;
-            this.analogClockIndia.TabIndex = 5;
-            this.analogClockIndia.Text = "India";
-            textShape22.Font = new System.Drawing.Font("Arial", 3F);
-            textShape22.OutlineColor = System.Drawing.Color.Empty;
-            textShape22.Text = "India Time";
-            this.analogClockIndia.TextShape = textShape22;
-            ticks1Shape22.FillColor = System.Drawing.Color.Empty;
-            ticks1Shape22.LineWidth = 0.33F;
-            this.analogClockIndia.Ticks1Shape = ticks1Shape22;
-            ticks5Shape22.FillColor = System.Drawing.Color.Empty;
-            ticks5Shape22.Length = 7F;
-            ticks5Shape22.LineWidth = 1F;
-            this.analogClockIndia.Ticks5Shape = ticks5Shape22;
-            this.analogClockIndia.Time = System.TimeSpan.Parse("00:21:54.0108525");
-            this.analogClockIndia.TimeProvider = localTimeProvider22;
-            this.analogClockIndia.Timer = this.timer1;
-            // 
             // label6
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1672,15 +571,1125 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanel2.Size = new System.Drawing.Size(988, 669);
             this.flowLayoutPanel2.TabIndex = 12;
             // 
+            // analogClockDefault
+            // 
+            dialShape1.FillColor = System.Drawing.Color.Empty;
+            dialShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockDefault.DialShape = dialShape1;
+            hourHandShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockDefault.HourHandShape = hourHandShape1;
+            this.analogClockDefault.Location = new System.Drawing.Point(3, 3);
+            minuteHandShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockDefault.MinuteHandShape = minuteHandShape1;
+            this.analogClockDefault.Name = "analogClockDefault";
+            numbersShape1.CurrentIndex = 11;
+            numbersShape1.Font = new System.Drawing.Font("Arial", 7F);
+            numbersShape1.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockDefault.NumbersShape = numbersShape1;
+            pinShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockDefault.PinShape = pinShape1;
+            this.analogClockDefault.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape1.FillColor = System.Drawing.Color.Empty;
+            this.analogClockDefault.SweepHandShape = sweepHandShape1;
+            this.analogClockDefault.TabIndex = 15;
+            this.analogClockDefault.Text = "Dust in the Wind";
+            textShape1.Font = new System.Drawing.Font("Arial", 3F);
+            textShape1.MaxWidth = 50F;
+            textShape1.OutlineColor = System.Drawing.Color.Empty;
+            textShape1.Text = "Default values";
+            this.analogClockDefault.TextShape = textShape1;
+            ticks1Shape1.FillColor = System.Drawing.Color.Empty;
+            this.analogClockDefault.Ticks1Shape = ticks1Shape1;
+            ticks5Shape1.FillColor = System.Drawing.Color.Empty;
+            this.analogClockDefault.Ticks5Shape = ticks5Shape1;
+            this.analogClockDefault.Time = System.TimeSpan.Parse("13:19:11.1232716");
+            this.analogClockDefault.TimeProvider = localTimeProvider1;
+            this.analogClockDefault.Timer = this.timer1;
+            // 
+            // analogClockSimple
+            // 
+            dialShape2.FillColor = System.Drawing.Color.Empty;
+            dialShape2.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockSimple.DialShape = dialShape2;
+            hourHandShape2.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockSimple.HourHandShape = hourHandShape2;
+            this.analogClockSimple.Location = new System.Drawing.Point(309, 3);
+            minuteHandShape2.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockSimple.MinuteHandShape = minuteHandShape2;
+            this.analogClockSimple.Name = "analogClockSimple";
+            numbersShape2.CurrentIndex = 11;
+            numbersShape2.FillColor = System.Drawing.Color.Empty;
+            numbersShape2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape2.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape2.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockSimple.NumbersShape = numbersShape2;
+            pinShape2.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockSimple.PinShape = pinShape2;
+            this.analogClockSimple.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape2.FillColor = System.Drawing.Color.Empty;
+            this.analogClockSimple.SweepHandShape = sweepHandShape2;
+            this.analogClockSimple.TabIndex = 1;
+            this.analogClockSimple.Text = "Dust in the Wind";
+            textShape2.Font = new System.Drawing.Font("Arial", 3F);
+            textShape2.MaxWidth = 50F;
+            textShape2.OutlineColor = System.Drawing.Color.Empty;
+            textShape2.Text = "Simple";
+            this.analogClockSimple.TextShape = textShape2;
+            ticks1Shape2.FillColor = System.Drawing.Color.Empty;
+            this.analogClockSimple.Ticks1Shape = ticks1Shape2;
+            ticks5Shape2.FillColor = System.Drawing.Color.Empty;
+            this.analogClockSimple.Ticks5Shape = ticks5Shape2;
+            this.analogClockSimple.Time = System.TimeSpan.Parse("13:19:11.1382725");
+            this.analogClockSimple.TimeProvider = localTimeProvider2;
+            this.analogClockSimple.Timer = this.timer1;
+            // 
+            // analogClockNoNumbers
+            // 
+            this.analogClockNoNumbers.BackColor = System.Drawing.Color.Transparent;
+            dialShape3.FillColor = System.Drawing.Color.Empty;
+            dialShape3.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockNoNumbers.DialShape = dialShape3;
+            hourHandShape3.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockNoNumbers.HourHandShape = hourHandShape3;
+            this.analogClockNoNumbers.Location = new System.Drawing.Point(615, 3);
+            minuteHandShape3.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockNoNumbers.MinuteHandShape = minuteHandShape3;
+            this.analogClockNoNumbers.Name = "analogClockNoNumbers";
+            numbersShape3.CurrentIndex = 11;
+            numbersShape3.FillColor = System.Drawing.Color.Empty;
+            numbersShape3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape3.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape3.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockNoNumbers.NumbersShape = numbersShape3;
+            pinShape3.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockNoNumbers.PinShape = pinShape3;
+            this.analogClockNoNumbers.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape3.FillColor = System.Drawing.Color.Empty;
+            this.analogClockNoNumbers.SweepHandShape = sweepHandShape3;
+            this.analogClockNoNumbers.TabIndex = 10;
+            this.analogClockNoNumbers.Text = "Dust in the Wind";
+            textShape3.Font = new System.Drawing.Font("Arial", 3F);
+            textShape3.MaxWidth = 50F;
+            textShape3.OutlineColor = System.Drawing.Color.Empty;
+            textShape3.Text = "No Numbers";
+            this.analogClockNoNumbers.TextShape = textShape3;
+            ticks1Shape3.FillColor = System.Drawing.Color.Empty;
+            this.analogClockNoNumbers.Ticks1Shape = ticks1Shape3;
+            ticks5Shape3.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape3.Length = 7F;
+            this.analogClockNoNumbers.Ticks5Shape = ticks5Shape3;
+            this.analogClockNoNumbers.Time = System.TimeSpan.Parse("13:19:11.1452729");
+            this.analogClockNoNumbers.TimeProvider = localTimeProvider3;
+            this.analogClockNoNumbers.Timer = this.timer1;
+            // 
+            // analogClockCleared
+            // 
+            dialShape4.FillColor = System.Drawing.Color.Empty;
+            dialShape4.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockCleared.DialShape = dialShape4;
+            hourHandShape4.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockCleared.HourHandShape = hourHandShape4;
+            this.analogClockCleared.Location = new System.Drawing.Point(3, 309);
+            minuteHandShape4.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockCleared.MinuteHandShape = minuteHandShape4;
+            this.analogClockCleared.Name = "analogClockCleared";
+            numbersShape4.CurrentIndex = 11;
+            numbersShape4.FillColor = System.Drawing.Color.Empty;
+            numbersShape4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape4.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape4.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockCleared.NumbersShape = numbersShape4;
+            pinShape4.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockCleared.PinShape = pinShape4;
+            this.analogClockCleared.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape4.FillColor = System.Drawing.Color.Empty;
+            this.analogClockCleared.SweepHandShape = sweepHandShape4;
+            this.analogClockCleared.TabIndex = 12;
+            this.analogClockCleared.Text = "Dust in the Wind";
+            textShape4.Font = new System.Drawing.Font("Arial", 3F);
+            textShape4.MaxWidth = 50F;
+            textShape4.OutlineColor = System.Drawing.Color.Empty;
+            textShape4.Text = "Cleared";
+            this.analogClockCleared.TextShape = textShape4;
+            ticks1Shape4.FillColor = System.Drawing.Color.Empty;
+            this.analogClockCleared.Ticks1Shape = ticks1Shape4;
+            ticks5Shape4.FillColor = System.Drawing.Color.Empty;
+            this.analogClockCleared.Ticks5Shape = ticks5Shape4;
+            this.analogClockCleared.Time = System.TimeSpan.Parse("13:19:11.1522733");
+            this.analogClockCleared.TimeProvider = localTimeProvider4;
+            this.analogClockCleared.Timer = this.timer1;
+            // 
+            // analogClock6
+            // 
+            dialShape5.FillColor = System.Drawing.Color.Empty;
+            dialShape5.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock6.DialShape = dialShape5;
+            hourHandShape5.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock6.HourHandShape = hourHandShape5;
+            this.analogClock6.Location = new System.Drawing.Point(309, 309);
+            minuteHandShape5.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock6.MinuteHandShape = minuteHandShape5;
+            this.analogClock6.Name = "analogClock6";
+            numbersShape5.CurrentIndex = 11;
+            numbersShape5.Font = new System.Drawing.Font("Vivaldi", 5.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape5.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape5.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock6.NumbersShape = numbersShape5;
+            pinShape5.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock6.PinShape = pinShape5;
+            this.analogClock6.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape5.FillColor = System.Drawing.Color.Empty;
+            this.analogClock6.SweepHandShape = sweepHandShape5;
+            this.analogClock6.TabIndex = 13;
+            this.analogClock6.Text = "Dust in the Wind";
+            textShape5.Font = new System.Drawing.Font("Arial", 3F);
+            textShape5.MaxWidth = 50F;
+            textShape5.OutlineColor = System.Drawing.Color.Empty;
+            textShape5.Text = "Fancy Numbers";
+            this.analogClock6.TextShape = textShape5;
+            ticks1Shape5.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape5.Length = 3F;
+            this.analogClock6.Ticks1Shape = ticks1Shape5;
+            ticks5Shape5.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape5.LineWidth = 2F;
+            this.analogClock6.Ticks5Shape = ticks5Shape5;
+            this.analogClock6.Time = System.TimeSpan.Parse("13:19:11.1592737");
+            this.analogClock6.TimeProvider = localTimeProvider5;
+            this.analogClock6.Timer = this.timer1;
+            // 
+            // analogClockOnlyNumbers
+            // 
+            dialShape6.FillColor = System.Drawing.Color.Empty;
+            dialShape6.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockOnlyNumbers.DialShape = dialShape6;
+            hourHandShape6.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockOnlyNumbers.HourHandShape = hourHandShape6;
+            this.analogClockOnlyNumbers.Location = new System.Drawing.Point(615, 309);
+            minuteHandShape6.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockOnlyNumbers.MinuteHandShape = minuteHandShape6;
+            this.analogClockOnlyNumbers.Name = "analogClockOnlyNumbers";
+            numbersShape6.CurrentIndex = 11;
+            numbersShape6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape6.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape6.OutlineColor = System.Drawing.Color.Empty;
+            numbersShape6.PositionOffset = 3.33F;
+            this.analogClockOnlyNumbers.NumbersShape = numbersShape6;
+            pinShape6.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockOnlyNumbers.PinShape = pinShape6;
+            this.analogClockOnlyNumbers.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape6.FillColor = System.Drawing.Color.Empty;
+            this.analogClockOnlyNumbers.SweepHandShape = sweepHandShape6;
+            this.analogClockOnlyNumbers.TabIndex = 14;
+            this.analogClockOnlyNumbers.Text = "Dust in the Wind";
+            textShape6.Font = new System.Drawing.Font("Arial", 3F);
+            textShape6.MaxWidth = 50F;
+            textShape6.OutlineColor = System.Drawing.Color.Empty;
+            textShape6.Text = "Only Numbers";
+            this.analogClockOnlyNumbers.TextShape = textShape6;
+            ticks1Shape6.FillColor = System.Drawing.Color.Empty;
+            this.analogClockOnlyNumbers.Ticks1Shape = ticks1Shape6;
+            ticks5Shape6.FillColor = System.Drawing.Color.Empty;
+            this.analogClockOnlyNumbers.Ticks5Shape = ticks5Shape6;
+            this.analogClockOnlyNumbers.Time = System.TimeSpan.Parse("13:19:11.1662741");
+            this.analogClockOnlyNumbers.TimeProvider = localTimeProvider6;
+            this.analogClockOnlyNumbers.Timer = this.timer1;
+            // 
+            // analogClock2
+            // 
+            dialShape7.FillColor = System.Drawing.Color.LightBlue;
+            dialShape7.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock2.DialShape = dialShape7;
+            hourHandShape7.FillColor = System.Drawing.Color.Navy;
+            hourHandShape7.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock2.HourHandShape = hourHandShape7;
+            this.analogClock2.Location = new System.Drawing.Point(3, 3);
+            minuteHandShape7.FillColor = System.Drawing.Color.RoyalBlue;
+            minuteHandShape7.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock2.MinuteHandShape = minuteHandShape7;
+            this.analogClock2.Name = "analogClock2";
+            numbersShape7.CurrentIndex = 11;
+            numbersShape7.FillColor = System.Drawing.Color.Navy;
+            numbersShape7.Font = new System.Drawing.Font("Showcard Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape7.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape7.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock2.NumbersShape = numbersShape7;
+            pinShape7.FillColor = System.Drawing.Color.Navy;
+            pinShape7.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock2.PinShape = pinShape7;
+            this.analogClock2.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape7.FillColor = System.Drawing.Color.Empty;
+            this.analogClock2.SweepHandShape = sweepHandShape7;
+            this.analogClock2.TabIndex = 0;
+            this.analogClock2.Text = "Dust in the Wind";
+            textShape7.Font = new System.Drawing.Font("Arial", 3F);
+            textShape7.MaxWidth = 50F;
+            textShape7.OutlineColor = System.Drawing.Color.Empty;
+            textShape7.Text = "Blue";
+            this.analogClock2.TextShape = textShape7;
+            ticks1Shape7.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape7.OutlineColor = System.Drawing.Color.RoyalBlue;
+            ticks1Shape7.PositionOffset = 1.66F;
+            this.analogClock2.Ticks1Shape = ticks1Shape7;
+            ticks5Shape7.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape7.LineWidth = 1.66F;
+            ticks5Shape7.OutlineColor = System.Drawing.Color.Navy;
+            ticks5Shape7.PositionOffset = 2F;
+            this.analogClock2.Ticks5Shape = ticks5Shape7;
+            this.analogClock2.Time = System.TimeSpan.Parse("13:19:11.1992760");
+            this.analogClock2.TimeProvider = localTimeProvider7;
+            this.analogClock2.Timer = this.timer1;
+            // 
+            // analogClock3
+            // 
+            dialShape8.FillColor = System.Drawing.Color.Empty;
+            dialShape8.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock3.DialShape = dialShape8;
+            hourHandShape8.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock3.HourHandShape = hourHandShape8;
+            this.analogClock3.Location = new System.Drawing.Point(309, 3);
+            minuteHandShape8.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock3.MinuteHandShape = minuteHandShape8;
+            this.analogClock3.Name = "analogClock3";
+            numbersShape8.CurrentIndex = 11;
+            numbersShape8.Font = new System.Drawing.Font("Vrinda", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape8.Numbers = new string[] {
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI",
+        "VII",
+        "VIII",
+        "IX",
+        "X",
+        "XI",
+        "XII"};
+            numbersShape8.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock3.NumbersShape = numbersShape8;
+            pinShape8.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock3.PinShape = pinShape8;
+            this.analogClock3.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape8.FillColor = System.Drawing.Color.Empty;
+            this.analogClock3.SweepHandShape = sweepHandShape8;
+            this.analogClock3.TabIndex = 11;
+            this.analogClock3.Text = "Dust in the Wind";
+            textShape8.Font = new System.Drawing.Font("Arial", 3F);
+            textShape8.MaxWidth = 50F;
+            textShape8.OutlineColor = System.Drawing.Color.Empty;
+            textShape8.Text = "Roman";
+            this.analogClock3.TextShape = textShape8;
+            ticks1Shape8.FillColor = System.Drawing.Color.Empty;
+            this.analogClock3.Ticks1Shape = ticks1Shape8;
+            ticks5Shape8.FillColor = System.Drawing.Color.Empty;
+            this.analogClock3.Ticks5Shape = ticks5Shape8;
+            this.analogClock3.Time = System.TimeSpan.Parse("13:19:11.2062764");
+            this.analogClock3.TimeProvider = localTimeProvider8;
+            this.analogClock3.Timer = this.timer1;
+            // 
+            // analogClock4
+            // 
+            dialShape9.FillColor = System.Drawing.Color.LightGreen;
+            dialShape9.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock4.DialShape = dialShape9;
+            hourHandShape9.FillColor = System.Drawing.Color.DarkGreen;
+            hourHandShape9.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock4.HourHandShape = hourHandShape9;
+            this.analogClock4.Location = new System.Drawing.Point(615, 3);
+            minuteHandShape9.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock4.MinuteHandShape = minuteHandShape9;
+            this.analogClock4.Name = "analogClock4";
+            numbersShape9.CurrentIndex = 11;
+            numbersShape9.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape9.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape9.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock4.NumbersShape = numbersShape9;
+            pinShape9.FillColor = System.Drawing.Color.DarkGreen;
+            pinShape9.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock4.PinShape = pinShape9;
+            this.analogClock4.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape9.FillColor = System.Drawing.Color.Empty;
+            this.analogClock4.SweepHandShape = sweepHandShape9;
+            this.analogClock4.TabIndex = 11;
+            this.analogClock4.Text = "Dust in the Wind";
+            textShape9.Font = new System.Drawing.Font("Arial", 3F);
+            textShape9.MaxWidth = 50F;
+            textShape9.OutlineColor = System.Drawing.Color.Empty;
+            textShape9.Text = "Green";
+            this.analogClock4.TextShape = textShape9;
+            ticks1Shape9.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape9.PositionOffset = 2.66F;
+            this.analogClock4.Ticks1Shape = ticks1Shape9;
+            ticks5Shape9.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape9.LineWidth = 5F;
+            ticks5Shape9.OutlineColor = System.Drawing.Color.DarkGreen;
+            this.analogClock4.Ticks5Shape = ticks5Shape9;
+            this.analogClock4.Time = System.TimeSpan.Parse("13:19:11.2122767");
+            this.analogClock4.TimeProvider = localTimeProvider9;
+            this.analogClock4.Timer = this.timer1;
+            // 
+            // analogClock15
+            // 
+            dialShape10.FillColor = System.Drawing.Color.Empty;
+            dialShape10.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock15.DialShape = dialShape10;
+            hourHandShape10.LineWidth = 0.33F;
+            hourHandShape10.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock15.HourHandShape = hourHandShape10;
+            this.analogClock15.Location = new System.Drawing.Point(3, 309);
+            minuteHandShape10.LineWidth = 0.33F;
+            minuteHandShape10.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock15.MinuteHandShape = minuteHandShape10;
+            this.analogClock15.Name = "analogClock15";
+            numbersShape10.CurrentIndex = 11;
+            numbersShape10.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape10.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape10.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock15.NumbersShape = numbersShape10;
+            pinShape10.FillColor = System.Drawing.Color.Empty;
+            pinShape10.LineWidth = 0.33F;
+            pinShape10.OutlineColor = System.Drawing.Color.Red;
+            pinShape10.Radius = 17F;
+            this.analogClock15.PinShape = pinShape10;
+            this.analogClock15.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape10.FillColor = System.Drawing.Color.Empty;
+            this.analogClock15.SweepHandShape = sweepHandShape10;
+            this.analogClock15.TabIndex = 11;
+            this.analogClock15.Text = "Dust in the Wind";
+            textShape10.Font = new System.Drawing.Font("Arial", 3F);
+            textShape10.MaxWidth = 50F;
+            textShape10.OutlineColor = System.Drawing.Color.Empty;
+            textShape10.Text = "Outlines";
+            this.analogClock15.TextShape = textShape10;
+            ticks1Shape10.FillColor = System.Drawing.Color.Empty;
+            this.analogClock15.Ticks1Shape = ticks1Shape10;
+            ticks5Shape10.FillColor = System.Drawing.Color.Empty;
+            this.analogClock15.Ticks5Shape = ticks5Shape10;
+            this.analogClock15.Time = System.TimeSpan.Parse("13:19:11.2202772");
+            this.analogClock15.TimeProvider = localTimeProvider10;
+            this.analogClock15.Timer = this.timer1;
+            // 
+            // analogClock10
+            // 
+            dialShape11.FillColor = System.Drawing.Color.Empty;
+            dialShape11.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock10.DialShape = dialShape11;
+            hourHandShape11.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock10.HourHandShape = hourHandShape11;
+            this.analogClock10.Location = new System.Drawing.Point(309, 309);
+            minuteHandShape11.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock10.MinuteHandShape = minuteHandShape11;
+            this.analogClock10.Name = "analogClock10";
+            numbersShape11.CurrentIndex = 11;
+            numbersShape11.Font = new System.Drawing.Font("Vrinda", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            numbersShape11.Numbers = new string[] {
+        "",
+        "",
+        "3",
+        "",
+        "",
+        "6",
+        "",
+        "",
+        "9",
+        "",
+        "",
+        "12"};
+            numbersShape11.OutlineColor = System.Drawing.Color.Empty;
+            numbersShape11.PositionOffset = 2.33F;
+            this.analogClock10.NumbersShape = numbersShape11;
+            pinShape11.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock10.PinShape = pinShape11;
+            this.analogClock10.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape11.FillColor = System.Drawing.Color.Empty;
+            this.analogClock10.SweepHandShape = sweepHandShape11;
+            this.analogClock10.TabIndex = 13;
+            this.analogClock10.Text = "Dust in the Wind";
+            textShape11.Font = new System.Drawing.Font("Arial", 3F);
+            textShape11.MaxWidth = 50F;
+            textShape11.OutlineColor = System.Drawing.Color.Empty;
+            textShape11.Text = "Few Numbers";
+            this.analogClock10.TextShape = textShape11;
+            ticks1Shape11.FillColor = System.Drawing.Color.Empty;
+            this.analogClock10.Ticks1Shape = ticks1Shape11;
+            ticks5Shape11.FillColor = System.Drawing.Color.Empty;
+            this.analogClock10.Ticks5Shape = ticks5Shape11;
+            this.analogClock10.Time = System.TimeSpan.Parse("13:19:11.2262775");
+            this.analogClock10.TimeProvider = localTimeProvider11;
+            this.analogClock10.Timer = this.timer1;
+            // 
+            // analogClock13
+            // 
+            dialShape12.FillColor = System.Drawing.Color.Empty;
+            dialShape12.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock13.DialShape = dialShape12;
+            this.analogClock13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            hourHandShape12.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock13.HourHandShape = hourHandShape12;
+            this.analogClock13.Location = new System.Drawing.Point(615, 309);
+            minuteHandShape12.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock13.MinuteHandShape = minuteHandShape12;
+            this.analogClock13.Name = "analogClock13";
+            numbersShape12.CurrentIndex = 11;
+            numbersShape12.Font = new System.Drawing.Font("Arial", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape12.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape12.OutlineColor = System.Drawing.Color.Empty;
+            numbersShape12.PositionOffset = 0F;
+            this.analogClock13.NumbersShape = numbersShape12;
+            pinShape12.OutlineColor = System.Drawing.Color.Empty;
+            pinShape12.Radius = 2F;
+            this.analogClock13.PinShape = pinShape12;
+            this.analogClock13.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape12.FillColor = System.Drawing.Color.Red;
+            this.analogClock13.SweepHandShape = sweepHandShape12;
+            this.analogClock13.TabIndex = 0;
+            this.analogClock13.Text = "analogClock13";
+            textShape12.Font = new System.Drawing.Font("Arial", 3F);
+            textShape12.MaxWidth = 50F;
+            textShape12.OutlineColor = System.Drawing.Color.Empty;
+            textShape12.Text = "Small Numbers";
+            this.analogClock13.TextShape = textShape12;
+            ticks1Shape12.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape12.PositionOffset = 1.66F;
+            this.analogClock13.Ticks1Shape = ticks1Shape12;
+            ticks5Shape12.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape12.LineWidth = 0.66F;
+            ticks5Shape12.PositionOffset = 8F;
+            this.analogClock13.Ticks5Shape = ticks5Shape12;
+            this.analogClock13.Time = System.TimeSpan.Parse("13:19:11.2332779");
+            this.analogClock13.TimeProvider = localTimeProvider12;
+            this.analogClock13.Timer = this.timer1;
+            // 
+            // analogClockImages
+            // 
+            dialShape13.FillColor = System.Drawing.Color.Empty;
+            dialShape13.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockImages.DialShape = dialShape13;
+            hourHandShape13.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockImages.HourHandShape = hourHandShape13;
+            this.analogClockImages.Location = new System.Drawing.Point(3, 3);
+            minuteHandShape13.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockImages.MinuteHandShape = minuteHandShape13;
+            this.analogClockImages.Name = "analogClockImages";
+            numbersShape13.CurrentIndex = 11;
+            numbersShape13.Font = new System.Drawing.Font("Arial", 7F);
+            numbersShape13.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape13.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockImages.NumbersShape = numbersShape13;
+            pinShape13.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockImages.PinShape = pinShape13;
+            this.analogClockImages.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape13.FillColor = System.Drawing.Color.Empty;
+            this.analogClockImages.SweepHandShape = sweepHandShape13;
+            this.analogClockImages.TabIndex = 14;
+            this.analogClockImages.Text = "analogClock9";
+            textShape13.Font = new System.Drawing.Font("Arial", 3F);
+            textShape13.MaxWidth = 50F;
+            textShape13.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockImages.TextShape = textShape13;
+            ticks1Shape13.FillColor = System.Drawing.Color.Empty;
+            this.analogClockImages.Ticks1Shape = ticks1Shape13;
+            ticks5Shape13.FillColor = System.Drawing.Color.Empty;
+            this.analogClockImages.Ticks5Shape = ticks5Shape13;
+            this.analogClockImages.Time = System.TimeSpan.Parse("13:19:11.2552792");
+            this.analogClockImages.TimeProvider = localTimeProvider13;
+            this.analogClockImages.Timer = this.timer1;
+            // 
+            // analogClock1
+            // 
+            dialShape14.FillColor = System.Drawing.Color.Empty;
+            dialShape14.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.DialShape = dialShape14;
+            hourHandShape14.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.HourHandShape = hourHandShape14;
+            this.analogClock1.Location = new System.Drawing.Point(309, 3);
+            minuteHandShape14.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.MinuteHandShape = minuteHandShape14;
+            this.analogClock1.Name = "analogClock1";
+            numbersShape14.CurrentIndex = 11;
+            numbersShape14.Font = new System.Drawing.Font("Arial", 7F);
+            numbersShape14.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape14.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.NumbersShape = numbersShape14;
+            pinShape14.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.PinShape = pinShape14;
+            this.analogClock1.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape14.FillColor = System.Drawing.Color.Empty;
+            this.analogClock1.SweepHandShape = sweepHandShape14;
+            this.analogClock1.TabIndex = 13;
+            this.analogClock1.Text = "analogClock1";
+            textShape14.Font = new System.Drawing.Font("Arial", 3F);
+            textShape14.MaxWidth = 50F;
+            textShape14.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.TextShape = textShape14;
+            ticks1Shape14.FillColor = System.Drawing.Color.Empty;
+            this.analogClock1.Ticks1Shape = ticks1Shape14;
+            ticks5Shape14.FillColor = System.Drawing.Color.Empty;
+            this.analogClock1.Ticks5Shape = ticks5Shape14;
+            this.analogClock1.Time = System.TimeSpan.Parse("13:19:11.2612795");
+            this.analogClock1.TimeProvider = localTimeProvider14;
+            this.analogClock1.Timer = this.timer1;
+            // 
+            // analogClock5
+            // 
+            dialShape15.FillColor = System.Drawing.Color.Empty;
+            dialShape15.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock5.DialShape = dialShape15;
+            hourHandShape15.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock5.HourHandShape = hourHandShape15;
+            this.analogClock5.Location = new System.Drawing.Point(615, 3);
+            minuteHandShape15.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock5.MinuteHandShape = minuteHandShape15;
+            this.analogClock5.Name = "analogClock5";
+            numbersShape15.CurrentIndex = 11;
+            numbersShape15.Font = new System.Drawing.Font("Arial", 7F);
+            numbersShape15.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape15.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock5.NumbersShape = numbersShape15;
+            pinShape15.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock5.PinShape = pinShape15;
+            this.analogClock5.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape15.FillColor = System.Drawing.Color.Empty;
+            this.analogClock5.SweepHandShape = sweepHandShape15;
+            this.analogClock5.TabIndex = 13;
+            this.analogClock5.Text = "analogClock1";
+            textShape15.Font = new System.Drawing.Font("Arial", 3F);
+            textShape15.MaxWidth = 50F;
+            textShape15.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock5.TextShape = textShape15;
+            ticks1Shape15.FillColor = System.Drawing.Color.Empty;
+            this.analogClock5.Ticks1Shape = ticks1Shape15;
+            ticks5Shape15.FillColor = System.Drawing.Color.Empty;
+            this.analogClock5.Ticks5Shape = ticks5Shape15;
+            this.analogClock5.Time = System.TimeSpan.Parse("13:19:11.2682799");
+            this.analogClock5.TimeProvider = localTimeProvider15;
+            this.analogClock5.Timer = this.timer1;
+            // 
+            // analogClock7
+            // 
+            dialShape16.FillColor = System.Drawing.Color.Empty;
+            dialShape16.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock7.DialShape = dialShape16;
+            hourHandShape16.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock7.HourHandShape = hourHandShape16;
+            this.analogClock7.Location = new System.Drawing.Point(3, 309);
+            minuteHandShape16.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock7.MinuteHandShape = minuteHandShape16;
+            this.analogClock7.Name = "analogClock7";
+            numbersShape16.CurrentIndex = 11;
+            numbersShape16.Font = new System.Drawing.Font("Arial", 7F);
+            numbersShape16.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape16.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock7.NumbersShape = numbersShape16;
+            pinShape16.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock7.PinShape = pinShape16;
+            this.analogClock7.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape16.FillColor = System.Drawing.Color.Empty;
+            this.analogClock7.SweepHandShape = sweepHandShape16;
+            this.analogClock7.TabIndex = 13;
+            this.analogClock7.Text = "analogClock1";
+            textShape16.Font = new System.Drawing.Font("Arial", 3F);
+            textShape16.MaxWidth = 50F;
+            textShape16.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock7.TextShape = textShape16;
+            ticks1Shape16.FillColor = System.Drawing.Color.Empty;
+            this.analogClock7.Ticks1Shape = ticks1Shape16;
+            ticks5Shape16.FillColor = System.Drawing.Color.Empty;
+            this.analogClock7.Ticks5Shape = ticks5Shape16;
+            this.analogClock7.Time = System.TimeSpan.Parse("13:19:11.2742803");
+            this.analogClock7.TimeProvider = localTimeProvider16;
+            this.analogClock7.Timer = this.timer1;
+            // 
+            // analogClockLocal
+            // 
+            dialShape17.FillColor = System.Drawing.Color.Empty;
+            dialShape17.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockLocal.DialShape = dialShape17;
+            hourHandShape17.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockLocal.HourHandShape = hourHandShape17;
+            this.analogClockLocal.Location = new System.Drawing.Point(3, 3);
+            minuteHandShape17.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockLocal.MinuteHandShape = minuteHandShape17;
+            this.analogClockLocal.Name = "analogClockLocal";
+            numbersShape17.CurrentIndex = 11;
+            numbersShape17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape17.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape17.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockLocal.NumbersShape = numbersShape17;
+            pinShape17.OutlineColor = System.Drawing.Color.Empty;
+            pinShape17.Radius = 1.5F;
+            this.analogClockLocal.PinShape = pinShape17;
+            this.analogClockLocal.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape17.FillColor = System.Drawing.Color.Empty;
+            this.analogClockLocal.SweepHandShape = sweepHandShape17;
+            this.analogClockLocal.TabIndex = 0;
+            this.analogClockLocal.Text = "Local";
+            textShape17.Font = new System.Drawing.Font("Arial", 3F);
+            textShape17.MaxWidth = 50F;
+            textShape17.OutlineColor = System.Drawing.Color.Empty;
+            textShape17.Text = "Local Time";
+            this.analogClockLocal.TextShape = textShape17;
+            ticks1Shape17.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape17.LineWidth = 0.33F;
+            this.analogClockLocal.Ticks1Shape = ticks1Shape17;
+            ticks5Shape17.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape17.Length = 7F;
+            ticks5Shape17.LineWidth = 1F;
+            this.analogClockLocal.Ticks5Shape = ticks5Shape17;
+            this.analogClockLocal.Time = System.TimeSpan.Parse("13:19:11.2982816");
+            this.analogClockLocal.TimeProvider = localTimeProvider17;
+            this.analogClockLocal.Timer = this.timer1;
+            // 
+            // analogClockUTC
+            // 
+            dialShape18.FillColor = System.Drawing.Color.Empty;
+            dialShape18.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockUTC.DialShape = dialShape18;
+            hourHandShape18.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockUTC.HourHandShape = hourHandShape18;
+            this.analogClockUTC.Location = new System.Drawing.Point(309, 3);
+            minuteHandShape18.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockUTC.MinuteHandShape = minuteHandShape18;
+            this.analogClockUTC.Name = "analogClockUTC";
+            numbersShape18.CurrentIndex = 11;
+            numbersShape18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape18.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape18.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockUTC.NumbersShape = numbersShape18;
+            pinShape18.OutlineColor = System.Drawing.Color.Empty;
+            pinShape18.Radius = 1.5F;
+            this.analogClockUTC.PinShape = pinShape18;
+            this.analogClockUTC.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape18.FillColor = System.Drawing.Color.Empty;
+            this.analogClockUTC.SweepHandShape = sweepHandShape18;
+            this.analogClockUTC.TabIndex = 1;
+            this.analogClockUTC.Text = "UTC";
+            textShape18.Font = new System.Drawing.Font("Arial", 3F);
+            textShape18.MaxWidth = 50F;
+            textShape18.OutlineColor = System.Drawing.Color.Empty;
+            textShape18.Text = "UTC Time";
+            this.analogClockUTC.TextShape = textShape18;
+            ticks1Shape18.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape18.LineWidth = 0.33F;
+            this.analogClockUTC.Ticks1Shape = ticks1Shape18;
+            ticks5Shape18.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape18.Length = 7F;
+            ticks5Shape18.LineWidth = 1F;
+            this.analogClockUTC.Ticks5Shape = ticks5Shape18;
+            this.analogClockUTC.Time = System.TimeSpan.Parse("13:19:11.3052820");
+            this.analogClockUTC.TimeProvider = localTimeProvider18;
+            this.analogClockUTC.Timer = this.timer1;
+            // 
+            // analogClockNewYork
+            // 
+            dialShape19.FillColor = System.Drawing.Color.Empty;
+            dialShape19.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockNewYork.DialShape = dialShape19;
+            hourHandShape19.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockNewYork.HourHandShape = hourHandShape19;
+            this.analogClockNewYork.Location = new System.Drawing.Point(615, 3);
+            minuteHandShape19.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockNewYork.MinuteHandShape = minuteHandShape19;
+            this.analogClockNewYork.Name = "analogClockNewYork";
+            numbersShape19.CurrentIndex = 11;
+            numbersShape19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape19.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape19.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockNewYork.NumbersShape = numbersShape19;
+            pinShape19.OutlineColor = System.Drawing.Color.Empty;
+            pinShape19.Radius = 1.5F;
+            this.analogClockNewYork.PinShape = pinShape19;
+            this.analogClockNewYork.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape19.FillColor = System.Drawing.Color.Empty;
+            this.analogClockNewYork.SweepHandShape = sweepHandShape19;
+            this.analogClockNewYork.TabIndex = 2;
+            this.analogClockNewYork.Text = "New York";
+            textShape19.Font = new System.Drawing.Font("Arial", 3F);
+            textShape19.MaxWidth = 50F;
+            textShape19.OutlineColor = System.Drawing.Color.Empty;
+            textShape19.Text = "New York Time";
+            this.analogClockNewYork.TextShape = textShape19;
+            ticks1Shape19.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape19.LineWidth = 0.33F;
+            this.analogClockNewYork.Ticks1Shape = ticks1Shape19;
+            ticks5Shape19.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape19.Length = 7F;
+            ticks5Shape19.LineWidth = 1F;
+            this.analogClockNewYork.Ticks5Shape = ticks5Shape19;
+            this.analogClockNewYork.Time = System.TimeSpan.Parse("13:19:11.3112824");
+            this.analogClockNewYork.TimeProvider = localTimeProvider19;
+            this.analogClockNewYork.Timer = this.timer1;
+            // 
+            // analogClockTokyo
+            // 
+            dialShape20.FillColor = System.Drawing.Color.Empty;
+            dialShape20.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockTokyo.DialShape = dialShape20;
+            hourHandShape20.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockTokyo.HourHandShape = hourHandShape20;
+            this.analogClockTokyo.Location = new System.Drawing.Point(3, 309);
+            minuteHandShape20.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockTokyo.MinuteHandShape = minuteHandShape20;
+            this.analogClockTokyo.Name = "analogClockTokyo";
+            numbersShape20.CurrentIndex = 11;
+            numbersShape20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape20.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape20.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockTokyo.NumbersShape = numbersShape20;
+            pinShape20.OutlineColor = System.Drawing.Color.Empty;
+            pinShape20.Radius = 1.5F;
+            this.analogClockTokyo.PinShape = pinShape20;
+            this.analogClockTokyo.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape20.FillColor = System.Drawing.Color.Empty;
+            this.analogClockTokyo.SweepHandShape = sweepHandShape20;
+            this.analogClockTokyo.TabIndex = 3;
+            this.analogClockTokyo.Text = "Tokyo";
+            textShape20.Font = new System.Drawing.Font("Arial", 3F);
+            textShape20.MaxWidth = 50F;
+            textShape20.OutlineColor = System.Drawing.Color.Empty;
+            textShape20.Text = "Tokyo Time";
+            this.analogClockTokyo.TextShape = textShape20;
+            ticks1Shape20.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape20.LineWidth = 0.33F;
+            this.analogClockTokyo.Ticks1Shape = ticks1Shape20;
+            ticks5Shape20.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape20.Length = 7F;
+            ticks5Shape20.LineWidth = 1F;
+            this.analogClockTokyo.Ticks5Shape = ticks5Shape20;
+            this.analogClockTokyo.Time = System.TimeSpan.Parse("13:19:11.3182828");
+            this.analogClockTokyo.TimeProvider = localTimeProvider20;
+            this.analogClockTokyo.Timer = this.timer1;
+            // 
+            // analogClockHongKong
+            // 
+            dialShape21.FillColor = System.Drawing.Color.Empty;
+            dialShape21.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockHongKong.DialShape = dialShape21;
+            hourHandShape21.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockHongKong.HourHandShape = hourHandShape21;
+            this.analogClockHongKong.Location = new System.Drawing.Point(309, 309);
+            minuteHandShape21.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockHongKong.MinuteHandShape = minuteHandShape21;
+            this.analogClockHongKong.Name = "analogClockHongKong";
+            numbersShape21.CurrentIndex = 11;
+            numbersShape21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape21.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape21.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockHongKong.NumbersShape = numbersShape21;
+            pinShape21.OutlineColor = System.Drawing.Color.Empty;
+            pinShape21.Radius = 1.5F;
+            this.analogClockHongKong.PinShape = pinShape21;
+            this.analogClockHongKong.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape21.FillColor = System.Drawing.Color.Empty;
+            this.analogClockHongKong.SweepHandShape = sweepHandShape21;
+            this.analogClockHongKong.TabIndex = 4;
+            this.analogClockHongKong.Text = "Hong Kong";
+            textShape21.Font = new System.Drawing.Font("Arial", 3F);
+            textShape21.MaxWidth = 50F;
+            textShape21.OutlineColor = System.Drawing.Color.Empty;
+            textShape21.Text = "Hong Kong Time";
+            this.analogClockHongKong.TextShape = textShape21;
+            ticks1Shape21.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape21.LineWidth = 0.33F;
+            this.analogClockHongKong.Ticks1Shape = ticks1Shape21;
+            ticks5Shape21.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape21.Length = 7F;
+            ticks5Shape21.LineWidth = 1F;
+            this.analogClockHongKong.Ticks5Shape = ticks5Shape21;
+            this.analogClockHongKong.Time = System.TimeSpan.Parse("13:19:11.3252832");
+            this.analogClockHongKong.TimeProvider = localTimeProvider21;
+            this.analogClockHongKong.Timer = this.timer1;
+            // 
+            // analogClockIndia
+            // 
+            dialShape22.FillColor = System.Drawing.Color.Empty;
+            dialShape22.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockIndia.DialShape = dialShape22;
+            hourHandShape22.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockIndia.HourHandShape = hourHandShape22;
+            this.analogClockIndia.Location = new System.Drawing.Point(615, 309);
+            minuteHandShape22.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockIndia.MinuteHandShape = minuteHandShape22;
+            this.analogClockIndia.Name = "analogClockIndia";
+            numbersShape22.CurrentIndex = 11;
+            numbersShape22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            numbersShape22.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape22.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClockIndia.NumbersShape = numbersShape22;
+            pinShape22.OutlineColor = System.Drawing.Color.Empty;
+            pinShape22.Radius = 1.5F;
+            this.analogClockIndia.PinShape = pinShape22;
+            this.analogClockIndia.Size = new System.Drawing.Size(300, 300);
+            sweepHandShape22.FillColor = System.Drawing.Color.Empty;
+            this.analogClockIndia.SweepHandShape = sweepHandShape22;
+            this.analogClockIndia.TabIndex = 5;
+            this.analogClockIndia.Text = "India";
+            textShape22.Font = new System.Drawing.Font("Arial", 3F);
+            textShape22.MaxWidth = 50F;
+            textShape22.OutlineColor = System.Drawing.Color.Empty;
+            textShape22.Text = "India Time";
+            this.analogClockIndia.TextShape = textShape22;
+            ticks1Shape22.FillColor = System.Drawing.Color.Empty;
+            ticks1Shape22.LineWidth = 0.33F;
+            this.analogClockIndia.Ticks1Shape = ticks1Shape22;
+            ticks5Shape22.FillColor = System.Drawing.Color.Empty;
+            ticks5Shape22.Length = 7F;
+            ticks5Shape22.LineWidth = 1F;
+            this.analogClockIndia.Ticks5Shape = ticks5Shape22;
+            this.analogClockIndia.Time = System.TimeSpan.Parse("13:19:11.3322836");
+            this.analogClockIndia.TimeProvider = localTimeProvider22;
+            this.analogClockIndia.Timer = this.timer1;
+            // 
             // analogClock14
             // 
             dialShape23.FillColor = System.Drawing.Color.Empty;
             dialShape23.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock14.DialShape = dialShape23;
-            hourHandShape23.OutlineColor = System.Drawing.Color.RoyalBlue;
+            hourHandShape23.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock14.HourHandShape = hourHandShape23;
             this.analogClock14.Location = new System.Drawing.Point(3, 3);
-            minuteHandShape23.OutlineColor = System.Drawing.Color.LimeGreen;
+            minuteHandShape23.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock14.MinuteHandShape = minuteHandShape23;
             this.analogClock14.Name = "analogClock14";
             numbersShape23.CurrentIndex = 11;
@@ -1703,18 +1712,19 @@ namespace DustInTheWind.Clock.Demo
             pinShape23.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock14.PinShape = pinShape23;
             this.analogClock14.Size = new System.Drawing.Size(300, 300);
-            sweepHandShape23.FillColor = System.Drawing.Color.Red;
+            sweepHandShape23.FillColor = System.Drawing.Color.Empty;
             this.analogClock14.SweepHandShape = sweepHandShape23;
             this.analogClock14.TabIndex = 1;
             this.analogClock14.Text = "analogClock14";
             textShape23.Font = new System.Drawing.Font("Arial", 3F);
+            textShape23.MaxWidth = 50F;
             textShape23.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock14.TextShape = textShape23;
             ticks1Shape23.FillColor = System.Drawing.Color.Empty;
             this.analogClock14.Ticks1Shape = ticks1Shape23;
             ticks5Shape23.FillColor = System.Drawing.Color.Empty;
             this.analogClock14.Ticks5Shape = ticks5Shape23;
-            this.analogClock14.Time = System.TimeSpan.Parse("00:21:54.0338539");
+            this.analogClock14.Time = System.TimeSpan.Parse("13:19:11.3552849");
             this.analogClock14.TimeProvider = localTimeProvider23;
             this.analogClock14.Timer = this.timer1;
             // 
@@ -1758,6 +1768,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock8.TabIndex = 0;
             this.analogClock8.Text = "Blue";
             textShape24.Font = new System.Drawing.Font("Arial", 3F);
+            textShape24.MaxWidth = 50F;
             textShape24.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock8.TextShape = textShape24;
             ticks1Shape24.FillColor = System.Drawing.Color.Empty;
@@ -1767,7 +1778,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape24.LineWidth = 5F;
             ticks5Shape24.OutlineColor = System.Drawing.Color.Navy;
             this.analogClock8.Ticks5Shape = ticks5Shape24;
-            this.analogClock8.Time = System.TimeSpan.Parse("00:21:54.0558551");
+            this.analogClock8.Time = System.TimeSpan.Parse("13:19:11.3802863");
             this.analogClock8.TimeProvider = localTimeProvider24;
             this.analogClock8.Timer = this.timer1;
             // 

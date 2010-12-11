@@ -16,43 +16,50 @@
 
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.Clock.Shapes.Basic
 {
     public class PolygonShape : VectorialShapeBase
     {
-        protected PointF[] path = new PointF[0];
+        protected PointF[] path;
 
         public override string Name
         {
             get { return "Polygon Shape"; }
         }
-        
-        public PolygonShape(PointF[] path, Color color)
-            : this(path, color, true)
+
+        public PolygonShape()
+            : this(null, Color.Empty, Color.Empty)
         {
         }
 
-        public PolygonShape(PointF[] path, Color color, bool fill)
-            : base(color)
+        public PolygonShape(PointF[] path, Color outlineColor, Color fillColor)
+            : base(outlineColor, fillColor)
         {
             this.path = path;
         }
 
+
+        /// <summary>
+        /// Draws the polygon using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the polygon.</param>
         public override void Draw(Graphics g)
         {
-            if (fill)
+            if (visible)
             {
-                if (brush == null)
-                    brush = new SolidBrush(outlineColor);
+                if (!fillColor.IsEmpty)
+                {
+                    CreateBrushIfNull();
 
-                g.FillPolygon(brush, path);
-            }
-            else
-            {
-                if (pen == null)
-                    pen = new Pen(outlineColor);
+                    g.FillPolygon(brush, path);
+                }
 
-                g.DrawPolygon(pen, path);
+                if (!outlineColor.IsEmpty)
+                {
+                    CreatePenIfNull();
+
+                    g.DrawPolygon(pen, path);
+                }
             }
         }
     }

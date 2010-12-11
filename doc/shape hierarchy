@@ -1,22 +1,23 @@
 DustInTheWind.Clock.Shapes.IShape
 	DustInTheWind.Clock.Shapes.ShapeBase
 		DustInTheWind.Clock.Shapes.VectorialShapeBase
-			DustInTheWind.Clock.Shapes.LineShape
-			DustInTheWind.Clock.Shapes.PathShape
+			DustInTheWind.Clock.Shapes.Basic.LineShape
+				DustInTheWind.Clock.Shapes.Basic.LineHandShape
+					DustInTheWind.Clock.Shapes.Default.SweepHandShape
+			DustInTheWind.Clock.Shapes.Basic.PolygonShape
+				DustInTheWind.Clock.Shapes.Basic.PolygonHandShape
+					DustInTheWind.Clock.Shapes.Default.MinuteHandShape
+					DustInTheWind.Clock.Shapes.Default.HourHandShape
+			DustInTheWind.Clock.Shapes.Basic.PathShape
 				DustInTheWind.Clock.Shapes.Fancy.SlotHandShape
 				DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape
-			DustInTheWind.Clock.Shapes.LineHandShape
-				DustInTheWind.Clock.Shapes.Default.SweepHandShape
 			DustInTheWind.Clock.Shapes.Default.DialShape
-			DustInTheWind.Clock.Shapes.Default.HourHandShape
-			DustInTheWind.Clock.Shapes.Default.MinuteHandShape
 			DustInTheWind.Clock.Shapes.Default.NumbersShape
 			DustInTheWind.Clock.Shapes.Default.PinShape
 			DustInTheWind.Clock.Shapes.Default.TextShape
 			DustInTheWind.Clock.Shapes.Default.Ticks1Shape
 			DustInTheWind.Clock.Shapes.Default.Ticks5Shape
 			DustInTheWind.Clock.Shapes.Fancy.DotHandShape
-			DustInTheWind.Clock.Shapes.Fancy.HourHandShape
 			DustInTheWind.Clock.Shapes.Fancy.NumbersShape
-		DustInTheWind.Clock.Shapes.ImageShape
-			DustInTheWind.Clock.Shapes.ImageHandShape
+		DustInTheWind.Clock.Shapes.Basic.ImageShape
+			DustInTheWind.Clock.Shapes.Basic.ImageHandShape

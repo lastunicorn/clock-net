@@ -121,18 +121,21 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </remarks>
         public override void Draw(Graphics g)
         {
-            if (!fillColor.IsEmpty)
+            if (visible)
             {
-                CreateBrushIfNull();
+                if (!fillColor.IsEmpty)
+                {
+                    CreateBrushIfNull();
 
-                g.FillEllipse(brush, -radius, -height - radius, radius, radius);
-            }
+                    g.FillEllipse(brush, -radius, -height - radius, radius, radius);
+                }
 
-            if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
+                if (!outlineColor.IsEmpty)
+                {
+                    CreatePenIfNull();
 
-                g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
+                    g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
+                }
             }
         }
     }

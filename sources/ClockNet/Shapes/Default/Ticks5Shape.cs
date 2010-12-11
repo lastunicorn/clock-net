@@ -135,7 +135,7 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         public override void Draw(Graphics g)
         {
-            if (length > 0 && lineWidth > 0)
+            if (visible && length > 0 && lineWidth > 0)
             {
                 if (!outlineColor.IsEmpty)
                 {

@@ -17,7 +17,7 @@
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
     /// A shape that draws a simple straight line.
@@ -60,14 +60,31 @@ namespace DustInTheWind.Clock.Shapes
 
         #region Constructor
 
+        public LineShape()
+            : this(PointF.Empty, PointF.Empty, Color.Black, LINE_WIDTH)
+        {
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
         /// </summary>
         /// <param name="color">The color that will be used to draw the line.</param>
         /// <param name="lineWidth">The width of the line.</param>
         public LineShape(Color color, float lineWidth)
+            : this(PointF.Empty, PointF.Empty, color, lineWidth)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// </summary>
+        /// <param name="color">The color that will be used to draw the line.</param>
+        /// <param name="lineWidth">The width of the line.</param>
+        public LineShape(PointF startPoint, PointF endPoint, Color color, float lineWidth)
             : base(color, Color.Empty, lineWidth)
         {
+            this.startPoint = startPoint;
+            this.endPoint = endPoint;
         }
 
         #endregion
@@ -79,7 +96,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="g">The <see cref="Graphics"/> on which to draw the line.</param>
         public override void Draw(Graphics g)
         {
-            if (!outlineColor.IsEmpty)
+            if (visible && !outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 

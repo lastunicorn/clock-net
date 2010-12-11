@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Drawing;
+using DustInTheWind.Clock.Shapes.Basic;
 
 namespace DustInTheWind.Clock.Shapes.Default
 {

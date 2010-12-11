@@ -19,6 +19,7 @@ The action - System.Windows.Forms.Timer object
 The AnalogClock's value can be set in two ways:
 1) manually by specifying the TimeSpan value to be displayed. The value is static and it will not be changed until you specify a new one;
 2) automatically by a System.Windows.Forms.Timer object that updates the displayed value periodically. The timer is using the TimeSpan value obtained from the ITimeProvider object.
+The timer will update the control with the value obtainedd from the time provider.
 
 
 The data - ITimeProvider interface

@@ -114,18 +114,21 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the dial.</param>
         public override void Draw(Graphics g)
         {
-            if (!fillColor.IsEmpty)
+            if (visible)
             {
-                CreateBrushIfNull();
+                if (!fillColor.IsEmpty)
+                {
+                    CreateBrushIfNull();
 
-                g.FillEllipse(brush, locationX, locationY, diameter, diameter);
-            }
+                    g.FillEllipse(brush, locationX, locationY, diameter, diameter);
+                }
 
-            if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
+                if (!outlineColor.IsEmpty)
+                {
+                    CreatePenIfNull();
 
-                g.DrawEllipse(pen, locationX, locationY, diameter, diameter);
+                    g.DrawEllipse(pen, locationX, locationY, diameter, diameter);
+                }
             }
         }
     }

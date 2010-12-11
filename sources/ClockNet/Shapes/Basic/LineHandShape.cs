@@ -18,12 +18,12 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the sweep hand.
     /// </summary>
-    public class LineHandShape : VectorialShapeBase, IHandShape
+    public class LineHandShape : LineShape, IHandShape
     {
         /// <summary>
         /// The default value of the hand length from the pin to the top.
@@ -39,17 +39,6 @@ namespace DustInTheWind.Clock.Shapes
         /// The default value of the hand's tail length.
         /// </summary>
         public const float TAIL_LENGTH = 4.5f;
-
-
-        /// <summary>
-        /// The location of the tail tip.
-        /// </summary>
-        protected PointF startPoint;
-
-        /// <summary>
-        /// The lcation of the hand top.
-        /// </summary>
-        protected PointF endPoint;
 
 
         /// <summary>
@@ -150,7 +139,7 @@ namespace DustInTheWind.Clock.Shapes
         /// Initializes a new instance of the <see cref="LineHandShape"/> class.
         /// </summary>
         public LineHandShape(Color color, float height, float width, float tailLength)
-            : base(color, Color.Empty)
+            : base(color, width)
         {
             this.height = height;
             this.lineWidth = width;
@@ -168,22 +157,22 @@ namespace DustInTheWind.Clock.Shapes
             endPoint = new PointF(0f, -height);
         }
 
-        /// <summary>
-        /// Draws the hand hand using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the hand.</param>
-        /// <remarks>
-        /// The hand is drawn in vertical position from the origin of the coordinate system.
-        /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
-        /// </remarks>
-        public override void Draw(Graphics g)
-        {
-            if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
+        ///// <summary>
+        ///// Draws the hand hand using the provided <see cref="Graphics"/> object.
+        ///// </summary>
+        ///// <param name="g">The <see cref="Graphics"/> on which to draw the hand.</param>
+        ///// <remarks>
+        ///// The hand is drawn in vertical position from the origin of the coordinate system.
+        ///// Before this method beeng called, the coordinate system has to be rotated in the corect position.
+        ///// </remarks>
+        //public override void Draw(Graphics g)
+        //{
+        //    if (!outlineColor.IsEmpty)
+        //    {
+        //        CreatePenIfNull();
 
-                g.DrawLine(pen, startPoint, endPoint);
-            }
-        }
+        //        g.DrawLine(pen, startPoint, endPoint);
+        //    }
+        //}
     }
 }

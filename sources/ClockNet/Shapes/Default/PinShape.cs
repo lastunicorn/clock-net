@@ -156,18 +156,21 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
         public override void Draw(Graphics g)
         {
-            if (!fillColor.IsEmpty)
+            if (visible)
             {
-                CreateBrushIfNull();
+                if (!fillColor.IsEmpty)
+                {
+                    CreateBrushIfNull();
 
-                g.FillEllipse(brush, _locationX, _locationY, radius, radius);
-            }
+                    g.FillEllipse(brush, _locationX, _locationY, radius, radius);
+                }
 
-            if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
+                if (!outlineColor.IsEmpty)
+                {
+                    CreatePenIfNull();
 
-                g.DrawEllipse(pen, _locationX, _locationY, radius, radius);
+                    g.DrawEllipse(pen, _locationX, _locationY, radius, radius);
+                }
             }
         }
     }

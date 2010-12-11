@@ -19,7 +19,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
     /// Displays an image hand in the <see cref="AnalogClock"/> control.
@@ -120,7 +120,7 @@ namespace DustInTheWind.Clock.Shapes
         /// </remarks>
         public override void Draw(Graphics g)
         {
-            if (image != null)
+            if (visible && image != null)
             {
                 Matrix originalTransformMatrix = null;
 

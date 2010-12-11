@@ -30,6 +30,11 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public const string TEXT = "Dust in the Wind";
 
+        /// <summary>
+        /// The maximum width of the rectangle where the text should be drawn.
+        /// </summary>
+        public const float MAX_WIDTH = 50f;
+
 
         protected StringFormat stringFormat;
 
@@ -63,6 +68,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Gets or sets the text that is drawn.
         /// </summary>
+        [Category("Appearance")]
         [DefaultValue(TEXT)]
         [Description("The text that is drawn.")]
         public virtual string Text
@@ -98,9 +104,17 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
+        /// <summary>
+        /// The maximum width of the rectangle where the text should be drawn.
+        /// </summary>
         protected float maxWidth = 50;
 
+        /// <summary>
+        /// Gets or sets the maximum width of the rectangle where the text should be drawn.
+        /// </summary>
         [Category("Appearance")]
+        [DefaultValue(MAX_WIDTH)]
+        [Description("The maximum width of the rectangle where the text should be drawn.")]
         public virtual float MaxWidth
         {
             get { return maxWidth; }
@@ -187,7 +201,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
         public override void Draw(Graphics g)
         {
-            if (font != null && text != null && text.Length > 0)
+            if (visible && font != null && text != null && text.Length > 0)
             {
                 if (!fillColor.IsEmpty)
                 {

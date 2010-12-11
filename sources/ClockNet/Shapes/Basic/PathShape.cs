@@ -17,7 +17,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
     /// A shape that draws a <see cref="GraphicsPath"/>.
@@ -72,18 +72,21 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="g">The <see cref="Graphics"/> on which to draw the path.</param>
         public override void Draw(Graphics g)
         {
-            if (!fillColor.IsEmpty)
+            if (visible)
             {
-                CreateBrushIfNull();
+                if (!fillColor.IsEmpty)
+                {
+                    CreateBrushIfNull();
 
-                g.FillPath(brush, path);
-            }
+                    g.FillPath(brush, path);
+                }
 
-            if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
+                if (!outlineColor.IsEmpty)
+                {
+                    CreatePenIfNull();
 
-                g.DrawPath(pen, path);
+                    g.DrawPath(pen, path);
+                }
             }
         }
 

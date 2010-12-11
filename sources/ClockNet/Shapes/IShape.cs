@@ -32,6 +32,8 @@ namespace DustInTheWind.Clock.Shapes
         [Browsable(false)]
         string Name { get; }
 
+        bool Visible { get; set; }
+
         /// <summary>
         /// Event raised when the shape's parameters are changed and it should be redrawn.
         /// </summary>
