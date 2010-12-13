@@ -1,0 +1,15 @@
+ClockNet
+========
+
+ver 2.0 alpha
+-------------
+The displayed time is now retrieved from an ITimeProvider instance.
+The UI is created like a puzzle using IShape objects.
+I created a lot of IShape objects that draws different types of graphic elements on the clock.
+I created a number of predefined shape sets that can be used programatically to easily change the aspect of the clock.
+
+Obs! In the future versions, the hierarchy of the IShape objects may change.
+
+ver 1.0.0
+---------
+First version. It was never released. This version was not very configurable and could not display numbers for hours.

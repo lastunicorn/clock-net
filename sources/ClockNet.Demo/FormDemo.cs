@@ -29,20 +29,6 @@ namespace DustInTheWind.Clock.Demo
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Local Time Provider", new LocalTimeProvider()));
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("UTC Time Provider", new UtcTimeProvider()));
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Offset UTC Time Provider", new UtcOffsetTimeProvider()));
-
-            //ImageHand hourHandShape = new ImageHand(Resources.hour_hand);
-            //hourHandShape.Height = 80;
-            //hourHandShape.Origin = new PointF(32f, 155.5f);
-            //analogClock1.HourHandShape = hourHandShape;
-
-            //ImageHand minuteHandShape = new ImageHand(Resources.minute_hand);
-            //minuteHandShape.Height = 110;
-            //minuteHandShape.Origin = new PointF(14.5f, 206f);
-            //analogClock1.MinuteHandShape = minuteHandShape;
-
-            //analogClock1.TimeProvider = new UtcOffsetTimeProvider(TimeSpan.FromHours(9));
-
-            //analogClock1.SetShapes(DustInTheWind.Clock.Shapes.ShapeSet.BlackDot);
         }
 
         private void Form1_Load(object sender, EventArgs e)

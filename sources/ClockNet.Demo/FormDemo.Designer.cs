@@ -285,7 +285,7 @@ namespace DustInTheWind.Clock.Demo
             // checkBoxIntegralSeconds
             // 
             this.checkBoxIntegralSeconds.AutoSize = true;
-            this.checkBoxIntegralSeconds.Location = new System.Drawing.Point(6, 42);
+            this.checkBoxIntegralSeconds.Location = new System.Drawing.Point(6, 19);
             this.checkBoxIntegralSeconds.Name = "checkBoxIntegralSeconds";
             this.checkBoxIntegralSeconds.Size = new System.Drawing.Size(106, 17);
             this.checkBoxIntegralSeconds.TabIndex = 0;
@@ -296,7 +296,7 @@ namespace DustInTheWind.Clock.Demo
             // checkBoxIntegralMinutes
             // 
             this.checkBoxIntegralMinutes.AutoSize = true;
-            this.checkBoxIntegralMinutes.Location = new System.Drawing.Point(6, 42);
+            this.checkBoxIntegralMinutes.Location = new System.Drawing.Point(6, 19);
             this.checkBoxIntegralMinutes.Name = "checkBoxIntegralMinutes";
             this.checkBoxIntegralMinutes.Size = new System.Drawing.Size(101, 17);
             this.checkBoxIntegralMinutes.TabIndex = 0;
@@ -307,7 +307,7 @@ namespace DustInTheWind.Clock.Demo
             // checkBoxIntegralHours
             // 
             this.checkBoxIntegralHours.AutoSize = true;
-            this.checkBoxIntegralHours.Location = new System.Drawing.Point(6, 42);
+            this.checkBoxIntegralHours.Location = new System.Drawing.Point(6, 19);
             this.checkBoxIntegralHours.Name = "checkBoxIntegralHours";
             this.checkBoxIntegralHours.Size = new System.Drawing.Size(92, 17);
             this.checkBoxIntegralHours.TabIndex = 0;
@@ -886,7 +886,6 @@ namespace DustInTheWind.Clock.Demo
             // 
             // panelClock
             // 
-            this.panelClock.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panelClock.Controls.Add(this.analogClock1);
             this.panelClock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelClock.Location = new System.Drawing.Point(8, 8);
@@ -943,7 +942,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape1.FillColor = System.Drawing.Color.Empty;
             ticks5Shape1.PositionOffset = 3F;
             this.analogClock1.Ticks5Shape = ticks5Shape1;
-            this.analogClock1.Time = System.TimeSpan.Parse("13:37:57.9097201");
+            this.analogClock1.Time = System.TimeSpan.Parse("15:45:05.9856524");
             this.analogClock1.TimeProvider = localTimeProvider1;
             this.analogClock1.Timer = this.timer1;
             this.analogClock1.TimeProviderChanged += new System.EventHandler(this.analogClock1_TimeProviderChanged);
