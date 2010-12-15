@@ -25,6 +25,8 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class PinShape : VectorialShapeBase
     {
+        public const string NAME = "Default Pin Shape";
+
         private const float RADIUS = 1.33f;
 
         /// <summary>
@@ -32,7 +34,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public override string Name
         {
-            get { return "Default Pin Shape"; }
+            get { return NAME; }
         }
 
         /// <summary>

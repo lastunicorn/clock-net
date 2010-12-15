@@ -24,12 +24,14 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class SweepHandShape : LineHandShape
     {
+        public const string NAME = "Default Sweep Hand Shape";
+
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Default Sweep Hand Shape"; }
+            get { return NAME; }
         }
 
 

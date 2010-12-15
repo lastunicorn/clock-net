@@ -14,19 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System.ComponentModel;
 
 namespace DustInTheWind.Clock.Shapes
 {
     /// <summary>
     /// Represents a clock hand to be displayed in the <see cref="AnalogClock"/> control.
     /// </summary>
+    [TypeConverter(typeof(ShapeConverter))]
     public interface IHandShape : IShape
     {
         /// <summary>
         /// When implemented in a derived class, gets or sets the height of the hand from the pin to the top.
         /// </summary>
         float Height { get; set; }
-        
+
         /// <summary>
         /// When implemented in a derived class, gets or sets the length of the tail.
         /// </summary>

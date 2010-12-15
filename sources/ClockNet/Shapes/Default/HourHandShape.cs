@@ -24,8 +24,10 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the hour hand.
     /// </summary>
+    [TypeConverter(typeof(ShapeConverter))]
     public class HourHandShape : PolygonHandShape
     {
+        public const string NAME = "Default Hour Hand Shape";
         public const float HEIGHT = 24.2f;
         public const float TAIL_LENGTH = 6f;
 
@@ -35,7 +37,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public override string Name
         {
-            get { return "Default Hour Hand Shape"; }
+            get { return NAME; }
         }
 
         /// <summary>
@@ -122,47 +124,32 @@ namespace DustInTheWind.Clock.Shapes.Default
         private void CalculateDimensions()
         {
             path = new PointF[] { new PointF(0f, tailLength), new PointF(-2.5f, 0f), new PointF(0F, -height), new PointF(2.5f, 0f) };
-
         }
 
-        ///// <summary>
-        ///// Draws the hour hand using the provided <see cref="Graphics"/> object.
-        ///// </summary>
-        ///// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        ///// <remarks>
-        ///// The hand is drawn in vertical position from the origin of the coordinate system.
-        ///// Before this method beeng called, the coordinate system has to be rotated in the corect position.
-        ///// </remarks>
-        //public override void Draw(Graphics g)
+        //public override bool Equals(object obj)
         //{
-        //    //Matrix originalTransformMatrix = null;
-
-        //    //if (height > 0)
-        //    //{
-        //    //    originalTransformMatrix = g.Transform;
-
-        //    //    float scaleFactor = height / pathHeight;
-        //    //    g.ScaleTransform(scaleFactor, scaleFactor);
-        //    //}
-
-        //    if (!fillColor.IsEmpty)
+        //    if (obj is HourHandShape)
         //    {
-        //        CreateBrushIfNull();
+        //        HourHandShape shape = (HourHandShape)obj;
 
-        //        g.FillPolygon(brush, path);
+        //        return
+        //            shape.fillColor == fillColor &&
+        //            shape.height == height &&
+        //            shape.lineWidth == lineWidth &&
+        //            shape.outlineColor == outlineColor &&
+        //            shape.tailLength == tailLength &&
+        //            shape.visible == visible;
         //    }
-
-        //    if (!outlineColor.IsEmpty)
+        //    else
         //    {
-        //        CreatePenIfNull();
-
-        //        g.DrawPolygon(pen, path);
+        //        return false;
         //    }
+        //}
 
-        //    //if (originalTransformMatrix != null)
-        //    //{
-        //    //    g.Transform = originalTransformMatrix;
-        //    //}
+        //public override int GetHashCode()
+        //{
+        //    return fillColor.GetHashCode() ^ height.GetHashCode() ^ lineWidth.GetHashCode() ^
+        //        outlineColor.GetHashCode() ^ tailLength.GetHashCode() ^ visible.GetHashCode();
         //}
     }
 }

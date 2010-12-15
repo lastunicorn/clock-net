@@ -25,6 +25,7 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class MinuteHandShape : PolygonHandShape
     {
+        public const string NAME = "Default Minute Hand Shape";
         public new const float HEIGHT = 37f;
         public new const float TAIL_LENGTH = 4f;
 
@@ -34,7 +35,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public override string Name
         {
-            get { return "Default Minute Hand Shape"; }
+            get { return NAME; }
         }
 
 

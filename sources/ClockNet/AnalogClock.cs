@@ -22,6 +22,7 @@ using System.Drawing.Text;
 using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.TimeProviders;
+using DustInTheWind.Clock.Shapes.Default;
 
 namespace DustInTheWind.Clock
 {
@@ -446,8 +447,9 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
         /// </summary>
         [Category("Shapes")]
-        [DefaultValue(null)]
-        [Description("An instance of IShape responsable to paint the hour hand in the position specified by the clock.")]
+        [DefaultValue(typeof(HourHandShape), DustInTheWind.Clock.Shapes.Default.HourHandShape.NAME)]
+        [TypeConverter(typeof(ShapeConverter))]
+        [Description("An instance of IHandShape responsable to paint the hour hand in the position specified by the clock.")]
         public IHandShape HourHandShape
         {
             get { return hourHandShape; }
@@ -502,7 +504,7 @@ namespace DustInTheWind.Clock
         /// </summary>
         [Category("Shapes")]
         [DefaultValue(null)]
-        [Description("An instance of IShape responsable to paint the minute hand in the position specified by the clock.")]
+        [Description("An instance of IHandShape responsable to paint the minute hand in the position specified by the clock.")]
         public IHandShape MinuteHandShape
         {
             get { return minuteHandShape; }
@@ -557,7 +559,7 @@ namespace DustInTheWind.Clock
         /// </summary>
         [Category("Shapes")]
         [DefaultValue(null)]
-        [Description("An instance of IShape responsable to paint the sweep hand in the position specified by the clock.")]
+        [Description("An instance of IHandShape responsable to paint the sweep hand in the position specified by the clock.")]
         public IHandShape SweepHandShape
         {
             get { return sweepHandShape; }
@@ -684,16 +686,16 @@ namespace DustInTheWind.Clock
         #region Numbers
 
         /// <summary>
-        /// An instance of <see cref="INumbersShape"/> responsable to paint the numbers that marks the hours.
+        /// An instance of <see cref="IArrayShape"/> responsable to paint the numbers that marks the hours.
         /// </summary>
         private IArrayShape numbersShape;
 
         /// <summary>
-        /// Gets or sets an instance of <see cref="INumbersShape"/> responsable to paint the numbers that marks the hours.
+        /// Gets or sets an instance of <see cref="IArrayShape"/> responsable to paint the numbers that marks the hours.
         /// </summary>
         [Category("Shapes")]
         [DefaultValue(null)]
-        [Description("An instance of INumbersShape responsable to paint the numbers that marks the hours.")]
+        [Description("An instance of IArrayShape responsable to paint the numbers that marks the hours.")]
         public IArrayShape NumbersShape
         {
             get { return numbersShape; }

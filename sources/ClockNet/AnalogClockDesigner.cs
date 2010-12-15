@@ -2,6 +2,7 @@
 using System.Windows.Forms.Design;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.Shapes.Default;
+using DustInTheWind.Clock.TimeProviders;
 
 namespace DustInTheWind.Clock
 {
@@ -80,6 +81,14 @@ namespace DustInTheWind.Clock
             if (textShapeDescriptor != null && textShapeDescriptor.PropertyType == typeof(IShape) && !textShapeDescriptor.IsReadOnly && textShapeDescriptor.IsBrowsable)
             {
                 textShapeDescriptor.SetValue(Component, new TextShape());
+            }
+
+
+            PropertyDescriptor timeProviderDescriptor = TypeDescriptor.GetProperties(Component)["TimeProvider"];
+
+            if (timeProviderDescriptor != null && timeProviderDescriptor.PropertyType == typeof(ITimeProvider) && !timeProviderDescriptor.IsReadOnly && timeProviderDescriptor.IsBrowsable)
+            {
+                timeProviderDescriptor.SetValue(Component, new LocalTimeProvider());
             }
         }
     }

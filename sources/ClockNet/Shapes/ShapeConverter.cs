@@ -18,6 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 using DustInTheWind.Clock.Shapes;
+using DustInTheWind.Clock.Shapes.Default;
 
 namespace DustInTheWind.Clock
 {
@@ -26,7 +27,7 @@ namespace DustInTheWind.Clock
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
         {
             if (sourceType == typeof(string))
-                return false;
+                return true;
 
             return base.CanConvertFrom(context, sourceType);
         }
@@ -35,7 +36,23 @@ namespace DustInTheWind.Clock
         {
             if (value is string)
             {
-                return null;
+                switch ((string)value)
+                {
+                    case HourHandShape.NAME:
+                        return new HourHandShape();
+
+                    case MinuteHandShape.NAME:
+                        return new MinuteHandShape();
+
+                    case SweepHandShape.NAME:
+                        return new SweepHandShape();
+
+                    case PinShape.NAME:
+                        return new PinShape();
+
+                    default:
+                        return null;
+                }
             }
 
             return base.ConvertFrom(context, culture, value);
@@ -56,7 +73,10 @@ namespace DustInTheWind.Clock
         {
             if (destinationType == typeof(string))
             {
-                return ((IShape)value).Name;
+                if (value is IShape)
+                    return ((IShape)value).Name;
+                else
+                    return null;
             }
 
             //if (destinationType == typeof(InstanceDescriptor) && value is PointF)
