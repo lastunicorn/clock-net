@@ -416,27 +416,6 @@ namespace DustInTheWind.Clock
 
         #region Hour Hand
 
-        ///// <summary>
-        ///// A value that specifies if the hour hand should be displayed.
-        ///// </summary>
-        //private bool hourHandVisible = true;
-
-        ///// <summary>
-        ///// Gets or sets a value that specifies if the hour hand should be displayed.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(true)]
-        //[Description("Specifies if the hour hand should be displayed.")]
-        //public bool HourHandVisible
-        //{
-        //    get { return hourHandVisible; }
-        //    set
-        //    {
-        //        hourHandVisible = value;
-        //        Invalidate();
-        //    }
-        //}
-
         /// <summary>
         /// A value that specifies if the hour hand should point exactly to the hour marks and never between them.
         /// </summary>
@@ -491,27 +470,6 @@ namespace DustInTheWind.Clock
         #endregion
 
         #region Minute Hand
-
-        ///// <summary>
-        ///// A value that specifies if the minute hand should be displayed.
-        ///// </summary>
-        //private bool minuteHandVisible = true;
-
-        ///// <summary>
-        ///// Gets or sets a value that specifies if the minute hand should be displayed.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(true)]
-        //[Description("Specifies if the minute hand should be displayed.")]
-        //public bool MinuteHandVisible
-        //{
-        //    get { return minuteHandVisible; }
-        //    set
-        //    {
-        //        minuteHandVisible = value;
-        //        Invalidate();
-        //    }
-        //}
 
         /// <summary>
         /// A value that specifies if the minute hand should point exactly to the minute marks and never between them.
@@ -568,27 +526,6 @@ namespace DustInTheWind.Clock
 
         #region Sweep Hand
 
-        ///// <summary>
-        ///// A value that specifies if the sweep hand should be displayed.
-        ///// </summary>
-        //private bool sweepHandVisible = true;
-
-        ///// <summary>
-        ///// Gets or sets a value that specifies if the sweep hand should be displayed.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(true)]
-        //[Description("A value that specifies if the sweep hand should be displayed.")]
-        //public bool SweepHandVisible
-        //{
-        //    get { return sweepHandVisible; }
-        //    set
-        //    {
-        //        sweepHandVisible = value;
-        //        Invalidate();
-        //    }
-        //}
-
         /// <summary>
         /// A value that specifies if the sweep hand should point exactly to the second's marks and never between them.
         /// </summary>
@@ -644,27 +581,6 @@ namespace DustInTheWind.Clock
 
         #region Pin
 
-        ///// <summary>
-        ///// A value that specifies if the pin should be displayed.
-        ///// </summary>
-        //private bool pinVisible = true;
-
-        ///// <summary>
-        ///// Gets or sets a value that specifies if the pin should be displayed.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(true)]
-        //[Description("Specifies if the pin should be displayed.")]
-        //public bool PinVisible
-        //{
-        //    get { return pinVisible; }
-        //    set
-        //    {
-        //        pinVisible = value;
-        //        Invalidate();
-        //    }
-        //}
-
         /// <summary>
         /// An instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
         /// </summary>
@@ -698,27 +614,6 @@ namespace DustInTheWind.Clock
         #endregion
 
         #region Ticks1
-
-        ///// <summary>
-        ///// A value that specifies if the tick lines that marks the seconds should be displayed.
-        ///// </summary>
-        //private bool ticks1Visible = true;
-
-        ///// <summary>
-        ///// Gets or sets a value that specifies if the tick lines that marks the seconds should be displayed.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(true)]
-        //[Description("Specifies if the tick lines that marks the seconds should be displayed.")]
-        //public bool Ticks1Visible
-        //{
-        //    get { return ticks1Visible; }
-        //    set
-        //    {
-        //        ticks1Visible = value;
-        //        Invalidate();
-        //    }
-        //}
 
         /// <summary>
         /// An instance of <see cref="IShape"/> responsable to paint the tick lines that marks the seconds.
@@ -754,27 +649,6 @@ namespace DustInTheWind.Clock
 
         #region Ticks5
 
-        ///// <summary>
-        ///// A value that specifies if the tick lines that marks every 5 seconds should be displayed.
-        ///// </summary>
-        //private bool ticks5Visible = true;
-
-        ///// <summary>
-        ///// Gets or sets a value that specifies if the tick lines that marks every 5 seconds should be displayed.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(true)]
-        //[Description("Specifies if the tick lines that marks every 5 seconds should be displayed.")]
-        //public bool Ticks5Visible
-        //{
-        //    get { return ticks5Visible; }
-        //    set
-        //    {
-        //        ticks5Visible = value;
-        //        Invalidate();
-        //    }
-        //}
-
         /// <summary>
         /// An instance of <see cref="IShape"/> responsable to paint the tick lines that marks every 5 seconds.
         /// </summary>
@@ -808,27 +682,6 @@ namespace DustInTheWind.Clock
         #endregion
 
         #region Numbers
-
-        ///// <summary>
-        ///// A value that specifies if the number should be displayed.
-        ///// </summary>
-        //private bool numbersVisible = true;
-
-        ///// <summary>
-        ///// Gets or sets a value that specifies if the number should be displayed.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(true)]
-        //[Description("Specifies if the number should be displayed.")]
-        //public bool NumbersVisible
-        //{
-        //    get { return numbersVisible; }
-        //    set
-        //    {
-        //        numbersVisible = value;
-        //        Invalidate();
-        //    }
-        //}
 
         /// <summary>
         /// An instance of <see cref="INumbersShape"/> responsable to paint the numbers that marks the hours.
@@ -899,16 +752,16 @@ namespace DustInTheWind.Clock
         #region Text
 
         /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the text displayed on the background of the clock.
+        /// An instance of <see cref="IShape"/> responsable to paint the text from the background of the clock.
         /// </summary>
         private IShape textShape;
 
         /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the text displayed on the background of the clock.
+        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the text from the background of the clock.
         /// </summary>
         [Category("Shapes")]
         [DefaultValue(null)]
-        [Description("An instance of INumbersShape responsable to paint the text displayed on the background of the clock.")]
+        [Description("An instance of IShape responsable to paint the text from the background of the clock.")]
         public IShape TextShape
         {
             get { return textShape; }
