@@ -1,5 +1,5 @@
-AnalogClock v2.0 beta
-=====================
+AnalogClock v2.0 alpha2
+=======================
 
 The AnalogClock is a .net control that displays an old style analog clock.
 
@@ -83,14 +83,25 @@ Obs: You may want to overwrite the Dispose method, too, to clean the memory of t
 V) Using the clock
 ------------------
 
-1) Add a reference in your project to the ClockNet.dll file.
-2) Drag from the Toolbox a new AnalogClock control on your form.
-3) Drag from the ToolBox on your form a new Timer.
-4) In the AnalogClock's Properties window find the "Timer" property and set it to use the timer created in step 3.
+On short:
+1) Add the AnalogClock control to the Toolbox.
+2) Drag a new AnalogClock control on your form.
+3) Attach a Timer to the clock.
+
+With more details:
+1) Add the AnalogClock control to the Toolbox.
+	a) Right click inside the Toolbox and choose "Add Tab" from the context menu. Name the newly created tab "Clock" (or any other name).
+	b) Right click inside the "Clock" tab. Choose "Choose Items..." from the context menu.
+	c) In the new dialog, on the ".Net Framework Components" click the "Browse..." button and open the "ClockNet.dll" file that you downloaded.
+	Now you should heve in the Toolbox's tab, the "AnalogClock" control.
+2) Drag from the Toolbox a new "AnalogClock" control on your form.
+3) Drag from the ToolBox on your form a new "Timer". It can be found in the "Components" tab. Set the Interval value and enable it from the "Properties" tool window.
+4) Select the "AnalogClock" added on your form. In the "Properties" tool window find the "Timer" property and set it to use the timer created in step 3.
+5) Additionally you may change the properties of the default shapes of the "AnalogClock" in "Properties" tool window in the "Shapes" category.
 
 Congratualtions! You have a working clock that displays the current system time.
 
-For advanced configurations, like changing the shapes with custom ones or using a different time provider, you need to write some additional code.
+For advanced configurations, like changing the shapes with custom ones or using a different time provider, you need to write some code. (Hopefully some tutorials will be included in a later version. :D )
 
 
 VI) Features

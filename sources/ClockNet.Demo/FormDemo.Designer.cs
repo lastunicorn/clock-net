@@ -76,8 +76,6 @@ namespace DustInTheWind.Clock.Demo
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.checkBoxUseExternalTimer = new System.Windows.Forms.CheckBox();
-            this.groupBoxTicks1 = new System.Windows.Forms.GroupBox();
-            this.groupBoxTicks5 = new System.Windows.Forms.GroupBox();
             this.groupBoxTimer = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxMiscellaneous = new System.Windows.Forms.GroupBox();
@@ -103,18 +101,14 @@ namespace DustInTheWind.Clock.Demo
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tabPageTicks = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPageTicks1 = new System.Windows.Forms.TabPage();
             this.propertyGridTicks1 = new System.Windows.Forms.PropertyGrid();
             this.tabPageTicks5 = new System.Windows.Forms.TabPage();
             this.propertyGridTicks5 = new System.Windows.Forms.PropertyGrid();
             this.tabPageNumbers = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.propertyGridNumbers = new System.Windows.Forms.PropertyGrid();
-            this.groupBoxNumbers = new System.Windows.Forms.GroupBox();
             this.tabPageTimeProviders = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.propertyGridTimeProvider = new System.Windows.Forms.PropertyGrid();
@@ -129,6 +123,12 @@ namespace DustInTheWind.Clock.Demo
             this.numericUpDownTimerInterval = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panelParameters = new System.Windows.Forms.Panel();
+            this.tabPageDial = new System.Windows.Forms.TabPage();
+            this.propertyGridDial = new System.Windows.Forms.PropertyGrid();
+            this.tabControlDial = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.propertyGridText = new System.Windows.Forms.PropertyGrid();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).BeginInit();
@@ -150,12 +150,10 @@ namespace DustInTheWind.Clock.Demo
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageTicks.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPageTicks1.SuspendLayout();
             this.tabPageTicks5.SuspendLayout();
             this.tabPageNumbers.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.tabPageTimeProviders.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBoxTimeProviders.SuspendLayout();
@@ -164,6 +162,10 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxExternalTimer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimerInterval)).BeginInit();
             this.panelParameters.SuspendLayout();
+            this.tabPageDial.SuspendLayout();
+            this.tabControlDial.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -179,7 +181,7 @@ namespace DustInTheWind.Clock.Demo
             this.textBoxTextFont.Name = "textBoxTextFont";
             this.textBoxTextFont.ReadOnly = true;
             this.textBoxTextFont.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxTextFont.Size = new System.Drawing.Size(230, 65);
+            this.textBoxTextFont.Size = new System.Drawing.Size(267, 65);
             this.textBoxTextFont.TabIndex = 2;
             // 
             // checkBoxKeepProportions
@@ -199,7 +201,7 @@ namespace DustInTheWind.Clock.Demo
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxText.Location = new System.Drawing.Point(80, 90);
             this.textBoxText.Name = "textBoxText";
-            this.textBoxText.Size = new System.Drawing.Size(280, 20);
+            this.textBoxText.Size = new System.Drawing.Size(317, 20);
             this.textBoxText.TabIndex = 2;
             this.textBoxText.TextChanged += new System.EventHandler(this.textBoxText_TextChanged);
             // 
@@ -323,7 +325,7 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxValue.Controls.Add(this.label4);
             this.groupBoxValue.Location = new System.Drawing.Point(3, 219);
             this.groupBoxValue.Name = "groupBoxValue";
-            this.groupBoxValue.Size = new System.Drawing.Size(180, 115);
+            this.groupBoxValue.Size = new System.Drawing.Size(198, 115);
             this.groupBoxValue.TabIndex = 4;
             this.groupBoxValue.TabStop = false;
             this.groupBoxValue.Text = "Value";
@@ -359,36 +361,14 @@ namespace DustInTheWind.Clock.Demo
             this.checkBoxUseExternalTimer.UseVisualStyleBackColor = true;
             this.checkBoxUseExternalTimer.CheckedChanged += new System.EventHandler(this.checkBoxUseExternalTimer_CheckedChanged);
             // 
-            // groupBoxTicks1
-            // 
-            this.groupBoxTicks1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxTicks1.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxTicks1.Name = "groupBoxTicks1";
-            this.groupBoxTicks1.Size = new System.Drawing.Size(180, 115);
-            this.groupBoxTicks1.TabIndex = 2;
-            this.groupBoxTicks1.TabStop = false;
-            this.groupBoxTicks1.Text = "Ticks 1";
-            // 
-            // groupBoxTicks5
-            // 
-            this.groupBoxTicks5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxTicks5.Location = new System.Drawing.Point(189, 3);
-            this.groupBoxTicks5.Name = "groupBoxTicks5";
-            this.groupBoxTicks5.Size = new System.Drawing.Size(180, 115);
-            this.groupBoxTicks5.TabIndex = 2;
-            this.groupBoxTicks5.TabStop = false;
-            this.groupBoxTicks5.Text = "Ticks 5";
-            // 
             // groupBoxTimer
             // 
             this.groupBoxTimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxTimer.Controls.Add(this.checkBoxUseExternalTimer);
-            this.groupBoxTimer.Location = new System.Drawing.Point(189, 219);
+            this.groupBoxTimer.Location = new System.Drawing.Point(207, 219);
             this.groupBoxTimer.Name = "groupBoxTimer";
-            this.groupBoxTimer.Size = new System.Drawing.Size(180, 115);
+            this.groupBoxTimer.Size = new System.Drawing.Size(199, 115);
             this.groupBoxTimer.TabIndex = 7;
             this.groupBoxTimer.TabStop = false;
             this.groupBoxTimer.Text = "Timer";
@@ -409,7 +389,7 @@ namespace DustInTheWind.Clock.Demo
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(372, 546);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(409, 546);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // groupBoxMiscellaneous
@@ -436,7 +416,7 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxMiscellaneous.Controls.Add(this.numericUpDownPaddingBottom);
             this.groupBoxMiscellaneous.Location = new System.Drawing.Point(3, 3);
             this.groupBoxMiscellaneous.Name = "groupBoxMiscellaneous";
-            this.groupBoxMiscellaneous.Size = new System.Drawing.Size(366, 210);
+            this.groupBoxMiscellaneous.Size = new System.Drawing.Size(403, 210);
             this.groupBoxMiscellaneous.TabIndex = 13;
             this.groupBoxMiscellaneous.TabStop = false;
             this.groupBoxMiscellaneous.Text = "Miscellaneous";
@@ -444,7 +424,7 @@ namespace DustInTheWind.Clock.Demo
             // buttonBrowseTextFont
             // 
             this.buttonBrowseTextFont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseTextFont.Location = new System.Drawing.Point(316, 116);
+            this.buttonBrowseTextFont.Location = new System.Drawing.Point(353, 116);
             this.buttonBrowseTextFont.Name = "buttonBrowseTextFont";
             this.buttonBrowseTextFont.Size = new System.Drawing.Size(44, 44);
             this.buttonBrowseTextFont.TabIndex = 3;
@@ -493,12 +473,13 @@ namespace DustInTheWind.Clock.Demo
             this.propertyGridHourHand.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propertyGridHourHand.Location = new System.Drawing.Point(0, 0);
             this.propertyGridHourHand.Name = "propertyGridHourHand";
-            this.propertyGridHourHand.Size = new System.Drawing.Size(358, 272);
+            this.propertyGridHourHand.Size = new System.Drawing.Size(395, 272);
             this.propertyGridHourHand.TabIndex = 10;
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPageMiscellaneous);
+            this.tabControl.Controls.Add(this.tabPageDial);
             this.tabControl.Controls.Add(this.tabPageClockHands);
             this.tabControl.Controls.Add(this.tabPageTicks);
             this.tabControl.Controls.Add(this.tabPageNumbers);
@@ -508,7 +489,7 @@ namespace DustInTheWind.Clock.Demo
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(380, 572);
+            this.tabControl.Size = new System.Drawing.Size(417, 572);
             this.tabControl.TabIndex = 12;
             // 
             // tabPageMiscellaneous
@@ -516,7 +497,7 @@ namespace DustInTheWind.Clock.Demo
             this.tabPageMiscellaneous.Controls.Add(this.tableLayoutPanel1);
             this.tabPageMiscellaneous.Location = new System.Drawing.Point(4, 22);
             this.tabPageMiscellaneous.Name = "tabPageMiscellaneous";
-            this.tabPageMiscellaneous.Size = new System.Drawing.Size(372, 546);
+            this.tabPageMiscellaneous.Size = new System.Drawing.Size(409, 546);
             this.tabPageMiscellaneous.TabIndex = 0;
             this.tabPageMiscellaneous.Text = "Miscellaneous";
             this.tabPageMiscellaneous.UseVisualStyleBackColor = true;
@@ -526,7 +507,7 @@ namespace DustInTheWind.Clock.Demo
             this.tabPageClockHands.Controls.Add(this.tableLayoutPanel2);
             this.tabPageClockHands.Location = new System.Drawing.Point(4, 22);
             this.tabPageClockHands.Name = "tabPageClockHands";
-            this.tabPageClockHands.Size = new System.Drawing.Size(372, 546);
+            this.tabPageClockHands.Size = new System.Drawing.Size(409, 546);
             this.tabPageClockHands.TabIndex = 7;
             this.tabPageClockHands.Text = "Clock Hands";
             this.tabPageClockHands.UseVisualStyleBackColor = true;
@@ -542,7 +523,6 @@ namespace DustInTheWind.Clock.Demo
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox3, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox4, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -550,7 +530,7 @@ namespace DustInTheWind.Clock.Demo
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(372, 546);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(409, 546);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // tabControl1
@@ -566,7 +546,7 @@ namespace DustInTheWind.Clock.Demo
             this.tabControl1.Location = new System.Drawing.Point(3, 245);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(366, 298);
+            this.tabControl1.Size = new System.Drawing.Size(403, 298);
             this.tabControl1.TabIndex = 12;
             // 
             // tabPageHourHand
@@ -574,7 +554,7 @@ namespace DustInTheWind.Clock.Demo
             this.tabPageHourHand.Controls.Add(this.propertyGridHourHand);
             this.tabPageHourHand.Location = new System.Drawing.Point(4, 22);
             this.tabPageHourHand.Name = "tabPageHourHand";
-            this.tabPageHourHand.Size = new System.Drawing.Size(358, 272);
+            this.tabPageHourHand.Size = new System.Drawing.Size(395, 272);
             this.tabPageHourHand.TabIndex = 1;
             this.tabPageHourHand.Text = "Hour Hand";
             this.tabPageHourHand.UseVisualStyleBackColor = true;
@@ -640,7 +620,7 @@ namespace DustInTheWind.Clock.Demo
             this.groupBox2.Controls.Add(this.checkBoxIntegralHours);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 115);
+            this.groupBox2.Size = new System.Drawing.Size(198, 115);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hour Hand";
@@ -650,9 +630,9 @@ namespace DustInTheWind.Clock.Demo
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.checkBoxIntegralMinutes);
-            this.groupBox3.Location = new System.Drawing.Point(189, 3);
+            this.groupBox3.Location = new System.Drawing.Point(207, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(180, 115);
+            this.groupBox3.Size = new System.Drawing.Size(199, 115);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Minute Hand";
@@ -664,63 +644,30 @@ namespace DustInTheWind.Clock.Demo
             this.groupBox1.Controls.Add(this.checkBoxIntegralSeconds);
             this.groupBox1.Location = new System.Drawing.Point(3, 124);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(180, 115);
+            this.groupBox1.Size = new System.Drawing.Size(198, 115);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sweep Hend";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Location = new System.Drawing.Point(189, 124);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(180, 115);
-            this.groupBox4.TabIndex = 7;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Pin";
-            // 
             // tabPageTicks
             // 
-            this.tabPageTicks.Controls.Add(this.tableLayoutPanel3);
+            this.tabPageTicks.Controls.Add(this.tabControl2);
             this.tabPageTicks.Location = new System.Drawing.Point(4, 22);
             this.tabPageTicks.Name = "tabPageTicks";
-            this.tabPageTicks.Size = new System.Drawing.Size(372, 546);
+            this.tabPageTicks.Size = new System.Drawing.Size(409, 546);
             this.tabPageTicks.TabIndex = 4;
             this.tabPageTicks.Text = "Ticks";
             this.tabPageTicks.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.AutoSize = true;
-            this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.groupBoxTicks1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tabControl2, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.groupBoxTicks5, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(372, 546);
-            this.tableLayoutPanel3.TabIndex = 10;
-            // 
             // tabControl2
             // 
-            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.SetColumnSpan(this.tabControl2, 2);
             this.tabControl2.Controls.Add(this.tabPageTicks1);
             this.tabControl2.Controls.Add(this.tabPageTicks5);
-            this.tabControl2.Location = new System.Drawing.Point(3, 124);
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(366, 419);
+            this.tabControl2.Size = new System.Drawing.Size(409, 546);
             this.tabControl2.TabIndex = 12;
             // 
             // tabPageTicks1
@@ -728,7 +675,7 @@ namespace DustInTheWind.Clock.Demo
             this.tabPageTicks1.Controls.Add(this.propertyGridTicks1);
             this.tabPageTicks1.Location = new System.Drawing.Point(4, 22);
             this.tabPageTicks1.Name = "tabPageTicks1";
-            this.tabPageTicks1.Size = new System.Drawing.Size(358, 393);
+            this.tabPageTicks1.Size = new System.Drawing.Size(401, 520);
             this.tabPageTicks1.TabIndex = 1;
             this.tabPageTicks1.Text = "Ticks1";
             this.tabPageTicks1.UseVisualStyleBackColor = true;
@@ -738,7 +685,7 @@ namespace DustInTheWind.Clock.Demo
             this.propertyGridTicks1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propertyGridTicks1.Location = new System.Drawing.Point(0, 0);
             this.propertyGridTicks1.Name = "propertyGridTicks1";
-            this.propertyGridTicks1.Size = new System.Drawing.Size(358, 393);
+            this.propertyGridTicks1.Size = new System.Drawing.Size(401, 520);
             this.propertyGridTicks1.TabIndex = 10;
             // 
             // tabPageTicks5
@@ -746,7 +693,7 @@ namespace DustInTheWind.Clock.Demo
             this.tabPageTicks5.Controls.Add(this.propertyGridTicks5);
             this.tabPageTicks5.Location = new System.Drawing.Point(4, 22);
             this.tabPageTicks5.Name = "tabPageTicks5";
-            this.tabPageTicks5.Size = new System.Drawing.Size(358, 393);
+            this.tabPageTicks5.Size = new System.Drawing.Size(364, 520);
             this.tabPageTicks5.TabIndex = 2;
             this.tabPageTicks5.Text = "Ticks5";
             this.tabPageTicks5.UseVisualStyleBackColor = true;
@@ -756,66 +703,33 @@ namespace DustInTheWind.Clock.Demo
             this.propertyGridTicks5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propertyGridTicks5.Location = new System.Drawing.Point(0, 0);
             this.propertyGridTicks5.Name = "propertyGridTicks5";
-            this.propertyGridTicks5.Size = new System.Drawing.Size(358, 393);
+            this.propertyGridTicks5.Size = new System.Drawing.Size(364, 520);
             this.propertyGridTicks5.TabIndex = 11;
             // 
             // tabPageNumbers
             // 
-            this.tabPageNumbers.Controls.Add(this.tableLayoutPanel4);
+            this.tabPageNumbers.Controls.Add(this.propertyGridNumbers);
             this.tabPageNumbers.Location = new System.Drawing.Point(4, 22);
             this.tabPageNumbers.Name = "tabPageNumbers";
-            this.tabPageNumbers.Size = new System.Drawing.Size(372, 546);
+            this.tabPageNumbers.Size = new System.Drawing.Size(409, 546);
             this.tabPageNumbers.TabIndex = 5;
             this.tabPageNumbers.Text = "Numbers";
             this.tabPageNumbers.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.AutoSize = true;
-            this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.propertyGridNumbers, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.groupBoxNumbers, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(372, 546);
-            this.tableLayoutPanel4.TabIndex = 12;
-            // 
             // propertyGridNumbers
             // 
-            this.propertyGridNumbers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.SetColumnSpan(this.propertyGridNumbers, 2);
-            this.propertyGridNumbers.Location = new System.Drawing.Point(3, 124);
+            this.propertyGridNumbers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertyGridNumbers.Location = new System.Drawing.Point(0, 0);
             this.propertyGridNumbers.Name = "propertyGridNumbers";
-            this.propertyGridNumbers.Size = new System.Drawing.Size(366, 419);
+            this.propertyGridNumbers.Size = new System.Drawing.Size(409, 546);
             this.propertyGridNumbers.TabIndex = 11;
-            // 
-            // groupBoxNumbers
-            // 
-            this.groupBoxNumbers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.SetColumnSpan(this.groupBoxNumbers, 2);
-            this.groupBoxNumbers.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxNumbers.Name = "groupBoxNumbers";
-            this.groupBoxNumbers.Size = new System.Drawing.Size(366, 115);
-            this.groupBoxNumbers.TabIndex = 2;
-            this.groupBoxNumbers.TabStop = false;
-            this.groupBoxNumbers.Text = "Numbers";
             // 
             // tabPageTimeProviders
             // 
             this.tabPageTimeProviders.Controls.Add(this.tableLayoutPanel5);
             this.tabPageTimeProviders.Location = new System.Drawing.Point(4, 22);
             this.tabPageTimeProviders.Name = "tabPageTimeProviders";
-            this.tabPageTimeProviders.Size = new System.Drawing.Size(372, 546);
+            this.tabPageTimeProviders.Size = new System.Drawing.Size(409, 546);
             this.tabPageTimeProviders.TabIndex = 8;
             this.tabPageTimeProviders.Text = "Time Providers";
             this.tabPageTimeProviders.UseVisualStyleBackColor = true;
@@ -835,7 +749,7 @@ namespace DustInTheWind.Clock.Demo
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(372, 546);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(409, 546);
             this.tableLayoutPanel5.TabIndex = 13;
             // 
             // propertyGridTimeProvider
@@ -846,7 +760,7 @@ namespace DustInTheWind.Clock.Demo
             this.tableLayoutPanel5.SetColumnSpan(this.propertyGridTimeProvider, 2);
             this.propertyGridTimeProvider.Location = new System.Drawing.Point(3, 124);
             this.propertyGridTimeProvider.Name = "propertyGridTimeProvider";
-            this.propertyGridTimeProvider.Size = new System.Drawing.Size(366, 419);
+            this.propertyGridTimeProvider.Size = new System.Drawing.Size(403, 419);
             this.propertyGridTimeProvider.TabIndex = 12;
             // 
             // groupBoxTimeProviders
@@ -858,7 +772,7 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxTimeProviders.Controls.Add(this.comboBoxTimeProviders);
             this.groupBoxTimeProviders.Location = new System.Drawing.Point(3, 3);
             this.groupBoxTimeProviders.Name = "groupBoxTimeProviders";
-            this.groupBoxTimeProviders.Size = new System.Drawing.Size(366, 115);
+            this.groupBoxTimeProviders.Size = new System.Drawing.Size(403, 115);
             this.groupBoxTimeProviders.TabIndex = 2;
             this.groupBoxTimeProviders.TabStop = false;
             this.groupBoxTimeProviders.Text = "Time Providers";
@@ -891,7 +805,7 @@ namespace DustInTheWind.Clock.Demo
             this.panelClock.Location = new System.Drawing.Point(8, 8);
             this.panelClock.Name = "panelClock";
             this.panelClock.Padding = new System.Windows.Forms.Padding(8);
-            this.panelClock.Size = new System.Drawing.Size(716, 627);
+            this.panelClock.Size = new System.Drawing.Size(679, 627);
             this.panelClock.TabIndex = 13;
             // 
             // analogClock1
@@ -927,7 +841,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock1.NumbersShape = numbersShape1;
             pinShape1.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock1.PinShape = pinShape1;
-            this.analogClock1.Size = new System.Drawing.Size(700, 611);
+            this.analogClock1.Size = new System.Drawing.Size(663, 611);
             sweepHandShape1.FillColor = System.Drawing.Color.Empty;
             sweepHandShape1.Height = 41F;
             this.analogClock1.SweepHandShape = sweepHandShape1;
@@ -942,7 +856,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape1.FillColor = System.Drawing.Color.Empty;
             ticks5Shape1.PositionOffset = 3F;
             this.analogClock1.Ticks5Shape = ticks5Shape1;
-            this.analogClock1.Time = System.TimeSpan.Parse("15:45:05.9856524");
+            this.analogClock1.Time = System.TimeSpan.Parse("11:17:25.2153866");
             this.analogClock1.TimeProvider = localTimeProvider1;
             this.analogClock1.Timer = this.timer1;
             this.analogClock1.TimeProviderChanged += new System.EventHandler(this.analogClock1_TimeProviderChanged);
@@ -975,7 +889,7 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxExternalTimer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxExternalTimer.Location = new System.Drawing.Point(0, 572);
             this.groupBoxExternalTimer.Name = "groupBoxExternalTimer";
-            this.groupBoxExternalTimer.Size = new System.Drawing.Size(380, 55);
+            this.groupBoxExternalTimer.Size = new System.Drawing.Size(417, 55);
             this.groupBoxExternalTimer.TabIndex = 5;
             this.groupBoxExternalTimer.TabStop = false;
             this.groupBoxExternalTimer.Text = "External Timer";
@@ -1018,10 +932,70 @@ namespace DustInTheWind.Clock.Demo
             this.panelParameters.Controls.Add(this.tabControl);
             this.panelParameters.Controls.Add(this.groupBoxExternalTimer);
             this.panelParameters.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelParameters.Location = new System.Drawing.Point(724, 8);
+            this.panelParameters.Location = new System.Drawing.Point(687, 8);
             this.panelParameters.Name = "panelParameters";
-            this.panelParameters.Size = new System.Drawing.Size(380, 627);
+            this.panelParameters.Size = new System.Drawing.Size(417, 627);
             this.panelParameters.TabIndex = 1;
+            // 
+            // tabPageDial
+            // 
+            this.tabPageDial.Controls.Add(this.tabControlDial);
+            this.tabPageDial.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDial.Name = "tabPageDial";
+            this.tabPageDial.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDial.Size = new System.Drawing.Size(409, 546);
+            this.tabPageDial.TabIndex = 9;
+            this.tabPageDial.Text = "Dial";
+            this.tabPageDial.UseVisualStyleBackColor = true;
+            // 
+            // propertyGridDial
+            // 
+            this.propertyGridDial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertyGridDial.Location = new System.Drawing.Point(3, 3);
+            this.propertyGridDial.Name = "propertyGridDial";
+            this.propertyGridDial.Size = new System.Drawing.Size(389, 508);
+            this.propertyGridDial.TabIndex = 12;
+            // 
+            // tabControlDial
+            // 
+            this.tabControlDial.Controls.Add(this.tabPage1);
+            this.tabControlDial.Controls.Add(this.tabPage2);
+            this.tabControlDial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlDial.Location = new System.Drawing.Point(3, 3);
+            this.tabControlDial.Name = "tabControlDial";
+            this.tabControlDial.SelectedIndex = 0;
+            this.tabControlDial.Size = new System.Drawing.Size(403, 540);
+            this.tabControlDial.TabIndex = 13;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.propertyGridDial);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(395, 514);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Dial";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.propertyGridText);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(395, 514);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Text";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // propertyGridText
+            // 
+            this.propertyGridText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertyGridText.Location = new System.Drawing.Point(3, 3);
+            this.propertyGridText.Name = "propertyGridText";
+            this.propertyGridText.Size = new System.Drawing.Size(389, 508);
+            this.propertyGridText.TabIndex = 13;
             // 
             // FormDemo
             // 
@@ -1065,14 +1039,10 @@ namespace DustInTheWind.Clock.Demo
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPageTicks.ResumeLayout(false);
-            this.tabPageTicks.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPageTicks1.ResumeLayout(false);
             this.tabPageTicks5.ResumeLayout(false);
             this.tabPageNumbers.ResumeLayout(false);
-            this.tabPageNumbers.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.tabPageTimeProviders.ResumeLayout(false);
             this.tabPageTimeProviders.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -1084,6 +1054,10 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxExternalTimer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimerInterval)).EndInit();
             this.panelParameters.ResumeLayout(false);
+            this.tabPageDial.ResumeLayout(false);
+            this.tabControlDial.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1102,8 +1076,6 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBoxUseExternalTimer;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.GroupBox groupBoxTicks1;
-        private System.Windows.Forms.GroupBox groupBoxTicks5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDownPaddingBottom;
         private System.Windows.Forms.NumericUpDown numericUpDownPaddingRight;
@@ -1137,7 +1109,6 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button buttonBrowseTextFont;
         private System.Windows.Forms.Label label12;
@@ -1145,15 +1116,12 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabPageTimeProviders;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPageTicks1;
         private System.Windows.Forms.PropertyGrid propertyGridTicks1;
         private System.Windows.Forms.TabPage tabPageTicks5;
         private System.Windows.Forms.PropertyGrid propertyGridTicks5;
         private System.Windows.Forms.PropertyGrid propertyGridNumbers;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.GroupBox groupBoxNumbers;
         private System.Windows.Forms.PropertyGrid propertyGridTimeProvider;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.GroupBox groupBoxTimeProviders;
@@ -1165,6 +1133,12 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelParameters;
         private System.Windows.Forms.NumericUpDown numericUpDownTimerInterval;
+        private System.Windows.Forms.TabPage tabPageDial;
+        private System.Windows.Forms.PropertyGrid propertyGridDial;
+        private System.Windows.Forms.TabControl tabControlDial;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.PropertyGrid propertyGridText;
 
 
 

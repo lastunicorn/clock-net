@@ -1,6 +1,12 @@
 ClockNet
 ========
 
+ver 2.0 alpha2
+--------------
+Bug fix - In design time, the control was not initializing the default shapes. - Fixed
+I added some aditional explanations about how to use the control in the readme.txt file.
+
+
 ver 2.0 alpha
 -------------
 The displayed time is now retrieved from an ITimeProvider instance.
@@ -9,6 +15,7 @@ I created a lot of IShape objects that draws different types of graphic elements
 I created a number of predefined shape sets that can be used programatically to easily change the aspect of the clock.
 
 Obs! In the future versions, the hierarchy of the IShape objects may change.
+
 
 ver 1.0.0
 ---------

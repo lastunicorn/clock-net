@@ -36,6 +36,8 @@ namespace DustInTheWind.Clock.Demo
             // Timer
             numericUpDownTimerInterval.Value = timer1.Interval;
 
+            // Dial
+            propertyGridDial.SelectedObject = analogClock1.DialShape;
 
             // Hour Hand
             checkBoxIntegralHours.Checked = analogClock1.IntegralHour;
@@ -84,6 +86,7 @@ namespace DustInTheWind.Clock.Demo
 
             // >> Text
             textBoxText.Text = analogClock1.Text;
+            propertyGridText.SelectedObject = analogClock1.TextShape;
 
             // >> Font
             textBoxTextFont.Text = analogClock1.Font.ToString();
