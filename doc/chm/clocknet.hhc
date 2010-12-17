@@ -11,7 +11,12 @@
 <UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="About">
-		<param name="Local" value="ebook\about_clocknet.html">
+		<param name="Local" value="ebook\about.html">
+		<param name="ImageNumber" value="11">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Features">
+		<param name="Local" value="ebook\features.html">
 		<param name="ImageNumber" value="11">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -21,15 +26,26 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="The Design of the Code">
-			<param name="Local" value="ebook\analog_clock\code_design.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="The Shapes">
-			<param name="Local" value="ebook\analog_clock\shapes_hierarchy.html">
+			<param name="Local" value="ebook\analog_clock\shapes_overview.html">
 			<param name="ImageNumber" value="1">
 			</OBJECT>
 		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Types of Shapes">
+				<param name="Local" value="ebook\analog_clock\shapes_types.html">
+				<param name="ImageNumber" value="11">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="IShape Interface">
+				<param name="Local" value="ebook\analog_clock\ishape_interface.html">
+				<param name="ImageNumber" value="11">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="IShape Implementations">
+				<param name="Local" value="ebook\analog_clock\ishape_implementations.html">
+				<param name="ImageNumber" value="11">
+				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="Shapes Hierarchy">
 				<param name="Local" value="ebook\analog_clock\shapes_hierarchy.html">
@@ -70,11 +86,6 @@
 			<param name="Local" value="ebook\analog_clock\design_time_support.html">
 			<param name="ImageNumber" value="11">
 			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Features">
-			<param name="Local" value="ebook\analog_clock\features.html">
-			<param name="ImageNumber" value="11">
-			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Tutorials">
@@ -82,18 +93,13 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="First Time">
+			<param name="Name" value="First Time Using the AnalogClock">
 			<param name="Local" value="ebook\tutorials\first_time.html">
 			<param name="ImageNumber" value="11">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Developing a new shape">
-			<param name="Local" value="ebook\tutorials\developping_a_new_shape.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="How to add a control into the toolbox">
-			<param name="Local" value="ebook\tutorials\how_to_add_a_control_into_the_toolbox.html">
-			<param name="ImageNumber" value="11">
+			<param name="Name" value="Developing a New Shape">
+			<param name="Local" value="ebook\tutorials\developing_a_new_shape.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">

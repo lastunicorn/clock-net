@@ -6,8 +6,26 @@
 	<body>
 		<h1>The Time Provider</h1>
 		
-		<p></p>
+		<p>The time provider is used by the timer. Any time the timer is triggered, the AnalogClock is refreshed with a new time value taken from the time provider.</p>
+		<p>A time provider class should implement the <span class="inline_code">ITimeProvider</span> interface or extend the <span class="inline_code">TimeProviderBase</span> base class:</p>
+		<pre class="code">public class MyTimeProvider : ITimeProvider
+{
+    ...
+}</pre>
+		<p>or:</p>
+		<pre class="code">public class MyTimeProvider : TimeProviderBase
+{
+    ...
+}</pre>
 
+		<p>The <span class="inline_code">ITimeProvider</span> interface exposes the method <span class="inline_code">GetTime</span> used by the timer to retrieve a new time value, and the <span class="inline_code">Changed</span> event through which the time provider can request the clock to refresh itself.</p>
+		<pre class="code">public interface ITimeProvider
+{
+    event EventHandler Changed;
+    TimeSpan GetTime();
+}</pre>
+
+		<p>The <span class="inline_code">Changed</span> event is necesary for the situation when some parameters of the time provider are changed influencing the provided time value. For example, if you change the offset value in an <span class="inline_code">UtcOffsetTimeProvider</span> instance it will raise the <span class="inline_code">Changed</span> event so that the clock could refresh itself and display the new value.</p>
 		<div id="page_footer"></div>
 	</body>
 </html> 

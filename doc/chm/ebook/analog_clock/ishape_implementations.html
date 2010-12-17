@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>IShape Implementations</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="../default.css" />
+	</head>
+	<body>
+		<h1>IShape Implementations</h1>
+		
+		<p><span class="inline_code">ShapeBase</span> abstract class is the default implemnentation of the <span class="inline_code">IShape</span> interface. When creating a new Shape, it is recomanded to derive from this class or one of its descendents, rather then implementing the <span class="inline_code">IShape</span> members from scratch.</p>
+		
+		<p>
+			Two other classes are extending the <span class="inline_code">ShapeBase</span> class:
+			<ul>
+				<li><span class="inline_code">VectorialShapeBase</span> - It is also an abstract class and offers support for drawing a vectorial image.</li>
+				<li><span class="inline_code">ImageShape</span> - Draws an image on the clock.</li>
+			</ul>
+		</p>
+		
+		<p>Before creating a new custom Shape class check the <a href="shapes_hierarchy.html">IShapes Hierarchy</a> to find the appropriete base class to extend.</p>
+		
+		<div id="page_footer"></div>
+	</body>
+</html> 

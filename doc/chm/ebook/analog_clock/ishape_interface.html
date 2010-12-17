@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>IShape interface</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="../default.css" />
+	</head>
+	<body>
+		<h1>IShape interface</h1>
+		
+		<p>A Shape is a class that implements the <span class="inline_code">IShape</span> interface.</p>
+		<pre class="code">[TypeConverter(typeof(ShapeConverter))]
+public interface IShape : IDisposable
+{
+    [Browsable(false)]
+    string Name { get; }
+    bool Visible { get; set; }
+    event EventHandler Changed;
+    void Draw(Graphics g);
+}</pre>
+		
+		<p>The most important method is <span class="inline_code">Draw</span>. It draws the shape on the clock's dial.</p>
+		<p>The <span class="inline_code">Changed</span> event is used to announce the clock that the one of the Shape's parameter was change and that it should repaint itself.</p>
+		
+		<div id="page_footer"></div>
+	</body>
+</html> 
