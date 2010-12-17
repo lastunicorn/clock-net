@@ -22,11 +22,11 @@ using DustInTheWind.Clock.Shapes.Basic;
 
 namespace DustInTheWind.Clock.Shapes.Fancy
 {
-    public class SlotHandShape : PathShape, IHandShape
+    public class SlotHandShape : PathHandShape
     {
         public const float SLOT_WIDTH = 5f;
         public const float SLOT_HEIGHT = 40f;
-        public const float HEIGHT = 50f;
+        public new const float HEIGHT = 50f;
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -38,39 +38,27 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
 
         /// <summary>
-        /// The length of the hour hand. For a clock with the diameter of 100px.
-        /// </summary>
-        protected float height;
-
-        /// <summary>
         /// Gets or sets the length of the hour hand. For a clock with the diameter of 100px.
         /// </summary>
-        [Category("Appearance")]
         [DefaultValue(HEIGHT)]
-        [Description("The length of the hour hand. For a clock with the diameter of 100px.")]
-        public virtual float Height
+        public override float Height
         {
-            get { return height; }
-            set
-            {
-                height = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
+            get { return base.Height; }
+            set { base.Height = value; }
         }
 
 
-        protected float tailLength;
-        public virtual float TailLength
-        {
-            get { return tailLength; }
-            set
-            {
-                tailLength = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        //protected float tailLength;
+        //public virtual float TailLength
+        //{
+        //    get { return tailLength; }
+        //    set
+        //    {
+        //        tailLength = value;
+        //        CalculateDimensions();
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
 
         protected float slotWidth;
@@ -127,7 +115,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
         #endregion
 
-        private void CalculateDimensions()
+        protected override void CalculateDimensions()
         {
             path.Reset();
             path.AddEllipse(-height, -height, height * 2f, height * 2f);

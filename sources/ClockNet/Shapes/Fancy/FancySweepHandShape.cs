@@ -25,13 +25,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the sweep hand.
     /// </summary>
-    public class FancySweepHandShape : PathShape, IHandShape
+    public class FancySweepHandShape : PathHandShape
     {
-        /// <summary>
-        /// The default height of the hand, from the pin to the top.
-        /// </summary>
-        public const float HEIGHT = 42.5f;
-
         /// <summary>
         /// The default radius of the circle from the middle (or not so middle) of the hand.
         /// </summary>
@@ -47,10 +42,10 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </summary>
         public const float TAIL_LENGTH = 5f;
 
-        /// <summary>
-        /// The default width of the line used to draw the hand.
-        /// </summary>
-        public new const float LINE_WIDTH = 0.1f;
+        ///// <summary>
+        ///// The default width of the line used to draw the hand.
+        ///// </summary>
+        //public new const float LINE_WIDTH = 0.1f;
 
 
         /// <summary>
@@ -62,27 +57,27 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
 
-        /// <summary>
-        /// The length of the sweep hand. For a clock with the diameter of 100px.
-        /// </summary>
-        protected float height;
+        ///// <summary>
+        ///// The length of the sweep hand. For a clock with the diameter of 100px.
+        ///// </summary>
+        //protected float height;
 
-        /// <summary>
-        /// Gets or sets the length of the sweep hand. For a clock with the diameter of 100px.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(HEIGHT)]
-        [Description("The length of the sweep hand. For a clock with the diameter of 100px.")]
-        public virtual float Height
-        {
-            get { return height; }
-            set
-            {
-                height = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        ///// <summary>
+        ///// Gets or sets the length of the sweep hand. For a clock with the diameter of 100px.
+        ///// </summary>
+        //[Category("Appearance")]
+        //[DefaultValue(HEIGHT)]
+        //[Description("The length of the sweep hand. For a clock with the diameter of 100px.")]
+        //public virtual float Height
+        //{
+        //    get { return height; }
+        //    set
+        //    {
+        //        height = value;
+        //        CalculateDimensions();
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
         /// <summary>
         /// The radius of the circle from the middle (or not so middle) of the hand.
@@ -127,27 +122,27 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             }
         }
 
-        /// <summary>
-        /// The length of the tail of the hand.
-        /// </summary>
-        private float tailLength = TAIL_LENGTH;
+        ///// <summary>
+        ///// The length of the tail of the hand.
+        ///// </summary>
+        //private float tailLength = TAIL_LENGTH;
 
-        /// <summary>
-        /// Gets or sets the length of the tail of the hand.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(TAIL_LENGTH)]
-        [Description("The length of the tail of the hand.")]
-        public virtual float TailLength
-        {
-            get { return tailLength; }
-            set
-            {
-                tailLength = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        ///// <summary>
+        ///// Gets or sets the length of the tail of the hand.
+        ///// </summary>
+        //[Category("Appearance")]
+        //[DefaultValue(TAIL_LENGTH)]
+        //[Description("The length of the tail of the hand.")]
+        //public virtual float TailLength
+        //{
+        //    get { return tailLength; }
+        //    set
+        //    {
+        //        tailLength = value;
+        //        CalculateDimensions();
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
 
         #region Constructors
@@ -180,7 +175,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <summary>
         /// Calculates additional values and creates the <see cref="GraphicsPath"/> that will be displayed by the <see cref="Draw"/> method.
         /// </summary>
-        protected virtual void CalculateDimensions()
+        protected override void CalculateDimensions()
         {
             path.Reset();
 

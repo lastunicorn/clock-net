@@ -41,7 +41,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// Initializes a new instance of the <see cref="PathShape"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
@@ -52,7 +52,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// Initializes a new instance of the <see cref="PathShape"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>

@@ -1,4 +1,4 @@
-﻿// ClockNet
+﻿// ClockControl
 // Copyright (C) 2010 Dust in the Wind
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -17,16 +17,17 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the sweep hand.
+    /// A shape that draws a clock hand using a <see cref="GraphicsPath"/>.
     /// </summary>
-    public class LineHandShape : LineShape, IHandShape
+    public class PathHandShape : PathShape, IHandShape
     {
         /// <summary>
-        /// The default value of the hand length from the pin to the top.
+        /// The default length of the hand from the pin to the top.
         /// </summary>
         public const float HEIGHT = 42.5f;
 
@@ -38,42 +39,16 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <summary>
         /// The default value of the hand's tail length.
         /// </summary>
-        public const float TAIL_LENGTH = 4.5f;
-
+        public const float TAIL_LENGTH = 5f;
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Line Hand Shape"; }
+            get { return "Path Hand Shape"; }
         }
 
-
-        /// <summary>
-        /// Get or sets the width of the line that is drawn by the current instance.
-        /// </summary>
-        [DefaultValue(LINE_WIDTH)]
-        public override float LineWidth
-        {
-            get { return base.LineWidth; }
-            set { base.LineWidth = value; }
-        }
-
-        [DefaultValue(typeof(Color), "Red")]
-        public override Color OutlineColor
-        {
-            get { return base.OutlineColor; }
-            set { base.OutlineColor = value; }
-        }
-
-        //[DefaultValue(typeof(Color), "Empty")]
-        [Browsable(false)]
-        public override Color FillColor
-        {
-            get { return base.FillColor; }
-            set { base.FillColor = value; }
-        }
 
         /// <summary>
         /// The length of the hand. For a clock with the diameter of 100px.
@@ -120,63 +95,69 @@ namespace DustInTheWind.Clock.Shapes.Basic
         }
 
 
-        #region Constructors
+        #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LineHandShape"/> class with
-        /// default values.
+        /// Initializes a new instance of the <see cref="PathHandShape"/> class.
         /// </summary>
-        public LineHandShape()
-            : this(Color.Black, HEIGHT, LINE_WIDTH, TAIL_LENGTH)
+        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
+        /// <param name="fillColor">The color used to fill the path's interior.</param>
+        /// <param name="path">The path that should be drawn.</param>
+        public PathHandShape(Color outlineColor, Color fillColor, GraphicsPath path)
+            : this(outlineColor, fillColor, LINE_WIDTH, path)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LineHandShape"/> class.
+        /// Initializes a new instance of the <see cref="PathHandShape"/> class.
         /// </summary>
-        public LineHandShape(Color color)
-            : this(color, HEIGHT, LINE_WIDTH, TAIL_LENGTH)
+        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
+        /// <param name="fillColor">The color used to fill the path's interior.</param>
+        /// <param name="path">The path that should be drawn.</param>
+        public PathHandShape(Color outlineColor, Color fillColor, float lineWidth, GraphicsPath path)
+            : base(outlineColor, fillColor, lineWidth, path)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LineHandShape"/> class.
-        /// </summary>
-        public LineHandShape(Color color, float height, float width, float tailLength)
-            : base(color, width)
-        {
-            this.height = height;
-            this.lineWidth = width;
-            this.tailLength = tailLength;
-
-            CalculateDimensions();
+            this.path = path;
         }
 
         #endregion
 
 
-        private void CalculateDimensions()
+        protected virtual void CalculateDimensions() { }
+
+        /// <summary>
+        /// Draws the hand using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the hand.</param>
+        public override void Draw(Graphics g)
         {
-            startPoint = new PointF(0f, tailLength);
-            endPoint = new PointF(0f, -height);
+            if (visible)
+            {
+                if (!fillColor.IsEmpty)
+                {
+                    CreateBrushIfNull();
+
+                    g.FillPath(brush, path);
+                }
+
+                if (!outlineColor.IsEmpty)
+                {
+                    CreatePenIfNull();
+
+                    g.DrawPath(pen, path);
+                }
+            }
         }
 
-        ///// <summary>
-        ///// Draws the hand hand using the provided <see cref="Graphics"/> object.
-        ///// </summary>
-        ///// <param name="g">The <see cref="Graphics"/> on which to draw the hand.</param>
-        ///// <remarks>
-        ///// The hand is drawn in vertical position from the origin of the coordinate system.
-        ///// Before this method beeng called, the coordinate system has to be rotated in the corect position.
-        ///// </remarks>
-        //public override void Draw(Graphics g)
-        //{
-        //    if (!outlineColor.IsEmpty)
-        //    {
-        //        CreatePenIfNull();
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (path != null)
+                    path.Dispose();
+            }
 
-        //        g.DrawLine(pen, startPoint, endPoint);
-        //    }
-        //}
+            base.Dispose(disposing);
+        }
     }
 }

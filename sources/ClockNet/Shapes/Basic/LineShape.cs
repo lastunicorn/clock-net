@@ -50,6 +50,9 @@ namespace DustInTheWind.Clock.Shapes.Basic
         }
 
 
+        /// <summary>
+        /// Get or sets the width of the line that is drawn by the current instance.
+        /// </summary>
         [DefaultValue(LINE_WIDTH)]
         public override float LineWidth
         {
@@ -60,13 +63,17 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
         #region Constructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LineShape"/> class with
+        /// default values.
+        /// </summary>
         public LineShape()
             : this(PointF.Empty, PointF.Empty, Color.Black, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// Initializes a new instance of the <see cref="LineShape"/> class.
         /// </summary>
         /// <param name="color">The color that will be used to draw the line.</param>
         /// <param name="lineWidth">The width of the line.</param>
@@ -76,7 +83,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// Initializes a new instance of the <see cref="LineShape"/> class.
         /// </summary>
         /// <param name="color">The color that will be used to draw the line.</param>
         /// <param name="lineWidth">The width of the line.</param>

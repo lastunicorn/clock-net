@@ -58,9 +58,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Shapes\Basic\PathHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonShape.cs" />
-    <Compile Include="Shapes\Fancy\BigRainDropHandShape.cs" />
+    <Compile Include="Shapes\Fancy\BigNibHandShape.cs" />
     <Compile Include="Shapes\Fancy\DotHandShape.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />
     <Compile Include="Shapes\IHandShape.cs" />
