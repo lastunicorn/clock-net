@@ -1,0 +1,32 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=clocknet.chm
+Contents file=clocknet.hhc
+Default topic=ebook\about_clocknet.html
+Display compile progress=Yes
+Error log file=clocknet.log
+Full-text search=Yes
+Language=0x409 English (United States)
+Title=ClockNet Help
+
+[FILES]
+ebook\change_log.html
+ebook\about_clocknet.html
+ebook\images\external_link.gif
+ebook\images\bullet.gif
+ebook\images\separator.png
+ebook\images\important_note.png
+ebook\license\license.html
+ebook\analog_clock\design_time_support.html
+ebook\analog_clock\shape_sets.html
+ebook\analog_clock\code_design.html
+ebook\analog_clock\features.html
+ebook\analog_clock\shapes_hierarchy.html
+ebook\analog_clock\timer.html
+ebook\analog_clock\time_provider.html 
+ebook\tutorials\how_to_add_a_control_into_the_toolbox.html
+ebook\tutorials\developping_a_new_shape.html
+ebook\tutorials\first_time.html
+
+[INFOTYPES]
+

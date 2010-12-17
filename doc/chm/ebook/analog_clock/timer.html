@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>The Timer</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="../default.css" />
+	</head>
+	<body>
+		<h1>The Timer</h1>
+		
+		<p>The time displayed by the AnalogClock control can be set manually or using a timer.</p>
+		<p>
+			To manually set the time, set the <span class="inline_code">Time</span> property of the AnalogClock control. By doing that, the clock will display the specified time indefinitely until you set the <span class="inline_code">Time</span> property with another value.
+		</p>	
+		<p>
+			Another way to display a time in the AnalogClock control is by using a timer and a <span class="inline_code">ITimeProvider</span> object.
+			The timer periodically updates the clock with a new value. But the value that is used comes from the <span class="inline_code">ITimeProvider</span> object.
+		</p>
+		<p>
+			The timer that can be used is the <span class="inline_code">System.Windows.Forms.Timer</span> component that can be found in the "Components" category of the "ToolBox" window.
+		</p>
+
+		<div id="page_footer"></div>
+	</body>
+</html> 

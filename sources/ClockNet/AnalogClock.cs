@@ -21,8 +21,8 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.TimeProviders;
 using DustInTheWind.Clock.Shapes.Default;
+using DustInTheWind.Clock.TimeProviders;
 
 namespace DustInTheWind.Clock
 {

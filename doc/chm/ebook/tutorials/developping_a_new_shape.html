@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>Developping a new shape</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="../default.css" />
+	</head>
+	<body>
+		<h1>Developping a new shape</h1>
+		
+		<p>
+			To create a new shape you need to do the folowing steps:
+			<ol>
+				<li>
+					Create a new class that either implements the <span class="inline_code">IShape</span> interface or it extends one of the already existing base classes. For example <span class="inline_code">ShapeBase</span> or <span class="inline_code">VectorialShapeBase</span>.
+					<pre class="code">class MyShape : ShapeBase
+{
+    ...
+}</pre>
+					<p>or:</p>
+					<pre class="code">class MyShape : VectorialShapeBase
+{
+    ...
+}</pre>
+				</li>
+				<li>
+					Override the <span class="inline_code">Name</span> property. This is not so important, but is nice to have a descriptive name for the shape.
+					<pre class="code">public override string Name
+{
+    get { return "My Shape"; }
+}</pre>
+				</li>
+				<li>
+					Override the <span class="inline_code">Draw</span> method. This is the method that actually draws the shape on the control. You can imagine this one is pretty important. ;)
+					<p>For a shape that extends <span class="inline_code">ShapeBase</span>:
+					
+						<pre class="code">public override void Draw(Graphics g)
+{
+    if (visible)
+    {
+        // Write code that draws the shape.
+        // ...
+    }
+}</pre>
+					</p>
+					<p>For a shape that extends <span class="inline_code">VectorialShapeBase</span>:
+					
+						<pre class="code">public override void Draw(Graphics g)
+{
+    if (visible)
+    {
+        if (!fillColor.IsEmpty)
+        {
+            CreateBrushIfNull();
+            
+            // Write code that draws the shape.
+            // ...
+        }
+        
+        if (!outlineColor.IsEmpty)
+        {
+            CreatePenIfNull();
+            
+            // Write code that draws the outline of the shape.
+            // ...
+        }
+    }
+}</pre>
+					</p>
+					<p class="note">When you create a new shape it should be drawn for a clock with diameter of 100px. The <span class="inline_code">AnalogClock</span> control will take care to scale it.</p>
+				</li>
+				<li>
+					<p>If, in the drawing process, you use some objects that needs cleanup, you may want to overwrite the <span class="inline_code">Dispose</span> method, too.</p>
+					<p>For example, if you use a <span class="inline_code">StringFormat</span> object, you should destroy it in the <span class="inline_code">Dispose</span> method like this:
+					<pre class="code">protected override void Dispose(bool disposing)
+{
+	if (disposing)
+	{
+		if (numbersString != null)
+			numbersString.Dispose();
+	}
+	
+	base.Dispose(disposing);
+}</pre>
+					</p>
+				</li>
+			</ol>
+		</p>
+		
+		<div id="page_footer"></div>
+	</body>
+</html> 
