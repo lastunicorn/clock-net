@@ -71,7 +71,7 @@ namespace DustInTheWind.Clock.Shapes
                 {
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(),
                     hourHandShape = new DustInTheWind.Clock.Shapes.Default.HourHandShape(),
-                    minuteHandShape = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape(),
+                    minuteHandShape = new DustInTheWind.Clock.Shapes.Fancy.BigRainDropHandShape(),
                     sweepHandShape = new DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape(),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(),
                     ticks1Shape = new DustInTheWind.Clock.Shapes.Default.Ticks1Shape(),
