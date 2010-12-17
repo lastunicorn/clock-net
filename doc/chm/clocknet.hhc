@@ -26,6 +26,7 @@
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="The Shapes">
+			<param name="Local" value="ebook\analog_clock\shapes_hierarchy.html">
 			<param name="ImageNumber" value="1">
 			</OBJECT>
 		<UL>
@@ -53,9 +54,17 @@
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="The Time Providers">
+			<param name="Name" value="The Time Provider">
+			<param name="Local" value="ebook\analog_clock\time_provider.html">
 			<param name="ImageNumber" value="1">
 			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="The Time Provider">
+				<param name="Local" value="ebook\analog_clock\time_provider.html">
+				<param name="ImageNumber" value="11">
+				</OBJECT>
+		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Design Time Support">
 			<param name="Local" value="ebook\analog_clock\design_time_support.html">
