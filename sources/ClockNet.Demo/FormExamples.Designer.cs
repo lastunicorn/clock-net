@@ -389,7 +389,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockDefault.Ticks1Shape = ticks1Shape1;
             ticks5Shape1.FillColor = System.Drawing.Color.Empty;
             this.analogClockDefault.Ticks5Shape = ticks5Shape1;
-            this.analogClockDefault.Time = System.TimeSpan.Parse("01:37:52.3032238");
+            this.analogClockDefault.Time = System.TimeSpan.Parse("15:54:26.5490013");
             this.analogClockDefault.TimeProvider = localTimeProvider1;
             this.analogClockDefault.Timer = this.timer1;
             // 
@@ -438,7 +438,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockSimple.Ticks1Shape = ticks1Shape2;
             ticks5Shape2.FillColor = System.Drawing.Color.Empty;
             this.analogClockSimple.Ticks5Shape = ticks5Shape2;
-            this.analogClockSimple.Time = System.TimeSpan.Parse("01:37:52.3062239");
+            this.analogClockSimple.Time = System.TimeSpan.Parse("15:54:26.5540018");
             this.analogClockSimple.TimeProvider = localTimeProvider2;
             this.analogClockSimple.Timer = this.timer1;
             // 
@@ -488,7 +488,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape3.FillColor = System.Drawing.Color.Empty;
             ticks5Shape3.Length = 7F;
             this.analogClockNoNumbers.Ticks5Shape = ticks5Shape3;
-            this.analogClockNoNumbers.Time = System.TimeSpan.Parse("01:37:52.3102242");
+            this.analogClockNoNumbers.Time = System.TimeSpan.Parse("15:54:26.5570021");
             this.analogClockNoNumbers.TimeProvider = localTimeProvider3;
             this.analogClockNoNumbers.Timer = this.timer1;
             // 
@@ -538,7 +538,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape4.FillColor = System.Drawing.Color.Empty;
             ticks5Shape4.Visible = false;
             this.analogClockCleared.Ticks5Shape = ticks5Shape4;
-            this.analogClockCleared.Time = System.TimeSpan.Parse("01:37:52.3132243");
+            this.analogClockCleared.Time = System.TimeSpan.Parse("15:54:26.5600024");
             this.analogClockCleared.TimeProvider = localTimeProvider4;
             this.analogClockCleared.Timer = this.timer1;
             // 
@@ -587,7 +587,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape5.FillColor = System.Drawing.Color.Empty;
             ticks5Shape5.LineWidth = 2F;
             this.analogClock6.Ticks5Shape = ticks5Shape5;
-            this.analogClock6.Time = System.TimeSpan.Parse("01:37:52.3162245");
+            this.analogClock6.Time = System.TimeSpan.Parse("15:54:26.5630027");
             this.analogClock6.TimeProvider = localTimeProvider5;
             this.analogClock6.Timer = this.timer1;
             // 
@@ -637,7 +637,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape6.FillColor = System.Drawing.Color.Empty;
             ticks5Shape6.Visible = false;
             this.analogClockOnlyNumbers.Ticks5Shape = ticks5Shape6;
-            this.analogClockOnlyNumbers.Time = System.TimeSpan.Parse("01:37:52.3192247");
+            this.analogClockOnlyNumbers.Time = System.TimeSpan.Parse("15:54:26.5660030");
             this.analogClockOnlyNumbers.TimeProvider = localTimeProvider6;
             this.analogClockOnlyNumbers.Timer = this.timer1;
             // 
@@ -767,7 +767,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape7.OutlineColor = System.Drawing.Color.Navy;
             ticks5Shape7.PositionOffset = 2F;
             this.analogClock2.Ticks5Shape = ticks5Shape7;
-            this.analogClock2.Time = System.TimeSpan.Parse("01:37:52.3622271");
+            this.analogClock2.Time = System.TimeSpan.Parse("15:54:26.6680132");
             this.analogClock2.TimeProvider = localTimeProvider7;
             this.analogClock2.Timer = this.timer1;
             // 
@@ -814,7 +814,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock3.Ticks1Shape = ticks1Shape8;
             ticks5Shape8.FillColor = System.Drawing.Color.Empty;
             this.analogClock3.Ticks5Shape = ticks5Shape8;
-            this.analogClock3.Time = System.TimeSpan.Parse("01:37:52.3652273");
+            this.analogClock3.Time = System.TimeSpan.Parse("15:54:26.6720136");
             this.analogClock3.TimeProvider = localTimeProvider8;
             this.analogClock3.Timer = this.timer1;
             // 
@@ -866,7 +866,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape9.LineWidth = 5F;
             ticks5Shape9.OutlineColor = System.Drawing.Color.DarkGreen;
             this.analogClock4.Ticks5Shape = ticks5Shape9;
-            this.analogClock4.Time = System.TimeSpan.Parse("01:37:52.3682275");
+            this.analogClock4.Time = System.TimeSpan.Parse("15:54:26.6750139");
             this.analogClock4.TimeProvider = localTimeProvider9;
             this.analogClock4.Timer = this.timer1;
             // 
@@ -875,12 +875,14 @@ namespace DustInTheWind.Clock.Demo
             dialShape10.FillColor = System.Drawing.Color.Empty;
             dialShape10.OutlineColor = System.Drawing.Color.Empty;
             this.analogClock15.DialShape = dialShape10;
+            hourHandShape10.FillColor = System.Drawing.Color.Empty;
             hourHandShape10.LineWidth = 0.33F;
-            hourHandShape10.OutlineColor = System.Drawing.Color.Empty;
+            hourHandShape10.OutlineColor = System.Drawing.Color.RoyalBlue;
             this.analogClock15.HourHandShape = hourHandShape10;
             this.analogClock15.Location = new System.Drawing.Point(3, 309);
+            minuteHandShape10.FillColor = System.Drawing.Color.Empty;
             minuteHandShape10.LineWidth = 0.33F;
-            minuteHandShape10.OutlineColor = System.Drawing.Color.Empty;
+            minuteHandShape10.OutlineColor = System.Drawing.Color.LimeGreen;
             this.analogClock15.MinuteHandShape = minuteHandShape10;
             this.analogClock15.Name = "analogClock15";
             numbersShape10.CurrentIndex = 11;
@@ -918,7 +920,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock15.Ticks1Shape = ticks1Shape10;
             ticks5Shape10.FillColor = System.Drawing.Color.Empty;
             this.analogClock15.Ticks5Shape = ticks5Shape10;
-            this.analogClock15.Time = System.TimeSpan.Parse("01:37:52.3712277");
+            this.analogClock15.Time = System.TimeSpan.Parse("15:54:26.6790143");
             this.analogClock15.TimeProvider = localTimeProvider10;
             this.analogClock15.Timer = this.timer1;
             // 
@@ -967,7 +969,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock10.Ticks1Shape = ticks1Shape11;
             ticks5Shape11.FillColor = System.Drawing.Color.Empty;
             this.analogClock10.Ticks5Shape = ticks5Shape11;
-            this.analogClock10.Time = System.TimeSpan.Parse("01:37:52.3742278");
+            this.analogClock10.Time = System.TimeSpan.Parse("15:54:26.6830147");
             this.analogClock10.TimeProvider = localTimeProvider11;
             this.analogClock10.Timer = this.timer1;
             // 
@@ -1020,7 +1022,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape12.LineWidth = 0.66F;
             ticks5Shape12.PositionOffset = 8F;
             this.analogClock13.Ticks5Shape = ticks5Shape12;
-            this.analogClock13.Time = System.TimeSpan.Parse("01:37:52.3782281");
+            this.analogClock13.Time = System.TimeSpan.Parse("15:54:26.6870151");
             this.analogClock13.TimeProvider = localTimeProvider12;
             this.analogClock13.Timer = this.timer1;
             // 
@@ -1112,7 +1114,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockImages.Ticks1Shape = ticks1Shape13;
             ticks5Shape13.FillColor = System.Drawing.Color.Empty;
             this.analogClockImages.Ticks5Shape = ticks5Shape13;
-            this.analogClockImages.Time = System.TimeSpan.Parse("01:37:52.3982292");
+            this.analogClockImages.Time = System.TimeSpan.Parse("15:54:26.7130177");
             this.analogClockImages.TimeProvider = localTimeProvider13;
             this.analogClockImages.Timer = this.timer1;
             // 
@@ -1158,7 +1160,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock1.Ticks1Shape = ticks1Shape14;
             ticks5Shape14.FillColor = System.Drawing.Color.Empty;
             this.analogClock1.Ticks5Shape = ticks5Shape14;
-            this.analogClock1.Time = System.TimeSpan.Parse("01:37:52.4012294");
+            this.analogClock1.Time = System.TimeSpan.Parse("15:54:26.7160180");
             this.analogClock1.TimeProvider = localTimeProvider14;
             this.analogClock1.Timer = this.timer1;
             // 
@@ -1204,7 +1206,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock5.Ticks1Shape = ticks1Shape15;
             ticks5Shape15.FillColor = System.Drawing.Color.Empty;
             this.analogClock5.Ticks5Shape = ticks5Shape15;
-            this.analogClock5.Time = System.TimeSpan.Parse("01:37:52.4042295");
+            this.analogClock5.Time = System.TimeSpan.Parse("15:54:26.7190183");
             this.analogClock5.TimeProvider = localTimeProvider15;
             this.analogClock5.Timer = this.timer1;
             // 
@@ -1250,7 +1252,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClock7.Ticks1Shape = ticks1Shape16;
             ticks5Shape16.FillColor = System.Drawing.Color.Empty;
             this.analogClock7.Ticks5Shape = ticks5Shape16;
-            this.analogClock7.Time = System.TimeSpan.Parse("01:37:52.4072297");
+            this.analogClock7.Time = System.TimeSpan.Parse("15:54:26.7710235");
             this.analogClock7.TimeProvider = localTimeProvider16;
             this.analogClock7.Timer = this.timer1;
             // 
@@ -1350,7 +1352,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape17.Length = 7F;
             ticks5Shape17.LineWidth = 1F;
             this.analogClockLocal.Ticks5Shape = ticks5Shape17;
-            this.analogClockLocal.Time = System.TimeSpan.Parse("01:37:52.4262308");
+            this.analogClockLocal.Time = System.TimeSpan.Parse("15:54:26.7900254");
             this.analogClockLocal.TimeProvider = localTimeProvider17;
             this.analogClockLocal.Timer = this.timer1;
             // 
@@ -1402,7 +1404,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape18.Length = 7F;
             ticks5Shape18.LineWidth = 1F;
             this.analogClockUTC.Ticks5Shape = ticks5Shape18;
-            this.analogClockUTC.Time = System.TimeSpan.Parse("01:37:52.4292310");
+            this.analogClockUTC.Time = System.TimeSpan.Parse("15:54:26.7920256");
             this.analogClockUTC.TimeProvider = localTimeProvider18;
             this.analogClockUTC.Timer = this.timer1;
             // 
@@ -1454,7 +1456,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape19.Length = 7F;
             ticks5Shape19.LineWidth = 1F;
             this.analogClockNewYork.Ticks5Shape = ticks5Shape19;
-            this.analogClockNewYork.Time = System.TimeSpan.Parse("01:37:52.4322311");
+            this.analogClockNewYork.Time = System.TimeSpan.Parse("15:54:26.7950259");
             this.analogClockNewYork.TimeProvider = localTimeProvider19;
             this.analogClockNewYork.Timer = this.timer1;
             // 
@@ -1506,7 +1508,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape20.Length = 7F;
             ticks5Shape20.LineWidth = 1F;
             this.analogClockTokyo.Ticks5Shape = ticks5Shape20;
-            this.analogClockTokyo.Time = System.TimeSpan.Parse("01:37:52.4352313");
+            this.analogClockTokyo.Time = System.TimeSpan.Parse("15:54:26.7980262");
             this.analogClockTokyo.TimeProvider = localTimeProvider20;
             this.analogClockTokyo.Timer = this.timer1;
             // 
@@ -1558,7 +1560,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape21.Length = 7F;
             ticks5Shape21.LineWidth = 1F;
             this.analogClockHongKong.Ticks5Shape = ticks5Shape21;
-            this.analogClockHongKong.Time = System.TimeSpan.Parse("01:37:52.4382315");
+            this.analogClockHongKong.Time = System.TimeSpan.Parse("15:54:26.8010265");
             this.analogClockHongKong.TimeProvider = localTimeProvider21;
             this.analogClockHongKong.Timer = this.timer1;
             // 
@@ -1610,7 +1612,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape22.Length = 7F;
             ticks5Shape22.LineWidth = 1F;
             this.analogClockIndia.Ticks5Shape = ticks5Shape22;
-            this.analogClockIndia.Time = System.TimeSpan.Parse("01:37:52.4642330");
+            this.analogClockIndia.Time = System.TimeSpan.Parse("15:54:26.8040268");
             this.analogClockIndia.TimeProvider = localTimeProvider22;
             this.analogClockIndia.Timer = this.timer1;
             // 
@@ -1683,7 +1685,7 @@ namespace DustInTheWind.Clock.Demo
             ticks5Shape23.LineWidth = 5F;
             ticks5Shape23.OutlineColor = System.Drawing.Color.Navy;
             this.analogClock8.Ticks5Shape = ticks5Shape23;
-            this.analogClock8.Time = System.TimeSpan.Parse("01:37:52.4912345");
+            this.analogClock8.Time = System.TimeSpan.Parse("15:54:26.8310295");
             this.analogClock8.TimeProvider = localTimeProvider23;
             this.analogClock8.Timer = this.timer1;
             // 

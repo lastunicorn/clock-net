@@ -24,7 +24,7 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the numbers representing the hours.
     /// </summary>
-    public class NumbersShape : VectorialShapeBase, INumbersShape, IAngularShape
+    public class NumbersShape2 : VectorialShapeBase, IAngularShape
     {
         public const float POSITION_OFFSET = 7f;
 
@@ -104,27 +104,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         /// <summary>
-        /// The index of the number to be drawn.
-        /// </summary>
-        protected int currentIndex;
-
-        /// <summary>
-        /// Gets or sets the index of the number to be drawn.
-        /// </summary>
-        [Browsable(false)]
-        public int CurrentIndex
-        {
-            get { return currentIndex; }
-            set
-            {
-                if (value < 0 || value >= numbers.Length)
-                    throw new IndexOutOfRangeException("The specified index is out of the range of the array numbers.");
-
-                currentIndex = value;
-            }
-        }
-
-        /// <summary>
         /// The orientation of the numbers.
         /// </summary>
         private NumberOrientation orientation;
@@ -151,7 +130,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Initializes a new instance of the <see cref="NumbersShape"/> class with
         /// default values.
         /// </summary>
-        public NumbersShape()
+        public NumbersShape2()
             : this(Color.Empty, Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
         {
         }
@@ -160,7 +139,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Initializes a new instance of the <see cref="NumbersShape"/> class.
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Color color)
+        public NumbersShape2(Color color)
             : this(Color.Empty, color, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
         {
         }
@@ -169,7 +148,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Initializes a new instance of the <see cref="NumbersShape"/> class.
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Color color, Font font)
+        public NumbersShape2(Color color, Font font)
             : this(Color.Empty, color, font, POSITION_OFFSET)
         {
         }
@@ -178,7 +157,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Initializes a new instance of the <see cref="NumbersShape"/> class.
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Color color, Font font, float positionOffset)
+        public NumbersShape2(Color color, Font font, float positionOffset)
             : this(Color.Empty, color, font, positionOffset)
         {
         }
@@ -188,7 +167,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="color"></param>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Color outlineColor, Color fillColor, Font font, float positionOffset)
+        public NumbersShape2(Color outlineColor, Color fillColor, Font font, float positionOffset)
             : base(outlineColor, fillColor)
         {
             this.font = font == null ? new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point) : font;
@@ -208,9 +187,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the number.</param>
         public override void Draw(Graphics g)
         {
-            if (visible && font != null && numbers != null && currentIndex >= 0 && currentIndex < numbers.Length && !fillColor.IsEmpty)
+            if (visible && font != null && numbers != null && index >= 0 && index < numbers.Length && !fillColor.IsEmpty)
             {
-                string number = numbers[currentIndex];
+                string number = numbers[index];
 
                 if (number != null && number.Length > 0)
                 {
@@ -236,10 +215,10 @@ namespace DustInTheWind.Clock.Shapes.Default
 
                         default:
                         case NumberOrientation.Normal:
-                            float angle = -(30 * (currentIndex + 1));
+                            float ang = -(this.angle * (index + 1));
                             originalMatrix = g.Transform;
                             g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-                            g.RotateTransform(angle);
+                            g.RotateTransform(ang);
                             break;
                     }
 
@@ -250,6 +229,8 @@ namespace DustInTheWind.Clock.Shapes.Default
                         g.Transform = originalMatrix;
                 }
             }
+
+            index++;
         }
 
         #region Dispose
@@ -271,7 +252,7 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         #endregion
 
-        private float angle = 6;
+        private float angle = 30f;
         public float Angle
         {
             get { return angle; }

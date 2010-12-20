@@ -29,6 +29,7 @@ namespace DustInTheWind.Clock.Demo
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Local Time Provider", new LocalTimeProvider()));
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("UTC Time Provider", new UtcTimeProvider()));
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Offset UTC Time Provider", new UtcOffsetTimeProvider()));
+            analogClock1.AngularShapes.Add(new DustInTheWind.Clock.Shapes.Default.NumbersShape2());
         }
 
         private void Form1_Load(object sender, EventArgs e)

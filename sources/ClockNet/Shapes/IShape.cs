@@ -32,6 +32,9 @@ namespace DustInTheWind.Clock.Shapes
         [Browsable(false)]
         string Name { get; }
 
+        /// <summary>
+        /// Gets or sets a value specifying if the shape should be drawn or not.
+        /// </summary>
         bool Visible { get; set; }
 
         /// <summary>

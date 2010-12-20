@@ -31,10 +31,17 @@ namespace DustInTheWind.Clock.Shapes
         [Browsable(false)]
         public abstract string Name { get; }
 
+        /// <summary>
+        /// A value specifying if the shape should be drawn or not.
+        /// </summary>
         protected bool visible = true;
 
+        /// <summary>
+        /// Gets or sets a value specifying if the shape should be drawn or not.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(true)]
+        [Description("A value specifying if the shape should be drawn or not.")]
         public virtual bool Visible
         {
             get { return visible; }

@@ -23,6 +23,7 @@ using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.Shapes.Default;
 using DustInTheWind.Clock.TimeProviders;
+using System.Collections.Generic;
 
 namespace DustInTheWind.Clock
 {
@@ -615,6 +616,18 @@ namespace DustInTheWind.Clock
 
         #endregion
 
+        #region AngularShapes
+
+        private List<IAngularShape> angularShapes = new List<IAngularShape>();
+
+        [Category("Shapes")]
+        public List<IAngularShape> AngularShapes
+        {
+            get { return angularShapes; }
+        }
+
+        #endregion
+
         #region Ticks1
 
         /// <summary>
@@ -1164,49 +1177,11 @@ namespace DustInTheWind.Clock
             g.ScaleTransform(scaleX, scaleY);
             Matrix centerMatrix = e.Graphics.Transform;
 
+            // Draw the dial's background.
             if (dialShape != null)
             {
                 dialShape.Draw(g);
             }
-
-            for (int i = 1; i <= 60; i++)
-            {
-                g.Transform = centerMatrix;
-                g.RotateTransform(i * 6); // 6 degrees between every tick.
-
-                g.TranslateTransform(0f, -radius);
-
-                if (i % 5 == 0)
-                {
-                    // Draw the ticks.
-                    if (ticks5Shape != null)
-                    {
-                        ticks5Shape.Draw(g);
-                    }
-
-                    // Draw the numbers.
-                    if (numbersShape != null)
-                    {
-                        numbersShape.CurrentIndex = i / 5 - 1;
-                        numbersShape.Draw(g);
-                    }
-                }
-                else
-                {
-                    // Draw the ticks.
-                    if (ticks1Shape != null)
-                    {
-                        ticks1Shape.Draw(g);
-                    }
-                }
-            }
-
-            g.Transform = centerMatrix;
-
-
-            //// Create the brush if it does not exist.
-            //if (textBrush == null)
-            //    textBrush = new SolidBrush(ForeColor);
 
             // Draw the text.
             if (textShape != null)
@@ -1214,17 +1189,83 @@ namespace DustInTheWind.Clock
                 textShape.Draw(g);
             }
 
-            //using (StringFormat sf = new StringFormat())
+            float angleIncrement = 0;
+
+            if (angularShapes.Count == 1)
+            {
+                angularShapes[0].Reset();
+
+                angleIncrement = angularShapes[0].Angle;
+            }
+            else if (angularShapes.Count > 1)
+            {
+                angularShapes[0].Reset();
+                angularShapes[1].Reset();
+
+                angleIncrement = cmmdc(angularShapes[0].Angle, angularShapes[1].Angle);
+
+                for (int i = 2; i < angularShapes.Count; i++)
+                {
+                    angularShapes[i].Reset();
+
+                    angleIncrement = cmmdc(angleIncrement, angularShapes[i].Angle);
+                }
+            }
+
+            // Draw the angular shapes.
+            if (angleIncrement > 0)
+            {
+                for (float i = angleIncrement; i <= 360; i += angleIncrement)
+                {
+                    g.Transform = centerMatrix;
+                    g.RotateTransform(i);
+
+                    g.TranslateTransform(0f, -radius);
+
+                    foreach (IAngularShape shape in angularShapes)
+                    {
+                        if (shape.Index == 0 || shape.Repeat)
+                        {
+                            shape.Draw(g);
+                        }
+                    }
+                }
+            }
+
+            //for (int i = 1; i <= 60; i++)
             //{
-            //    sf.Alignment = StringAlignment.Center;
-            //    sf.LineAlignment = StringAlignment.Center;
-            //    sf.Trimming = StringTrimming.None;
+            //    g.Transform = centerMatrix;
+            //    g.RotateTransform(i * 6); // 6 degrees between every tick.
 
-            //    SizeF textSize = g.MeasureString(Text, Font, (int)radius);
-            //    PointF textLocation = new PointF(-textSize.Width / 2F, radius / 5F);
+            //    g.TranslateTransform(0f, -radius);
 
-            //    g.DrawString(Text, Font, textBrush, new RectangleF(textLocation, textSize), sf);
+            //    if (i % 5 == 0)
+            //    {
+            //        // Draw the ticks.
+            //        if (ticks5Shape != null)
+            //        {
+            //            ticks5Shape.Draw(g);
+            //        }
+
+            //        // Draw the numbers.
+            //        if (numbersShape != null)
+            //        {
+            //            numbersShape.CurrentIndex = i / 5 - 1;
+            //            numbersShape.Draw(g);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        // Draw the ticks.
+            //        if (ticks1Shape != null)
+            //        {
+            //            ticks1Shape.Draw(g);
+            //        }
+            //    }
             //}
+
+            g.Transform = centerMatrix;
+
 
             // Draw the hour hand.
             if (hourHandShape != null)
@@ -1277,10 +1318,13 @@ namespace DustInTheWind.Clock
                 sweepHandShape.Draw(g);
             }
 
-            g.Transform = centerMatrix;
 
+            // Draw the pin.
             if (pinShape != null)
+            {
+                g.Transform = centerMatrix;
                 pinShape.Draw(g);
+            }
 
 #if PERFORMANCE_INFO
 
@@ -1306,6 +1350,18 @@ namespace DustInTheWind.Clock
 
 #endif
 
+        }
+
+        private float cmmdc(float a, float b)
+        {
+            while (a != b)
+            {
+                if (a > b)
+                    a -= b;
+                else
+                    b -= a;
+            }
+            return a;
         }
 
         #endregion

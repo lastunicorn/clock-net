@@ -61,9 +61,11 @@
     <Compile Include="Shapes\Basic\PathHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonShape.cs" />
+    <Compile Include="Shapes\Default\NumbersShape2.cs" />
     <Compile Include="Shapes\Fancy\BigNibHandShape.cs" />
     <Compile Include="Shapes\Fancy\DotHandShape.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />
+    <Compile Include="Shapes\IAngularShape.cs" />
     <Compile Include="Shapes\IHandShape.cs" />
     <Compile Include="Shapes\Fancy\SlotHandShape.cs" />
     <Compile Include="Shapes\Fancy\NumbersShape.cs" />
