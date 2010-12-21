@@ -31,24 +31,24 @@ namespace DustInTheWind.Clock.Demo
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("UTC Time Provider", new UtcTimeProvider()));
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Offset UTC Time Provider", new UtcOffsetTimeProvider()));
 
-            DustInTheWind.Clock.Shapes.Default.NumbersShape2 numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape2();
-            numbersShape.Font = new Font("Vivaldi", 6.25f, FontStyle.Italic, GraphicsUnit.Point);
-            numbersShape.PositionOffset = 11f;
-            analogClock1.AngularShapes.Add(numbersShape);
+            //DustInTheWind.Clock.Shapes.Default.NumbersShape2 numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape2();
+            //numbersShape.Font = new Font("Vivaldi", 6.25f, FontStyle.Italic, GraphicsUnit.Point);
+            //numbersShape.PositionOffset = 11f;
+            //analogClock1.AngularShapes.Add(numbersShape);
 
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticks1Shape = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            ticks1Shape.PositionOffset = 7f;
-            ticks1Shape.ExceptionLocation = DustInTheWind.Clock.Shapes.Default.AngularShapeLocation.FiveMinute;
-            analogClock1.AngularShapes.Add(ticks1Shape);
+            //DustInTheWind.Clock.Shapes.Default.TicksShape ticks1Shape = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            //ticks1Shape.PositionOffset = 7f;
+            //ticks1Shape.ExceptionLocation = DustInTheWind.Clock.Shapes.Default.AngularShapeLocation.FiveMinute;
+            //analogClock1.AngularShapes.Add(ticks1Shape);
 
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticks5Shape = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            ticks5Shape.PositionOffset = 7f;
-            ticks5Shape.LineWidth = 1f;
-            ticks5Shape.AngularLocation = DustInTheWind.Clock.Shapes.Default.AngularShapeLocation.FiveMinute;
-            analogClock1.AngularShapes.Add(ticks5Shape);
+            //DustInTheWind.Clock.Shapes.Default.TicksShape ticks5Shape = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            //ticks5Shape.PositionOffset = 7f;
+            //ticks5Shape.LineWidth = 1f;
+            //ticks5Shape.AngularLocation = DustInTheWind.Clock.Shapes.Default.AngularShapeLocation.FiveMinute;
+            //analogClock1.AngularShapes.Add(ticks5Shape);
 
-            analogClock1.BackgroundShapes.Add(new DustInTheWind.Clock.Shapes.Default.BackDialShape(Color.LightBlue));
-            analogClock1.BackgroundShapes.Add(new DustInTheWind.Clock.Shapes.Default.TextShape("Dust in the Wind", Color.White));
+            //analogClock1.BackgroundShapes.Add(new DustInTheWind.Clock.Shapes.Default.BackDialShape(Color.LightBlue));
+            //analogClock1.BackgroundShapes.Add(new DustInTheWind.Clock.Shapes.Default.TextShape("Dust in the Wind", Color.White));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace DustInTheWind.Clock.Demo
             numericUpDownTimerInterval.Value = timer1.Interval;
 
             // Dial
-            propertyGridDial.SelectedObject = analogClock1.DialShape;
+            //propertyGridDial.SelectedObject = analogClock1.DialShape;
 
             // Hour Hand
             checkBoxIntegralHours.Checked = analogClock1.IntegralHour;
@@ -72,10 +72,10 @@ namespace DustInTheWind.Clock.Demo
             propertyGridSweepHand.SelectedObject = analogClock1.SweepHandShape;
 
             // Ticks 1
-            propertyGridTicks1.SelectedObject = analogClock1.Ticks1Shape;
+            // propertyGridTicks1.SelectedObject = analogClock1.Ticks1Shape;
 
             // Ticks 5
-            propertyGridTicks5.SelectedObject = analogClock1.Ticks5Shape;
+            // propertyGridTicks5.SelectedObject = analogClock1.Ticks5Shape;
 
             // Value
             dateTimePickerTime.Value = DateTime.Now.Date.Add(analogClock1.Time);
@@ -85,7 +85,7 @@ namespace DustInTheWind.Clock.Demo
             checkBoxUseExternalTimer.Checked = analogClock1.Timer != null;
 
             // Numbers
-            propertyGridNumbers.SelectedObject = analogClock1.NumbersShape;
+            //propertyGridNumbers.SelectedObject = analogClock1.NumbersShape;
 
             // Pin
             propertyGridPin.SelectedObject = analogClock1.PinShape;
@@ -106,7 +106,7 @@ namespace DustInTheWind.Clock.Demo
 
             // >> Text
             textBoxText.Text = analogClock1.Text;
-            propertyGridText.SelectedObject = analogClock1.TextShape;
+            //propertyGridText.SelectedObject = analogClock1.TextShape;
 
             // >> Font
             textBoxTextFont.Text = analogClock1.Font.ToString();

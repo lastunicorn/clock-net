@@ -20,6 +20,9 @@ using System.Windows.Forms.Design;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.Shapes.Default;
 using DustInTheWind.Clock.TimeProviders;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Collections.ObjectModel;
 
 namespace DustInTheWind.Clock
 {
@@ -70,43 +73,78 @@ namespace DustInTheWind.Clock
             }
 
 
-            PropertyDescriptor ticks1ShapeDescriptor = TypeDescriptor.GetProperties(Component)["Ticks1Shape"];
+            //PropertyDescriptor ticks1ShapeDescriptor = TypeDescriptor.GetProperties(Component)["Ticks1Shape"];
 
-            if (ticks1ShapeDescriptor != null && ticks1ShapeDescriptor.PropertyType == typeof(IShape) && !ticks1ShapeDescriptor.IsReadOnly && ticks1ShapeDescriptor.IsBrowsable)
+            //if (ticks1ShapeDescriptor != null && ticks1ShapeDescriptor.PropertyType == typeof(IShape) && !ticks1ShapeDescriptor.IsReadOnly && ticks1ShapeDescriptor.IsBrowsable)
+            //{
+            //    ticks1ShapeDescriptor.SetValue(Component, new Ticks1Shape());
+            //}
+
+
+            //PropertyDescriptor ticks5ShapeDescriptor = TypeDescriptor.GetProperties(Component)["Ticks5Shape"];
+
+            //if (ticks5ShapeDescriptor != null && ticks5ShapeDescriptor.PropertyType == typeof(IShape) && !ticks5ShapeDescriptor.IsReadOnly && ticks5ShapeDescriptor.IsBrowsable)
+            //{
+            //    ticks5ShapeDescriptor.SetValue(Component, new Ticks5Shape());
+            //}
+
+
+            //PropertyDescriptor numbersShapeDescriptor = TypeDescriptor.GetProperties(Component)["NumbersShape"];
+
+            //if (numbersShapeDescriptor != null && numbersShapeDescriptor.PropertyType == typeof(IArrayShape) && !numbersShapeDescriptor.IsReadOnly && numbersShapeDescriptor.IsBrowsable)
+            //{
+            //    numbersShapeDescriptor.SetValue(Component, new NumbersShape());
+            //}
+
+
+            //PropertyDescriptor dialShapeDescriptor = TypeDescriptor.GetProperties(Component)["DialShape"];
+
+            //if (dialShapeDescriptor != null && dialShapeDescriptor.PropertyType == typeof(IShape) && !dialShapeDescriptor.IsReadOnly && dialShapeDescriptor.IsBrowsable)
+            //{
+            //    dialShapeDescriptor.SetValue(Component, new DialShape());
+            //}
+
+
+            //PropertyDescriptor textShapeDescriptor = TypeDescriptor.GetProperties(Component)["TextShape"];
+
+            //if (textShapeDescriptor != null && textShapeDescriptor.PropertyType == typeof(IShape) && !textShapeDescriptor.IsReadOnly && textShapeDescriptor.IsBrowsable)
+            //{
+            //    textShapeDescriptor.SetValue(Component, new TextShape());
+            //}
+
+
+            PropertyDescriptor backgroundShapeDescriptor = TypeDescriptor.GetProperties(Component)["BackgroundShapes"];
+
+            if (backgroundShapeDescriptor != null && backgroundShapeDescriptor.PropertyType == typeof(Collection<IShape>) && backgroundShapeDescriptor.IsBrowsable)
             {
-                ticks1ShapeDescriptor.SetValue(Component, new Ticks1Shape());
+                Collection<IShape> backgroundShapes = (Collection<IShape>)backgroundShapeDescriptor.GetValue(Component);
+
+                backgroundShapes.Add(new BackDialShape(Color.LightBlue));
+                backgroundShapes.Add(new TextShape("Dust in the Wind", Color.White));
             }
 
 
-            PropertyDescriptor ticks5ShapeDescriptor = TypeDescriptor.GetProperties(Component)["Ticks5Shape"];
+            PropertyDescriptor angularShapeDescriptor = TypeDescriptor.GetProperties(Component)["AngularShapes"];
 
-            if (ticks5ShapeDescriptor != null && ticks5ShapeDescriptor.PropertyType == typeof(IShape) && !ticks5ShapeDescriptor.IsReadOnly && ticks5ShapeDescriptor.IsBrowsable)
+            if (angularShapeDescriptor != null && angularShapeDescriptor.PropertyType == typeof(Collection<IAngularShape>) && angularShapeDescriptor.IsBrowsable)
             {
-                ticks5ShapeDescriptor.SetValue(Component, new Ticks5Shape());
-            }
+                Collection<IAngularShape> angularShapes = (Collection<IAngularShape>)angularShapeDescriptor.GetValue(Component);
 
+                NumbersShape2 numbersShape = new NumbersShape2();
+                numbersShape.Font = new Font("Vivaldi", 6.25f, FontStyle.Italic, GraphicsUnit.Point);
+                numbersShape.PositionOffset = 11f;
+                angularShapes.Add(numbersShape);
 
-            PropertyDescriptor numbersShapeDescriptor = TypeDescriptor.GetProperties(Component)["NumbersShape"];
+                TicksShape ticks1Shape = new TicksShape();
+                ticks1Shape.PositionOffset = 7f;
+                ticks1Shape.ExceptionLocation = AngularShapeLocation.FiveMinute;
+                angularShapes.Add(ticks1Shape);
 
-            if (numbersShapeDescriptor != null && numbersShapeDescriptor.PropertyType == typeof(IArrayShape) && !numbersShapeDescriptor.IsReadOnly && numbersShapeDescriptor.IsBrowsable)
-            {
-                numbersShapeDescriptor.SetValue(Component, new NumbersShape());
-            }
-
-
-            PropertyDescriptor dialShapeDescriptor = TypeDescriptor.GetProperties(Component)["DialShape"];
-
-            if (dialShapeDescriptor != null && dialShapeDescriptor.PropertyType == typeof(IShape) && !dialShapeDescriptor.IsReadOnly && dialShapeDescriptor.IsBrowsable)
-            {
-                dialShapeDescriptor.SetValue(Component, new DialShape());
-            }
-
-
-            PropertyDescriptor textShapeDescriptor = TypeDescriptor.GetProperties(Component)["TextShape"];
-
-            if (textShapeDescriptor != null && textShapeDescriptor.PropertyType == typeof(IShape) && !textShapeDescriptor.IsReadOnly && textShapeDescriptor.IsBrowsable)
-            {
-                textShapeDescriptor.SetValue(Component, new TextShape());
+                TicksShape ticks5Shape = new TicksShape();
+                ticks5Shape.PositionOffset = 7f;
+                ticks5Shape.LineWidth = 1f;
+                ticks5Shape.AngularLocation = AngularShapeLocation.FiveMinute;
+                angularShapes.Add(ticks5Shape);
             }
 
 

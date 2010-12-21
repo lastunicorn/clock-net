@@ -52,6 +52,8 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
+    <Compile Include="ShapeRemovedEventArgs.cs" />
+    <Compile Include="ShapeAddedEventArgs.cs" />
     <Compile Include="HSBColor.cs" />
     <Compile Include="PointFConverter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

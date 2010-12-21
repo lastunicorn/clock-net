@@ -322,17 +322,12 @@ namespace DustInTheWind.Clock.Shapes.Default
         public int Index
         {
             get { return index; }
-            set
-            {
-                index = value;
-                OnChanged(EventArgs.Empty);
-            }
+            set { index = value; }
         }
 
         public void Reset()
         {
             index = 0;
-            OnChanged(EventArgs.Empty);
         }
     }
 }
