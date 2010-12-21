@@ -16,9 +16,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using DustInTheWind.Clock.TimeProviders;
-using System.Drawing;
 
 namespace DustInTheWind.Clock.Demo
 {

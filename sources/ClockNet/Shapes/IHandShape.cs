@@ -19,7 +19,7 @@ using System.ComponentModel;
 namespace DustInTheWind.Clock.Shapes
 {
     /// <summary>
-    /// Represents a clock hand to be displayed in the <see cref="AnalogClock"/> control.
+    /// Represents a clock hand that is drawn on the clock in the <see cref="AnalogClock"/> control.
     /// </summary>
     [TypeConverter(typeof(ShapeConverter))]
     public interface IHandShape : IShape
