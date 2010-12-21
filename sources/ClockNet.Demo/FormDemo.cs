@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DustInTheWind.Clock.TimeProviders;
+using System.Drawing;
 
 namespace DustInTheWind.Clock.Demo
 {
@@ -29,7 +30,25 @@ namespace DustInTheWind.Clock.Demo
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Local Time Provider", new LocalTimeProvider()));
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("UTC Time Provider", new UtcTimeProvider()));
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Offset UTC Time Provider", new UtcOffsetTimeProvider()));
-            analogClock1.AngularShapes.Add(new DustInTheWind.Clock.Shapes.Default.NumbersShape2());
+
+            DustInTheWind.Clock.Shapes.Default.NumbersShape2 numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape2();
+            numbersShape.Font = new Font("Vivaldi", 6.25f, FontStyle.Italic, GraphicsUnit.Point);
+            numbersShape.PositionOffset = 11f;
+            analogClock1.AngularShapes.Add(numbersShape);
+
+            DustInTheWind.Clock.Shapes.Default.TicksShape ticks1Shape = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            ticks1Shape.PositionOffset = 7f;
+            ticks1Shape.ExceptionLocation = DustInTheWind.Clock.Shapes.Default.AngularShapeLocation.FiveMinute;
+            analogClock1.AngularShapes.Add(ticks1Shape);
+
+            DustInTheWind.Clock.Shapes.Default.TicksShape ticks5Shape = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            ticks5Shape.PositionOffset = 7f;
+            ticks5Shape.LineWidth = 1f;
+            ticks5Shape.AngularLocation = DustInTheWind.Clock.Shapes.Default.AngularShapeLocation.FiveMinute;
+            analogClock1.AngularShapes.Add(ticks5Shape);
+
+            analogClock1.BackgroundShapes.Add(new DustInTheWind.Clock.Shapes.Default.BackDialShape(Color.LightBlue));
+            analogClock1.BackgroundShapes.Add(new DustInTheWind.Clock.Shapes.Default.TextShape("Dust in the Wind", Color.White));
         }
 
         private void Form1_Load(object sender, EventArgs e)

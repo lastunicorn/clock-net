@@ -20,6 +20,11 @@
 		<param name="ImageNumber" value="11">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="A Little Bit of History">
+		<param name="Local" value="ebook\history.html">
+		<param name="ImageNumber" value="11">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="The Code - What's Inside">
 		<param name="Local" value="ebook\analog_clock\code_design.html">
 		<param name="ImageNumber" value="1">

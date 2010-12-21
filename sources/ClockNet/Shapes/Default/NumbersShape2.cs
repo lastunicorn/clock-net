@@ -187,50 +187,53 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="g">The <see cref="Graphics"/> on which to draw the number.</param>
         public override void Draw(Graphics g)
         {
-            if (visible && font != null && numbers != null && index >= 0 && index < numbers.Length && !fillColor.IsEmpty)
+            if (visible && font != null && numbers != null && !fillColor.IsEmpty)
             {
-                string number = numbers[index];
-
-                if (number != null && number.Length > 0)
+                if (index > 0 && index <= numbers.Length)
                 {
-                    CreateBrushIfNull();
+                    string number = numbers[index - 1];
 
-                    SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
-                    PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
-
-                    Matrix originalMatrix = null;
-
-                    switch (orientation)
+                    if (number != null && number.Length > 0)
                     {
-                        case NumberOrientation.FaceCenter:
-                            originalMatrix = g.Transform;
-                            g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-                            break;
+                        CreateBrushIfNull();
 
-                        case NumberOrientation.FaceOut:
-                            originalMatrix = g.Transform;
-                            g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-                            g.RotateTransform(180);
-                            break;
+                        SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
+                        PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
 
-                        default:
-                        case NumberOrientation.Normal:
-                            float ang = -(this.angle * (index + 1));
-                            originalMatrix = g.Transform;
-                            g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-                            g.RotateTransform(ang);
-                            break;
+                        Matrix originalMatrix = null;
+
+                        switch (orientation)
+                        {
+                            case NumberOrientation.FaceCenter:
+                                originalMatrix = g.Transform;
+                                g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+                                break;
+
+                            case NumberOrientation.FaceOut:
+                                originalMatrix = g.Transform;
+                                g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+                                g.RotateTransform(180);
+                                break;
+
+                            default:
+                            case NumberOrientation.Normal:
+                                float ang = -(this.angle * index);
+                                originalMatrix = g.Transform;
+                                g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+                                g.RotateTransform(ang);
+                                break;
+                        }
+
+                        //g.DrawRectangle(Pens.Black, new Rectangle((int)numberPosition.X, (int)numberPosition.Y, (int)numberSize.Width, (int)numberSize.Height));
+                        g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
+
+                        if (originalMatrix != null)
+                            g.Transform = originalMatrix;
                     }
-
-                    //g.DrawRectangle(Pens.Black, new Rectangle((int)numberPosition.X, (int)numberPosition.Y, (int)numberSize.Width, (int)numberSize.Height));
-                    g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
-
-                    if (originalMatrix != null)
-                        g.Transform = originalMatrix;
                 }
-            }
 
-            index++;
+                index++;
+            }
         }
 
         #region Dispose

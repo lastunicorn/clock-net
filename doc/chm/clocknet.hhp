@@ -9,10 +9,12 @@ Full-text search=Yes
 Language=0x409 English (United States)
 Title=ClockNet Help
 
+
 [FILES]
 ebook\change_log.html
 ebook\about.html
 ebook\features.html
+ebook\history.html
 ebook\images\external_link.gif
 ebook\images\bullet.gif
 ebook\images\separator.png

@@ -38,7 +38,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <summary>
         /// The default value of the hand's tail length.
         /// </summary>
-        public const float TAIL_LENGTH = 4.5f;
+        public const float TAIL_LENGTH = 7f;
 
 
         /// <summary>

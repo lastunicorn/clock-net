@@ -50,19 +50,9 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             set
             {
                 height = value;
+                CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
-        }
-
-        /// <summary>
-        /// Not used. Returns always 0.
-        /// </summary>
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public float TailLength
-        {
-            get { return 0f; }
-            set { }
         }
 
         protected float radius;
@@ -75,6 +65,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             set
             {
                 radius = value;
+                CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -107,9 +98,17 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         {
             this.height = height;
             this.radius = radius;
+            CalculateDimensions();
         }
 
         #endregion
+
+        RectangleF circleRect;
+
+        protected void CalculateDimensions()
+        {
+            circleRect = new RectangleF(-radius, -height - radius, radius * 2, radius * 2);
+        }
 
         /// <summary>
         /// Draws the hour hand using the provided <see cref="Graphics"/> object.
@@ -127,14 +126,16 @@ namespace DustInTheWind.Clock.Shapes.Fancy
                 {
                     CreateBrushIfNull();
 
-                    g.FillEllipse(brush, -radius, -height - radius, radius, radius);
+                    //g.FillEllipse(brush, -radius, -height - radius, radius * 2, radius);
+                    g.FillEllipse(brush, circleRect);
                 }
 
                 if (!outlineColor.IsEmpty)
                 {
                     CreatePenIfNull();
 
-                    g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
+                    //g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
+                    g.DrawEllipse(pen, circleRect);
                 }
             }
         }

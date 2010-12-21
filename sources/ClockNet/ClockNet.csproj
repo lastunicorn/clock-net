@@ -27,7 +27,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;PERFORMANCE_INFO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>ClockNet.xml</DocumentationFile>
@@ -52,6 +52,7 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
+    <Compile Include="HSBColor.cs" />
     <Compile Include="PointFConverter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -61,7 +62,11 @@
     <Compile Include="Shapes\Basic\PathHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonShape.cs" />
+    <Compile Include="Shapes\VectorialAngularShapeBase.cs" />
+    <Compile Include="Shapes\Default\BackDialShape.cs" />
+    <Compile Include="Shapes\Default\TicksShape.cs" />
     <Compile Include="Shapes\Default\NumbersShape2.cs" />
+    <Compile Include="Shapes\Default\AngularShapeLocation.cs" />
     <Compile Include="Shapes\Fancy\BigNibHandShape.cs" />
     <Compile Include="Shapes\Fancy\DotHandShape.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />

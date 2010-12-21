@@ -48,19 +48,6 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
 
-        //protected float tailLength;
-        //public virtual float TailLength
-        //{
-        //    get { return tailLength; }
-        //    set
-        //    {
-        //        tailLength = value;
-        //        CalculateDimensions();
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
-
-
         protected float slotWidth;
         public virtual float SlotWidth
         {

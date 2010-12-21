@@ -29,9 +29,9 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         float Height { get; set; }
 
-        /// <summary>
-        /// When implemented in a derived class, gets or sets the length of the tail.
-        /// </summary>
-        float TailLength { get; set; }
+        ///// <summary>
+        ///// When implemented in a derived class, gets or sets the length of the tail.
+        ///// </summary>
+        //float TailLength { get; set; }
     }
 }

@@ -416,6 +416,31 @@ namespace DustInTheWind.Clock
 
 
 
+        #region BackgroundShapes
+
+        private List<IShape> backgroundShapes = new List<IShape>();
+
+        [Category("Shapes")]
+        public List<IShape> BackgroundShapes
+        {
+            get { return backgroundShapes; }
+        }
+
+        #endregion
+
+        #region AngularShapes
+
+        private List<IAngularShape> angularShapes = new List<IAngularShape>();
+
+        [Category("Shapes")]
+        public List<IAngularShape> AngularShapes
+        {
+            get { return angularShapes; }
+        }
+
+        #endregion
+
+
         #region Hour Hand
 
         /// <summary>
@@ -616,187 +641,182 @@ namespace DustInTheWind.Clock
 
         #endregion
 
-        #region AngularShapes
 
-        private List<IAngularShape> angularShapes = new List<IAngularShape>();
+        //#region Ticks1
 
-        [Category("Shapes")]
-        public List<IAngularShape> AngularShapes
-        {
-            get { return angularShapes; }
-        }
+        ///// <summary>
+        ///// An instance of <see cref="IShape"/> responsable to paint the tick lines that marks the seconds.
+        ///// </summary>
+        //private IShape ticks1Shape;
 
-        #endregion
+        ///// <summary>
+        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the tick lines that marks the seconds.
+        ///// </summary>
+        //[Category("Shapes")]
+        //[DefaultValue(null)]
+        //[Description("An instance of IShape responsable to paint the tick lines that marks the seconds.")]
+        //public IShape Ticks1Shape
+        //{
+        //    get { return ticks1Shape; }
+        //    set
+        //    {
+        //        if (ticks1Shape != null)
+        //            ticks1Shape.Changed -= new EventHandler(ticks1Shape_Changed);
 
-        #region Ticks1
+        //        ticks1Shape = value;
 
-        /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the tick lines that marks the seconds.
-        /// </summary>
-        private IShape ticks1Shape;
+        //        if (ticks1Shape != null)
+        //            ticks1Shape.Changed += new EventHandler(ticks1Shape_Changed);
 
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the tick lines that marks the seconds.
-        /// </summary>
-        [Category("Shapes")]
-        [DefaultValue(null)]
-        [Description("An instance of IShape responsable to paint the tick lines that marks the seconds.")]
-        public IShape Ticks1Shape
-        {
-            get { return ticks1Shape; }
-            set
-            {
-                if (ticks1Shape != null)
-                    ticks1Shape.Changed -= new EventHandler(ticks1Shape_Changed);
+        //        Invalidate();
 
-                ticks1Shape = value;
+        //        OnTicks1ShapeChanged(EventArgs.Empty);
+        //    }
+        //}
 
-                if (ticks1Shape != null)
-                    ticks1Shape.Changed += new EventHandler(ticks1Shape_Changed);
+        //#endregion
 
-                Invalidate();
+        //#region Ticks5
 
-                OnTicks1ShapeChanged(EventArgs.Empty);
-            }
-        }
+        ///// <summary>
+        ///// An instance of <see cref="IShape"/> responsable to paint the tick lines that marks every 5 seconds.
+        ///// </summary>
+        //private IShape ticks5Shape;
 
-        #endregion
+        ///// <summary>
+        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the tick lines that marks every 5 seconds.
+        ///// </summary>
+        //[Category("Shapes")]
+        //[DefaultValue(null)]
+        //[Description("An instance of IShape responsable to paint the tick lines that marks every 5 seconds.")]
+        //public IShape Ticks5Shape
+        //{
+        //    get { return ticks5Shape; }
+        //    set
+        //    {
+        //        if (ticks5Shape != null)
+        //            ticks5Shape.Changed -= new EventHandler(ticks5Shape_Changed);
 
-        #region Ticks5
+        //        ticks5Shape = value;
 
-        /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the tick lines that marks every 5 seconds.
-        /// </summary>
-        private IShape ticks5Shape;
+        //        if (ticks5Shape != null)
+        //            ticks5Shape.Changed += new EventHandler(ticks5Shape_Changed);
 
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the tick lines that marks every 5 seconds.
-        /// </summary>
-        [Category("Shapes")]
-        [DefaultValue(null)]
-        [Description("An instance of IShape responsable to paint the tick lines that marks every 5 seconds.")]
-        public IShape Ticks5Shape
-        {
-            get { return ticks5Shape; }
-            set
-            {
-                if (ticks5Shape != null)
-                    ticks5Shape.Changed -= new EventHandler(ticks5Shape_Changed);
+        //        Invalidate();
 
-                ticks5Shape = value;
+        //        OnTicks5ShapeChanged(EventArgs.Empty);
+        //    }
+        //}
 
-                if (ticks5Shape != null)
-                    ticks5Shape.Changed += new EventHandler(ticks5Shape_Changed);
+        //#endregion
 
-                Invalidate();
+        //#region Numbers
 
-                OnTicks5ShapeChanged(EventArgs.Empty);
-            }
-        }
+        ///// <summary>
+        ///// An instance of <see cref="IArrayShape"/> responsable to paint the numbers that marks the hours.
+        ///// </summary>
+        //private IArrayShape numbersShape;
 
-        #endregion
+        ///// <summary>
+        ///// Gets or sets an instance of <see cref="IArrayShape"/> responsable to paint the numbers that marks the hours.
+        ///// </summary>
+        //[Category("Shapes")]
+        //[DefaultValue(null)]
+        //[Description("An instance of IArrayShape responsable to paint the numbers that marks the hours.")]
+        //public IArrayShape NumbersShape
+        //{
+        //    get { return numbersShape; }
+        //    set
+        //    {
+        //        if (numbersShape != null)
+        //            numbersShape.Changed -= new EventHandler(numbersShape_Changed);
 
-        #region Numbers
+        //        numbersShape = value;
 
-        /// <summary>
-        /// An instance of <see cref="IArrayShape"/> responsable to paint the numbers that marks the hours.
-        /// </summary>
-        private IArrayShape numbersShape;
+        //        if (numbersShape != null)
+        //            numbersShape.Changed += new EventHandler(numbersShape_Changed);
 
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IArrayShape"/> responsable to paint the numbers that marks the hours.
-        /// </summary>
-        [Category("Shapes")]
-        [DefaultValue(null)]
-        [Description("An instance of IArrayShape responsable to paint the numbers that marks the hours.")]
-        public IArrayShape NumbersShape
-        {
-            get { return numbersShape; }
-            set
-            {
-                if (numbersShape != null)
-                    numbersShape.Changed -= new EventHandler(numbersShape_Changed);
+        //        Invalidate();
 
-                numbersShape = value;
+        //        OnNumbersShapeChanged(EventArgs.Empty);
+        //    }
+        //}
 
-                if (numbersShape != null)
-                    numbersShape.Changed += new EventHandler(numbersShape_Changed);
+        //#endregion
 
-                Invalidate();
+        public IShape DialShape { get; set; }
+        public IShape TextShape { get; set; }
+        public IShape Ticks1Shape { get; set; }
+        public IShape Ticks5Shape { get; set; }
+        public IShape NumbersShape { get; set; }
 
-                OnNumbersShapeChanged(EventArgs.Empty);
-            }
-        }
+        //#region Dial
 
-        #endregion
+        ///// <summary>
+        ///// An instance of <see cref="IShape"/> responsable to paint the background of the dial.
+        ///// </summary>
+        //private IShape dialShape;
 
-        #region Dial
+        ///// <summary>
+        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the background of the dial.
+        ///// </summary>
+        //[Category("Shapes")]
+        //[DefaultValue(null)]
+        //[Description("An instance of IShape responsable to paint the background of the dial.")]
+        //public IShape DialShape
+        //{
+        //    get { return dialShape; }
+        //    set
+        //    {
+        //        if (dialShape != null)
+        //            dialShape.Changed -= new EventHandler(dialShape_Changed);
 
-        /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the background of the dial.
-        /// </summary>
-        private IShape dialShape;
+        //        dialShape = value;
 
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the background of the dial.
-        /// </summary>
-        [Category("Shapes")]
-        [DefaultValue(null)]
-        [Description("An instance of IShape responsable to paint the background of the dial.")]
-        public IShape DialShape
-        {
-            get { return dialShape; }
-            set
-            {
-                if (dialShape != null)
-                    dialShape.Changed -= new EventHandler(dialShape_Changed);
+        //        if (dialShape != null)
+        //            dialShape.Changed += new EventHandler(dialShape_Changed);
 
-                dialShape = value;
+        //        Invalidate();
 
-                if (dialShape != null)
-                    dialShape.Changed += new EventHandler(dialShape_Changed);
+        //        OnDialShapeChanged(EventArgs.Empty);
+        //    }
+        //}
 
-                Invalidate();
+        //#endregion
 
-                OnDialShapeChanged(EventArgs.Empty);
-            }
-        }
+        //#region Text
 
-        #endregion
+        ///// <summary>
+        ///// An instance of <see cref="IShape"/> responsable to paint the text from the background of the clock.
+        ///// </summary>
+        //private IShape textShape;
 
-        #region Text
+        ///// <summary>
+        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the text from the background of the clock.
+        ///// </summary>
+        //[Category("Shapes")]
+        //[DefaultValue(null)]
+        //[Description("An instance of IShape responsable to paint the text from the background of the clock.")]
+        //public IShape TextShape
+        //{
+        //    get { return textShape; }
+        //    set
+        //    {
+        //        if (textShape != null)
+        //            textShape.Changed -= new EventHandler(textShape_Changed);
 
-        /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the text from the background of the clock.
-        /// </summary>
-        private IShape textShape;
+        //        textShape = value;
 
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the text from the background of the clock.
-        /// </summary>
-        [Category("Shapes")]
-        [DefaultValue(null)]
-        [Description("An instance of IShape responsable to paint the text from the background of the clock.")]
-        public IShape TextShape
-        {
-            get { return textShape; }
-            set
-            {
-                if (textShape != null)
-                    textShape.Changed -= new EventHandler(textShape_Changed);
+        //        if (textShape != null)
+        //            textShape.Changed += new EventHandler(textShape_Changed);
 
-                textShape = value;
+        //        Invalidate();
 
-                if (textShape != null)
-                    textShape.Changed += new EventHandler(textShape_Changed);
+        //        OnTextShapeChanged(EventArgs.Empty);
+        //    }
+        //}
 
-                Invalidate();
-
-                OnTextShapeChanged(EventArgs.Empty);
-            }
-        }
-
-        #endregion
+        //#endregion
 
 
         #region Miscellaneous
@@ -845,11 +865,11 @@ namespace DustInTheWind.Clock
 
             if (shapeSet != null)
             {
-                if (shapeSet.DialShape != null)
-                {
-                    dialShape = shapeSet.DialShape;
-                    dialShape.Changed += new EventHandler(dialShape_Changed);
-                }
+                //if (shapeSet.DialShape != null)
+                //{
+                //    dialShape = shapeSet.DialShape;
+                //    dialShape.Changed += new EventHandler(dialShape_Changed);
+                //}
 
                 if (shapeSet.HourHandShape != null)
                 {
@@ -875,29 +895,29 @@ namespace DustInTheWind.Clock
                     pinShape.Changed += new EventHandler(pinShape_Changed);
                 }
 
-                if (shapeSet.Ticks1Shape != null)
-                {
-                    ticks1Shape = shapeSet.Ticks1Shape;
-                    ticks1Shape.Changed += new EventHandler(ticks1Shape_Changed);
-                }
+                //if (shapeSet.Ticks1Shape != null)
+                //{
+                //    ticks1Shape = shapeSet.Ticks1Shape;
+                //    ticks1Shape.Changed += new EventHandler(ticks1Shape_Changed);
+                //}
 
-                if (shapeSet.Ticks5Shape != null)
-                {
-                    ticks5Shape = shapeSet.Ticks5Shape;
-                    ticks5Shape.Changed += new EventHandler(ticks5Shape_Changed);
-                }
+                //if (shapeSet.Ticks5Shape != null)
+                //{
+                //    ticks5Shape = shapeSet.Ticks5Shape;
+                //    ticks5Shape.Changed += new EventHandler(ticks5Shape_Changed);
+                //}
 
-                if (shapeSet.NumbersShape != null)
-                {
-                    numbersShape = shapeSet.NumbersShape;
-                    numbersShape.Changed += new EventHandler(numbersShape_Changed);
-                }
+                //if (shapeSet.NumbersShape != null)
+                //{
+                //    numbersShape = shapeSet.NumbersShape;
+                //    numbersShape.Changed += new EventHandler(numbersShape_Changed);
+                //}
 
-                if (shapeSet.TextShape != null)
-                {
-                    textShape = shapeSet.TextShape;
-                    textShape.Changed += new EventHandler(textShape_Changed);
-                }
+                //if (shapeSet.TextShape != null)
+                //{
+                //    textShape = shapeSet.TextShape;
+                //    textShape.Changed += new EventHandler(textShape_Changed);
+                //}
             }
 
             if (timeProvider != null)
@@ -1142,6 +1162,8 @@ namespace DustInTheWind.Clock
         /// </summary>
         private long paintTotalTicks = 0;
 
+        private long lastPaintTicks = 0;
+
 #endif
 
         #endregion
@@ -1158,6 +1180,10 @@ namespace DustInTheWind.Clock
             // Create and start a new Stopwatch.
             System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
+            DateTime now = DateTime.Now;
+            long intervalTicks = now.Ticks - lastPaintTicks;
+            lastPaintTicks = now.Ticks;
+
 #endif
 
             base.OnPaint(e);
@@ -1170,6 +1196,7 @@ namespace DustInTheWind.Clock
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = TextRenderingHint.AntiAlias;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            //g.InterpolationMode = InterpolationMode.HighQualityBilinear;
 
             Matrix originalMatrix = e.Graphics.Transform;
 
@@ -1177,17 +1204,29 @@ namespace DustInTheWind.Clock
             g.ScaleTransform(scaleX, scaleY);
             Matrix centerMatrix = e.Graphics.Transform;
 
-            // Draw the dial's background.
-            if (dialShape != null)
+            // Draw the background shapes.
+            foreach (IShape shape in backgroundShapes)
             {
-                dialShape.Draw(g);
+                if (shape != null)
+                {
+                    shape.Draw(g);
+                }    
             }
 
-            // Draw the text.
-            if (textShape != null)
-            {
-                textShape.Draw(g);
-            }
+            //// Draw the dial's background.
+            //if (dialShape != null)
+            //{
+            //    dialShape.Draw(g);
+            //}
+
+            //// Draw the text.
+            //if (textShape != null)
+            //{
+            //    textShape.Draw(g);
+            //}
+
+
+            // Calculate the angle increment value.
 
             float angleIncrement = 0;
 
@@ -1213,9 +1252,10 @@ namespace DustInTheWind.Clock
             }
 
             // Draw the angular shapes.
+
             if (angleIncrement > 0)
             {
-                for (float i = angleIncrement; i <= 360; i += angleIncrement)
+                for (float i = 0; i <= 360; i += angleIncrement)
                 {
                     g.Transform = centerMatrix;
                     g.RotateTransform(i);
@@ -1224,13 +1264,17 @@ namespace DustInTheWind.Clock
 
                     foreach (IAngularShape shape in angularShapes)
                     {
-                        if (shape.Index == 0 || shape.Repeat)
+                        if ((shape.Index == 0 || shape.Repeat) && i % shape.Angle == 0)
                         {
                             shape.Draw(g);
                         }
                     }
                 }
             }
+
+
+
+
 
             //for (int i = 1; i <= 60; i++)
             //{
@@ -1337,10 +1381,11 @@ namespace DustInTheWind.Clock
 
             long averageTicks = paintTotalTicks / paintCount;
 
-            string text = string.Format("average: {1} ms\ninstant: {0} ms\ncount: {2}",
+            string text = string.Format("average: {1} ms\ninstant: {0} ms\ncount: {2}\n{3}",
                 TimeSpan.FromTicks(stopwatch.ElapsedTicks).TotalMilliseconds,
                 TimeSpan.FromTicks(averageTicks).TotalMilliseconds,
-                paintCount);
+                paintCount,
+                TimeSpan.FromTicks(intervalTicks).TotalMilliseconds);
 
             g.Transform = originalMatrix;
             using (Font performanceTestFont = new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point))
@@ -1374,15 +1419,15 @@ namespace DustInTheWind.Clock
         {
             if (shapeSet != null)
             {
-                DialShape = shapeSet.DialShape;
+                //DialShape = shapeSet.DialShape;
                 HourHandShape = shapeSet.HourHandShape;
                 MinuteHandShape = shapeSet.MinuteHandShape;
                 SweepHandShape = shapeSet.SweepHandShape;
                 PinShape = shapeSet.PinShape;
-                Ticks1Shape = shapeSet.Ticks1Shape;
-                Ticks5Shape = shapeSet.Ticks5Shape;
-                NumbersShape = shapeSet.NumbersShape;
-                TextShape = shapeSet.TextShape;
+                //Ticks1Shape = shapeSet.Ticks1Shape;
+                //Ticks5Shape = shapeSet.Ticks5Shape;
+                //NumbersShape = shapeSet.NumbersShape;
+                //TextShape = shapeSet.TextShape;
             }
         }
     }

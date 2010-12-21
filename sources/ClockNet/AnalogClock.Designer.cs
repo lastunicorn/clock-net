@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using DustInTheWind.Clock.Shapes;
 namespace DustInTheWind.Clock
 {
     partial class AnalogClock
@@ -27,6 +28,12 @@ namespace DustInTheWind.Clock
             {
                 if (components != null)
                     components.Dispose();
+
+                foreach (IShape shape in backgroundShapes)
+                {
+                    if (shape != null)
+                        shape.Dispose();
+                }
 
                 //if (textBrush != null)
                 //    textBrush.Dispose();
@@ -43,17 +50,17 @@ namespace DustInTheWind.Clock
                 if (pinShape != null)
                     pinShape.Dispose();
 
-                if (ticks1Shape != null)
-                    ticks1Shape.Dispose();
+                //if (ticks1Shape != null)
+                //    ticks1Shape.Dispose();
 
-                if (ticks5Shape != null)
-                    ticks5Shape.Dispose();
+                //if (ticks5Shape != null)
+                //    ticks5Shape.Dispose();
 
-                if (numbersShape != null)
-                    numbersShape.Dispose();
+                //if (numbersShape != null)
+                //    numbersShape.Dispose();
 
-                if (textShape != null)
-                    textShape.Dispose();
+                //if (textShape != null)
+                //    textShape.Dispose();
 
                 //if (hourHandShape != null && hourHandShape != defaultHourHandShape)
                 //    hourHandShape.Dispose();

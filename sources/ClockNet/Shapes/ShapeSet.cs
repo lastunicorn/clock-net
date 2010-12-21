@@ -88,8 +88,8 @@ namespace DustInTheWind.Clock.Shapes
                 return new ShapeSet()
                 {
                     dialShape = new DustInTheWind.Clock.Shapes.Default.DialShape(Color.Black, Color.White, 2),
-                    hourHandShape = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape(Color.Black, 15, 9),
-                    minuteHandShape = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape(Color.Black, 36, 5.5f),
+                    hourHandShape = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape(Color.Black, 20, 4.5f),
+                    minuteHandShape = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape(Color.Black, 40, 2.75f),
                     pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Black, 8),
                 };
             }
