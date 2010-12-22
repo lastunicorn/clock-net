@@ -137,13 +137,13 @@ namespace DustInTheWind.Clock
 
                 TicksShape ticks1Shape = new TicksShape();
                 ticks1Shape.PositionOffset = 7f;
-                ticks1Shape.ExceptionLocation = AngularShapeLocation.FiveMinute;
+                ticks1Shape.ExceptionLocation = AngularShapeLocation.EveryHour;
                 angularShapes.Add(ticks1Shape);
 
                 TicksShape ticks5Shape = new TicksShape();
                 ticks5Shape.PositionOffset = 7f;
                 ticks5Shape.LineWidth = 1f;
-                ticks5Shape.AngularLocation = AngularShapeLocation.FiveMinute;
+                ticks5Shape.AngularLocation = AngularShapeLocation.EveryHour;
                 angularShapes.Add(ticks5Shape);
             }
 

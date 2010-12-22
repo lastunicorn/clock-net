@@ -15,9 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-<<<<<<< .mineusing System.Collections.ObjectModel;
-=======using System.Collections.Generic;
->>>>>>> .theirsusing System.ComponentModel;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;

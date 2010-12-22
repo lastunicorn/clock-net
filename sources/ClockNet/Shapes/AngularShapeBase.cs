@@ -18,23 +18,13 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes.Default
+namespace DustInTheWind.Clock.Shapes
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the ticks that mark the seconds.
     /// </summary>
-    public class TicksShape : VectorialShapeBase, IAngularShape
+    public abstract class AngularShapeBase : ShapeBase, IAngularShape
     {
-        /// <summary>
-        /// The default value of the length.
-        /// </summary>
-        public const float LENGTH = 2.5f;
-
-        /// <summary>
-        /// The default value of the thickness.
-        /// </summary>
-        public const float THICKNESS = 0.25f;
-
         /// <summary>
         /// The default value of the position offset.
         /// </summary>
@@ -46,54 +36,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public override string Name
         {
-            get { return "Default Ticks Shape"; }
-        }
-
-
-        /// <summary>
-        /// Gets or sets the color used to draw the ticks that mark the seconds.
-        /// </summary>
-        [DefaultValue(typeof(Color), "Black")]
-        [Description("The color used to draw the ticks that mark the seconds.")]
-        public override Color OutlineColor
-        {
-            get { return base.OutlineColor; }
-            set { base.OutlineColor = value; }
-        }
-
-
-        /// <summary>
-        /// The length of the 1 second ticks. This value is given for a clock with diameter of 100px.
-        /// </summary>
-        protected float length = LENGTH;
-
-        /// <summary>
-        /// Gets or sets the length of the 1 second ticks. This value is given for a clock with diameter of 100px.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(LENGTH)]
-        [Description("The length of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
-        public virtual float Length
-        {
-            get { return length; }
-            set
-            {
-                length = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-
-        /// <summary>
-        /// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 100px.
-        /// </summary>
-        [DefaultValue(THICKNESS)]
-        [Description("The width of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
-        public override float LineWidth
-        {
-            get { return base.LineWidth; }
-            set { base.LineWidth = value; }
+            get { return "Angular Shape"; }
         }
 
 
@@ -120,37 +63,36 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TicksShape"/> class with
-        /// default values.
-        /// </summary>
-        public TicksShape()
-            : this(Color.Black, LENGTH, THICKNESS, POSITION_OFFSET)
+        protected float angle = 6f;
+        public float Angle
         {
+            get { return angle; }
+            set
+            {
+                angle = value;
+                OnChanged(EventArgs.Empty);
+            }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TicksShape"/> class.
-        /// </summary>
-        /// <param name="color">The color used to draw the tick shapes.</param>
-        /// <param name="length">The length of the ticks.</param>
-        /// <param name="lineWidth">The width of the ticks.</param>
-        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
-        public TicksShape(Color color, float length, float lineWidth, float positionOffset)
-            : base(color, Color.Empty)
+        protected bool repeat = true;
+        public bool Repeat
         {
-            this.length = length;
-            this.lineWidth = lineWidth;
-            this.positionOffset = positionOffset;
-
-            CalculateDimensions();
+            get { return repeat; }
+            set
+            {
+                repeat = value;
+                OnChanged(EventArgs.Empty);
+            }
         }
 
-        #endregion
+        protected int index = 0;
+        public int Index
+        {
+            get { return index; }
+            set { index = value; }
+        }
 
-        private AngularShapeLocation angularLocation = AngularShapeLocation.EveryMinute;
+        protected AngularShapeLocation angularLocation = AngularShapeLocation.EveryMinute;
         public AngularShapeLocation AngularLocation
         {
             get { return angularLocation; }
@@ -162,7 +104,7 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        private AngularShapeLocation exceptionLocation = AngularShapeLocation.None;
+        protected AngularShapeLocation exceptionLocation = AngularShapeLocation.None;
         public AngularShapeLocation ExceptionLocation
         {
             get { return exceptionLocation; }
@@ -174,13 +116,34 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        PointF startPoint;
-        PointF endPoint;
 
-        private void CalculateDimensions()
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AngularShapeBase"/> class with
+        /// default values.
+        /// </summary>
+        public AngularShapeBase()
+            : this(POSITION_OFFSET)
         {
-            startPoint = new PointF(0, positionOffset);
-            endPoint = new PointF(0, length + positionOffset);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AngularShapeBase"/> class.
+        /// </summary>
+        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
+        public AngularShapeBase(float positionOffset)
+            : base()
+        {
+            this.positionOffset = positionOffset;
+
+            CalculateDimensions();
+        }
+
+        #endregion
+
+        protected virtual void CalculateDimensions()
+        {
         }
 
         /// <summary>
@@ -193,7 +156,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </remarks>
         public override void Draw(Graphics g)
         {
-            if (visible && length > 0 && lineWidth > 0 && !outlineColor.IsEmpty)
+            if (visible)
             {
                 try
                 {
@@ -284,9 +247,7 @@ namespace DustInTheWind.Clock.Shapes.Default
                             break;
                     }
 
-                    CreatePenIfNull();
-
-                    g.DrawLine(pen, startPoint, endPoint);
+                    DrawInternal(g);
                 }
                 finally
                 {
@@ -295,35 +256,8 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
+        protected abstract void DrawInternal(Graphics g);
 
-        private float angle = 6f;
-        public float Angle
-        {
-            get { return angle; }
-            set
-            {
-                angle = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        private bool repeat = true;
-        public bool Repeat
-        {
-            get { return repeat; }
-            set
-            {
-                repeat = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        private int index = 0;
-        public int Index
-        {
-            get { return index; }
-            set { index = value; }
-        }
 
         public void Reset()
         {

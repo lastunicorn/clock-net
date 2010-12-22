@@ -64,11 +64,12 @@
     <Compile Include="Shapes\Basic\PathHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonShape.cs" />
+    <Compile Include="Shapes\AngularShapeBase.cs" />
     <Compile Include="Shapes\VectorialAngularShapeBase.cs" />
     <Compile Include="Shapes\Default\BackDialShape.cs" />
     <Compile Include="Shapes\Default\TicksShape.cs" />
     <Compile Include="Shapes\Default\NumbersShape2.cs" />
-    <Compile Include="Shapes\Default\AngularShapeLocation.cs" />
+    <Compile Include="Shapes\AngularShapeLocation.cs" />
     <Compile Include="Shapes\Fancy\BigNibHandShape.cs" />
     <Compile Include="Shapes\Fancy\DotHandShape.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />
