@@ -20,10 +20,7 @@ using System.Drawing;
 
 namespace DustInTheWind.Clock.Shapes
 {
-    /// <summary>
-    /// Provides common functionality for a vectorial shape.
-    /// </summary>
-    public abstract class VectorialAngularShapeBase : AngularShapeBase
+    public abstract class VectorialHandShapeBase : HandShapeBase
     {
         /// <summary>
         /// The default width of the line used to draw the shape.
@@ -115,23 +112,23 @@ namespace DustInTheWind.Clock.Shapes
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// Initializes a new instance of the <see cref="VectorialHandShapeBase"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
-        public VectorialAngularShapeBase(Color outlineColor, Color fillColor)
-            : this(outlineColor, fillColor, LINE_WIDTH)
+        public VectorialHandShapeBase(Color outlineColor, Color fillColor)
+            : this(outlineColor, fillColor, LINE_WIDTH, HEIGHT)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// Initializes a new instance of the <see cref="VectorialHandShapeBase"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public VectorialAngularShapeBase(Color outlineColor, Color fillColor, float lineWidth)
-            : base()
+        public VectorialHandShapeBase(Color outlineColor, Color fillColor, float lineWidth, float height)
+            : base(height)
         {
             this.outlineColor = outlineColor;
             this.fillColor = fillColor;

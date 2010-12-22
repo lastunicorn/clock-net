@@ -24,7 +24,7 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the numbers representing the hours.
     /// </summary>
-    public class NumbersShape : VectorialShapeBase, INumbersShape, IAngularShape
+    public class NumbersShape : VectorialAngularShapeBase
     {
         public const float POSITION_OFFSET = 7f;
 
@@ -100,27 +100,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             {
                 positionOffset = value;
                 OnChanged(EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// The index of the number to be drawn.
-        /// </summary>
-        protected int currentIndex;
-
-        /// <summary>
-        /// Gets or sets the index of the number to be drawn.
-        /// </summary>
-        [Browsable(false)]
-        public int CurrentIndex
-        {
-            get { return currentIndex; }
-            set
-            {
-                if (value < 0 || value >= numbers.Length)
-                    throw new IndexOutOfRangeException("The specified index is out of the range of the array numbers.");
-
-                currentIndex = value;
             }
         }
 
@@ -202,52 +181,106 @@ namespace DustInTheWind.Clock.Shapes.Default
         #endregion
 
 
-        /// <summary>
-        /// Draws the current number using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the number.</param>
-        public override void Draw(Graphics g)
+        ///// <summary>
+        ///// Draws the current number using the provided <see cref="Graphics"/> object.
+        ///// </summary>
+        ///// <param name="g">The <see cref="Graphics"/> on which to draw the number.</param>
+        //public override void Draw(Graphics g)
+        //{
+        //    if (visible && font != null && numbers != null && !fillColor.IsEmpty)
+        //    {
+        //        if (index > 0 && index <= numbers.Length)
+        //        {
+        //            string number = numbers[index - 1];
+
+        //            if (number != null && number.Length > 0)
+        //            {
+        //                CreateBrushIfNull();
+
+        //                SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
+        //                PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
+
+        //                Matrix originalMatrix = null;
+
+        //                switch (orientation)
+        //                {
+        //                    case NumberOrientation.FaceCenter:
+        //                        originalMatrix = g.Transform;
+        //                        g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+        //                        break;
+
+        //                    case NumberOrientation.FaceOut:
+        //                        originalMatrix = g.Transform;
+        //                        g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+        //                        g.RotateTransform(180);
+        //                        break;
+
+        //                    default:
+        //                    case NumberOrientation.Normal:
+        //                        float ang = -(this.angle * index);
+        //                        originalMatrix = g.Transform;
+        //                        g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+        //                        g.RotateTransform(ang);
+        //                        break;
+        //                }
+
+        //                //g.DrawRectangle(Pens.Black, new Rectangle((int)numberPosition.X, (int)numberPosition.Y, (int)numberSize.Width, (int)numberSize.Height));
+        //                g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
+
+        //                if (originalMatrix != null)
+        //                    g.Transform = originalMatrix;
+        //            }
+        //        }
+
+        //        index++;
+        //    }
+        //}
+
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && font != null && numbers != null && currentIndex >= 0 && currentIndex < numbers.Length && !fillColor.IsEmpty)
+            if (font != null && numbers != null && !fillColor.IsEmpty)
             {
-                string number = numbers[currentIndex];
-
-                if (number != null && number.Length > 0)
+                if (index > 0 && index <= numbers.Length)
                 {
-                    CreateBrushIfNull();
+                    string number = numbers[index - 1];
 
-                    SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
-                    PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
-
-                    Matrix originalMatrix = null;
-
-                    switch (orientation)
+                    if (number != null && number.Length > 0)
                     {
-                        case NumberOrientation.FaceCenter:
-                            originalMatrix = g.Transform;
-                            g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-                            break;
+                        CreateBrushIfNull();
 
-                        case NumberOrientation.FaceOut:
-                            originalMatrix = g.Transform;
-                            g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-                            g.RotateTransform(180);
-                            break;
+                        SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
+                        PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
 
-                        default:
-                        case NumberOrientation.Normal:
-                            float angle = -(30 * (currentIndex + 1));
-                            originalMatrix = g.Transform;
-                            g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-                            g.RotateTransform(angle);
-                            break;
+                        Matrix originalMatrix = null;
+
+                        switch (orientation)
+                        {
+                            case NumberOrientation.FaceCenter:
+                                originalMatrix = g.Transform;
+                                g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+                                break;
+
+                            case NumberOrientation.FaceOut:
+                                originalMatrix = g.Transform;
+                                g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+                                g.RotateTransform(180);
+                                break;
+
+                            default:
+                            case NumberOrientation.Normal:
+                                float ang = -(this.angle * index);
+                                originalMatrix = g.Transform;
+                                g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+                                g.RotateTransform(ang);
+                                break;
+                        }
+
+                        //g.DrawRectangle(Pens.Black, new Rectangle((int)numberPosition.X, (int)numberPosition.Y, (int)numberSize.Width, (int)numberSize.Height));
+                        g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
+
+                        if (originalMatrix != null)
+                            g.Transform = originalMatrix;
                     }
-
-                    //g.DrawRectangle(Pens.Black, new Rectangle((int)numberPosition.X, (int)numberPosition.Y, (int)numberSize.Width, (int)numberSize.Height));
-                    g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
-
-                    if (originalMatrix != null)
-                        g.Transform = originalMatrix;
                 }
             }
         }
@@ -271,43 +304,38 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         #endregion
 
-        private float angle = 6;
-        public float Angle
-        {
-            get { return angle; }
-            set
-            {
-                angle = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        //private float angle = 30f;
+        //public float Angle
+        //{
+        //    get { return angle; }
+        //    set
+        //    {
+        //        angle = value;
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
-        private bool repeat = true;
-        public bool Repeat
-        {
-            get { return repeat; }
-            set
-            {
-                repeat = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        //private bool repeat = true;
+        //public bool Repeat
+        //{
+        //    get { return repeat; }
+        //    set
+        //    {
+        //        repeat = value;
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
-        private int index = 0;
-        public int Index
-        {
-            get { return index; }
-            set
-            {
-                index = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        //private int index = 0;
+        //public int Index
+        //{
+        //    get { return index; }
+        //    set { index = value; }
+        //}
 
-        public void Reset()
-        {
-            index = 0;
-            OnChanged(EventArgs.Empty);
-        }
+        //public void Reset()
+        //{
+        //    index = 0;
+        //}
     }
 }

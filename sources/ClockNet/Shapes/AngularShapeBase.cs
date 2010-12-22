@@ -30,14 +30,15 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         public const float POSITION_OFFSET = 0f;
 
+        /// <summary>
+        /// The default value of the angle.
+        /// </summary>
+        public const float ANGLE = 6f;
 
         /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// The default value of the repeat.
         /// </summary>
-        public override string Name
-        {
-            get { return "Angular Shape"; }
-        }
+        public const bool REPEAT = true;
 
 
         /// <summary>
@@ -63,18 +64,43 @@ namespace DustInTheWind.Clock.Shapes
         }
 
 
-        protected float angle = 6f;
+        /// <summary>
+        /// The angle between two consecutive drawns of the shape.
+        /// </summary>
+        protected float angle;
+
+        /// <summary>
+        /// Gets or sets the angle between two consecutive drawns of the shape.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">The angle between two consecutive drawns of the shape should be a positive number.</exception>
+        [Category("Appearance")]
+        [DefaultValue(ANGLE)]
+        [Description("The angle between two consecutive drawns of the shape.")]
         public float Angle
         {
             get { return angle; }
             set
             {
+                if (value <= 0)
+                    throw new ArgumentOutOfRangeException("value", "The angle between two consecutive drawns of the shape should be a positive number.");
+
                 angle = value;
                 OnChanged(EventArgs.Empty);
             }
         }
 
-        protected bool repeat = true;
+
+        /// <summary>
+        /// A value specifying if the shape should be repeated all around the clock's dial.
+        /// </summary>
+        protected bool repeat;
+
+        /// <summary>
+        /// Gets or sets a value specifying if the shape should be repeated all around the clock's dial.
+        /// </summary>
+        [Category("Appearance")]
+        [DefaultValue(REPEAT)]
+        [Description("Specifies if the shape should be repeated all around the clock's dial.")]
         public bool Repeat
         {
             get { return repeat; }
@@ -124,17 +150,25 @@ namespace DustInTheWind.Clock.Shapes
         /// default values.
         /// </summary>
         public AngularShapeBase()
-            : this(POSITION_OFFSET)
+            : this(ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AngularShapeBase"/> class.
         /// </summary>
+        /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
+        /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
         /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
-        public AngularShapeBase(float positionOffset)
+        /// <exception cref="ArgumentOutOfRangeException">The angle between two consecutive drawns of the shape should be a positive number.</exception>
+        public AngularShapeBase(float angle, bool repeat, float positionOffset)
             : base()
         {
+            if (angle <= 0)
+                throw new ArgumentOutOfRangeException("angle", "The angle between two consecutive drawns of the shape should be a positive number.");
+
+            this.angle = angle;
+            this.repeat = repeat;
             this.positionOffset = positionOffset;
 
             CalculateDimensions();
@@ -142,9 +176,7 @@ namespace DustInTheWind.Clock.Shapes
 
         #endregion
 
-        protected virtual void CalculateDimensions()
-        {
-        }
+        protected virtual void CalculateDimensions() { }
 
         /// <summary>
         /// Draws one tick using the provided <see cref="Graphics"/> object.
@@ -257,8 +289,11 @@ namespace DustInTheWind.Clock.Shapes
         }
 
         protected abstract void DrawInternal(Graphics g);
-
-
+        
+        /// <summary>
+        /// Resets the index of the shape that will be drawn next.
+        /// This method is called by the clock before every paint.
+        /// </summary>
         public void Reset()
         {
             index = 0;

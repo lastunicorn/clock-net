@@ -23,7 +23,7 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the ticks that mark the seconds.
     /// </summary>
-    public class TicksShape : VectorialShapeBase, IAngularShape
+    public class TicksShape : VectorialAngularShapeBase
     {
         /// <summary>
         /// The default value of the length.
@@ -183,151 +183,157 @@ namespace DustInTheWind.Clock.Shapes.Default
             endPoint = new PointF(0, length + positionOffset);
         }
 
-        /// <summary>
-        /// Draws one tick using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
-        /// <remarks>
-        /// Before calling this method, the origin should be already moved to the edje of the dial,
-        /// in the place where the tick should be drawn.
-        /// </remarks>
-        public override void Draw(Graphics g)
+        ///// <summary>
+        ///// Draws one tick using the provided <see cref="Graphics"/> object.
+        ///// </summary>
+        ///// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
+        ///// <remarks>
+        ///// Before calling this method, the origin should be already moved to the edje of the dial,
+        ///// in the place where the tick should be drawn.
+        ///// </remarks>
+        //public override void Draw(Graphics g)
+        //{
+        //    if (visible && length > 0 && lineWidth > 0 && !outlineColor.IsEmpty)
+        //    {
+        //        try
+        //        {
+        //            if (index == 0)
+        //                return;
+
+        //            switch (angularLocation)
+        //            {
+        //                case AngularShapeLocation.None:
+        //                    return;
+
+        //                default:
+        //                case AngularShapeLocation.EveryMinute:
+        //                    break;
+
+        //                case AngularShapeLocation.EveryHour:
+        //                    if (index % 5 != 0) return;
+        //                    break;
+
+        //                case AngularShapeLocation.Cross:
+        //                    if (index % 15 != 0) return;
+        //                    break;
+
+        //                case AngularShapeLocation.Vertical:
+        //                    if (index % 30 != 0) return;
+        //                    break;
+
+        //                case AngularShapeLocation.Horizontal:
+        //                    if (index != 15 && index != 45) return;
+        //                    break;
+
+        //                case AngularShapeLocation.North:
+        //                    if (index != 60) return;
+        //                    break;
+
+        //                case AngularShapeLocation.East:
+        //                    if (index != 15) return;
+        //                    break;
+
+        //                case AngularShapeLocation.South:
+        //                    if (index != 30) return;
+        //                    break;
+
+        //                case AngularShapeLocation.West:
+        //                    if (index != 45) return;
+        //                    break;
+        //            }
+
+        //            switch (exceptionLocation)
+        //            {
+        //                default:
+        //                case AngularShapeLocation.None:
+        //                    break;
+
+        //                case AngularShapeLocation.EveryMinute:
+        //                    return;
+
+        //                case AngularShapeLocation.EveryHour:
+        //                    if (index % 5 == 0) return;
+        //                    break;
+
+        //                case AngularShapeLocation.Cross:
+        //                    if (index % 15 == 0) return;
+        //                    break;
+
+        //                case AngularShapeLocation.Vertical:
+        //                    if (index % 30 == 0) return;
+        //                    break;
+
+        //                case AngularShapeLocation.Horizontal:
+        //                    if (index == 15 || index == 45) return;
+        //                    break;
+
+        //                case AngularShapeLocation.North:
+        //                    if (index == 60) return;
+        //                    break;
+
+        //                case AngularShapeLocation.East:
+        //                    if (index == 15) return;
+        //                    break;
+
+        //                case AngularShapeLocation.South:
+        //                    if (index == 30) return;
+        //                    break;
+
+        //                case AngularShapeLocation.West:
+        //                    if (index == 45) return;
+        //                    break;
+        //            }
+
+        //            CreatePenIfNull();
+
+        //            g.DrawLine(pen, startPoint, endPoint);
+        //        }
+        //        finally
+        //        {
+        //            index++;
+        //        }
+        //    }
+        //}
+
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && length > 0 && lineWidth > 0 && !outlineColor.IsEmpty)
-            {
-                try
-                {
-                    if (index == 0)
-                        return;
-
-                    switch (angularLocation)
-                    {
-                        case AngularShapeLocation.None:
-                            return;
-
-                        default:
-                        case AngularShapeLocation.EveryMinute:
-                            break;
-
-                        case AngularShapeLocation.EveryHour:
-                            if (index % 5 != 0) return;
-                            break;
-
-                        case AngularShapeLocation.Cross:
-                            if (index % 15 != 0) return;
-                            break;
-
-                        case AngularShapeLocation.Vertical:
-                            if (index % 30 != 0) return;
-                            break;
-
-                        case AngularShapeLocation.Horizontal:
-                            if (index != 15 && index != 45) return;
-                            break;
-
-                        case AngularShapeLocation.North:
-                            if (index != 60) return;
-                            break;
-
-                        case AngularShapeLocation.East:
-                            if (index != 15) return;
-                            break;
-
-                        case AngularShapeLocation.South:
-                            if (index != 30) return;
-                            break;
-
-                        case AngularShapeLocation.West:
-                            if (index != 45) return;
-                            break;
-                    }
-
-                    switch (exceptionLocation)
-                    {
-                        default:
-                        case AngularShapeLocation.None:
-                            break;
-
-                        case AngularShapeLocation.EveryMinute:
-                            return;
-
-                        case AngularShapeLocation.EveryHour:
-                            if (index % 5 == 0) return;
-                            break;
-
-                        case AngularShapeLocation.Cross:
-                            if (index % 15 == 0) return;
-                            break;
-
-                        case AngularShapeLocation.Vertical:
-                            if (index % 30 == 0) return;
-                            break;
-
-                        case AngularShapeLocation.Horizontal:
-                            if (index == 15 || index == 45) return;
-                            break;
-
-                        case AngularShapeLocation.North:
-                            if (index == 60) return;
-                            break;
-
-                        case AngularShapeLocation.East:
-                            if (index == 15) return;
-                            break;
-
-                        case AngularShapeLocation.South:
-                            if (index == 30) return;
-                            break;
-
-                        case AngularShapeLocation.West:
-                            if (index == 45) return;
-                            break;
-                    }
-
-                    CreatePenIfNull();
-
-                    g.DrawLine(pen, startPoint, endPoint);
-                }
-                finally
-                {
-                    index++;
-                }
-            }
+            CreatePenIfNull();
+            g.DrawLine(pen, startPoint, endPoint);
         }
 
 
-        private float angle = 6f;
-        public float Angle
-        {
-            get { return angle; }
-            set
-            {
-                angle = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        //private float angle = 6f;
+        //public float Angle
+        //{
+        //    get { return angle; }
+        //    set
+        //    {
+        //        angle = value;
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
-        private bool repeat = true;
-        public bool Repeat
-        {
-            get { return repeat; }
-            set
-            {
-                repeat = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        //private bool repeat = true;
+        //public bool Repeat
+        //{
+        //    get { return repeat; }
+        //    set
+        //    {
+        //        repeat = value;
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
-        private int index = 0;
-        public int Index
-        {
-            get { return index; }
-            set { index = value; }
-        }
+        //private int index = 0;
+        //public int Index
+        //{
+        //    get { return index; }
+        //    set { index = value; }
+        //}
 
-        public void Reset()
-        {
-            index = 0;
-        }
+        //public void Reset()
+        //{
+        //    index = 0;
+        //}
     }
 }

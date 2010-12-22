@@ -20,7 +20,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
 {
     public class PolygonShape : VectorialShapeBase
     {
-        protected PointF[] path;
+        protected PointF[] points;
 
         public override string Name
         {
@@ -35,7 +35,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public PolygonShape(PointF[] path, Color outlineColor, Color fillColor)
             : base(outlineColor, fillColor)
         {
-            this.path = path;
+            this.points = path;
         }
 
 
@@ -51,14 +51,14 @@ namespace DustInTheWind.Clock.Shapes.Basic
                 {
                     CreateBrushIfNull();
 
-                    g.FillPolygon(brush, path);
+                    g.FillPolygon(brush, points);
                 }
 
                 if (!outlineColor.IsEmpty)
                 {
                     CreatePenIfNull();
 
-                    g.DrawPolygon(pen, path);
+                    g.DrawPolygon(pen, points);
                 }
             }
         }

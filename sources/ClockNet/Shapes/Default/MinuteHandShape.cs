@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using DustInTheWind.Clock.Shapes.Basic;
@@ -63,12 +64,19 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
+        protected float tailLength = TAIL_LENGTH;
+
         [Category("Appearance")]
         [DefaultValue(TAIL_LENGTH)]
-        public override float TailLength
+        public virtual float TailLength
         {
-            get { return base.TailLength; }
-            set { base.TailLength = value; }
+            get { return tailLength; }
+            set
+            {
+                tailLength = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
         }
 
 
@@ -95,8 +103,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="fill">A value specifying if the background or the outline of the hand should be drawn.</param>
         /// <param name="height">The height of the hend for a clock of 300px.</param>
         public MinuteHandShape(Color outlineColor, Color fillColor, float height, float tailLength)
-            : base(null, outlineColor, fillColor, height, tailLength)
+            : base(null, outlineColor, fillColor, height)
         {
+            this.tailLength = tailLength;
         }
 
         #endregion
@@ -104,7 +113,7 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         protected override void CalculateDimensions()
         {
-            path = new PointF[] { new PointF(0f, tailLength), new PointF(-2f, 0f), new PointF(0f, -height), new PointF(2f, 0f) };
+            points = new PointF[] { new PointF(0f, tailLength), new PointF(-2f, 0f), new PointF(0f, -height), new PointF(2f, 0f) };
         }
     }
 }

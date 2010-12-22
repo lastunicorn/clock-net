@@ -145,6 +145,22 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         //}
 
 
+        protected float tailLength = TAIL_LENGTH;
+
+        [Category("Appearance")]
+        [DefaultValue(TAIL_LENGTH)]
+        public virtual float TailLength
+        {
+            get { return tailLength; }
+            set
+            {
+                tailLength = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+
         #region Constructors
 
         /// <summary>
@@ -163,9 +179,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="fillColor">The callor used to fill the circle from the middle pf the hand. <see cref="Color.Empty"/> will let the circle transparent.</param>
         /// <param name="height"></param>
         public FancySweepHandShape(Color outlineColor, Color fillColor, float height)
-            : base(outlineColor, fillColor, LINE_WIDTH, new GraphicsPath())
+            : base(outlineColor, fillColor, LINE_WIDTH, height, new GraphicsPath())
         {
-            this.height = height;
             CalculateDimensions();
         }
 

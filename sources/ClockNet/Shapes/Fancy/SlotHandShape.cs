@@ -26,7 +26,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     {
         public const float SLOT_WIDTH = 5f;
         public const float SLOT_HEIGHT = 40f;
-        public new const float HEIGHT = 50f;
+        //public new const float HEIGHT = 50f;
+        public const float TAIL_LENGTH = 6f;
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -68,6 +69,22 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             set
             {
                 slotHeight = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+
+        protected float tailLength = TAIL_LENGTH;
+
+        [Category("Appearance")]
+        [DefaultValue(TAIL_LENGTH)]
+        public virtual float TailLength
+        {
+            get { return tailLength; }
+            set
+            {
+                tailLength = value;
                 CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }

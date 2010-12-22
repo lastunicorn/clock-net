@@ -16,7 +16,6 @@
 
 using System;
 using System.Collections.ObjectModel;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -394,6 +393,8 @@ namespace DustInTheWind.Clock
         #endregion
 
 
+        #region BackgroundShapeCollection class
+
         private class BackgroundShapeCollection : Collection<IShape>
         {
             AnalogClock clock;
@@ -444,7 +445,11 @@ namespace DustInTheWind.Clock
                 base.ClearItems();
             }
         }
-        
+
+        #endregion
+
+        #region AngularShapeCollection class
+
         private class AngularShapeCollection : Collection<IAngularShape>
         {
             AnalogClock clock;
@@ -496,6 +501,8 @@ namespace DustInTheWind.Clock
             }
         }
 
+        #endregion
+
 
         #region BackgroundShapes
 
@@ -522,7 +529,6 @@ namespace DustInTheWind.Clock
         }
 
         #endregion
-
 
         #region Hour Hand
 
@@ -774,6 +780,22 @@ namespace DustInTheWind.Clock
 
             if (shapeSet != null)
             {
+                if (shapeSet.BackgroundShapes != null)
+                {
+                    foreach (IShape shape in shapeSet.BackgroundShapes)
+                    {
+                        backgroundShapes.Add(shape);
+                    }
+                }
+
+                if (shapeSet.AngularShapes != null)
+                {
+                    foreach (IAngularShape shape in shapeSet.AngularShapes)
+                    {
+                        angularShapes.Add(shape);
+                    }
+                }
+
                 if (shapeSet.HourHandShape != null)
                 {
                     hourHandShape = shapeSet.HourHandShape;
@@ -1220,15 +1242,28 @@ namespace DustInTheWind.Clock
         {
             if (shapeSet != null)
             {
-                //DialShape = shapeSet.DialShape;
+                backgroundShapes.Clear();
+                if (shapeSet.BackgroundShapes != null)
+                {
+                    foreach (IShape shape in shapeSet.BackgroundShapes)
+                    {
+                        backgroundShapes.Add(shape);
+                    }
+                }
+
+                angularShapes.Clear();
+                if (shapeSet.AngularShapes != null)
+                {
+                    foreach (IAngularShape shape in shapeSet.AngularShapes)
+                    {
+                        angularShapes.Add(shape);
+                    }
+                }
+
                 HourHandShape = shapeSet.HourHandShape;
                 MinuteHandShape = shapeSet.MinuteHandShape;
                 SweepHandShape = shapeSet.SweepHandShape;
                 PinShape = shapeSet.PinShape;
-                //Ticks1Shape = shapeSet.Ticks1Shape;
-                //Ticks5Shape = shapeSet.Ticks5Shape;
-                //NumbersShape = shapeSet.NumbersShape;
-                //TextShape = shapeSet.TextShape;
             }
         }
     }

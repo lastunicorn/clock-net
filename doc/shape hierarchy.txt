@@ -2,6 +2,28 @@ DustInTheWind.Clock.Shapes.IShape
 	DustInTheWind.Clock.Shapes.ShapeBase
 		DustInTheWind.Clock.Shapes.VectorialShapeBase
 			DustInTheWind.Clock.Shapes.Basic.LineShape
+			DustInTheWind.Clock.Shapes.Basic.PolygonShape
+			DustInTheWind.Clock.Shapes.Basic.PathShape
+		DustInTheWind.Clock.Shapes.Basic.ImageShape
+		DustInTheWind.Clock.Shapes.AngularShapeBase
+			DustInTheWind.Clock.Shapes.VectorialAngularShapeBase
+				DustInTheWind.Clock.Shapes.Basic.LineAngularShape
+				DustInTheWind.Clock.Shapes.Basic.PolygonAngularShape
+				DustInTheWind.Clock.Shapes.Basic.PathAngularShape
+			DustInTheWind.Clock.Shapes.ImageAngularShapeBase
+		DustInTheWind.Clock.Shapes.HandShapeBase
+			DustInTheWind.Clock.Shapes.VectorialHandShapeBase
+				DustInTheWind.Clock.Shapes.Basic.LineHandShape
+				DustInTheWind.Clock.Shapes.Basic.PolygonHandShape
+				DustInTheWind.Clock.Shapes.Basic.PathHandShape
+			DustInTheWind.Clock.Shapes.ImageHandShape
+	
+	
+	
+	
+	
+		DustInTheWind.Clock.Shapes.VectorialShapeBase
+			DustInTheWind.Clock.Shapes.Basic.LineShape
 				DustInTheWind.Clock.Shapes.Basic.LineHandShape
 					DustInTheWind.Clock.Shapes.Default.SweepHandShape
 			DustInTheWind.Clock.Shapes.Basic.PolygonShape

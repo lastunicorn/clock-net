@@ -20,12 +20,12 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using TTRider.UI;
 
-namespace DustInTheWind.Clock.Shapes.Default
+namespace DustInTheWind.Clock.Shapes.Fancy
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the background of the dial.
     /// </summary>
-    public class BackDialShape : VectorialShapeBase
+    public class FancyDialShape : VectorialShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -66,7 +66,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Initializes a new instance of the <see cref="DialShape"/> class with
         /// default values.
         /// </summary>
-        public BackDialShape()
+        public FancyDialShape()
             : this(Color.Empty, Color.Empty, LINE_WIDTH)
         {
         }
@@ -75,7 +75,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Initializes a new instance of the <see cref="DialShape"/> class.
         /// </summary>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
-        public BackDialShape(Color fillColor)
+        public FancyDialShape(Color fillColor)
             : this(Color.Empty, fillColor, LINE_WIDTH)
         {
         }
@@ -85,7 +85,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the dial.</param>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
-        public BackDialShape(Color outlineColor, Color fillColor, float lineWidth)
+        public FancyDialShape(Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
             CalculateDimensions();

@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using DustInTheWind.Clock.Shapes.Basic;
@@ -23,7 +24,6 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the hour hand.
     /// </summary>
-    [TypeConverter(typeof(ShapeConverter))]
     public class HourHandShape : PolygonHandShape
     {
         public const string NAME = "Default Hour Hand Shape";
@@ -74,12 +74,19 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
+        protected float tailLength = TAIL_LENGTH;
+
         [Category("Appearance")]
         [DefaultValue(TAIL_LENGTH)]
-        public override float TailLength
+        public virtual float TailLength
         {
-            get { return base.TailLength; }
-            set { base.TailLength = value; }
+            get { return tailLength; }
+            set
+            {
+                tailLength = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
         }
 
 
@@ -112,8 +119,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="fillColor">The color used to fill the shape.</param>
         /// <param name="height">The length of the hour hand for a clock with the diameter of 100px.</param>
         public HourHandShape(Color outlineColor, Color fillColor, float height)
-            : base(null, outlineColor, fillColor, height, TAIL_LENGTH)
+            : base(null, outlineColor, fillColor, height)
         {
+            this.tailLength = TAIL_LENGTH;
             CalculateDimensions();
         }
 
@@ -122,7 +130,7 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         private void CalculateDimensions()
         {
-            path = new PointF[] { new PointF(0f, tailLength), new PointF(-2.5f, 0f), new PointF(0F, -height), new PointF(2.5f, 0f) };
+            points = new PointF[] { new PointF(0f, tailLength), new PointF(-2.5f, 0f), new PointF(0F, -height), new PointF(2.5f, 0f) };
         }
 
         //public override bool Equals(object obj)
