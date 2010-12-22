@@ -27,7 +27,15 @@ namespace DustInTheWind.Clock.Shapes.Default
     public class MinuteHandShape : PolygonHandShape
     {
         public const string NAME = "Default Minute Hand Shape";
+
+        /// <summary>
+        /// The default value of the <see cref="Height"/>.
+        /// </summary>
         public new const float HEIGHT = 37f;
+
+        /// <summary>
+        /// The default value of the <see cref="TailLength"/>.
+        /// </summary>
         public new const float TAIL_LENGTH = 4f;
 
 
@@ -64,8 +72,14 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
+        /// <summary>
+        /// The length of the hand's tail from the pin to the bottom.
+        /// </summary>
         protected float tailLength = TAIL_LENGTH;
 
+        /// <summary>
+        /// Gets or sets the length of the hand's tail from the pin to the bottom.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(TAIL_LENGTH)]
         public virtual float TailLength
@@ -91,6 +105,11 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MinuteHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
+        /// <param name="fillColor">The color used to draw the background of the hand.</param>
         public MinuteHandShape(Color outlineColor, Color fillColor)
             : this(outlineColor, fillColor, HEIGHT, TAIL_LENGTH)
         {
@@ -99,9 +118,10 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Initializes a new instance of the <see cref="MinuteHandShape"/> class.
         /// </summary>
-        /// <param name="color">The color of the hand.</param>
-        /// <param name="fill">A value specifying if the background or the outline of the hand should be drawn.</param>
-        /// <param name="height">The height of the hend for a clock of 300px.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
+        /// <param name="fillColor">The color used to draw the background of the hand.</param>
+        /// <param name="height">The height of the hend (from the pin to the top) for a clock of 300px.</param>
+        /// <param name="tailLength">The length of the hand's tail.</param>
         public MinuteHandShape(Color outlineColor, Color fillColor, float height, float tailLength)
             : base(null, outlineColor, fillColor, height)
         {

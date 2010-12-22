@@ -18,9 +18,9 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes.Fancy
+namespace DustInTheWind.Clock.Shapes
 {
-    public class DotHandShape : VectorialShapeBase, IHandShape
+    public class EllipseHandShape : VectorialHandShapeBase
     {
         public const float HEIGHT = 27.5f;
         public const float RADIUS = 10f;
@@ -34,11 +34,6 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
         /// <summary>
-        /// The length of the hour hand. For a clock with the diameter of 100px.
-        /// </summary>
-        protected float height;
-
-        /// <summary>
         /// Gets or sets the length of the hour hand. For a clock with the diameter of 100px.
         /// </summary>
         [Category("Appearance")]
@@ -46,13 +41,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         [Description("The length of the hour hand. For a clock with the diameter of 100px.")]
         public virtual float Height
         {
-            get { return height; }
-            set
-            {
-                height = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
+            get { return base.Height; }
+            set { Height = value; }
         }
 
         protected float radius;
@@ -76,12 +66,12 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// Initializes a new instance of the <see cref="HourHandShape"/> class with
         /// default values.
         /// </summary>
-        public DotHandShape()
+        public EllipseHandShape()
             : this(Color.Empty, Color.RoyalBlue, HEIGHT, RADIUS)
         {
         }
 
-        public DotHandShape(Color fillColor, float height, float radius)
+        public EllipseHandShape(Color fillColor, float height, float radius)
             : this(Color.Empty, fillColor, height, radius)
         {
         }
@@ -93,7 +83,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="fillColor"></param>
         /// <param name="drawMode"></param>
         /// <param name="height"></param>
-        public DotHandShape(Color outlineColor, Color fillColor, float height, float radius)
+        public EllipseHandShape(Color outlineColor, Color fillColor, float height, float radius)
             : base(outlineColor, fillColor)
         {
             this.height = height;

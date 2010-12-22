@@ -185,16 +185,6 @@ namespace DustInTheWind.Clock.Shapes
                 pen = new Pen(outlineColor, lineWidth);
         }
 
-        /// <summary>
-        /// Transforms the radians in degrees.
-        /// </summary>
-        /// <param name="radians">The radians to be transformed.</param>
-        /// <returns>The degries representing the specified radians.</returns>
-        protected double GetDegrees(double radians)
-        {
-            return (radians * 180) / Math.PI;
-        }
-
         #region Dispose
 
         /// <summary>

@@ -1,6 +1,11 @@
 ClockNet
 ========
 
+ver 2.1
+-------
+I changed the Shape's hierarchy.
+
+
 ver 2.0 alpha2
 --------------
 Bug fix - In design time, the control was not initializing the default shapes. - Fixed

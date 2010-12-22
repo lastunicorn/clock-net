@@ -156,8 +156,8 @@ namespace DustInTheWind.Clock.Shapes
 
                 IAngularShape[] angulars = null;
 
-                DotHandShape hourHandShape = new DotHandShape(Color.Black, 20, 4.5f);
-                DotHandShape minuteHandShape = new DotHandShape(Color.Black, 40, 2.75f);
+                EllipseHandShape hourHandShape = new EllipseHandShape(Color.Black, 20, 4.5f);
+                EllipseHandShape minuteHandShape = new EllipseHandShape(Color.Black, 40, 2.75f);
                 SweepHandShape sweepHandShape = null;
                 PinShape pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Black, 8);
 

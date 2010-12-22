@@ -27,7 +27,15 @@ namespace DustInTheWind.Clock.Shapes.Default
     public class HourHandShape : PolygonHandShape
     {
         public const string NAME = "Default Hour Hand Shape";
+
+        /// <summary>
+        /// The default value of the <see cref="Height"/>.
+        /// </summary>
         public const float HEIGHT = 24.2f;
+
+        /// <summary>
+        /// The default value of the <see cref="TailLength"/>.
+        /// </summary>
         public const float TAIL_LENGTH = 6f;
 
 
