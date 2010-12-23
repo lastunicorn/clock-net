@@ -30,3 +30,11 @@ DustInTheWind.Clock.Shapes.IShape
 					DustInTheWind.Clock.Shapes.Fancy.BigNibHandShape
 				DustInTheWind.Clock.Shapes.EllipseHandShape
 			DustInTheWind.Clock.Shapes.ImageHandShape
+			
+All the shapes are derived from ShapeBase.
+AnalogClock is using 3 types of Shapes:
+	1) Background Shapes - are regular Shapes (derived from ShapeBase) that are painted on the background of the clock: DialShape, TextShape, etc.
+	2) Angular Shapes - the Shapes that are repeated around the clock. These are derived from AngularShapeBase abstract class.
+	3) Hand Shapes - the Shapes that paint the clock hands. They are derived from HandShapeBase abstract class.
+An exception is the Pin Shape that is a class derived from ShapeBase and is painted last, on top of the Hand Shapes.
+The Shapes are painted like layers in Photoshop. The first ones are painted the Background Shapes, then the Angular Shapes and last ones are the Hand Shapes. And, of course, the Pin Shape after that.
