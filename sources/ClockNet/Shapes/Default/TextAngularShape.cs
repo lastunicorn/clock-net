@@ -17,14 +17,22 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
-namespace DustInTheWind.Clock.Shapes.Fancy
+namespace DustInTheWind.Clock.Shapes.Default
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the numbers representing the hours.
     /// </summary>
-    public class NumbersShape : VectorialShapeBase, INumbersShape
+    public class TextAngularShape : VectorialAngularShapeBase
     {
+        /// <summary>
+        /// The default value of the position offset.
+        /// </summary>
+        public new const float POSITION_OFFSET = 7f;
+
+        public new const float ANGLE = 30f;
+
         protected StringFormat numbersStringFormat;
 
         /// <summary>
@@ -32,7 +40,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </summary>
         public override string Name
         {
-            get { return "Fancy Numbers Shape"; }
+            get { return "Default Numbers Shape"; }
         }
 
         protected string[] numbers = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
@@ -43,11 +51,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             get { return numbers; }
             set
             {
-                if (numbers == null)
+                if (value == null)
                     throw new ArgumentNullException("value");
-
-                if (numbers.Length != 12)
-                    throw new ArgumentException("12 numbers should be provided. No more, no less.", "value");
 
                 numbers = value;
                 OnChanged(EventArgs.Empty);
@@ -74,7 +79,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// Gets the font used to draw the numbers.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(typeof(Font), "Microsoft Sans Serif; 8.25pt")]
+        //[DefaultValue(typeof(Font), "Arial; 7pt")]
         [Description("The font used to draw the numbers.")]
         public Font Font
         {
@@ -86,70 +91,64 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             }
         }
 
-        private float positionOffset = 20f;
+        /// <summary>
+        /// The orientation of the numbers.
+        /// </summary>
+        private TextAngularOrientation orientation;
 
-        [Category("Appearance")]
-        [DefaultValue(20f)]
-        public float PositionOffset
+        /// <summary>
+        /// Geta or sets the orientation of the numbers.
+        /// </summary>
+        [DefaultValue(typeof(TextAngularOrientation), "Normal")]
+        [Description("Specifies the orientation of the numbers.")]
+        public TextAngularOrientation Orientation
         {
-            get { return positionOffset; }
+            get { return orientation; }
             set
             {
-                positionOffset = value;
+                orientation = value;
                 OnChanged(EventArgs.Empty);
             }
         }
 
-        /// <summary>
-        /// The index of the number to be drawn.
-        /// </summary>
-        protected int currentIndex;
-
-        /// <summary>
-        /// Gets or sets the index of the number to be drawn.
-        /// </summary>
-        [Browsable(false)]
-        public int CurrentIndex
-        {
-            get { return currentIndex; }
-            set
-            {
-                if (value < 0 || value >= numbers.Length)
-                    throw new IndexOutOfRangeException("The specified index is out of the range of the array numbers.");
-
-                currentIndex = value;
-            }
-        }
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NumbersShape"/> class with
+        /// Initializes a new instance of the <see cref="TextAngularShape"/> class with
         /// default values.
         /// </summary>
-        public NumbersShape()
-            : this(Color.Empty, Color.Black, null)
+        public TextAngularShape()
+            : this(Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NumbersShape"/> class.
+        /// Initializes a new instance of the <see cref="TextAngularShape"/> class.
         /// </summary>
-        /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Font font)
-            : this(Color.Empty, Color.Black, font)
+        public TextAngularShape(Color color)
+            : this(color, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NumbersShape"/> class.
+        /// Initializes a new instance of the <see cref="TextAngularShape"/> class.
         /// </summary>
-        /// <param name="color"></param>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Color outlineColor, Color fillColor, Font font)
-            : base(outlineColor, fillColor)
+        public TextAngularShape(Color color, Font font)
+            : this(color, font, POSITION_OFFSET)
         {
-            this.font = font;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextAngularShape"/> class.
+        /// </summary>
+        /// <param name="font">The font to be used to draw the numbers.</param>
+        public TextAngularShape(Color color, Font font, float positionOffset)
+            : base(Color.Empty, color, LINE_WIDTH, ANGLE, REPEAT, positionOffset)
+        {
+            this.font = font == null ? new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point) : font;
+            this.positionOffset = positionOffset;
 
             numbersStringFormat = new StringFormat(StringFormatFlags.NoWrap);
             numbersStringFormat.Alignment = StringAlignment.Center;
@@ -158,24 +157,49 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
         #endregion
 
-        /// <summary>
-        /// Draws the current number using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the number.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && font != null && numbers != null && currentIndex >= 0 && currentIndex < numbers.Length)
+            if (font != null && numbers != null && !fillColor.IsEmpty)
             {
-                string number = numbers[currentIndex];
-
-                if (number != null && number.Length > 0)
+                if (index > 0 && index <= numbers.Length)
                 {
-                    CreateBrushIfNull();
+                    string number = numbers[index - 1];
 
-                    SizeF numberSize = g.MeasureString(number, font);
-                    PointF numberPosition = new PointF(-numberSize.Width / 2f, positionOffset);
+                    if (number != null && number.Length > 0)
+                    {
+                        CreateBrushIfNull();
 
-                    g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
+                        SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
+                        PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
+
+                        Matrix originalMatrix;
+
+                        switch (orientation)
+                        {
+                            case TextAngularOrientation.FaceCenter:
+                                originalMatrix = g.Transform;
+                                g.TranslateTransform(0, numberSize.Height / 2f);
+                                break;
+
+                            case TextAngularOrientation.FaceOut:
+                                originalMatrix = g.Transform;
+                                g.TranslateTransform(0, numberSize.Height / 2f);
+                                g.RotateTransform(180);
+                                break;
+
+                            default:
+                            case TextAngularOrientation.Normal:
+                                float ang = -(this.angle * index);
+                                originalMatrix = g.Transform;
+                                g.TranslateTransform(0, numberSize.Height / 2f);
+                                g.RotateTransform(ang);
+                                break;
+                        }
+
+                        g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
+
+                        g.Transform = originalMatrix;
+                    }
                 }
             }
         }

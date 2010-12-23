@@ -27,7 +27,7 @@ namespace DustInTheWind.Clock
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
         {
             if (sourceType == typeof(string))
-                return true;
+                return false;
 
             return base.CanConvertFrom(context, sourceType);
         }
@@ -36,23 +36,24 @@ namespace DustInTheWind.Clock
         {
             if (value is string)
             {
-                switch ((string)value)
-                {
-                    case HourHandShape.NAME:
-                        return new HourHandShape();
+                return null;
+                //switch ((string)value)
+                //{
+                //    case HourHandShape.NAME:
+                //        return new HourHandShape();
 
-                    case MinuteHandShape.NAME:
-                        return new MinuteHandShape();
+                //    case MinuteHandShape.NAME:
+                //        return new MinuteHandShape();
 
-                    case SweepHandShape.NAME:
-                        return new SweepHandShape();
+                //    case SweepHandShape.NAME:
+                //        return new SweepHandShape();
 
-                    case PinShape.NAME:
-                        return new PinShape();
+                //    case PinShape.NAME:
+                //        return new PinShape();
 
-                    default:
-                        return null;
-                }
+                //    default:
+                //        return null;
+                //}
             }
 
             return base.ConvertFrom(context, culture, value);

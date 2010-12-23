@@ -168,7 +168,22 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public FancySweepHandShape()
-            : this(Color.Red, Color.Empty, HEIGHT)
+            : this(Color.Red, Color.Empty, HEIGHT, LINE_WIDTH)
+        {
+        }
+
+        public FancySweepHandShape(Color outlineColor)
+            : this(outlineColor, Color.Empty, HEIGHT, LINE_WIDTH)
+        {
+        }
+
+        public FancySweepHandShape(Color outlineColor, float height)
+            : this(outlineColor, Color.Empty, height, LINE_WIDTH)
+        {
+        }
+
+        public FancySweepHandShape(Color outlineColor, float height, float lineWidth)
+            : this(outlineColor, Color.Empty, height, lineWidth)
         {
         }
 
@@ -178,8 +193,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="outlineColor">The color used to draw the hand.</param>
         /// <param name="fillColor">The callor used to fill the circle from the middle pf the hand. <see cref="Color.Empty"/> will let the circle transparent.</param>
         /// <param name="height"></param>
-        public FancySweepHandShape(Color outlineColor, Color fillColor, float height)
-            : base(outlineColor, fillColor, LINE_WIDTH, height, new GraphicsPath())
+        public FancySweepHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
+            : base(outlineColor, fillColor, lineWidth, height, new GraphicsPath())
         {
             CalculateDimensions();
         }

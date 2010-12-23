@@ -31,11 +31,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         public const float LENGTH = 2.5f;
 
         /// <summary>
-        /// The default value of the thickness.
-        /// </summary>
-        public const float THICKNESS = 0.25f;
-
-        /// <summary>
         /// The default width of the line used to draw the shape.
         /// </summary>
         public new const float LINE_WIDTH = 0.3f;
@@ -88,7 +83,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
-        [DefaultValue(THICKNESS)]
+        [DefaultValue(LINE_WIDTH)]
         [Description("The width of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
         public override float LineWidth
         {
@@ -104,7 +99,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public TicksShape()
-            : this(Color.Black, LENGTH, THICKNESS, POSITION_OFFSET)
+            : this(Color.Black, LENGTH, LINE_WIDTH, POSITION_OFFSET)
         {
         }
 
@@ -131,8 +126,8 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         private void CalculateDimensions()
         {
-            startPoint = new PointF(0, positionOffset);
-            endPoint = new PointF(0, length + positionOffset);
+            startPoint = new PointF(0, 0);
+            endPoint = new PointF(0, length);
         }
 
         protected override void DrawInternal(Graphics g)

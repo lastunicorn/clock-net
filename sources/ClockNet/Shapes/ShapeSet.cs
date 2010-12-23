@@ -39,21 +39,22 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 TicksShape ticks1Shape = new TicksShape(Color.Black, 5f, 0.3f, 7f);
-                ticks1Shape.AngularLocation = AngularShapeLocation.EveryMinute;
-                ticks1Shape.ExceptionLocation = AngularShapeLocation.EveryHour;
+                ticks1Shape.Angle = 6f;
+                ticks1Shape.ExceptionIndex = 5;
 
                 TicksShape ticks5Shape = new TicksShape(Color.Black, 5f, 1f, 7f);
-                ticks5Shape.AngularLocation = AngularShapeLocation.EveryHour;
+                ticks5Shape.Angle = 30f;
 
                 IAngularShape[] angulars = new IAngularShape[]{
                     ticks1Shape,
                     ticks5Shape,
-                    new NumbersShape()
+                    new TextAngularShape()
                 };
 
                 HourHandShape hourHandShape = new HourHandShape();
                 MinuteHandShape minuteHandShape = new MinuteHandShape();
-                SweepHandShape sweepHandShape = new SweepHandShape();
+                //SweepHandShape sweepHandShape = new SweepHandShape();
+                LineHandShape sweepHandShape = new LineHandShape();
                 PinShape pinShape = new PinShape();
 
                 return new ShapeSet()
@@ -78,22 +79,68 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 TicksShape ticks1Shape = new TicksShape(Color.RoyalBlue, 7.5f, 0.75f, 5f);
-                ticks1Shape.AngularLocation = AngularShapeLocation.EveryMinute;
-                ticks1Shape.ExceptionLocation = AngularShapeLocation.EveryHour;
+                ticks1Shape.Angle = 6f;
+                ticks1Shape.ExceptionIndex = 5;
 
                 TicksShape ticks5Shape = new TicksShape(Color.Navy, 5f, 15f, 5f);
-                ticks5Shape.AngularLocation = AngularShapeLocation.EveryHour;
+                ticks5Shape.Angle = 30f;
 
                 IAngularShape[] angulars = new IAngularShape[]{
                     ticks1Shape,
                     ticks5Shape,
-                    new DustInTheWind.Clock.Shapes.Default.NumbersShape(Color.Navy)
+                    new DustInTheWind.Clock.Shapes.Default.TextAngularShape(Color.Navy)
                 };
 
                 HourHandShape hourHandShape = new HourHandShape(Color.Empty, Color.Navy);
                 MinuteHandShape minuteHandShape = new MinuteHandShape(Color.Empty, Color.RoyalBlue);
-                SweepHandShape sweepHandShape = new SweepHandShape(Color.DeepSkyBlue);
+                //SweepHandShape sweepHandShape = new SweepHandShape(Color.DeepSkyBlue);
+                LineHandShape sweepHandShape = new LineHandShape(Color.DeepSkyBlue);
                 PinShape pinShape = new PinShape(Color.Empty, Color.Navy);
+
+                return new ShapeSet()
+                {
+                    backgroundShapes = backgrounds,
+                    angularShapes = angulars,
+                    hourHandShape = hourHandShape,
+                    minuteHandShape = minuteHandShape,
+                    sweepHandShape = sweepHandShape,
+                    pinShape = pinShape
+                };
+            }
+        }
+
+        public static ShapeSet Black
+        {
+            get
+            {
+                IShape[] backgrounds = new IShape[]{
+                    new FancyDialShape(Color.Black),
+                    new TextShape("Black", Color.LightGray)
+                };
+
+                TicksShape ticks1Shape = new TicksShape(Color.Black, 3f, 0.3f, 8f);
+                ticks1Shape.Angle = 6f;
+                ticks1Shape.ExceptionIndex = 5;
+
+                TicksShape ticks5Shape = new TicksShape(Color.LightGray, 3f, 1f, 8f);
+                ticks5Shape.Angle = 30f;
+
+                TextAngularShape hourShapes = new TextAngularShape(Color.WhiteSmoke, new Font("Arial", 5f, FontStyle.Regular, GraphicsUnit.Point), 13f);
+
+                TextAngularShape minuteShapes = new TextAngularShape(Color.WhiteSmoke, new Font("Arial", 2.2f, FontStyle.Regular, GraphicsUnit.Point), 0.7f);
+                minuteShapes.Numbers = new string[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60" };
+
+                IAngularShape[] angulars = new IAngularShape[]{
+                    ticks1Shape,
+                    ticks5Shape,
+                    hourShapes,
+                    minuteShapes
+                };
+
+                HourHandShape hourHandShape = new HourHandShape();
+                MinuteHandShape minuteHandShape = new MinuteHandShape();
+                LineHandShape sweepHandShape = new LineHandShape(Color.Red);
+                PinShape pinShape = new PinShape();
 
                 return new ShapeSet()
                 {
@@ -116,17 +163,20 @@ namespace DustInTheWind.Clock.Shapes
                     new DustInTheWind.Clock.Shapes.Default.TextShape()
                 };
 
-                TicksShape ticks1Shape = new TicksShape(Color.Black, 5f, 0.3f, 7f);
-                ticks1Shape.AngularLocation = AngularShapeLocation.EveryMinute;
-                ticks1Shape.ExceptionLocation = AngularShapeLocation.EveryHour;
+                TicksShape ticks1Shape = new TicksShape(Color.Black, 3f, 0.3f, 0f);
+                ticks1Shape.Angle = 6f;
+                ticks1Shape.ExceptionIndex = 5;
 
-                TicksShape ticks5Shape = new TicksShape(Color.Black, 5f, 1f, 7f);
-                ticks5Shape.AngularLocation = AngularShapeLocation.EveryHour;
+                TicksShape ticks5Shape = new TicksShape(Color.Black, 3f, 1f, 0f);
+                ticks5Shape.Angle = 30f;
+
+                TextAngularShape numbersShape = new TextAngularShape();
+                numbersShape.PositionOffset = 6f;
 
                 IAngularShape[] angulars = new IAngularShape[]{
                     ticks1Shape,
                     ticks5Shape,
-                    new NumbersShape()
+                    numbersShape
                 };
 
                 HourHandShape hourHandShape = new HourHandShape();
@@ -158,7 +208,8 @@ namespace DustInTheWind.Clock.Shapes
 
                 EllipseHandShape hourHandShape = new EllipseHandShape(Color.Black, 20, 4.5f);
                 EllipseHandShape minuteHandShape = new EllipseHandShape(Color.Black, 40, 2.75f);
-                SweepHandShape sweepHandShape = null;
+                //SweepHandShape sweepHandShape = null;
+                LineHandShape sweepHandShape = null;
                 PinShape pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Black, 8);
 
                 return new ShapeSet()
@@ -182,16 +233,16 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 TicksShape ticks1Shape = new TicksShape(Color.Black, 5f, 0.3f, 7f);
-                ticks1Shape.AngularLocation = AngularShapeLocation.EveryMinute;
-                ticks1Shape.ExceptionLocation = AngularShapeLocation.EveryHour;
+                ticks1Shape.Angle = 6f;
+                ticks1Shape.ExceptionIndex = 5;
 
                 TicksShape ticks5Shape = new TicksShape(Color.Black, 5f, 1f, 7f);
-                ticks5Shape.AngularLocation = AngularShapeLocation.EveryHour;
+                ticks5Shape.Angle = 30f;
 
                 IAngularShape[] angulars = new IAngularShape[]{
                     ticks1Shape,
                     ticks5Shape,
-                    new NumbersShape(Color.White, new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point), 13)
+                    new TextAngularShape(Color.White, new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point), 13)
                 };
 
                 SlotHandShape hourHandShape = new SlotHandShape(Color.White, 49, 34, 6);
@@ -221,21 +272,24 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 TicksShape ticks1Shape = new TicksShape(Color.Black, 3.33f, 0.25f, 0f);
-                ticks1Shape.AngularLocation = AngularShapeLocation.EveryMinute;
-                ticks1Shape.ExceptionLocation = AngularShapeLocation.EveryHour;
+                ticks1Shape.Angle = 6f;
+                ticks1Shape.ExceptionIndex = 5;
 
-                TicksShape ticks5Shape = new TicksShape(Color.Black, 5f, 5f, 3.33f);
-                ticks5Shape.AngularLocation = AngularShapeLocation.EveryHour;
+                TicksShape ticks5Shape = new TicksShape(Color.Black, 3.33f, 3f, 0f);
+                ticks5Shape.Angle = 30f;
+
+                TextAngularShape numbersShape = new TextAngularShape(Color.Black, new Font("Viner Hand ITC", 7.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))), 5f);
+                numbersShape.Angle = 30f;
 
                 IAngularShape[] angulars = new IAngularShape[]{
                     ticks1Shape,
                     ticks5Shape,
-                    new NumbersShape(Color.Black, new Font("Viner Hand ITC", 7.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))))
+                    numbersShape
                 };
 
                 ImageHandShape hourHandShape = new ImageHandShape(Resources.hour_hand, new PointF(32f, 155.5f), 25);
                 ImageHandShape minuteHandShape = new ImageHandShape(Resources.minute_hand, new PointF(14.5f, 206f), 35);
-                SweepHandShape sweepHandShape = new SweepHandShape();
+                LineHandShape sweepHandShape = new LineHandShape(Color.Red);
                 PinShape pinShape = new PinShape();
 
                 return new ShapeSet()
@@ -249,20 +303,6 @@ namespace DustInTheWind.Clock.Shapes
                 };
             }
         }
-
-        ///// <summary>
-        ///// An instance of <see cref="IShape"/> responsable to paint the dial's background.
-        ///// </summary>
-        //private IShape dialShape;
-
-        ///// <summary>
-        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the dial's background.
-        ///// </summary>
-        //public IShape DialShape
-        //{
-        //    get { return dialShape; }
-        //    set { dialShape = value; }
-        //}
 
         private IShape[] backgroundShapes;
 
@@ -335,61 +375,5 @@ namespace DustInTheWind.Clock.Shapes
             get { return pinShape; }
             set { pinShape = value; }
         }
-
-        ///// <summary>
-        ///// An instance of <see cref="IShape"/> responsable to paint the tick lines that marks the seconds.
-        ///// </summary>
-        //private IShape ticks1Shape;
-
-        ///// <summary>
-        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the tick lines that marks the seconds.
-        ///// </summary>
-        //public IShape Ticks1Shape
-        //{
-        //    get { return ticks1Shape; }
-        //    set { ticks1Shape = value; }
-        //}
-
-        ///// <summary>
-        ///// An instance of <see cref="IShape"/> responsable to paint the tick lines that marks every 5 seconds.
-        ///// </summary>
-        //private IShape ticks5Shape;
-
-        ///// <summary>
-        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the tick lines that marks every 5 seconds.
-        ///// </summary>
-        //public IShape Ticks5Shape
-        //{
-        //    get { return ticks5Shape; }
-        //    set { ticks5Shape = value; }
-        //}
-
-        ///// <summary>
-        ///// An instance of <see cref="INumbersShape"/> responsable to paint the numbers that marks the hours.
-        ///// </summary>
-        //private IArrayShape numbersShape;
-
-        ///// <summary>
-        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the numbers that marks the hours.
-        ///// </summary>
-        //public IArrayShape NumbersShape
-        //{
-        //    get { return numbersShape; }
-        //    set { numbersShape = value; }
-        //}
-
-        ///// <summary>
-        ///// An instance of <see cref="INumbersShape"/> responsable to paint the text displayed on the background of the clock.
-        ///// </summary>
-        //private IShape textShape;
-
-        ///// <summary>
-        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the text displayed on the background of the clock.
-        ///// </summary>
-        //public IShape TextShape
-        //{
-        //    get { return textShape; }
-        //    set { textShape = value; }
-        //}
     }
 }

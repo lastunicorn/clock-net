@@ -26,11 +26,6 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// </summary>
         public new const float HEIGHT = 40f;
 
-        ///// <summary>
-        ///// The default value of the the tail length.
-        ///// </summary>
-        //public const float TAIL_LENGTH = 5f;
-
 
         public override string Name
         {
@@ -52,33 +47,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
         }
 
 
-        //protected float tailLength = TAIL_LENGTH;
-
-        //[Category("Appearance")]
-        //[DefaultValue(TAIL_LENGTH)]
-        //public virtual float TailLength
-        //{
-        //    get { return tailLength; }
-        //    set
-        //    {
-        //        tailLength = value;
-        //        CalculateDimensions();
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
-
-
         public PolygonHandShape()
             : this(null, Color.Empty, Color.Empty, HEIGHT)
         {
         }
 
-        public PolygonHandShape(PointF[] path, Color outlineColor, Color fillColor, float height)
+        public PolygonHandShape(PointF[] points, Color outlineColor, Color fillColor, float height)
             : base(outlineColor, fillColor, LINE_WIDTH, height)
         {
-            this.points = path;
-            //this.height = height;
-            //this.tailLength = tailLength;
+            this.points = points;
 
             CalculateDimensions();
         }
@@ -107,74 +84,4 @@ namespace DustInTheWind.Clock.Shapes.Basic
             }
         }
     }
-
-    //public class PolygonHandShape : PolygonShape, IHandShape
-    //{
-    //    public const float HEIGHT = 40f;
-    //    public const float TAIL_LENGTH = 5f;
-
-
-    //    public override string Name
-    //    {
-    //        get { return "Polygon Hand Shape"; }
-    //    }
-
-
-    //    /// <summary>
-    //    /// The length of the hand. For a clock with the diameter of 100px.
-    //    /// </summary>
-    //    protected float height;
-
-    //    /// <summary>
-    //    /// Gets or sets the length of the hand. For a clock with the diameter of 100px.
-    //    /// </summary>
-    //    [Category("Appearance")]
-    //    [DefaultValue(HEIGHT)]
-    //    [Description("The length of the hand. For a clock with the diameter of 100px.")]
-    //    public virtual float Height
-    //    {
-    //        get { return height; }
-    //        set
-    //        {
-    //            height = value;
-    //            CalculateDimensions();
-    //            OnChanged(EventArgs.Empty);
-    //        }
-    //    }
-
-
-    //    protected float tailLength = TAIL_LENGTH;
-
-    //    [Category("Appearance")]
-    //    [DefaultValue(TAIL_LENGTH)]
-    //    public virtual float TailLength
-    //    {
-    //        get { return tailLength; }
-    //        set
-    //        {
-    //            tailLength = value;
-    //            CalculateDimensions();
-    //            OnChanged(EventArgs.Empty);
-    //        }
-    //    }
-
-
-    //    public PolygonHandShape()
-    //        : this(null, Color.Empty, Color.Empty, HEIGHT, TAIL_LENGTH)
-    //    {
-    //    }
-
-    //    public PolygonHandShape(PointF[] path, Color outlineColor, Color fillColor, float height, float tailLength)
-    //        : base(null, outlineColor, fillColor)
-    //    {
-    //        this.height = height;
-    //        this.tailLength = tailLength;
-
-    //        CalculateDimensions();
-    //    }
-
-
-    //    protected virtual void CalculateDimensions()
-    //    { }
-    //}
 }

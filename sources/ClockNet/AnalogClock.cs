@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.Shapes.Default;
 using DustInTheWind.Clock.TimeProviders;
+using System.Drawing.Design;
 
 namespace DustInTheWind.Clock
 {
@@ -437,11 +438,26 @@ namespace DustInTheWind.Clock
 
             protected override void SetItem(int index, IShape item)
             {
+                IShape olditem = this[index];
+
+                if (olditem != null)
+                    olditem.Changed -= new EventHandler(clock.shape_Changed);
+
                 base.SetItem(index, item);
+
+                clock.Invalidate();
+                clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(olditem));
+                clock.OnBackgroundShapeAdded(new ShapeAddedEventArgs(index, item));
             }
 
             protected override void ClearItems()
             {
+                foreach (IShape item in Items)
+                {
+                    if (item != null)
+                        item.Changed -= new EventHandler(clock.shape_Changed);
+                }
+
                 base.ClearItems();
             }
         }
@@ -510,6 +526,7 @@ namespace DustInTheWind.Clock
 
         [Category("Shapes")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [EditorAttribute(typeof(BackgroundShapeCollectionEditor), typeof(UITypeEditor))]
         public Collection<IShape> BackgroundShapes
         {
             get { return backgroundShapes; }
@@ -523,6 +540,7 @@ namespace DustInTheWind.Clock
 
         [Category("Shapes")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [EditorAttribute(typeof(AngularShapeCollectionEditor), typeof(UITypeEditor))]
         public Collection<IAngularShape> AngularShapes
         {
             get { return angularShapes; }
@@ -562,8 +580,8 @@ namespace DustInTheWind.Clock
         /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
         /// </summary>
         [Category("Shapes")]
-        [DefaultValue(typeof(HourHandShape), DustInTheWind.Clock.Shapes.Default.HourHandShape.NAME)]
         [TypeConverter(typeof(ShapeConverter))]
+        [EditorAttribute(typeof(ShapeSelectorEditor), typeof(UITypeEditor))]
         [Description("An instance of IHandShape responsable to paint the hour hand in the position specified by the clock.")]
         public IHandShape HourHandShape
         {

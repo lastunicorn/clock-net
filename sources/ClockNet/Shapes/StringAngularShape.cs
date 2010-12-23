@@ -92,14 +92,14 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// The orientation of the numbers.
         /// </summary>
-        private NumberOrientation orientation;
+        private TextAngularOrientation orientation;
 
         /// <summary>
         /// Geta or sets the orientation of the numbers.
         /// </summary>
-        [DefaultValue(typeof(NumberOrientation), "Normal")]
+        [DefaultValue(typeof(TextAngularOrientation), "Normal")]
         [Description("Specifies the orientation of the numbers.")]
-        public NumberOrientation Orientation
+        public TextAngularOrientation Orientation
         {
             get { return orientation; }
             set
@@ -117,7 +117,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public StringAngularShape()
-            : this(Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), ANGLE, REPEAT, POSITION_OFFSET, NumberOrientation.Normal)
+            : this(Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), ANGLE, REPEAT, POSITION_OFFSET, TextAngularOrientation.Normal)
         {
         }
 
@@ -126,7 +126,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public StringAngularShape(Color color)
-            : this(color, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), ANGLE, REPEAT, POSITION_OFFSET, NumberOrientation.Normal)
+            : this(color, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), ANGLE, REPEAT, POSITION_OFFSET, TextAngularOrientation.Normal)
         {
         }
 
@@ -135,7 +135,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public StringAngularShape(Color color, Font font)
-            : this(color, font, ANGLE, REPEAT, POSITION_OFFSET, NumberOrientation.Normal)
+            : this(color, font, ANGLE, REPEAT, POSITION_OFFSET, TextAngularOrientation.Normal)
         {
         }
 
@@ -144,7 +144,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public StringAngularShape(Color color, Font font, float positionOffset)
-            : this(color, font, ANGLE, REPEAT, positionOffset, NumberOrientation.Normal)
+            : this(color, font, ANGLE, REPEAT, positionOffset, TextAngularOrientation.Normal)
         {
         }
 
@@ -153,7 +153,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="color"></param>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public StringAngularShape(Color color, Font font, float angle, bool repeat, float positionOffset, NumberOrientation orientation)
+        public StringAngularShape(Color color, Font font, float angle, bool repeat, float positionOffset, TextAngularOrientation orientation)
             : base(angle, repeat, positionOffset)
         {
             this.color = color;
@@ -236,19 +236,19 @@ namespace DustInTheWind.Clock.Shapes.Default
 
                 switch (orientation)
                 {
-                    case NumberOrientation.FaceCenter:
+                    case TextAngularOrientation.FaceCenter:
                         originalMatrix = g.Transform;
                         g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
                         break;
 
-                    case NumberOrientation.FaceOut:
+                    case TextAngularOrientation.FaceOut:
                         originalMatrix = g.Transform;
                         g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
                         g.RotateTransform(180);
                         break;
 
                     default:
-                    case NumberOrientation.Normal:
+                    case TextAngularOrientation.Normal:
                         float ang = -(this.angle * index);
                         originalMatrix = g.Transform;
                         g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);

@@ -52,6 +52,8 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
+    <Compile Include="AngularShapeCollectionEditor.cs" />
+    <Compile Include="BackgroundShapeCollectionEditor.cs" />
     <Compile Include="ShapeRemovedEventArgs.cs" />
     <Compile Include="ShapeAddedEventArgs.cs" />
     <Compile Include="HSBColor.cs" />
@@ -61,6 +63,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Shapes\AngularExceptionRule.cs" />
     <Compile Include="Shapes\Basic\PathHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonShape.cs" />
@@ -68,13 +71,14 @@
     <Compile Include="Shapes\Default\DialShape.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Shapes\ShapeSelectorEditor.cs" />
     <Compile Include="Shapes\StringAngularShape.cs" />
     <Compile Include="Shapes\VectorialHandShapeBase.cs" />
     <Compile Include="Shapes\HandShapeBase.cs" />
     <Compile Include="Shapes\VectorialAngularShapeBase.cs" />
     <Compile Include="Shapes\Fancy\FancyDialShape.cs" />
     <Compile Include="Shapes\Default\TicksShape.cs" />
-    <Compile Include="Shapes\Default\NumbersShape.cs" />
+    <Compile Include="Shapes\Default\TextAngularShape.cs" />
     <Compile Include="Shapes\AngularShapeLocation.cs" />
     <Compile Include="Shapes\Fancy\BigNibHandShape.cs" />
     <Compile Include="Shapes\Basic\EllipseHandShape.cs" />
@@ -84,7 +88,7 @@
     <Compile Include="Shapes\Fancy\SlotHandShape.cs" />
     <Compile Include="Shapes\Fancy\FancySweepHandShape.cs" />
     <Compile Include="Shapes\Basic\LineShape.cs" />
-    <Compile Include="Shapes\NumberOrientation.cs" />
+    <Compile Include="Shapes\TextAngularOrientation.cs" />
     <Compile Include="Shapes\Basic\PathShape.cs" />
     <Compile Include="Shapes\ShapeSet.cs" />
     <Compile Include="Shapes\Basic\ImageShape.cs" />
@@ -93,7 +97,6 @@
     <Compile Include="Shapes\Basic\LineHandShape.cs" />
     <Compile Include="Shapes\VectorialShapeBase.cs" />
     <Compile Include="Shapes\ShapeBase.cs" />
-    <Compile Include="Shapes\Default\SweepHandShape.cs" />
     <Compile Include="Shapes\Default\MinuteHandShape.cs" />
     <Compile Include="Shapes\Default\HourHandShape.cs" />
     <Compile Include="Shapes\Basic\ImageHandShape.cs" />

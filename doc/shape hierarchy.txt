@@ -19,7 +19,6 @@ DustInTheWind.Clock.Shapes.ShapeBase : DustInTheWind.Clock.Shapes.IShape
 	DustInTheWind.Clock.Shapes.HandShapeBase : DustInTheWind.Clock.Shapes.IHandShape
 		DustInTheWind.Clock.Shapes.VectorialHandShapeBase
 			DustInTheWind.Clock.Shapes.LineHandShape
-				DustInTheWind.Clock.Shapes.Default.SweepHandShape
 			DustInTheWind.Clock.Shapes.PolygonHandShape
 				DustInTheWind.Clock.Shapes.Default.MinuteHandShape
 				DustInTheWind.Clock.Shapes.Default.HourHandShape

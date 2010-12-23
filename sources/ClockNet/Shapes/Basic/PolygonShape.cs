@@ -32,10 +32,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
         {
         }
 
-        public PolygonShape(PointF[] path, Color outlineColor, Color fillColor)
+        public PolygonShape(PointF[] points, Color outlineColor, Color fillColor)
             : base(outlineColor, fillColor)
         {
-            this.points = path;
+            this.points = points;
         }
 
 

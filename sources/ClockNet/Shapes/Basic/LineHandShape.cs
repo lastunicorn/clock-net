@@ -60,14 +60,14 @@ namespace DustInTheWind.Clock.Shapes.Basic
             set { base.LineWidth = value; }
         }
 
-        [DefaultValue(typeof(Color), "Red")]
+        [DefaultValue(typeof(Color), "Black")]
         public override Color OutlineColor
         {
             get { return base.OutlineColor; }
             set { base.OutlineColor = value; }
         }
 
-        //[DefaultValue(typeof(Color), "Empty")]
+        [DefaultValue(typeof(Color), "Empty")]
         [Browsable(false)]
         public override Color FillColor
         {

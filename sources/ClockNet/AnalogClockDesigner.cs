@@ -23,6 +23,7 @@ using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.Shapes.Default;
 using DustInTheWind.Clock.Shapes.Fancy;
 using DustInTheWind.Clock.TimeProviders;
+using DustInTheWind.Clock.Shapes.Basic;
 
 namespace DustInTheWind.Clock
 {
@@ -63,19 +64,18 @@ namespace DustInTheWind.Clock
 
                 if (angularShapes != null)
                 {
-                    NumbersShape numbersShape = new NumbersShape(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 4f);
-                    numbersShape.Angle = 30f;
-                    angularShapes.Add(numbersShape);
-
                     TicksShape ticks1Shape = new TicksShape(Color.Black, TicksShape.LENGTH, TicksShape.LINE_WIDTH, 0f);
                     ticks1Shape.Angle = 6f;
-                    ticks1Shape.ExceptionLocation = AngularShapeLocation.EveryHour;
+                    ticks1Shape.ExceptionIndex = 5;
                     angularShapes.Add(ticks1Shape);
 
                     TicksShape ticks5Shape = new TicksShape(Color.Black, TicksShape.LENGTH, 1f, 0f);
                     ticks5Shape.Angle = 30f;
-                    ticks5Shape.AngularLocation = AngularShapeLocation.EveryHour;
                     angularShapes.Add(ticks5Shape);
+
+                    TextAngularShape numbersShape = new TextAngularShape(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 4f);
+                    numbersShape.Angle = 30f;
+                    angularShapes.Add(numbersShape);
                 }
             }
 
@@ -100,7 +100,7 @@ namespace DustInTheWind.Clock
 
             if (sweepHandShapeDescriptor != null && sweepHandShapeDescriptor.PropertyType == typeof(IHandShape) && !sweepHandShapeDescriptor.IsReadOnly && sweepHandShapeDescriptor.IsBrowsable)
             {
-                sweepHandShapeDescriptor.SetValue(Component, new SweepHandShape());
+                sweepHandShapeDescriptor.SetValue(Component, new LineHandShape(Color.Red));
             }
 
 

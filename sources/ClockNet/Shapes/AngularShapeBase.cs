@@ -36,6 +36,9 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         public const float ANGLE = 6f;
 
+        public const float OFFSET_ANGLE = 6f;
+        public const int EXCEPTION_INDEX = 0;
+
         /// <summary>
         /// The default value of the repeat.
         /// </summary>
@@ -65,6 +68,25 @@ namespace DustInTheWind.Clock.Shapes
         }
 
 
+        protected float offsetAngle;
+
+        /// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
+        [Category("Appearance")]
+        [DefaultValue(OFFSET_ANGLE)]
+        public float OffsetAngle
+        {
+            get { return offsetAngle; }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("value", "The offset angle should be a number greater or equal with zero.");
+
+                offsetAngle = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+
         /// <summary>
         /// The angle between two consecutive drawns of the shape.
         /// </summary>
@@ -86,6 +108,20 @@ namespace DustInTheWind.Clock.Shapes
                     throw new ArgumentOutOfRangeException("value", "The angle between two consecutive drawns of the shape should be a positive number.");
 
                 angle = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        protected int exceptionIndex;
+
+        [Category("Appearance")]
+        [DefaultValue(EXCEPTION_INDEX)]
+        public int ExceptionIndex
+        {
+            get { return exceptionIndex; }
+            set
+            {
+                exceptionIndex = value;
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -117,30 +153,6 @@ namespace DustInTheWind.Clock.Shapes
         {
             get { return index; }
             set { index = value; }
-        }
-
-        protected AngularShapeLocation angularLocation = AngularShapeLocation.EveryMinute;
-        public AngularShapeLocation AngularLocation
-        {
-            get { return angularLocation; }
-            set
-            {
-                angularLocation = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        protected AngularShapeLocation exceptionLocation = AngularShapeLocation.None;
-        public AngularShapeLocation ExceptionLocation
-        {
-            get { return exceptionLocation; }
-            set
-            {
-                exceptionLocation = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
         }
 
 
@@ -196,89 +208,8 @@ namespace DustInTheWind.Clock.Shapes
                     if (index == 0)
                         return;
 
-                    //switch (angularLocation)
-                    //{
-                    //    case AngularShapeLocation.None:
-                    //        return;
-
-                    //    default:
-                    //    case AngularShapeLocation.EveryMinute:
-                    //        break;
-
-                    //    case AngularShapeLocation.EveryHour:
-                    //        if (index % 5 != 0) return;
-                    //        break;
-
-                    //    case AngularShapeLocation.Cross:
-                    //        if (index % 15 != 0) return;
-                    //        break;
-
-                    //    case AngularShapeLocation.Vertical:
-                    //        if (index % 30 != 0) return;
-                    //        break;
-
-                    //    case AngularShapeLocation.Horizontal:
-                    //        if (index != 15 && index != 45) return;
-                    //        break;
-
-                    //    case AngularShapeLocation.North:
-                    //        if (index != 60) return;
-                    //        break;
-
-                    //    case AngularShapeLocation.East:
-                    //        if (index != 15) return;
-                    //        break;
-
-                    //    case AngularShapeLocation.South:
-                    //        if (index != 30) return;
-                    //        break;
-
-                    //    case AngularShapeLocation.West:
-                    //        if (index != 45) return;
-                    //        break;
-                    //}
-
-                    switch (exceptionLocation)
-                    {
-                        default:
-                        case AngularShapeLocation.None:
-                            break;
-
-                        case AngularShapeLocation.EveryMinute:
-                            return;
-
-                        case AngularShapeLocation.EveryHour:
-                            if (index % 5 == 0) return;
-                            break;
-
-                        case AngularShapeLocation.Cross:
-                            if (index % 15 == 0) return;
-                            break;
-
-                        case AngularShapeLocation.Vertical:
-                            if (index % 30 == 0) return;
-                            break;
-
-                        case AngularShapeLocation.Horizontal:
-                            if (index == 15 || index == 45) return;
-                            break;
-
-                        case AngularShapeLocation.North:
-                            if (index == 60) return;
-                            break;
-
-                        case AngularShapeLocation.East:
-                            if (index == 15) return;
-                            break;
-
-                        case AngularShapeLocation.South:
-                            if (index == 30) return;
-                            break;
-
-                        case AngularShapeLocation.West:
-                            if (index == 45) return;
-                            break;
-                    }
+                    if (exceptionIndex > 0 && index % exceptionIndex == 0)
+                        return;
 
                     Matrix originalMatrix = g.Transform;
                     g.TranslateTransform(0, positionOffset);

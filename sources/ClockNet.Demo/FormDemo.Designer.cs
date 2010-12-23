@@ -45,17 +45,17 @@ namespace DustInTheWind.Clock.Demo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DustInTheWind.Clock.TimeProviders.LocalTimeProvider localTimeProvider2 = new DustInTheWind.Clock.TimeProviders.LocalTimeProvider();
+            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape1 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape2 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Default.TextAngularShape numbersShape1 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Default.TextAngularShape numbersShape2 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Fancy.FancyDialShape fancyDialShape1 = new DustInTheWind.Clock.Shapes.Fancy.FancyDialShape();
+            DustInTheWind.Clock.Shapes.Default.TextShape textShape1 = new DustInTheWind.Clock.Shapes.Default.TextShape();
+            DustInTheWind.Clock.Shapes.Default.HourHandShape hourHandShape1 = new DustInTheWind.Clock.Shapes.Default.HourHandShape();
+            DustInTheWind.Clock.Shapes.Default.MinuteHandShape minuteHandShape1 = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape();
+            DustInTheWind.Clock.Shapes.Default.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape1 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.TimeProviders.LocalTimeProvider localTimeProvider1 = new DustInTheWind.Clock.TimeProviders.LocalTimeProvider();
-            this.ticksShape1 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            this.ticksShape2 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            this.numbersShape1 = new DustInTheWind.Clock.Shapes.Default.NumbersShape();
-            this.fancyDialShape1 = new DustInTheWind.Clock.Shapes.Fancy.FancyDialShape();
-            this.textShape1 = new DustInTheWind.Clock.Shapes.Default.TextShape();
-            this.hourHandShape1 = new DustInTheWind.Clock.Shapes.Default.HourHandShape();
-            this.minuteHandShape1 = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape();
-            this.pinShape1 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            this.sweepHandShape1 = new DustInTheWind.Clock.Shapes.Default.SweepHandShape();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBoxTextFont = new System.Windows.Forms.TextBox();
             this.checkBoxKeepProportions = new System.Windows.Forms.CheckBox();
@@ -123,14 +123,13 @@ namespace DustInTheWind.Clock.Demo
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxTimeProviders = new System.Windows.Forms.ComboBox();
             this.panelClock = new System.Windows.Forms.Panel();
-            this.analogClock1 = new DustInTheWind.Clock.AnalogClock();
             this.buttonExamples = new System.Windows.Forms.Button();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxExternalTimer = new System.Windows.Forms.GroupBox();
             this.numericUpDownTimerInterval = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panelParameters = new System.Windows.Forms.Panel();
-            this.analogClock2 = new DustInTheWind.Clock.AnalogClock();
+            this.analogClock1 = new DustInTheWind.Clock.AnalogClock();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).BeginInit();
@@ -169,80 +168,6 @@ namespace DustInTheWind.Clock.Demo
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimerInterval)).BeginInit();
             this.panelParameters.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ticksShape1
-            // 
-            this.ticksShape1.AngularLocation = DustInTheWind.Clock.Shapes.AngularShapeLocation.EveryMinute;
-            this.ticksShape1.ExceptionLocation = DustInTheWind.Clock.Shapes.AngularShapeLocation.EveryHour;
-            this.ticksShape1.FillColor = System.Drawing.Color.Empty;
-            this.ticksShape1.Index = 61;
-            this.ticksShape1.PositionOffset = 7F;
-            // 
-            // ticksShape2
-            // 
-            this.ticksShape2.Angle = 30F;
-            this.ticksShape2.AngularLocation = DustInTheWind.Clock.Shapes.AngularShapeLocation.EveryHour;
-            this.ticksShape2.ExceptionLocation = DustInTheWind.Clock.Shapes.AngularShapeLocation.None;
-            this.ticksShape2.FillColor = System.Drawing.Color.Empty;
-            this.ticksShape2.Index = 0;
-            this.ticksShape2.LineWidth = 1F;
-            this.ticksShape2.OutlineColor = System.Drawing.Color.White;
-            this.ticksShape2.PositionOffset = 7F;
-            this.ticksShape2.Visible = false;
-            // 
-            // numbersShape1
-            // 
-            this.numbersShape1.Angle = 30F;
-            this.numbersShape1.AngularLocation = DustInTheWind.Clock.Shapes.AngularShapeLocation.EveryMinute;
-            this.numbersShape1.ExceptionLocation = DustInTheWind.Clock.Shapes.AngularShapeLocation.None;
-            this.numbersShape1.FillColor = System.Drawing.Color.LightGray;
-            this.numbersShape1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic);
-            this.numbersShape1.Index = 13;
-            this.numbersShape1.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            this.numbersShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.numbersShape1.PositionOffset = 9F;
-            // 
-            // fancyDialShape1
-            // 
-            this.fancyDialShape1.FillColor = System.Drawing.Color.Black;
-            this.fancyDialShape1.InnerRimWidth = 1F;
-            this.fancyDialShape1.OuterRimWidth = 5F;
-            this.fancyDialShape1.OutlineColor = System.Drawing.Color.Empty;
-            // 
-            // textShape1
-            // 
-            this.textShape1.FillColor = System.Drawing.Color.White;
-            this.textShape1.Font = new System.Drawing.Font("Arial", 3F);
-            this.textShape1.OutlineColor = System.Drawing.Color.Empty;
-            // 
-            // hourHandShape1
-            // 
-            this.hourHandShape1.OutlineColor = System.Drawing.Color.Empty;
-            // 
-            // minuteHandShape1
-            // 
-            this.minuteHandShape1.OutlineColor = System.Drawing.Color.Empty;
-            // 
-            // pinShape1
-            // 
-            this.pinShape1.OutlineColor = System.Drawing.Color.Empty;
-            // 
-            // sweepHandShape1
-            // 
-            this.sweepHandShape1.FillColor = System.Drawing.Color.Empty;
-            this.sweepHandShape1.Height = 39F;
             // 
             // timer1
             // 
@@ -936,7 +861,6 @@ namespace DustInTheWind.Clock.Demo
             // 
             // panelClock
             // 
-            this.panelClock.Controls.Add(this.analogClock2);
             this.panelClock.Controls.Add(this.analogClock1);
             this.panelClock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelClock.Location = new System.Drawing.Point(8, 8);
@@ -944,27 +868,6 @@ namespace DustInTheWind.Clock.Demo
             this.panelClock.Padding = new System.Windows.Forms.Padding(8);
             this.panelClock.Size = new System.Drawing.Size(679, 627);
             this.panelClock.TabIndex = 13;
-            // 
-            // analogClock1
-            // 
-            this.analogClock1.AngularShapes.Add(this.ticksShape1);
-            this.analogClock1.AngularShapes.Add(this.ticksShape2);
-            this.analogClock1.AngularShapes.Add(this.numbersShape1);
-            this.analogClock1.BackgroundShapes.Add(this.fancyDialShape1);
-            this.analogClock1.BackgroundShapes.Add(this.textShape1);
-            this.analogClock1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.analogClock1.HourHandShape = this.hourHandShape1;
-            this.analogClock1.Location = new System.Drawing.Point(8, 8);
-            this.analogClock1.MinuteHandShape = this.minuteHandShape1;
-            this.analogClock1.Name = "analogClock1";
-            this.analogClock1.PinShape = this.pinShape1;
-            this.analogClock1.Size = new System.Drawing.Size(663, 611);
-            this.analogClock1.SweepHandShape = this.sweepHandShape1;
-            this.analogClock1.TabIndex = 0;
-            this.analogClock1.Text = "analogClock1";
-            this.analogClock1.Time = System.TimeSpan.Parse("14:24:20.9800080");
-            this.analogClock1.TimeProvider = localTimeProvider2;
-            this.analogClock1.Timer = this.timer1;
             // 
             // buttonExamples
             // 
@@ -1042,14 +945,92 @@ namespace DustInTheWind.Clock.Demo
             this.panelParameters.Size = new System.Drawing.Size(417, 627);
             this.panelParameters.TabIndex = 1;
             // 
-            // analogClock2
+            // analogClock1
             // 
-            this.analogClock2.Location = new System.Drawing.Point(295, 141);
-            this.analogClock2.Name = "analogClock2";
-            this.analogClock2.Size = new System.Drawing.Size(296, 331);
-            this.analogClock2.TabIndex = 1;
-            this.analogClock2.Text = "analogClock2";
-            this.analogClock2.TimeProvider = localTimeProvider1;
+            ticksShape1.ExceptionIndex = 5;
+            ticksShape1.FillColor = System.Drawing.Color.Empty;
+            ticksShape1.Index = 61;
+            ticksShape1.OffsetAngle = 0F;
+            ticksShape1.PositionOffset = 7F;
+            ticksShape2.Angle = 30F;
+            ticksShape2.FillColor = System.Drawing.Color.Empty;
+            ticksShape2.Index = 13;
+            ticksShape2.LineWidth = 1F;
+            ticksShape2.OffsetAngle = 0F;
+            ticksShape2.OutlineColor = System.Drawing.Color.White;
+            ticksShape2.PositionOffset = 7F;
+            numbersShape1.Angle = 30F;
+            numbersShape1.FillColor = System.Drawing.Color.LightGray;
+            numbersShape1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic);
+            numbersShape1.Index = 13;
+            numbersShape1.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            numbersShape1.OffsetAngle = 0F;
+            numbersShape1.OutlineColor = System.Drawing.Color.Empty;
+            numbersShape1.PositionOffset = 9F;
+            numbersShape2.Angle = 30F;
+            numbersShape2.FillColor = System.Drawing.Color.DarkGray;
+            numbersShape2.Font = new System.Drawing.Font("Arial", 2.2F);
+            numbersShape2.Index = 13;
+            numbersShape2.Numbers = new string[] {
+        "5",
+        "10",
+        "15",
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"};
+            numbersShape2.OffsetAngle = 0F;
+            numbersShape2.OutlineColor = System.Drawing.Color.Empty;
+            numbersShape2.PositionOffset = 0.7F;
+            this.analogClock1.AngularShapes.Add(ticksShape1);
+            this.analogClock1.AngularShapes.Add(ticksShape2);
+            this.analogClock1.AngularShapes.Add(numbersShape1);
+            this.analogClock1.AngularShapes.Add(numbersShape2);
+            fancyDialShape1.FillColor = System.Drawing.Color.Black;
+            fancyDialShape1.InnerRimWidth = 1F;
+            fancyDialShape1.OuterRimWidth = 5F;
+            fancyDialShape1.OutlineColor = System.Drawing.Color.Empty;
+            textShape1.FillColor = System.Drawing.Color.White;
+            textShape1.Font = new System.Drawing.Font("Arial", 3F);
+            textShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.BackgroundShapes.Add(fancyDialShape1);
+            this.analogClock1.BackgroundShapes.Add(textShape1);
+            this.analogClock1.Dock = System.Windows.Forms.DockStyle.Fill;
+            hourHandShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.HourHandShape = hourHandShape1;
+            this.analogClock1.Location = new System.Drawing.Point(8, 8);
+            minuteHandShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.MinuteHandShape = minuteHandShape1;
+            this.analogClock1.Name = "analogClock1";
+            pinShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.PinShape = pinShape1;
+            this.analogClock1.Size = new System.Drawing.Size(663, 611);
+            lineHandShape1.FillColor = System.Drawing.Color.Empty;
+            lineHandShape1.Height = 39F;
+            lineHandShape1.OutlineColor = System.Drawing.Color.Red;
+            this.analogClock1.SweepHandShape = lineHandShape1;
+            this.analogClock1.TabIndex = 0;
+            this.analogClock1.Text = "analogClock1";
+            this.analogClock1.Time = System.TimeSpan.Parse("00:43:11.8593750");
+            this.analogClock1.TimeProvider = localTimeProvider1;
+            this.analogClock1.Timer = this.timer1;
             // 
             // FormDemo
             // 
@@ -1195,14 +1176,13 @@ namespace DustInTheWind.Clock.Demo
         private AnalogClock analogClock1;
         private DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape1;
         private DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape2;
-        private DustInTheWind.Clock.Shapes.Default.NumbersShape numbersShape1;
+        private DustInTheWind.Clock.Shapes.Default.TextAngularShape numbersShape1;
         private DustInTheWind.Clock.Shapes.Fancy.FancyDialShape fancyDialShape1;
         private DustInTheWind.Clock.Shapes.Default.TextShape textShape1;
         private DustInTheWind.Clock.Shapes.Default.HourHandShape hourHandShape1;
         private DustInTheWind.Clock.Shapes.Default.MinuteHandShape minuteHandShape1;
         private DustInTheWind.Clock.Shapes.Default.PinShape pinShape1;
-        private DustInTheWind.Clock.Shapes.Default.SweepHandShape sweepHandShape1;
-        private AnalogClock analogClock2;
+        private DustInTheWind.Clock.Shapes.Basic.LineHandShape sweepHandShape1;
 
 
 

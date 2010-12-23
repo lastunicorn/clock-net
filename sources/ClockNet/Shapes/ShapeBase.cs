@@ -148,17 +148,17 @@ namespace DustInTheWind.Clock.Shapes
                 Disposed(this, e);
         }
 
-        private ISite site;
-        public ISite Site
-        {
-            get
-            {
-                return site;
-            }
-            set
-            {
-                site = value;
-            }
-        }
+        //private ISite site;
+        //public ISite Site
+        //{
+        //    get
+        //    {
+        //        return site;
+        //    }
+        //    set
+        //    {
+        //        site = value;
+        //    }
+        //}
     }
 }

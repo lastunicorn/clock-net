@@ -42,10 +42,10 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         {
             path.Reset();
 
-            path.AddArc(new RectangleF(-10f, 41f, 20f, 20f), -60f, 300f);
+            path.AddArc(new RectangleF(-12f, 43f, 24f, 24f), -60f, 300f);
 
             path.AddCurve(new PointF[] {
-                new PointF(-10f * (float)Math.Cos(Math.PI / 3f), 41f * (float)Math.Sin(Math.PI / 3f)),
+                //new PointF(-10f * (float)Math.Cos(Math.PI / 3f), 41f * (float)Math.Sin(Math.PI / 3f)),
                 new PointF(-4f, 39f),
                 new PointF(-8f, 35f)
             });
@@ -59,7 +59,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             path.AddArc(new RectangleF(-12f, -13f, 24, 24), 90, 90);
 
             path.AddCurve(new PointF[] {
-                new PointF(-12f, -1f),
+                //new PointF(-12f, -1f),
                 new PointF(-12f, -7f),
                 new PointF(-2f, -59f),
                 new PointF(-10f, -119f)
@@ -74,7 +74,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             path.AddArc(new RectangleF(-15f, -159f, 30f, 30f), 90f, 90f);
 
             path.AddCurve(new PointF[] {
-                new PointF(-15f, -144f),
+                //new PointF(-15f, -144f),
                 new PointF(-14f, -151f),
                 new PointF(-3f, -199f),
                 new PointF(-1f, -249f)
@@ -89,8 +89,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             path.AddCurve(new PointF[] {
                 new PointF(1f, -249f),
                 new PointF(3f, -199f),
-                new PointF(14f, -151f),
-                new PointF(15f, -144f)
+                new PointF(14f, -151f)
+                //new PointF(15f, -144f)
             });
 
             path.AddArc(new RectangleF(-15f, -159f, 30f, 30f), 0f, 90f);
@@ -104,8 +104,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             path.AddCurve(new PointF[] {
                 new PointF(10f, -119f),
                 new PointF(2f, -59f),
-                new PointF(12f, -7f),
-                new PointF(12f, -1f)
+                new PointF(12f, -7f)
+                //new PointF(12f, -1f)
             });
 
             path.AddArc(new RectangleF(-12f, -13f, 24f, 24f), 0f, 90f);

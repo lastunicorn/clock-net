@@ -32,7 +32,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </summary>
         public override string Name
         {
-            get { return "Default Dial Shape"; }
+            get { return "Fancy Dial Shape"; }
         }
 
 
@@ -63,7 +63,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DialShape"/> class with
+        /// Initializes a new instance of the <see cref="FancyDialShape"/> class with
         /// default values.
         /// </summary>
         public FancyDialShape()
@@ -72,7 +72,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DialShape"/> class.
+        /// Initializes a new instance of the <see cref="FancyDialShape"/> class.
         /// </summary>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
         public FancyDialShape(Color fillColor)
@@ -81,7 +81,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DialShape"/> class.
+        /// Initializes a new instance of the <see cref="FancyDialShape"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the dial.</param>
         /// <param name="fillColor">The color used to draw the dial's background.</param>

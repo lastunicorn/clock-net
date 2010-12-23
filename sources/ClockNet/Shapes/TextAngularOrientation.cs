@@ -19,7 +19,7 @@ namespace DustInTheWind.Clock.Shapes
     /// <summary>
     /// Specifies the orientation of the numbers that marks the hours.
     /// </summary>
-    public enum NumberOrientation
+    public enum TextAngularOrientation
     {
         /// <summary>
         /// The numbers are displayed as normal text, oriented up-down.
