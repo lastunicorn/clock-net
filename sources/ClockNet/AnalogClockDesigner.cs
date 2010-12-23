@@ -49,9 +49,8 @@ namespace DustInTheWind.Clock
 
                 if (backgroundShapes != null)
                 {
-                    //backgroundShapes.Add(new BackDialShape(Color.LightBlue));
-                    backgroundShapes.Add(new FancyDialShape(Color.Black));
-                    backgroundShapes.Add(new TextShape("Dust in the Wind", Color.White));
+                    backgroundShapes.Add(new DialShape());
+                    backgroundShapes.Add(new TextShape("Dust in the Wind", Color.Black));
                 }
             }
 
@@ -64,16 +63,16 @@ namespace DustInTheWind.Clock
 
                 if (angularShapes != null)
                 {
-                    NumbersShape numbersShape = new NumbersShape(Color.LightGray, new Font("Vivaldi", 6.25f, FontStyle.Italic, GraphicsUnit.Point), 11f);
+                    NumbersShape numbersShape = new NumbersShape(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 4f);
                     numbersShape.Angle = 30f;
                     angularShapes.Add(numbersShape);
 
-                    TicksShape ticks1Shape = new TicksShape(Color.Black, 5f, 0.3f, 7f);
+                    TicksShape ticks1Shape = new TicksShape(Color.Black, TicksShape.LENGTH, TicksShape.LINE_WIDTH, 0f);
                     ticks1Shape.Angle = 6f;
                     ticks1Shape.ExceptionLocation = AngularShapeLocation.EveryHour;
                     angularShapes.Add(ticks1Shape);
 
-                    TicksShape ticks5Shape = new TicksShape(Color.White, 5f, 1f, 7f);
+                    TicksShape ticks5Shape = new TicksShape(Color.Black, TicksShape.LENGTH, 1f, 0f);
                     ticks5Shape.Angle = 30f;
                     ticks5Shape.AngularLocation = AngularShapeLocation.EveryHour;
                     angularShapes.Add(ticks5Shape);

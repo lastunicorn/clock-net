@@ -24,7 +24,7 @@ namespace DustInTheWind.Clock.Shapes
     /// Represents a graphic element displayed in the <see cref="AnalogClock"/>.
     /// </summary>
     [TypeConverter(typeof(ShapeConverter))]
-    public interface IShape : IDisposable
+    public interface IShape : IComponent //, IDisposable
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.

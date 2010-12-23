@@ -26,7 +26,10 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class NumbersShape : VectorialAngularShapeBase
     {
-        public const float POSITION_OFFSET = 7f;
+        /// <summary>
+        /// The default value of the position offset.
+        /// </summary>
+        public new const float POSITION_OFFSET = 7f;
 
         protected StringFormat numbersStringFormat;
 
@@ -89,20 +92,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        private float positionOffset;
-
-        [Category("Appearance")]
-        [DefaultValue(POSITION_OFFSET)]
-        public float PositionOffset
-        {
-            get { return positionOffset; }
-            set
-            {
-                positionOffset = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
         /// <summary>
         /// The orientation of the numbers.
         /// </summary>
@@ -131,16 +120,15 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public NumbersShape()
-            : this(Color.Empty, Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
+            : this(Color.Black, new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NumbersShape"/> class.
         /// </summary>
-        /// <param name="font">The font to be used to draw the numbers.</param>
         public NumbersShape(Color color)
-            : this(Color.Empty, color, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
+            : this(color, new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
         {
         }
 
@@ -149,7 +137,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public NumbersShape(Color color, Font font)
-            : this(Color.Empty, color, font, POSITION_OFFSET)
+            : this(color, font, POSITION_OFFSET)
         {
         }
 
@@ -158,17 +146,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public NumbersShape(Color color, Font font, float positionOffset)
-            : this(Color.Empty, color, font, positionOffset)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NumbersShape"/> class.
-        /// </summary>
-        /// <param name="color"></param>
-        /// <param name="font">The font to be used to draw the numbers.</param>
-        public NumbersShape(Color outlineColor, Color fillColor, Font font, float positionOffset)
-            : base(outlineColor, fillColor)
+            : base(Color.Empty, color)
         {
             this.font = font == null ? new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point) : font;
             this.positionOffset = positionOffset;
@@ -179,62 +157,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         #endregion
-
-
-        ///// <summary>
-        ///// Draws the current number using the provided <see cref="Graphics"/> object.
-        ///// </summary>
-        ///// <param name="g">The <see cref="Graphics"/> on which to draw the number.</param>
-        //public override void Draw(Graphics g)
-        //{
-        //    if (visible && font != null && numbers != null && !fillColor.IsEmpty)
-        //    {
-        //        if (index > 0 && index <= numbers.Length)
-        //        {
-        //            string number = numbers[index - 1];
-
-        //            if (number != null && number.Length > 0)
-        //            {
-        //                CreateBrushIfNull();
-
-        //                SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
-        //                PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
-
-        //                Matrix originalMatrix = null;
-
-        //                switch (orientation)
-        //                {
-        //                    case NumberOrientation.FaceCenter:
-        //                        originalMatrix = g.Transform;
-        //                        g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-        //                        break;
-
-        //                    case NumberOrientation.FaceOut:
-        //                        originalMatrix = g.Transform;
-        //                        g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-        //                        g.RotateTransform(180);
-        //                        break;
-
-        //                    default:
-        //                    case NumberOrientation.Normal:
-        //                        float ang = -(this.angle * index);
-        //                        originalMatrix = g.Transform;
-        //                        g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
-        //                        g.RotateTransform(ang);
-        //                        break;
-        //                }
-
-        //                //g.DrawRectangle(Pens.Black, new Rectangle((int)numberPosition.X, (int)numberPosition.Y, (int)numberSize.Width, (int)numberSize.Height));
-        //                g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
-
-        //                if (originalMatrix != null)
-        //                    g.Transform = originalMatrix;
-        //            }
-        //        }
-
-        //        index++;
-        //    }
-        //}
 
         protected override void DrawInternal(Graphics g)
         {
@@ -251,18 +173,18 @@ namespace DustInTheWind.Clock.Shapes.Default
                         SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
                         PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
 
-                        Matrix originalMatrix = null;
+                        Matrix originalMatrix;
 
                         switch (orientation)
                         {
                             case NumberOrientation.FaceCenter:
                                 originalMatrix = g.Transform;
-                                g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+                                g.TranslateTransform(0, numberSize.Height / 2f);
                                 break;
 
                             case NumberOrientation.FaceOut:
                                 originalMatrix = g.Transform;
-                                g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+                                g.TranslateTransform(0, numberSize.Height / 2f);
                                 g.RotateTransform(180);
                                 break;
 
@@ -270,16 +192,14 @@ namespace DustInTheWind.Clock.Shapes.Default
                             case NumberOrientation.Normal:
                                 float ang = -(this.angle * index);
                                 originalMatrix = g.Transform;
-                                g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
+                                g.TranslateTransform(0, numberSize.Height / 2f);
                                 g.RotateTransform(ang);
                                 break;
                         }
 
-                        //g.DrawRectangle(Pens.Black, new Rectangle((int)numberPosition.X, (int)numberPosition.Y, (int)numberSize.Width, (int)numberSize.Height));
                         g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
 
-                        if (originalMatrix != null)
-                            g.Transform = originalMatrix;
+                        g.Transform = originalMatrix;
                     }
                 }
             }

@@ -120,7 +120,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         public VectorialAngularShapeBase(Color outlineColor, Color fillColor)
-            : this(outlineColor, fillColor, LINE_WIDTH)
+            : this(outlineColor, fillColor, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 
@@ -130,8 +130,8 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public VectorialAngularShapeBase(Color outlineColor, Color fillColor, float lineWidth)
-            : base()
+        public VectorialAngularShapeBase(Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
+            : base(angle, repeat, positionOffset)
         {
             this.outlineColor = outlineColor;
             this.fillColor = fillColor;

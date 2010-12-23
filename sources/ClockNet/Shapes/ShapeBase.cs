@@ -126,6 +126,8 @@ namespace DustInTheWind.Clock.Shapes
                 // ...
 
                 disposed = true;
+
+                OnDisposed(EventArgs.Empty);
             }
         }
 
@@ -138,5 +140,25 @@ namespace DustInTheWind.Clock.Shapes
         }
 
         #endregion
+
+        public event EventHandler Disposed;
+        protected virtual void OnDisposed(EventArgs e)
+        {
+            if (Disposed != null)
+                Disposed(this, e);
+        }
+
+        private ISite site;
+        public ISite Site
+        {
+            get
+            {
+                return site;
+            }
+            set
+            {
+                site = value;
+            }
+        }
     }
 }

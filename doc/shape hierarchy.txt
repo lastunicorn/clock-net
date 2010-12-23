@@ -1,40 +1,39 @@
-DustInTheWind.Clock.Shapes.IShape
-	DustInTheWind.Clock.Shapes.ShapeBase
-		DustInTheWind.Clock.Shapes.VectorialShapeBase
-			DustInTheWind.Clock.Shapes.LineShape
-			DustInTheWind.Clock.Shapes.PolygonShape
-			DustInTheWind.Clock.Shapes.PathShape
-			DustInTheWind.Clock.Shapes.Default.DialShape
-			DustInTheWind.Clock.Shapes.Default.PinShape
-			DustInTheWind.Clock.Shapes.Default.TextShape
-			DustInTheWind.Clock.Shapes.Fancy.FancyDialShape
-		DustInTheWind.Clock.Shapes.ImageShape
-		DustInTheWind.Clock.Shapes.AngularShapeBase
-			DustInTheWind.Clock.Shapes.VectorialAngularShapeBase
-				DustInTheWind.Clock.Shapes.LineAngularShape
-					DustInTheWind.Clock.Shapes.Default.TicksShape
-				DustInTheWind.Clock.Shapes.PolygonAngularShape
-				DustInTheWind.Clock.Shapes.PathAngularShape
-				DustInTheWind.Clock.Shapes.Default.NumbersShape
-			DustInTheWind.Clock.Shapes.ImageAngularShape
-		DustInTheWind.Clock.Shapes.HandShapeBase
-			DustInTheWind.Clock.Shapes.VectorialHandShapeBase
-				DustInTheWind.Clock.Shapes.LineHandShape
-					DustInTheWind.Clock.Shapes.Default.SweepHandShape
-				DustInTheWind.Clock.Shapes.PolygonHandShape
-					DustInTheWind.Clock.Shapes.Default.MinuteHandShape
-					DustInTheWind.Clock.Shapes.Default.HourHandShape
-				DustInTheWind.Clock.Shapes.PathHandShape
-					DustInTheWind.Clock.Shapes.Fancy.SlotHandShape
-					DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape
-					DustInTheWind.Clock.Shapes.Fancy.BigNibHandShape
-				DustInTheWind.Clock.Shapes.EllipseHandShape
-			DustInTheWind.Clock.Shapes.ImageHandShape
+DustInTheWind.Clock.Shapes.ShapeBase : DustInTheWind.Clock.Shapes.IShape
+	DustInTheWind.Clock.Shapes.VectorialShapeBase
+		DustInTheWind.Clock.Shapes.LineShape
+		DustInTheWind.Clock.Shapes.PolygonShape
+		DustInTheWind.Clock.Shapes.PathShape
+		DustInTheWind.Clock.Shapes.Default.DialShape
+		DustInTheWind.Clock.Shapes.Default.PinShape
+		DustInTheWind.Clock.Shapes.Default.TextShape
+		DustInTheWind.Clock.Shapes.Fancy.FancyDialShape
+	DustInTheWind.Clock.Shapes.ImageShape
+	DustInTheWind.Clock.Shapes.AngularShapeBase : DustInTheWind.Clock.Shapes.IAngularShape
+		DustInTheWind.Clock.Shapes.VectorialAngularShapeBase
+			DustInTheWind.Clock.Shapes.LineAngularShape
+				DustInTheWind.Clock.Shapes.Default.TicksShape
+			DustInTheWind.Clock.Shapes.PolygonAngularShape
+			DustInTheWind.Clock.Shapes.PathAngularShape
+			DustInTheWind.Clock.Shapes.Default.NumbersShape
+		DustInTheWind.Clock.Shapes.ImageAngularShape
+	DustInTheWind.Clock.Shapes.HandShapeBase : DustInTheWind.Clock.Shapes.IHandShape
+		DustInTheWind.Clock.Shapes.VectorialHandShapeBase
+			DustInTheWind.Clock.Shapes.LineHandShape
+				DustInTheWind.Clock.Shapes.Default.SweepHandShape
+			DustInTheWind.Clock.Shapes.PolygonHandShape
+				DustInTheWind.Clock.Shapes.Default.MinuteHandShape
+				DustInTheWind.Clock.Shapes.Default.HourHandShape
+			DustInTheWind.Clock.Shapes.PathHandShape
+				DustInTheWind.Clock.Shapes.Fancy.SlotHandShape
+				DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape
+				DustInTheWind.Clock.Shapes.Fancy.BigNibHandShape
+			DustInTheWind.Clock.Shapes.EllipseHandShape
+		DustInTheWind.Clock.Shapes.ImageHandShape
 			
 All the shapes are derived from ShapeBase.
 AnalogClock is using 3 types of Shapes:
 	1) Background Shapes - are regular Shapes (derived from ShapeBase) that are painted on the background of the clock: DialShape, TextShape, etc.
 	2) Angular Shapes - the Shapes that are repeated around the clock. These are derived from AngularShapeBase abstract class.
 	3) Hand Shapes - the Shapes that paint the clock hands. They are derived from HandShapeBase abstract class.
-An exception is the Pin Shape that is a class derived from ShapeBase and is painted last, on top of the Hand Shapes.
-The Shapes are painted like layers in Photoshop. The first ones are painted the Background Shapes, then the Angular Shapes and last ones are the Hand Shapes. And, of course, the Pin Shape after that.
+	3') An exception is the Pin Shape that is a class derived from ShapeBase and is painted on top of the Hand Shapes.
+The Shapes are painted like layers in Photoshop. The first ones, at the bottom, are painted the Background Shapes, then the Angular Shapes and the last ones are the Hand Shapes. And, of course, the Pin Shape after that.

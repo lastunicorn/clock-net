@@ -17,6 +17,7 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes
 {
@@ -44,7 +45,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// The position offset relativelly to the edge of the dial.
         /// </summary>
-        protected float positionOffset = POSITION_OFFSET;
+        protected float positionOffset;
 
         /// <summary>
         /// Gets or sets the position offset relativelly to the edge of the dial.
@@ -195,47 +196,47 @@ namespace DustInTheWind.Clock.Shapes
                     if (index == 0)
                         return;
 
-                    switch (angularLocation)
-                    {
-                        case AngularShapeLocation.None:
-                            return;
+                    //switch (angularLocation)
+                    //{
+                    //    case AngularShapeLocation.None:
+                    //        return;
 
-                        default:
-                        case AngularShapeLocation.EveryMinute:
-                            break;
+                    //    default:
+                    //    case AngularShapeLocation.EveryMinute:
+                    //        break;
 
-                        case AngularShapeLocation.EveryHour:
-                            if (index % 5 != 0) return;
-                            break;
+                    //    case AngularShapeLocation.EveryHour:
+                    //        if (index % 5 != 0) return;
+                    //        break;
 
-                        case AngularShapeLocation.Cross:
-                            if (index % 15 != 0) return;
-                            break;
+                    //    case AngularShapeLocation.Cross:
+                    //        if (index % 15 != 0) return;
+                    //        break;
 
-                        case AngularShapeLocation.Vertical:
-                            if (index % 30 != 0) return;
-                            break;
+                    //    case AngularShapeLocation.Vertical:
+                    //        if (index % 30 != 0) return;
+                    //        break;
 
-                        case AngularShapeLocation.Horizontal:
-                            if (index != 15 && index != 45) return;
-                            break;
+                    //    case AngularShapeLocation.Horizontal:
+                    //        if (index != 15 && index != 45) return;
+                    //        break;
 
-                        case AngularShapeLocation.North:
-                            if (index != 60) return;
-                            break;
+                    //    case AngularShapeLocation.North:
+                    //        if (index != 60) return;
+                    //        break;
 
-                        case AngularShapeLocation.East:
-                            if (index != 15) return;
-                            break;
+                    //    case AngularShapeLocation.East:
+                    //        if (index != 15) return;
+                    //        break;
 
-                        case AngularShapeLocation.South:
-                            if (index != 30) return;
-                            break;
+                    //    case AngularShapeLocation.South:
+                    //        if (index != 30) return;
+                    //        break;
 
-                        case AngularShapeLocation.West:
-                            if (index != 45) return;
-                            break;
-                    }
+                    //    case AngularShapeLocation.West:
+                    //        if (index != 45) return;
+                    //        break;
+                    //}
 
                     switch (exceptionLocation)
                     {
@@ -279,7 +280,12 @@ namespace DustInTheWind.Clock.Shapes
                             break;
                     }
 
+                    Matrix originalMatrix = g.Transform;
+                    g.TranslateTransform(0, positionOffset);
+
                     DrawInternal(g);
+
+                    g.Transform = originalMatrix;
                 }
                 finally
                 {
@@ -289,7 +295,7 @@ namespace DustInTheWind.Clock.Shapes
         }
 
         protected abstract void DrawInternal(Graphics g);
-        
+
         /// <summary>
         /// Resets the index of the shape that will be drawn next.
         /// This method is called by the clock before every paint.

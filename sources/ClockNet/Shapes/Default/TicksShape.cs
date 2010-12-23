@@ -36,9 +36,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         public const float THICKNESS = 0.25f;
 
         /// <summary>
-        /// The default value of the position offset.
+        /// The default width of the line used to draw the shape.
         /// </summary>
-        public const float POSITION_OFFSET = 0f;
+        public new const float LINE_WIDTH = 0.3f;
 
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// The length of the 1 second ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
-        protected float length = LENGTH;
+        protected float length;
 
         /// <summary>
         /// Gets or sets the length of the 1 second ticks. This value is given for a clock with diameter of 100px.
@@ -97,29 +97,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
-        /// <summary>
-        /// The position offset relativelly to the edge of the dial.
-        /// </summary>
-        protected float positionOffset = POSITION_OFFSET;
-
-        /// <summary>
-        /// Gets or sets the position offset relativelly to the edge of the dial.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(POSITION_OFFSET)]
-        [Description("The position offset relativelly to the edge of the dial.")]
-        public virtual float PositionOffset
-        {
-            get { return positionOffset; }
-            set
-            {
-                positionOffset = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-
         #region Constructors
 
         /// <summary>
@@ -139,40 +116,15 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="lineWidth">The width of the ticks.</param>
         /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
         public TicksShape(Color color, float length, float lineWidth, float positionOffset)
-            : base(color, Color.Empty)
+            : base(color, Color.Empty, lineWidth, ANGLE, REPEAT, positionOffset)
         {
             this.length = length;
-            this.lineWidth = lineWidth;
             this.positionOffset = positionOffset;
 
             CalculateDimensions();
         }
 
         #endregion
-
-        private AngularShapeLocation angularLocation = AngularShapeLocation.EveryMinute;
-        public AngularShapeLocation AngularLocation
-        {
-            get { return angularLocation; }
-            set
-            {
-                angularLocation = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        private AngularShapeLocation exceptionLocation = AngularShapeLocation.None;
-        public AngularShapeLocation ExceptionLocation
-        {
-            get { return exceptionLocation; }
-            set
-            {
-                exceptionLocation = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
 
         PointF startPoint;
         PointF endPoint;
@@ -183,157 +135,10 @@ namespace DustInTheWind.Clock.Shapes.Default
             endPoint = new PointF(0, length + positionOffset);
         }
 
-        ///// <summary>
-        ///// Draws one tick using the provided <see cref="Graphics"/> object.
-        ///// </summary>
-        ///// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
-        ///// <remarks>
-        ///// Before calling this method, the origin should be already moved to the edje of the dial,
-        ///// in the place where the tick should be drawn.
-        ///// </remarks>
-        //public override void Draw(Graphics g)
-        //{
-        //    if (visible && length > 0 && lineWidth > 0 && !outlineColor.IsEmpty)
-        //    {
-        //        try
-        //        {
-        //            if (index == 0)
-        //                return;
-
-        //            switch (angularLocation)
-        //            {
-        //                case AngularShapeLocation.None:
-        //                    return;
-
-        //                default:
-        //                case AngularShapeLocation.EveryMinute:
-        //                    break;
-
-        //                case AngularShapeLocation.EveryHour:
-        //                    if (index % 5 != 0) return;
-        //                    break;
-
-        //                case AngularShapeLocation.Cross:
-        //                    if (index % 15 != 0) return;
-        //                    break;
-
-        //                case AngularShapeLocation.Vertical:
-        //                    if (index % 30 != 0) return;
-        //                    break;
-
-        //                case AngularShapeLocation.Horizontal:
-        //                    if (index != 15 && index != 45) return;
-        //                    break;
-
-        //                case AngularShapeLocation.North:
-        //                    if (index != 60) return;
-        //                    break;
-
-        //                case AngularShapeLocation.East:
-        //                    if (index != 15) return;
-        //                    break;
-
-        //                case AngularShapeLocation.South:
-        //                    if (index != 30) return;
-        //                    break;
-
-        //                case AngularShapeLocation.West:
-        //                    if (index != 45) return;
-        //                    break;
-        //            }
-
-        //            switch (exceptionLocation)
-        //            {
-        //                default:
-        //                case AngularShapeLocation.None:
-        //                    break;
-
-        //                case AngularShapeLocation.EveryMinute:
-        //                    return;
-
-        //                case AngularShapeLocation.EveryHour:
-        //                    if (index % 5 == 0) return;
-        //                    break;
-
-        //                case AngularShapeLocation.Cross:
-        //                    if (index % 15 == 0) return;
-        //                    break;
-
-        //                case AngularShapeLocation.Vertical:
-        //                    if (index % 30 == 0) return;
-        //                    break;
-
-        //                case AngularShapeLocation.Horizontal:
-        //                    if (index == 15 || index == 45) return;
-        //                    break;
-
-        //                case AngularShapeLocation.North:
-        //                    if (index == 60) return;
-        //                    break;
-
-        //                case AngularShapeLocation.East:
-        //                    if (index == 15) return;
-        //                    break;
-
-        //                case AngularShapeLocation.South:
-        //                    if (index == 30) return;
-        //                    break;
-
-        //                case AngularShapeLocation.West:
-        //                    if (index == 45) return;
-        //                    break;
-        //            }
-
-        //            CreatePenIfNull();
-
-        //            g.DrawLine(pen, startPoint, endPoint);
-        //        }
-        //        finally
-        //        {
-        //            index++;
-        //        }
-        //    }
-        //}
-
         protected override void DrawInternal(Graphics g)
         {
             CreatePenIfNull();
             g.DrawLine(pen, startPoint, endPoint);
         }
-
-
-        //private float angle = 6f;
-        //public float Angle
-        //{
-        //    get { return angle; }
-        //    set
-        //    {
-        //        angle = value;
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
-
-        //private bool repeat = true;
-        //public bool Repeat
-        //{
-        //    get { return repeat; }
-        //    set
-        //    {
-        //        repeat = value;
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
-
-        //private int index = 0;
-        //public int Index
-        //{
-        //    get { return index; }
-        //    set { index = value; }
-        //}
-
-        //public void Reset()
-        //{
-        //    index = 0;
-        //}
     }
 }
