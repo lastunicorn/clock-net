@@ -179,7 +179,8 @@ namespace DustInTheWind.Clock.Shapes
                     numbersShape
                 };
 
-                HourHandShape hourHandShape = new HourHandShape();
+                BigNibHandShape hourHandShape = new BigNibHandShape(Color.Black, 30f);
+                hourHandShape.Width = 5f;
                 BigNibHandShape minuteHandShape = new BigNibHandShape();
                 FancySweepHandShape sweepHandShape = new FancySweepHandShape();
                 PinShape pinShape = new PinShape();

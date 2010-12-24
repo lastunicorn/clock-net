@@ -40,6 +40,12 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
         #region Constructor
 
+        public PathShape()
+            : this(Color.Empty, Color.Black, 0.3f, null)
+        {
+
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PathShape"/> class.
         /// </summary>
@@ -72,7 +78,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the path.</param>
         public override void Draw(Graphics g)
         {
-            if (visible)
+            if (visible && path != null)
             {
                 if (!fillColor.IsEmpty)
                 {

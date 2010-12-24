@@ -15,13 +15,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.ComponentModel;
 
 namespace DustInTheWind.Clock.TimeProviders
 {
     /// <summary>
     /// Provides the time to be displayed by the a clock. The time is provided as <see cref="TimeSpan"/> objects.
     /// </summary>
-    public interface ITimeProvider
+    public interface ITimeProvider : IComponent
     {
         /// <summary>
         /// Event raised when the internal mechanism that generates time values is changed and therefore

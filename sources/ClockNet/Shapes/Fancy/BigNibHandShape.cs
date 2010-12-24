@@ -23,23 +23,47 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 {
     public class BigNibHandShape : PathHandShape
     {
+        protected float width;
+
+        public float Width
+        {
+            get { return width; }
+            set
+            {
+                width = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SlotHandShape"/> class with
+        /// Initializes a new instance of the <see cref="BigNibHandShape"/> class with
         /// default values.
         /// </summary>
         public BigNibHandShape()
-            : base(Color.Empty, Color.Black, new GraphicsPath())
+            : this(Color.Empty, Color.Black, 45f, LINE_WIDTH)
         {
-            height = 45f;
+        }
+
+        public BigNibHandShape(Color fillColor, float height)
+            : this(Color.Empty, fillColor, height, LINE_WIDTH)
+        {
+        }
+
+        public BigNibHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
+            : base(outlineColor, fillColor, lineWidth, height, CreatePath())
+        {
             CalculateDimensions();
         }
 
         #endregion
 
-        protected override void CalculateDimensions()
+        private static GraphicsPath CreatePath()
         {
+            GraphicsPath path = new GraphicsPath();
+
             path.Reset();
 
             path.AddArc(new RectangleF(-12f, 43f, 24f, 24f), -60f, 300f);
@@ -121,16 +145,27 @@ namespace DustInTheWind.Clock.Shapes.Fancy
                 new PointF(4f, 39f),
                 new PointF(10f * (float)Math.Cos(Math.PI / 3f), 41f * (float)Math.Sin(Math.PI / 3f))
             });
+
+            return path;
         }
 
+        protected bool keepProportions = true;
 
         public override void Draw(Graphics g)
         {
             Matrix initialMatrix = g.Transform;
 
-            float scaleFactor = height / 280f;
-            g.ScaleTransform(scaleFactor, scaleFactor);
-
+            if (keepProportions && height > 0)
+            {
+                float scaleFactorY = height / 280f;
+                g.ScaleTransform(scaleFactorY, scaleFactorY);
+            }
+            else
+            {
+                float scaleFactorY = height > 0 ? height / 280f : 1f;
+                float scaleFactorX = width > 0 ? width / 30f : 1f;
+                g.ScaleTransform(scaleFactorX, scaleFactorY);
+            }
             base.Draw(g);
 
             g.Transform = initialMatrix;

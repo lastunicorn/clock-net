@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.ComponentModel;
 
 namespace DustInTheWind.Clock.TimeProviders
 {
@@ -51,5 +52,43 @@ namespace DustInTheWind.Clock.TimeProviders
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
         public abstract TimeSpan GetTime();
+
+        public event EventHandler Disposed;
+
+        protected virtual void OnDisposed(EventArgs e)
+        {
+            if (Disposed != null)
+            {
+                Disposed(this, e);
+            }
+        }
+
+        private ISite site;
+        public ISite Site
+        {
+            get { return site; }
+            set { site = value; }
+        }
+
+        private bool disposed = false;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                OnDisposed(EventArgs.Empty);
+            }
+        }
+
+        ~TimeProviderBase()
+        {
+            Dispose(false);
+        }
     }
 }
