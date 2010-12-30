@@ -19,12 +19,15 @@ using System.ComponentModel;
 
 namespace DustInTheWind.Clock.Shapes
 {
+    /// <summary>
+    /// The base class for a shape that represents a clock hand.
+    /// </summary>
     public abstract class HandShapeBase : ShapeBase, IHandShape
     {
         /// <summary>
         /// The default value of the height.
         /// </summary>
-        public const float HEIGHT = 50f;
+        public const float HEIGHT = 45f;
 
 
         /// <summary>
@@ -64,8 +67,6 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// Initializes a new instance of the <see cref="HandShapeBase"/> class.
         /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline.</param>
-        /// <param name="fillColor">The color used to fill the shape.</param>
         /// <param name="height">The length of the hour hand for a clock with the diameter of 100px.</param>
         public HandShapeBase(float height)
             : base()
@@ -77,6 +78,9 @@ namespace DustInTheWind.Clock.Shapes
         #endregion
 
 
+        /// <summary>
+        /// Performs all the necessary calculations based on the public parameters, before drawing the shape.
+        /// </summary>
         protected virtual void CalculateDimensions() { }
     }
 }

@@ -20,12 +20,15 @@ using System.Drawing;
 
 namespace DustInTheWind.Clock.Shapes
 {
+    /// <summary>
+    /// Base class for a clock hand shape that is drawn using vectorial tools.
+    /// </summary>
     public abstract class VectorialHandShapeBase : HandShapeBase
     {
         /// <summary>
         /// The default width of the line used to draw the shape.
         /// </summary>
-        public const float LINE_WIDTH = 1f;
+        public const float LINE_WIDTH = 0.3f;
 
 
         /// <summary>
@@ -127,6 +130,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         /// <param name="lineWidth">The width of the outline.</param>
+        /// <param name="height">The length of the hour hand. This value is given in pixels for a clock with the diameter of 100px.</param>
         public VectorialHandShapeBase(Color outlineColor, Color fillColor, float lineWidth, float height)
             : base(height)
         {

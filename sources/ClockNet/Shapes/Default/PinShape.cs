@@ -25,8 +25,9 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class PinShape : VectorialShapeBase
     {
-        public const string NAME = "Default Pin Shape";
-
+        /// <summary>
+        /// The default value of the radius.
+        /// </summary>
         private const float RADIUS = 1.33f;
 
         /// <summary>
@@ -34,7 +35,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public override string Name
         {
-            get { return NAME; }
+            get { return "Default Pin Shape"; }
         }
 
         /// <summary>
@@ -84,13 +85,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             set { base.OutlineColor = value; }
         }
 
-        //[DefaultValue(typeof(VectorialDrawMode), "Fill")]
-        //public override VectorialDrawMode DrawMode
-        //{
-        //    get { return base.DrawMode; }
-        //    set { base.DrawMode = value; }
-        //}
-
 
         #region Constructors
 
@@ -99,40 +93,37 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public PinShape()
-            : this(Color.Empty, Color.Red,  RADIUS)
+            : this(Color.Empty, Color.Red, RADIUS)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PinShape"/> class.
         /// </summary>
-        /// <param name="color">The color used to draw the pin.</param>
-        /// <param name="fill">A value specifying if the pin should be filled with color.</param>
-        public PinShape(Color color, float radius)
-            : this(Color.Empty, color,  radius)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PinShape"/> class.
-        /// </summary>
-        /// <param name="color">The color used to draw the pin.</param>
-        /// <param name="fill">A value specifying if the pin should be filled with color.</param>
-        public PinShape(Color outlineColor, Color fillColor)
-            : this(outlineColor, fillColor, RADIUS)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PinShape"/> class.
-        /// </summary>
-        /// <param name="color">The color used to draw the pin.</param>
-        /// <param name="fill">A value specifying if the pin should be filled with color.</param>
+        /// <param name="fillColor">The color used to draw the pin.</param>
         /// <param name="radius">The radius of the pin.</param>
-        public PinShape(Color outlineColor, Color fillColor,  float radius)
+        public PinShape(Color fillColor, float radius)
+            : this(Color.Empty, fillColor, radius)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PinShape"/> class.
+        /// </summary>
+        public PinShape(Color outlineColor, Color fillColor)
+            : this(Color.Empty, fillColor, RADIUS)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PinShape"/> class.
+        /// </summary>
+        /// <param name="radius">The radius of the pin.</param>
+        public PinShape(Color outlineColor, Color fillColor, float radius)
             : base(outlineColor, fillColor)
         {
             this.radius = radius;
+
             CalculateDimensions();
         }
 
@@ -144,7 +135,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         private float _locationX;
         private float _locationY;
 
-        private void CalculateDimensions()
+        protected virtual void CalculateDimensions()
         {
             _locationX = -radius / 2f;
             _locationY = -radius / 2f;

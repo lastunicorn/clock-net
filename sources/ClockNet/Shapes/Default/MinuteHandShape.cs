@@ -123,9 +123,11 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="height">The height of the hend (from the pin to the top) for a clock of 300px.</param>
         /// <param name="tailLength">The length of the hand's tail.</param>
         public MinuteHandShape(Color outlineColor, Color fillColor, float height, float tailLength)
-            : base(null, outlineColor, fillColor, height)
+            : base(null, outlineColor, fillColor, height, LINE_WIDTH)
         {
             this.tailLength = tailLength;
+
+            CalculateDimensions();
         }
 
         #endregion

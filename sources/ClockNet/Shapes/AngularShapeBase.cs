@@ -36,7 +36,14 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         public const float ANGLE = 6f;
 
+        /// <summary>
+        /// The default value of the offset angle.
+        /// </summary>
         public const float OFFSET_ANGLE = 6f;
+
+        /// <summary>
+        /// The default value of the exception index.
+        /// </summary>
         public const int EXCEPTION_INDEX = 0;
 
         /// <summary>

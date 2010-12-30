@@ -20,15 +20,10 @@ using System.Drawing.Drawing2D;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A shape that draws a clock hand using a <see cref="GraphicsPath"/>.
+    /// A Shape that draws a complex vectorial clock hand defined by a <see cref="GraphicsPath"/> object.
     /// </summary>
     public class PathHandShape : VectorialHandShapeBase
     {
-        /// <summary>
-        /// The default value of the hand width.
-        /// </summary>
-        public new const float LINE_WIDTH = 0.3f;
-
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
@@ -46,23 +41,34 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PathHandShape"/> class.
+        /// Initializes a new instance of the <see cref="PathHandShape"/> class with
+        /// default values.
         /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
-        /// <param name="fillColor">The color used to fill the path's interior.</param>
-        /// <param name="path">The path that should be drawn.</param>
-        public PathHandShape(Color outlineColor, Color fillColor, GraphicsPath path)
-            : this(outlineColor, fillColor, LINE_WIDTH, HEIGHT, path)
+        public PathHandShape()
+            : this(new GraphicsPath(), Color.Empty, Color.Black, HEIGHT, LINE_WIDTH)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PathHandShape"/> class.
         /// </summary>
+        /// <param name="path">The path that should be drawn.</param>
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
+        public PathHandShape(GraphicsPath path, Color outlineColor, Color fillColor)
+            : this(path, outlineColor, fillColor, HEIGHT, LINE_WIDTH)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PathHandShape"/> class.
+        /// </summary>
         /// <param name="path">The path that should be drawn.</param>
-        public PathHandShape(Color outlineColor, Color fillColor, float lineWidth, float height, GraphicsPath path)
+        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
+        /// <param name="fillColor">The color used to fill the path's interior.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
+        /// <param name="height">The length of the hand from the pin to the its top.</param>
+        public PathHandShape(GraphicsPath path, Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(outlineColor, fillColor, lineWidth, height)
         {
             this.path = path;
@@ -70,8 +76,6 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
         #endregion
 
-
-        protected virtual void CalculateDimensions() { }
 
         /// <summary>
         /// Draws the hand using the provided <see cref="Graphics"/> object.
@@ -97,6 +101,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
             }
         }
 
+        /// <summary>
+        /// Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
+        /// </summary>
+        /// <param name="disposing">Speifies if the managed resources should be disposed, too.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

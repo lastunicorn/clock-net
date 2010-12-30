@@ -18,14 +18,26 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using DustInTheWind.Clock.Shapes.Basic;
+using System.ComponentModel;
 
 namespace DustInTheWind.Clock.Shapes.Fancy
 {
+    /// <summary>
+    /// Draws a fancy clock hand that resambles to a nib.
+    /// </summary>
     public class BigNibHandShape : PathHandShape
     {
+        /// <summary>
+        /// The default length of the width of the hand.
+        /// </summary>
+        public const float WIDTH = 5f;
+
+
         protected float width;
 
-        public float Width
+        [DefaultValue(WIDTH)]
+        [Description("The width of the slot carved inside the disk.")]
+        public virtual float Width
         {
             get { return width; }
             set
@@ -43,23 +55,41 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public BigNibHandShape()
-            : this(Color.Empty, Color.Black, 45f, LINE_WIDTH)
+            : this(Color.Empty, Color.Black, HEIGHT, LINE_WIDTH)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BigNibHandShape"/> class.
+        /// </summary>
+        /// <param name="fillColor">The color used to fill the opaqu disk.</param>
+        /// <param name="height">The length of the hour hand.</param>
         public BigNibHandShape(Color fillColor, float height)
             : this(Color.Empty, fillColor, height, LINE_WIDTH)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BigNibHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
+        /// <param name="fillColor">The color used to fill the opaqu disk.</param>
+        /// <param name="height">The length of the hour hand.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
         public BigNibHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth, height, CreatePath())
+            : base(CreatePath(), outlineColor, fillColor, lineWidth, height)
         {
             CalculateDimensions();
         }
 
         #endregion
 
+
+        /// <summary>
+        /// Creates and returns the <see cref="GraphicsPath"/> object that should be drawn.
+        /// The path is created once. The dimension of the hand is controlled by scaling the coordinate's system.
+        /// </summary>
+        /// <returns>An <see cref="GraphicsPath"/> object containing the path that will be drawn.</returns>
         private static GraphicsPath CreatePath()
         {
             GraphicsPath path = new GraphicsPath();

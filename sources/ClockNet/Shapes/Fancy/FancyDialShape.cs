@@ -28,6 +28,17 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     public class FancyDialShape : VectorialShapeBase
     {
         /// <summary>
+        /// The default value of the outer rim width.
+        /// </summary>
+        public const float OUTER_RIM_WIDTH = 5f;
+
+        /// <summary>
+        /// The default value of the inner rim width.
+        /// </summary>
+        public const float INNER_RIM_WIDTH = 1f;
+
+
+        /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
@@ -60,6 +71,35 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
 
+        private float outerRimWidth;
+
+        [DefaultValue(OUTER_RIM_WIDTH)]
+        public float OuterRimWidth
+        {
+            get { return outerRimWidth; }
+            set
+            {
+                outerRimWidth = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        private float innerRimWidth;
+
+        [DefaultValue(INNER_RIM_WIDTH)]
+        public float InnerRimWidth
+        {
+            get { return innerRimWidth; }
+            set
+            {
+                innerRimWidth = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+
         #region Constructors
 
         /// <summary>
@@ -88,6 +128,9 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         public FancyDialShape(Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
+            outerRimWidth = OUTER_RIM_WIDTH;
+            innerRimWidth = INNER_RIM_WIDTH;
+
             CalculateDimensions();
         }
 
@@ -114,13 +157,12 @@ namespace DustInTheWind.Clock.Shapes.Fancy
                 outerRimBrush = new LinearGradientBrush(outerRimRectangle, HSBColor.ShiftBrighness(fillColor, 100f), HSBColor.ShiftBrighness(fillColor, -100f), 45f);
                 innerRimBrush = new LinearGradientBrush(innerRimRectangle, HSBColor.ShiftBrighness(fillColor, -100f), HSBColor.ShiftBrighness(fillColor, 100f), 45f);
                 Color faceColor = HSBColor.ShiftSaturation(fillColor, 50f);
-                //Color faceColor = fillColor;
                 brush = new LinearGradientBrush(faceRectangle, HSBColor.ShiftBrighness(faceColor, 100f), HSBColor.ShiftBrighness(faceColor, -150f), 45f);
             }
         }
 
-        LinearGradientBrush outerRimBrush;
-        LinearGradientBrush innerRimBrush;
+        private LinearGradientBrush outerRimBrush;
+        private LinearGradientBrush innerRimBrush;
 
         private RectangleF outerRimRectangle;
         private RectangleF innerRimRectangle;
@@ -133,29 +175,6 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             faceRectangle = RectangleF.Inflate(innerRimRectangle, -innerRimWidth, -innerRimWidth);
         }
 
-        private float outerRimWidth = 5f;
-        public float OuterRimWidth
-        {
-            get { return outerRimWidth; }
-            set
-            {
-                outerRimWidth = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        private float innerRimWidth = 1f;
-        public float InnerRimWidth
-        {
-            get { return innerRimWidth; }
-            set
-            {
-                innerRimWidth = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
 
         /// <summary>
         /// Draws the dial's background using the provided <see cref="Graphics"/> object.
@@ -184,6 +203,10 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             }
         }
 
+        /// <summary>
+        /// Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
+        /// </summary>
+        /// <param name="disposing">Speifies if the managed resources should be disposed, too.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

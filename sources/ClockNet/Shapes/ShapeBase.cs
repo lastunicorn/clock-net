@@ -92,6 +92,14 @@ namespace DustInTheWind.Clock.Shapes
 
         private bool disposed = false;
 
+        public event EventHandler Disposed;
+
+        protected virtual void OnDisposed(EventArgs e)
+        {
+            if (Disposed != null)
+                Disposed(this, e);
+        }
+
         /// <summary>
         /// Releases all resources used by the current instance.
         /// </summary>
@@ -140,25 +148,5 @@ namespace DustInTheWind.Clock.Shapes
         }
 
         #endregion
-
-        public event EventHandler Disposed;
-        protected virtual void OnDisposed(EventArgs e)
-        {
-            if (Disposed != null)
-                Disposed(this, e);
-        }
-
-        //private ISite site;
-        //public ISite Site
-        //{
-        //    get
-        //    {
-        //        return site;
-        //    }
-        //    set
-        //    {
-        //        site = value;
-        //    }
-        //}
     }
 }

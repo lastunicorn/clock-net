@@ -31,7 +31,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// The default value of the <see cref="Height"/>.
         /// </summary>
-        public const float HEIGHT = 24.2f;
+        public new const float HEIGHT = 24.2f;
 
         /// <summary>
         /// The default value of the <see cref="TailLength"/>.
@@ -82,10 +82,17 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
-        protected float tailLength = TAIL_LENGTH;
+        /// <summary>
+        /// The length of the the hand's tail.
+        /// </summary>
+        protected float tailLength;
 
+        /// <summary>
+        /// Gets or sets the length of the tail of the hand.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(TAIL_LENGTH)]
+        [Description("The length of the tail of the hand.")]
         public virtual float TailLength
         {
             get { return tailLength; }
@@ -96,6 +103,7 @@ namespace DustInTheWind.Clock.Shapes.Default
                 OnChanged(EventArgs.Empty);
             }
         }
+
 
 
         #region Constructors
@@ -114,7 +122,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline.</param>
         /// <param name="fillColor">The color used to fill the shape.</param>
-        /// <param name="drawMode">Specifies if the hour hand shape should be filled with color or only draw the outline.</param>
         public HourHandShape(Color outlineColor, Color fillColor)
             : this(outlineColor, fillColor, HEIGHT)
         {
@@ -127,44 +134,19 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="fillColor">The color used to fill the shape.</param>
         /// <param name="height">The length of the hour hand for a clock with the diameter of 100px.</param>
         public HourHandShape(Color outlineColor, Color fillColor, float height)
-            : base(null, outlineColor, fillColor, height)
+            : base(null, outlineColor, fillColor, height, LINE_WIDTH)
         {
             this.tailLength = TAIL_LENGTH;
+
             CalculateDimensions();
         }
 
         #endregion
 
 
-        private void CalculateDimensions()
+        protected override void CalculateDimensions()
         {
             points = new PointF[] { new PointF(0f, tailLength), new PointF(-2.5f, 0f), new PointF(0F, -height), new PointF(2.5f, 0f) };
         }
-
-        //public override bool Equals(object obj)
-        //{
-        //    if (obj is HourHandShape)
-        //    {
-        //        HourHandShape shape = (HourHandShape)obj;
-
-        //        return
-        //            shape.fillColor == fillColor &&
-        //            shape.height == height &&
-        //            shape.lineWidth == lineWidth &&
-        //            shape.outlineColor == outlineColor &&
-        //            shape.tailLength == tailLength &&
-        //            shape.visible == visible;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-
-        //public override int GetHashCode()
-        //{
-        //    return fillColor.GetHashCode() ^ height.GetHashCode() ^ lineWidth.GetHashCode() ^
-        //        outlineColor.GetHashCode() ^ tailLength.GetHashCode() ^ visible.GetHashCode();
-        //}
     }
 }

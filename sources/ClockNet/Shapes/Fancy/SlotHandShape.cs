@@ -22,11 +22,24 @@ using DustInTheWind.Clock.Shapes.Basic;
 
 namespace DustInTheWind.Clock.Shapes.Fancy
 {
+    /// <summary>
+    /// Draws a clock hand that is a slot carved inside a disk. By default the disk is big as the clock.
+    /// </summary>
     public class SlotHandShape : PathHandShape
     {
-        public const float SLOT_WIDTH = 5f;
-        public const float SLOT_HEIGHT = 40f;
-        //public new const float HEIGHT = 50f;
+        /// <summary>
+        /// The default length of the width of the hand.
+        /// </summary>
+        public const float WIDTH = 5f;
+
+        /// <summary>
+        /// The default length of the radius of the opaque disk.
+        /// </summary>
+        public const float RADIUS = 50f;
+
+        /// <summary>
+        /// The default length of the tail of the hand.
+        /// </summary>
         public const float TAIL_LENGTH = 6f;
 
         /// <summary>
@@ -39,46 +52,60 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
 
         /// <summary>
-        /// Gets or sets the length of the hour hand. For a clock with the diameter of 100px.
+        /// The width of the slot carved inside the disk.
         /// </summary>
-        [DefaultValue(HEIGHT)]
-        public override float Height
-        {
-            get { return base.Height; }
-            set { base.Height = value; }
-        }
+        protected float width;
 
-
-        protected float slotWidth;
-        public virtual float SlotWidth
+        /// <summary>
+        /// Gets or sets the width of the slot carved inside the disk.
+        /// </summary>
+        [DefaultValue(WIDTH)]
+        [Description("The width of the slot carved inside the disk.")]
+        public virtual float Width
         {
-            get { return slotWidth; }
+            get { return width; }
             set
             {
-                slotWidth = value;
+                width = value;
                 CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
         }
 
 
-        protected float slotHeight;
-        public virtual float SlotHeight
+        /// <summary>
+        /// The rasius of the opaque disk.
+        /// </summary>
+        protected float radius;
+
+        /// <summary>
+        /// Gets or sets the rasius of the opaque disk.
+        /// </summary>
+        [DefaultValue(RADIUS)]
+        [Description("The rasius of the opaque disk.")]
+        public virtual float Radius
         {
-            get { return slotHeight; }
+            get { return radius; }
             set
             {
-                slotHeight = value;
+                radius = value;
                 CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
         }
 
 
-        protected float tailLength = TAIL_LENGTH;
+        /// <summary>
+        /// The length of the the hand's tail.
+        /// </summary>
+        protected float tailLength;
 
+        /// <summary>
+        /// Gets or sets the length of the tail of the hand.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(TAIL_LENGTH)]
+        [Description("The length of the tail of the hand.")]
         public virtual float TailLength
         {
             get { return tailLength; }
@@ -98,32 +125,51 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public SlotHandShape()
-            : this(Color.Empty, Color.RoyalBlue, HEIGHT, SLOT_HEIGHT, SLOT_WIDTH)
+            : this(Color.Empty, Color.RoyalBlue, RADIUS, HEIGHT, WIDTH)
         {
         }
 
-        public SlotHandShape(Color fillColor, float height, float slotHeight, float slotWidth)
-            : this(Color.Empty, fillColor, height, slotHeight, slotWidth)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SlotHandShape"/> class.
+        /// </summary>
+        /// <param name="fillColor">The color used to fill the opaqu disk.</param>
+        /// <param name="radius">The radius of the opaque disk.</param>
+        /// <param name="height">The length of the carving from the pin to the its top.</param>
+        /// <param name="width">The width of the carving.</param>
+        public SlotHandShape(Color fillColor, float radius, float height, float width)
+            : this(Color.Empty, fillColor, radius, height, width)
         {
         }
 
-        public SlotHandShape(Color outlineColor, Color fillColor, float height, float slotHeight, float slotWidth)
-            : base(outlineColor, fillColor, new GraphicsPath())
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SlotHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
+        /// <param name="fillColor">The color used to fill the opaqu disk.</param>
+        /// <param name="radius">The radius of the opaque disk.</param>
+        /// <param name="height">The length of the carving from the pin to the its top.</param>
+        /// <param name="width">The width of the carving.</param>
+        public SlotHandShape(Color outlineColor, Color fillColor, float radius, float height, float width)
+            : base(new GraphicsPath(), outlineColor, fillColor, 0, height)
         {
-            this.height = height;
-            this.slotHeight = slotHeight;
-            this.slotWidth = slotWidth;
+            this.radius = radius;
+            this.width = width;
+            tailLength = TAIL_LENGTH;
 
             CalculateDimensions();
         }
 
         #endregion
 
+        /// <summary>
+        /// Performs all the necessary calculations based on the public parameters, before drawing the shape.
+        /// </summary>
         protected override void CalculateDimensions()
         {
             path.Reset();
-            path.AddEllipse(-height, -height, height * 2f, height * 2f);
-            path.AddRectangle(new RectangleF(-slotWidth / 2f, -slotHeight, slotWidth, slotHeight + tailLength));
+
+            path.AddEllipse(-radius, -radius, radius * 2f, radius * 2f);
+            path.AddRectangle(new RectangleF(-width / 2f, -height, width, height + tailLength));
         }
     }
 }

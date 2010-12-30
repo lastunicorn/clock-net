@@ -53,6 +53,15 @@ namespace DustInTheWind.Clock.TimeProviders
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
         public abstract TimeSpan GetTime();
 
+        private ISite site;
+        public ISite Site
+        {
+            get { return site; }
+            set { site = value; }
+        }
+
+        private bool disposed = false;
+
         public event EventHandler Disposed;
 
         protected virtual void OnDisposed(EventArgs e)
@@ -62,15 +71,6 @@ namespace DustInTheWind.Clock.TimeProviders
                 Disposed(this, e);
             }
         }
-
-        private ISite site;
-        public ISite Site
-        {
-            get { return site; }
-            set { site = value; }
-        }
-
-        private bool disposed = false;
 
         public void Dispose()
         {

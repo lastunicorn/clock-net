@@ -20,23 +20,46 @@ namespace DustInTheWind.Clock.Shapes.Basic
 {
     public class PolygonShape : VectorialShapeBase
     {
-        protected PointF[] points;
-
+        /// <summary>
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// </summary>
         public override string Name
         {
             get { return "Polygon Shape"; }
         }
 
+
+        /// <summary>
+        /// The points of the polygon.
+        /// </summary>
+        protected PointF[] points;
+
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PolygonShape"/> class with
+        /// default values.
+        /// </summary>
         public PolygonShape()
-            : this(null, Color.Empty, Color.Empty)
+            : this(null, Color.Empty, Color.Empty, LINE_WIDTH)
         {
         }
 
-        public PolygonShape(PointF[] points, Color outlineColor, Color fillColor)
-            : base(outlineColor, fillColor)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PolygonShape"/> class.
+        /// </summary>
+        /// <param name="points">The points defining the polygon that will be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
+        /// <param name="fillColor">The color used to fill the path's interior.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
+        public PolygonShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth)
+            : base(outlineColor, fillColor, lineWidth)
         {
             this.points = points;
         }
+
+        #endregion
 
 
         /// <summary>

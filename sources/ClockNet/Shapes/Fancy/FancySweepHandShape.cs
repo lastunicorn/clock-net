@@ -23,7 +23,7 @@ using DustInTheWind.Clock.Shapes.Basic;
 namespace DustInTheWind.Clock.Shapes.Fancy
 {
     /// <summary>
-    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the sweep hand.
+    /// Draws a sweep hand as a line with a circle near its top.
     /// </summary>
     public class FancySweepHandShape : PathHandShape
     {
@@ -40,12 +40,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <summary>
         /// The default length of the tail of the hand.
         /// </summary>
-        public const float TAIL_LENGTH = 5f;
-
-        ///// <summary>
-        ///// The default width of the line used to draw the hand.
-        ///// </summary>
-        //public new const float LINE_WIDTH = 0.1f;
+        public const float TAIL_LENGTH = 6f;
 
 
         /// <summary>
@@ -56,28 +51,6 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             get { return "Fancy Sweep Hand Shape"; }
         }
 
-
-        ///// <summary>
-        ///// The length of the sweep hand. For a clock with the diameter of 100px.
-        ///// </summary>
-        //protected float height;
-
-        ///// <summary>
-        ///// Gets or sets the length of the sweep hand. For a clock with the diameter of 100px.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(HEIGHT)]
-        //[Description("The length of the sweep hand. For a clock with the diameter of 100px.")]
-        //public virtual float Height
-        //{
-        //    get { return height; }
-        //    set
-        //    {
-        //        height = value;
-        //        CalculateDimensions();
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
 
         /// <summary>
         /// The radius of the circle from the middle (or not so middle) of the hand.
@@ -122,33 +95,18 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             }
         }
 
-        ///// <summary>
-        ///// The length of the tail of the hand.
-        ///// </summary>
-        //private float tailLength = TAIL_LENGTH;
 
-        ///// <summary>
-        ///// Gets or sets the length of the tail of the hand.
-        ///// </summary>
-        //[Category("Appearance")]
-        //[DefaultValue(TAIL_LENGTH)]
-        //[Description("The length of the tail of the hand.")]
-        //public virtual float TailLength
-        //{
-        //    get { return tailLength; }
-        //    set
-        //    {
-        //        tailLength = value;
-        //        CalculateDimensions();
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
+        /// <summary>
+        /// The length of the the hand's tail.
+        /// </summary>
+        protected float tailLength;
 
-
-        protected float tailLength = TAIL_LENGTH;
-
+        /// <summary>
+        /// Gets or sets the length of the tail of the hand.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(TAIL_LENGTH)]
+        [Description("The length of the tail of the hand.")]
         public virtual float TailLength
         {
             get { return tailLength; }
@@ -172,16 +130,31 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FancySweepHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
         public FancySweepHandShape(Color outlineColor)
             : this(outlineColor, Color.Empty, HEIGHT, LINE_WIDTH)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FancySweepHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
+        /// <param name="height">The length of the hand from the pin to the its top.</param>
         public FancySweepHandShape(Color outlineColor, float height)
             : this(outlineColor, Color.Empty, height, LINE_WIDTH)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FancySweepHandShape"/> class.
+        /// </summary>
+        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
+        /// <param name="height">The length of the hand from the pin to the its top.</param>
         public FancySweepHandShape(Color outlineColor, float height, float lineWidth)
             : this(outlineColor, Color.Empty, height, lineWidth)
         {
@@ -190,12 +163,15 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <summary>
         /// Initializes a new instance of the <see cref="FancySweepHandShape"/> class.
         /// </summary>
-        /// <param name="outlineColor">The color used to draw the hand.</param>
-        /// <param name="fillColor">The callor used to fill the circle from the middle pf the hand. <see cref="Color.Empty"/> will let the circle transparent.</param>
-        /// <param name="height"></param>
+        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
+        /// <param name="fillColor">The color used to fill the circle from the middle of the hand. <see cref="Color.Empty"/> will let the circle transparent.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
+        /// <param name="height">The length of the hand from the pin to the its top.</param>
         public FancySweepHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth, height, new GraphicsPath())
+            : base(new GraphicsPath(), outlineColor, fillColor, lineWidth, height)
         {
+            tailLength = TAIL_LENGTH;
+
             CalculateDimensions();
         }
 

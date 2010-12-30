@@ -31,6 +31,11 @@ namespace DustInTheWind.Clock.Shapes.Default
         public const string TEXT = "Dust in the Wind";
 
         /// <summary>
+        /// The default vertical location of the text.
+        /// </summary>
+        public const float VERTICAL_LOCATION = 12f;
+
+        /// <summary>
         /// The maximum width of the rectangle where the text should be drawn.
         /// </summary>
         public const float MAX_WIDTH = 50f;
@@ -127,6 +132,22 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
+        private float verticalLocation;
+
+        [DefaultValue(VERTICAL_LOCATION)]
+        public float VerticalLocation
+        {
+            get { return verticalLocation; }
+            set
+            {
+                verticalLocation = value;
+                recalculateNeeded = true;
+                OnChanged(EventArgs.Empty);
+            }
+
+        }
+
+
         #region Constructors
 
         /// <summary>
@@ -168,6 +189,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             this.text = text;
             this.font = font;
+            this.verticalLocation = VERTICAL_LOCATION;
 
             stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
@@ -177,7 +199,6 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         #endregion
 
-
         #region Calculated Values
 
         private bool recalculateNeeded = true;
@@ -186,7 +207,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         private void CalculateDimensions(Graphics g)
         {
             SizeF textSize = g.MeasureString(text, font, (int)maxWidth);
-            PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
+            //PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
+            PointF textLocation = new PointF(-textSize.Width / 2F, verticalLocation);
             textRectangle = new RectangleF(textLocation, textSize);
 
             recalculateNeeded = false;

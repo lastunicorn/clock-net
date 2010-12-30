@@ -34,7 +34,7 @@ namespace DustInTheWind.Clock
     /// </summary>
     /// <remarks>
     /// <para>If the compilation symbol "PERFORMANCE_INFO" is used at compile time, additional information about the
-    /// time consumed with the OnPaint method are displayed in the upper left corner of the control.</para>
+    /// time consumed with the <see cref="OnPaint"/> method are displayed in the upper left corner of the control.</para>
     /// <para>If the "PERFORMANCE_INFO" symbol is not used, the code necessary to colect performance information will
     /// not be compiled at all, so it will not influence the performance.</para>
     /// </remarks>
@@ -253,16 +253,16 @@ namespace DustInTheWind.Clock
         #region Time
 
         /// <summary>
-        /// The time displayed by the control.
+        /// The time displayed by the clock.
         /// </summary>
         private TimeSpan time;
 
         /// <summary>
-        /// Gets or sets the time displayed by the control.
+        /// Gets or sets the time displayed by the clock.
         /// </summary>
         [Category("Value")]
         [DefaultValue(typeof(TimeSpan), "0")]
-        [Description("The time displayed by the control.")]
+        [Description("The time displayed by the clock.")]
         public TimeSpan Time
         {
             get { return time; }
@@ -271,42 +271,6 @@ namespace DustInTheWind.Clock
                 time = value;
                 Invalidate();
             }
-        }
-
-        /// <summary>
-        /// Displays the system's UTC time.
-        /// </summary>
-        private void DisplayUtcTime()
-        {
-            time = DateTime.UtcNow.TimeOfDay;
-            Invalidate();
-        }
-
-        /// <summary>
-        /// Displays the system's UTC time added with the specified offset value.
-        /// </summary>
-        private void DisplayUtcTime(TimeSpan offset)
-        {
-            time = DateTime.UtcNow.TimeOfDay.Add(offset);
-            Invalidate();
-        }
-
-        /// <summary>
-        /// Displays the system's local time.
-        /// </summary>
-        private void DisplayLocalTime()
-        {
-            time = DateTime.Now.TimeOfDay;
-            Invalidate();
-        }
-
-        /// <summary>
-        /// Retrieves a new <see cref="TimeSpan"/> value from the time provider and displays it.
-        /// </summary>
-        private void DisplayProvidedTime()
-        {
-            time = timeProvider.GetTime();
-            Invalidate();
         }
 
         #endregion
@@ -751,10 +715,17 @@ namespace DustInTheWind.Clock
 
         #region Miscellaneous
 
+        /// <summary>
+        /// A value that specifies if the drawn clock should alwais keep its proportions inside the control's area.
+        /// </summary>
         private bool keepProportions = true;
 
+        /// <summary>
+        /// Gets or sets a value that specifies if the drawn clock should alwais keep its proportions inside the control's area.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(true)]
+        [Description("A value that specifies if the drawn clock should alwais keep its proportions inside the control's area.")]
         public bool KeepProportions
         {
             get { return keepProportions; }
@@ -1021,11 +992,11 @@ namespace DustInTheWind.Clock
             long intervalTicks = now.Ticks - lastPaintTicks;
             lastPaintTicks = now.Ticks;
 
+            long test = stopwatch.ElapsedTicks;
 #endif
 
             base.OnPaint(e);
 
-            long test = stopwatch.ElapsedTicks;
 
             if (radius <= 0)
                 return;
@@ -1051,18 +1022,6 @@ namespace DustInTheWind.Clock
                     shape.Draw(g);
                 }
             }
-
-            //// Draw the dial's background.
-            //if (dialShape != null)
-            //{
-            //    dialShape.Draw(g);
-            //}
-
-            //// Draw the text.
-            //if (textShape != null)
-            //{
-            //    textShape.Draw(g);
-            //}
 
 
             // Calculate the angle increment value.
@@ -1112,42 +1071,7 @@ namespace DustInTheWind.Clock
             }
 
 
-
-
-
-            //for (int i = 1; i <= 60; i++)
-            //{
-            //    g.Transform = centerMatrix;
-            //    g.RotateTransform(i * 6); // 6 degrees between every tick.
-
-            //    g.TranslateTransform(0f, -radius);
-
-            //    if (i % 5 == 0)
-            //    {
-            //        // Draw the ticks.
-            //        if (ticks5Shape != null)
-            //        {
-            //            ticks5Shape.Draw(g);
-            //        }
-
-            //        // Draw the numbers.
-            //        if (numbersShape != null)
-            //        {
-            //            numbersShape.CurrentIndex = i / 5 - 1;
-            //            numbersShape.Draw(g);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        // Draw the ticks.
-            //        if (ticks1Shape != null)
-            //        {
-            //            ticks1Shape.Draw(g);
-            //        }
-            //    }
-            //}
-
-            g.Transform = centerMatrix;
+            //g.Transform = centerMatrix;
 
 
             // Draw the hour hand.
@@ -1206,6 +1130,8 @@ namespace DustInTheWind.Clock
             if (pinShape != null)
             {
                 g.Transform = centerMatrix;
+
+                // Draw the shape.
                 pinShape.Draw(g);
             }
 
