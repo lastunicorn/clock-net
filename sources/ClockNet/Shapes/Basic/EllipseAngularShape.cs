@@ -19,72 +19,68 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape class that draws a polygon.
+    /// An Angular Shape class that draws a ellipse.
     /// </summary>
-    public class PolygonShape : VectorialShapeBase
+    public class EllipseAngularShape : VectorialAngularShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Polygon Shape"; }
+            get { return "Ellipse Angular Shape"; }
         }
 
 
         /// <summary>
-        /// The points that defines the polygon.
+        /// The rectangle defining the ellipse that is drawn.
         /// </summary>
-        protected PointF[] points;
+        protected RectangleF rectangle;
 
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonShape"/> class with
+        /// Initializes a new instance of the <see cref="EllipseAngularShape"/> class with
         /// default values.
         /// </summary>
-        public PolygonShape()
-            : this(null, Color.Empty, Color.Empty, LINE_WIDTH)
+        public EllipseAngularShape()
+            : this(RectangleF.Empty, Color.Empty, Color.Empty, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonShape"/> class.
+        /// Initializes a new instance of the <see cref="EllipseAngularShape"/> class.
         /// </summary>
-        /// <param name="points">The points defining the polygon that will be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
-        /// <param name="fillColor">The color used to fill the path's interior.</param>
+        /// <param name="rectangle">The rectangle defining the ellipse that will be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the ellipse.</param>
+        /// <param name="fillColor">The color used to fill the ellipse's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public PolygonShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth)
+        public EllipseAngularShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
+            : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
-            this.points = points;
+            this.rectangle = rectangle;
         }
 
         #endregion
 
 
-        /// <summary>
-        /// Draws the polygon using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the polygon.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible)
+            if (!rectangle.IsEmpty)
             {
                 if (!fillColor.IsEmpty)
                 {
                     CreateBrushIfNull();
 
-                    g.FillPolygon(brush, points);
+                    g.FillEllipse(brush, rectangle);
                 }
 
                 if (!outlineColor.IsEmpty)
                 {
                     CreatePenIfNull();
 
-                    g.DrawPolygon(pen, points);
+                    g.DrawEllipse(pen, rectangle);
                 }
             }
         }

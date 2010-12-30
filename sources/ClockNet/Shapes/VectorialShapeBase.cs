@@ -28,7 +28,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// The default width of the line used to draw the shape.
         /// </summary>
-        public const float LINE_WIDTH = 1f;
+        public const float LINE_WIDTH = 0.3f;
 
 
         /// <summary>

@@ -196,7 +196,17 @@ namespace DustInTheWind.Clock.Shapes.Default
                                 break;
                         }
 
-                        g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
+                        try
+                        {
+                            g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
+                        }
+                        catch (System.Runtime.InteropServices.ExternalException)
+                        {
+                            // When the dimension of the clock is less then 0, this exception is raised.
+                            // I do not understend the reason.
+                            // I just ignore it. The text will not be displayed, but at the size of one pixel, it is not visible, so, no problem.
+                            // I hope this exception will not be thrown in some other situations.
+                        }
 
                         g.Transform = originalMatrix;
                     }

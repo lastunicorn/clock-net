@@ -64,10 +64,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Shapes\AngularExceptionRule.cs" />
+    <Compile Include="Shapes\Basic\ImageAngularShape.cs" />
+    <Compile Include="Shapes\Basic\PathAngularShape.cs" />
+    <Compile Include="Shapes\Basic\EllipseAngularShape.cs" />
+    <Compile Include="Shapes\Basic\RectangleAngularShape.cs" />
+    <Compile Include="Shapes\Basic\PolygonAngularShape.cs" />
+    <Compile Include="Shapes\Basic\EllipseShape.cs" />
+    <Compile Include="Shapes\Basic\RectangleShape.cs" />
     <Compile Include="Shapes\Basic\PathHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonShape.cs" />
     <Compile Include="Shapes\AngularShapeBase.cs" />
+    <Compile Include="Shapes\Basic\LineAngularShape.cs" />
+    <Compile Include="Shapes\Basic\StringShape.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shapes\Default\TicksShape.cs" />
     <Compile Include="Shapes\Default\DialShape.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -77,7 +89,6 @@
     <Compile Include="Shapes\HandShapeBase.cs" />
     <Compile Include="Shapes\VectorialAngularShapeBase.cs" />
     <Compile Include="Shapes\Fancy\FancyDialShape.cs" />
-    <Compile Include="Shapes\Default\TicksShape.cs" />
     <Compile Include="Shapes\Default\TextAngularShape.cs" />
     <Compile Include="Shapes\AngularShapeLocation.cs" />
     <Compile Include="Shapes\Fancy\BigNibHandShape.cs" />

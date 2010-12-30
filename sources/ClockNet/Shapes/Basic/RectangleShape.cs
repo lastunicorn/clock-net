@@ -19,72 +19,79 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape class that draws a polygon.
+    /// A Shape class that draws a rectangle.
     /// </summary>
-    public class PolygonShape : VectorialShapeBase
+    public class RectangleShape : VectorialShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Polygon Shape"; }
+            get { return "Rectangle Shape"; }
         }
 
 
         /// <summary>
-        /// The points that defines the polygon.
+        /// The rectangle that is drawn.
         /// </summary>
-        protected PointF[] points;
+        protected RectangleF rectangle;
+
+        /// <summary>
+        /// The same rectangle rounded to integer coordinates. It is necessary for the
+        /// <see cref="Graphics.DrawRectangle(Pen, Rectangle)"/> method that does not accepts a <see cref="RectangleF"/>.
+        /// </summary>
+        protected Rectangle roundedRectangle;
 
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonShape"/> class with
+        /// Initializes a new instance of the <see cref="RectangleShape"/> class with
         /// default values.
         /// </summary>
-        public PolygonShape()
-            : this(null, Color.Empty, Color.Empty, LINE_WIDTH)
+        public RectangleShape()
+            : this(RectangleF.Empty, Color.Empty, Color.Empty, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonShape"/> class.
+        /// Initializes a new instance of the <see cref="RectangleShape"/> class.
         /// </summary>
-        /// <param name="points">The points defining the polygon that will be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
-        /// <param name="fillColor">The color used to fill the path's interior.</param>
+        /// <param name="rectangle">The rectangle that will be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the rectangle.</param>
+        /// <param name="fillColor">The color used to fill the rectangle's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public PolygonShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth)
+        public RectangleShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
-            this.points = points;
+            this.rectangle = rectangle;
+            this.roundedRectangle = Rectangle.Round(rectangle);
         }
 
         #endregion
 
 
         /// <summary>
-        /// Draws the polygon using the provided <see cref="Graphics"/> object.
+        /// Draws the rectangle using the provided <see cref="Graphics"/> object.
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the polygon.</param>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the rectangle.</param>
         public override void Draw(Graphics g)
         {
-            if (visible)
+            if (visible && !rectangle.IsEmpty)
             {
                 if (!fillColor.IsEmpty)
                 {
                     CreateBrushIfNull();
 
-                    g.FillPolygon(brush, points);
+                    g.FillRectangle(brush, rectangle);
                 }
 
                 if (!outlineColor.IsEmpty)
                 {
                     CreatePenIfNull();
 
-                    g.DrawPolygon(pen, points);
+                    g.DrawRectangle(pen, roundedRectangle);
                 }
             }
         }

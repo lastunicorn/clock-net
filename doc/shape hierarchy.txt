@@ -2,23 +2,45 @@ DustInTheWind.Clock.Shapes.ShapeBase : DustInTheWind.Clock.Shapes.IShape
 	DustInTheWind.Clock.Shapes.VectorialShapeBase
 		DustInTheWind.Clock.Shapes.LineShape
 		DustInTheWind.Clock.Shapes.PolygonShape
+		DustInTheWind.Clock.Shapes.RectangleShape
+		DustInTheWind.Clock.Shapes.EllipseShape
 		DustInTheWind.Clock.Shapes.PathShape
-		DustInTheWind.Clock.Shapes.Default.DialShape
-		DustInTheWind.Clock.Shapes.Default.PinShape
-		DustInTheWind.Clock.Shapes.Default.TextShape
-		DustInTheWind.Clock.Shapes.Fancy.FancyDialShape
+		DustInTheWind.Clock.Shapes.StringShape
 	DustInTheWind.Clock.Shapes.ImageShape
 	DustInTheWind.Clock.Shapes.AngularShapeBase : DustInTheWind.Clock.Shapes.IAngularShape
 		DustInTheWind.Clock.Shapes.VectorialAngularShapeBase
 			DustInTheWind.Clock.Shapes.LineAngularShape
-				DustInTheWind.Clock.Shapes.Default.TicksShape
 			DustInTheWind.Clock.Shapes.PolygonAngularShape
+			DustInTheWind.Clock.Shapes.RectangleAngularShape
+			DustInTheWind.Clock.Shapes.EllipseAngularShape
 			DustInTheWind.Clock.Shapes.PathAngularShape
-			DustInTheWind.Clock.Shapes.Default.NumbersShape
+			DustInTheWind.Clock.Shapes.StringAngularShape
 		DustInTheWind.Clock.Shapes.ImageAngularShape
 	DustInTheWind.Clock.Shapes.HandShapeBase : DustInTheWind.Clock.Shapes.IHandShape
 		DustInTheWind.Clock.Shapes.VectorialHandShapeBase
 			DustInTheWind.Clock.Shapes.LineHandShape
+			DustInTheWind.Clock.Shapes.PolygonHandShape
+			DustInTheWind.Clock.Shapes.RectangleHandShape
+			DustInTheWind.Clock.Shapes.EllipseHandShape
+			DustInTheWind.Clock.Shapes.PathHandShape
+			DustInTheWind.Clock.Shapes.StringHandShape
+		DustInTheWind.Clock.Shapes.ImageHandShape
+		
+
+		
+DustInTheWind.Clock.Shapes.ShapeBase : DustInTheWind.Clock.Shapes.IShape
+	DustInTheWind.Clock.Shapes.VectorialShapeBase
+		DustInTheWind.Clock.Shapes.Default.DialShape
+		DustInTheWind.Clock.Shapes.Default.PinShape
+		DustInTheWind.Clock.Shapes.Default.TextShape
+		DustInTheWind.Clock.Shapes.Fancy.FancyDialShape
+	DustInTheWind.Clock.Shapes.AngularShapeBase : DustInTheWind.Clock.Shapes.IAngularShape
+		DustInTheWind.Clock.Shapes.VectorialAngularShapeBase
+			DustInTheWind.Clock.Shapes.LineAngularShape
+				DustInTheWind.Clock.Shapes.Default.TicksShape
+			DustInTheWind.Clock.Shapes.Default.NumbersShape
+	DustInTheWind.Clock.Shapes.HandShapeBase : DustInTheWind.Clock.Shapes.IHandShape
+		DustInTheWind.Clock.Shapes.VectorialHandShapeBase
 			DustInTheWind.Clock.Shapes.PolygonHandShape
 				DustInTheWind.Clock.Shapes.Default.MinuteHandShape
 				DustInTheWind.Clock.Shapes.Default.HourHandShape
@@ -26,8 +48,6 @@ DustInTheWind.Clock.Shapes.ShapeBase : DustInTheWind.Clock.Shapes.IShape
 				DustInTheWind.Clock.Shapes.Fancy.SlotHandShape
 				DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape
 				DustInTheWind.Clock.Shapes.Fancy.BigNibHandShape
-			DustInTheWind.Clock.Shapes.EllipseHandShape
-		DustInTheWind.Clock.Shapes.ImageHandShape
 			
 All the shapes are derived from ShapeBase.
 AnalogClock is using 3 types of Shapes:

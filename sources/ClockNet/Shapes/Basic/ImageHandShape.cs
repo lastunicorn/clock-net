@@ -124,11 +124,11 @@ namespace DustInTheWind.Clock.Shapes.Basic
             {
                 Matrix originalTransformMatrix = null;
 
-                if (origin.Y != 0 && height > 0)
+                if (location.Y != 0 && height > 0)
                 {
                     originalTransformMatrix = g.Transform;
 
-                    float scaleFactor = height / origin.Y;
+                    float scaleFactor = height / location.Y;
                     g.ScaleTransform(scaleFactor, scaleFactor);
                 }
 

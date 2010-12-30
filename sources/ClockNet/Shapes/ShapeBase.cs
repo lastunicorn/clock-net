@@ -76,8 +76,20 @@ namespace DustInTheWind.Clock.Shapes
 
         /// <summary>
         /// Disposes all the classes used in the drawing process.
+        /// This method is called every time when is set a property that changes the way the Shape is drawn.
+        /// Examples: the color, the width of the line, etc.
         /// </summary>
         protected virtual void InvalidateDrawingTools()
+        {
+        }
+
+
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that should not be calculated
+        /// every time the shape is drawn, but only first time.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
+        protected virtual void CalculateDimensions()
         {
         }
 

@@ -23,17 +23,12 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the ticks that mark the seconds.
     /// </summary>
-    public class TicksShape : VectorialAngularShapeBase
+    public class TicksShape : LineAngularShape
     {
         /// <summary>
         /// The default value of the length.
         /// </summary>
         public const float LENGTH = 2.5f;
-
-        /// <summary>
-        /// The default width of the line used to draw the shape.
-        /// </summary>
-        public new const float LINE_WIDTH = 0.3f;
 
 
         /// <summary>
@@ -42,18 +37,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         public override string Name
         {
             get { return "Default Ticks Shape"; }
-        }
-
-
-        /// <summary>
-        /// Gets or sets the color used to draw the ticks that mark the seconds.
-        /// </summary>
-        [DefaultValue(typeof(Color), "Black")]
-        [Description("The color used to draw the ticks that mark the seconds.")]
-        public override Color OutlineColor
-        {
-            get { return base.OutlineColor; }
-            set { base.OutlineColor = value; }
         }
 
 
@@ -80,18 +63,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
-        /// <summary>
-        /// Gets or sets the width of the 1 second ticks. This value is given for a clock with diameter of 100px.
-        /// </summary>
-        [DefaultValue(LINE_WIDTH)]
-        [Description("The width of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
-        public override float LineWidth
-        {
-            get { return base.LineWidth; }
-            set { base.LineWidth = value; }
-        }
-
-
         #region Constructors
 
         /// <summary>
@@ -111,29 +82,20 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="lineWidth">The width of the ticks.</param>
         /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
         public TicksShape(Color color, float length, float lineWidth, float positionOffset)
-            : base(color, Color.Empty, lineWidth, ANGLE, REPEAT, positionOffset)
+            : base(PointF.Empty, PointF.Empty, color, lineWidth, 6f, true, positionOffset)
         {
             this.length = length;
-            this.positionOffset = positionOffset;
 
             CalculateDimensions();
         }
 
         #endregion
 
-        PointF startPoint;
-        PointF endPoint;
 
-        private void CalculateDimensions()
+        protected override void CalculateDimensions()
         {
             startPoint = new PointF(0, 0);
             endPoint = new PointF(0, length);
-        }
-
-        protected override void DrawInternal(Graphics g)
-        {
-            CreatePenIfNull();
-            g.DrawLine(pen, startPoint, endPoint);
         }
     }
 }

@@ -19,16 +19,16 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape class that draws a polygon.
+    /// An Angular Shape class that draws a polygon.
     /// </summary>
-    public class PolygonShape : VectorialShapeBase
+    public class PolygonAngularShape : VectorialAngularShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Polygon Shape"; }
+            get { return "Polygon Angular Shape"; }
         }
 
 
@@ -41,23 +41,23 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonShape"/> class with
+        /// Initializes a new instance of the <see cref="PolygonAngularShape"/> class with
         /// default values.
         /// </summary>
-        public PolygonShape()
-            : this(null, Color.Empty, Color.Empty, LINE_WIDTH)
+        public PolygonAngularShape()
+            : this(null, Color.Empty, Color.Empty, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonShape"/> class.
+        /// Initializes a new instance of the <see cref="PolygonAngularShape"/> class.
         /// </summary>
         /// <param name="points">The points defining the polygon that will be drawn.</param>
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public PolygonShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth)
+        public PolygonAngularShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
+            : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
             this.points = points;
         }
@@ -65,27 +65,20 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
-        /// <summary>
-        /// Draws the polygon using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the polygon.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible)
+            if (!fillColor.IsEmpty)
             {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+                CreateBrushIfNull();
 
-                    g.FillPolygon(brush, points);
-                }
+                g.FillPolygon(brush, points);
+            }
 
-                if (!outlineColor.IsEmpty)
-                {
-                    CreatePenIfNull();
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-                    g.DrawPolygon(pen, points);
-                }
+                g.DrawPolygon(pen, points);
             }
         }
     }

@@ -21,16 +21,16 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape class that draws a bitmap image.
+    /// An Angular Shape class that draws a bitmap image.
     /// </summary>
-    public class ImageShape : ShapeBase
+    public class ImageAngularShape : AngularShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Image Shape"; }
+            get { return "Image Angular Shape"; }
         }
 
 
@@ -81,30 +81,30 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageShape"/> class with
+        /// Initializes a new instance of the <see cref="ImageAngularShape"/> class with
         /// default values.
         /// </summary>
-        public ImageShape()
-            : this(null, PointF.Empty)
+        public ImageAngularShape()
+            : this(null, PointF.Empty, ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageShape"/> class.
+        /// Initializes a new instance of the <see cref="ImageAngularShape"/> class.
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
-        public ImageShape(Image image)
-            : this(image, PointF.Empty)
+        public ImageAngularShape(Image image)
+            : this(image, PointF.Empty, ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageShape"/> class.
+        /// Initializes a new instance of the <see cref="ImageAngularShape"/> class.
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
         /// <param name="location">The location of the upper left corner of the image.</param>
-        public ImageShape(Image image, PointF location)
-            : base()
+        public ImageAngularShape(Image image, PointF location, float angle, bool repeat, float positionOffset)
+            : base(angle, repeat, positionOffset)
         {
             this.image = image;
             this.location = location;
@@ -113,13 +113,9 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
-        /// <summary>
-        /// Draws the image using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && image != null)
+            if (image != null)
             {
                 g.DrawImage(image, location.X, location.Y, image.Width, image.Height);
             }

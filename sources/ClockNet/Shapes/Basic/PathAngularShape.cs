@@ -20,16 +20,16 @@ using System.Drawing.Drawing2D;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape class that draws a <see cref="GraphicsPath"/>.
+    /// An Angular Shape class that draws a <see cref="GraphicsPath"/>.
     /// </summary>
-    public class PathShape : VectorialShapeBase
+    public class PathAngularShape : VectorialAngularShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Path Shape"; }
+            get { return "Path Angular Shape"; }
         }
 
         /// <summary>
@@ -41,35 +41,35 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PathShape"/> class with
+        /// Initializes a new instance of the <see cref="PathAngularShape"/> class with
         /// default values.
         /// </summary>
-        public PathShape()
-            : this(null, Color.Empty, Color.Black, LINE_WIDTH)
+        public PathAngularShape()
+            : this(null, Color.Empty, Color.Black, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
         {
 
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PathShape"/> class.
+        /// Initializes a new instance of the <see cref="PathAngularShape"/> class.
         /// </summary>
         /// <param name="path">The path that should be drawn.</param>
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
-        public PathShape(GraphicsPath path, Color outlineColor, Color fillColor)
-            : this(path, outlineColor, fillColor, LINE_WIDTH)
+        public PathAngularShape(GraphicsPath path, Color outlineColor, Color fillColor)
+            : this(path, outlineColor, fillColor, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PathShape"/> class.
+        /// Initializes a new instance of the <see cref="PathAngularShape"/> class.
         /// </summary>
         /// <param name="path">The path that should be drawn.</param>
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public PathShape(GraphicsPath path, Color outlineColor, Color fillColor, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth)
+        public PathAngularShape(GraphicsPath path, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
+            : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
             this.path = path;
         }
@@ -77,13 +77,9 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
-        /// <summary>
-        /// Draws the path using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the path.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && path != null)
+            if (path != null)
             {
                 if (!fillColor.IsEmpty)
                 {
