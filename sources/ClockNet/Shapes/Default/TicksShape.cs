@@ -42,16 +42,16 @@ namespace DustInTheWind.Clock.Shapes.Default
 
 
         /// <summary>
-        /// The length of the 1 second ticks. This value is given for a clock with diameter of 100px.
+        /// The length of the ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
         protected float length;
 
         /// <summary>
-        /// Gets or sets the length of the 1 second ticks. This value is given for a clock with diameter of 100px.
+        /// Gets or sets the length of the ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
         [Category("Appearance")]
         [DefaultValue(LENGTH)]
-        [Description("The length of the 1 second ticks. This value is given for a clock with diameter of 100px.")]
+        [Description("The length of the ticks. This value is given for a clock with diameter of 100px.")]
         public virtual float Length
         {
             get { return length; }
@@ -93,6 +93,11 @@ namespace DustInTheWind.Clock.Shapes.Default
         #endregion
 
 
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
         protected override void CalculateDimensions()
         {
             startPoint = new PointF(0, 0);

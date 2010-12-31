@@ -12,6 +12,10 @@ namespace DustInTheWind.Clock
 {
     public class BackgroundShapeCollectionEditor : CollectionEditor
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BackgroundShapeCollectionEditor"/> class.
+        /// </summary>
+        /// <param name="type">The type of the collection that will be edited.</param>
         public BackgroundShapeCollectionEditor(Type type)
             : base(type)
         {

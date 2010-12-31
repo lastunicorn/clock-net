@@ -247,6 +247,52 @@ namespace DustInTheWind.Clock
 
         #endregion
 
+        #region Event HandShapeAdded
+
+        /// <summary>
+        /// Event raised when a Shape is added to the <see cref="HandShapes"/> collection.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Event raised when a Shape is added to the HandShapes collection.")]
+        public event EventHandler<ShapeAddedEventArgs> HandShapeAdded;
+
+        /// <summary>
+        /// Raises the <see cref="HandShapeAdded"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        protected virtual void OnHandShapeAdded(ShapeAddedEventArgs e)
+        {
+            if (HandShapeAdded != null)
+            {
+                HandShapeAdded(this, e);
+            }
+        }
+
+        #endregion
+
+        #region Event HandShapeRemoved
+
+        /// <summary>
+        /// Event raised when a Shape is removed from the <see cref="HandShapes"/> collection.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Event raised when a Shape is removed from the HandShapes collection.")]
+        public event EventHandler<ShapeRemovedEventArgs> HandShapeRemoved;
+
+        /// <summary>
+        /// Raises the <see cref="HandShapeRemoved"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        protected virtual void OnHandShapeRemoved(ShapeRemovedEventArgs e)
+        {
+            if (HandShapeRemoved != null)
+            {
+                HandShapeRemoved(this, e);
+            }
+        }
+
+        #endregion
+
 
 
         #region Time
@@ -482,6 +528,61 @@ namespace DustInTheWind.Clock
 
         #endregion
 
+        #region AngularShapeCollection class
+
+        private class HandShapeCollection : Collection<IHandShape>
+        {
+            AnalogClock clock;
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="HandShapeCollection"/> class.
+            /// </summary>
+            /// <param name="clock">The parent clock of the current instance.</param>
+            public HandShapeCollection(AnalogClock clock)
+            {
+                if (clock == null)
+                    throw new ArgumentNullException("clock");
+
+                this.clock = clock;
+            }
+
+            protected override void InsertItem(int index, IHandShape item)
+            {
+                base.InsertItem(index, item);
+
+                if (item != null)
+                    item.Changed += new EventHandler(clock.shape_Changed);
+
+                clock.Invalidate();
+                clock.OnHandShapeAdded(new ShapeAddedEventArgs(index, item));
+            }
+
+            protected override void RemoveItem(int index)
+            {
+                IHandShape item = this[index];
+
+                if (item != null)
+                    item.Changed -= new EventHandler(clock.shape_Changed);
+
+                base.RemoveItem(index);
+
+                clock.Invalidate();
+                clock.OnHandShapeRemoved(new ShapeRemovedEventArgs(item));
+            }
+
+            protected override void SetItem(int index, IHandShape item)
+            {
+                base.SetItem(index, item);
+            }
+
+            protected override void ClearItems()
+            {
+                base.ClearItems();
+            }
+        }
+
+        #endregion
+
 
         #region BackgroundShapes
 
@@ -495,7 +596,7 @@ namespace DustInTheWind.Clock
         /// </summary>
         [Category("Shapes")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [EditorAttribute(typeof(BackgroundShapeCollectionEditor), typeof(UITypeEditor))]
+        [EditorAttribute(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn on the background of the clock.")]
         public Collection<IShape> BackgroundShapes
         {
@@ -516,7 +617,7 @@ namespace DustInTheWind.Clock
         /// </summary>
         [Category("Shapes")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [EditorAttribute(typeof(AngularShapeCollectionEditor), typeof(UITypeEditor))]
+        [EditorAttribute(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn repetitively on the edge of the clock.")]
         public Collection<IAngularShape> AngularShapes
         {
@@ -524,6 +625,29 @@ namespace DustInTheWind.Clock
         }
 
         #endregion
+
+        #region HandShapes
+
+        /// <summary>
+        /// The list of shapes that display the time.
+        /// </summary>
+        private HandShapeCollection handShapes;
+
+        /// <summary>
+        /// Gets the list of shapes that display the time.
+        /// </summary>
+        [Category("Shapes")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [EditorAttribute(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
+        [Description("The list of shapes that display the time.")]
+        public Collection<IHandShape> HandShapes
+        {
+            get { return handShapes; }
+        }
+
+        #endregion
+
+
 
         #region Hour Hand
 
@@ -779,6 +903,7 @@ namespace DustInTheWind.Clock
 
             backgroundShapes = new BackgroundShapeCollection(this);
             angularShapes = new AngularShapeCollection(this);
+            handShapes = new HandShapeCollection(this);
 
             if (shapeSet != null)
             {
@@ -1080,6 +1205,18 @@ namespace DustInTheWind.Clock
                             shape.Draw(g);
                         }
                     }
+                }
+            }
+
+            // Draw the hand shapes.
+            foreach (IHandShape shape in handShapes)
+            {
+                if (shape != null)
+                {
+                    g.Transform = centerMatrix;
+
+                    shape.Time = time;
+                    shape.Draw(g);
                 }
             }
 

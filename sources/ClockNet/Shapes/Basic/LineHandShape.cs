@@ -107,6 +107,11 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
         protected override void CalculateDimensions()
         {
             startPoint = new PointF(0f, tailLength);
@@ -122,6 +127,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
             if (visible && !outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
+
+                float sweepDegrees = (float)((time.Seconds + time.Milliseconds / 1000F) * 6);
+
+                g.RotateTransform(sweepDegrees);
 
                 g.DrawLine(pen, startPoint, endPoint);
             }

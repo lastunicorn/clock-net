@@ -52,8 +52,7 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
-    <Compile Include="AngularShapeCollectionEditor.cs" />
-    <Compile Include="BackgroundShapeCollectionEditor.cs" />
+    <Compile Include="ShapeCollectionEditor.cs" />
     <Compile Include="ShapeRemovedEventArgs.cs" />
     <Compile Include="ShapeAddedEventArgs.cs" />
     <Compile Include="HSBColor.cs" />
@@ -80,7 +79,6 @@
     <Compile Include="Shapes\Basic\StringShape.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shapes\ITimeShape.cs" />
     <Compile Include="Shapes\Default\TicksShape.cs" />
     <Compile Include="Shapes\Default\DialShape.cs">
       <SubType>Code</SubType>

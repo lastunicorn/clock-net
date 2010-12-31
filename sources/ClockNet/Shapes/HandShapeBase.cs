@@ -53,6 +53,24 @@ namespace DustInTheWind.Clock.Shapes
         }
 
 
+        /// <summary>
+        /// The time that the current instance should represent.
+        /// </summary>
+        protected TimeSpan time;
+
+        /// <summary>
+        /// Gets or sets the time that the current instance should represent.
+        /// </summary>
+        [Category("Appearance")]
+        [DefaultValue(typeof(TimeSpan), "00:00:00")]
+        [Description("The time that the current instance should represent.")]
+        public virtual TimeSpan Time
+        {
+            get { return time; }
+            set { time = value; }
+        }
+
+
         #region Constructors
 
         /// <summary>

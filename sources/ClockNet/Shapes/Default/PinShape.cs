@@ -139,7 +139,12 @@ namespace DustInTheWind.Clock.Shapes.Default
         private float _locationX;
         private float _locationY;
 
-        protected virtual void CalculateDimensions()
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
+        protected override void CalculateDimensions()
         {
             _locationX = -radius / 2f;
             _locationY = -radius / 2f;

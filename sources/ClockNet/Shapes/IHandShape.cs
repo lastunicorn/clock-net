@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.ComponentModel;
+using System;
 
 namespace DustInTheWind.Clock.Shapes
 {
@@ -28,6 +29,11 @@ namespace DustInTheWind.Clock.Shapes
         /// When implemented in a derived class, gets or sets the height of the hand from the pin to the top.
         /// </summary>
         float Height { get; set; }
+
+        /// <summary>
+        /// Gets or sets the time that the current instance should represent.
+        /// </summary>
+        TimeSpan Time { get; set; }
 
         ///// <summary>
         ///// When implemented in a derived class, gets or sets the length of the tail.

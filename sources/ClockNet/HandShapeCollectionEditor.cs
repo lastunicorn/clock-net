@@ -8,13 +8,13 @@ using System.Reflection;
 
 namespace DustInTheWind.Clock
 {
-    public class AngularShapeCollectionEditor : CollectionEditor
+    public class HandShapeCollectionEditor : CollectionEditor
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AngularShapeCollectionEditor"/> class.
+        /// Initializes a new instance of the <see cref="HandShapeCollectionEditor"/> class.
         /// </summary>
         /// <param name="type">The type of the collection that will be edited.</param>
-        public AngularShapeCollectionEditor(Type type)
+        public HandShapeCollectionEditor(Type type)
             : base(type)
         {
         }
@@ -28,7 +28,7 @@ namespace DustInTheWind.Clock
             foreach (Type type in assembly.GetTypes())
             {
                 if (type.IsClass && !type.IsAbstract &&
-                    type.GetInterface(typeof(IAngularShape).FullName) != null)
+                    type.GetInterface(typeof(IHandShape).FullName) != null)
                 {
                     types.Add(type);
                 }

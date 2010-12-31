@@ -83,10 +83,9 @@ namespace DustInTheWind.Clock.Shapes
         {
         }
 
-
         /// <summary>
-        /// Calculates additional values that are necessary by the drawing process, but that should not be calculated
-        /// every time the shape is drawn, but only first time.
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
         protected virtual void CalculateDimensions()
