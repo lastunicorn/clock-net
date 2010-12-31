@@ -21,58 +21,65 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Hand Shape that draws an ellipse.
+    /// A Hand Shape that draws a rectangle.
     /// </summary>
-    public class EllipseHandShape : VectorialHandShapeBase
+    public class RectangleHandShape : VectorialHandShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Elipse Hand Shape"; }
+            get { return "Rectangle Hand Shape"; }
         }
 
 
         /// <summary>
-        /// The rectangle defining the ellipse that is drawn.
+        /// The rectangle defining the rectangle that is drawn.
         /// </summary>
         protected RectangleF rectangle;
+
+        /// <summary>
+        /// The same rectangle rounded to integer coordinates. It is necessary for the
+        /// <see cref="Graphics.DrawRectangle(Pen, Rectangle)"/> method that does not accepts a <see cref="RectangleF"/>.
+        /// </summary>
+        protected Rectangle roundedRectangle;
 
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EllipseHandShape"/> class with
+        /// Initializes a new instance of the <see cref="RectangleHandShape"/> class with
         /// default values.
         /// </summary>
-        public EllipseHandShape()
+        public RectangleHandShape()
             : this(RectangleF.Empty,Color.Empty, Color.RoyalBlue, HEIGHT, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EllipseHandShape"/> class.
+        /// Initializes a new instance of the <see cref="RectangleHandShape"/> class.
         /// </summary>
         /// <param name="fillColor">The color used to draw the background of the hand.</param>
         /// <param name="height">The distance between the pin and the center of the ellipse.</param>
-        public EllipseHandShape(Color fillColor, float height)
+        public RectangleHandShape(Color fillColor, float height)
             : this(RectangleF.Empty, Color.Empty, fillColor, height, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EllipseHandShape"/> class.
+        /// Initializes a new instance of the <see cref="RectangleHandShape"/> class.
         /// </summary>
-        /// <param name="rectangle">The rectangle defining the ellipse that will be drawn.</param>
+        /// <param name="rectangle">The rectangle that will be drawn.</param>
         /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
         /// <param name="fillColor">The color used to draw the background of the hand.</param>
-        /// <param name="height">The distance between the pin and the center of the circle.</param>
+        /// <param name="height">The distance between the pin and the center of the rectangle.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public EllipseHandShape(RectangleF rectangle, Color outlineColor, Color fillColor, float height, float lineWidth)
+        public RectangleHandShape(RectangleF rectangle, Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(outlineColor, fillColor, lineWidth, height)
         {
             this.rectangle = rectangle;
+            this.roundedRectangle = Rectangle.Round(rectangle);
         }
 
         #endregion
@@ -89,14 +96,14 @@ namespace DustInTheWind.Clock.Shapes.Basic
                 {
                     CreateBrushIfNull();
 
-                    g.FillEllipse(brush, rectangle);
+                    g.FillRectangle(brush, rectangle);
                 }
 
                 if (!outlineColor.IsEmpty)
                 {
                     CreatePenIfNull();
 
-                    g.DrawEllipse(pen, rectangle);
+                    g.DrawRectangle(pen, roundedRectangle);
                 }
             }
         }

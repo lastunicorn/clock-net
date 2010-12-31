@@ -130,6 +130,7 @@ namespace DustInTheWind.Clock.Shapes
                 TextAngularShape minuteShapes = new TextAngularShape(Color.WhiteSmoke, new Font("Arial", 2.2f, FontStyle.Regular, GraphicsUnit.Point), 0.7f);
                 minuteShapes.Numbers = new string[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60" };
 
+
                 IAngularShape[] angulars = new IAngularShape[]{
                     ticks1Shape,
                     ticks5Shape,
@@ -140,6 +141,7 @@ namespace DustInTheWind.Clock.Shapes
                 HourHandShape hourHandShape = new HourHandShape();
                 MinuteHandShape minuteHandShape = new MinuteHandShape();
                 LineHandShape sweepHandShape = new LineHandShape(Color.Red);
+                sweepHandShape.Height = 42f;
                 PinShape pinShape = new PinShape();
 
                 return new ShapeSet()
@@ -183,6 +185,8 @@ namespace DustInTheWind.Clock.Shapes
                 hourHandShape.Width = 5f;
                 BigNibHandShape minuteHandShape = new BigNibHandShape();
                 FancySweepHandShape sweepHandShape = new FancySweepHandShape();
+                //sweepHandShape.Height = 50f;
+                //sweepHandShape.CircleRadius = 5f;
                 PinShape pinShape = new PinShape();
 
                 return new ShapeSet()
@@ -197,21 +201,22 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
-        public static ShapeSet BlackDot
+        public static ShapeSet Dots
         {
             get
             {
                 IShape[] backgrounds = new IShape[]{
-                    new DustInTheWind.Clock.Shapes.Default.DialShape(Color.Black, Color.White, 2)
+                    new EllipseShape(new RectangleF(-50f, -50f, 100f, 100f), Color.Empty, Color.Black, 0f),
+                    new EllipseShape(new RectangleF(-48f, -48f, 96f, 96f), Color.Empty, Color.White, 0f)
                 };
 
                 IAngularShape[] angulars = null;
 
-                EllipseHandShape hourHandShape = new EllipseHandShape(Color.Black, 20, 4.5f);
-                EllipseHandShape minuteHandShape = new EllipseHandShape(Color.Black, 40, 2.75f);
+                DotHandShape hourHandShape = new DotHandShape(Color.Black, 20, 4.5f);
+                DotHandShape minuteHandShape = new DotHandShape(Color.Black, 40, 2.75f);
                 //SweepHandShape sweepHandShape = null;
                 LineHandShape sweepHandShape = null;
-                PinShape pinShape = new DustInTheWind.Clock.Shapes.Default.PinShape(Color.Black, 8);
+                PinShape pinShape = new PinShape(Color.Black, 8);
 
                 return new ShapeSet()
                 {

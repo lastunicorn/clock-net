@@ -21,6 +21,9 @@ using System.Globalization;
 
 namespace DustInTheWind.Clock
 {
+    /// <summary>
+    ///  Provides a type converter to convert <see cref="PointF"/> to and from string representation.
+    /// </summary>
     public class PointFConverter : ExpandableObjectConverter
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)

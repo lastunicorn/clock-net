@@ -77,7 +77,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="height">The length of the hour hand.</param>
         /// <param name="lineWidth">The width of the outline.</param>
         public BigNibHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
-            : base(CreatePath(), outlineColor, fillColor, lineWidth, height)
+            : base(CreatePath(), outlineColor, fillColor, height, lineWidth)
         {
             CalculateDimensions();
         }

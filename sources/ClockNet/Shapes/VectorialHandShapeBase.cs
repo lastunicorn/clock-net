@@ -51,7 +51,7 @@ namespace DustInTheWind.Clock.Shapes
         /// Gets or sets the color used to draw the outline of the shape.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(typeof(Color), "Black")]
+        [DefaultValue(typeof(Color), "Empty")]
         [Description("Gets or sets the color used to draw the outline of the shape.")]
         public virtual Color OutlineColor
         {
@@ -130,7 +130,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        /// <param name="height">The length of the hour hand. This value is given in pixels for a clock with the diameter of 100px.</param>
+        /// <param name="height">The length of the hand. This value is given in pixels for a clock with the diameter of 100px.</param>
         public VectorialHandShapeBase(Color outlineColor, Color fillColor, float lineWidth, float height)
             : base(height)
         {

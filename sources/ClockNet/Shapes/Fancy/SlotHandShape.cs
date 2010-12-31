@@ -150,7 +150,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="height">The length of the carving from the pin to the its top.</param>
         /// <param name="width">The width of the carving.</param>
         public SlotHandShape(Color outlineColor, Color fillColor, float radius, float height, float width)
-            : base(new GraphicsPath(), outlineColor, fillColor, 0, height)
+            : base(new GraphicsPath(), outlineColor, fillColor, height, LINE_WIDTH)
         {
             this.radius = radius;
             this.width = width;

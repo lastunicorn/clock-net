@@ -88,7 +88,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the line.</param>
         public override void Draw(Graphics g)
         {
-            if (visible && !outlineColor.IsEmpty && !startPoint.IsEmpty && !endPoint.IsEmpty)
+            if (visible && !outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 

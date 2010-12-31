@@ -72,15 +72,14 @@ namespace DustInTheWind.Clock.Shapes
             : base()
         {
             this.height = height;
-            CalculateDimensions();
         }
 
         #endregion
 
 
-        /// <summary>
-        /// Performs all the necessary calculations based on the public parameters, before drawing the shape.
-        /// </summary>
-        protected virtual void CalculateDimensions() { }
+        ///// <summary>
+        ///// Performs all the necessary calculations based on the public parameters, before drawing the shape.
+        ///// </summary>
+        //protected virtual void CalculateDimensions() { }
     }
 }

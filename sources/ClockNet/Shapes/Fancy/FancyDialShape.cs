@@ -125,6 +125,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the dial.</param>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
         public FancyDialShape(Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
@@ -168,7 +169,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         private RectangleF innerRimRectangle;
         private RectangleF faceRectangle;
 
-        protected void CalculateDimensions()
+        protected override void CalculateDimensions()
         {
             outerRimRectangle = new RectangleF(-50f, -50f, 100, 100);
             innerRimRectangle = RectangleF.Inflate(outerRimRectangle, -outerRimWidth, -outerRimWidth);

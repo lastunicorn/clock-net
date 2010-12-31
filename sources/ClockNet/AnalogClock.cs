@@ -19,13 +19,12 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.Shapes.Default;
 using DustInTheWind.Clock.TimeProviders;
-using System.Drawing.Design;
 
 namespace DustInTheWind.Clock
 {
@@ -486,11 +485,18 @@ namespace DustInTheWind.Clock
 
         #region BackgroundShapes
 
+        /// <summary>
+        /// The list of shapes that are drawn on the background of the clock.
+        /// </summary>
         private BackgroundShapeCollection backgroundShapes;
 
+        /// <summary>
+        /// Gets the list of shapes that are drawn on the background of the clock.
+        /// </summary>
         [Category("Shapes")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [EditorAttribute(typeof(BackgroundShapeCollectionEditor), typeof(UITypeEditor))]
+        [Description("The list of shapes that are drawn on the background of the clock.")]
         public Collection<IShape> BackgroundShapes
         {
             get { return backgroundShapes; }
@@ -500,11 +506,18 @@ namespace DustInTheWind.Clock
 
         #region AngularShapes
 
+        /// <summary>
+        /// The list of shapes that are drawn repetitively on the edge of the clock.
+        /// </summary>
         private AngularShapeCollection angularShapes;
 
+        /// <summary>
+        /// Gets the list of shapes that are drawn repetitively on the edge of the clock.
+        /// </summary>
         [Category("Shapes")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [EditorAttribute(typeof(AngularShapeCollectionEditor), typeof(UITypeEditor))]
+        [Description("The list of shapes that are drawn repetitively on the edge of the clock.")]
         public Collection<IAngularShape> AngularShapes
         {
             get { return angularShapes; }
@@ -1006,7 +1019,7 @@ namespace DustInTheWind.Clock
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = TextRenderingHint.AntiAlias;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            //g.InterpolationMode = InterpolationMode.HighQualityBilinear;
+            g.InterpolationMode = InterpolationMode.HighQualityBilinear;
 
             Matrix originalMatrix = e.Graphics.Transform;
 
@@ -1069,9 +1082,6 @@ namespace DustInTheWind.Clock
                     }
                 }
             }
-
-
-            //g.Transform = centerMatrix;
 
 
             // Draw the hour hand.

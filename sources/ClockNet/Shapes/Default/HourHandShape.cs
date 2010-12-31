@@ -26,8 +26,6 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class HourHandShape : PolygonHandShape
     {
-        public const string NAME = "Default Hour Hand Shape";
-
         /// <summary>
         /// The default value of the <see cref="Height"/>.
         /// </summary>
@@ -44,7 +42,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public override string Name
         {
-            get { return NAME; }
+            get { return "Default Hour Hand Shape"; }
         }
 
         /// <summary>

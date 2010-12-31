@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes.Default
+namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
     /// An Angular Shape class that draws a line.

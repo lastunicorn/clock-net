@@ -20,7 +20,7 @@ using System.Globalization;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.Shapes.Default;
 
-namespace DustInTheWind.Clock
+namespace DustInTheWind.Clock.Shapes
 {
     public class ShapeConverter : ExpandableObjectConverter
     {

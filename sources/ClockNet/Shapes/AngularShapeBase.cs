@@ -119,10 +119,17 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+        /// <summary>
+        /// The index and its multiples that should be skipped from beeing drawn.
+        /// </summary>
         protected int exceptionIndex;
 
+        /// <summary>
+        /// Gets or sets the index and its multiples that should be skipped from beeing drawn.
+        /// </summary>
         [Category("Appearance")]
         [DefaultValue(EXCEPTION_INDEX)]
+        [Description("The index and its multiples that should be skipped from beeing drawn.")]
         public int ExceptionIndex
         {
             get { return exceptionIndex; }
@@ -155,7 +162,14 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+        /// <summary>
+        /// The index that should be drawn by the <see cref="Draw"/> method next time it is call.
+        /// </summary>
         protected int index = 0;
+
+        /// <summary>
+        /// Gets or sets the index that should be drawn by the <see cref="Draw"/> method next time it is call.
+        /// </summary>
         public int Index
         {
             get { return index; }
@@ -196,14 +210,13 @@ namespace DustInTheWind.Clock.Shapes
 
         #endregion
 
-        protected virtual void CalculateDimensions() { }
 
         /// <summary>
         /// Draws one tick using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
         /// <remarks>
-        /// Before calling this method, the origin should be already moved to the edje of the dial,
+        /// Before calling this method, the origin should be already moved to the edge of the dial,
         /// in the place where the tick should be drawn.
         /// </remarks>
         public override void Draw(Graphics g)

@@ -24,14 +24,8 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// <summary>
     /// Displays an image hand in the <see cref="AnalogClock"/> control.
     /// </summary>
-    public class ImageHandShape : ImageShape, IHandShape
+    public class ImageHandShape : HandShapeBase
     {
-        /// <summary>
-        /// The default height of the hand.
-        /// </summary>
-        public const float HEIGHT = 45f;
-
-
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
@@ -42,36 +36,46 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
 
         /// <summary>
-        /// The height of the hand. If the image's height is different then this value, a scale is performed.
+        /// The image to be drawn.
         /// </summary>
-        protected float height;
+        protected Image image;
 
         /// <summary>
-        /// Gets or sets the height of the hand. If the image's height is different then this value, a scale is performed.
+        /// Gets or sets the image to be drawn.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(150)]
-        [Description("The height of the hand.")]
-        public virtual float Height
+        [DefaultValue(null)]
+        [Description("The image to be drawn.")]
+        public virtual Image Image
         {
-            get { return height; }
+            get { return image; }
             set
             {
-                height = value;
+                image = value;
                 OnChanged(EventArgs.Empty);
             }
         }
 
 
         /// <summary>
-        /// Not used. Returns always 0.
+        /// The location of the pin relative to the upper left corner of the image.
         /// </summary>
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public float TailLength
+        protected PointF origin;
+
+        /// <summary>
+        /// Gets or sets the location of the pin relative to the upper left corner of the image.
+        /// </summary>
+        [Category("Behaviour")]
+        [TypeConverter(typeof(PointFConverter))]
+        [Description("The location of the pin relative to the upper left corner of the image.")]
+        public virtual PointF Location
         {
-            get { return 0f; }
-            set { }
+            get { return origin; }
+            set
+            {
+                origin = value;
+                OnChanged(EventArgs.Empty);
+            }
         }
 
 
@@ -102,9 +106,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <param name="origin">The location of the pin relative of the top left corner of the image.</param>
         /// <param name="height">The height of the hand from the pin to the top.</param>
         public ImageHandShape(Image image, PointF origin, float height)
-            : base(image, origin)
+            : base(height)
         {
-            this.height = height;
+            this.image = image;
+            this.origin = origin;
         }
 
         #endregion
@@ -124,15 +129,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
             {
                 Matrix originalTransformMatrix = null;
 
-                if (location.Y != 0 && height > 0)
+                if (origin.Y != 0 && height > 0)
                 {
                     originalTransformMatrix = g.Transform;
 
-                    float scaleFactor = height / location.Y;
+                    float scaleFactor = height / origin.Y;
                     g.ScaleTransform(scaleFactor, scaleFactor);
                 }
 
-                base.Draw(g);
+                g.DrawImage(image, -origin.X, -origin.Y, image.Width, image.Height);
 
                 if (originalTransformMatrix != null)
                 {

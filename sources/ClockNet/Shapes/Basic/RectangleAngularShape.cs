@@ -62,6 +62,9 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <param name="outlineColor">The color used to draw the outline of the rectangle.</param>
         /// <param name="fillColor">The color used to fill the rectangle's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
+        /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
+        /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
+        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
         public RectangleAngularShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {

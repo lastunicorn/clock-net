@@ -100,7 +100,9 @@ namespace DustInTheWind.Clock
 
             if (sweepHandShapeDescriptor != null && sweepHandShapeDescriptor.PropertyType == typeof(IHandShape) && !sweepHandShapeDescriptor.IsReadOnly && sweepHandShapeDescriptor.IsBrowsable)
             {
-                sweepHandShapeDescriptor.SetValue(Component, new LineHandShape(Color.Red));
+                LineHandShape hand = new LineHandShape(Color.Red);
+                hand.Height = 42.5f;
+                sweepHandShapeDescriptor.SetValue(Component, hand);
             }
 
 

@@ -103,6 +103,9 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
         /// <param name="location">The location of the upper left corner of the image.</param>
+        /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
+        /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
+        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
         public ImageAngularShape(Image image, PointF location, float angle, bool repeat, float positionOffset)
             : base(angle, repeat, positionOffset)
         {

@@ -35,7 +35,7 @@ namespace DustInTheWind.Clock.Demo
             //analogClockIndia.TimeProvider = new UtcOffsetTimeProvider(new TimeSpan(5, 30, 0));
 
             analogClockImages.SetShapes(ShapeSet.ImageShapes);
-            analogClockBlackDot.SetShapes(ShapeSet.BlackDot);
+            analogClockBlackDot.SetShapes(ShapeSet.Dots);
             analogClockFancy.SetShapes(ShapeSet.Fancy);
             analogClockWhiteFancy.SetShapes(ShapeSet.WhiteFancy);
             analogClockBlack.SetShapes(ShapeSet.Black);

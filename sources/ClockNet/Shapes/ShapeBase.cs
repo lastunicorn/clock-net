@@ -102,10 +102,20 @@ namespace DustInTheWind.Clock.Shapes
 
         #region IDisposable Members
 
+        /// <summary>
+        /// A value specifying if the current instance has been disposed.
+        /// </summary>
         private bool disposed = false;
-
+        
+        /// <summary>
+        /// Event raised after the current instance is disposed.
+        /// </summary>
         public event EventHandler Disposed;
 
+        /// <summary>
+        /// Raises the <see cref="Disposed"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnDisposed(EventArgs e)
         {
             if (Disposed != null)

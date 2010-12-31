@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;PERFORMANCE_INFO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>ClockNet.xml</DocumentationFile>
@@ -27,7 +27,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;PERFORMANCE_INFO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>ClockNet.xml</DocumentationFile>
@@ -64,6 +64,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Shapes\AngularExceptionRule.cs" />
+    <Compile Include="Shapes\Basic\RectangleHandShape.cs" />
     <Compile Include="Shapes\Basic\ImageAngularShape.cs" />
     <Compile Include="Shapes\Basic\PathAngularShape.cs" />
     <Compile Include="Shapes\Basic\EllipseAngularShape.cs" />
@@ -79,12 +80,14 @@
     <Compile Include="Shapes\Basic\StringShape.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Shapes\ITimeShape.cs" />
     <Compile Include="Shapes\Default\TicksShape.cs" />
     <Compile Include="Shapes\Default\DialShape.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Shapes\Fancy\DotHandShape.cs" />
     <Compile Include="Shapes\ShapeSelectorEditor.cs" />
-    <Compile Include="Shapes\StringAngularShape.cs" />
+    <Compile Include="Shapes\Basic\StringAngularShape.cs" />
     <Compile Include="Shapes\VectorialHandShapeBase.cs" />
     <Compile Include="Shapes\HandShapeBase.cs" />
     <Compile Include="Shapes\VectorialAngularShapeBase.cs" />

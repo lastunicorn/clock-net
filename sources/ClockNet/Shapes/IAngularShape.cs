@@ -17,8 +17,8 @@
 namespace DustInTheWind.Clock.Shapes
 {
     /// <summary>
-    /// Represents a shape that is drawn repeatedly at different angles on the clock.
-    /// The angles are measured from the 12 o'clock hour. The decides the angle and then asks the shape to draw itself.
+    /// Represents a Shape that is drawn repeatedly at different angles on the clock.
+    /// The angles are measured from the 12 o'clock hour. The clock decides the angle and then asks the Shape to draw itself.
     /// The first shape is drawn in the first position after the 12 o'clock hour. The 12 o'clock hour position is drawn last.
     /// </summary>
     public interface IAngularShape : IShape
@@ -35,13 +35,13 @@ namespace DustInTheWind.Clock.Shapes
 
         /// <summary>
         /// Gets or sets the index of the shape that will be drawn next.
-        /// This value is automatically incremented after a coll of the <see cref="Draw"/> method.
+        /// This value is automatically incremented after a coll of the <see cref="IShape.Draw"/> method.
         /// </summary>
         int Index { get; set; }
 
         /// <summary>
         /// Resets the index of the shape that will be drawn next.
-        /// This method is called by the clock before every paint.
+        /// This method is called by the clock before the paint starts.
         /// </summary>
         void Reset();
     }

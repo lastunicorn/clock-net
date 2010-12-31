@@ -40,7 +40,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <summary>
         /// The default length of the tail of the hand.
         /// </summary>
-        public const float TAIL_LENGTH = 6f;
+        public const float TAIL_LENGTH = 7f;
 
 
         /// <summary>
@@ -168,7 +168,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="lineWidth">The width of the outline.</param>
         /// <param name="height">The length of the hand from the pin to the its top.</param>
         public FancySweepHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
-            : base(new GraphicsPath(), outlineColor, fillColor, lineWidth, height)
+            : base(new GraphicsPath(), outlineColor, fillColor, height, lineWidth)
         {
             tailLength = TAIL_LENGTH;
 

@@ -21,20 +21,10 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the sweep hand.
+    /// An Hand Shape that draws a simple straight line.
     /// </summary>
-    public class LineHandShape : LineShape, IHandShape
+    public class LineHandShape : VectorialHandShapeBase
     {
-        /// <summary>
-        /// The default value of the hand length from the pin to the top.
-        /// </summary>
-        public const float HEIGHT = 42.5f;
-
-        /// <summary>
-        /// The default value of the hand width.
-        /// </summary>
-        public new const float LINE_WIDTH = 0.3f;
-
         /// <summary>
         /// The default value of the hand's tail length.
         /// </summary>
@@ -51,51 +41,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
 
         /// <summary>
-        /// Get or sets the width of the line that is drawn by the current instance.
+        /// The location of the tail tip.
         /// </summary>
-        [DefaultValue(LINE_WIDTH)]
-        public override float LineWidth
-        {
-            get { return base.LineWidth; }
-            set { base.LineWidth = value; }
-        }
-
-        [DefaultValue(typeof(Color), "Black")]
-        public override Color OutlineColor
-        {
-            get { return base.OutlineColor; }
-            set { base.OutlineColor = value; }
-        }
-
-        [DefaultValue(typeof(Color), "Empty")]
-        [Browsable(false)]
-        public override Color FillColor
-        {
-            get { return base.FillColor; }
-            set { base.FillColor = value; }
-        }
+        protected PointF startPoint;
 
         /// <summary>
-        /// The length of the hand. For a clock with the diameter of 100px.
+        /// The lcation of the hand top.
         /// </summary>
-        protected float height;
+        protected PointF endPoint;
 
-        /// <summary>
-        /// Gets or sets the length of the hand. For a clock with the diameter of 100px.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(HEIGHT)]
-        [Description("The length of the hand. For a clock with the diameter of 100px.")]
-        public virtual float Height
-        {
-            get { return height; }
-            set
-            {
-                height = value;
-                CalculateDimensions();
-                OnChanged(EventArgs.Empty);
-            }
-        }
 
         /// <summary>
         /// The length of the hand's tail that is drawn on the other side of the pin.
@@ -143,10 +97,8 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// Initializes a new instance of the <see cref="LineHandShape"/> class.
         /// </summary>
         public LineHandShape(Color color, float height, float width, float tailLength)
-            : base(color, width)
+            : base(color, Color.Empty, width, height)
         {
-            this.height = height;
-            this.lineWidth = width;
             this.tailLength = tailLength;
 
             CalculateDimensions();
@@ -155,28 +107,24 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
-        private void CalculateDimensions()
+        protected override void CalculateDimensions()
         {
             startPoint = new PointF(0f, tailLength);
             endPoint = new PointF(0f, -height);
         }
 
-        ///// <summary>
-        ///// Draws the hand hand using the provided <see cref="Graphics"/> object.
-        ///// </summary>
-        ///// <param name="g">The <see cref="Graphics"/> on which to draw the hand.</param>
-        ///// <remarks>
-        ///// The hand is drawn in vertical position from the origin of the coordinate system.
-        ///// Before this method beeng called, the coordinate system has to be rotated in the corect position.
-        ///// </remarks>
-        //public override void Draw(Graphics g)
-        //{
-        //    if (!outlineColor.IsEmpty)
-        //    {
-        //        CreatePenIfNull();
+        /// <summary>
+        /// Draws the hand using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the hand.</param>
+        public override void Draw(Graphics g)
+        {
+            if (visible && !outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-        //        g.DrawLine(pen, startPoint, endPoint);
-        //    }
-        //}
+                g.DrawLine(pen, startPoint, endPoint);
+            }
+        }
     }
 }

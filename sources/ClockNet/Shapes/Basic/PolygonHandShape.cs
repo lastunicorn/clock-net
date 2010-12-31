@@ -20,7 +20,7 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape that draws a polygonal clock hand.
+    /// An Hend Shape that draws a polygonal clock hand.
     /// </summary>
     public class PolygonHandShape : VectorialHandShapeBase
     {

@@ -20,7 +20,7 @@ using System.Drawing.Drawing2D;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape that draws a complex vectorial clock hand defined by a <see cref="GraphicsPath"/> object.
+    /// An Shape that draws a complex vectorial clock hand defined by a <see cref="GraphicsPath"/> object.
     /// </summary>
     public class PathHandShape : VectorialHandShapeBase
     {
