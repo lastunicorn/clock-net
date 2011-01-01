@@ -47,6 +47,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <summary>
         /// Gets or sets the radius of the dot.
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         [Category("Appearance")]
         [DefaultValue(RADIUS)]
         [Description("The radius of the dot.")]
@@ -55,6 +56,9 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             get { return radius; }
             set
             {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
+
                 radius = value;
                 CalculateDimensions();
                 OnChanged(EventArgs.Empty);
@@ -68,7 +72,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public DotHandShape()
-            : this(Color.Empty, Color.RoyalBlue, HEIGHT, LINE_WIDTH, RADIUS)
+            : this(Color.Empty, Color.Black, HEIGHT, LINE_WIDTH, RADIUS)
         {
         }
 

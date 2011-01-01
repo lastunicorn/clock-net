@@ -39,7 +39,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// Gets or sets a value specifying if the shape should be drawn or not.
         /// </summary>
-        [Category("Appearance")]
+        [Category("Behavior")]
         [DefaultValue(true)]
         [Description("A value specifying if the shape should be drawn or not.")]
         public virtual bool Visible

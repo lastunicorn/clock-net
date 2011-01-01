@@ -26,9 +26,9 @@ namespace DustInTheWind.Clock.Shapes.Default
     public class PinShape : VectorialHandShapeBase
     {
         /// <summary>
-        /// The default value of the radius.
+        /// The default value of the diameter.
         /// </summary>
-        private const float RADIUS = 1.33f;
+        private const float DIAMETER = 1.33f;
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -39,25 +39,26 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
         /// <summary>
-        /// The radius of the pin.
+        /// The diameter of the pin.
         /// </summary>
-        protected float radius;
+        protected float diameter;
 
         /// <summary>
-        /// Gets or sets the radius of the pin.
+        /// Gets or sets the diameter of the pin.
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         [Category("Appearance")]
-        [DefaultValue(RADIUS)]
-        [Description("The radius of the pin.")]
-        public float Radius
+        [DefaultValue(DIAMETER)]
+        [Description("The diameter of the pin.")]
+        public float Diameter
         {
-            get { return radius; }
+            get { return diameter; }
             set
             {
                 if (value < 0)
-                    throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
+                    throw new ArgumentOutOfRangeException("value", "The diameter can not be a negative value.");
 
-                radius = value;
+                diameter = value;
                 CalculateDimensions();
                 OnChanged(EventArgs.Empty);
             }
@@ -93,7 +94,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public PinShape()
-            : this(Color.Empty, Color.Red, RADIUS)
+            : this(Color.Empty, Color.Black, DIAMETER)
         {
         }
 
@@ -113,7 +114,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <param name="outlineColor">The color used to draw the outline of the pin.</param>
         /// <param name="fillColor">The color used to fill the pin.</param>
         public PinShape(Color outlineColor, Color fillColor)
-            : this(Color.Empty, fillColor, RADIUS)
+            : this(Color.Empty, fillColor, DIAMETER)
         {
         }
 
@@ -126,7 +127,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public PinShape(Color outlineColor, Color fillColor, float radius)
             : base(outlineColor, fillColor)
         {
-            this.radius = radius;
+            this.diameter = radius;
 
             CalculateDimensions();
         }
@@ -146,8 +147,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         protected override void CalculateDimensions()
         {
-            _locationX = -radius / 2f;
-            _locationY = -radius / 2f;
+            _locationX = -diameter / 2f;
+            _locationY = -diameter / 2f;
         }
 
         #endregion
@@ -162,14 +163,14 @@ namespace DustInTheWind.Clock.Shapes.Default
             {
                 CreateBrushIfNull();
 
-                g.FillEllipse(brush, _locationX, _locationY, radius, radius);
+                g.FillEllipse(brush, _locationX, _locationY, diameter, diameter);
             }
 
             if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 
-                g.DrawEllipse(pen, _locationX, _locationY, radius, radius);
+                g.DrawEllipse(pen, _locationX, _locationY, diameter, diameter);
             }
         }
     }

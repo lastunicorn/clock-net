@@ -51,9 +51,9 @@ namespace DustInTheWind.Clock.Shapes
                     new TextAngularShape()
                 };
 
-                HourHandShape hourHandShape = new HourHandShape();
+                RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24.2f, 5f, 6f);
                 hourHandShape.ComponentToDisplay = TimeComponent.Hour;
-                MinuteHandShape minuteHandShape = new MinuteHandShape();
+                RombicHandShape minuteHandShape = new RombicHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
                 minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 LineHandShape sweepHandShape = new LineHandShape();
                 sweepHandShape.ComponentToDisplay = TimeComponent.Second;
@@ -97,9 +97,9 @@ namespace DustInTheWind.Clock.Shapes
                     new DustInTheWind.Clock.Shapes.Default.TextAngularShape(Color.Navy)
                 };
 
-                HourHandShape hourHandShape = new HourHandShape(Color.Empty, Color.Navy);
+                RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.Navy, 24.2f, 5f, 6f);
                 hourHandShape.ComponentToDisplay = TimeComponent.Hour;
-                MinuteHandShape minuteHandShape = new MinuteHandShape(Color.Empty, Color.RoyalBlue);
+                RombicHandShape minuteHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 37f, 4f, 4f);
                 minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 LineHandShape sweepHandShape = new LineHandShape(Color.DeepSkyBlue);
                 sweepHandShape.ComponentToDisplay = TimeComponent.Second;
@@ -150,9 +150,9 @@ namespace DustInTheWind.Clock.Shapes
                     minuteShapes
                 };
 
-                HourHandShape hourHandShape = new HourHandShape();
+                RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24.2f, 5f, 6f);
                 hourHandShape.ComponentToDisplay = TimeComponent.Hour;
-                MinuteHandShape minuteHandShape = new MinuteHandShape();
+                RombicHandShape minuteHandShape = new RombicHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
                 minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 LineHandShape sweepHandShape = new LineHandShape(Color.Red);
                 sweepHandShape.ComponentToDisplay = TimeComponent.Second;
@@ -309,7 +309,6 @@ namespace DustInTheWind.Clock.Shapes
             get
             {
                 IShape[] backgrounds = new IShape[]{
-                    new DialShape(),
                     new TextShape("Image Hands", Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
                 };
 

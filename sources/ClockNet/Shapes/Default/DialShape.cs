@@ -17,6 +17,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System;
 
 namespace DustInTheWind.Clock.Shapes.Default
 {
@@ -32,29 +33,23 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             get { return "Default Dial Shape"; }
         }
+        
 
+        protected float radius;
 
-        /// <summary>
-        /// Gets or sets the color used to draw the dial's background.
-        /// </summary>
-        [DefaultValue(typeof(Color), "Empty")]
-        [Description("The color used to draw the dial's background.")]
-        public override Color OutlineColor
+        [Category("Appearance")]
+        public virtual float Radius
         {
-            get { return base.OutlineColor; }
-            set { base.OutlineColor = value; }
-        }
+            get { return radius; }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
 
-
-        /// <summary>
-        /// Gets or sets the color used to draw the border of the dial.
-        /// </summary>
-        [DefaultValue(typeof(Color), "Empty")]
-        [Description("The color used to draw the border of the dial.")]
-        public override Color FillColor
-        {
-            get { return base.FillColor; }
-            set { base.FillColor = value; }
+                radius = value;
+                CalculateDimensions();
+                OnChanged(EventArgs.Empty);
+            }
         }
 
 
@@ -65,7 +60,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public DialShape()
-            : this(Color.Empty, Color.Empty, LINE_WIDTH)
+            : this(Color.Empty, Color.Black, LINE_WIDTH)
         {
         }
 
@@ -86,6 +81,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         public DialShape(Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
+            this.radius = 50;
+
+            CalculateDimensions();
         }
 
         #endregion
@@ -104,9 +102,16 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        private float locationX = -50;
-        private float locationY = -50;
-        private float diameter = 100;
+        //private float locationX = -50;
+        //private float locationY = -50;
+        //private float diameter = 100;
+        private RectangleF rect;
+
+        protected override void CalculateDimensions()
+        {
+            rect = new RectangleF(-radius, -radius, radius * 2, radius * 2);
+        }
+
 
         /// <summary>
         /// Draws the dial's background using the provided <see cref="Graphics"/> object.
@@ -118,14 +123,14 @@ namespace DustInTheWind.Clock.Shapes.Default
             {
                 CreateBrushIfNull();
 
-                g.FillEllipse(brush, locationX, locationY, diameter, diameter);
+                g.FillEllipse(brush, rect);
             }
 
             if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 
-                g.DrawEllipse(pen, locationX, locationY, diameter, diameter);
+                g.DrawEllipse(pen, rect);
             }
         }
     }

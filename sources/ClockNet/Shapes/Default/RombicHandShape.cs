@@ -39,7 +39,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public override string Name
         {
-            get { return "Default Hour Hand Shape"; }
+            get { return "Rombic Hand Shape"; }
         }
 
         /// <summary>

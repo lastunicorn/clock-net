@@ -117,7 +117,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// Gets or sets the maximum width of the rectangle where the text should be drawn.
         /// </summary>
-        [Category("Appearance")]
+        [Category("Layout")]
         [DefaultValue(MAX_WIDTH)]
         [Description("The maximum width of the rectangle where the text should be drawn.")]
         public virtual float MaxWidth
@@ -134,6 +134,7 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         private float verticalLocation;
 
+        [Category("Layout")]
         [DefaultValue(VERTICAL_LOCATION)]
         public float VerticalLocation
         {

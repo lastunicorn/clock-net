@@ -427,6 +427,7 @@ namespace DustInTheWind.Clock
         /// <summary>
         /// Gets or sets an instance of the <see cref="ITimeProvider"/> that provides the time to be displayed by the timer.
         /// </summary>
+        [Category("Value")]
         [DefaultValue(null)]
         [Description("Provides the time to be displayed by the timer.")]
         public ITimeProvider TimeProvider

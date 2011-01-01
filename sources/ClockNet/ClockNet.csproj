@@ -111,8 +111,6 @@
     <Compile Include="Shapes\Basic\LineHandShape.cs" />
     <Compile Include="Shapes\VectorialShapeBase.cs" />
     <Compile Include="Shapes\ShapeBase.cs" />
-    <Compile Include="Shapes\Default\MinuteHandShape.cs" />
-    <Compile Include="Shapes\Default\HourHandShape.cs" />
     <Compile Include="Shapes\Basic\ImageHandShape.cs" />
     <Compile Include="Shapes\IShape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

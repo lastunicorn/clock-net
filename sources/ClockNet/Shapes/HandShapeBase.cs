@@ -30,6 +30,10 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         public const float HEIGHT = 45f;
 
+        /// <summary>
+        /// The default value of the <see cref="IntegralValue"/>.
+        /// </summary>
+        public const bool INTEGRAL_VALUE = false;
 
         /// <summary>
         /// The length of the hand from the pin to the its top. For a clock with the diameter of 100px.
@@ -69,7 +73,17 @@ namespace DustInTheWind.Clock.Shapes
             set { time = value; }
         }
 
+        /// <summary>
+        /// Specifies the component that is displayed from the time value.
+        /// </summary>
         protected TimeComponent componentToDisplay;
+
+        /// <summary>
+        /// Gets or sets a value that specifies the component that is displayed from the time value.
+        /// </summary>
+        [DefaultValue(typeof(TimeComponent), "None")]
+        [Category("Behavior")]
+        [Description("Specifies the component that is displayed from the time value.")]
         public virtual TimeComponent ComponentToDisplay
         {
             get { return componentToDisplay; }
@@ -80,7 +94,17 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+        /// <summary>
+        /// A value that specifies if the hand will hide the fractional part of the value that it displayes.
+        /// </summary>
         protected bool integralValue;
+
+        /// <summary>
+        /// Gets or set a value that specifies if the hand will hide the fractional part of the value that it displayes.
+        /// </summary>
+        [Category("Behavior")]
+        [DefaultValue(INTEGRAL_VALUE)]
+        [Description("Specifies if the hand will hide the fractional part of the value that it displayes.")]
         public virtual bool IntegralValue
         {
             get { return integralValue; }
@@ -111,6 +135,7 @@ namespace DustInTheWind.Clock.Shapes
             : base()
         {
             this.height = height;
+            this.integralValue = INTEGRAL_VALUE;
         }
 
         #endregion

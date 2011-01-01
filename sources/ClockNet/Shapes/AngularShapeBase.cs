@@ -60,7 +60,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// Gets or sets the position offset relativelly to the edge of the dial.
         /// </summary>
-        [Category("Appearance")]
+        [Category("Layout")]
         [DefaultValue(POSITION_OFFSET)]
         [Description("The position offset relativelly to the edge of the dial.")]
         public virtual float PositionOffset
@@ -78,7 +78,7 @@ namespace DustInTheWind.Clock.Shapes
         protected float offsetAngle;
 
         /// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
-        [Category("Appearance")]
+        [Category("Layout")]
         [DefaultValue(OFFSET_ANGLE)]
         public float OffsetAngle
         {
@@ -103,7 +103,7 @@ namespace DustInTheWind.Clock.Shapes
         /// Gets or sets the angle between two consecutive drawns of the shape.
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">The angle between two consecutive drawns of the shape should be a positive number.</exception>
-        [Category("Appearance")]
+        [Category("Layout")]
         [DefaultValue(ANGLE)]
         [Description("The angle between two consecutive drawns of the shape.")]
         public float Angle
@@ -127,7 +127,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// Gets or sets the index and its multiples that should be skipped from beeing drawn.
         /// </summary>
-        [Category("Appearance")]
+        [Category("Behavior")]
         [DefaultValue(EXCEPTION_INDEX)]
         [Description("The index and its multiples that should be skipped from beeing drawn.")]
         public int ExceptionIndex
@@ -149,7 +149,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// Gets or sets a value specifying if the shape should be repeated all around the clock's dial.
         /// </summary>
-        [Category("Appearance")]
+        [Category("Behavior")]
         [DefaultValue(REPEAT)]
         [Description("Specifies if the shape should be repeated all around the clock's dial.")]
         public bool Repeat
@@ -170,6 +170,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// Gets or sets the index that should be drawn by the <see cref="Draw"/> method next time it is call.
         /// </summary>
+        [Browsable(false)]
         public int Index
         {
             get { return index; }
