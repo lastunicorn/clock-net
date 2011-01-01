@@ -94,7 +94,7 @@
     <Compile Include="Shapes\Fancy\FancyDialShape.cs" />
     <Compile Include="Shapes\Default\TextAngularShape.cs" />
     <Compile Include="Shapes\AngularShapeLocation.cs" />
-    <Compile Include="Shapes\Fancy\BigNibHandShape.cs" />
+    <Compile Include="Shapes\Fancy\NibHandShape.cs" />
     <Compile Include="Shapes\Basic\EllipseHandShape.cs" />
     <Compile Include="Shapes\Default\TextShape.cs" />
     <Compile Include="Shapes\IAngularShape.cs" />

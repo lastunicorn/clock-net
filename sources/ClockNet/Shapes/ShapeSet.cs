@@ -24,6 +24,8 @@ namespace DustInTheWind.Clock.Shapes
 {
     public class ShapeSet
     {
+        #region Predefined Shape Sets
+
         public static ShapeSet Empty
         {
             get { return new ShapeSet(); }
@@ -51,7 +53,7 @@ namespace DustInTheWind.Clock.Shapes
                     new TextAngularShape()
                 };
 
-                RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24.2f, 5f, 6f);
+                RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24f, 5f, 6f);
                 hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 RombicHandShape minuteHandShape = new RombicHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
                 minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
@@ -97,7 +99,7 @@ namespace DustInTheWind.Clock.Shapes
                     new DustInTheWind.Clock.Shapes.Default.TextAngularShape(Color.Navy)
                 };
 
-                RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.Navy, 24.2f, 5f, 6f);
+                RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.Navy, 24f, 5f, 6f);
                 hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 RombicHandShape minuteHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 37f, 4f, 4f);
                 minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
@@ -150,7 +152,7 @@ namespace DustInTheWind.Clock.Shapes
                     minuteShapes
                 };
 
-                RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24.2f, 5f, 6f);
+                RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24f, 5f, 6f);
                 hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 RombicHandShape minuteHandShape = new RombicHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
                 minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
@@ -200,10 +202,10 @@ namespace DustInTheWind.Clock.Shapes
                     numbersShape
                 };
 
-                BigNibHandShape hourHandShape = new BigNibHandShape(Color.Black, 30f);
+                NibHandShape hourHandShape = new NibHandShape(Color.Black, 30f);
                 hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 hourHandShape.Width = 5f;
-                BigNibHandShape minuteHandShape = new BigNibHandShape();
+                NibHandShape minuteHandShape = new NibHandShape();
                 minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 FancySweepHandShape sweepHandShape = new FancySweepHandShape();
                 sweepHandShape.ComponentToDisplay = TimeComponent.Second;
@@ -352,6 +354,9 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+        #endregion
+
+
         private IShape[] backgroundShapes;
 
         public IShape[] BackgroundShapes
@@ -375,61 +380,5 @@ namespace DustInTheWind.Clock.Shapes
             get { return handShapes; }
             set { handShapes = value; }
         }
-
-        ///// <summary>
-        ///// An instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
-        ///// </summary>
-        //private IHandShape hourHandShape;
-
-        ///// <summary>
-        ///// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
-        ///// </summary>
-        //public IHandShape HourHandShape
-        //{
-        //    get { return hourHandShape; }
-        //    set { hourHandShape = value; }
-        //}
-
-        ///// <summary>
-        ///// An instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
-        ///// </summary>
-        //private IHandShape minuteHandShape;
-
-        ///// <summary>
-        ///// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
-        ///// </summary>
-        //public IHandShape MinuteHandShape
-        //{
-        //    get { return minuteHandShape; }
-        //    set { minuteHandShape = value; }
-        //}
-
-        ///// <summary>
-        ///// An instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
-        ///// </summary>
-        //private IHandShape sweepHandShape;
-
-        ///// <summary>
-        ///// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
-        ///// </summary>
-        //public IHandShape SweepHandShape
-        //{
-        //    get { return sweepHandShape; }
-        //    set { sweepHandShape = value; }
-        //}
-
-        ///// <summary>
-        ///// An instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
-        ///// </summary>
-        //private IShape pinShape;
-
-        ///// <summary>
-        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
-        ///// </summary>
-        //public IShape PinShape
-        //{
-        //    get { return pinShape; }
-        //    set { pinShape = value; }
-        //}
     }
 }

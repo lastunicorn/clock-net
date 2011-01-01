@@ -25,7 +25,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// <summary>
     /// Draws a fancy clock hand that resambles to a nib.
     /// </summary>
-    public class BigNibHandShape : PathHandShape
+    public class NibHandShape : PathHandShape
     {
         /// <summary>
         /// The default length of the width of the hand.
@@ -33,8 +33,15 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         public const float WIDTH = 5f;
 
 
+        /// <summary>
+        /// The width of the slot carved inside the disk.
+        /// </summary>
         protected float width;
 
+        /// <summary>
+        /// Gets or sets the width of the slot carved inside the disk.
+        /// </summary>
+        [Category("Appearance")]
         [DefaultValue(WIDTH)]
         [Description("The width of the slot carved inside the disk.")]
         public virtual float Width
@@ -51,32 +58,32 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BigNibHandShape"/> class with
+        /// Initializes a new instance of the <see cref="NibHandShape"/> class with
         /// default values.
         /// </summary>
-        public BigNibHandShape()
-            : this(Color.Empty, Color.Black, HEIGHT, LINE_WIDTH)
+        public NibHandShape()
+            : this(OUTLINE_COLOR, FILL_COLOR, HEIGHT, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BigNibHandShape"/> class.
+        /// Initializes a new instance of the <see cref="NibHandShape"/> class.
         /// </summary>
         /// <param name="fillColor">The color used to fill the opaqu disk.</param>
         /// <param name="height">The length of the hour hand.</param>
-        public BigNibHandShape(Color fillColor, float height)
-            : this(Color.Empty, fillColor, height, LINE_WIDTH)
+        public NibHandShape(Color fillColor, float height)
+            : this(OUTLINE_COLOR, fillColor, height, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BigNibHandShape"/> class.
+        /// Initializes a new instance of the <see cref="NibHandShape"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
         /// <param name="fillColor">The color used to fill the opaqu disk.</param>
         /// <param name="height">The length of the hour hand.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public BigNibHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
+        public NibHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(CreatePath(), outlineColor, fillColor, height, lineWidth)
         {
             CalculateDimensions();

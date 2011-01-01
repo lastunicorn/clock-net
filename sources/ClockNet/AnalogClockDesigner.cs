@@ -50,7 +50,6 @@ namespace DustInTheWind.Clock
 
                 if (backgroundShapes != null)
                 {
-                    backgroundShapes.Add(new DialShape());
                     backgroundShapes.Add(new TextShape("Dust in the Wind", Color.Black));
                 }
             }
@@ -88,7 +87,7 @@ namespace DustInTheWind.Clock
 
                 if (handShapes != null)
                 {
-                    RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24.2f, 5f, 6f);
+                    RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24f, 5f, 6f);
                     hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                     handShapes.Add(hourHandShape);
 

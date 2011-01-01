@@ -17,6 +17,8 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.ComponentModel.Design;
+using System.Drawing.Design;
 
 namespace DustInTheWind.Clock.Shapes.Default
 {
@@ -76,6 +78,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         [Category("Appearance")]
         [DefaultValue(TEXT)]
         [Description("The text that is drawn.")]
+        [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
         public virtual string Text
         {
             get { return text; }

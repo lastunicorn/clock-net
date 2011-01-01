@@ -26,6 +26,7 @@ using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.TimeProviders;
 using DustInTheWind.Clock.Shapes.Default;
+using System.ComponentModel.Design;
 
 namespace DustInTheWind.Clock
 {
@@ -316,6 +317,7 @@ namespace DustInTheWind.Clock
             }
         }
 
+        [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
         public override string Text
         {
             get
@@ -645,7 +647,7 @@ namespace DustInTheWind.Clock
         /// </summary>
         [Category("Shapes")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [EditorAttribute(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
+        [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn on the background of the clock.")]
         public Collection<IShape> BackgroundShapes
         {

@@ -30,6 +30,9 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         public const float LINE_WIDTH = 0.3f;
 
+        public static Color FILL_COLOR = Color.Black;
+        public static Color OUTLINE_COLOR = Color.Empty;
+
 
         /// <summary>
         /// The brush used to fill the shape.
