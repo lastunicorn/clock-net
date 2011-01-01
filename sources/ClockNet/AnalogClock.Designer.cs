@@ -29,19 +29,19 @@ namespace DustInTheWind.Clock
                 if (components != null)
                     components.Dispose();
 
-                foreach (IShape shape in backgroundShapes)
+                foreach (IGroundShape shape in backgroundShapes)
                 {
                     if (shape != null)
                         shape.Dispose();
                 }
 
-                foreach (IShape shape in angularShapes)
+                foreach (IAngularShape shape in angularShapes)
                 {
                     if (shape != null)
                         shape.Dispose();
                 }
 
-                foreach (IShape shape in handShapes)
+                foreach (IHandShape shape in handShapes)
                 {
                     if (shape != null)
                         shape.Dispose();

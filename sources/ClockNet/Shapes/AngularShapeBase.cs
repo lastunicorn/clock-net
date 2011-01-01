@@ -21,9 +21,6 @@ using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes
 {
-    /// <summary>
-    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the ticks that mark the seconds.
-    /// </summary>
     public abstract class AngularShapeBase : ShapeBase, IAngularShape
     {
         /// <summary>

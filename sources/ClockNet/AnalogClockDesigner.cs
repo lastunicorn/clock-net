@@ -49,9 +49,9 @@ namespace DustInTheWind.Clock
 
             PropertyDescriptor backgroundShapeDescriptor = TypeDescriptor.GetProperties(Component)["BackgroundShapes"];
 
-            if (backgroundShapeDescriptor != null && backgroundShapeDescriptor.PropertyType == typeof(Collection<IShape>) && backgroundShapeDescriptor.IsBrowsable)
+            if (backgroundShapeDescriptor != null && backgroundShapeDescriptor.PropertyType == typeof(Collection<IGroundShape>) && backgroundShapeDescriptor.IsBrowsable)
             {
-                Collection<IShape> backgroundShapes = backgroundShapeDescriptor.GetValue(Component) as Collection<IShape>;
+                Collection<IGroundShape> backgroundShapes = backgroundShapeDescriptor.GetValue(Component) as Collection<IGroundShape>;
 
                 if (backgroundShapes != null)
                 {

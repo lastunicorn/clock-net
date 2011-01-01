@@ -15,22 +15,28 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes
 {
-    /// <summary>
-    /// Represents a clock hand that is drawn on the clock in the <see cref="AnalogClock"/> control.
-    /// </summary>
-    public interface IHandShape : IShape
+    public abstract class GroundShapeBase : ShapeBase, IGroundShape
     {
-        /// <summary>
-        /// When implemented in a derived class, gets or sets the height of the hand from the pin to the top.
-        /// </summary>
-        float Height { get; set; }
+        [Browsable(false)]
+        public int a { get; set; }
+
+        #region Constructors
 
         /// <summary>
-        /// Gets or sets the time that the current instance should represent.
+        /// Initializes a new instance of the <see cref="GroundShapeBase"/> class with
+        /// default values.
         /// </summary>
-        TimeSpan Time { get; set; }
+        public GroundShapeBase()
+            : base()
+        {
+        }
+
+        #endregion
     }
 }

@@ -23,7 +23,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a bitmap image.
     /// </summary>
-    public class ImageShape : ShapeBase
+    public class ImageGroundShape : GroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -57,22 +57,22 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
 
         /// <summary>
-        /// The location of the upper left corner of the image.
+        /// The location of the pin relative to the upper left corner of the image.
         /// </summary>
-        protected PointF location;
+        protected PointF origin;
 
         /// <summary>
-        /// Gets or sets the location of the upper left corner of the image.
+        /// Gets or sets the location of the pin relative to the upper left corner of the image.
         /// </summary>
         [Category("Behaviour")]
         [TypeConverter(typeof(PointFConverter))]
-        [Description("The location of the upper left corner of the image.")]
-        public virtual PointF Location
+        [Description("The location of the pin relative to the upper left corner of the image.")]
+        public virtual PointF Origin
         {
-            get { return location; }
+            get { return origin; }
             set
             {
-                location = value;
+                origin = value;
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -81,33 +81,33 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageShape"/> class with
+        /// Initializes a new instance of the <see cref="ImageGroundShape"/> class with
         /// default values.
         /// </summary>
-        public ImageShape()
+        public ImageGroundShape()
             : this(null, PointF.Empty)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageShape"/> class.
+        /// Initializes a new instance of the <see cref="ImageGroundShape"/> class.
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
-        public ImageShape(Image image)
+        public ImageGroundShape(Image image)
             : this(image, PointF.Empty)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageShape"/> class.
+        /// Initializes a new instance of the <see cref="ImageGroundShape"/> class.
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
-        /// <param name="location">The location of the upper left corner of the image.</param>
-        public ImageShape(Image image, PointF location)
+        /// <param name="origin">The location of the pin relative to the upper left corner of the image.</param>
+        public ImageGroundShape(Image image, PointF origin)
             : base()
         {
             this.image = image;
-            this.location = location;
+            this.origin = origin;
         }
 
         #endregion
@@ -134,7 +134,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void DrawInternal(Graphics g)
         {
-            g.DrawImage(image, location.X, location.Y, image.Width, image.Height);
+            float height = 50f;
+
+            if (origin.Y != 0 && height > 0)
+            {
+                float scaleFactor = height / origin.Y;
+                g.ScaleTransform(scaleFactor, scaleFactor);
+            }
+
+            g.DrawImage(image, -origin.X, -origin.Y, image.Width, image.Height);
         }
     }
 }

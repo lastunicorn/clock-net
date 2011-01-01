@@ -21,7 +21,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a polygon.
     /// </summary>
-    public class PolygonShape : VectorialShapeBase
+    public class PolygonShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.

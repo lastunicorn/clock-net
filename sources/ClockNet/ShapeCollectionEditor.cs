@@ -44,11 +44,12 @@ namespace DustInTheWind.Clock
                 List<Type> types = new List<Type>();
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
+                string interfaceName = typeof(IAngularShape).FullName;
 
                 foreach (Type type in assembly.GetTypes())
                 {
                     if (type.IsClass && !type.IsAbstract &&
-                        type.GetInterface(typeof(IAngularShape).FullName) != null)
+                        type.GetInterface(interfaceName) != null)
                     {
                         types.Add(type);
                     }
@@ -61,11 +62,12 @@ namespace DustInTheWind.Clock
                 List<Type> types = new List<Type>();
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
+                string interfaceName = typeof(IHandShape).FullName;
 
                 foreach (Type type in assembly.GetTypes())
                 {
                     if (type.IsClass && !type.IsAbstract &&
-                        type.GetInterface(typeof(IHandShape).FullName) != null)
+                        type.GetInterface(interfaceName) != null)
                     {
                         types.Add(type);
                     }
@@ -73,19 +75,17 @@ namespace DustInTheWind.Clock
 
                 return types.ToArray();
             }
-            else if (CollectionItemType.Equals(typeof(IShape)))
+            else if (CollectionItemType.Equals(typeof(IGroundShape)))
             {
                 List<Type> types = new List<Type>();
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
-                string interfaceName = typeof(IShape).FullName;
+                string interfaceName = typeof(IGroundShape).FullName;
 
                 foreach (Type type in assembly.GetTypes())
                 {
                     if (type.IsClass && !type.IsAbstract &&
-                        type.GetInterface(interfaceName) != null &&
-                        type.GetInterface(typeof(IAngularShape).FullName) == null &&
-                        type.GetInterface(typeof(IHandShape).FullName) == null)
+                        type.GetInterface(interfaceName) != null)
                     {
                         types.Add(type);
                     }

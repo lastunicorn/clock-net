@@ -23,7 +23,7 @@ namespace DustInTheWind.Clock.Shapes
     /// <summary>
     /// Provides common functionality for a vectorial shape.
     /// </summary>
-    public abstract class VectorialShapeBase : ShapeBase
+    public abstract class VectorialGroundShapeBase : GroundShapeBase
     {
         /// <summary>
         /// The default width of the line used to draw the shape.
@@ -129,7 +129,7 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
-        public VectorialShapeBase(Color outlineColor, Color fillColor)
+        public VectorialGroundShapeBase(Color outlineColor, Color fillColor)
             : this(outlineColor, fillColor, LINE_WIDTH)
         {
         }
@@ -140,7 +140,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public VectorialShapeBase(Color outlineColor, Color fillColor, float lineWidth)
+        public VectorialGroundShapeBase(Color outlineColor, Color fillColor, float lineWidth)
             : base()
         {
             this.outlineColor = outlineColor;

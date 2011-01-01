@@ -67,6 +67,17 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
+        /// <summary>
+        /// Not used.
+        /// </summary>
+        [Browsable(false)]
+        public override float Height
+        {
+            get { return base.Height; }
+            set { base.Height = value; }
+        }
+
+
         #region Constructors
 
         /// <summary>

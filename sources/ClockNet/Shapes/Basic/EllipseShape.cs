@@ -21,7 +21,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a ellipse.
     /// </summary>
-    public class EllipseShape : VectorialShapeBase
+    public class EllipseShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.

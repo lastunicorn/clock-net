@@ -24,7 +24,7 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the background of the dial.
     /// </summary>
-    public class DialShape : VectorialShapeBase
+    public class DialShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// The default value of the dot's radius.

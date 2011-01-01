@@ -211,7 +211,7 @@ namespace DustInTheWind.Clock
             {
                 if (defaultTextShape == null)
                 {
-                    foreach (IShape shape in backgroundShapes)
+                    foreach (IGroundShape shape in backgroundShapes)
                     {
                         if (shape is TextShape)
                         {
@@ -369,7 +369,7 @@ namespace DustInTheWind.Clock
 
         #region BackgroundShapeCollection class
 
-        private class BackgroundShapeCollection : Collection<IShape>
+        private class BackgroundShapeCollection : Collection<IGroundShape>
         {
             AnalogClock clock;
 
@@ -377,6 +377,7 @@ namespace DustInTheWind.Clock
             /// Initializes a new instance of the <see cref="BackgroundShapeCollection"/> class.
             /// </summary>
             /// <param name="clock">The parent clock of the current instance.</param>
+            /// <exception cref="ArgumentNullException"></exception>
             public BackgroundShapeCollection(AnalogClock clock)
             {
                 if (clock == null)
@@ -385,7 +386,7 @@ namespace DustInTheWind.Clock
                 this.clock = clock;
             }
 
-            protected override void InsertItem(int index, IShape item)
+            protected override void InsertItem(int index, IGroundShape item)
             {
                 base.InsertItem(index, item);
 
@@ -398,7 +399,7 @@ namespace DustInTheWind.Clock
 
             protected override void RemoveItem(int index)
             {
-                IShape item = this[index];
+                IGroundShape item = this[index];
 
                 if (item != null)
                     item.Changed -= new EventHandler(clock.shape_Changed);
@@ -409,23 +410,23 @@ namespace DustInTheWind.Clock
                 clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(item));
             }
 
-            protected override void SetItem(int index, IShape item)
+            protected override void SetItem(int index, IGroundShape item)
             {
-                IShape olditem = this[index];
+                IGroundShape oldItem = this[index];
 
-                if (olditem != null)
-                    olditem.Changed -= new EventHandler(clock.shape_Changed);
+                if (oldItem != null)
+                    oldItem.Changed -= new EventHandler(clock.shape_Changed);
 
                 base.SetItem(index, item);
 
                 clock.Invalidate();
-                clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(olditem));
+                clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(oldItem));
                 clock.OnBackgroundShapeAdded(new ShapeAddedEventArgs(index, item));
             }
 
             protected override void ClearItems()
             {
-                foreach (IShape item in Items)
+                foreach (IGroundShape item in Items)
                 {
                     if (item != null)
                         item.Changed -= new EventHandler(clock.shape_Changed);
@@ -447,6 +448,7 @@ namespace DustInTheWind.Clock
             /// Initializes a new instance of the <see cref="AngularShapeCollection"/> class.
             /// </summary>
             /// <param name="clock">The parent clock of the current instance.</param>
+            /// <exception cref="ArgumentNullException"></exception>
             public AngularShapeCollection(AnalogClock clock)
             {
                 if (clock == null)
@@ -481,11 +483,26 @@ namespace DustInTheWind.Clock
 
             protected override void SetItem(int index, IAngularShape item)
             {
+                IAngularShape oldItem = this[index];
+
+                if (oldItem != null)
+                    oldItem.Changed -= new EventHandler(clock.shape_Changed);
+
                 base.SetItem(index, item);
+
+                clock.Invalidate();
+                clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(oldItem));
+                clock.OnBackgroundShapeAdded(new ShapeAddedEventArgs(index, item));
             }
 
             protected override void ClearItems()
             {
+                foreach (IGroundShape item in Items)
+                {
+                    if (item != null)
+                        item.Changed -= new EventHandler(clock.shape_Changed);
+                }
+
                 base.ClearItems();
             }
         }
@@ -502,6 +519,7 @@ namespace DustInTheWind.Clock
             /// Initializes a new instance of the <see cref="HandShapeCollection"/> class.
             /// </summary>
             /// <param name="clock">The parent clock of the current instance.</param>
+            /// <exception cref="ArgumentNullException"></exception>
             public HandShapeCollection(AnalogClock clock)
             {
                 if (clock == null)
@@ -536,11 +554,26 @@ namespace DustInTheWind.Clock
 
             protected override void SetItem(int index, IHandShape item)
             {
+                IHandShape oldItem = this[index];
+
+                if (oldItem != null)
+                    oldItem.Changed -= new EventHandler(clock.shape_Changed);
+
                 base.SetItem(index, item);
+
+                clock.Invalidate();
+                clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(oldItem));
+                clock.OnBackgroundShapeAdded(new ShapeAddedEventArgs(index, item));
             }
 
             protected override void ClearItems()
             {
+                foreach (IGroundShape item in Items)
+                {
+                    if (item != null)
+                        item.Changed -= new EventHandler(clock.shape_Changed);
+                }
+
                 base.ClearItems();
             }
         }
@@ -562,7 +595,7 @@ namespace DustInTheWind.Clock
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn on the background of the clock.")]
-        public Collection<IShape> BackgroundShapes
+        public Collection<IGroundShape> BackgroundShapes
         {
             get { return backgroundShapes; }
         }
@@ -581,7 +614,7 @@ namespace DustInTheWind.Clock
         /// </summary>
         [Category("Shapes")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [EditorAttribute(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
+        [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn repetitively on the edge of the clock.")]
         public Collection<IAngularShape> AngularShapes
         {
@@ -602,7 +635,7 @@ namespace DustInTheWind.Clock
         /// </summary>
         [Category("Shapes")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [EditorAttribute(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
+        [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that display the time.")]
         public Collection<IHandShape> HandShapes
         {
@@ -671,7 +704,7 @@ namespace DustInTheWind.Clock
             {
                 if (shapeSet.BackgroundShapes != null)
                 {
-                    foreach (IShape shape in shapeSet.BackgroundShapes)
+                    foreach (IGroundShape shape in shapeSet.BackgroundShapes)
                     {
                         backgroundShapes.Add(shape);
                     }
@@ -912,10 +945,12 @@ namespace DustInTheWind.Clock
             Matrix centerMatrix = e.Graphics.Transform;
 
             // Draw the background shapes.
-            foreach (IShape shape in backgroundShapes)
+            foreach (IGroundShape shape in backgroundShapes)
             {
                 if (shape != null)
                 {
+                    g.Transform = centerMatrix;
+
                     shape.Draw(g);
                 }
             }
@@ -1033,7 +1068,7 @@ namespace DustInTheWind.Clock
                 backgroundShapes.Clear();
                 if (shapeSet.BackgroundShapes != null)
                 {
-                    foreach (IShape shape in shapeSet.BackgroundShapes)
+                    foreach (IGroundShape shape in shapeSet.BackgroundShapes)
                     {
                         backgroundShapes.Add(shape);
                     }

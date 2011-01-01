@@ -68,7 +68,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         [Category("Behaviour")]
         [TypeConverter(typeof(PointFConverter))]
         [Description("The location of the pin relative to the upper left corner of the image.")]
-        public virtual PointF Location
+        public virtual PointF Origin
         {
             get { return origin; }
             set
@@ -136,22 +136,13 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void DrawInternal(Graphics g)
         {
-            Matrix originalTransformMatrix = null;
-
             if (origin.Y != 0 && height > 0)
             {
-                originalTransformMatrix = g.Transform;
-
                 float scaleFactor = height / origin.Y;
                 g.ScaleTransform(scaleFactor, scaleFactor);
             }
 
             g.DrawImage(image, -origin.X, -origin.Y, image.Width, image.Height);
-
-            if (originalTransformMatrix != null)
-            {
-                g.Transform = originalTransformMatrix;
-            }
         }
     }
 }

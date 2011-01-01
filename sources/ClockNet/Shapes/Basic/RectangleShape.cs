@@ -21,7 +21,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a rectangle.
     /// </summary>
-    public class RectangleShape : VectorialShapeBase
+    public class RectangleShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.

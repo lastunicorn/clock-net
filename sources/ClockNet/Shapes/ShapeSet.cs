@@ -15,7 +15,6 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Drawing;
-using DustInTheWind.Clock.Properties;
 using DustInTheWind.Clock.Shapes.Basic;
 using DustInTheWind.Clock.Shapes.Default;
 using DustInTheWind.Clock.Shapes.Fancy;
@@ -370,12 +369,12 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// The array of Shapes that are drawn on the background of the clock.
         /// </summary>
-        private IShape[] backgroundShapes;
+        private IGroundShape[] backgroundShapes;
 
         /// <summary>
         /// Gets or sets the array of Shapes that are drawn on the background of the clock.
         /// </summary>
-        public IShape[] BackgroundShapes
+        public IGroundShape[] BackgroundShapes
         {
             get { return backgroundShapes; }
             set { backgroundShapes = value; }

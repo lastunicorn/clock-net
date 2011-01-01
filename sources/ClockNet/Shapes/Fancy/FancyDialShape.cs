@@ -25,7 +25,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the background of the dial.
     /// </summary>
-    public class FancyDialShape : VectorialShapeBase
+    public class FancyDialShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// The default value of the outer rim width.

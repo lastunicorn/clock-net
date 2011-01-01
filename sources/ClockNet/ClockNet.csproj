@@ -57,11 +57,6 @@
     <Compile Include="ShapeAddedEventArgs.cs" />
     <Compile Include="HSBColor.cs" />
     <Compile Include="PointFConverter.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Shapes\AngularExceptionRule.cs" />
     <Compile Include="Shapes\Basic\RectangleHandShape.cs" />
     <Compile Include="Shapes\Basic\ImageAngularShape.cs" />
@@ -79,13 +74,14 @@
     <Compile Include="Shapes\Basic\StringShape.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Shapes\GroundShapeBase.cs" />
     <Compile Include="Shapes\Default\DiamondHandShape.cs" />
     <Compile Include="Shapes\Default\TicksShape.cs" />
     <Compile Include="Shapes\Default\DialShape.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Shapes\Fancy\DotHandShape.cs" />
-    <Compile Include="Shapes\ShapeSelectorEditor.cs" />
+    <Compile Include="Shapes\IGroundShape.cs" />
     <Compile Include="Shapes\Basic\StringAngularShape.cs" />
     <Compile Include="Shapes\TimeComponent.cs" />
     <Compile Include="Shapes\VectorialHandShapeBase.cs" />
@@ -105,11 +101,11 @@
     <Compile Include="Shapes\AngularOrientation.cs" />
     <Compile Include="Shapes\Basic\PathShape.cs" />
     <Compile Include="Shapes\ShapeSet.cs" />
-    <Compile Include="Shapes\Basic\ImageShape.cs" />
+    <Compile Include="Shapes\Basic\ImageGroundShape.cs" />
     <Compile Include="Shapes\Default\PinShape.cs" />
     <Compile Include="Shapes\ShapeConverter.cs" />
     <Compile Include="Shapes\Basic\LineHandShape.cs" />
-    <Compile Include="Shapes\VectorialShapeBase.cs" />
+    <Compile Include="Shapes\VectorialGroundShapeBase.cs" />
     <Compile Include="Shapes\ShapeBase.cs" />
     <Compile Include="Shapes\Basic\ImageHandShape.cs" />
     <Compile Include="Shapes\IShape.cs" />
@@ -125,15 +121,6 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\hour_hand.png" />
-    <Content Include="Resources\minute_hand.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

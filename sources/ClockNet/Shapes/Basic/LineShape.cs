@@ -22,7 +22,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a simple straight line.
     /// </summary>
-    public class LineShape : VectorialShapeBase
+    public class LineShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.

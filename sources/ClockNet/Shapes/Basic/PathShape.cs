@@ -22,7 +22,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a <see cref="GraphicsPath"/>.
     /// </summary>
-    public class PathShape : VectorialShapeBase
+    public class PathShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.

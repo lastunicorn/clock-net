@@ -25,7 +25,7 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the text displayed on the background of the dial.
     /// </summary>
-    public class TextShape : VectorialShapeBase
+    public class TextShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// The default text drawn.
