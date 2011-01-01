@@ -24,7 +24,7 @@ namespace TTRider.UI
             this.b = Math.Min(Math.Max(b, 0), 255);
         }
 
-        public HSBColor(int a,float h, float s, float b)
+        public HSBColor(int a, float h, float s, float b)
         {
             this.a = a;
             this.h = Math.Min(Math.Max(h, 0), 255);

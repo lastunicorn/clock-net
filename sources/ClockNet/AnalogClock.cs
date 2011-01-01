@@ -65,98 +65,6 @@ namespace DustInTheWind.Clock
 
         #endregion
 
-        #region Event HourHandShapeChanged
-
-        /// <summary>
-        /// Event raised when the value of the <see cref="HourHandShape"/> property is changed.
-        /// </summary>
-        [Category("Property Changed")]
-        [Description("Event raised when the value of the HourHandShape property is changed.")]
-        public event EventHandler HourHandShapeChanged;
-
-        /// <summary>
-        /// Raises the <see cref="HourHandShapeChanged"/> event.
-        /// </summary>
-        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnHourHandShapeChanged(EventArgs e)
-        {
-            if (HourHandShapeChanged != null)
-            {
-                HourHandShapeChanged(this, e);
-            }
-        }
-
-        #endregion
-
-        #region Event MinuteHandShapeChanged
-
-        /// <summary>
-        /// Event raised when the value of the <see cref="MinuteHandShape"/> property is changed.
-        /// </summary>
-        [Category("Property Changed")]
-        [Description("Event raised when the value of the MinuteHandShape property is changed.")]
-        public event EventHandler MinuteHandShapeChanged;
-
-        /// <summary>
-        /// Raises the <see cref="MinuteHandShapeChanged"/> event.
-        /// </summary>
-        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnMinuteHandShapeChanged(EventArgs e)
-        {
-            if (MinuteHandShapeChanged != null)
-            {
-                MinuteHandShapeChanged(this, e);
-            }
-        }
-
-        #endregion
-
-        #region Event SweepHandShapeChanged
-
-        /// <summary>
-        /// Event raised when the value of the <see cref="SweepHandShape"/> property is changed.
-        /// </summary>
-        [Category("Property Changed")]
-        [Description("Event raised when the value of the SweepHandShape property is changed.")]
-        public event EventHandler SweepHandShapeChanged;
-
-        /// <summary>
-        /// Raises the <see cref="SweepHandShapeChanged"/> event.
-        /// </summary>
-        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnSweepHandShapeChanged(EventArgs e)
-        {
-            if (SweepHandShapeChanged != null)
-            {
-                SweepHandShapeChanged(this, e);
-            }
-        }
-
-        #endregion
-
-        #region Event PinShapeChanged
-
-        /// <summary>
-        /// Event raised when the value of the <see cref="PinShape"/> property is changed.
-        /// </summary>
-        [Category("Property Changed")]
-        [Description("Event raised when the value of the PinShape property is changed.")]
-        public event EventHandler PinShapeChanged;
-
-        /// <summary>
-        /// Raises the <see cref="PinShapeChanged"/> event.
-        /// </summary>
-        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnPinShapeChanged(EventArgs e)
-        {
-            if (PinShapeChanged != null)
-            {
-                PinShapeChanged(this, e);
-            }
-        }
-
-        #endregion
-
         #region Event BackgroundShapeAdded
 
         /// <summary>
@@ -317,7 +225,12 @@ namespace DustInTheWind.Clock
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text displayed by the first <see cref="TextShape"/> object
+        /// that can be found in the <see cref="BackgroundShapes"/> list.
+        /// </summary>
         [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
+        [Description("The text displayed by the first TextShape object that can be found in the BackgroundShapes list.")]
         public override string Text
         {
             get
@@ -796,6 +709,7 @@ namespace DustInTheWind.Clock
 
         #endregion
 
+
         //protected override CreateParams CreateParams
         //{
         //    get
@@ -909,6 +823,10 @@ namespace DustInTheWind.Clock
         #endregion
 
 
+        /// <summary>
+        /// Raises the <see cref="System.Windows.Forms.Control.PaddingChanged"/> event and repaints the clock.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaddingChanged(EventArgs e)
         {
             base.OnPaddingChanged(e);
@@ -917,6 +835,10 @@ namespace DustInTheWind.Clock
             Invalidate();
         }
 
+        /// <summary>
+        /// Raises the <see cref="System.Windows.Forms.Control.Resize"/> event and repaints the clock.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
@@ -949,6 +871,10 @@ namespace DustInTheWind.Clock
 
         #region OnPaint
 
+        /// <summary>
+        /// Raises the <see cref="System.Windows.Forms.Control.Paint"/> event and paints the clock.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
 

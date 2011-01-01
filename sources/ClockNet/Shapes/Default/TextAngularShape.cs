@@ -35,6 +35,9 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         protected StringFormat numbersStringFormat;
 
+        public static Font FONT = new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point);
+
+
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
@@ -43,32 +46,32 @@ namespace DustInTheWind.Clock.Shapes.Default
             get { return "Default Numbers Shape"; }
         }
 
-        protected string[] numbers = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
+        protected string[] texts = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 
         [Category("Appearance")]
-        public string[] Numbers
+        public string[] Texts
         {
-            get { return numbers; }
+            get { return texts; }
             set
             {
                 if (value == null)
                     throw new ArgumentNullException("value");
 
-                numbers = value;
+                texts = value;
                 OnChanged(EventArgs.Empty);
             }
         }
 
-        /// <summary>
-        /// Gets or sets the color used to draw the numbers that marks the hours.
-        /// </summary>
-        [DefaultValue(typeof(Color), "Black")]
-        [Description("The color used to draw the numbers that marks the hours.")]
-        public override Color OutlineColor
-        {
-            get { return base.OutlineColor; }
-            set { base.OutlineColor = value; }
-        }
+        ///// <summary>
+        ///// Gets or sets the color used to draw the numbers that marks the hours.
+        ///// </summary>
+        //[DefaultValue(typeof(Color), "Black")]
+        //[Description("The color used to draw the numbers that marks the hours.")]
+        //public override Color OutlineColor
+        //{
+        //    get { return base.OutlineColor; }
+        //    set { base.OutlineColor = value; }
+        //}
 
         /// <summary>
         /// The font used to draw the numbers.
@@ -79,7 +82,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Gets the font used to draw the numbers.
         /// </summary>
         [Category("Appearance")]
-        //[DefaultValue(typeof(Font), "Arial; 7pt")]
         [Description("The font used to draw the numbers.")]
         public Font Font
         {
@@ -87,26 +89,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             set
             {
                 font = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// The orientation of the numbers.
-        /// </summary>
-        private TextAngularOrientation orientation;
-
-        /// <summary>
-        /// Geta or sets the orientation of the numbers.
-        /// </summary>
-        [DefaultValue(typeof(TextAngularOrientation), "Normal")]
-        [Description("Specifies the orientation of the numbers.")]
-        public TextAngularOrientation Orientation
-        {
-            get { return orientation; }
-            set
-            {
-                orientation = value;
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -119,7 +101,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public TextAngularShape()
-            : this(Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
+            : this(Color.Black, FONT, POSITION_OFFSET)
         {
         }
 
@@ -127,7 +109,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Initializes a new instance of the <see cref="TextAngularShape"/> class.
         /// </summary>
         public TextAngularShape(Color color)
-            : this(color, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), POSITION_OFFSET)
+            : this(color, FONT, POSITION_OFFSET)
         {
         }
 
@@ -147,8 +129,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public TextAngularShape(Color color, Font font, float positionOffset)
             : base(Color.Empty, color, LINE_WIDTH, ANGLE, REPEAT, positionOffset)
         {
-            this.font = font == null ? new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point) : font;
-            this.positionOffset = positionOffset;
+            this.font = font == null ? FONT : font;
 
             numbersStringFormat = new StringFormat(StringFormatFlags.NoWrap);
             numbersStringFormat.Alignment = StringAlignment.Center;
@@ -157,16 +138,31 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         #endregion
 
+
+        /// <summary>
+        /// Decides if the Shape should be drawn.
+        /// If this method returns false, the <see cref="IShape.Draw"/> method returns immediatelly,
+        /// without doing anythig. Not even incrementing the index.
+        /// </summary>
+        /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && font != null && numbers != null && !fillColor.IsEmpty;
+            return base.AllowToDraw() && font != null && texts != null && !fillColor.IsEmpty;
         }
 
+        /// <summary>
+        /// Internal method that draws the Shape unconditioned. 
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
+        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// </remarks>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void DrawInternal(Graphics g)
         {
-            if (index > 0 && index <= numbers.Length)
+            if (index > 0 && index <= texts.Length)
             {
-                string number = numbers[index - 1];
+                string number = texts[index - 1];
 
                 if (number != null && number.Length > 0)
                 {
@@ -174,30 +170,6 @@ namespace DustInTheWind.Clock.Shapes.Default
 
                     SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
                     PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
-
-                    Matrix originalMatrix;
-
-                    switch (orientation)
-                    {
-                        case TextAngularOrientation.FaceCenter:
-                            originalMatrix = g.Transform;
-                            g.TranslateTransform(0, numberSize.Height / 2f);
-                            break;
-
-                        case TextAngularOrientation.FaceOut:
-                            originalMatrix = g.Transform;
-                            g.TranslateTransform(0, numberSize.Height / 2f);
-                            g.RotateTransform(180);
-                            break;
-
-                        default:
-                        case TextAngularOrientation.Normal:
-                            float ang = -(this.angle * index);
-                            originalMatrix = g.Transform;
-                            g.TranslateTransform(0, numberSize.Height / 2f);
-                            g.RotateTransform(ang);
-                            break;
-                    }
 
                     try
                     {
@@ -210,8 +182,6 @@ namespace DustInTheWind.Clock.Shapes.Default
                         // I just ignore it. The text will not be displayed, but at the size of one pixel, it is not visible, so, no problem.
                         // I hope this exception will not be thrown in some other situations.
                     }
-
-                    g.Transform = originalMatrix;
                 }
             }
         }

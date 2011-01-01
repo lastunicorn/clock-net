@@ -14,14 +14,39 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
+
 namespace DustInTheWind.Clock.Shapes
 {
+    /// <summary>
+    /// Specifies a component of a time value.
+    /// </summary>
+    [Flags]
     public enum TimeComponent
     {
-        None,
-        Hour,
-        Minute,
-        Second,
-        All
+        /// <summary>
+        /// Represents no component of the time value.
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Represents the hour component of the time value.
+        /// </summary>
+        Hour = 1,
+
+        /// <summary>
+        /// Represents the minute component of the time value.
+        /// </summary>
+        Minute = 2,
+
+        /// <summary>
+        /// Represents the second component of the time value.
+        /// </summary>
+        Second = 4,
+
+        /// <summary>
+        /// Represents all components, hour, minute, second of the time value.
+        /// </summary>
+        All = 7
     }
 }

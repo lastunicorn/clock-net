@@ -28,7 +28,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <summary>
         /// The default value of the diameter.
         /// </summary>
-        private const float DIAMETER = 1.33f;
+        public const float DIAMETER = 1.33f;
+
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -37,6 +38,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             get { return "Default Pin Shape"; }
         }
+
 
         /// <summary>
         /// The diameter of the pin.
@@ -64,28 +66,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        ///// <summary>
-        ///// Gets or sets the color used to fill the pin.
-        ///// </summary>
-        //[DefaultValue(typeof(Color), "Red")]
-        //[Description("The color used to fill the pin.")]
-        //public override Color FillColor
-        //{
-        //    get { return base.FillColor; }
-        //    set { base.FillColor = value; }
-        //}
-
-        ///// <summary>
-        ///// Gets or sets the color used to draw the outline of the pin.
-        ///// </summary>
-        //[DefaultValue(typeof(Color), "Empty")]
-        //[Description("The color used to draw the outline of the pin.")]
-        //public override Color OutlineColor
-        //{
-        //    get { return base.OutlineColor; }
-        //    set { base.OutlineColor = value; }
-        //}
-
 
         #region Constructors
 
@@ -102,9 +82,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Initializes a new instance of the <see cref="PinShape"/> class.
         /// </summary>
         /// <param name="fillColor">The color used to fill the pin.</param>
-        /// <param name="radius">The radius of the pin.</param>
-        public PinShape(Color fillColor, float radius)
-            : this(Color.Empty, fillColor, radius)
+        /// <param name="diameter">The diameter of the pin.</param>
+        public PinShape(Color fillColor, float diameter)
+            : this(Color.Empty, fillColor, diameter)
         {
         }
 
@@ -123,11 +103,11 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the pin.</param>
         /// <param name="fillColor">The color used to fill the pin.</param>
-        /// <param name="radius">The radius of the pin.</param>
-        public PinShape(Color outlineColor, Color fillColor, float radius)
+        /// <param name="diameter">The diameter of the pin.</param>
+        public PinShape(Color outlineColor, Color fillColor, float diameter)
             : base(outlineColor, fillColor)
         {
-            this.diameter = radius;
+            this.diameter = diameter;
 
             CalculateDimensions();
         }
@@ -154,9 +134,13 @@ namespace DustInTheWind.Clock.Shapes.Default
         #endregion
 
         /// <summary>
-        /// Draws the pin using the provided <see cref="Graphics"/> object.
+        /// Internal method that draws the Shape unconditioned. 
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
+        /// <remarks>
+        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
+        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// </remarks>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void DrawInternal(Graphics g)
         {
             if (!fillColor.IsEmpty)

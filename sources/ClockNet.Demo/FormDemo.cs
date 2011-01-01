@@ -37,35 +37,35 @@ namespace DustInTheWind.Clock.Demo
             numericUpDownTimerInterval.Value = timer1.Interval;
 
             // Value
-            dateTimePickerTime.Value = DateTime.Now.Date.Add(analogClock1.Time);
+            dateTimePickerTime.Value = DateTime.Now.Date.Add(analogClockDemo.Time);
             //dateTimePickerUtcOffset.Value = DateTime.Now.Date.Add(analogClock1.UtcOffset);
 
             // Timer
-            checkBoxUseExternalTimer.Checked = analogClock1.Timer != null;
+            checkBoxUseExternalTimer.Checked = analogClockDemo.Timer != null;
 
             // Time Provider
-            propertyGridTimeProvider.SelectedObject = analogClock1.TimeProvider;
+            propertyGridTimeProvider.SelectedObject = analogClockDemo.TimeProvider;
 
             // Miscellaneous
 
             // >> Background
-            labelBackgroundColor.BackColor = analogClock1.BackColor;
+            labelBackgroundColor.BackColor = analogClockDemo.BackColor;
 
             // >> Padding
-            numericUpDownPaddingLeft.Value = analogClock1.Padding.Left;
-            numericUpDownPaddingTop.Value = analogClock1.Padding.Top;
-            numericUpDownPaddingRight.Value = analogClock1.Padding.Right;
-            numericUpDownPaddingBottom.Value = analogClock1.Padding.Bottom;
+            numericUpDownPaddingLeft.Value = analogClockDemo.Padding.Left;
+            numericUpDownPaddingTop.Value = analogClockDemo.Padding.Top;
+            numericUpDownPaddingRight.Value = analogClockDemo.Padding.Right;
+            numericUpDownPaddingBottom.Value = analogClockDemo.Padding.Bottom;
 
             // >> Text
-            textBoxText.Text = analogClock1.Text;
+            textBoxText.Text = analogClockDemo.Text;
             //propertyGridText.SelectedObject = analogClock1.TextShape;
 
             // >> Font
-            textBoxTextFont.Text = analogClock1.Font.ToString();
+            textBoxTextFont.Text = analogClockDemo.Font.ToString();
 
             // >> Keep Proportions
-            checkBoxKeepProportions.Checked = analogClock1.KeepProportions;
+            checkBoxKeepProportions.Checked = analogClockDemo.KeepProportions;
         }
 
         private void labelBackgroundColor_Click(object sender, EventArgs e)
@@ -73,32 +73,32 @@ namespace DustInTheWind.Clock.Demo
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 labelBackgroundColor.BackColor = colorDialog1.Color;
-                analogClock1.BackColor = colorDialog1.Color;
+                analogClockDemo.BackColor = colorDialog1.Color;
             }
         }
 
         private void dateTimePickerTime_ValueChanged(object sender, EventArgs e)
         {
-            analogClock1.Time = dateTimePickerTime.Value.TimeOfDay;
+            analogClockDemo.Time = dateTimePickerTime.Value.TimeOfDay;
         }
 
         private void checkBoxUseExternalTimer_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxUseExternalTimer.Checked)
             {
-                analogClock1.Timer = timer1;
+                analogClockDemo.Timer = timer1;
                 timer1.Start();
             }
             else
             {
-                analogClock1.Timer = null;
+                analogClockDemo.Timer = null;
                 timer1.Stop();
             }
         }
 
         private void numericUpDownPaddingLeft_ValueChanged(object sender, EventArgs e)
         {
-            analogClock1.Padding = new Padding(
+            analogClockDemo.Padding = new Padding(
                 (int)numericUpDownPaddingLeft.Value,
                 (int)numericUpDownPaddingTop.Value,
                 (int)numericUpDownPaddingRight.Value,
@@ -107,7 +107,7 @@ namespace DustInTheWind.Clock.Demo
 
         private void numericUpDownPaddingTop_ValueChanged(object sender, EventArgs e)
         {
-            analogClock1.Padding = new Padding(
+            analogClockDemo.Padding = new Padding(
                 (int)numericUpDownPaddingLeft.Value,
                 (int)numericUpDownPaddingTop.Value,
                 (int)numericUpDownPaddingRight.Value,
@@ -116,7 +116,7 @@ namespace DustInTheWind.Clock.Demo
 
         private void numericUpDownPaddingRight_ValueChanged(object sender, EventArgs e)
         {
-            analogClock1.Padding = new Padding(
+            analogClockDemo.Padding = new Padding(
                 (int)numericUpDownPaddingLeft.Value,
                 (int)numericUpDownPaddingTop.Value,
                 (int)numericUpDownPaddingRight.Value,
@@ -125,7 +125,7 @@ namespace DustInTheWind.Clock.Demo
 
         private void numericUpDownPaddingBottom_ValueChanged(object sender, EventArgs e)
         {
-            analogClock1.Padding = new Padding(
+            analogClockDemo.Padding = new Padding(
                 (int)numericUpDownPaddingLeft.Value,
                 (int)numericUpDownPaddingTop.Value,
                 (int)numericUpDownPaddingRight.Value,
@@ -134,21 +134,21 @@ namespace DustInTheWind.Clock.Demo
 
         private void textBoxText_TextChanged(object sender, EventArgs e)
         {
-            analogClock1.Text = textBoxText.Text;
+            analogClockDemo.Text = textBoxText.Text;
         }
 
         private void checkBoxKeepProportions_CheckedChanged(object sender, EventArgs e)
         {
-            analogClock1.KeepProportions = checkBoxKeepProportions.Checked;
+            analogClockDemo.KeepProportions = checkBoxKeepProportions.Checked;
         }
 
         private void buttonBrowseTextFont_Click(object sender, EventArgs e)
         {
-            fontDialog1.Font = analogClock1.Font;
+            fontDialog1.Font = analogClockDemo.Font;
             if (fontDialog1.ShowDialog() == DialogResult.OK)
             {
                 textBoxTextFont.Text = fontDialog1.Font.ToString();
-                analogClock1.Font = fontDialog1.Font;
+                analogClockDemo.Font = fontDialog1.Font;
             }
         }
 
@@ -156,17 +156,17 @@ namespace DustInTheWind.Clock.Demo
         {
             if (comboBoxTimeProviders.SelectedItem != null)
             {
-                analogClock1.TimeProvider = ((KeyValuePair<string, ITimeProvider>)comboBoxTimeProviders.SelectedItem).Value;
+                analogClockDemo.TimeProvider = ((KeyValuePair<string, ITimeProvider>)comboBoxTimeProviders.SelectedItem).Value;
             }
             else
             {
-                analogClock1.TimeProvider = null;
+                analogClockDemo.TimeProvider = null;
             }
         }
 
         private void analogClock1_TimeProviderChanged(object sender, EventArgs e)
         {
-            propertyGridTimeProvider.SelectedObject = analogClock1.TimeProvider;
+            propertyGridTimeProvider.SelectedObject = analogClockDemo.TimeProvider;
         }
 
         private void buttonExamples_Click(object sender, EventArgs e)

@@ -92,6 +92,12 @@ namespace DustInTheWind.Clock.Shapes
         {
         }
 
+        /// <summary>
+        /// Decides if the Shape should be drawn.
+        /// If this method returns false, the <see cref="Draw"/> method returns immediatelly,
+        /// without doing anythig.
+        /// </summary>
+        /// <returns>true if the <see cref="Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected virtual bool AllowToDraw()
         {
             return visible;
@@ -109,6 +115,14 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+        /// <summary>
+        /// Internal method that draws the Shape unconditioned. 
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="Draw"/> method checks if the Shape should be drawn or not, transforms the
+        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// </remarks>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected abstract void DrawInternal(Graphics g);
 
 

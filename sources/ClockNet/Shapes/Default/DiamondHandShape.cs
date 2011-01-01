@@ -21,12 +21,15 @@ using DustInTheWind.Clock.Shapes.Basic;
 
 namespace DustInTheWind.Clock.Shapes.Default
 {
-    public class RombicHandShape : PolygonHandShape
+    /// <summary>
+    /// A Shape that draws a clock hand that resembles a distorted diamond.
+    /// </summary>
+    public class DiamondHandShape : PolygonHandShape
     {
         /// <summary>
         /// The default value of the <see cref="Width"/>.
         /// </summary>
-        public new const float WIDTH = 5f;
+        public const float WIDTH = 5f;
 
         /// <summary>
         /// The default value of the <see cref="TailLength"/>.
@@ -39,7 +42,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public override string Name
         {
-            get { return "Rombic Hand Shape"; }
+            get { return "Diamond Hand Shape"; }
         }
 
         /// <summary>
@@ -91,31 +94,31 @@ namespace DustInTheWind.Clock.Shapes.Default
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RombicHandShape"/> class with
+        /// Initializes a new instance of the <see cref="DiamondHandShape"/> class with
         /// default values.
         /// </summary>
-        public RombicHandShape()
+        public DiamondHandShape()
             : this(Color.Empty, Color.RoyalBlue, HEIGHT, WIDTH, TAIL_LENGTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RombicHandShape"/> class.
+        /// Initializes a new instance of the <see cref="DiamondHandShape"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline.</param>
         /// <param name="fillColor">The color used to fill the shape.</param>
-        public RombicHandShape(Color outlineColor, Color fillColor)
+        public DiamondHandShape(Color outlineColor, Color fillColor)
             : this(outlineColor, fillColor, HEIGHT, WIDTH, TAIL_LENGTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RombicHandShape"/> class.
+        /// Initializes a new instance of the <see cref="DiamondHandShape"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline.</param>
         /// <param name="fillColor">The color used to fill the shape.</param>
         /// <param name="height">The length of the hour hand for a clock with the diameter of 100px.</param>
-        public RombicHandShape(Color outlineColor, Color fillColor, float height, float width, float tailLength)
+        public DiamondHandShape(Color outlineColor, Color fillColor, float height, float width, float tailLength)
             : base(null, outlineColor, fillColor, height, LINE_WIDTH)
         {
             this.tailLength = tailLength;

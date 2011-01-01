@@ -84,23 +84,15 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <param name="height">The length of the hour hand.</param>
         /// <param name="lineWidth">The width of the outline.</param>
         public NibHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
-            : base(CreatePath(), outlineColor, fillColor, height, lineWidth)
+            : base(new GraphicsPath(), outlineColor, fillColor, height, lineWidth)
         {
             CalculateDimensions();
         }
 
         #endregion
 
-
-        /// <summary>
-        /// Creates and returns the <see cref="GraphicsPath"/> object that should be drawn.
-        /// The path is created once. The dimension of the hand is controlled by scaling the coordinate's system.
-        /// </summary>
-        /// <returns>An <see cref="GraphicsPath"/> object containing the path that will be drawn.</returns>
-        private static GraphicsPath CreatePath()
+        protected override void CalculateDimensions()
         {
-            GraphicsPath path = new GraphicsPath();
-
             path.Reset();
 
             path.AddArc(new RectangleF(-12f, 43f, 24f, 24f), -60f, 300f);
@@ -182,16 +174,115 @@ namespace DustInTheWind.Clock.Shapes.Fancy
                 new PointF(4f, 39f),
                 new PointF(10f * (float)Math.Cos(Math.PI / 3f), 41f * (float)Math.Sin(Math.PI / 3f))
             });
-
-            return path;
         }
+
+        ///// <summary>
+        ///// Creates and returns the <see cref="GraphicsPath"/> object that should be drawn.
+        ///// The path is created once. The dimension of the hand is controlled by scaling the coordinate's system.
+        ///// </summary>
+        ///// <returns>An <see cref="GraphicsPath"/> object containing the path that will be drawn.</returns>
+        //private static GraphicsPath CreatePath()
+        //{
+        //    GraphicsPath path = new GraphicsPath();
+
+        //    path.Reset();
+
+        //    path.AddArc(new RectangleF(-12f, 43f, 24f, 24f), -60f, 300f);
+
+        //    path.AddCurve(new PointF[] {
+        //        //new PointF(-10f * (float)Math.Cos(Math.PI / 3f), 41f * (float)Math.Sin(Math.PI / 3f)),
+        //        new PointF(-4f, 39f),
+        //        new PointF(-8f, 35f)
+        //    });
+
+        //    path.AddCurve(new PointF[] {
+        //        new PointF(-8f, 35f),
+        //        new PointF(-4f, 29f),
+        //        new PointF(-2f, 11f)
+        //    });
+
+        //    path.AddArc(new RectangleF(-12f, -13f, 24, 24), 90, 90);
+
+        //    path.AddCurve(new PointF[] {
+        //        //new PointF(-12f, -1f),
+        //        new PointF(-12f, -7f),
+        //        new PointF(-2f, -59f),
+        //        new PointF(-10f, -119f)
+        //    });
+
+        //    path.AddCurve(new PointF[] {
+        //        new PointF(-10f, -119f),
+        //        new PointF(-5f, -124f),
+        //        new PointF(-3f, -129f)
+        //    });
+
+        //    path.AddArc(new RectangleF(-15f, -159f, 30f, 30f), 90f, 90f);
+
+        //    path.AddCurve(new PointF[] {
+        //        //new PointF(-15f, -144f),
+        //        new PointF(-14f, -151f),
+        //        new PointF(-3f, -199f),
+        //        new PointF(-1f, -249f)
+        //    });
+
+        //    path.AddLine(new PointF(-1f, -249f), new PointF(-1f, -280f));
+
+        //    // <- center
+
+        //    path.AddLine(new PointF(1f, -280f), new PointF(1f, -249f));
+
+        //    path.AddCurve(new PointF[] {
+        //        new PointF(1f, -249f),
+        //        new PointF(3f, -199f),
+        //        new PointF(14f, -151f)
+        //        //new PointF(15f, -144f)
+        //    });
+
+        //    path.AddArc(new RectangleF(-15f, -159f, 30f, 30f), 0f, 90f);
+
+        //    path.AddCurve(new PointF[] {
+        //        new PointF(3f, -129f),
+        //        new PointF(5f, -124f),
+        //        new PointF(10f, -119f)
+        //    });
+
+        //    path.AddCurve(new PointF[] {
+        //        new PointF(10f, -119f),
+        //        new PointF(2f, -59f),
+        //        new PointF(12f, -7f)
+        //        //new PointF(12f, -1f)
+        //    });
+
+        //    path.AddArc(new RectangleF(-12f, -13f, 24f, 24f), 0f, 90f);
+
+        //    path.AddCurve(new PointF[] {
+        //        new PointF(2f, 11f),
+        //        new PointF(4f, 29f),
+        //        new PointF(8f, 35f)
+        //    });
+
+        //    path.AddCurve(new PointF[] {
+        //        new PointF(8f, 35f),
+        //        new PointF(4f, 39f),
+        //        new PointF(10f * (float)Math.Cos(Math.PI / 3f), 41f * (float)Math.Sin(Math.PI / 3f))
+        //    });
+
+        //    return path;
+        //}
 
         protected bool keepProportions = true;
 
-        public override void Draw(Graphics g)
-        {
-            Matrix initialMatrix = g.Transform;
 
+        /// <summary>
+        /// Draws the hour hand using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the dot.</param>
+        /// <remarks>
+        /// The hand is drawn in vertical position from the origin of the coordinate system.
+        /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
+        /// </remarks>
+        protected override void DrawInternal(Graphics g)
+        {
             if (keepProportions && height > 0)
             {
                 float scaleFactorY = height / 280f;
@@ -203,9 +294,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
                 float scaleFactorX = width > 0 ? width / 30f : 1f;
                 g.ScaleTransform(scaleFactorX, scaleFactorY);
             }
-            base.Draw(g);
 
-            g.Transform = initialMatrix;
+            base.DrawInternal(g);
         }
     }
 }

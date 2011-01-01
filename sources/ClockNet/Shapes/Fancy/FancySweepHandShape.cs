@@ -179,7 +179,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
 
         /// <summary>
-        /// Calculates additional values and creates the <see cref="GraphicsPath"/> that will be displayed by the <see cref="Draw"/> method.
+        /// Calculates additional values and creates the <see cref="GraphicsPath"/> that will be displayed
+        /// by the <see cref="IShape.Draw"/> method.
         /// </summary>
         protected override void CalculateDimensions()
         {

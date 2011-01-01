@@ -141,6 +141,10 @@ namespace DustInTheWind.Clock.Shapes
         #endregion
 
 
+        /// <summary>
+        /// Returns the degrees by which the hand should be rotated from the vertical position (12 o'clock hour).
+        /// </summary>
+        /// <returns>The degrees by which the hand should be rotated from the vertical position (12 o'clock hour).</returns>
         protected float GetRotationDegrees()
         {
             switch (componentToDisplay)
@@ -174,6 +178,10 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
+        /// <summary>
+        /// Draws the shape using the provided <see cref="Graphics"/> object.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         public override void Draw(Graphics g)
         {
             if (AllowToDraw())

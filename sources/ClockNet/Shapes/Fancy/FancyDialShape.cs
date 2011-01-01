@@ -47,33 +47,41 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
 
-        /// <summary>
-        /// Gets or sets the color used to draw the dial's background.
-        /// </summary>
-        [DefaultValue(typeof(Color), "Empty")]
-        [Description("The color used to draw the dial's background.")]
-        public override Color OutlineColor
-        {
-            get { return base.OutlineColor; }
-            set { base.OutlineColor = value; }
-        }
+        ///// <summary>
+        ///// Gets or sets the color used to draw the dial's background.
+        ///// </summary>
+        //[DefaultValue(typeof(Color), "Empty")]
+        //[Description("The color used to draw the dial's background.")]
+        //public override Color OutlineColor
+        //{
+        //    get { return base.OutlineColor; }
+        //    set { base.OutlineColor = value; }
+        //}
+
+
+        ///// <summary>
+        ///// Gets or sets the color used to draw the border of the dial.
+        ///// </summary>
+        //[DefaultValue(typeof(Color), "Empty")]
+        //[Description("The color used to draw the border of the dial.")]
+        //public override Color FillColor
+        //{
+        //    get { return base.FillColor; }
+        //    set { base.FillColor = value; }
+        //}
 
 
         /// <summary>
-        /// Gets or sets the color used to draw the border of the dial.
+        /// The width of the outer-most rim.
         /// </summary>
-        [DefaultValue(typeof(Color), "Empty")]
-        [Description("The color used to draw the border of the dial.")]
-        public override Color FillColor
-        {
-            get { return base.FillColor; }
-            set { base.FillColor = value; }
-        }
-
-
         private float outerRimWidth;
 
+        /// <summary>
+        /// Gets or sets the width of the outer-most rim.
+        /// </summary>
+        [Category("Appearance")]
         [DefaultValue(OUTER_RIM_WIDTH)]
+        [Description("The width of the outer-most rim.")]
         public float OuterRimWidth
         {
             get { return outerRimWidth; }
@@ -85,9 +93,18 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             }
         }
 
+
+        /// <summary>
+        /// The width of the second rim.
+        /// </summary>
         private float innerRimWidth;
 
+        /// <summary>
+        /// Gets or sets the width of the second rim.
+        /// </summary>
+        [Category("Appearance")]
         [DefaultValue(INNER_RIM_WIDTH)]
+        [Description("The width of the second rim.")]
         public float InnerRimWidth
         {
             get { return innerRimWidth; }
@@ -107,7 +124,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// default values.
         /// </summary>
         public FancyDialShape()
-            : this(Color.Empty, Color.Empty, LINE_WIDTH)
+            : this(FILL_COLOR, OUTER_RIM_WIDTH, INNER_RIM_WIDTH)
         {
         }
 
@@ -116,21 +133,21 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </summary>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
         public FancyDialShape(Color fillColor)
-            : this(Color.Empty, fillColor, LINE_WIDTH)
+            : this(fillColor, OUTER_RIM_WIDTH, INNER_RIM_WIDTH)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FancyDialShape"/> class.
         /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the dial.</param>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
-        /// <param name="lineWidth">The width of the outline.</param>
-        public FancyDialShape(Color outlineColor, Color fillColor, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth)
+        /// <param name="innerRimWidth">The width of the outer-most rim.</param>
+        /// <param name="outerRimWidth">The width of the second rim.</param>
+        public FancyDialShape(Color fillColor, float outerRimWidth, float innerRimWidth)
+            : base(OUTLINE_COLOR, fillColor, LINE_WIDTH)
         {
-            outerRimWidth = OUTER_RIM_WIDTH;
-            innerRimWidth = INNER_RIM_WIDTH;
+            this.outerRimWidth = outerRimWidth;
+            this.innerRimWidth = innerRimWidth;
 
             CalculateDimensions();
         }
@@ -169,6 +186,12 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         private RectangleF innerRimRectangle;
         private RectangleF faceRectangle;
 
+
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
         protected override void CalculateDimensions()
         {
             outerRimRectangle = new RectangleF(-50f, -50f, 100, 100);
@@ -177,6 +200,12 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
 
+        /// <summary>
+        /// Decides if the Shape should be drawn.
+        /// If this method returns false, the <see cref="IShape.Draw"/> method returns immediatelly,
+        /// without doing anythig.
+        /// </summary>
+        /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
             return base.AllowToDraw() && !fillColor.IsEmpty;

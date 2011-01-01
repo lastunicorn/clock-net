@@ -79,7 +79,7 @@
     <Compile Include="Shapes\Basic\StringShape.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shapes\Default\RombicHandShape.cs" />
+    <Compile Include="Shapes\Default\DiamondHandShape.cs" />
     <Compile Include="Shapes\Default\TicksShape.cs" />
     <Compile Include="Shapes\Default\DialShape.cs">
       <SubType>Code</SubType>
@@ -102,7 +102,7 @@
     <Compile Include="Shapes\Fancy\SlotHandShape.cs" />
     <Compile Include="Shapes\Fancy\FancySweepHandShape.cs" />
     <Compile Include="Shapes\Basic\LineShape.cs" />
-    <Compile Include="Shapes\TextAngularOrientation.cs" />
+    <Compile Include="Shapes\AngularOrientation.cs" />
     <Compile Include="Shapes\Basic\PathShape.cs" />
     <Compile Include="Shapes\ShapeSet.cs" />
     <Compile Include="Shapes\Basic\ImageShape.cs" />

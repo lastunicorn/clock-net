@@ -30,6 +30,16 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         public const float LINE_WIDTH = 0.3f;
 
+        /// <summary>
+        /// The default value of the <see cref="FillColor"/>.
+        /// </summary>
+        public static Color FILL_COLOR = Color.Black;
+
+        /// <summary>
+        /// The default value of the <see cref="OutlineColor"/>.
+        /// </summary>
+        public static Color OUTLINE_COLOR = Color.Empty;
+
 
         /// <summary>
         /// The brush used to fill the shape.
@@ -130,6 +140,9 @@ namespace DustInTheWind.Clock.Shapes
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         /// <param name="lineWidth">The width of the outline.</param>
+        /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
+        /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
+        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
         public VectorialAngularShapeBase(Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(angle, repeat, positionOffset)
         {

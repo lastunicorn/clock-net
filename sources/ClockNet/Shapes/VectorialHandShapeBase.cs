@@ -30,7 +30,14 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         public const float LINE_WIDTH = 0.3f;
 
+        /// <summary>
+        /// The default value of the <see cref="FillColor"/>.
+        /// </summary>
         public static Color FILL_COLOR = Color.Black;
+
+        /// <summary>
+        /// The default value of the <see cref="OutlineColor"/>.
+        /// </summary>
         public static Color OUTLINE_COLOR = Color.Empty;
 
 

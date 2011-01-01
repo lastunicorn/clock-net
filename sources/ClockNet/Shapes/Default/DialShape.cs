@@ -27,17 +27,31 @@ namespace DustInTheWind.Clock.Shapes.Default
     public class DialShape : VectorialShapeBase
     {
         /// <summary>
+        /// The default value of the dot's radius.
+        /// </summary>
+        public const float RADIUS = 5f;
+
+        /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
             get { return "Default Dial Shape"; }
         }
-        
 
+
+        /// <summary>
+        /// The radius of the dial.
+        /// </summary>
         protected float radius;
 
+        /// <summary>
+        /// Gets or sets the radius of the dial.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
         [Category("Appearance")]
+        [DefaultValue(RADIUS)]
+        [Description("The radius of the dial.")]
         public virtual float Radius
         {
             get { return radius; }
@@ -60,7 +74,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// default values.
         /// </summary>
         public DialShape()
-            : this(Color.Empty, Color.Black, LINE_WIDTH)
+            : this(OUTLINE_COLOR, Color.Black, RADIUS, LINE_WIDTH)
         {
         }
 
@@ -69,7 +83,17 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
         public DialShape(Color fillColor)
-            : this(Color.Empty, fillColor, LINE_WIDTH)
+            : this(OUTLINE_COLOR, fillColor, RADIUS, LINE_WIDTH)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DialShape"/> class.
+        /// </summary>
+        /// <param name="fillColor">The color used to draw the dial's background.</param>
+        /// <param name="radius">The radius of the dial.</param>
+        public DialShape(Color fillColor, float radius)
+            : this(OUTLINE_COLOR, fillColor, radius, LINE_WIDTH)
         {
         }
 
@@ -78,10 +102,12 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the dial.</param>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
-        public DialShape(Color outlineColor, Color fillColor, float lineWidth)
+        /// <param name="radius">The radius of the dial.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
+        public DialShape(Color outlineColor, Color fillColor, float radius, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
-            this.radius = 50;
+            this.radius = radius;
 
             CalculateDimensions();
         }
@@ -114,9 +140,13 @@ namespace DustInTheWind.Clock.Shapes.Default
 
 
         /// <summary>
-        /// Draws the dial's background using the provided <see cref="Graphics"/> object.
+        /// Internal method that draws the Shape unconditioned. 
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the dial.</param>
+        /// <remarks>
+        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
+        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// </remarks>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void DrawInternal(Graphics g)
         {
             if (!fillColor.IsEmpty)

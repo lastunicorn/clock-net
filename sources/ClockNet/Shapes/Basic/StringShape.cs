@@ -163,15 +163,25 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
+        /// <summary>
+        /// Decides if the Shape should be drawn.
+        /// If this method returns false, the <see cref="IShape.Draw"/> method returns immediatelly,
+        /// without doing anythig.
+        /// </summary>
+        /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
             return base.AllowToDraw() && font != null && text != null && text.Length > 0 && !fillColor.IsEmpty;
         }
 
         /// <summary>
-        /// Draws the pin using the provided <see cref="Graphics"/> object.
+        /// Internal method that draws the Shape unconditioned. 
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
+        /// <remarks>
+        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
+        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// </remarks>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void DrawInternal(Graphics g)
         {
             CreateBrushIfNull();

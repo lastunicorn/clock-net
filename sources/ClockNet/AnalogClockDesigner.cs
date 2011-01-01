@@ -20,15 +20,20 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms.Design;
 using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.Shapes.Default;
-using DustInTheWind.Clock.Shapes.Fancy;
-using DustInTheWind.Clock.TimeProviders;
 using DustInTheWind.Clock.Shapes.Basic;
+using DustInTheWind.Clock.Shapes.Default;
 
 namespace DustInTheWind.Clock
 {
+    /// <summary>
+    /// Provides design time behavior for the <see cref="AnalogClock"/> control.
+    /// </summary>
     public class AnalogClockDesigner : ControlDesigner
     {
+        /// <summary>
+        /// Initializes the <see cref="AnalogClock"/> control.
+        /// </summary>
+        /// <param name="defaultValues"></param>
         public override void InitializeNewComponent(System.Collections.IDictionary defaultValues)
         {
             base.InitializeNewComponent(defaultValues);
@@ -87,11 +92,11 @@ namespace DustInTheWind.Clock
 
                 if (handShapes != null)
                 {
-                    RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24f, 5f, 6f);
+                    DiamondHandShape hourHandShape = new DiamondHandShape(Color.Empty, Color.RoyalBlue, 24f, 5f, 6f);
                     hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                     handShapes.Add(hourHandShape);
 
-                    RombicHandShape minuteHandShape = new RombicHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
+                    DiamondHandShape minuteHandShape = new DiamondHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
                     minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                     handShapes.Add(minuteHandShape);
 
@@ -100,7 +105,7 @@ namespace DustInTheWind.Clock
                     sweepHandShape.Height = 42.5f;
                     handShapes.Add(sweepHandShape);
 
-                    PinShape pinShape = new PinShape();
+                    PinShape pinShape = new PinShape(Color.Red, PinShape.DIAMETER);
                     handShapes.Add(pinShape);
                 }
             }

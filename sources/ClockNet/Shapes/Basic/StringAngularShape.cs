@@ -92,14 +92,14 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <summary>
         /// The orientation of the numbers.
         /// </summary>
-        private TextAngularOrientation orientation;
+        private AngularOrientation orientation;
 
         /// <summary>
         /// Geta or sets the orientation of the numbers.
         /// </summary>
-        [DefaultValue(typeof(TextAngularOrientation), "Normal")]
+        [DefaultValue(typeof(AngularOrientation), "Normal")]
         [Description("Specifies the orientation of the numbers.")]
-        public TextAngularOrientation Orientation
+        public AngularOrientation Orientation
         {
             get { return orientation; }
             set
@@ -117,25 +117,23 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// default values.
         /// </summary>
         public StringAngularShape()
-            : this(Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), ANGLE, REPEAT, POSITION_OFFSET, TextAngularOrientation.Normal)
+            : this(Color.Black, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), ANGLE, REPEAT, POSITION_OFFSET, AngularOrientation.Normal)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StringAngularShape"/> class.
         /// </summary>
-        /// <param name="font">The font to be used to draw the numbers.</param>
         public StringAngularShape(Color color)
-            : this(color, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), ANGLE, REPEAT, POSITION_OFFSET, TextAngularOrientation.Normal)
+            : this(color, new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point), ANGLE, REPEAT, POSITION_OFFSET, AngularOrientation.Normal)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StringAngularShape"/> class.
         /// </summary>
-        /// <param name="font">The font to be used to draw the numbers.</param>
         public StringAngularShape(Color color, Font font)
-            : this(color, font, ANGLE, REPEAT, POSITION_OFFSET, TextAngularOrientation.Normal)
+            : this(color, font, ANGLE, REPEAT, POSITION_OFFSET, AngularOrientation.Normal)
         {
         }
 
@@ -144,7 +142,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// </summary>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public StringAngularShape(Color color, Font font, float positionOffset)
-            : this(color, font, ANGLE, REPEAT, positionOffset, TextAngularOrientation.Normal)
+            : this(color, font, ANGLE, REPEAT, positionOffset, AngularOrientation.Normal)
         {
         }
 
@@ -153,7 +151,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// </summary>
         /// <param name="color"></param>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        public StringAngularShape(Color color, Font font, float angle, bool repeat, float positionOffset, TextAngularOrientation orientation)
+        public StringAngularShape(Color color, Font font, float angle, bool repeat, float positionOffset, AngularOrientation orientation)
             : base(angle, repeat, positionOffset)
         {
             this.color = color;
@@ -223,6 +221,14 @@ namespace DustInTheWind.Clock.Shapes.Basic
         //    }
         //}
 
+        /// <summary>
+        /// Internal method that draws the Shape unconditioned. 
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
+        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// </remarks>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void DrawInternal(Graphics g)
         {
             if (font != null && text != null && text.Length > 0 && !color.IsEmpty)
@@ -236,19 +242,19 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
                 switch (orientation)
                 {
-                    case TextAngularOrientation.FaceCenter:
+                    case AngularOrientation.FaceCenter:
                         originalMatrix = g.Transform;
                         g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
                         break;
 
-                    case TextAngularOrientation.FaceOut:
+                    case AngularOrientation.FaceOut:
                         originalMatrix = g.Transform;
                         g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);
                         g.RotateTransform(180);
                         break;
 
                     default:
-                    case TextAngularOrientation.Normal:
+                    case AngularOrientation.Normal:
                         float ang = -(this.angle * index);
                         originalMatrix = g.Transform;
                         g.TranslateTransform(0, positionOffset + numberSize.Height / 2f);

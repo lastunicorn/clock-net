@@ -51,6 +51,11 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         public const bool REPEAT = true;
 
+        /// <summary>
+        /// The default value of the shape's orientation.
+        /// </summary>
+        public const AngularOrientation ORIENTATION = AngularOrientation.FaceCenter;
+
 
         /// <summary>
         /// The position offset relativelly to the edge of the dial.
@@ -80,7 +85,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
         [Category("Layout")]
         [DefaultValue(OFFSET_ANGLE)]
-        public float OffsetAngle
+        public virtual float OffsetAngle
         {
             get { return offsetAngle; }
             set
@@ -106,7 +111,7 @@ namespace DustInTheWind.Clock.Shapes
         [Category("Layout")]
         [DefaultValue(ANGLE)]
         [Description("The angle between two consecutive drawns of the shape.")]
-        public float Angle
+        public virtual float Angle
         {
             get { return angle; }
             set
@@ -130,7 +135,7 @@ namespace DustInTheWind.Clock.Shapes
         [Category("Behavior")]
         [DefaultValue(EXCEPTION_INDEX)]
         [Description("The index and its multiples that should be skipped from beeing drawn.")]
-        public int ExceptionIndex
+        public virtual int ExceptionIndex
         {
             get { return exceptionIndex; }
             set
@@ -152,12 +157,32 @@ namespace DustInTheWind.Clock.Shapes
         [Category("Behavior")]
         [DefaultValue(REPEAT)]
         [Description("Specifies if the shape should be repeated all around the clock's dial.")]
-        public bool Repeat
+        public virtual bool Repeat
         {
             get { return repeat; }
             set
             {
                 repeat = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// The orientation of the shape.
+        /// </summary>
+        protected AngularOrientation orientation;
+
+        /// <summary>
+        /// Geta or sets the orientation of the shape.
+        /// </summary>
+        [DefaultValue(ORIENTATION)]
+        [Description("Specifies the orientation of the shape.")]
+        public virtual AngularOrientation Orientation
+        {
+            get { return orientation; }
+            set
+            {
+                orientation = value;
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -205,6 +230,7 @@ namespace DustInTheWind.Clock.Shapes
             this.angle = angle;
             this.repeat = repeat;
             this.positionOffset = positionOffset;
+            this.orientation = ORIENTATION;
 
             CalculateDimensions();
         }
@@ -216,10 +242,6 @@ namespace DustInTheWind.Clock.Shapes
         /// Draws one tick using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
-        /// <remarks>
-        /// Before calling this method, the origin should be already moved to the edge of the dial,
-        /// in the place where the tick should be drawn.
-        /// </remarks>
         public override void Draw(Graphics g)
         {
             if (AllowToDraw())
@@ -235,6 +257,23 @@ namespace DustInTheWind.Clock.Shapes
                     if (positionOffset != 0)
                         g.TranslateTransform(0, positionOffset);
 
+
+                    switch (orientation)
+                    {
+                        case AngularOrientation.FaceCenter:
+                            break;
+
+                        case AngularOrientation.FaceOut:
+                            g.RotateTransform(180);
+                            break;
+
+                        default:
+                        case AngularOrientation.Normal:
+                            float ang = -(this.angle * index);
+                            g.RotateTransform(ang);
+                            break;
+                    }
+                    
                     DrawInternal(g);
                 }
                 finally
@@ -243,8 +282,6 @@ namespace DustInTheWind.Clock.Shapes
                 }
             }
         }
-
-        //protected abstract void DrawInternal(Graphics g);
 
         /// <summary>
         /// Resets the index of the shape that will be drawn next.

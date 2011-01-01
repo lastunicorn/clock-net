@@ -47,7 +47,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// <summary>
         /// Gets or sets the radius of the dot.
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
         [Category("Appearance")]
         [DefaultValue(RADIUS)]
         [Description("The radius of the dot.")]
