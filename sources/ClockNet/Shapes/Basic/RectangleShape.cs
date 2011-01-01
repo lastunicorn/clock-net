@@ -72,27 +72,29 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && !rectangle.IsEmpty;
+        }
+
         /// <summary>
         /// Draws the rectangle using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the rectangle.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && !rectangle.IsEmpty)
+            if (!fillColor.IsEmpty)
             {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+                CreateBrushIfNull();
 
-                    g.FillRectangle(brush, rectangle);
-                }
+                g.FillRectangle(brush, rectangle);
+            }
 
-                if (!outlineColor.IsEmpty)
-                {
-                    CreatePenIfNull();
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-                    g.DrawRectangle(pen, roundedRectangle);
-                }
+                g.DrawRectangle(pen, roundedRectangle);
             }
         }
     }

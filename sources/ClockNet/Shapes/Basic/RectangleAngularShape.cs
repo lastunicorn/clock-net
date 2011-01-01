@@ -75,23 +75,25 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && !rectangle.IsEmpty;
+        }
+
         protected override void DrawInternal(Graphics g)
         {
-            if (!rectangle.IsEmpty)
+            if (!fillColor.IsEmpty)
             {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+                CreateBrushIfNull();
 
-                    g.FillRectangle(brush, rectangle);
-                }
+                g.FillRectangle(brush, rectangle);
+            }
 
-                if (!outlineColor.IsEmpty)
-                {
-                    CreatePenIfNull();
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-                    g.DrawRectangle(pen, roundedRectangle);
-                }
+                g.DrawRectangle(pen, roundedRectangle);
             }
         }
     }

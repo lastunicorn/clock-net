@@ -67,6 +67,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
         #endregion
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && points != null && points.Length >= 2;
+        }
 
         protected override void DrawInternal(Graphics g)
         {

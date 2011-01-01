@@ -67,27 +67,29 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
         #endregion
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && points != null && points.Length >= 2;
+        }
+
         /// <summary>
         /// Draws the polygon using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the polygon.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible)
+            if (!fillColor.IsEmpty)
             {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+                CreateBrushIfNull();
 
-                    g.FillPolygon(brush, points);
-                }
+                g.FillPolygon(brush, points);
+            }
 
-                if (!outlineColor.IsEmpty)
-                {
-                    CreatePenIfNull();
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-                    g.DrawPolygon(pen, points);
-                }
+                g.DrawPolygon(pen, points);
             }
         }
     }

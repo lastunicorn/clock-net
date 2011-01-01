@@ -42,7 +42,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// The lcation of the hand top.
         /// </summary>
         protected PointF endPoint;
-        
+
 
         #region Constructor
 
@@ -81,19 +81,20 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
         #endregion
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && !outlineColor.IsEmpty;
+        }
 
         /// <summary>
         /// Draws the line using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the line.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && !outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
+            CreatePenIfNull();
 
-                g.DrawLine(pen, startPoint, endPoint);
-            }
+            g.DrawLine(pen, startPoint, endPoint);
         }
     }
 }

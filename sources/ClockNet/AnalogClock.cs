@@ -25,6 +25,7 @@ using System.Drawing.Text;
 using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.TimeProviders;
+using DustInTheWind.Clock.Shapes.Default;
 
 namespace DustInTheWind.Clock
 {
@@ -294,6 +295,51 @@ namespace DustInTheWind.Clock
         #endregion
 
 
+        private TextShape defaultTextShape;
+        private TextShape DefaultTextShape
+        {
+            get
+            {
+                if (defaultTextShape == null)
+                {
+                    foreach (IShape shape in backgroundShapes)
+                    {
+                        if (shape is TextShape)
+                        {
+                            defaultTextShape = (TextShape)shape;
+                            break;
+                        }
+                    }
+                }
+
+                return defaultTextShape;
+            }
+        }
+
+        public override string Text
+        {
+            get
+            {
+                TextShape textShape = DefaultTextShape;
+                if (textShape != null)
+                {
+                    return textShape.Text;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                TextShape textShape = DefaultTextShape;
+                if (textShape != null)
+                {
+                    textShape.Text = value;
+                }
+            }
+        }
+
 
         #region Time
 
@@ -374,13 +420,15 @@ namespace DustInTheWind.Clock
         #region Time Provider
 
         /// <summary>
-        /// An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed by the timer every time the timer asks for it.
+        /// An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed by the timer.
         /// </summary>
         private ITimeProvider timeProvider;
 
         /// <summary>
-        /// An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed by the timer every time the timer asks for it.
+        /// Gets or sets an instance of the <see cref="ITimeProvider"/> that provides the time to be displayed by the timer.
         /// </summary>
+        [DefaultValue(null)]
+        [Description("Provides the time to be displayed by the timer.")]
         public ITimeProvider TimeProvider
         {
             get { return timeProvider; }
@@ -528,7 +576,7 @@ namespace DustInTheWind.Clock
 
         #endregion
 
-        #region AngularShapeCollection class
+        #region HandShapeCollection class
 
         private class HandShapeCollection : Collection<IHandShape>
         {
@@ -648,208 +696,6 @@ namespace DustInTheWind.Clock
         #endregion
 
 
-
-        #region Hour Hand
-
-        /// <summary>
-        /// A value that specifies if the hour hand should point exactly to the hour marks and never between them.
-        /// </summary>
-        private bool integralHour = false;
-
-        /// <summary>
-        /// Gets or sets a value that specifies if the hour hand should point exactly to the hour marks and never between them.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(false)]
-        [Description("Specifies if the hour hand should point exactly to the hour marks and never between them.")]
-        public bool IntegralHour
-        {
-            get { return integralHour; }
-            set
-            {
-                integralHour = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// An instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
-        /// </summary>
-        private IHandShape hourHandShape;
-
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
-        /// </summary>
-        [Category("Shapes")]
-        [TypeConverter(typeof(ShapeConverter))]
-        [EditorAttribute(typeof(ShapeSelectorEditor), typeof(UITypeEditor))]
-        [Description("An instance of IHandShape responsable to paint the hour hand in the position specified by the clock.")]
-        public IHandShape HourHandShape
-        {
-            get { return hourHandShape; }
-            set
-            {
-                if (hourHandShape != null)
-                    hourHandShape.Changed -= new EventHandler(shape_Changed);
-
-                hourHandShape = value;
-
-                if (hourHandShape != null)
-                    hourHandShape.Changed += new EventHandler(shape_Changed);
-
-                Invalidate();
-
-                OnHourHandShapeChanged(EventArgs.Empty);
-            }
-        }
-
-        #endregion
-
-        #region Minute Hand
-
-        /// <summary>
-        /// A value that specifies if the minute hand should point exactly to the minute marks and never between them.
-        /// </summary>
-        private bool integralMinute = false;
-
-        /// <summary>
-        /// Gets or sets a value that specifies if the minute hand should point exactly to the minute marks and never between them.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(false)]
-        [Description("Specifies if the hour hand should point exactly to the hour marks and never between them.")]
-        public bool IntegralMinute
-        {
-            get { return integralMinute; }
-            set
-            {
-                integralMinute = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// An instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
-        /// </summary>
-        private IHandShape minuteHandShape;
-
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
-        /// </summary>
-        [Category("Shapes")]
-        [DefaultValue(null)]
-        [Description("An instance of IHandShape responsable to paint the minute hand in the position specified by the clock.")]
-        public IHandShape MinuteHandShape
-        {
-            get { return minuteHandShape; }
-            set
-            {
-                if (minuteHandShape != null)
-                    minuteHandShape.Changed -= new EventHandler(shape_Changed);
-
-                minuteHandShape = value;
-
-                if (minuteHandShape != null)
-                    minuteHandShape.Changed += new EventHandler(shape_Changed);
-
-                Invalidate();
-
-                OnMinuteHandShapeChanged(EventArgs.Empty);
-            }
-        }
-
-        #endregion
-
-        #region Sweep Hand
-
-        /// <summary>
-        /// A value that specifies if the sweep hand should point exactly to the second's marks and never between them.
-        /// </summary>
-        private bool integralSecond = true;
-
-        /// <summary>
-        /// Gets or sets a value that specifies if the sweep hand should point exactly to the second's marks and never between them.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(true)]
-        [Description("Specifies if the sweep hand should point exactly to the second's marks and never between them.")]
-        public bool IntegralSecond
-        {
-            get { return integralSecond; }
-            set
-            {
-                integralSecond = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// An instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
-        /// </summary>
-        private IHandShape sweepHandShape;
-
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
-        /// </summary>
-        [Category("Shapes")]
-        [DefaultValue(null)]
-        [Description("An instance of IHandShape responsable to paint the sweep hand in the position specified by the clock.")]
-        public IHandShape SweepHandShape
-        {
-            get { return sweepHandShape; }
-            set
-            {
-                if (sweepHandShape != null)
-                    sweepHandShape.Changed -= new EventHandler(shape_Changed);
-
-                sweepHandShape = value;
-
-                if (sweepHandShape != null)
-                    sweepHandShape.Changed += new EventHandler(shape_Changed);
-
-                Invalidate();
-
-                OnSweepHandShapeChanged(EventArgs.Empty);
-            }
-        }
-
-        #endregion
-
-        #region Pin
-
-        /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
-        /// </summary>
-        private IShape pinShape;
-
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
-        /// </summary>
-        [Category("Shapes")]
-        [DefaultValue(null)]
-        [Description("An instance of IShape responsable to paint the pin from the center of the clock.")]
-        public IShape PinShape
-        {
-            get { return pinShape; }
-            set
-            {
-                if (pinShape != null)
-                    pinShape.Changed -= new EventHandler(shape_Changed);
-
-                pinShape = value;
-
-                if (pinShape != null)
-                    pinShape.Changed += new EventHandler(shape_Changed);
-
-                Invalidate();
-
-                OnPinShapeChanged(EventArgs.Empty);
-            }
-        }
-
-        #endregion
-
-
         #region Miscellaneous
 
         /// <summary>
@@ -923,28 +769,12 @@ namespace DustInTheWind.Clock
                     }
                 }
 
-                if (shapeSet.HourHandShape != null)
+                if (shapeSet.HandShapes != null)
                 {
-                    hourHandShape = shapeSet.HourHandShape;
-                    hourHandShape.Changed += new EventHandler(shape_Changed);
-                }
-
-                if (shapeSet.MinuteHandShape != null)
-                {
-                    minuteHandShape = shapeSet.MinuteHandShape;
-                    minuteHandShape.Changed += new EventHandler(shape_Changed);
-                }
-
-                if (shapeSet.SweepHandShape != null)
-                {
-                    sweepHandShape = shapeSet.SweepHandShape;
-                    sweepHandShape.Changed += new EventHandler(shape_Changed);
-                }
-
-                if (shapeSet.PinShape != null)
-                {
-                    pinShape = shapeSet.PinShape;
-                    pinShape.Changed += new EventHandler(shape_Changed);
+                    foreach (IHandShape shape in shapeSet.HandShapes)
+                    {
+                        handShapes.Add(shape);
+                    }
                 }
             }
 
@@ -1144,7 +974,7 @@ namespace DustInTheWind.Clock
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = TextRenderingHint.AntiAlias;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            g.InterpolationMode = InterpolationMode.HighQualityBilinear;
+            //g.InterpolationMode = InterpolationMode.HighQualityBilinear;
 
             Matrix originalMatrix = e.Graphics.Transform;
 
@@ -1193,13 +1023,13 @@ namespace DustInTheWind.Clock
             {
                 for (float i = 0; i <= 360; i += angleIncrement)
                 {
-                    g.Transform = centerMatrix;
-                    g.RotateTransform(i);
-
-                    g.TranslateTransform(0f, -radius);
-
                     foreach (IAngularShape shape in angularShapes)
                     {
+                        g.Transform = centerMatrix;
+                        g.RotateTransform(i);
+
+                        g.TranslateTransform(0f, -radius);
+
                         if ((shape.Index == 0 || shape.Repeat) && i % shape.Angle == 0)
                         {
                             shape.Draw(g);
@@ -1218,68 +1048,6 @@ namespace DustInTheWind.Clock
                     shape.Time = time;
                     shape.Draw(g);
                 }
-            }
-
-
-            // Draw the hour hand.
-            if (hourHandShape != null)
-            {
-                float hourDegrees;
-
-                if (integralHour)
-                    hourDegrees = (float)((time.Hours % 12) * 30);
-                else
-                    hourDegrees = (float)((time.Hours % 12 + time.Minutes / 60F) * 30);
-
-                g.Transform = centerMatrix;
-                g.RotateTransform(hourDegrees);
-
-                // Draw the shape.
-                hourHandShape.Draw(g);
-            }
-
-            // Draw the minute hand.
-            if (minuteHandShape != null)
-            {
-                float minuteDegrees;
-
-                if (integralMinute)
-                    minuteDegrees = (float)(time.Minutes * 6);
-                else
-                    minuteDegrees = (float)((time.Minutes + time.Seconds / 60F) * 6);
-
-                g.Transform = centerMatrix;
-                g.RotateTransform(minuteDegrees);
-
-                // Draw the shape.
-                minuteHandShape.Draw(g);
-            }
-
-            // Draw the sweep hand.
-            if (sweepHandShape != null)
-            {
-                float sweepDegrees;
-
-                if (integralSecond)
-                    sweepDegrees = (float)(time.Seconds * 6);
-                else
-                    sweepDegrees = (float)((time.Seconds + time.Milliseconds / 1000F) * 6);
-
-                g.Transform = centerMatrix;
-                g.RotateTransform(sweepDegrees);
-
-                // Draw the shape.
-                sweepHandShape.Draw(g);
-            }
-
-
-            // Draw the pin.
-            if (pinShape != null)
-            {
-                g.Transform = centerMatrix;
-
-                // Draw the shape.
-                pinShape.Draw(g);
             }
 
 #if PERFORMANCE_INFO
@@ -1351,10 +1119,14 @@ namespace DustInTheWind.Clock
                     }
                 }
 
-                HourHandShape = shapeSet.HourHandShape;
-                MinuteHandShape = shapeSet.MinuteHandShape;
-                SweepHandShape = shapeSet.SweepHandShape;
-                PinShape = shapeSet.PinShape;
+                handShapes.Clear();
+                if (shapeSet.HandShapes != null)
+                {
+                    foreach (IHandShape shape in shapeSet.HandShapes)
+                    {
+                        handShapes.Add(shape);
+                    }
+                }
             }
         }
     }

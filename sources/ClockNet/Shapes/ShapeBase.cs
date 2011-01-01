@@ -92,11 +92,24 @@ namespace DustInTheWind.Clock.Shapes
         {
         }
 
+        protected virtual bool AllowToDraw()
+        {
+            return visible;
+        }
+
         /// <summary>
         /// Draws the shape using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        public abstract void Draw(Graphics g);
+        public virtual void Draw(Graphics g)
+        {
+            if (AllowToDraw())
+            {
+                DrawInternal(g);
+            }
+        }
+
+        protected abstract void DrawInternal(Graphics g);
 
 
         #region IDisposable Members

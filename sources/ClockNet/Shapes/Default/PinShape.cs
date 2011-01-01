@@ -23,7 +23,7 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the pin from the center of the dial.
     /// </summary>
-    public class PinShape : VectorialShapeBase
+    public class PinShape : VectorialHandShapeBase
     {
         /// <summary>
         /// The default value of the radius.
@@ -156,23 +156,20 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Draws the pin using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible)
+            if (!fillColor.IsEmpty)
             {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+                CreateBrushIfNull();
 
-                    g.FillEllipse(brush, _locationX, _locationY, radius, radius);
-                }
+                g.FillEllipse(brush, _locationX, _locationY, radius, radius);
+            }
 
-                if (!outlineColor.IsEmpty)
-                {
-                    CreatePenIfNull();
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-                    g.DrawEllipse(pen, _locationX, _locationY, radius, radius);
-                }
+                g.DrawEllipse(pen, _locationX, _locationY, radius, radius);
             }
         }
     }

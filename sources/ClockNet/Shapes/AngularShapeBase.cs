@@ -221,7 +221,7 @@ namespace DustInTheWind.Clock.Shapes
         /// </remarks>
         public override void Draw(Graphics g)
         {
-            if (visible)
+            if (AllowToDraw())
             {
                 try
                 {
@@ -231,12 +231,10 @@ namespace DustInTheWind.Clock.Shapes
                     if (exceptionIndex > 0 && index % exceptionIndex == 0)
                         return;
 
-                    Matrix originalMatrix = g.Transform;
-                    g.TranslateTransform(0, positionOffset);
+                    if (positionOffset != 0)
+                        g.TranslateTransform(0, positionOffset);
 
                     DrawInternal(g);
-
-                    g.Transform = originalMatrix;
                 }
                 finally
                 {
@@ -245,7 +243,7 @@ namespace DustInTheWind.Clock.Shapes
             }
         }
 
-        protected abstract void DrawInternal(Graphics g);
+        //protected abstract void DrawInternal(Graphics g);
 
         /// <summary>
         /// Resets the index of the shape that will be drawn next.

@@ -52,19 +52,25 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 HourHandShape hourHandShape = new HourHandShape();
+                hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 MinuteHandShape minuteHandShape = new MinuteHandShape();
-                //SweepHandShape sweepHandShape = new SweepHandShape();
+                minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 LineHandShape sweepHandShape = new LineHandShape();
+                sweepHandShape.ComponentToDisplay = TimeComponent.Second;
                 PinShape pinShape = new PinShape();
+
+                IHandShape[] hands = new IHandShape[]{
+                    hourHandShape,
+                    minuteHandShape,
+                    sweepHandShape,
+                    pinShape
+                };
 
                 return new ShapeSet()
                 {
                     backgroundShapes = backgrounds,
                     angularShapes = angulars,
-                    hourHandShape = hourHandShape,
-                    minuteHandShape = minuteHandShape,
-                    sweepHandShape = sweepHandShape,
-                    pinShape = pinShape
+                    handShapes = hands
                 };
             }
         }
@@ -92,19 +98,25 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 HourHandShape hourHandShape = new HourHandShape(Color.Empty, Color.Navy);
+                hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 MinuteHandShape minuteHandShape = new MinuteHandShape(Color.Empty, Color.RoyalBlue);
-                //SweepHandShape sweepHandShape = new SweepHandShape(Color.DeepSkyBlue);
+                minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 LineHandShape sweepHandShape = new LineHandShape(Color.DeepSkyBlue);
+                sweepHandShape.ComponentToDisplay = TimeComponent.Second;
                 PinShape pinShape = new PinShape(Color.Empty, Color.Navy);
+
+                IHandShape[] hands = new IHandShape[]{
+                    hourHandShape,
+                    minuteHandShape,
+                    sweepHandShape,
+                    pinShape
+                };
 
                 return new ShapeSet()
                 {
                     backgroundShapes = backgrounds,
                     angularShapes = angulars,
-                    hourHandShape = hourHandShape,
-                    minuteHandShape = minuteHandShape,
-                    sweepHandShape = sweepHandShape,
-                    pinShape = pinShape
+                    handShapes = hands
                 };
             }
         }
@@ -139,19 +151,26 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 HourHandShape hourHandShape = new HourHandShape();
+                hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 MinuteHandShape minuteHandShape = new MinuteHandShape();
+                minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 LineHandShape sweepHandShape = new LineHandShape(Color.Red);
+                sweepHandShape.ComponentToDisplay = TimeComponent.Second;
                 sweepHandShape.Height = 42f;
                 PinShape pinShape = new PinShape();
+
+                IHandShape[] hands = new IHandShape[]{
+                    hourHandShape,
+                    minuteHandShape,
+                    sweepHandShape,
+                    pinShape
+                };
 
                 return new ShapeSet()
                 {
                     backgroundShapes = backgrounds,
                     angularShapes = angulars,
-                    hourHandShape = hourHandShape,
-                    minuteHandShape = minuteHandShape,
-                    sweepHandShape = sweepHandShape,
-                    pinShape = pinShape
+                    handShapes = hands
                 };
             }
         }
@@ -182,21 +201,26 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 BigNibHandShape hourHandShape = new BigNibHandShape(Color.Black, 30f);
+                hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 hourHandShape.Width = 5f;
                 BigNibHandShape minuteHandShape = new BigNibHandShape();
+                minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 FancySweepHandShape sweepHandShape = new FancySweepHandShape();
-                //sweepHandShape.Height = 50f;
-                //sweepHandShape.CircleRadius = 5f;
+                sweepHandShape.ComponentToDisplay = TimeComponent.Second;
                 PinShape pinShape = new PinShape();
+
+                IHandShape[] hands = new IHandShape[]{
+                    hourHandShape,
+                    minuteHandShape,
+                    sweepHandShape,
+                    pinShape
+                };
 
                 return new ShapeSet()
                 {
                     backgroundShapes = backgrounds,
                     angularShapes = angulars,
-                    hourHandShape = hourHandShape,
-                    minuteHandShape = minuteHandShape,
-                    sweepHandShape = sweepHandShape,
-                    pinShape = pinShape
+                    handShapes = hands
                 };
             }
         }
@@ -213,19 +237,24 @@ namespace DustInTheWind.Clock.Shapes
                 IAngularShape[] angulars = null;
 
                 DotHandShape hourHandShape = new DotHandShape(Color.Black, 20, 4.5f);
+                hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 DotHandShape minuteHandShape = new DotHandShape(Color.Black, 40, 2.75f);
-                //SweepHandShape sweepHandShape = null;
+                minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 LineHandShape sweepHandShape = null;
                 PinShape pinShape = new PinShape(Color.Black, 8);
+
+                IHandShape[] hands = new IHandShape[]{
+                    hourHandShape,
+                    minuteHandShape,
+                    sweepHandShape,
+                    pinShape
+                };
 
                 return new ShapeSet()
                 {
                     backgroundShapes = backgrounds,
                     angularShapes = angulars,
-                    hourHandShape = hourHandShape,
-                    minuteHandShape = minuteHandShape,
-                    sweepHandShape = sweepHandShape,
-                    pinShape = pinShape
+                    handShapes = hands
                 };
             }
         }
@@ -252,18 +281,25 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 SlotHandShape hourHandShape = new SlotHandShape(Color.White, 49, 34, 6);
+                hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 LineHandShape minuteHandShape = new LineHandShape(Color.Black, 42, 3, 0);
+                minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 LineHandShape sweepHandShape = new LineHandShape(Color.Black, 45, 1, 15);
+                sweepHandShape.ComponentToDisplay = TimeComponent.Second;
                 PinShape pinShape = new PinShape(Color.Black, 9);
+
+                IHandShape[] hands = new IHandShape[]{
+                    hourHandShape,
+                    minuteHandShape,
+                    sweepHandShape,
+                    pinShape
+                };
 
                 return new ShapeSet()
                 {
                     backgroundShapes = backgrounds,
                     angularShapes = angulars,
-                    hourHandShape = hourHandShape,
-                    minuteHandShape = minuteHandShape,
-                    sweepHandShape = sweepHandShape,
-                    pinShape = pinShape
+                    handShapes = hands
                 };
             }
         }
@@ -294,18 +330,25 @@ namespace DustInTheWind.Clock.Shapes
                 };
 
                 ImageHandShape hourHandShape = new ImageHandShape(Resources.hour_hand, new PointF(32f, 155.5f), 25);
+                hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                 ImageHandShape minuteHandShape = new ImageHandShape(Resources.minute_hand, new PointF(14.5f, 206f), 35);
+                minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                 LineHandShape sweepHandShape = new LineHandShape(Color.Red);
+                sweepHandShape.ComponentToDisplay = TimeComponent.Second;
                 PinShape pinShape = new PinShape();
+
+                IHandShape[] hands = new IHandShape[]{
+                    hourHandShape,
+                    minuteHandShape,
+                    sweepHandShape,
+                    pinShape
+                };
 
                 return new ShapeSet()
                 {
                     backgroundShapes = backgrounds,
                     angularShapes = angulars,
-                    hourHandShape = hourHandShape,
-                    minuteHandShape = minuteHandShape,
-                    sweepHandShape = sweepHandShape,
-                    pinShape = pinShape
+                    handShapes = hands
                 };
             }
         }
@@ -326,60 +369,68 @@ namespace DustInTheWind.Clock.Shapes
             set { angularShapes = value; }
         }
 
-        /// <summary>
-        /// An instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
-        /// </summary>
-        private IHandShape hourHandShape;
+        private IHandShape[] handShapes;
 
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
-        /// </summary>
-        public IHandShape HourHandShape
+        public IHandShape[] HandShapes
         {
-            get { return hourHandShape; }
-            set { hourHandShape = value; }
+            get { return handShapes; }
+            set { handShapes = value; }
         }
 
-        /// <summary>
-        /// An instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
-        /// </summary>
-        private IHandShape minuteHandShape;
+        ///// <summary>
+        ///// An instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
+        ///// </summary>
+        //private IHandShape hourHandShape;
 
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
-        /// </summary>
-        public IHandShape MinuteHandShape
-        {
-            get { return minuteHandShape; }
-            set { minuteHandShape = value; }
-        }
+        ///// <summary>
+        ///// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the hour hand in the position specified by the clock.
+        ///// </summary>
+        //public IHandShape HourHandShape
+        //{
+        //    get { return hourHandShape; }
+        //    set { hourHandShape = value; }
+        //}
 
-        /// <summary>
-        /// An instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
-        /// </summary>
-        private IHandShape sweepHandShape;
+        ///// <summary>
+        ///// An instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
+        ///// </summary>
+        //private IHandShape minuteHandShape;
 
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
-        /// </summary>
-        public IHandShape SweepHandShape
-        {
-            get { return sweepHandShape; }
-            set { sweepHandShape = value; }
-        }
+        ///// <summary>
+        ///// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the minute hand in the position specified by the clock.
+        ///// </summary>
+        //public IHandShape MinuteHandShape
+        //{
+        //    get { return minuteHandShape; }
+        //    set { minuteHandShape = value; }
+        //}
 
-        /// <summary>
-        /// An instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
-        /// </summary>
-        private IShape pinShape;
+        ///// <summary>
+        ///// An instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
+        ///// </summary>
+        //private IHandShape sweepHandShape;
 
-        /// <summary>
-        /// Gets or sets an instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
-        /// </summary>
-        public IShape PinShape
-        {
-            get { return pinShape; }
-            set { pinShape = value; }
-        }
+        ///// <summary>
+        ///// Gets or sets an instance of <see cref="IHandShape"/> responsable to paint the sweep hand in the position specified by the clock.
+        ///// </summary>
+        //public IHandShape SweepHandShape
+        //{
+        //    get { return sweepHandShape; }
+        //    set { sweepHandShape = value; }
+        //}
+
+        ///// <summary>
+        ///// An instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
+        ///// </summary>
+        //private IShape pinShape;
+
+        ///// <summary>
+        ///// Gets or sets an instance of <see cref="IShape"/> responsable to paint the pin from the center of the clock.
+        ///// </summary>
+        //public IShape PinShape
+        //{
+        //    get { return pinShape; }
+        //    set { pinShape = value; }
+        //}
     }
 }

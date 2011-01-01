@@ -35,53 +35,17 @@ namespace DustInTheWind.Clock
                         shape.Dispose();
                 }
 
-                //if (textBrush != null)
-                //    textBrush.Dispose();
+                foreach (IShape shape in angularShapes)
+                {
+                    if (shape != null)
+                        shape.Dispose();
+                }
 
-                if (hourHandShape != null)
-                    hourHandShape.Dispose();
-
-                if (minuteHandShape != null)
-                    minuteHandShape.Dispose();
-
-                if (sweepHandShape != null)
-                    sweepHandShape.Dispose();
-
-                if (pinShape != null)
-                    pinShape.Dispose();
-
-                //if (ticks1Shape != null)
-                //    ticks1Shape.Dispose();
-
-                //if (ticks5Shape != null)
-                //    ticks5Shape.Dispose();
-
-                //if (numbersShape != null)
-                //    numbersShape.Dispose();
-
-                //if (textShape != null)
-                //    textShape.Dispose();
-
-                //if (hourHandShape != null && hourHandShape != defaultHourHandShape)
-                //    hourHandShape.Dispose();
-
-                //if (minuteHandShape != null && minuteHandShape != defaultMinuteHandShape)
-                //    minuteHandShape.Dispose();
-
-                //if (sweepHandShape != null && sweepHandShape != defaultSweepHandShape)
-                //    sweepHandShape.Dispose();
-
-                //if (pinShape != null && pinShape != defaultPinShape)
-                //    pinShape.Dispose();
-
-                //if (ticks1Shape != null && ticks1Shape != defaultTicks1Shape)
-                //    ticks1Shape.Dispose();
-
-                //if (ticks5Shape != null && ticks5Shape != defaultTicks5Shape)
-                //    ticks5Shape.Dispose();
-
-                //if (numbersShape != null && numbersShape != defaultNumbersShape)
-                //    numbersShape.Dispose();
+                foreach (IShape shape in handShapes)
+                {
+                    if (shape != null)
+                        shape.Dispose();
+                }
             }
 
             base.Dispose(disposing);

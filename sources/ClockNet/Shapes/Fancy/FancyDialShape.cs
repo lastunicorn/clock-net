@@ -177,31 +177,23 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         }
 
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && !fillColor.IsEmpty;
+        }
+
         /// <summary>
         /// Draws the dial's background using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the dial.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible)
-            {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+            CreateBrushIfNull();
 
-                    //g.FillEllipse(brush, locationX, locationY, diameter, diameter);
-                    g.FillEllipse(outerRimBrush, outerRimRectangle);
-                    g.FillEllipse(innerRimBrush, innerRimRectangle);
-                    g.FillEllipse(brush, faceRectangle);
-                }
-
-                //if (!outlineColor.IsEmpty)
-                //{
-                //    CreatePenIfNull();
-
-                //    g.DrawEllipse(pen, locationX, locationY, diameter, diameter);
-                //}
-            }
+            //g.FillEllipse(brush, locationX, locationY, diameter, diameter);
+            g.FillEllipse(outerRimBrush, outerRimRectangle);
+            g.FillEllipse(innerRimBrush, innerRimRectangle);
+            g.FillEllipse(brush, faceRectangle);
         }
 
         /// <summary>

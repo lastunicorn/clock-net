@@ -71,55 +71,49 @@ namespace DustInTheWind.Clock
 
                     TicksShape ticks5Shape = new TicksShape(Color.Black, TicksShape.LENGTH, 1f, 0f);
                     ticks5Shape.Angle = 30f;
+                    ticks5Shape.Length = 5f;
                     angularShapes.Add(ticks5Shape);
 
-                    TextAngularShape numbersShape = new TextAngularShape(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 4f);
+                    TextAngularShape numbersShape = new TextAngularShape(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 7f);
                     numbersShape.Angle = 30f;
                     angularShapes.Add(numbersShape);
                 }
             }
 
+            PropertyDescriptor handShapeDescriptor = TypeDescriptor.GetProperties(Component)["HandShapes"];
 
-            PropertyDescriptor hourHandShapeDescriptor = TypeDescriptor.GetProperties(Component)["HourHandShape"];
-
-            if (hourHandShapeDescriptor != null && hourHandShapeDescriptor.PropertyType == typeof(IHandShape) && !hourHandShapeDescriptor.IsReadOnly && hourHandShapeDescriptor.IsBrowsable)
+            if (handShapeDescriptor != null && handShapeDescriptor.PropertyType == typeof(Collection<IHandShape>) && handShapeDescriptor.IsBrowsable)
             {
-                hourHandShapeDescriptor.SetValue(Component, new HourHandShape());
+                Collection<IHandShape> handShapes = handShapeDescriptor.GetValue(Component) as Collection<IHandShape>;
+
+                if (handShapes != null)
+                {
+                    RombicHandShape hourHandShape = new RombicHandShape(Color.Empty, Color.RoyalBlue, 24.2f, 5f, 6f);
+                    hourHandShape.ComponentToDisplay = TimeComponent.Hour;
+                    handShapes.Add(hourHandShape);
+
+                    RombicHandShape minuteHandShape = new RombicHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
+                    minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
+                    handShapes.Add(minuteHandShape);
+
+                    LineHandShape sweepHandShape = new LineHandShape(Color.Red);
+                    sweepHandShape.ComponentToDisplay = TimeComponent.Second;
+                    sweepHandShape.Height = 42.5f;
+                    handShapes.Add(sweepHandShape);
+
+                    PinShape pinShape = new PinShape();
+                    handShapes.Add(pinShape);
+                }
             }
 
 
-            PropertyDescriptor minuteHandShapeDescriptor = TypeDescriptor.GetProperties(Component)["MinuteHandShape"];
+            //PropertyDescriptor timeProviderDescriptor = TypeDescriptor.GetProperties(Component)["TimeProvider"];
 
-            if (minuteHandShapeDescriptor != null && minuteHandShapeDescriptor.PropertyType == typeof(IHandShape) && !minuteHandShapeDescriptor.IsReadOnly && minuteHandShapeDescriptor.IsBrowsable)
-            {
-                minuteHandShapeDescriptor.SetValue(Component, new MinuteHandShape());
-            }
-
-
-            PropertyDescriptor sweepHandShapeDescriptor = TypeDescriptor.GetProperties(Component)["SweepHandShape"];
-
-            if (sweepHandShapeDescriptor != null && sweepHandShapeDescriptor.PropertyType == typeof(IHandShape) && !sweepHandShapeDescriptor.IsReadOnly && sweepHandShapeDescriptor.IsBrowsable)
-            {
-                LineHandShape hand = new LineHandShape(Color.Red);
-                hand.Height = 42.5f;
-                sweepHandShapeDescriptor.SetValue(Component, hand);
-            }
-
-
-            PropertyDescriptor pinShapeDescriptor = TypeDescriptor.GetProperties(Component)["PinShape"];
-
-            if (pinShapeDescriptor != null && pinShapeDescriptor.PropertyType == typeof(IShape) && !pinShapeDescriptor.IsReadOnly && pinShapeDescriptor.IsBrowsable)
-            {
-                pinShapeDescriptor.SetValue(Component, new PinShape());
-            }
-
-
-            PropertyDescriptor timeProviderDescriptor = TypeDescriptor.GetProperties(Component)["TimeProvider"];
-
-            if (timeProviderDescriptor != null && timeProviderDescriptor.PropertyType == typeof(ITimeProvider) && !timeProviderDescriptor.IsReadOnly && timeProviderDescriptor.IsBrowsable)
-            {
-                timeProviderDescriptor.SetValue(Component, new LocalTimeProvider());
-            }
+            //if (timeProviderDescriptor != null && timeProviderDescriptor.PropertyType == typeof(ITimeProvider) && !timeProviderDescriptor.IsReadOnly && timeProviderDescriptor.IsBrowsable)
+            //{
+            //    LocalTimeProvider timeProvider = new LocalTimeProvider();
+            //    timeProviderDescriptor.SetValue(Component, new LocalTimeProvider());
+            //}
         }
     }
 }

@@ -77,27 +77,29 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && path != null;
+        }
+
         /// <summary>
         /// Draws the path using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the path.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && path != null)
+            if (!fillColor.IsEmpty)
             {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+                CreateBrushIfNull();
 
-                    g.FillPath(brush, path);
-                }
+                g.FillPath(brush, path);
+            }
 
-                if (!outlineColor.IsEmpty)
-                {
-                    CreatePenIfNull();
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-                    g.DrawPath(pen, path);
-                }
+                g.DrawPath(pen, path);
             }
         }
 

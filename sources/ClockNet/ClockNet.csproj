@@ -79,6 +79,7 @@
     <Compile Include="Shapes\Basic\StringShape.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Shapes\Default\RombicHandShape.cs" />
     <Compile Include="Shapes\Default\TicksShape.cs" />
     <Compile Include="Shapes\Default\DialShape.cs">
       <SubType>Code</SubType>
@@ -86,6 +87,7 @@
     <Compile Include="Shapes\Fancy\DotHandShape.cs" />
     <Compile Include="Shapes\ShapeSelectorEditor.cs" />
     <Compile Include="Shapes\Basic\StringAngularShape.cs" />
+    <Compile Include="Shapes\TimeComponent.cs" />
     <Compile Include="Shapes\VectorialHandShapeBase.cs" />
     <Compile Include="Shapes\HandShapeBase.cs" />
     <Compile Include="Shapes\VectorialAngularShapeBase.cs" />
@@ -126,7 +128,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>

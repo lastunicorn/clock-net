@@ -16,6 +16,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Drawing;
 
 namespace DustInTheWind.Clock.Shapes
 {
@@ -61,13 +62,33 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// Gets or sets the time that the current instance should represent.
         /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(typeof(TimeSpan), "00:00:00")]
-        [Description("The time that the current instance should represent.")]
+        [Browsable(false)]
         public virtual TimeSpan Time
         {
             get { return time; }
             set { time = value; }
+        }
+
+        protected TimeComponent componentToDisplay;
+        public virtual TimeComponent ComponentToDisplay
+        {
+            get { return componentToDisplay; }
+            set
+            {
+                componentToDisplay = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        protected bool integralValue;
+        public virtual bool IntegralValue
+        {
+            get { return integralValue; }
+            set
+            {
+                integralValue = value;
+                OnChanged(EventArgs.Empty);
+            }
         }
 
 
@@ -95,9 +116,50 @@ namespace DustInTheWind.Clock.Shapes
         #endregion
 
 
-        ///// <summary>
-        ///// Performs all the necessary calculations based on the public parameters, before drawing the shape.
-        ///// </summary>
-        //protected virtual void CalculateDimensions() { }
+        protected float GetRotationDegrees()
+        {
+            switch (componentToDisplay)
+            {
+                case TimeComponent.Hour:
+                    {
+                        if (integralValue)
+                            return (float)((time.Hours % 12) * 30);
+                        else
+                            return (float)((time.Hours % 12 + time.Minutes / 60F) * 30);
+                    }
+
+                case TimeComponent.Minute:
+                    {
+                        if (integralValue)
+                            return (float)(time.Minutes * 6);
+                        else
+                            return (float)((time.Minutes + time.Seconds / 60F) * 6);
+                    }
+
+                case TimeComponent.Second:
+                    {
+                        if (integralValue)
+                            return (float)(time.Seconds * 6);
+                        else
+                            return (float)((time.Seconds + time.Milliseconds / 1000F) * 6);
+                    }
+
+                default:
+                    return 0;
+            }
+        }
+
+        public override void Draw(Graphics g)
+        {
+            if (AllowToDraw())
+            {
+                float degrees = GetRotationDegrees();
+
+                if (degrees != 0)
+                    g.RotateTransform(degrees);
+
+                DrawInternal(g);
+            }
+        }
     }
 }

@@ -108,6 +108,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             dotRectangle = new RectangleF(-radius, -height - radius, radius * 2, radius * 2);
         }
 
+
         /// <summary>
         /// Draws the hour hand using the provided <see cref="Graphics"/> object.
         /// </summary>
@@ -116,25 +117,22 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// The hand is drawn in vertical position from the origin of the coordinate system.
         /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
         /// </remarks>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible)
+            if (!fillColor.IsEmpty)
             {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+                CreateBrushIfNull();
 
-                    //g.FillEllipse(brush, -radius, -height - radius, radius * 2, radius);
-                    g.FillEllipse(brush, dotRectangle);
-                }
+                //g.FillEllipse(brush, -radius, -height - radius, radius * 2, radius);
+                g.FillEllipse(brush, dotRectangle);
+            }
 
-                if (!outlineColor.IsEmpty)
-                {
-                    CreatePenIfNull();
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-                    //g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
-                    g.DrawEllipse(pen, dotRectangle);
-                }
+                //g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
+                g.DrawEllipse(pen, dotRectangle);
             }
         }
     }

@@ -51,11 +51,13 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape2 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
             DustInTheWind.Clock.Shapes.Fancy.FancyDialShape fancyDialShape1 = new DustInTheWind.Clock.Shapes.Fancy.FancyDialShape();
             DustInTheWind.Clock.Shapes.Default.TextShape textShape1 = new DustInTheWind.Clock.Shapes.Default.TextShape();
-            DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape1 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Default.HourHandShape hourHandShape1 = new DustInTheWind.Clock.Shapes.Default.HourHandShape();
+            DustInTheWind.Clock.Shapes.Default.HourHandShape hourHandShape2 = new DustInTheWind.Clock.Shapes.Default.HourHandShape();
             DustInTheWind.Clock.Shapes.Default.MinuteHandShape minuteHandShape1 = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            DustInTheWind.Clock.Shapes.Default.MinuteHandShape minuteHandShape2 = new DustInTheWind.Clock.Shapes.Default.MinuteHandShape();
+            DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape1 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape2 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
+            DustInTheWind.Clock.Shapes.Default.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBoxTextFont = new System.Windows.Forms.TextBox();
             this.checkBoxKeepProportions = new System.Windows.Forms.CheckBox();
@@ -70,9 +72,6 @@ namespace DustInTheWind.Clock.Demo
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.checkBoxIntegralSeconds = new System.Windows.Forms.CheckBox();
-            this.checkBoxIntegralMinutes = new System.Windows.Forms.CheckBox();
-            this.checkBoxIntegralHours = new System.Windows.Forms.CheckBox();
             this.groupBoxValue = new System.Windows.Forms.GroupBox();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -86,36 +85,8 @@ namespace DustInTheWind.Clock.Demo
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.propertyGridHourHand = new System.Windows.Forms.PropertyGrid();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageMiscellaneous = new System.Windows.Forms.TabPage();
-            this.tabPageDial = new System.Windows.Forms.TabPage();
-            this.tabControlDial = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.propertyGridDial = new System.Windows.Forms.PropertyGrid();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.propertyGridText = new System.Windows.Forms.PropertyGrid();
-            this.tabPageClockHands = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageHourHand = new System.Windows.Forms.TabPage();
-            this.tabPageMinuteHand = new System.Windows.Forms.TabPage();
-            this.propertyGridMinuteHand = new System.Windows.Forms.PropertyGrid();
-            this.tabPageSweepHand = new System.Windows.Forms.TabPage();
-            this.propertyGridSweepHand = new System.Windows.Forms.PropertyGrid();
-            this.tabPagePin = new System.Windows.Forms.TabPage();
-            this.propertyGridPin = new System.Windows.Forms.PropertyGrid();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tabPageTicks = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPageTicks1 = new System.Windows.Forms.TabPage();
-            this.propertyGridTicks1 = new System.Windows.Forms.PropertyGrid();
-            this.tabPageTicks5 = new System.Windows.Forms.TabPage();
-            this.propertyGridTicks5 = new System.Windows.Forms.PropertyGrid();
-            this.tabPageNumbers = new System.Windows.Forms.TabPage();
-            this.propertyGridNumbers = new System.Windows.Forms.PropertyGrid();
             this.tabPageTimeProviders = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.propertyGridTimeProvider = new System.Windows.Forms.PropertyGrid();
@@ -123,14 +94,14 @@ namespace DustInTheWind.Clock.Demo
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxTimeProviders = new System.Windows.Forms.ComboBox();
             this.panelClock = new System.Windows.Forms.Panel();
+            this.analogClock1 = new DustInTheWind.Clock.AnalogClock();
+            this.localTimeProvider1 = new DustInTheWind.Clock.TimeProviders.LocalTimeProvider();
             this.buttonExamples = new System.Windows.Forms.Button();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxExternalTimer = new System.Windows.Forms.GroupBox();
             this.numericUpDownTimerInterval = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panelParameters = new System.Windows.Forms.Panel();
-            this.analogClock1 = new DustInTheWind.Clock.AnalogClock();
-            this.localTimeProvider1 = new DustInTheWind.Clock.TimeProviders.LocalTimeProvider();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).BeginInit();
@@ -141,25 +112,6 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxMiscellaneous.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageMiscellaneous.SuspendLayout();
-            this.tabPageDial.SuspendLayout();
-            this.tabControlDial.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPageClockHands.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPageHourHand.SuspendLayout();
-            this.tabPageMinuteHand.SuspendLayout();
-            this.tabPageSweepHand.SuspendLayout();
-            this.tabPagePin.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tabPageTicks.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPageTicks1.SuspendLayout();
-            this.tabPageTicks5.SuspendLayout();
-            this.tabPageNumbers.SuspendLayout();
             this.tabPageTimeProviders.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBoxTimeProviders.SuspendLayout();
@@ -285,39 +237,6 @@ namespace DustInTheWind.Clock.Demo
             this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Background:";
-            // 
-            // checkBoxIntegralSeconds
-            // 
-            this.checkBoxIntegralSeconds.AutoSize = true;
-            this.checkBoxIntegralSeconds.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxIntegralSeconds.Name = "checkBoxIntegralSeconds";
-            this.checkBoxIntegralSeconds.Size = new System.Drawing.Size(106, 17);
-            this.checkBoxIntegralSeconds.TabIndex = 0;
-            this.checkBoxIntegralSeconds.Text = "Integral Seconds";
-            this.checkBoxIntegralSeconds.UseVisualStyleBackColor = true;
-            this.checkBoxIntegralSeconds.CheckedChanged += new System.EventHandler(this.checkBoxIntegralSeconds_CheckedChanged);
-            // 
-            // checkBoxIntegralMinutes
-            // 
-            this.checkBoxIntegralMinutes.AutoSize = true;
-            this.checkBoxIntegralMinutes.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxIntegralMinutes.Name = "checkBoxIntegralMinutes";
-            this.checkBoxIntegralMinutes.Size = new System.Drawing.Size(101, 17);
-            this.checkBoxIntegralMinutes.TabIndex = 0;
-            this.checkBoxIntegralMinutes.Text = "Integral Minutes";
-            this.checkBoxIntegralMinutes.UseVisualStyleBackColor = true;
-            this.checkBoxIntegralMinutes.CheckedChanged += new System.EventHandler(this.checkBoxIntegralMinutes_CheckedChanged);
-            // 
-            // checkBoxIntegralHours
-            // 
-            this.checkBoxIntegralHours.AutoSize = true;
-            this.checkBoxIntegralHours.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxIntegralHours.Name = "checkBoxIntegralHours";
-            this.checkBoxIntegralHours.Size = new System.Drawing.Size(92, 17);
-            this.checkBoxIntegralHours.TabIndex = 0;
-            this.checkBoxIntegralHours.Text = "Integral Hours";
-            this.checkBoxIntegralHours.UseVisualStyleBackColor = true;
-            this.checkBoxIntegralHours.CheckedChanged += new System.EventHandler(this.checkBoxIntegralHours_CheckedChanged);
             // 
             // groupBoxValue
             // 
@@ -470,21 +389,9 @@ namespace DustInTheWind.Clock.Demo
             this.label8.TabIndex = 0;
             this.label8.Text = "Left";
             // 
-            // propertyGridHourHand
-            // 
-            this.propertyGridHourHand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGridHourHand.Location = new System.Drawing.Point(0, 0);
-            this.propertyGridHourHand.Name = "propertyGridHourHand";
-            this.propertyGridHourHand.Size = new System.Drawing.Size(395, 272);
-            this.propertyGridHourHand.TabIndex = 10;
-            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPageMiscellaneous);
-            this.tabControl.Controls.Add(this.tabPageDial);
-            this.tabControl.Controls.Add(this.tabPageClockHands);
-            this.tabControl.Controls.Add(this.tabPageTicks);
-            this.tabControl.Controls.Add(this.tabPageNumbers);
             this.tabControl.Controls.Add(this.tabPageTimeProviders);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Right;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
@@ -503,288 +410,6 @@ namespace DustInTheWind.Clock.Demo
             this.tabPageMiscellaneous.TabIndex = 0;
             this.tabPageMiscellaneous.Text = "Miscellaneous";
             this.tabPageMiscellaneous.UseVisualStyleBackColor = true;
-            // 
-            // tabPageDial
-            // 
-            this.tabPageDial.Controls.Add(this.tabControlDial);
-            this.tabPageDial.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDial.Name = "tabPageDial";
-            this.tabPageDial.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDial.Size = new System.Drawing.Size(409, 546);
-            this.tabPageDial.TabIndex = 9;
-            this.tabPageDial.Text = "Dial";
-            this.tabPageDial.UseVisualStyleBackColor = true;
-            // 
-            // tabControlDial
-            // 
-            this.tabControlDial.Controls.Add(this.tabPage1);
-            this.tabControlDial.Controls.Add(this.tabPage2);
-            this.tabControlDial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlDial.Location = new System.Drawing.Point(3, 3);
-            this.tabControlDial.Name = "tabControlDial";
-            this.tabControlDial.SelectedIndex = 0;
-            this.tabControlDial.Size = new System.Drawing.Size(403, 540);
-            this.tabControlDial.TabIndex = 13;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.propertyGridDial);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(395, 514);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Dial";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // propertyGridDial
-            // 
-            this.propertyGridDial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGridDial.Location = new System.Drawing.Point(3, 3);
-            this.propertyGridDial.Name = "propertyGridDial";
-            this.propertyGridDial.Size = new System.Drawing.Size(389, 508);
-            this.propertyGridDial.TabIndex = 12;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.propertyGridText);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(395, 514);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Text";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // propertyGridText
-            // 
-            this.propertyGridText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGridText.Location = new System.Drawing.Point(3, 3);
-            this.propertyGridText.Name = "propertyGridText";
-            this.propertyGridText.Size = new System.Drawing.Size(389, 508);
-            this.propertyGridText.TabIndex = 13;
-            // 
-            // tabPageClockHands
-            // 
-            this.tabPageClockHands.Controls.Add(this.tableLayoutPanel2);
-            this.tabPageClockHands.Location = new System.Drawing.Point(4, 22);
-            this.tabPageClockHands.Name = "tabPageClockHands";
-            this.tabPageClockHands.Size = new System.Drawing.Size(409, 546);
-            this.tabPageClockHands.TabIndex = 7;
-            this.tabPageClockHands.Text = "Clock Hands";
-            this.tabPageClockHands.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tabControl1, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox3, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(409, 546);
-            this.tableLayoutPanel2.TabIndex = 9;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.SetColumnSpan(this.tabControl1, 2);
-            this.tabControl1.Controls.Add(this.tabPageHourHand);
-            this.tabControl1.Controls.Add(this.tabPageMinuteHand);
-            this.tabControl1.Controls.Add(this.tabPageSweepHand);
-            this.tabControl1.Controls.Add(this.tabPagePin);
-            this.tabControl1.Location = new System.Drawing.Point(3, 245);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(403, 298);
-            this.tabControl1.TabIndex = 12;
-            // 
-            // tabPageHourHand
-            // 
-            this.tabPageHourHand.Controls.Add(this.propertyGridHourHand);
-            this.tabPageHourHand.Location = new System.Drawing.Point(4, 22);
-            this.tabPageHourHand.Name = "tabPageHourHand";
-            this.tabPageHourHand.Size = new System.Drawing.Size(395, 272);
-            this.tabPageHourHand.TabIndex = 1;
-            this.tabPageHourHand.Text = "Hour Hand";
-            this.tabPageHourHand.UseVisualStyleBackColor = true;
-            // 
-            // tabPageMinuteHand
-            // 
-            this.tabPageMinuteHand.Controls.Add(this.propertyGridMinuteHand);
-            this.tabPageMinuteHand.Location = new System.Drawing.Point(4, 22);
-            this.tabPageMinuteHand.Name = "tabPageMinuteHand";
-            this.tabPageMinuteHand.Size = new System.Drawing.Size(395, 272);
-            this.tabPageMinuteHand.TabIndex = 2;
-            this.tabPageMinuteHand.Text = "Minute Hand";
-            this.tabPageMinuteHand.UseVisualStyleBackColor = true;
-            // 
-            // propertyGridMinuteHand
-            // 
-            this.propertyGridMinuteHand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGridMinuteHand.Location = new System.Drawing.Point(0, 0);
-            this.propertyGridMinuteHand.Name = "propertyGridMinuteHand";
-            this.propertyGridMinuteHand.Size = new System.Drawing.Size(395, 272);
-            this.propertyGridMinuteHand.TabIndex = 11;
-            // 
-            // tabPageSweepHand
-            // 
-            this.tabPageSweepHand.Controls.Add(this.propertyGridSweepHand);
-            this.tabPageSweepHand.Location = new System.Drawing.Point(4, 22);
-            this.tabPageSweepHand.Name = "tabPageSweepHand";
-            this.tabPageSweepHand.Size = new System.Drawing.Size(395, 272);
-            this.tabPageSweepHand.TabIndex = 3;
-            this.tabPageSweepHand.Text = "Sweep Hand";
-            this.tabPageSweepHand.UseVisualStyleBackColor = true;
-            // 
-            // propertyGridSweepHand
-            // 
-            this.propertyGridSweepHand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGridSweepHand.Location = new System.Drawing.Point(0, 0);
-            this.propertyGridSweepHand.Name = "propertyGridSweepHand";
-            this.propertyGridSweepHand.Size = new System.Drawing.Size(395, 272);
-            this.propertyGridSweepHand.TabIndex = 12;
-            // 
-            // tabPagePin
-            // 
-            this.tabPagePin.Controls.Add(this.propertyGridPin);
-            this.tabPagePin.Location = new System.Drawing.Point(4, 22);
-            this.tabPagePin.Name = "tabPagePin";
-            this.tabPagePin.Size = new System.Drawing.Size(395, 272);
-            this.tabPagePin.TabIndex = 6;
-            this.tabPagePin.Text = "Pin";
-            this.tabPagePin.UseVisualStyleBackColor = true;
-            // 
-            // propertyGridPin
-            // 
-            this.propertyGridPin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGridPin.Location = new System.Drawing.Point(0, 0);
-            this.propertyGridPin.Name = "propertyGridPin";
-            this.propertyGridPin.Size = new System.Drawing.Size(395, 272);
-            this.propertyGridPin.TabIndex = 11;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.checkBoxIntegralHours);
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(198, 115);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Hour Hand";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.checkBoxIntegralMinutes);
-            this.groupBox3.Location = new System.Drawing.Point(207, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(199, 115);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Minute Hand";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.checkBoxIntegralSeconds);
-            this.groupBox1.Location = new System.Drawing.Point(3, 124);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(198, 115);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sweep Hend";
-            // 
-            // tabPageTicks
-            // 
-            this.tabPageTicks.Controls.Add(this.tabControl2);
-            this.tabPageTicks.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTicks.Name = "tabPageTicks";
-            this.tabPageTicks.Size = new System.Drawing.Size(409, 546);
-            this.tabPageTicks.TabIndex = 4;
-            this.tabPageTicks.Text = "Ticks";
-            this.tabPageTicks.UseVisualStyleBackColor = true;
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Controls.Add(this.tabPageTicks1);
-            this.tabControl2.Controls.Add(this.tabPageTicks5);
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(0, 0);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(409, 546);
-            this.tabControl2.TabIndex = 12;
-            // 
-            // tabPageTicks1
-            // 
-            this.tabPageTicks1.Controls.Add(this.propertyGridTicks1);
-            this.tabPageTicks1.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTicks1.Name = "tabPageTicks1";
-            this.tabPageTicks1.Size = new System.Drawing.Size(401, 520);
-            this.tabPageTicks1.TabIndex = 1;
-            this.tabPageTicks1.Text = "Ticks1";
-            this.tabPageTicks1.UseVisualStyleBackColor = true;
-            // 
-            // propertyGridTicks1
-            // 
-            this.propertyGridTicks1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGridTicks1.Location = new System.Drawing.Point(0, 0);
-            this.propertyGridTicks1.Name = "propertyGridTicks1";
-            this.propertyGridTicks1.Size = new System.Drawing.Size(401, 520);
-            this.propertyGridTicks1.TabIndex = 10;
-            // 
-            // tabPageTicks5
-            // 
-            this.tabPageTicks5.Controls.Add(this.propertyGridTicks5);
-            this.tabPageTicks5.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTicks5.Name = "tabPageTicks5";
-            this.tabPageTicks5.Size = new System.Drawing.Size(401, 520);
-            this.tabPageTicks5.TabIndex = 2;
-            this.tabPageTicks5.Text = "Ticks5";
-            this.tabPageTicks5.UseVisualStyleBackColor = true;
-            // 
-            // propertyGridTicks5
-            // 
-            this.propertyGridTicks5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGridTicks5.Location = new System.Drawing.Point(0, 0);
-            this.propertyGridTicks5.Name = "propertyGridTicks5";
-            this.propertyGridTicks5.Size = new System.Drawing.Size(401, 520);
-            this.propertyGridTicks5.TabIndex = 11;
-            // 
-            // tabPageNumbers
-            // 
-            this.tabPageNumbers.Controls.Add(this.propertyGridNumbers);
-            this.tabPageNumbers.Location = new System.Drawing.Point(4, 22);
-            this.tabPageNumbers.Name = "tabPageNumbers";
-            this.tabPageNumbers.Size = new System.Drawing.Size(409, 546);
-            this.tabPageNumbers.TabIndex = 5;
-            this.tabPageNumbers.Text = "Numbers";
-            this.tabPageNumbers.UseVisualStyleBackColor = true;
-            // 
-            // propertyGridNumbers
-            // 
-            this.propertyGridNumbers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGridNumbers.Location = new System.Drawing.Point(0, 0);
-            this.propertyGridNumbers.Name = "propertyGridNumbers";
-            this.propertyGridNumbers.Size = new System.Drawing.Size(409, 546);
-            this.propertyGridNumbers.TabIndex = 11;
             // 
             // tabPageTimeProviders
             // 
@@ -870,6 +495,123 @@ namespace DustInTheWind.Clock.Demo
             this.panelClock.Size = new System.Drawing.Size(679, 627);
             this.panelClock.TabIndex = 13;
             // 
+            // analogClock1
+            // 
+            ticksShape1.ExceptionIndex = 5;
+            ticksShape1.FillColor = System.Drawing.Color.Empty;
+            ticksShape1.Index = 61;
+            ticksShape1.OffsetAngle = 0F;
+            ticksShape1.PositionOffset = 7F;
+            ticksShape2.Angle = 30F;
+            ticksShape2.FillColor = System.Drawing.Color.Empty;
+            ticksShape2.Index = 13;
+            ticksShape2.LineWidth = 1F;
+            ticksShape2.OffsetAngle = 0F;
+            ticksShape2.OutlineColor = System.Drawing.Color.White;
+            ticksShape2.PositionOffset = 7F;
+            textAngularShape1.Angle = 30F;
+            textAngularShape1.FillColor = System.Drawing.Color.LightGray;
+            textAngularShape1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic);
+            textAngularShape1.Index = 13;
+            textAngularShape1.Numbers = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"};
+            textAngularShape1.OffsetAngle = 0F;
+            textAngularShape1.OutlineColor = System.Drawing.Color.Empty;
+            textAngularShape1.PositionOffset = 9F;
+            textAngularShape2.Angle = 30F;
+            textAngularShape2.FillColor = System.Drawing.Color.DarkGray;
+            textAngularShape2.Font = new System.Drawing.Font("Arial", 2.2F);
+            textAngularShape2.Index = 13;
+            textAngularShape2.Numbers = new string[] {
+        "5",
+        "10",
+        "15",
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"};
+            textAngularShape2.OffsetAngle = 0F;
+            textAngularShape2.OutlineColor = System.Drawing.Color.Empty;
+            textAngularShape2.PositionOffset = 0.7F;
+            this.analogClock1.AngularShapes.Add(ticksShape1);
+            this.analogClock1.AngularShapes.Add(ticksShape2);
+            this.analogClock1.AngularShapes.Add(textAngularShape1);
+            this.analogClock1.AngularShapes.Add(textAngularShape2);
+            fancyDialShape1.FillColor = System.Drawing.Color.Black;
+            fancyDialShape1.OutlineColor = System.Drawing.Color.Empty;
+            textShape1.FillColor = System.Drawing.Color.White;
+            textShape1.Font = new System.Drawing.Font("Arial", 3F);
+            textShape1.OutlineColor = System.Drawing.Color.Empty;
+            this.analogClock1.BackgroundShapes.Add(fancyDialShape1);
+            this.analogClock1.BackgroundShapes.Add(textShape1);
+            this.analogClock1.Dock = System.Windows.Forms.DockStyle.Fill;
+            hourHandShape1.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Hour;
+            hourHandShape1.FillColor = System.Drawing.Color.Empty;
+            hourHandShape1.IntegralValue = true;
+            hourHandShape1.OutlineColor = System.Drawing.Color.DimGray;
+            hourHandShape1.Time = System.TimeSpan.Parse("01:07:37.4843750");
+            hourHandShape2.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Hour;
+            hourHandShape2.IntegralValue = false;
+            hourHandShape2.OutlineColor = System.Drawing.Color.Empty;
+            hourHandShape2.Time = System.TimeSpan.Parse("01:07:37.4843750");
+            minuteHandShape1.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
+            minuteHandShape1.FillColor = System.Drawing.Color.Empty;
+            minuteHandShape1.IntegralValue = true;
+            minuteHandShape1.OutlineColor = System.Drawing.Color.DimGray;
+            minuteHandShape1.Time = System.TimeSpan.Parse("01:07:37.4843750");
+            minuteHandShape2.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
+            minuteHandShape2.IntegralValue = false;
+            minuteHandShape2.OutlineColor = System.Drawing.Color.Empty;
+            minuteHandShape2.Time = System.TimeSpan.Parse("01:07:37.4843750");
+            lineHandShape1.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
+            lineHandShape1.FillColor = System.Drawing.Color.Empty;
+            lineHandShape1.Height = 43F;
+            lineHandShape1.IntegralValue = false;
+            lineHandShape1.OutlineColor = System.Drawing.Color.Red;
+            lineHandShape1.Time = System.TimeSpan.Parse("01:07:37.4843750");
+            lineHandShape2.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
+            lineHandShape2.FillColor = System.Drawing.Color.Empty;
+            lineHandShape2.Height = 43F;
+            lineHandShape2.IntegralValue = true;
+            lineHandShape2.OutlineColor = System.Drawing.Color.DimGray;
+            lineHandShape2.Time = System.TimeSpan.Parse("01:07:37.4843750");
+            pinShape1.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Hour;
+            pinShape1.FillColor = System.Drawing.Color.Red;
+            pinShape1.IntegralValue = false;
+            pinShape1.OutlineColor = System.Drawing.Color.Empty;
+            pinShape1.Time = System.TimeSpan.Parse("01:07:37.4843750");
+            this.analogClock1.HandShapes.Add(hourHandShape1);
+            this.analogClock1.HandShapes.Add(hourHandShape2);
+            this.analogClock1.HandShapes.Add(minuteHandShape1);
+            this.analogClock1.HandShapes.Add(minuteHandShape2);
+            this.analogClock1.HandShapes.Add(lineHandShape1);
+            this.analogClock1.HandShapes.Add(lineHandShape2);
+            this.analogClock1.HandShapes.Add(pinShape1);
+            this.analogClock1.Location = new System.Drawing.Point(8, 8);
+            this.analogClock1.Name = "analogClock1";
+            this.analogClock1.Size = new System.Drawing.Size(663, 611);
+            this.analogClock1.TabIndex = 0;
+            this.analogClock1.Text = "analogClock1";
+            this.analogClock1.Time = System.TimeSpan.Parse("01:07:37.4843750");
+            this.analogClock1.TimeProvider = this.localTimeProvider1;
+            this.analogClock1.Timer = this.timer1;
+            // 
             // buttonExamples
             // 
             this.buttonExamples.Location = new System.Drawing.Point(3, 3);
@@ -946,97 +688,6 @@ namespace DustInTheWind.Clock.Demo
             this.panelParameters.Size = new System.Drawing.Size(417, 627);
             this.panelParameters.TabIndex = 1;
             // 
-            // analogClock1
-            // 
-            ticksShape1.ExceptionIndex = 5;
-            ticksShape1.FillColor = System.Drawing.Color.Empty;
-            ticksShape1.Index = 61;
-            ticksShape1.OffsetAngle = 0F;
-            ticksShape1.PositionOffset = 7F;
-            ticksShape2.Angle = 30F;
-            ticksShape2.FillColor = System.Drawing.Color.Empty;
-            ticksShape2.Index = 13;
-            ticksShape2.LineWidth = 1F;
-            ticksShape2.OffsetAngle = 0F;
-            ticksShape2.OutlineColor = System.Drawing.Color.White;
-            ticksShape2.PositionOffset = 7F;
-            textAngularShape1.Angle = 30F;
-            textAngularShape1.FillColor = System.Drawing.Color.LightGray;
-            textAngularShape1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic);
-            textAngularShape1.Index = 13;
-            textAngularShape1.Numbers = new string[] {
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"};
-            textAngularShape1.OffsetAngle = 0F;
-            textAngularShape1.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape1.PositionOffset = 9F;
-            textAngularShape2.Angle = 30F;
-            textAngularShape2.FillColor = System.Drawing.Color.DarkGray;
-            textAngularShape2.Font = new System.Drawing.Font("Arial", 2.2F);
-            textAngularShape2.Index = 13;
-            textAngularShape2.Numbers = new string[] {
-        "5",
-        "10",
-        "15",
-        "20",
-        "25",
-        "30",
-        "35",
-        "40",
-        "45",
-        "50",
-        "55",
-        "60"};
-            textAngularShape2.OffsetAngle = 0F;
-            textAngularShape2.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape2.PositionOffset = 0.7F;
-            this.analogClock1.AngularShapes.Add(ticksShape1);
-            this.analogClock1.AngularShapes.Add(ticksShape2);
-            this.analogClock1.AngularShapes.Add(textAngularShape1);
-            this.analogClock1.AngularShapes.Add(textAngularShape2);
-            fancyDialShape1.FillColor = System.Drawing.Color.Black;
-            fancyDialShape1.OutlineColor = System.Drawing.Color.Empty;
-            textShape1.FillColor = System.Drawing.Color.White;
-            textShape1.Font = new System.Drawing.Font("Arial", 3F);
-            textShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.BackgroundShapes.Add(fancyDialShape1);
-            this.analogClock1.BackgroundShapes.Add(textShape1);
-            this.analogClock1.Dock = System.Windows.Forms.DockStyle.Fill;
-            lineHandShape1.FillColor = System.Drawing.Color.Empty;
-            lineHandShape1.LineWidth = 3F;
-            lineHandShape1.OutlineColor = System.Drawing.Color.DarkOrange;
-            lineHandShape1.Time = System.TimeSpan.Parse("13:22:35.5468750");
-            this.analogClock1.HandShapes.Add(lineHandShape1);
-            hourHandShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.HourHandShape = hourHandShape1;
-            this.analogClock1.Location = new System.Drawing.Point(8, 8);
-            minuteHandShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.MinuteHandShape = minuteHandShape1;
-            this.analogClock1.Name = "analogClock1";
-            pinShape1.FillColor = System.Drawing.Color.Red;
-            pinShape1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClock1.PinShape = pinShape1;
-            this.analogClock1.Size = new System.Drawing.Size(663, 611);
-            lineHandShape2.FillColor = System.Drawing.Color.Empty;
-            lineHandShape2.Height = 43F;
-            lineHandShape2.OutlineColor = System.Drawing.Color.Red;
-            this.analogClock1.SweepHandShape = lineHandShape2;
-            this.analogClock1.TabIndex = 0;
-            this.analogClock1.Text = "analogClock1";
-            this.analogClock1.Time = System.TimeSpan.Parse("13:22:35.5468750");
-            this.analogClock1.TimeProvider = this.localTimeProvider1;
-            this.analogClock1.Timer = this.timer1;
-            // 
             // FormDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1064,29 +715,6 @@ namespace DustInTheWind.Clock.Demo
             this.tabControl.ResumeLayout(false);
             this.tabPageMiscellaneous.ResumeLayout(false);
             this.tabPageMiscellaneous.PerformLayout();
-            this.tabPageDial.ResumeLayout(false);
-            this.tabControlDial.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPageClockHands.ResumeLayout(false);
-            this.tabPageClockHands.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPageHourHand.ResumeLayout(false);
-            this.tabPageMinuteHand.ResumeLayout(false);
-            this.tabPageSweepHand.ResumeLayout(false);
-            this.tabPagePin.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.tabPageTicks.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.tabPageTicks1.ResumeLayout(false);
-            this.tabPageTicks5.ResumeLayout(false);
-            this.tabPageNumbers.ResumeLayout(false);
             this.tabPageTimeProviders.ResumeLayout(false);
             this.tabPageTimeProviders.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -1108,9 +736,6 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label labelBackgroundColor;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox checkBoxIntegralSeconds;
-        private System.Windows.Forms.CheckBox checkBoxIntegralMinutes;
-        private System.Windows.Forms.CheckBox checkBoxIntegralHours;
         private System.Windows.Forms.GroupBox groupBoxValue;
         private System.Windows.Forms.DateTimePicker dateTimePickerTime;
         private System.Windows.Forms.Label label4;
@@ -1129,38 +754,16 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.TextBox textBoxTextFont;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.CheckBox checkBoxKeepProportions;
-        private System.Windows.Forms.PropertyGrid propertyGridHourHand;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageMiscellaneous;
-        private System.Windows.Forms.TabPage tabPageHourHand;
-        private System.Windows.Forms.TabPage tabPageMinuteHand;
-        private System.Windows.Forms.PropertyGrid propertyGridMinuteHand;
-        private System.Windows.Forms.TabPage tabPageSweepHand;
-        private System.Windows.Forms.PropertyGrid propertyGridSweepHand;
         private System.Windows.Forms.GroupBox groupBoxMiscellaneous;
-        private System.Windows.Forms.TabPage tabPageTicks;
-        private System.Windows.Forms.TabPage tabPageNumbers;
         private System.Windows.Forms.Panel panelClock;
-        private System.Windows.Forms.TabPage tabPagePin;
-        private System.Windows.Forms.PropertyGrid propertyGridPin;
-        private System.Windows.Forms.TabPage tabPageClockHands;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button buttonBrowseTextFont;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabPageTimeProviders;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPageTicks1;
-        private System.Windows.Forms.PropertyGrid propertyGridTicks1;
-        private System.Windows.Forms.TabPage tabPageTicks5;
-        private System.Windows.Forms.PropertyGrid propertyGridTicks5;
-        private System.Windows.Forms.PropertyGrid propertyGridNumbers;
         private System.Windows.Forms.PropertyGrid propertyGridTimeProvider;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.GroupBox groupBoxTimeProviders;
@@ -1172,12 +775,6 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelParameters;
         private System.Windows.Forms.NumericUpDown numericUpDownTimerInterval;
-        private System.Windows.Forms.TabPage tabPageDial;
-        private System.Windows.Forms.PropertyGrid propertyGridDial;
-        private System.Windows.Forms.TabControl tabControlDial;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PropertyGrid propertyGridText;
         private AnalogClock analogClock1;
         private DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape1;
         private DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape2;

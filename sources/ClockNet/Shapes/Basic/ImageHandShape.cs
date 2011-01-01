@@ -115,34 +115,32 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && image != null;
+        }
+
         /// <summary>
         /// Draws the image representing the hand using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
-        /// <remarks>
-        /// The hand is drawn in vertical position from the origin of the coordinate system.
-        /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
-        /// </remarks>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && image != null)
+            Matrix originalTransformMatrix = null;
+
+            if (origin.Y != 0 && height > 0)
             {
-                Matrix originalTransformMatrix = null;
+                originalTransformMatrix = g.Transform;
 
-                if (origin.Y != 0 && height > 0)
-                {
-                    originalTransformMatrix = g.Transform;
+                float scaleFactor = height / origin.Y;
+                g.ScaleTransform(scaleFactor, scaleFactor);
+            }
 
-                    float scaleFactor = height / origin.Y;
-                    g.ScaleTransform(scaleFactor, scaleFactor);
-                }
+            g.DrawImage(image, -origin.X, -origin.Y, image.Width, image.Height);
 
-                g.DrawImage(image, -origin.X, -origin.Y, image.Width, image.Height);
-
-                if (originalTransformMatrix != null)
-                {
-                    g.Transform = originalTransformMatrix;
-                }
+            if (originalTransformMatrix != null)
+            {
+                g.Transform = originalTransformMatrix;
             }
         }
     }

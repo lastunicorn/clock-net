@@ -29,25 +29,6 @@ namespace DustInTheWind.Clock.Demo
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Local Time Provider", new LocalTimeProvider()));
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("UTC Time Provider", new UtcTimeProvider()));
             comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Offset UTC Time Provider", new UtcOffsetTimeProvider()));
-
-            //DustInTheWind.Clock.Shapes.Default.NumbersShape2 numbersShape = new DustInTheWind.Clock.Shapes.Default.NumbersShape2();
-            //numbersShape.Font = new Font("Vivaldi", 6.25f, FontStyle.Italic, GraphicsUnit.Point);
-            //numbersShape.PositionOffset = 11f;
-            //analogClock1.AngularShapes.Add(numbersShape);
-
-            //DustInTheWind.Clock.Shapes.Default.TicksShape ticks1Shape = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            //ticks1Shape.PositionOffset = 7f;
-            //ticks1Shape.ExceptionLocation = DustInTheWind.Clock.Shapes.Default.AngularShapeLocation.FiveMinute;
-            //analogClock1.AngularShapes.Add(ticks1Shape);
-
-            //DustInTheWind.Clock.Shapes.Default.TicksShape ticks5Shape = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            //ticks5Shape.PositionOffset = 7f;
-            //ticks5Shape.LineWidth = 1f;
-            //ticks5Shape.AngularLocation = DustInTheWind.Clock.Shapes.Default.AngularShapeLocation.FiveMinute;
-            //analogClock1.AngularShapes.Add(ticks5Shape);
-
-            //analogClock1.BackgroundShapes.Add(new DustInTheWind.Clock.Shapes.Default.BackDialShape(Color.LightBlue));
-            //analogClock1.BackgroundShapes.Add(new DustInTheWind.Clock.Shapes.Default.TextShape("Dust in the Wind", Color.White));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -55,39 +36,12 @@ namespace DustInTheWind.Clock.Demo
             // Timer
             numericUpDownTimerInterval.Value = timer1.Interval;
 
-            // Dial
-            //propertyGridDial.SelectedObject = analogClock1.DialShape;
-
-            // Hour Hand
-            checkBoxIntegralHours.Checked = analogClock1.IntegralHour;
-            propertyGridHourHand.SelectedObject = analogClock1.HourHandShape;
-
-            // Minute Hand
-            checkBoxIntegralMinutes.Checked = analogClock1.IntegralMinute;
-            propertyGridMinuteHand.SelectedObject = analogClock1.MinuteHandShape;
-
-            // Sweep Hand
-            checkBoxIntegralSeconds.Checked = analogClock1.IntegralSecond;
-            propertyGridSweepHand.SelectedObject = analogClock1.SweepHandShape;
-
-            // Ticks 1
-            // propertyGridTicks1.SelectedObject = analogClock1.Ticks1Shape;
-
-            // Ticks 5
-            // propertyGridTicks5.SelectedObject = analogClock1.Ticks5Shape;
-
             // Value
             dateTimePickerTime.Value = DateTime.Now.Date.Add(analogClock1.Time);
             //dateTimePickerUtcOffset.Value = DateTime.Now.Date.Add(analogClock1.UtcOffset);
 
             // Timer
             checkBoxUseExternalTimer.Checked = analogClock1.Timer != null;
-
-            // Numbers
-            //propertyGridNumbers.SelectedObject = analogClock1.NumbersShape;
-
-            // Pin
-            propertyGridPin.SelectedObject = analogClock1.PinShape;
 
             // Time Provider
             propertyGridTimeProvider.SelectedObject = analogClock1.TimeProvider;
@@ -121,21 +75,6 @@ namespace DustInTheWind.Clock.Demo
                 labelBackgroundColor.BackColor = colorDialog1.Color;
                 analogClock1.BackColor = colorDialog1.Color;
             }
-        }
-
-        private void checkBoxIntegralHours_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.IntegralHour = checkBoxIntegralHours.Checked;
-        }
-
-        private void checkBoxIntegralMinutes_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.IntegralMinute = checkBoxIntegralMinutes.Checked;
-        }
-
-        private void checkBoxIntegralSeconds_CheckedChanged(object sender, EventArgs e)
-        {
-            analogClock1.IntegralSecond = checkBoxIntegralSeconds.Checked;
         }
 
         private void dateTimePickerTime_ValueChanged(object sender, EventArgs e)

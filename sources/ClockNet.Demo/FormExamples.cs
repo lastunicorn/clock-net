@@ -27,13 +27,6 @@ namespace DustInTheWind.Clock.Demo
         {
             InitializeComponent();
 
-            //analogClockLocal.TimeProvider = new LocalTimeProvider();
-            //analogClockUTC.TimeProvider = new UtcTimeProvider();
-            //analogClockNewYork.TimeProvider = new UtcOffsetTimeProvider(TimeSpan.FromHours(-5));
-            //analogClockTokyo.TimeProvider = new UtcOffsetTimeProvider(TimeSpan.FromHours(9));
-            //analogClockHongKong.TimeProvider = new UtcOffsetTimeProvider(TimeSpan.FromHours(8));
-            //analogClockIndia.TimeProvider = new UtcOffsetTimeProvider(new TimeSpan(5, 30, 0));
-
             analogClockImages.SetShapes(ShapeSet.ImageShapes);
             analogClockBlackDot.SetShapes(ShapeSet.Dots);
             analogClockFancy.SetShapes(ShapeSet.Fancy);

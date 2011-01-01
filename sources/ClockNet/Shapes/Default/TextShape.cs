@@ -217,24 +217,23 @@ namespace DustInTheWind.Clock.Shapes.Default
         #endregion
 
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && font != null && text != null && text.Length > 0 && !fillColor.IsEmpty;
+        }
+
         /// <summary>
         /// Draws the pin using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the pin.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && font != null && text != null && text.Length > 0)
-            {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+            CreateBrushIfNull();
 
-                    if (recalculateNeeded)
-                        CalculateDimensions(g);
+            if (recalculateNeeded)
+                CalculateDimensions(g);
 
-                    g.DrawString(text, font, brush, textRectangle, stringFormat);
-                }
-            }
+            g.DrawString(text, font, brush, textRectangle, stringFormat);
         }
 
         #region Dispose

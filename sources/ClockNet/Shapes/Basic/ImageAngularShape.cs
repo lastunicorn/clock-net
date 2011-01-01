@@ -115,13 +115,14 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
         #endregion
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && image != null;
+        }
 
         protected override void DrawInternal(Graphics g)
         {
-            if (image != null)
-            {
-                g.DrawImage(image, location.X, location.Y, image.Width, image.Height);
-            }
+            g.DrawImage(image, location.X, location.Y, image.Width, image.Height);
         }
     }
 }

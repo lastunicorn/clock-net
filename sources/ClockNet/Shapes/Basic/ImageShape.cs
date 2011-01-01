@@ -113,16 +113,18 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && image != null;
+        }
+
         /// <summary>
         /// Draws the image using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the image.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && image != null)
-            {
-                g.DrawImage(image, location.X, location.Y, image.Width, image.Height);
-            }
+            g.DrawImage(image, location.X, location.Y, image.Width, image.Height);
         }
     }
 }

@@ -118,22 +118,20 @@ namespace DustInTheWind.Clock.Shapes.Basic
             endPoint = new PointF(0f, -height);
         }
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && !outlineColor.IsEmpty;
+        }
+
         /// <summary>
         /// Draws the hand using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the hand.</param>
-        public override void Draw(Graphics g)
+        protected override void DrawInternal(Graphics g)
         {
-            if (visible && !outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
+            CreatePenIfNull();
 
-                float sweepDegrees = (float)((time.Seconds + time.Milliseconds / 1000F) * 6);
-
-                g.RotateTransform(sweepDegrees);
-
-                g.DrawLine(pen, startPoint, endPoint);
-            }
+            g.DrawLine(pen, startPoint, endPoint);
         }
     }
 }

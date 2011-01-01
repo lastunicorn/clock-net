@@ -79,24 +79,25 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
         #endregion
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && path != null;
+        }
 
         protected override void DrawInternal(Graphics g)
         {
-            if (path != null)
+            if (!fillColor.IsEmpty)
             {
-                if (!fillColor.IsEmpty)
-                {
-                    CreateBrushIfNull();
+                CreateBrushIfNull();
 
-                    g.FillPath(brush, path);
-                }
+                g.FillPath(brush, path);
+            }
 
-                if (!outlineColor.IsEmpty)
-                {
-                    CreatePenIfNull();
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
 
-                    g.DrawPath(pen, path);
-                }
+                g.DrawPath(pen, path);
             }
         }
 

@@ -78,6 +78,11 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #endregion
 
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && !outlineColor.IsEmpty;
+        }
+
         protected override void DrawInternal(Graphics g)
         {
             CreatePenIfNull();

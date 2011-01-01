@@ -157,59 +157,61 @@ namespace DustInTheWind.Clock.Shapes.Default
 
         #endregion
 
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && font != null && numbers != null && !fillColor.IsEmpty;
+        }
+
         protected override void DrawInternal(Graphics g)
         {
-            if (font != null && numbers != null && !fillColor.IsEmpty)
+            if (index > 0 && index <= numbers.Length)
             {
-                if (index > 0 && index <= numbers.Length)
+                string number = numbers[index - 1];
+
+                if (number != null && number.Length > 0)
                 {
-                    string number = numbers[index - 1];
+                    CreateBrushIfNull();
 
-                    if (number != null && number.Length > 0)
+                    SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
+                    PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
+
+                    Matrix originalMatrix;
+
+                    switch (orientation)
                     {
-                        CreateBrushIfNull();
+                        case TextAngularOrientation.FaceCenter:
+                            originalMatrix = g.Transform;
+                            g.TranslateTransform(0, numberSize.Height / 2f);
+                            break;
 
-                        SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
-                        PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
+                        case TextAngularOrientation.FaceOut:
+                            originalMatrix = g.Transform;
+                            g.TranslateTransform(0, numberSize.Height / 2f);
+                            g.RotateTransform(180);
+                            break;
 
-                        Matrix originalMatrix;
-
-                        switch (orientation)
-                        {
-                            case TextAngularOrientation.FaceCenter:
-                                originalMatrix = g.Transform;
-                                g.TranslateTransform(0, numberSize.Height / 2f);
-                                break;
-
-                            case TextAngularOrientation.FaceOut:
-                                originalMatrix = g.Transform;
-                                g.TranslateTransform(0, numberSize.Height / 2f);
-                                g.RotateTransform(180);
-                                break;
-
-                            default:
-                            case TextAngularOrientation.Normal:
-                                float ang = -(this.angle * index);
-                                originalMatrix = g.Transform;
-                                g.TranslateTransform(0, numberSize.Height / 2f);
-                                g.RotateTransform(ang);
-                                break;
-                        }
-
-                        try
-                        {
-                            g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
-                        }
-                        catch (System.Runtime.InteropServices.ExternalException)
-                        {
-                            // When the dimension of the clock is less then 0, this exception is raised.
-                            // I do not understend the reason.
-                            // I just ignore it. The text will not be displayed, but at the size of one pixel, it is not visible, so, no problem.
-                            // I hope this exception will not be thrown in some other situations.
-                        }
-
-                        g.Transform = originalMatrix;
+                        default:
+                        case TextAngularOrientation.Normal:
+                            float ang = -(this.angle * index);
+                            originalMatrix = g.Transform;
+                            g.TranslateTransform(0, numberSize.Height / 2f);
+                            g.RotateTransform(ang);
+                            break;
                     }
+
+                    try
+                    {
+                        g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
+                    }
+                    catch (System.Runtime.InteropServices.ExternalException)
+                    {
+                        // When the dimension of the clock is less then 0, this exception is raised.
+                        // I do not understend the reason.
+                        // I just ignore it. The text will not be displayed, but at the size of one pixel, it is not visible, so, no problem.
+                        // I hope this exception will not be thrown in some other situations.
+                    }
+
+                    g.Transform = originalMatrix;
                 }
             }
         }
