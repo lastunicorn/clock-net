@@ -1,18 +1,16 @@
 <html>
 	<head>
-		<title>The Design of the Code</title>
+		<title>ClockNet Explaind</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="../default.css" />
 	</head>
 	<body>
-		<h1>The Design of the Code</h1>
+		<h1>ClockNet Explaind</h1>
 		
-		<h2>In short words</h2>
-		
-		<p>AnalogClock has three important parts that you have to be aware of:</p>
+		<p>When you use <strong>ClockNet</strong> there are three important things that you have to be aware of:</p>
 		<ul>
-			<li><strong>The action</strong> - is performed by a timer.</li>
-			<li><strong>The data</strong> - is provided by an <span class="inline_code">ITimeProvider</span>.</li>
-			<li><strong>The appearance</strong> - is controlled with <span class="inline_code">IShape</span> objects.</li>
+			<li><strong>Who updates the displayed value?</strong> - It can be done manually or by a timer. See more...</li>
+			<li><strong>What value is displayed?</strong> - Manually provided value, a value obtaqined from an <span class="inline_code">ITimeProvider</span> or an internal value. See more...</li>
+			<li><strong>How the clock looks?</strong> - You need to decorate the clock with Shapes (classes implementing the <span class="inline_code">IShape</span> interface). See more...</li>
 		</ul>
 		
 		<h2>More detailed</h2>

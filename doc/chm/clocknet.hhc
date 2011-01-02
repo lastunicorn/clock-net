@@ -25,13 +25,13 @@
 		<param name="ImageNumber" value="11">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="The Code - What's Inside">
-		<param name="Local" value="ebook\analog_clock\code_design.html">
+		<param name="Name" value="ClockNet Explaind">
+		<param name="Local" value="ebook\analog_clock\clocknet_explained.html">
 		<param name="ImageNumber" value="1">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="The Shapes">
+			<param name="Name" value="The Appearance">
 			<param name="Local" value="ebook\analog_clock\shapes_overview.html">
 			<param name="ImageNumber" value="1">
 			</OBJECT>
@@ -63,8 +63,8 @@
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="The Timer">
-			<param name="Local" value="ebook\analog_clock\timer.html">
+			<param name="Name" value="The Displayed Value">
+			<param name="Local" value="ebook\analog_clock\displayed_value.html">
 			<param name="ImageNumber" value="1">
 			</OBJECT>
 		<UL>
@@ -73,13 +73,6 @@
 				<param name="Local" value="ebook\analog_clock\timer.html">
 				<param name="ImageNumber" value="11">
 				</OBJECT>
-		</UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="The Time Provider">
-			<param name="Local" value="ebook\analog_clock\time_provider.html">
-			<param name="ImageNumber" value="1">
-			</OBJECT>
-		<UL>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="The Time Provider">
 				<param name="Local" value="ebook\analog_clock\time_provider.html">
@@ -109,7 +102,7 @@
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="License">
-		<param name="Local" value="ebook\license\license.html">
+		<param name="Local" value="ebook\license.html">
 		<param name="ImageNumber" value="11">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">

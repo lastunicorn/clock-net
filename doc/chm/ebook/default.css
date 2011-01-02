@@ -98,8 +98,9 @@ div.article_image img
 	margin: 10px;
 }
 
-div.article_image div
+div.article_image span
 {
+	display: block;
 	margin: 10px;
 	font: 10px arial;
 	text-align: center;

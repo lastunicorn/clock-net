@@ -6,17 +6,17 @@
 	<body>
 		<h1>The Timer</h1>
 		
-		<p>The time displayed by the AnalogClock control can be set manually or using a timer.</p>
-		<p>
-			To manually set the time, set the <span class="inline_code">Time</span> property of the AnalogClock control. By doing that, the clock will display the specified time indefinitely until you set the <span class="inline_code">Time</span> property with another value.
-		</p>	
-		<p>
-			Another way to display a time in the AnalogClock control is by using a timer and a <span class="inline_code">ITimeProvider</span> object.
-			The timer periodically updates the clock with a new value. But the value that is used comes from the <span class="inline_code">ITimeProvider</span> object.
-		</p>
-		<p>
-			The timer that can be used is the <span class="inline_code">System.Windows.Forms.Timer</span> component that can be found in the "Components" category of the "ToolBox" window.
-		</p>
+		<p><strong>The timer periodically updates the clock with a new time value.</strong></p>
+		
+		<p>The value displayed by the timer can be obtained <strong>internally</strong> by ClockNet (using the <span class="inline_code">DateTime</span> class) <strong>or from an external source</strong>, the <span class="inline_code">TimeProvider</span> property.</p>
+		
+		<p><strong>By default, ClockNet uses the internal mechanism</strong> to obtain the value to be displayed. You can configure ClockNet to display the local time, or the utc time decalated with a specified offset. For that, you need to set the <span class="inline_code">UtcOffset</span> property. If this property is null, the local time is displayed. If this property contains a value, the utc time is displayed to which the specified value is added. To display exactely the utc time, set the property to "00:00:00".</p>
+		
+		<p><strong>To use an external Time Provider, you just need to set the <span class="inline_code">TimeProvider</span> property</strong> with an instance of <span class="inline_code">ITimeProvider</span> and ClockNet will automatically use it.</p>
+		
+		<p>More details about the Time Provider can be found <a href="time_provider.html">here</a>.</p>
+		
+		<p><strong>Obs!</strong> The timer that can be used is the <span class="inline_code">System.Windows.Forms.Timer</span> component that can be found in the "Components" category of the "ToolBox" window.</p>
 
 		<div id="page_footer"></div>
 	</body>
