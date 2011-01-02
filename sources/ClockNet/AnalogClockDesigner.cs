@@ -78,8 +78,9 @@ namespace DustInTheWind.Clock
                     ticks5Shape.Length = 5f;
                     angularShapes.Add(ticks5Shape);
 
-                    TextAngularShape numbersShape = new TextAngularShape(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 7f);
+                    TextAngularShape numbersShape = new TextAngularShape(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 13f);
                     numbersShape.Angle = 30f;
+                    numbersShape.Orientation = AngularOrientation.Normal;
                     angularShapes.Add(numbersShape);
                 }
             }

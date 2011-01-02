@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;PERFORMANCE_INFO</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>ClockNet.xml</DocumentationFile>
@@ -27,7 +27,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;PERFORMANCE_INFO</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>ClockNet.xml</DocumentationFile>
@@ -74,6 +74,7 @@
     <Compile Include="Shapes\Basic\StringShape.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Shapes\Default\DigitalHandShape.cs" />
     <Compile Include="Shapes\GroundShapeBase.cs" />
     <Compile Include="Shapes\Default\DiamondHandShape.cs" />
     <Compile Include="Shapes\Default\TicksShape.cs" />
@@ -121,6 +122,9 @@
       <DependentUpon>AnalogClock.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\icon16.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -19,30 +19,18 @@ using System.ComponentModel;
 using System.Drawing;
 using System.ComponentModel.Design;
 using System.Drawing.Design;
+using System.Text;
 
 namespace DustInTheWind.Clock.Shapes.Default
 {
-    /// <summary>
-    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the text displayed on the background of the dial.
-    /// </summary>
-    public class TextShape : VectorialGroundShapeBase
+    public class DigitalHandShape : VectorialHandShapeBase
     {
-        /// <summary>
-        /// The default text drawn.
-        /// </summary>
-        public const string TEXT = "Dust in the Wind";
-
         public static Font FONT = new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point);
 
         /// <summary>
         /// The default vertical location of the text.
         /// </summary>
         public const float VERTICAL_LOCATION = 12f;
-
-        /// <summary>
-        /// The maximum width of the rectangle where the text should be drawn.
-        /// </summary>
-        public const float MAX_WIDTH = 50f;
 
 
         /// <summary>
@@ -56,31 +44,19 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public override string Name
         {
-            get { return "Default Text Shape"; }
+            get { return "Digital Text Shape"; }
         }
 
 
         /// <summary>
-        /// The text that is drawn.
+        /// Gets or sets the color used to draw the text.
         /// </summary>
-        protected string text;
-
-        /// <summary>
-        /// Gets or sets the text that is drawn.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(TEXT)]
-        [Description("The text that is drawn.")]
-        [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
-        public virtual string Text
+        [DefaultValue(typeof(Color), "Black")]
+        [Description("The color used to draw the text.")]
+        public override Color FillColor
         {
-            get { return text; }
-            set
-            {
-                text = value;
-                recalculateNeeded = true;
-                OnChanged(EventArgs.Empty);
-            }
+            get { return base.FillColor; }
+            set { base.FillColor = value; }
         }
 
 
@@ -100,29 +76,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             set
             {
                 font = value;
-                recalculateNeeded = true;
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// The maximum width of the rectangle where the text should be drawn.
-        /// </summary>
-        protected float maxWidth = 50;
-
-        /// <summary>
-        /// Gets or sets the maximum width of the rectangle where the text should be drawn.
-        /// </summary>
-        [Category("Layout")]
-        [DefaultValue(MAX_WIDTH)]
-        [Description("The maximum width of the rectangle where the text should be drawn.")]
-        public virtual float MaxWidth
-        {
-            get { return maxWidth; }
-            set
-            {
-                maxWidth = value;
-                recalculateNeeded = true;
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -138,7 +91,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             set
             {
                 verticalLocation = value;
-                recalculateNeeded = true;
                 OnChanged(EventArgs.Empty);
             }
 
@@ -148,43 +100,31 @@ namespace DustInTheWind.Clock.Shapes.Default
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextShape"/> class with
+        /// Initializes a new instance of the <see cref="DigitalHandShape"/> class with
         /// default values.
         /// </summary>
-        public TextShape()
-            : this(TEXT, Color.Black, FONT)
+        public DigitalHandShape()
+            : this(FILL_COLOR, FONT)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextShape"/> class.
+        /// Initializes a new instance of the <see cref="DigitalHandShape"/> class.
         /// </summary>
-        /// <param name="text">The text that should be drawn.</param>
-        public TextShape(string text)
-            : this(text, Color.Black, FONT)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TextShape"/> class.
-        /// </summary>
-        /// <param name="text">The text that should be drawn.</param>
         /// <param name="color">The color used to draw the text.</param>
-        public TextShape(string text, Color color)
-            : this(text, color, FONT)
+        public DigitalHandShape(Color color)
+            : this(color, FONT)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextShape"/> class.
+        /// Initializes a new instance of the <see cref="DigitalHandShape"/> class.
         /// </summary>
-        /// <param name="text">The text that should be drawn.</param>
         /// <param name="color">The color used to draw the text.</param>
         /// <param name="font">The font used to draw the text.</param>
-        public TextShape(string text, Color color, Font font)
-            : base(Color.Empty, color)
+        public DigitalHandShape(Color color, Font font)
+            : base(OUTLINE_COLOR, color)
         {
-            this.text = text;
             this.font = font;
             this.verticalLocation = VERTICAL_LOCATION;
 
@@ -192,23 +132,6 @@ namespace DustInTheWind.Clock.Shapes.Default
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
             stringFormat.Trimming = StringTrimming.None;
-        }
-
-        #endregion
-
-        #region Calculated Values
-
-        private bool recalculateNeeded = true;
-        private RectangleF textRectangle;
-
-        private void CalculateDimensions(Graphics g)
-        {
-            SizeF textSize = g.MeasureString(text, font, (int)maxWidth);
-            //PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
-            PointF textLocation = new PointF(-textSize.Width / 2F, verticalLocation);
-            textRectangle = new RectangleF(textLocation, textSize);
-
-            recalculateNeeded = false;
         }
 
         #endregion
@@ -222,7 +145,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && font != null && text != null && text.Length > 0 && !fillColor.IsEmpty;
+            return base.AllowToDraw() && font != null && !fillColor.IsEmpty;
         }
 
         /// <summary>
@@ -237,10 +160,40 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             CreateBrushIfNull();
 
-            if (recalculateNeeded)
-                CalculateDimensions(g);
+            StringBuilder sb = new StringBuilder();
+            string prepend = string.Empty;
 
-            g.DrawString(text, font, brush, textRectangle, stringFormat);
+            string format = "HH:mm:ss";
+
+            //if ((componentToDisplay & TimeComponent.Hour) == TimeComponent.Hour)
+            //{
+            //    sb.Append(prepend);
+            //    sb.Append("HH");
+            //    prepend = ":";
+            //}
+            //if ((componentToDisplay & TimeComponent.Minute) == TimeComponent.Minute)
+            //{
+            //    sb.Append(prepend);
+            //    sb.Append("mm");
+            //    prepend = ":";
+            //}
+            //if ((componentToDisplay & TimeComponent.Second) == TimeComponent.Second)
+            //{
+            //    sb.Append(prepend);
+            //    sb.Append("ss");
+            //    prepend = ":";
+            //}
+
+            string text = new DateTime(time.Ticks).ToString(format);
+
+            if (text.Length > 0)
+            {
+                SizeF textSize = g.MeasureString(text, font);
+                PointF textLocation = new PointF(-textSize.Width / 2F, verticalLocation);
+                RectangleF textRectangle = new RectangleF(textLocation, textSize);
+
+                g.DrawString(text, font, brush, textRectangle, stringFormat);
+            }
         }
 
         #region Dispose

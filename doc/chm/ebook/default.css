@@ -85,3 +85,22 @@ h3
 	height: 60px;
 	background: url('images/separator.png') center center no-repeat;	
 }
+
+div.article_image
+{
+	float: right;
+	text-align: center;
+	margin: 10px;
+}
+
+div.article_image img
+{
+	margin: 10px;
+}
+
+div.article_image div
+{
+	margin: 10px;
+	font: 10px arial;
+	text-align: center;
+}

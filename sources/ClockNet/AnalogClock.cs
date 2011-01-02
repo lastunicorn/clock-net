@@ -40,6 +40,7 @@ namespace DustInTheWind.Clock
     /// not be compiled at all, so it will not influence the performance.</para>
     /// </remarks>
     [Designer(typeof(AnalogClockDesigner))]
+    [ToolboxBitmap(typeof(AnalogClock), "icon16.bmp")]
     public partial class AnalogClock : Control
     {
         #region Event TimeProviderChanged
@@ -209,7 +210,7 @@ namespace DustInTheWind.Clock
         {
             get
             {
-                if (defaultTextShape == null)
+                //if (defaultTextShape == null)
                 {
                     foreach (IGroundShape shape in backgroundShapes)
                     {
@@ -497,7 +498,7 @@ namespace DustInTheWind.Clock
 
             protected override void ClearItems()
             {
-                foreach (IGroundShape item in Items)
+                foreach (IAngularShape item in Items)
                 {
                     if (item != null)
                         item.Changed -= new EventHandler(clock.shape_Changed);
@@ -568,7 +569,7 @@ namespace DustInTheWind.Clock
 
             protected override void ClearItems()
             {
-                foreach (IGroundShape item in Items)
+                foreach (IHandShape item in Items)
                 {
                     if (item != null)
                         item.Changed -= new EventHandler(clock.shape_Changed);

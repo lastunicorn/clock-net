@@ -172,6 +172,7 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// Geta or sets the orientation of the shape.
         /// </summary>
+        [Category("Layout")]
         [DefaultValue(ORIENTATION)]
         [Description("Specifies the orientation of the shape.")]
         public virtual AngularOrientation Orientation
