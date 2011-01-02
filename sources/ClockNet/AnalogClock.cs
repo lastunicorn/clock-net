@@ -17,6 +17,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Design;
@@ -24,9 +25,8 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.TimeProviders;
 using DustInTheWind.Clock.Shapes.Default;
-using System.ComponentModel.Design;
+using DustInTheWind.Clock.TimeProviders;
 
 namespace DustInTheWind.Clock
 {
@@ -205,6 +205,8 @@ namespace DustInTheWind.Clock
         #endregion
 
 
+        #region Text
+
         private TextShape defaultTextShape;
         private TextShape DefaultTextShape
         {
@@ -256,6 +258,7 @@ namespace DustInTheWind.Clock
             }
         }
 
+        #endregion
 
         #region Time
 
@@ -277,6 +280,32 @@ namespace DustInTheWind.Clock
             {
                 time = value;
                 Invalidate();
+            }
+        }
+
+        /// <summary>
+        /// The offset time used to decalate the displayed utc time.
+        /// </summary>
+        private TimeSpan? utcOffset;
+
+        /// <summary>
+        /// Gets or sets the offset time used to decalate the displayed utc time.
+        /// If the value is null, the local time is displayed.
+        /// To display the UTC time, set this property to zero.
+        /// </summary>
+        [DefaultValue(null)]
+        [Category("Value")]
+        [Description("Specifies the offset time used to decalate the displayed utc time.")]
+        [TypeConverter(typeof(NullableTimeSpanConverter))]
+        [EditorAttribute(typeof(TimeSpanEditor), typeof(UITypeEditor))]
+        public TimeSpan? UtcOffset
+        {
+            get { return utcOffset; }
+            set
+            {
+                utcOffset = value;
+                if (timeProvider == null)
+                    Invalidate();
             }
         }
 
@@ -327,8 +356,17 @@ namespace DustInTheWind.Clock
             if (timeProvider != null)
             {
                 time = timeProvider.GetTime();
-                Invalidate();
             }
+            else if (utcOffset == null)
+            {
+                time = DateTime.Now.TimeOfDay;
+            }
+            else
+            {
+                time = DateTime.UtcNow.TimeOfDay.Add(utcOffset.Value);
+            }
+
+            Invalidate();
         }
 
         #endregion
@@ -646,7 +684,7 @@ namespace DustInTheWind.Clock
         #endregion
 
 
-        #region Miscellaneous
+        #region Layout
 
         /// <summary>
         /// A value that specifies if the drawn clock should alwais keep its proportions inside the control's area.
@@ -656,7 +694,7 @@ namespace DustInTheWind.Clock
         /// <summary>
         /// Gets or sets a value that specifies if the drawn clock should alwais keep its proportions inside the control's area.
         /// </summary>
-        [Category("Appearance")]
+        [Category("Layout")]
         [DefaultValue(true)]
         [Description("A value that specifies if the drawn clock should alwais keep its proportions inside the control's area.")]
         public bool KeepProportions

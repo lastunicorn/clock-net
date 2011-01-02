@@ -59,6 +59,7 @@ namespace DustInTheWind.Clock.TimeProviders
         /// </summary>
         /// <param name="utcOffset">The offset time to be added to the system's utc time.</param>
         public UtcOffsetTimeProvider(TimeSpan utcOffset)
+            : base()
         {
             this.utcOffset = utcOffset;
         }

@@ -110,15 +110,6 @@ namespace DustInTheWind.Clock
                     handShapes.Add(pinShape);
                 }
             }
-
-
-            //PropertyDescriptor timeProviderDescriptor = TypeDescriptor.GetProperties(Component)["TimeProvider"];
-
-            //if (timeProviderDescriptor != null && timeProviderDescriptor.PropertyType == typeof(ITimeProvider) && !timeProviderDescriptor.IsReadOnly && timeProviderDescriptor.IsBrowsable)
-            //{
-            //    LocalTimeProvider timeProvider = new LocalTimeProvider();
-            //    timeProviderDescriptor.SetValue(Component, new LocalTimeProvider());
-            //}
         }
     }
 }
