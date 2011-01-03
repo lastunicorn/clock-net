@@ -31,10 +31,10 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public new const float POSITION_OFFSET = 7f;
 
-        /// <summary>
-        /// The default value of the angle.
-        /// </summary>
-        public new const float ANGLE = 30f;
+        ///// <summary>
+        ///// The default value of the angle.
+        ///// </summary>
+        //public new const float ANGLE = 30f;
 
         /// <summary>
         /// Specifies the text format used to draw the text.

@@ -1,4 +1,4 @@
-﻿// ClockNet
+﻿// ClockControl
 // Copyright (C) 2010 Dust in the Wind
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -14,72 +14,63 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System.ComponentModel;
 using System.Drawing;
 
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape class that draws a simple straight line.
+    /// A Shape class that draws a rectangle.
     /// </summary>
-    public class LineShape : VectorialGroundShapeBase
+    public class RectangleGroundShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Line Shape"; }
+            get { return "Rectangle Shape"; }
         }
 
 
         /// <summary>
-        /// The location of the tail tip.
+        /// The rectangle that is drawn.
         /// </summary>
-        protected PointF startPoint;
+        protected RectangleF rectangle;
 
         /// <summary>
-        /// The lcation of the hand top.
+        /// The same rectangle rounded to integer coordinates. It is necessary for the
+        /// <see cref="Graphics.DrawRectangle(Pen, Rectangle)"/> method that does not accepts a <see cref="RectangleF"/>.
         /// </summary>
-        protected PointF endPoint;
+        protected Rectangle roundedRectangle;
 
 
-        #region Constructor
+        #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LineShape"/> class with
+        /// Initializes a new instance of the <see cref="RectangleGroundShape"/> class with
         /// default values.
         /// </summary>
-        public LineShape()
-            : this(PointF.Empty, PointF.Empty, Color.Black, LINE_WIDTH)
+        public RectangleGroundShape()
+            : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LineShape"/> class.
+        /// Initializes a new instance of the <see cref="RectangleGroundShape"/> class.
         /// </summary>
-        /// <param name="color">The color that will be used to draw the line.</param>
-        /// <param name="lineWidth">The width of the line.</param>
-        public LineShape(Color color, float lineWidth)
-            : this(PointF.Empty, PointF.Empty, color, lineWidth)
+        /// <param name="rectangle">The rectangle that will be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the rectangle.</param>
+        /// <param name="fillColor">The color used to fill the rectangle's interior.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
+        public RectangleGroundShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth)
+            : base(outlineColor, fillColor, lineWidth)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LineShape"/> class.
-        /// </summary>
-        /// <param name="startPoint">The point from where the line starts.</param>
-        /// <param name="endPoint">The point where the line ends.</param>
-        /// <param name="color">The color that will be used to draw the line.</param>
-        /// <param name="lineWidth">The width of the line.</param>
-        public LineShape(PointF startPoint, PointF endPoint, Color color, float lineWidth)
-            : base(color, Color.Empty, lineWidth)
-        {
-            this.startPoint = startPoint;
-            this.endPoint = endPoint;
+            this.rectangle = rectangle;
+            this.roundedRectangle = Rectangle.Round(rectangle);
         }
 
         #endregion
+
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -89,7 +80,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && !outlineColor.IsEmpty;
+            return base.AllowToDraw() && !rectangle.IsEmpty;
         }
 
         /// <summary>
@@ -102,9 +93,19 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void DrawInternal(Graphics g)
         {
-            CreatePenIfNull();
+            if (!fillColor.IsEmpty)
+            {
+                CreateBrushIfNull();
 
-            g.DrawLine(pen, startPoint, endPoint);
+                g.FillRectangle(brush, rectangle);
+            }
+
+            if (!outlineColor.IsEmpty)
+            {
+                CreatePenIfNull();
+
+                g.DrawRectangle(pen, roundedRectangle);
+            }
         }
     }
 }

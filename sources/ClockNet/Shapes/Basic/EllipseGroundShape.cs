@@ -21,7 +21,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a ellipse.
     /// </summary>
-    public class EllipseShape : VectorialGroundShapeBase
+    public class EllipseGroundShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
@@ -41,22 +41,22 @@ namespace DustInTheWind.Clock.Shapes.Basic
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EllipseShape"/> class with
+        /// Initializes a new instance of the <see cref="EllipseGroundShape"/> class with
         /// default values.
         /// </summary>
-        public EllipseShape()
+        public EllipseGroundShape()
             : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EllipseShape"/> class.
+        /// Initializes a new instance of the <see cref="EllipseGroundShape"/> class.
         /// </summary>
         /// <param name="rectangle">The rectangle defining the ellipse that will be drawn.</param>
         /// <param name="outlineColor">The color used to draw the outline of the ellipse.</param>
         /// <param name="fillColor">The color used to fill the ellipse's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public EllipseShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth)
+        public EllipseGroundShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
             this.rectangle = rectangle;

@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>The Appearance</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="../default.css" />
+	</head>
+	<body>
+		<h1>The Appearance</h1>
+
+		<p>When it comes to the visual part, the clock is <strong>highly customizable</strong>.</p>
+		
+		<p><strong>All the ClockNet GUI is created using the so called Shapes.</strong> The Shapes are classes implementing the <span class="inline_code">IShape</span> interface. They are drawn <strong>one over the other in a stack, like the layers in Photoshop</strong>.</p>
+		
+		<p>The hands, the numbers, the ticks that mark the seconds on the side of the clock, all are drawn by Shape objects and not directly by the clock. Therefore, if you want, you can replace the default Shapes that handle the specific visual elements with some custom implementations that draws them as you need. For example you can replace the hands that, by default, are vectorial shapes, with some images. This is done with an <span class="inline_code">ImageHandShape</span> object (that also implements <span class="inline_code">IShape</span> interface). A demo project can be found in the release package. Check the "Clock Examples" form, tab "Fancy", first clock.
+		</p>
+		
+		<div id="page_footer"></div>
+	</body>
+</html> 

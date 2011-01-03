@@ -36,6 +36,11 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// The rectangle defining the ellipse that is drawn.
         /// </summary>
         protected RectangleF rectangle;
+        public RectangleF Rectangle
+        {
+            get { return rectangle; }
+            set { rectangle = value; }
+        }
 
 
         #region Constructors

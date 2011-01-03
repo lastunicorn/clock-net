@@ -16,16 +16,16 @@
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.ComponentModel.Design;
+using System.Drawing;
 using System.Drawing.Design;
 
-namespace DustInTheWind.Clock.Shapes.Default
+namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the text displayed on the background of the dial.
     /// </summary>
-    public class TextShape : VectorialGroundShapeBase
+    public class StringGroundShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// The default text drawn.
@@ -148,40 +148,40 @@ namespace DustInTheWind.Clock.Shapes.Default
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextShape"/> class with
+        /// Initializes a new instance of the <see cref="StringGroundShape"/> class with
         /// default values.
         /// </summary>
-        public TextShape()
+        public StringGroundShape()
             : this(TEXT, Color.Black, FONT)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextShape"/> class.
+        /// Initializes a new instance of the <see cref="StringGroundShape"/> class.
         /// </summary>
         /// <param name="text">The text that should be drawn.</param>
-        public TextShape(string text)
+        public StringGroundShape(string text)
             : this(text, Color.Black, FONT)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextShape"/> class.
+        /// Initializes a new instance of the <see cref="StringGroundShape"/> class.
         /// </summary>
         /// <param name="text">The text that should be drawn.</param>
         /// <param name="color">The color used to draw the text.</param>
-        public TextShape(string text, Color color)
+        public StringGroundShape(string text, Color color)
             : this(text, color, FONT)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextShape"/> class.
+        /// Initializes a new instance of the <see cref="TextGroundShape"/> class.
         /// </summary>
         /// <param name="text">The text that should be drawn.</param>
         /// <param name="color">The color used to draw the text.</param>
         /// <param name="font">The font used to draw the text.</param>
-        public TextShape(string text, Color color, Font font)
+        public StringGroundShape(string text, Color color, Font font)
             : base(Color.Empty, color)
         {
             this.text = text;

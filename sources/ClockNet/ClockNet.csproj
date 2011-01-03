@@ -71,16 +71,13 @@
     <Compile Include="Shapes\Basic\EllipseAngularShape.cs" />
     <Compile Include="Shapes\Basic\RectangleAngularShape.cs" />
     <Compile Include="Shapes\Basic\PolygonAngularShape.cs" />
-    <Compile Include="Shapes\Basic\EllipseShape.cs" />
-    <Compile Include="Shapes\Basic\RectangleShape.cs" />
+    <Compile Include="Shapes\Basic\EllipseGroundShape.cs" />
+    <Compile Include="Shapes\Basic\RectangleGroundShape.cs" />
     <Compile Include="Shapes\Basic\PathHandShape.cs" />
     <Compile Include="Shapes\Basic\PolygonHandShape.cs" />
-    <Compile Include="Shapes\Basic\PolygonShape.cs" />
+    <Compile Include="Shapes\Basic\PolygonGroundShape.cs" />
     <Compile Include="Shapes\AngularShapeBase.cs" />
     <Compile Include="Shapes\Basic\LineAngularShape.cs" />
-    <Compile Include="Shapes\Basic\StringShape.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Shapes\Default\DigitalHandShape.cs" />
     <Compile Include="Shapes\GroundShapeBase.cs" />
     <Compile Include="Shapes\Default\DiamondHandShape.cs" />
@@ -100,14 +97,14 @@
     <Compile Include="Shapes\AngularShapeLocation.cs" />
     <Compile Include="Shapes\Fancy\NibHandShape.cs" />
     <Compile Include="Shapes\Basic\EllipseHandShape.cs" />
-    <Compile Include="Shapes\Default\TextShape.cs" />
+    <Compile Include="Shapes\Basic\StringGroundShape.cs" />
     <Compile Include="Shapes\IAngularShape.cs" />
     <Compile Include="Shapes\IHandShape.cs" />
     <Compile Include="Shapes\Fancy\SlotHandShape.cs" />
     <Compile Include="Shapes\Fancy\FancySweepHandShape.cs" />
-    <Compile Include="Shapes\Basic\LineShape.cs" />
+    <Compile Include="Shapes\Basic\LineGroundShape.cs" />
     <Compile Include="Shapes\AngularOrientation.cs" />
-    <Compile Include="Shapes\Basic\PathShape.cs" />
+    <Compile Include="Shapes\Basic\PathGroundShape.cs" />
     <Compile Include="Shapes\ShapeSet.cs" />
     <Compile Include="Shapes\Basic\ImageGroundShape.cs" />
     <Compile Include="Shapes\Default\PinShape.cs" />

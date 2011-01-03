@@ -55,7 +55,7 @@ namespace DustInTheWind.Clock
 
                 if (backgroundShapes != null)
                 {
-                    backgroundShapes.Add(new TextShape("Dust in the Wind", Color.Black));
+                    backgroundShapes.Add(new StringGroundShape("Dust in the Wind", Color.Black));
                 }
             }
 

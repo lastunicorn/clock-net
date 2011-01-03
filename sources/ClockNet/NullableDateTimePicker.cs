@@ -16,6 +16,7 @@
 
 using System;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace DustInTheWind.Clock
 {
@@ -33,6 +34,7 @@ namespace DustInTheWind.Clock
         /// <summary>
         /// Gets or sets a value that specifies if the control contains a null value or a <see cref="DateTime"/> value.
         /// </summary>
+        [Browsable(false)]
         public bool IsNull
         {
             get { return isNull; }
@@ -43,6 +45,27 @@ namespace DustInTheWind.Clock
                 isNull = value;
             }
         }
+
+        #region Event ValueChanged
+
+        /// <summary>
+        /// Event raised when ... Well, is raised when it should be raised. Ok?
+        /// </summary>
+        public event EventHandler ValueChanged;
+
+        /// <summary>
+        /// Raises the <see cref="ValueChanged"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        protected virtual void OnValueChanged(EventArgs e)
+        {
+            if (ValueChanged != null)
+            {
+                ValueChanged(this, e);
+            }
+        }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NullableDateTimePicker"/> class.
@@ -85,6 +108,8 @@ namespace DustInTheWind.Clock
             }
         }
 
+        bool initializing = false;
+
         /// <summary>
         /// Call-back method that handles the Click event of the Create button.
         /// </summary>
@@ -92,7 +117,18 @@ namespace DustInTheWind.Clock
         /// <param name="e"></param>
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            DateTimePicker.Value = DateTime.Now;
+            try
+            {
+                initializing = true;
+
+                DateTimePicker.Value = DateTime.Now.Date;
+                IsNull = false;
+                OnValueChanged(EventArgs.Empty);
+            }
+            finally
+            {
+                initializing = false;
+            }
         }
 
         /// <summary>
@@ -102,7 +138,11 @@ namespace DustInTheWind.Clock
         /// <param name="e"></param>
         private void DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            IsNull = false;
+            if (!initializing)
+            {
+                IsNull = false;
+                OnValueChanged(EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -113,6 +153,7 @@ namespace DustInTheWind.Clock
         private void buttonNull_Click(object sender, EventArgs e)
         {
             IsNull = true;
+            OnValueChanged(EventArgs.Empty);
         }
     }
 }

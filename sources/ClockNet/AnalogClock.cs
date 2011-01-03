@@ -27,6 +27,7 @@ using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
 using DustInTheWind.Clock.Shapes.Default;
 using DustInTheWind.Clock.TimeProviders;
+using DustInTheWind.Clock.Shapes.Basic;
 
 namespace DustInTheWind.Clock
 {
@@ -207,8 +208,8 @@ namespace DustInTheWind.Clock
 
         #region Text
 
-        private TextShape defaultTextShape;
-        private TextShape DefaultTextShape
+        private StringGroundShape defaultTextShape;
+        private StringGroundShape DefaultTextShape
         {
             get
             {
@@ -216,9 +217,9 @@ namespace DustInTheWind.Clock
                 {
                     foreach (IGroundShape shape in backgroundShapes)
                     {
-                        if (shape is TextShape)
+                        if (shape is StringGroundShape)
                         {
-                            defaultTextShape = (TextShape)shape;
+                            defaultTextShape = (StringGroundShape)shape;
                             break;
                         }
                     }
@@ -238,7 +239,7 @@ namespace DustInTheWind.Clock
         {
             get
             {
-                TextShape textShape = DefaultTextShape;
+                StringGroundShape textShape = DefaultTextShape;
                 if (textShape != null)
                 {
                     return textShape.Text;
@@ -250,7 +251,7 @@ namespace DustInTheWind.Clock
             }
             set
             {
-                TextShape textShape = DefaultTextShape;
+                StringGroundShape textShape = DefaultTextShape;
                 if (textShape != null)
                 {
                     textShape.Text = value;

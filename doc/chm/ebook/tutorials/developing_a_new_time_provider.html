@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Developing a New Time Provider</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="../default.css" />
+	</head>
+	<body>
+		<h1>Developping a New Time Provider</h1>
+		
+		<p>A Time Provider is the way in which you can provide an external custom time to be displayed by the timer.</p>
+		
+		<p>A time provider class should implement the <span class="inline_code">ITimeProvider</span> interface:</p>
+		<pre class="code">public class MyTimeProvider : ITimeProvider
+{
+    ...
+}</pre>
+		<p>Or you can extend the <span class="inline_code">TimeProviderBase</span> abstract class that already implements the <span class="inline_code">ITimeProvider</span> interface:</p>
+		<pre class="code">public class MyTimeProvider : TimeProviderBase
+{
+    ...
+}</pre>
+
+		
+		<div id="page_footer"></div>
+	</body>
+</html> 

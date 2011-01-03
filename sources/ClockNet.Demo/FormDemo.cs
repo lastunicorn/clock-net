@@ -18,6 +18,11 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DustInTheWind.Clock.TimeProviders;
+using System.Reflection;
+using DustInTheWind.Clock.Shapes;
+using DustInTheWind.Clock.Shapes.Basic;
+using DustInTheWind.Clock.Shapes.Default;
+using DustInTheWind.Clock.Shapes.Fancy;
 
 namespace DustInTheWind.Clock.Demo
 {
@@ -26,9 +31,55 @@ namespace DustInTheWind.Clock.Demo
         public FormDemo()
         {
             InitializeComponent();
-            comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Local Time Provider", new LocalTimeProvider()));
-            comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("UTC Time Provider", new UtcTimeProvider()));
-            comboBoxTimeProviders.Items.Add(new KeyValuePair<string, ITimeProvider>("Offset UTC Time Provider", new UtcOffsetTimeProvider()));
+
+            nullableDateTimePickerUtcOffset.DateTimePicker.Format = DateTimePickerFormat.Time;
+            nullableDateTimePickerUtcOffset.DateTimePicker.ShowUpDown = true;
+
+            comboBoxTimeProviders.Items.Add("(none)");
+            comboBoxTimeProviders.Items.Add(typeof(LocalTimeProvider));
+            comboBoxTimeProviders.Items.Add(typeof(UtcTimeProvider));
+            comboBoxTimeProviders.Items.Add(typeof(UtcOffsetTimeProvider));
+            comboBoxTimeProviders.Items.Add(typeof(BrokenTimeProvider));
+            comboBoxTimeProviders.Items.Add(typeof(RandomTimeProvider));
+
+            listBoxBackgroundShapeTypes.Items.AddRange(new Type[] {
+                typeof(LineGroundShape),
+                typeof(PolygonGroundShape),
+                typeof(RectangleGroundShape),
+                typeof(EllipseGroundShape),
+                typeof(PathGroundShape),
+                typeof(StringGroundShape),
+                typeof(ImageGroundShape),
+                typeof(DialShape),
+                typeof(FancyDialShape)
+            });
+
+            listBoxAngularShapeTypes.Items.AddRange(new Type[] {
+                typeof(LineAngularShape),
+                typeof(PolygonAngularShape),
+                typeof(RectangleAngularShape),
+                typeof(EllipseAngularShape),
+                typeof(PathAngularShape),
+                typeof(StringAngularShape),
+                typeof(ImageAngularShape),
+                typeof(TicksShape)
+            });
+
+            listBoxHandShapeTypes.Items.AddRange(new Type[] {
+                typeof(LineHandShape),
+                typeof(PolygonHandShape),
+                typeof(RectangleHandShape),
+                typeof(EllipseHandShape),
+                typeof(PathHandShape),
+                typeof(ImageHandShape),
+                typeof(DiamondHandShape),
+                typeof(DigitalHandShape),
+                typeof(PinShape),
+                typeof(DotHandShape),
+                typeof(FancySweepHandShape),
+                typeof(NibHandShape),
+                typeof(SlotHandShape)
+            });
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,15 +87,13 @@ namespace DustInTheWind.Clock.Demo
             // Timer
             numericUpDownTimerInterval.Value = timer1.Interval;
 
-            // Value
+            // Time Value
             dateTimePickerTime.Value = DateTime.Now.Date.Add(analogClockDemo.Time);
-            //dateTimePickerUtcOffset.Value = DateTime.Now.Date.Add(analogClock1.UtcOffset);
+            nullableDateTimePickerUtcOffset.Value = analogClockDemo.UtcOffset == null ? (DateTime?)null : DateTime.Now.Date.Add(analogClockDemo.UtcOffset.Value);
+            checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
 
             // Timer
             checkBoxUseExternalTimer.Checked = analogClockDemo.Timer != null;
-
-            // Time Provider
-            propertyGridTimeProvider.SelectedObject = analogClockDemo.TimeProvider;
 
             // Miscellaneous
 
@@ -66,6 +115,35 @@ namespace DustInTheWind.Clock.Demo
 
             // >> Keep Proportions
             checkBoxKeepProportions.Checked = analogClockDemo.KeepProportions;
+
+            // Background Shapes
+            foreach (IGroundShape shape in analogClockDemo.BackgroundShapes)
+            {
+                listBoxBackgroundShapes.Items.Add(shape);
+            }
+
+            // Angular Shapes
+            foreach (IAngularShape shape in analogClockDemo.AngularShapes)
+            {
+                listBoxAngularShapes.Items.Add(shape);
+            }
+
+            // Hand Shapes
+            foreach (IHandShape shape in analogClockDemo.HandShapes)
+            {
+                listBoxHandShapes.Items.Add(shape);
+            }
+
+            // Time Provider
+            if (analogClockDemo.TimeProvider == null)
+            {
+                comboBoxTimeProviders.SelectedIndex = 0;
+            }
+            else
+            {
+                comboBoxTimeProviders.SelectedItem = analogClockDemo.TimeProvider.GetType();
+            }
+            propertyGridTimeProvider.SelectedObject = analogClockDemo.TimeProvider == null ? null : analogClockDemo.TimeProvider.GetType();
         }
 
         private void labelBackgroundColor_Click(object sender, EventArgs e)
@@ -154,19 +232,18 @@ namespace DustInTheWind.Clock.Demo
 
         private void comboBoxTimeProviders_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxTimeProviders.SelectedItem != null)
-            {
-                analogClockDemo.TimeProvider = ((KeyValuePair<string, ITimeProvider>)comboBoxTimeProviders.SelectedItem).Value;
-            }
-            else
+            if (comboBoxTimeProviders.SelectedItem == null || comboBoxTimeProviders.SelectedItem.Equals("(none)"))
             {
                 analogClockDemo.TimeProvider = null;
             }
-        }
+            else
+            {
+                Type t = (Type)comboBoxTimeProviders.SelectedItem;
 
-        private void analogClock1_TimeProviderChanged(object sender, EventArgs e)
-        {
-            propertyGridTimeProvider.SelectedObject = analogClockDemo.TimeProvider;
+                ConstructorInfo ctor = t.GetConstructor(new Type[0]);
+                ITimeProvider timeProvider = (ITimeProvider)ctor.Invoke(null);
+                analogClockDemo.TimeProvider = timeProvider;
+            }
         }
 
         private void buttonExamples_Click(object sender, EventArgs e)
@@ -181,5 +258,112 @@ namespace DustInTheWind.Clock.Demo
         {
             timer1.Interval = (int)numericUpDownTimerInterval.Value;
         }
+
+        private void dateTimePickerUtcOffset_ValueChanged(object sender, EventArgs e)
+        {
+            analogClockDemo.UtcOffset = nullableDateTimePickerUtcOffset.Value == null ? (TimeSpan?)null : nullableDateTimePickerUtcOffset.Value.Value.TimeOfDay;
+        }
+
+        private void analogClockDemo_TimeProviderChanged(object sender, EventArgs e)
+        {
+            checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
+            propertyGridTimeProvider.SelectedObject = analogClockDemo.TimeProvider;
+        }
+
+
+        #region Background Shapes
+
+        private void listBoxBackgroundShapes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            propertyGridBackgroundShapes.SelectedObject = listBoxBackgroundShapes.SelectedItem;
+        }
+
+        private void buttonAddBackgroundShape_Click(object sender, EventArgs e)
+        {
+            if (listBoxBackgroundShapeTypes.SelectedItem != null)
+            {
+                Type t = (Type)listBoxBackgroundShapeTypes.SelectedItem;
+
+                ConstructorInfo ctor = t.GetConstructor(new Type[0]);
+                IGroundShape shape = (IGroundShape)ctor.Invoke(null);
+                analogClockDemo.BackgroundShapes.Add(shape);
+                listBoxBackgroundShapes.Items.Add(shape);
+            }
+        }
+
+        private void buttonRemoveBackgroundShape_Click(object sender, EventArgs e)
+        {
+            if (listBoxBackgroundShapes.SelectedItem != null)
+            {
+                analogClockDemo.BackgroundShapes.Remove(listBoxBackgroundShapes.SelectedItem as IGroundShape);
+                listBoxBackgroundShapes.Items.Remove(listBoxBackgroundShapes.SelectedItem);
+            }
+        }
+
+        #endregion
+
+        #region Angular Shapes
+
+        private void listBoxAngularShapes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            propertyGridAngularShapes.SelectedObject = listBoxAngularShapes.SelectedItem;
+        }
+
+        private void buttonAddAngularShape_Click(object sender, EventArgs e)
+        {
+            if (listBoxAngularShapeTypes.SelectedItem != null)
+            {
+                Type t = (Type)listBoxAngularShapeTypes.SelectedItem;
+
+                ConstructorInfo ctor = t.GetConstructor(new Type[0]);
+                IAngularShape shape = (IAngularShape)ctor.Invoke(null);
+                analogClockDemo.AngularShapes.Add(shape);
+                listBoxAngularShapes.Items.Add(shape);
+            }
+        }
+
+        private void buttonRemoveAngularShape_Click(object sender, EventArgs e)
+        {
+            if (listBoxAngularShapes.SelectedItem != null)
+            {
+                analogClockDemo.AngularShapes.Remove(listBoxAngularShapes.SelectedItem as IAngularShape);
+                listBoxAngularShapes.Items.Remove(listBoxAngularShapes.SelectedItem);
+            }
+        }
+
+
+
+        #endregion
+
+        #region Hand Shapes
+
+        private void listBoxHandShapes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            propertyGridHandShapes.SelectedObject = listBoxHandShapes.SelectedItem;
+        }
+
+        private void buttonAddHandShape_Click(object sender, EventArgs e)
+        {
+            if (listBoxHandShapeTypes.SelectedItem != null)
+            {
+                Type t = (Type)listBoxHandShapeTypes.SelectedItem;
+
+                ConstructorInfo ctor = t.GetConstructor(new Type[0]);
+                IHandShape shape = (IHandShape)ctor.Invoke(null);
+                analogClockDemo.HandShapes.Add(shape);
+                listBoxHandShapes.Items.Add(shape);
+            }
+        }
+
+        private void buttonRemoveHandShape_Click(object sender, EventArgs e)
+        {
+            if (listBoxHandShapes.SelectedItem != null)
+            {
+                analogClockDemo.HandShapes.Remove(listBoxHandShapes.SelectedItem as IHandShape);
+                listBoxHandShapes.Items.Remove(listBoxHandShapes.SelectedItem);
+            }
+        }
+
+        #endregion
     }
 }

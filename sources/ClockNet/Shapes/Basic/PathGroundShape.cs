@@ -15,51 +15,63 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape class that draws a polygon.
+    /// A Shape class that draws a <see cref="GraphicsPath"/>.
     /// </summary>
-    public class PolygonShape : VectorialGroundShapeBase
+    public class PathGroundShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Polygon Shape"; }
+            get { return "Path Shape"; }
         }
 
-
         /// <summary>
-        /// The points that defines the polygon.
+        /// The path that is drawn.
         /// </summary>
-        protected PointF[] points;
+        protected GraphicsPath path;
 
 
-        #region Constructors
+        #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonShape"/> class with
+        /// Initializes a new instance of the <see cref="PathGroundShape"/> class with
         /// default values.
         /// </summary>
-        public PolygonShape()
+        public PathGroundShape()
             : this(null, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH)
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PathGroundShape"/> class.
+        /// </summary>
+        /// <param name="path">The path that should be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
+        /// <param name="fillColor">The color used to fill the path's interior.</param>
+        public PathGroundShape(GraphicsPath path, Color outlineColor, Color fillColor)
+            : this(path, outlineColor, fillColor, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonShape"/> class.
+        /// Initializes a new instance of the <see cref="PathGroundShape"/> class.
         /// </summary>
-        /// <param name="points">The points defining the polygon that will be drawn.</param>
+        /// <param name="path">The path that should be drawn.</param>
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public PolygonShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth)
+        public PathGroundShape(GraphicsPath path, Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
-            this.points = points;
+            this.path = path;
         }
 
         #endregion
@@ -73,7 +85,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && points != null && points.Length >= 2;
+            return base.AllowToDraw() && path != null;
         }
 
         /// <summary>
@@ -90,15 +102,30 @@ namespace DustInTheWind.Clock.Shapes.Basic
             {
                 CreateBrushIfNull();
 
-                g.FillPolygon(brush, points);
+                g.FillPath(brush, path);
             }
 
             if (!outlineColor.IsEmpty)
             {
                 CreatePenIfNull();
 
-                g.DrawPolygon(pen, points);
+                g.DrawPath(pen, path);
             }
+        }
+
+        /// <summary>
+        /// Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
+        /// </summary>
+        /// <param name="disposing">Speifies if the managed resources should be disposed, too.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (path != null)
+                    path.Dispose();
+            }
+
+            base.Dispose(disposing);
         }
     }
 }

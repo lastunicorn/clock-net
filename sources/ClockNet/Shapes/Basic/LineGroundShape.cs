@@ -1,4 +1,4 @@
-﻿// ClockControl
+﻿// ClockNet
 // Copyright (C) 2010 Dust in the Wind
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -19,58 +19,66 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes.Basic
 {
     /// <summary>
-    /// A Shape class that draws a rectangle.
+    /// A Shape class that draws a simple straight line.
     /// </summary>
-    public class RectangleShape : VectorialGroundShapeBase
+    public class LineGroundShape : VectorialGroundShapeBase
     {
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
         public override string Name
         {
-            get { return "Rectangle Shape"; }
+            get { return "Line Shape"; }
         }
 
 
         /// <summary>
-        /// The rectangle that is drawn.
+        /// The location of the tail tip.
         /// </summary>
-        protected RectangleF rectangle;
+        protected PointF startPoint;
 
         /// <summary>
-        /// The same rectangle rounded to integer coordinates. It is necessary for the
-        /// <see cref="Graphics.DrawRectangle(Pen, Rectangle)"/> method that does not accepts a <see cref="RectangleF"/>.
+        /// The lcation of the hand top.
         /// </summary>
-        protected Rectangle roundedRectangle;
+        protected PointF endPoint;
 
 
-        #region Constructors
+        #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RectangleShape"/> class with
+        /// Initializes a new instance of the <see cref="LineGroundShape"/> class with
         /// default values.
         /// </summary>
-        public RectangleShape()
-            : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH)
+        public LineGroundShape()
+            : this(PointF.Empty, PointF.Empty, Color.Black, LINE_WIDTH)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RectangleShape"/> class.
+        /// Initializes a new instance of the <see cref="LineGroundShape"/> class.
         /// </summary>
-        /// <param name="rectangle">The rectangle that will be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the rectangle.</param>
-        /// <param name="fillColor">The color used to fill the rectangle's interior.</param>
-        /// <param name="lineWidth">The width of the outline.</param>
-        public RectangleShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth)
+        /// <param name="color">The color that will be used to draw the line.</param>
+        /// <param name="lineWidth">The width of the line.</param>
+        public LineGroundShape(Color color, float lineWidth)
+            : this(PointF.Empty, PointF.Empty, color, lineWidth)
         {
-            this.rectangle = rectangle;
-            this.roundedRectangle = Rectangle.Round(rectangle);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LineGroundShape"/> class.
+        /// </summary>
+        /// <param name="startPoint">The point from where the line starts.</param>
+        /// <param name="endPoint">The point where the line ends.</param>
+        /// <param name="color">The color that will be used to draw the line.</param>
+        /// <param name="lineWidth">The width of the line.</param>
+        public LineGroundShape(PointF startPoint, PointF endPoint, Color color, float lineWidth)
+            : base(color, Color.Empty, lineWidth)
+        {
+            this.startPoint = startPoint;
+            this.endPoint = endPoint;
         }
 
         #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -80,7 +88,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && !rectangle.IsEmpty;
+            return base.AllowToDraw() && !outlineColor.IsEmpty;
         }
 
         /// <summary>
@@ -93,19 +101,9 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void DrawInternal(Graphics g)
         {
-            if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
+            CreatePenIfNull();
 
-                g.FillRectangle(brush, rectangle);
-            }
-
-            if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawRectangle(pen, roundedRectangle);
-            }
+            g.DrawLine(pen, startPoint, endPoint);
         }
     }
 }
