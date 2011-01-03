@@ -27,6 +27,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// </summary>
     public class NibHandShape : PathHandShape
     {
+        public const string NAME = "Nib Hand Shape";
+
         /// <summary>
         /// The default length of the width of the hand.
         /// </summary>
@@ -86,6 +88,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         public NibHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(new GraphicsPath(), outlineColor, fillColor, height, lineWidth)
         {
+            this.Name = NAME;
             CalculateDimensions();
         }
 

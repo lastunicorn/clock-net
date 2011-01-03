@@ -23,13 +23,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class PolygonGroundShape : VectorialGroundShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Polygon Shape"; }
-        }
+        public const string NAME = "Polygon Ground Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Polygon Shape"; }
+        //}
 
 
         /// <summary>
@@ -59,6 +61,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public PolygonGroundShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
+            this.Name = NAME;
             this.points = points;
         }
 

@@ -23,13 +23,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class EllipseGroundShape : VectorialGroundShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Ellipse Shape"; }
-        }
+        public const string NAME = "Ellipse Ground Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Ellipse Shape"; }
+        //}
 
 
         /// <summary>
@@ -59,6 +61,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public EllipseGroundShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
+            this.Name = NAME;
             this.rectangle = rectangle;
         }
 

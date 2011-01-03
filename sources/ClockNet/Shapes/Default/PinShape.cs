@@ -25,19 +25,21 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class PinShape : VectorialHandShapeBase
     {
+        public const string NAME = "Pin Shape";
+
         /// <summary>
         /// The default value of the diameter.
         /// </summary>
         public const float DIAMETER = 1.33f;
 
 
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Default Pin Shape"; }
-        }
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Default Pin Shape"; }
+        //}
 
 
         /// <summary>
@@ -118,6 +120,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public PinShape(Color outlineColor, Color fillColor, float diameter)
             : base(outlineColor, fillColor)
         {
+            this.Name = NAME;
             this.diameter = diameter;
 
             CalculateDimensions();

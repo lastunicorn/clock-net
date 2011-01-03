@@ -23,13 +23,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class RectangleAngularShape : VectorialAngularShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Rectangle Angular Shape"; }
-        }
+        public const string NAME = "Rectangle Angular Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Rectangle Angular Shape"; }
+        //}
 
 
         /// <summary>
@@ -68,6 +70,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public RectangleAngularShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
+            this.Name = NAME;
             this.rectangle = rectangle;
             this.roundedRectangle = Rectangle.Round(rectangle);
         }

@@ -23,13 +23,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class PolygonAngularShape : VectorialAngularShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Polygon Angular Shape"; }
-        }
+        public const string NAME = "Polygon Angular Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Polygon Angular Shape"; }
+        //}
 
 
         /// <summary>
@@ -62,6 +64,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public PolygonAngularShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
+            this.Name = NAME;
             this.points = points;
         }
 

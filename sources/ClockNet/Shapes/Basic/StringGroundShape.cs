@@ -27,6 +27,8 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class StringGroundShape : VectorialGroundShapeBase
     {
+        public const string NAME = "String Ground Shape";
+
         /// <summary>
         /// The default text drawn.
         /// </summary>
@@ -51,13 +53,13 @@ namespace DustInTheWind.Clock.Shapes.Basic
         protected StringFormat stringFormat;
 
 
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Default Text Shape"; }
-        }
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Default Text Shape"; }
+        //}
 
 
         /// <summary>
@@ -184,6 +186,8 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public StringGroundShape(string text, Color color, Font font)
             : base(Color.Empty, color)
         {
+            this.Name = NAME;
+
             this.text = text;
             this.font = font;
             this.verticalLocation = VERTICAL_LOCATION;

@@ -25,13 +25,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class ImageGroundShape : GroundShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Image Shape"; }
-        }
+        public const string NAME = "Image Ground Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Image Shape"; }
+        //}
 
 
         /// <summary>
@@ -106,6 +108,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public ImageGroundShape(Image image, PointF origin)
             : base()
         {
+            this.Name = NAME;
             this.image = image;
             this.origin = origin;
         }

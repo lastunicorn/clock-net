@@ -25,19 +25,21 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class LineHandShape : VectorialHandShapeBase
     {
+        public const string NAME = "Line Hand Shape";
+
         /// <summary>
         /// The default value of the hand's tail length.
         /// </summary>
         public const float TAIL_LENGTH = 7f;
 
 
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Line Hand Shape"; }
-        }
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Line Hand Shape"; }
+        //}
 
 
         /// <summary>
@@ -99,6 +101,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public LineHandShape(Color color, float height, float width, float tailLength)
             : base(color, Color.Empty, width, height)
         {
+            this.Name = NAME;
             this.tailLength = tailLength;
 
             CalculateDimensions();

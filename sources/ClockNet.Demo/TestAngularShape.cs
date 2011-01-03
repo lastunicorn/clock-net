@@ -13,9 +13,9 @@ namespace DustInTheWind.Clock.Demo
 
         }
 
-        public override string Name
-        {
-            get { return "asd"; }
-        }
+        //public override string Name
+        //{
+        //    get { return "asd"; }
+        //}
     }
 }

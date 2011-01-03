@@ -26,6 +26,8 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class DiamondHandShape : PolygonHandShape
     {
+        public const string NAME = "Diamond Hand Shape";
+
         /// <summary>
         /// The default value of the <see cref="Width"/>.
         /// </summary>
@@ -37,13 +39,13 @@ namespace DustInTheWind.Clock.Shapes.Default
         public const float TAIL_LENGTH = 6f;
 
 
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Diamond Hand Shape"; }
-        }
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Diamond Hand Shape"; }
+        //}
 
         /// <summary>
         /// The length of the the hand's tail.
@@ -121,6 +123,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public DiamondHandShape(Color outlineColor, Color fillColor, float height, float width, float tailLength)
             : base(null, outlineColor, fillColor, height, LINE_WIDTH)
         {
+            this.Name = NAME;
             this.tailLength = tailLength;
             this.width = width;
 

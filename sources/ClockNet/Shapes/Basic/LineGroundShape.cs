@@ -23,13 +23,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class LineGroundShape : VectorialGroundShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Line Shape"; }
-        }
+        public const string NAME = "Line Ground Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Line Shape"; }
+        //}
 
 
         /// <summary>
@@ -74,6 +76,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public LineGroundShape(PointF startPoint, PointF endPoint, Color color, float lineWidth)
             : base(color, Color.Empty, lineWidth)
         {
+            this.Name = NAME;
             this.startPoint = startPoint;
             this.endPoint = endPoint;
         }

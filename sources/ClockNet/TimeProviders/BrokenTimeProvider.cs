@@ -29,8 +29,19 @@ namespace DustInTheWind.Clock.TimeProviders
         /// </summary>
         public const float MULTIPLIER = 10;
 
-        TimeSpan lastValue;
-        DateTime lastQueryTime;
+        private TimeSpan lastValue;
+        public TimeSpan LastValue
+        {
+            get { return lastValue; }
+            set
+            {
+                lastValue = value;
+                lastQueryTime = DateTime.Now;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        private DateTime lastQueryTime;
 
         /// <summary>
         /// The time multiplier that specifies how much faster is the provided time compared to the real one.
@@ -66,11 +77,20 @@ namespace DustInTheWind.Clock.TimeProviders
         /// </summary>
         /// <param name="multiplier">Specifies how much faster is the provided time compared to the real one.</param>
         public BrokenTimeProvider(float multiplier)
+            : this(multiplier, TimeSpan.Zero)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RandomTimeProvider"/> class.
+        /// </summary>
+        /// <param name="multiplier">Specifies how much faster is the provided time compared to the real one.</param>
+        public BrokenTimeProvider(float multiplier, TimeSpan initialValue)
             : base()
         {
             this.multiplier = multiplier;
             lastQueryTime = DateTime.Now;
-            lastValue = TimeSpan.Zero;
+            lastValue = initialValue;
         }
 
         /// <summary>

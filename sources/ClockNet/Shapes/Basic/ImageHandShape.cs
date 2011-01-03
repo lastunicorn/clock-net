@@ -25,13 +25,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class ImageHandShape : HandShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Image Hand Shape"; }
-        }
+        public const string NAME = "Image Hand Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Image Hand Shape"; }
+        //}
 
 
         /// <summary>
@@ -107,6 +109,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public ImageHandShape(Image image, PointF origin, float height)
             : base(height)
         {
+            this.Name = NAME;
             this.image = image;
             this.origin = origin;
         }

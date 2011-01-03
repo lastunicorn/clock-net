@@ -27,6 +27,8 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// </summary>
     public class SlotHandShape : PathHandShape
     {
+        public const string NAME = "Slot Hand Shape";
+
         /// <summary>
         /// The default length of the width of the hand.
         /// </summary>
@@ -53,13 +55,13 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         //public new static Color OUTLINE_COLOR = Color.Empty;
 
 
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Slot Hand Shape"; }
-        }
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Slot Hand Shape"; }
+        //}
 
 
         /// <summary>
@@ -163,6 +165,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         public SlotHandShape(Color outlineColor, Color fillColor, float radius, float height, float width)
             : base(new GraphicsPath(), outlineColor, fillColor, height, LINE_WIDTH)
         {
+            this.Name = NAME;
             this.radius = radius;
             this.width = width;
             tailLength = TAIL_LENGTH;

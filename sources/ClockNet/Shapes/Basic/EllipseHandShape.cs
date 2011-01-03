@@ -23,13 +23,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class EllipseHandShape : VectorialHandShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Elipse Hand Shape"; }
-        }
+        public const string NAME = "Ellipse Hand Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Elipse Hand Shape"; }
+        //}
 
 
         /// <summary>
@@ -70,6 +72,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public EllipseHandShape(RectangleF rectangle, Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(outlineColor, fillColor, lineWidth, height)
         {
+            this.Name = NAME;
             this.rectangle = rectangle;
         }
 

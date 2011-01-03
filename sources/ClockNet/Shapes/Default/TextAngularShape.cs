@@ -26,6 +26,8 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class TextAngularShape : VectorialAngularShapeBase
     {
+        public const string NAME = "Text Angular Shape";
+
         /// <summary>
         /// The default value of the position offset.
         /// </summary>
@@ -47,13 +49,13 @@ namespace DustInTheWind.Clock.Shapes.Default
         public static Font FONT = new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point);
 
 
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Default Numbers Shape"; }
-        }
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Default Numbers Shape"; }
+        //}
 
         /// <summary>
         /// The array of texts that are draw.
@@ -134,6 +136,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public TextAngularShape(Color color, Font font, float positionOffset)
             : base(Color.Empty, color, LINE_WIDTH, ANGLE, REPEAT, positionOffset)
         {
+            this.Name = NAME;
             this.font = font == null ? FONT : font;
 
             stringFormat = new StringFormat(StringFormatFlags.NoWrap);

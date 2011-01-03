@@ -25,11 +25,22 @@ namespace DustInTheWind.Clock.Shapes
     /// </summary>
     public abstract class ShapeBase : IShape
     {
+        private string name;
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
-        [Browsable(false)]
-        public abstract string Name { get; }
+        /// <exception cref="ArgumentNullException"></exception>
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value == null)
+                    throw new ArgumentNullException("value");
+
+                name = value;
+            }
+        }
 
         /// <summary>
         /// A value specifying if the shape should be drawn or not.
@@ -132,7 +143,7 @@ namespace DustInTheWind.Clock.Shapes
         /// A value specifying if the current instance has been disposed.
         /// </summary>
         private bool disposed = false;
-        
+
         /// <summary>
         /// Event raised after the current instance is disposed.
         /// </summary>

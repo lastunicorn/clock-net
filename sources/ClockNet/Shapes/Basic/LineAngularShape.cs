@@ -24,13 +24,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class LineAngularShape : VectorialAngularShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Line Angular Shape"; }
-        }
+        public const string NAME = "Line Angular Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Line Angular Shape"; }
+        //}
 
 
         /// <summary>
@@ -79,6 +81,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public LineAngularShape(PointF startPoint, PointF endPoint, Color color, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(color, Color.Empty, lineWidth, angle, repeat, positionOffset)
         {
+            this.Name = NAME;
             this.startPoint = startPoint;
             this.endPoint = endPoint;
 

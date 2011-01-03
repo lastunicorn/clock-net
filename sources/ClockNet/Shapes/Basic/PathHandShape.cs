@@ -24,13 +24,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class PathHandShape : VectorialHandShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Path Hand Shape"; }
-        }
+        public const string NAME = "Path Hand Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Path Hand Shape"; }
+        //}
 
         /// <summary>
         /// The path that is drawn.
@@ -71,6 +73,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public PathHandShape(GraphicsPath path, Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(outlineColor, fillColor, lineWidth, height)
         {
+            this.Name = NAME;
             this.path = path;
         }
 

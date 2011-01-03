@@ -26,17 +26,19 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class StringAngularShape : AngularShapeBase
     {
+        public const string NAME = "String Angular Shape";
+
         public const float POSITION_OFFSET = 7f;
 
         protected StringFormat numbersStringFormat;
 
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Default Numbers Shape"; }
-        }
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Default Numbers Shape"; }
+        //}
 
         protected string text;
 
@@ -154,6 +156,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public StringAngularShape(Color color, Font font, float angle, bool repeat, float positionOffset, AngularOrientation orientation)
             : base(angle, repeat, positionOffset)
         {
+            this.Name = NAME;
             this.color = color;
             this.font = font == null ? new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point) : font;
             this.orientation = orientation;

@@ -25,13 +25,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class ImageAngularShape : AngularShapeBase
     {
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Image Angular Shape"; }
-        }
+        public const string NAME = "Image Angular Shape";
+
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Image Angular Shape"; }
+        //}
 
 
         /// <summary>
@@ -109,6 +111,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         public ImageAngularShape(Image image, PointF location, float angle, bool repeat, float positionOffset)
             : base(angle, repeat, positionOffset)
         {
+            this.Name = NAME;
             this.image = image;
             this.location = location;
         }

@@ -28,6 +28,8 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class DigitalHandShape : VectorialHandShapeBase
     {
+        public const string NAME = "Digital Hand Shape";
+
         /// <summary>
         /// The default font used to draw the time.
         /// </summary>
@@ -50,13 +52,13 @@ namespace DustInTheWind.Clock.Shapes.Default
         protected StringFormat stringFormat;
 
 
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Digital Text Shape"; }
-        }
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Digital Text Shape"; }
+        //}
 
 
         /// <summary>
@@ -166,6 +168,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public DigitalHandShape(Color color, Font font)
             : base(OUTLINE_COLOR, color)
         {
+            this.Name = NAME;
             this.font = font;
             this.verticalLocation = VERTICAL_LOCATION;
             this.format = FORMAT;

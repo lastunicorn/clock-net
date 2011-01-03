@@ -26,18 +26,20 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class DialShape : VectorialGroundShapeBase
     {
+        public const string NAME = "Dial Shape";
+
         /// <summary>
         /// The default value of the dot's radius.
         /// </summary>
         public const float RADIUS = 5f;
 
-        /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        /// </summary>
-        public override string Name
-        {
-            get { return "Default Dial Shape"; }
-        }
+        ///// <summary>
+        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        ///// </summary>
+        //public override string Name
+        //{
+        //    get { return "Default Dial Shape"; }
+        //}
 
 
         /// <summary>
@@ -107,6 +109,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         public DialShape(Color outlineColor, Color fillColor, float radius, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
+            this.Name = NAME;
             this.radius = radius;
 
             CalculateDimensions();
