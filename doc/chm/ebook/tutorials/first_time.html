@@ -1,40 +1,40 @@
 <html>
 	<head>
-		<title>First Time Using the AnalogClock</title>
+		<title>First Time Using the ClockNet</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="../default.css" />
 	</head>
 	<body>
-		<h1>First Time Using the AnalogClock</h1>
+		<h1>First Time Using the ClockNet</h1>
 		
-		<p>If it is the first time you use this control, here are some guidelines to make the first steps.</p>
+		<h2>Overview</h2>
 		
-		<h2>On short</h2>
+		<p>To have a fully functional clock on your form you need to do two things: 1) drag the ClockNet control from the Toolbox to your form and 2) attach a Timer to it. But if it is the first time to use the ClockNet, you need to add it to the Toolbox first. So there are three steps:</p>
 		<ol>
-			<li>Add the "AnalogClock" control to the Toolbox.</li>
-			<li>Drag a new "AnalogClock" control on your form.</li>
+			<li>Add the "ClockNet" control to the Toolbox.</li>
+			<li>Drag a new "ClockNet" control on your form.</li>
 			<li>Attach a timer to the clock.</li>
 		</ol>
 		
-		<h2>With more details</h2>
-		<ol>
-			<li>
-				Add the "AnalogClock" control to the Toolbox.
-				<ol style="list-style-type: lower-alpha;">
-					<li>Right click inside the Toolbox and choose "Add Tab" from the context menu. Name the newly created tab "Clock" (or any other name).</li>
-					<li>Right click inside the "Clock" tab. Choose "Choose Items..." from the context menu.</li>
-					<li>In the new dialog, on the ".Net Framework Components" click the "Browse..." button and open the "ClockNet.dll" file that you downloaded.</li>
-				</ol>
-				Now you should heve in the Toolbox's tab, the "AnalogClock" control.
-			</li>
-			<li>Drag from the Toolbox a new "AnalogClock" control on your form.</li>
+		<h2>(1) Add the "ClockNet" control to the Toolbox.</h2>
+		<ol style="list-style-type: lower-alpha;">
+			<li>Right click inside the Toolbox and choose "Add Tab" from the context menu. Name the newly created tab "Clock" (or any other name).</li>
+			<li>Right click inside the "Clock" tab. Choose "Choose Items..." from the context menu.</li>
+			<li>In the new dialog, on the ".Net Framework Components" click the "Browse..." button and open the "ClockNet.dll" file that you downloaded.</li>
+		</ol>
+		<p>Now you should heve in the Toolbox's tab, the "ClockNet" control.</p>
+		
+		<h2>(2) Drag a new "ClockNet" control on your form.</h2>
+		<p>This is simple: Drag from the Toolbox a new "ClockNet" control and drop it on your form.</p>
+		
+		<h2>(3) Attach a timer to the clock.</h2>
+		<ol style="list-style-type: lower-alpha;">
 			<li>Drag from the ToolBox on your form a new "Timer". It can be found in the "Components" tab. Set the Interval value and enable it from the "Properties" tool window.</li>
-			<li>Select the "AnalogClock" added on your form. In the "Properties" tool window find the "Timer" property and set it to use the timer created in step 3.</li>
-			<li>Additionally you may change the properties of the default shapes of the "AnalogClock" in "Properties" tool window in the "Shapes" category to make the clock look prettier.</li>
+			<li>Select the "ClockNet" added on your form. In the "Properties" tool window find the "Timer" property and set it to use the timer created in step 3.</li>
 		</ol>
 
-		<p>Congratulations! You now have a working clock that displays the current system time.</p>
-
-		<p>For advanced configurations, like changing the shapes with custom ones or using a different time provider, you need to write some code. (Hopefully some tutorials will be included in a later version. :D )</p>
+		<p><strong>Note!</strong> Additionally you may change the properties of the default shapes of the "ClockNet" in "Properties" tool window in the "Shapes" category to make the clock look prettier.</p>
+		
+		<p><strong>Congratulations!</strong> You now have a working clock that displays the current system time.</p>
 
 		
 		<div id="page_footer"></div>

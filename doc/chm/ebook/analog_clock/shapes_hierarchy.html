@@ -12,71 +12,71 @@
 	<body>
 		<h1>Shapes Hierarchy</h1>
 		
-		<p>
-			The folowing tree presents the hierarchy of the Shape classes:
-			<ul>
-				<li>
-					<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>IShape</strong></span>
-					<ul>
-						<li>
-							<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>ShapeBase</strong></span>
-							<ul>
-								<li>
-									<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>VectorialShapeBase</strong></span>
-									<ul>
-										<li>
-											<span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>LineShape</strong></span>
-											<ul>
-												<li>
-													<span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>LineHandShape</strong></span>
-													<ul>
-														<li><span class="inline_code">DustInTheWind.Clock.Shapes.Default.<strong>SweepHandShape</strong></span></li>
-													</ul>
-												</li>
-											</ul>
-												
-										</li>
-										<li>
-											<span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>PolygonShape</strong></span>
-											<ul>
-												<li>
-													<span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>PolygonHandShape</strong></span>
-													<ul>
-														<li><span class="inline_code">DustInTheWind.Clock.Shapes.Default.<strong>MinuteHandShape</strong></span></li>
-														<li><span class="inline_code">DustInTheWind.Clock.Shapes.Default.<strong>HourHandShape</strong></span></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>PathShape</strong></span>
-											<ul>
-												<li><span class="inline_code">DustInTheWind.Clock.Shapes.Fancy.<strong>SlotHandShape</strong></span></li>
-												<li><span class="inline_code">DustInTheWind.Clock.Shapes.Fancy.<strong>FancySweepHandShape</strong></span></li>
-											</ul>
-										</li>
-										<li><span class="inline_code">DustInTheWind.Clock.Shapes.Default.<strong>DialShape</strong></span></li>
-										<li><span class="inline_code">DustInTheWind.Clock.Shapes.Default.<strong>NumbersShape</strong></span></li>
-										<li><span class="inline_code">DustInTheWind.Clock.Shapes.Default.<strong>PinShape</strong></span></li>
-										<li><span class="inline_code">DustInTheWind.Clock.Shapes.Default.<strong>TextShape</strong></span></li>
-										<li><span class="inline_code">DustInTheWind.Clock.Shapes.Default.<strong>Ticks1Shape</strong></span></li>
-										<li><span class="inline_code">DustInTheWind.Clock.Shapes.Default.<strong>Ticks5Shape</strong></span></li>
-										<li><span class="inline_code">DustInTheWind.Clock.Shapes.Fancy.<strong>DotHandShape</strong></span></li>
-										<li><span class="inline_code">DustInTheWind.Clock.Shapes.Fancy.<strong>NumbersShape</strong></span></li>
-									</ul>
-								</li>
-								<li>
-									<span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>ImageShape</strong></span>
-									<ul>
-										<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>ImageHandShape</strong></span></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</p>
+		<p>The folowing tree presents the hierarchy of the Shape classes:</p>
+		<ul>
+			<li>
+				<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>ShapeBase</strong> : DustInTheWind.Clock.Shapes.<strong>IShape</strong></span>
+				<ul>
+					<li>
+						<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>GroundShapeBase</strong> : DustInTheWind.Clock.Shapes.<strong>IGroundShape</strong></span>
+						<ul>
+							<li>
+								<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>VectorialGroundShapeBase</strong></span>
+								<ul>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>LineShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>PolygonShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>RectangleShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>EllipseShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>PathShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>StringShape</strong></span></li>
+								</ul>
+							</li>
+							<li>
+								<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>ImageGroundShape</strong></span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>AngularShapeBase</strong> : DustInTheWind.Clock.Shapes.<strong>IAngularShape</strong></span>
+						<ul>
+							<li>
+								<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>VectorialAngularShapeBase</strong></span>
+								<ul>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>LineAngularShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>PolygonAngularShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>RectangleAngularShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>EllipseAngularShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>PathAngularShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>StringAngularShape</strong></span></li>
+								</ul>
+							</li>
+							<li>
+								<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>ImageAngularShape</strong></span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>HandShapeBase</strong> : DustInTheWind.Clock.Shapes.<strong>IHandShape</strong></span>
+						<ul>
+							<li>
+								<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>VectorialHandShapeBase</strong></span>
+								<ul>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>LineHandShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>PolygonHandShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>RectangleHandShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>EllipseHandShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>PathHandShape</strong></span></li>
+									<li><span class="inline_code">DustInTheWind.Clock.Shapes.Basic.<strong>StringHandShape</strong></span></li>
+								</ul>
+							</li>
+							<li>
+								<span class="inline_code">DustInTheWind.Clock.Shapes.<strong>ImageHandShape</strong></span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
 		
 		<div id="page_footer"></div>
 	</body>

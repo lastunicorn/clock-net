@@ -8,33 +8,10 @@
 		
 		<p>When you use <strong>ClockNet</strong> there are three important things that you have to be aware of:</p>
 		<ul>
-			<li><strong>Who updates the displayed value?</strong> - It can be done manually or by a timer. See more...</li>
-			<li><strong>What value is displayed?</strong> - Manually provided value, a value obtaqined from an <span class="inline_code">ITimeProvider</span> or an internal value. See more...</li>
-			<li><strong>How the clock looks?</strong> - You need to decorate the clock with Shapes (classes implementing the <span class="inline_code">IShape</span> interface). See more...</li>
+			<li><strong>Who updates the displayed value?</strong> - It can be done manually or by a timer. <a href="timer.html">See more...</a></li>
+			<li><strong>What value is displayed?</strong> - Manually provided value, a value obtaqined from an <span class="inline_code">ITimeProvider</span> or an internal value. <a href="time_provider.html">See more...</a></li>
+			<li><strong>How the clock looks?</strong> - You need to decorate the clock with Shapes (classes implementing the <span class="inline_code">IShape</span> interface). <a href="shapes_overview.html">See more...</a></li>
 		</ul>
-		
-		<h2>More detailed</h2>
-		
-		<h3>The action - <span class="inline_code">System.Windows.Forms.Timer</span> class</h3>
-		<p>
-			The <span class="inline_code">AnalogClock</span>'s value can be set in two ways:
-			<ol>
-				<li><strong>manually</strong> by specifying the <span class="inline_code">TimeSpan</span> value to be displayed. The value is static and it will not be changed until you specify a new one;</li>
-				<li><strong>automatically</strong> by a <span class="inline_code">System.Windows.Forms.Timer</span> object that updates the displayed value periodically. The timer is using the <span class="inline_code">TimeSpan</span> value obtained from the <span class="inline_code">ITimeProvider</span> object. The timer will update the control with the value obtained from the time provider.</li>
-			</ol>
-		</p>
-		
-		<h3>The data - <span class="inline_code">ITimeProvider</span> interface</h3>
-		<p>The sole purpose of the <span class="inline_code">ITimeProvider</span> interface is to provide a <span class="inline_code">TimeSpan</span> object when someone requests it.</p>
-		<p>
-			<span class="inline_code">AnalogClock</span> comes with three implementations of the <span class="inline_code">ITimeProvider</span> interface:
-			<ul>
-				<li><span class="inline_code">LocalTimeProvider</span> - Returns the system's local time.</li>
-				<li><span class="inline_code">UtcTimeProvider</span> - Returns the UTC time.</li>
-				<li><span class="inline_code">UtcOffsetTimeProvider</span> - Returns the UTC time to which an offset is added.</li>
-			</ul>
-		</p>
-		
 		
 		<h3>The appearance - <span class="inline_code">IShape</span> interface</h3>
 		
