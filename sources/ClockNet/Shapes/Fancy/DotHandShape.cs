@@ -105,8 +105,16 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
         #endregion
 
+        /// <summary>
+        /// The rectangle defining the ellipse that is drawn.
+        /// </summary>
         private RectangleF dotRectangle;
 
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
         protected override void CalculateDimensions()
         {
             dotRectangle = new RectangleF(-radius, -height - radius, radius * 2, radius * 2);

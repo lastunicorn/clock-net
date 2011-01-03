@@ -46,31 +46,6 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             get { return "Fancy Dial Shape"; }
         }
 
-
-        ///// <summary>
-        ///// Gets or sets the color used to draw the dial's background.
-        ///// </summary>
-        //[DefaultValue(typeof(Color), "Empty")]
-        //[Description("The color used to draw the dial's background.")]
-        //public override Color OutlineColor
-        //{
-        //    get { return base.OutlineColor; }
-        //    set { base.OutlineColor = value; }
-        //}
-
-
-        ///// <summary>
-        ///// Gets or sets the color used to draw the border of the dial.
-        ///// </summary>
-        //[DefaultValue(typeof(Color), "Empty")]
-        //[Description("The color used to draw the border of the dial.")]
-        //public override Color FillColor
-        //{
-        //    get { return base.FillColor; }
-        //    set { base.FillColor = value; }
-        //}
-
-
         /// <summary>
         /// The width of the outer-most rim.
         /// </summary>
@@ -168,6 +143,9 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             }
         }
 
+        /// <summary>
+        /// Creates the three <see cref="Brush"/> objects if they does not exist already.
+        /// </summary>
         protected override void CreateBrushIfNull()
         {
             if (brush == null)

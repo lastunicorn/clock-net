@@ -19,9 +19,20 @@ using System.Windows.Forms;
 
 namespace DustInTheWind.Clock
 {
+    /// <summary>
+    /// An <see cref="UserControl"/> that similar to the <see cref="DateTimePicker"/> control
+    /// but which additionally provides the ability to return a null value instead of a <see cref="DateTime"/>.
+    /// </summary>
     public partial class NullableDateTimePicker : UserControl
     {
+        /// <summary>
+        /// Specifies if the control contains a null value or a <see cref="DateTime"/> value.
+        /// </summary>
         private bool isNull = true;
+
+        /// <summary>
+        /// Gets or sets a value that specifies if the control contains a null value or a <see cref="DateTime"/> value.
+        /// </summary>
         public bool IsNull
         {
             get { return isNull; }
@@ -33,16 +44,31 @@ namespace DustInTheWind.Clock
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NullableDateTimePicker"/> class.
+        /// </summary>
         public NullableDateTimePicker()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Performs the work of setting the specified bounds of this control, but keeps the height equal with
+        /// the height od the <see cref="DateTimePicker"/> control.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="specified"></param>
         protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
         {
             base.SetBoundsCore(x, y, width, DateTimePicker.Height, specified);
         }
 
+        /// <summary>
+        /// Gets or sets the value displayed by the control.
+        /// </summary>
         public DateTime? Value
         {
             get { return isNull ? null : (DateTime?)DateTimePicker.Value; }
@@ -59,16 +85,31 @@ namespace DustInTheWind.Clock
             }
         }
 
+        /// <summary>
+        /// Call-back method that handles the Click event of the Create button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             DateTimePicker.Value = DateTime.Now;
         }
 
+        /// <summary>
+        /// Call-back method that handles the ValueChanged event of the time picker.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             IsNull = false;
         }
 
+        /// <summary>
+        /// Call-back method that handles the Click event of the Null button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonNull_Click(object sender, EventArgs e)
         {
             IsNull = true;

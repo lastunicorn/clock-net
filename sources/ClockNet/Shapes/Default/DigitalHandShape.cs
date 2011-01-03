@@ -23,14 +23,25 @@ using System.Text;
 
 namespace DustInTheWind.Clock.Shapes.Default
 {
+    /// <summary>
+    /// A Hand Shape that draws the time as a text in a fixed position on the dial.
+    /// </summary>
     public class DigitalHandShape : VectorialHandShapeBase
     {
+        /// <summary>
+        /// The default font used to draw the time.
+        /// </summary>
         public static Font FONT = new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point);
 
         /// <summary>
         /// The default vertical location of the text.
         /// </summary>
         public const float VERTICAL_LOCATION = 12f;
+
+        /// <summary>
+        /// The default value of the time format.
+        /// </summary>
+        public const string FORMAT = "HH:mm:ss";
 
 
         /// <summary>
@@ -81,16 +92,46 @@ namespace DustInTheWind.Clock.Shapes.Default
         }
 
 
+        /// <summary>
+        /// The vertical location where the text is drawn.
+        /// </summary>
         private float verticalLocation;
 
+        /// <summary>
+        /// Gets or sets the vertical location where the text is drawn.
+        /// </summary>
         [Category("Layout")]
         [DefaultValue(VERTICAL_LOCATION)]
+        [Description("The vertical location where the text is drawn.")]
         public float VerticalLocation
         {
             get { return verticalLocation; }
             set
             {
                 verticalLocation = value;
+                OnChanged(EventArgs.Empty);
+            }
+
+        }
+
+
+        /// <summary>
+        /// The format in which the time is displayed.
+        /// </summary>
+        private string format;
+
+        /// <summary>
+        /// Gets or sets the format in which the time is displayed.
+        /// </summary>
+        [Category("Layout")]
+        [DefaultValue(FORMAT)]
+        [Description("The format in which the time is displayed.")]
+        public string Format
+        {
+            get { return format; }
+            set
+            {
+                format = value;
                 OnChanged(EventArgs.Empty);
             }
 
@@ -127,6 +168,7 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             this.font = font;
             this.verticalLocation = VERTICAL_LOCATION;
+            this.format = FORMAT;
 
             stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
@@ -162,27 +204,6 @@ namespace DustInTheWind.Clock.Shapes.Default
 
             StringBuilder sb = new StringBuilder();
             string prepend = string.Empty;
-
-            string format = "HH:mm:ss";
-
-            //if ((componentToDisplay & TimeComponent.Hour) == TimeComponent.Hour)
-            //{
-            //    sb.Append(prepend);
-            //    sb.Append("HH");
-            //    prepend = ":";
-            //}
-            //if ((componentToDisplay & TimeComponent.Minute) == TimeComponent.Minute)
-            //{
-            //    sb.Append(prepend);
-            //    sb.Append("mm");
-            //    prepend = ":";
-            //}
-            //if ((componentToDisplay & TimeComponent.Second) == TimeComponent.Second)
-            //{
-            //    sb.Append(prepend);
-            //    sb.Append("ss");
-            //    prepend = ":";
-            //}
 
             string text = new DateTime(time.Ticks).ToString(format);
 

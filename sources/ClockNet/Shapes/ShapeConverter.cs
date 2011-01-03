@@ -22,6 +22,10 @@ using DustInTheWind.Clock.Shapes.Default;
 
 namespace DustInTheWind.Clock.Shapes
 {
+    /// <summary>
+    /// Converts an <see cref="IShape"/> object to na user friendly string representaiton.
+    /// Can not convert the string back to the object.
+    /// </summary>
     public class ShapeConverter : ExpandableObjectConverter
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)

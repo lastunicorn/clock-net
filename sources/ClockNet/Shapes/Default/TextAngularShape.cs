@@ -31,10 +31,19 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// </summary>
         public new const float POSITION_OFFSET = 7f;
 
+        /// <summary>
+        /// The default value of the angle.
+        /// </summary>
         public new const float ANGLE = 30f;
 
-        protected StringFormat numbersStringFormat;
+        /// <summary>
+        /// Specifies the text format used to draw the text.
+        /// </summary>
+        protected StringFormat stringFormat;
 
+        /// <summary>
+        /// The default font used to draw the text.
+        /// </summary>
         public static Font FONT = new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point);
 
 
@@ -46,9 +55,16 @@ namespace DustInTheWind.Clock.Shapes.Default
             get { return "Default Numbers Shape"; }
         }
 
+        /// <summary>
+        /// The array of texts that are draw.
+        /// </summary>
         protected string[] texts = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 
+        /// <summary>
+        /// Gets or sets the array of texts that are draw.
+        /// </summary>
         [Category("Appearance")]
+        [Description("The array of texts that are draw.")]
         public string[] Texts
         {
             get { return texts; }
@@ -61,17 +77,6 @@ namespace DustInTheWind.Clock.Shapes.Default
                 OnChanged(EventArgs.Empty);
             }
         }
-
-        ///// <summary>
-        ///// Gets or sets the color used to draw the numbers that marks the hours.
-        ///// </summary>
-        //[DefaultValue(typeof(Color), "Black")]
-        //[Description("The color used to draw the numbers that marks the hours.")]
-        //public override Color OutlineColor
-        //{
-        //    get { return base.OutlineColor; }
-        //    set { base.OutlineColor = value; }
-        //}
 
         /// <summary>
         /// The font used to draw the numbers.
@@ -131,9 +136,9 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             this.font = font == null ? FONT : font;
 
-            numbersStringFormat = new StringFormat(StringFormatFlags.NoWrap);
-            numbersStringFormat.Alignment = StringAlignment.Center;
-            numbersStringFormat.LineAlignment = StringAlignment.Center;
+            stringFormat = new StringFormat(StringFormatFlags.NoWrap);
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
         }
 
         #endregion
@@ -168,12 +173,12 @@ namespace DustInTheWind.Clock.Shapes.Default
                 {
                     CreateBrushIfNull();
 
-                    SizeF numberSize = g.MeasureString(number, font, int.MaxValue, numbersStringFormat);
+                    SizeF numberSize = g.MeasureString(number, font, int.MaxValue, stringFormat);
                     PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
 
                     try
                     {
-                        g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), numbersStringFormat);
+                        g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), stringFormat);
                     }
                     catch (System.Runtime.InteropServices.ExternalException)
                     {
@@ -196,8 +201,8 @@ namespace DustInTheWind.Clock.Shapes.Default
         {
             if (disposing)
             {
-                if (numbersStringFormat != null)
-                    numbersStringFormat.Dispose();
+                if (stringFormat != null)
+                    stringFormat.Dispose();
             }
 
             base.Dispose(disposing);

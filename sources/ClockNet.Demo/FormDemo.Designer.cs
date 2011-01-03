@@ -58,6 +58,7 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape1 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape2 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDemo));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBoxTextFont = new System.Windows.Forms.TextBox();
             this.checkBoxKeepProportions = new System.Windows.Forms.CheckBox();
@@ -567,41 +568,41 @@ namespace DustInTheWind.Clock.Demo
             diamondHandShape1.Height = 25F;
             diamondHandShape1.IntegralValue = true;
             diamondHandShape1.OutlineColor = System.Drawing.Color.DimGray;
-            diamondHandShape1.Time = System.TimeSpan.Parse("19:55:16.4058819");
+            diamondHandShape1.Time = System.TimeSpan.Parse("15:49:45.7031250");
             diamondHandShape2.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Hour;
             diamondHandShape2.FillColor = System.Drawing.Color.RoyalBlue;
             diamondHandShape2.Height = 25F;
             diamondHandShape2.OutlineColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape2.Time = System.TimeSpan.Parse("19:55:16.4058819");
+            diamondHandShape2.Time = System.TimeSpan.Parse("15:49:45.7031250");
             diamondHandShape3.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
             diamondHandShape3.FillColor = System.Drawing.Color.Empty;
             diamondHandShape3.Height = 38F;
             diamondHandShape3.IntegralValue = true;
             diamondHandShape3.OutlineColor = System.Drawing.Color.DimGray;
             diamondHandShape3.TailLength = 4F;
-            diamondHandShape3.Time = System.TimeSpan.Parse("19:55:16.4058819");
+            diamondHandShape3.Time = System.TimeSpan.Parse("15:49:45.7031250");
             diamondHandShape3.Width = 4F;
             diamondHandShape4.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
             diamondHandShape4.FillColor = System.Drawing.Color.LimeGreen;
             diamondHandShape4.Height = 38F;
             diamondHandShape4.OutlineColor = System.Drawing.Color.LimeGreen;
             diamondHandShape4.TailLength = 4F;
-            diamondHandShape4.Time = System.TimeSpan.Parse("19:55:16.4058819");
+            diamondHandShape4.Time = System.TimeSpan.Parse("15:49:45.7031250");
             diamondHandShape4.Width = 4F;
             lineHandShape1.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
             lineHandShape1.FillColor = System.Drawing.Color.Empty;
             lineHandShape1.Height = 43F;
             lineHandShape1.IntegralValue = true;
             lineHandShape1.OutlineColor = System.Drawing.Color.DimGray;
-            lineHandShape1.Time = System.TimeSpan.Parse("19:55:16.4058819");
+            lineHandShape1.Time = System.TimeSpan.Parse("15:49:45.7031250");
             lineHandShape2.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
             lineHandShape2.FillColor = System.Drawing.Color.Empty;
             lineHandShape2.Height = 43F;
             lineHandShape2.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape2.Time = System.TimeSpan.Parse("19:55:16.4058819");
+            lineHandShape2.Time = System.TimeSpan.Parse("15:49:45.7031250");
             pinShape1.FillColor = System.Drawing.Color.Red;
             pinShape1.OutlineColor = System.Drawing.Color.Empty;
-            pinShape1.Time = System.TimeSpan.Parse("19:55:16.4058819");
+            pinShape1.Time = System.TimeSpan.Parse("15:49:45.7031250");
             this.analogClockDemo.HandShapes.Add(diamondHandShape1);
             this.analogClockDemo.HandShapes.Add(diamondHandShape2);
             this.analogClockDemo.HandShapes.Add(diamondHandShape3);
@@ -614,10 +615,9 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockDemo.Size = new System.Drawing.Size(663, 611);
             this.analogClockDemo.TabIndex = 0;
             this.analogClockDemo.Text = "Dust in the Wind";
-            this.analogClockDemo.Time = System.TimeSpan.Parse("19:55:16.4058819");
+            this.analogClockDemo.Time = System.TimeSpan.Parse("15:49:45.7031250");
             this.analogClockDemo.TimeProvider = this.localTimeProvider1;
             this.analogClockDemo.Timer = this.timer1;
-
             this.analogClockDemo.UtcOffset = System.TimeSpan.Parse("02:00:00");
             // 
             // buttonExamples
@@ -704,6 +704,7 @@ namespace DustInTheWind.Clock.Demo
             this.Controls.Add(this.panelClock);
             this.Controls.Add(this.panelParameters);
             this.Controls.Add(this.flowLayoutPanelButtons);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormDemo";
             this.Padding = new System.Windows.Forms.Padding(8);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

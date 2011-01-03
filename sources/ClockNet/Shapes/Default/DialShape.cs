@@ -22,7 +22,7 @@ using System;
 namespace DustInTheWind.Clock.Shapes.Default
 {
     /// <summary>
-    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the background of the dial.
+    /// A Background Shape that draws a gradient background with two rims around it.
     /// </summary>
     public class DialShape : VectorialGroundShapeBase
     {
