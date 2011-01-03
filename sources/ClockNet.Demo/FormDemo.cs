@@ -267,6 +267,7 @@ namespace DustInTheWind.Clock.Demo
         private void analogClockDemo_TimeProviderChanged(object sender, EventArgs e)
         {
             checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
+            nullableDateTimePickerUtcOffset.Enabled = analogClockDemo.TimeProvider == null;
             propertyGridTimeProvider.SelectedObject = analogClockDemo.TimeProvider;
         }
 

@@ -53,10 +53,7 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape1 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape1 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape2 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape3 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape4 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape1 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape2 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDemo));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -112,6 +109,15 @@ namespace DustInTheWind.Clock.Demo
             this.listBoxAngularShapes = new System.Windows.Forms.ListBox();
             this.listBoxAngularShapeTypes = new System.Windows.Forms.ListBox();
             this.tabPageHandShapes = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.propertyGridHandShapes = new System.Windows.Forms.PropertyGrid();
+            this.groupBoxHandShapes = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonAddHandShape = new System.Windows.Forms.Button();
+            this.buttonRemoveHandShape = new System.Windows.Forms.Button();
+            this.listBoxHandShapes = new System.Windows.Forms.ListBox();
+            this.listBoxHandShapeTypes = new System.Windows.Forms.ListBox();
             this.tabPageTimeProviders = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.propertyGridTimeProvider = new System.Windows.Forms.PropertyGrid();
@@ -127,15 +133,12 @@ namespace DustInTheWind.Clock.Demo
             this.label2 = new System.Windows.Forms.Label();
             this.panelParameters = new System.Windows.Forms.Panel();
             this.localTimeProvider1 = new DustInTheWind.Clock.TimeProviders.LocalTimeProvider();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.propertyGridHandShapes = new System.Windows.Forms.PropertyGrid();
-            this.groupBoxHandShapes = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonAddHandShape = new System.Windows.Forms.Button();
-            this.buttonRemoveHandShape = new System.Windows.Forms.Button();
-            this.listBoxHandShapes = new System.Windows.Forms.ListBox();
-            this.listBoxHandShapeTypes = new System.Windows.Forms.ListBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).BeginInit();
@@ -157,6 +160,10 @@ namespace DustInTheWind.Clock.Demo
             this.tableLayoutPanelAngularShapes.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tabPageHandShapes.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.groupBoxHandShapes.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.tabPageTimeProviders.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBoxTimeProviders.SuspendLayout();
@@ -165,10 +172,6 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxExternalTimer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimerInterval)).BeginInit();
             this.panelParameters.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.groupBoxHandShapes.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -554,13 +557,16 @@ namespace DustInTheWind.Clock.Demo
             this.tableLayoutPanelBackgroundShapes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelBackgroundShapes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelBackgroundShapes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelBackgroundShapes.Controls.Add(this.flowLayoutPanel1, 1, 0);
-            this.tableLayoutPanelBackgroundShapes.Controls.Add(this.listBoxBackgroundShapes, 0, 0);
-            this.tableLayoutPanelBackgroundShapes.Controls.Add(this.listBoxBackgroundShapeTypes, 2, 0);
+            this.tableLayoutPanelBackgroundShapes.Controls.Add(this.flowLayoutPanel1, 1, 1);
+            this.tableLayoutPanelBackgroundShapes.Controls.Add(this.listBoxBackgroundShapes, 0, 1);
+            this.tableLayoutPanelBackgroundShapes.Controls.Add(this.listBoxBackgroundShapeTypes, 2, 1);
+            this.tableLayoutPanelBackgroundShapes.Controls.Add(this.label13, 0, 0);
+            this.tableLayoutPanelBackgroundShapes.Controls.Add(this.label14, 2, 0);
             this.tableLayoutPanelBackgroundShapes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelBackgroundShapes.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanelBackgroundShapes.Name = "tableLayoutPanelBackgroundShapes";
-            this.tableLayoutPanelBackgroundShapes.RowCount = 1;
+            this.tableLayoutPanelBackgroundShapes.RowCount = 2;
+            this.tableLayoutPanelBackgroundShapes.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelBackgroundShapes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelBackgroundShapes.Size = new System.Drawing.Size(391, 175);
             this.tableLayoutPanelBackgroundShapes.TabIndex = 2;
@@ -572,7 +578,7 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanel1.Controls.Add(this.buttonAddBackgroundShape);
             this.flowLayoutPanel1.Controls.Add(this.buttonRemoveBackgroundShape);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(166, 29);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(166, 36);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(58, 116);
             this.flowLayoutPanel1.TabIndex = 9;
@@ -607,9 +613,9 @@ namespace DustInTheWind.Clock.Demo
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxBackgroundShapes.FormattingEnabled = true;
             this.listBoxBackgroundShapes.IntegralHeight = false;
-            this.listBoxBackgroundShapes.Location = new System.Drawing.Point(3, 3);
+            this.listBoxBackgroundShapes.Location = new System.Drawing.Point(3, 16);
             this.listBoxBackgroundShapes.Name = "listBoxBackgroundShapes";
-            this.listBoxBackgroundShapes.Size = new System.Drawing.Size(157, 169);
+            this.listBoxBackgroundShapes.Size = new System.Drawing.Size(157, 156);
             this.listBoxBackgroundShapes.TabIndex = 0;
             this.listBoxBackgroundShapes.SelectedIndexChanged += new System.EventHandler(this.listBoxBackgroundShapes_SelectedIndexChanged);
             // 
@@ -621,9 +627,9 @@ namespace DustInTheWind.Clock.Demo
             this.listBoxBackgroundShapeTypes.DisplayMember = "Name";
             this.listBoxBackgroundShapeTypes.FormattingEnabled = true;
             this.listBoxBackgroundShapeTypes.IntegralHeight = false;
-            this.listBoxBackgroundShapeTypes.Location = new System.Drawing.Point(230, 3);
+            this.listBoxBackgroundShapeTypes.Location = new System.Drawing.Point(230, 16);
             this.listBoxBackgroundShapeTypes.Name = "listBoxBackgroundShapeTypes";
-            this.listBoxBackgroundShapeTypes.Size = new System.Drawing.Size(158, 169);
+            this.listBoxBackgroundShapeTypes.Size = new System.Drawing.Size(158, 156);
             this.listBoxBackgroundShapeTypes.TabIndex = 0;
             // 
             // tabPageAngularShapes
@@ -685,13 +691,16 @@ namespace DustInTheWind.Clock.Demo
             this.tableLayoutPanelAngularShapes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelAngularShapes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelAngularShapes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelAngularShapes.Controls.Add(this.flowLayoutPanel2, 1, 0);
-            this.tableLayoutPanelAngularShapes.Controls.Add(this.listBoxAngularShapes, 0, 0);
-            this.tableLayoutPanelAngularShapes.Controls.Add(this.listBoxAngularShapeTypes, 2, 0);
+            this.tableLayoutPanelAngularShapes.Controls.Add(this.flowLayoutPanel2, 1, 1);
+            this.tableLayoutPanelAngularShapes.Controls.Add(this.listBoxAngularShapes, 0, 1);
+            this.tableLayoutPanelAngularShapes.Controls.Add(this.listBoxAngularShapeTypes, 2, 1);
+            this.tableLayoutPanelAngularShapes.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanelAngularShapes.Controls.Add(this.label16, 2, 0);
             this.tableLayoutPanelAngularShapes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelAngularShapes.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanelAngularShapes.Name = "tableLayoutPanelAngularShapes";
-            this.tableLayoutPanelAngularShapes.RowCount = 1;
+            this.tableLayoutPanelAngularShapes.RowCount = 2;
+            this.tableLayoutPanelAngularShapes.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelAngularShapes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelAngularShapes.Size = new System.Drawing.Size(391, 175);
             this.tableLayoutPanelAngularShapes.TabIndex = 2;
@@ -703,7 +712,7 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanel2.Controls.Add(this.buttonAddAngularShape);
             this.flowLayoutPanel2.Controls.Add(this.buttonRemoveAngularShape);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(166, 29);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(166, 36);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(58, 116);
             this.flowLayoutPanel2.TabIndex = 9;
@@ -738,9 +747,9 @@ namespace DustInTheWind.Clock.Demo
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxAngularShapes.FormattingEnabled = true;
             this.listBoxAngularShapes.IntegralHeight = false;
-            this.listBoxAngularShapes.Location = new System.Drawing.Point(3, 3);
+            this.listBoxAngularShapes.Location = new System.Drawing.Point(3, 16);
             this.listBoxAngularShapes.Name = "listBoxAngularShapes";
-            this.listBoxAngularShapes.Size = new System.Drawing.Size(157, 169);
+            this.listBoxAngularShapes.Size = new System.Drawing.Size(157, 156);
             this.listBoxAngularShapes.TabIndex = 0;
             this.listBoxAngularShapes.SelectedIndexChanged += new System.EventHandler(this.listBoxAngularShapes_SelectedIndexChanged);
             // 
@@ -752,9 +761,9 @@ namespace DustInTheWind.Clock.Demo
             this.listBoxAngularShapeTypes.DisplayMember = "Name";
             this.listBoxAngularShapeTypes.FormattingEnabled = true;
             this.listBoxAngularShapeTypes.IntegralHeight = false;
-            this.listBoxAngularShapeTypes.Location = new System.Drawing.Point(230, 3);
+            this.listBoxAngularShapeTypes.Location = new System.Drawing.Point(230, 16);
             this.listBoxAngularShapeTypes.Name = "listBoxAngularShapeTypes";
-            this.listBoxAngularShapeTypes.Size = new System.Drawing.Size(158, 169);
+            this.listBoxAngularShapeTypes.Size = new System.Drawing.Size(158, 156);
             this.listBoxAngularShapeTypes.TabIndex = 0;
             // 
             // tabPageHandShapes
@@ -767,6 +776,129 @@ namespace DustInTheWind.Clock.Demo
             this.tabPageHandShapes.TabIndex = 11;
             this.tabPageHandShapes.Text = "Hand Shapes";
             this.tabPageHandShapes.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.AutoSize = true;
+            this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.propertyGridHandShapes, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.groupBoxHandShapes, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(403, 540);
+            this.tableLayoutPanel4.TabIndex = 16;
+            // 
+            // propertyGridHandShapes
+            // 
+            this.propertyGridHandShapes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel4.SetColumnSpan(this.propertyGridHandShapes, 2);
+            this.propertyGridHandShapes.Location = new System.Drawing.Point(3, 203);
+            this.propertyGridHandShapes.Name = "propertyGridHandShapes";
+            this.propertyGridHandShapes.Size = new System.Drawing.Size(397, 334);
+            this.propertyGridHandShapes.TabIndex = 12;
+            // 
+            // groupBoxHandShapes
+            // 
+            this.groupBoxHandShapes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel4.SetColumnSpan(this.groupBoxHandShapes, 2);
+            this.groupBoxHandShapes.Controls.Add(this.tableLayoutPanel6);
+            this.groupBoxHandShapes.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxHandShapes.Name = "groupBoxHandShapes";
+            this.groupBoxHandShapes.Size = new System.Drawing.Size(397, 194);
+            this.groupBoxHandShapes.TabIndex = 2;
+            this.groupBoxHandShapes.TabStop = false;
+            this.groupBoxHandShapes.Text = "Background Shapes";
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel3, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.listBoxHandShapes, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.listBoxHandShapeTypes, 2, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label17, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label18, 2, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(391, 175);
+            this.tableLayoutPanel6.TabIndex = 2;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel3.AutoSize = true;
+            this.flowLayoutPanel3.Controls.Add(this.buttonAddHandShape);
+            this.flowLayoutPanel3.Controls.Add(this.buttonRemoveHandShape);
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(166, 36);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(58, 116);
+            this.flowLayoutPanel3.TabIndex = 9;
+            this.flowLayoutPanel3.WrapContents = false;
+            // 
+            // buttonAddHandShape
+            // 
+            this.buttonAddHandShape.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddHandShape.Location = new System.Drawing.Point(3, 3);
+            this.buttonAddHandShape.Name = "buttonAddHandShape";
+            this.buttonAddHandShape.Size = new System.Drawing.Size(52, 52);
+            this.buttonAddHandShape.TabIndex = 8;
+            this.buttonAddHandShape.Text = "<<<";
+            this.buttonAddHandShape.UseVisualStyleBackColor = true;
+            this.buttonAddHandShape.Click += new System.EventHandler(this.buttonAddHandShape_Click);
+            // 
+            // buttonRemoveHandShape
+            // 
+            this.buttonRemoveHandShape.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRemoveHandShape.Location = new System.Drawing.Point(3, 61);
+            this.buttonRemoveHandShape.Name = "buttonRemoveHandShape";
+            this.buttonRemoveHandShape.Size = new System.Drawing.Size(52, 52);
+            this.buttonRemoveHandShape.TabIndex = 11;
+            this.buttonRemoveHandShape.Text = ">>>";
+            this.buttonRemoveHandShape.UseVisualStyleBackColor = true;
+            this.buttonRemoveHandShape.Click += new System.EventHandler(this.buttonRemoveHandShape_Click);
+            // 
+            // listBoxHandShapes
+            // 
+            this.listBoxHandShapes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxHandShapes.FormattingEnabled = true;
+            this.listBoxHandShapes.IntegralHeight = false;
+            this.listBoxHandShapes.Location = new System.Drawing.Point(3, 16);
+            this.listBoxHandShapes.Name = "listBoxHandShapes";
+            this.listBoxHandShapes.Size = new System.Drawing.Size(157, 156);
+            this.listBoxHandShapes.TabIndex = 0;
+            this.listBoxHandShapes.SelectedIndexChanged += new System.EventHandler(this.listBoxHandShapes_SelectedIndexChanged);
+            // 
+            // listBoxHandShapeTypes
+            // 
+            this.listBoxHandShapeTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxHandShapeTypes.DisplayMember = "Name";
+            this.listBoxHandShapeTypes.FormattingEnabled = true;
+            this.listBoxHandShapeTypes.IntegralHeight = false;
+            this.listBoxHandShapeTypes.Location = new System.Drawing.Point(230, 16);
+            this.listBoxHandShapeTypes.Name = "listBoxHandShapeTypes";
+            this.listBoxHandShapeTypes.Size = new System.Drawing.Size(158, 156);
+            this.listBoxHandShapeTypes.TabIndex = 0;
             // 
             // tabPageTimeProviders
             // 
@@ -856,12 +988,14 @@ namespace DustInTheWind.Clock.Demo
             ticksShape1.ExceptionIndex = 5;
             ticksShape1.FillColor = System.Drawing.Color.Empty;
             ticksShape1.Index = 61;
+            ticksShape1.Name = "Second Ticks";
             ticksShape1.OffsetAngle = 0F;
             ticksShape1.PositionOffset = 7F;
             ticksShape2.Angle = 30F;
             ticksShape2.FillColor = System.Drawing.Color.Empty;
             ticksShape2.Index = 13;
             ticksShape2.LineWidth = 1F;
+            ticksShape2.Name = "Hour Ticks";
             ticksShape2.OffsetAngle = 0F;
             ticksShape2.OutlineColor = System.Drawing.Color.White;
             ticksShape2.PositionOffset = 7F;
@@ -869,6 +1003,7 @@ namespace DustInTheWind.Clock.Demo
             textAngularShape1.FillColor = System.Drawing.Color.LightGray;
             textAngularShape1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic);
             textAngularShape1.Index = 13;
+            textAngularShape1.Name = "Hours";
             textAngularShape1.OffsetAngle = 0F;
             textAngularShape1.OutlineColor = System.Drawing.Color.Empty;
             textAngularShape1.PositionOffset = 15F;
@@ -889,6 +1024,7 @@ namespace DustInTheWind.Clock.Demo
             textAngularShape2.FillColor = System.Drawing.Color.DarkGray;
             textAngularShape2.Font = new System.Drawing.Font("Arial", 2.2F);
             textAngularShape2.Index = 13;
+            textAngularShape2.Name = "Minutes";
             textAngularShape2.OffsetAngle = 0F;
             textAngularShape2.OutlineColor = System.Drawing.Color.Empty;
             textAngularShape2.PositionOffset = 2.7F;
@@ -910,60 +1046,43 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockDemo.AngularShapes.Add(textAngularShape1);
             this.analogClockDemo.AngularShapes.Add(textAngularShape2);
             fancyDialShape1.a = 0;
+            fancyDialShape1.Name = "Fancy Dial Shape";
             fancyDialShape1.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape1.a = 0;
             stringGroundShape1.FillColor = System.Drawing.Color.White;
             stringGroundShape1.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape1.Name = "String Ground Shape";
             stringGroundShape1.OutlineColor = System.Drawing.Color.Empty;
             this.analogClockDemo.BackgroundShapes.Add(fancyDialShape1);
             this.analogClockDemo.BackgroundShapes.Add(stringGroundShape1);
             this.analogClockDemo.Dock = System.Windows.Forms.DockStyle.Fill;
             diamondHandShape1.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Hour;
-            diamondHandShape1.FillColor = System.Drawing.Color.Empty;
+            diamondHandShape1.FillColor = System.Drawing.Color.RoyalBlue;
             diamondHandShape1.Height = 25F;
-            diamondHandShape1.IntegralValue = true;
-            diamondHandShape1.OutlineColor = System.Drawing.Color.DimGray;
+            diamondHandShape1.Name = "Hour Hand Shape";
+            diamondHandShape1.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape1.Time = System.TimeSpan.Parse("20:56:40.9843750");
-            diamondHandShape2.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Hour;
-            diamondHandShape2.FillColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape2.Height = 25F;
-            diamondHandShape2.OutlineColor = System.Drawing.Color.RoyalBlue;
+            diamondHandShape2.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
+            diamondHandShape2.FillColor = System.Drawing.Color.LimeGreen;
+            diamondHandShape2.Height = 38F;
+            diamondHandShape2.Name = "Minute Hand Shape";
+            diamondHandShape2.OutlineColor = System.Drawing.Color.Empty;
+            diamondHandShape2.TailLength = 4F;
             diamondHandShape2.Time = System.TimeSpan.Parse("20:56:40.9843750");
-            diamondHandShape3.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
-            diamondHandShape3.FillColor = System.Drawing.Color.Empty;
-            diamondHandShape3.Height = 38F;
-            diamondHandShape3.IntegralValue = true;
-            diamondHandShape3.OutlineColor = System.Drawing.Color.DimGray;
-            diamondHandShape3.TailLength = 4F;
-            diamondHandShape3.Time = System.TimeSpan.Parse("20:56:40.9843750");
-            diamondHandShape3.Width = 4F;
-            diamondHandShape4.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
-            diamondHandShape4.FillColor = System.Drawing.Color.LimeGreen;
-            diamondHandShape4.Height = 38F;
-            diamondHandShape4.OutlineColor = System.Drawing.Color.LimeGreen;
-            diamondHandShape4.TailLength = 4F;
-            diamondHandShape4.Time = System.TimeSpan.Parse("20:56:40.9843750");
-            diamondHandShape4.Width = 4F;
+            diamondHandShape2.Width = 4F;
             lineHandShape1.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
             lineHandShape1.FillColor = System.Drawing.Color.Empty;
             lineHandShape1.Height = 43F;
-            lineHandShape1.IntegralValue = true;
-            lineHandShape1.OutlineColor = System.Drawing.Color.DimGray;
+            lineHandShape1.Name = "Second Hand Shape";
+            lineHandShape1.OutlineColor = System.Drawing.Color.Red;
             lineHandShape1.Time = System.TimeSpan.Parse("20:56:40.9843750");
-            lineHandShape2.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
-            lineHandShape2.FillColor = System.Drawing.Color.Empty;
-            lineHandShape2.Height = 43F;
-            lineHandShape2.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape2.Time = System.TimeSpan.Parse("20:56:40.9843750");
             pinShape1.FillColor = System.Drawing.Color.Red;
+            pinShape1.Name = "Pin Shape";
             pinShape1.OutlineColor = System.Drawing.Color.Empty;
             pinShape1.Time = System.TimeSpan.Parse("20:56:40.9843750");
             this.analogClockDemo.HandShapes.Add(diamondHandShape1);
             this.analogClockDemo.HandShapes.Add(diamondHandShape2);
-            this.analogClockDemo.HandShapes.Add(diamondHandShape3);
-            this.analogClockDemo.HandShapes.Add(diamondHandShape4);
             this.analogClockDemo.HandShapes.Add(lineHandShape1);
-            this.analogClockDemo.HandShapes.Add(lineHandShape2);
             this.analogClockDemo.HandShapes.Add(pinShape1);
             this.analogClockDemo.Location = new System.Drawing.Point(8, 8);
             this.analogClockDemo.Name = "analogClockDemo";
@@ -1050,125 +1169,59 @@ namespace DustInTheWind.Clock.Demo
             this.panelParameters.Size = new System.Drawing.Size(417, 627);
             this.panelParameters.TabIndex = 1;
             // 
-            // tableLayoutPanel4
+            // label13
             // 
-            this.tableLayoutPanel4.AutoSize = true;
-            this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.propertyGridHandShapes, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.groupBoxHandShapes, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(403, 540);
-            this.tableLayoutPanel4.TabIndex = 16;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 13);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "In Use";
             // 
-            // propertyGridHandShapes
+            // label14
             // 
-            this.propertyGridHandShapes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.SetColumnSpan(this.propertyGridHandShapes, 2);
-            this.propertyGridHandShapes.Location = new System.Drawing.Point(3, 203);
-            this.propertyGridHandShapes.Name = "propertyGridHandShapes";
-            this.propertyGridHandShapes.Size = new System.Drawing.Size(397, 334);
-            this.propertyGridHandShapes.TabIndex = 12;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(230, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(50, 13);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Available";
             // 
-            // groupBoxHandShapes
+            // label15
             // 
-            this.groupBoxHandShapes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.SetColumnSpan(this.groupBoxHandShapes, 2);
-            this.groupBoxHandShapes.Controls.Add(this.tableLayoutPanel6);
-            this.groupBoxHandShapes.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxHandShapes.Name = "groupBoxHandShapes";
-            this.groupBoxHandShapes.Size = new System.Drawing.Size(397, 194);
-            this.groupBoxHandShapes.TabIndex = 2;
-            this.groupBoxHandShapes.TabStop = false;
-            this.groupBoxHandShapes.Text = "Background Shapes";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(38, 13);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "In Use";
             // 
-            // tableLayoutPanel6
+            // label16
             // 
-            this.tableLayoutPanel6.ColumnCount = 3;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel3, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.listBoxHandShapes, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.listBoxHandShapeTypes, 2, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(391, 175);
-            this.tableLayoutPanel6.TabIndex = 2;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(230, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 13);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "Available";
             // 
-            // flowLayoutPanel3
+            // label17
             // 
-            this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel3.AutoSize = true;
-            this.flowLayoutPanel3.Controls.Add(this.buttonAddHandShape);
-            this.flowLayoutPanel3.Controls.Add(this.buttonRemoveHandShape);
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(166, 29);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(58, 116);
-            this.flowLayoutPanel3.TabIndex = 9;
-            this.flowLayoutPanel3.WrapContents = false;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(38, 13);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "In Use";
             // 
-            // buttonAddHandShape
+            // label18
             // 
-            this.buttonAddHandShape.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddHandShape.Location = new System.Drawing.Point(3, 3);
-            this.buttonAddHandShape.Name = "buttonAddHandShape";
-            this.buttonAddHandShape.Size = new System.Drawing.Size(52, 52);
-            this.buttonAddHandShape.TabIndex = 8;
-            this.buttonAddHandShape.Text = "<<<";
-            this.buttonAddHandShape.UseVisualStyleBackColor = true;
-            this.buttonAddHandShape.Click += new System.EventHandler(this.buttonAddHandShape_Click);
-            // 
-            // buttonRemoveHandShape
-            // 
-            this.buttonRemoveHandShape.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRemoveHandShape.Location = new System.Drawing.Point(3, 61);
-            this.buttonRemoveHandShape.Name = "buttonRemoveHandShape";
-            this.buttonRemoveHandShape.Size = new System.Drawing.Size(52, 52);
-            this.buttonRemoveHandShape.TabIndex = 11;
-            this.buttonRemoveHandShape.Text = ">>>";
-            this.buttonRemoveHandShape.UseVisualStyleBackColor = true;
-            this.buttonRemoveHandShape.Click += new System.EventHandler(this.buttonRemoveHandShape_Click);
-            // 
-            // listBoxHandShapes
-            // 
-            this.listBoxHandShapes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxHandShapes.FormattingEnabled = true;
-            this.listBoxHandShapes.IntegralHeight = false;
-            this.listBoxHandShapes.Location = new System.Drawing.Point(3, 3);
-            this.listBoxHandShapes.Name = "listBoxHandShapes";
-            this.listBoxHandShapes.Size = new System.Drawing.Size(157, 169);
-            this.listBoxHandShapes.TabIndex = 0;
-            this.listBoxHandShapes.SelectedIndexChanged += new System.EventHandler(this.listBoxHandShapes_SelectedIndexChanged);
-            // 
-            // listBoxHandShapeTypes
-            // 
-            this.listBoxHandShapeTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxHandShapeTypes.DisplayMember = "Name";
-            this.listBoxHandShapeTypes.FormattingEnabled = true;
-            this.listBoxHandShapeTypes.IntegralHeight = false;
-            this.listBoxHandShapeTypes.Location = new System.Drawing.Point(230, 3);
-            this.listBoxHandShapeTypes.Name = "listBoxHandShapeTypes";
-            this.listBoxHandShapeTypes.Size = new System.Drawing.Size(158, 169);
-            this.listBoxHandShapeTypes.TabIndex = 0;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(230, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(50, 13);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Available";
             // 
             // FormDemo
             // 
@@ -1214,6 +1267,11 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tabPageHandShapes.ResumeLayout(false);
             this.tabPageHandShapes.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.groupBoxHandShapes.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.tabPageTimeProviders.ResumeLayout(false);
             this.tabPageTimeProviders.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -1225,11 +1283,6 @@ namespace DustInTheWind.Clock.Demo
             this.groupBoxExternalTimer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimerInterval)).EndInit();
             this.panelParameters.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.groupBoxHandShapes.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1314,6 +1367,12 @@ namespace DustInTheWind.Clock.Demo
         private System.Windows.Forms.Button buttonRemoveHandShape;
         private System.Windows.Forms.ListBox listBoxHandShapes;
         private System.Windows.Forms.ListBox listBoxHandShapeTypes;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }
 
