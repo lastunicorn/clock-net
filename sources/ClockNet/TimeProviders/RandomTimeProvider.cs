@@ -18,16 +18,26 @@ using System;
 
 namespace DustInTheWind.Clock.TimeProviders
 {
+    /// <summary>
+    /// Provides random time values.
+    /// </summary>
     public class RandomTimeProvider : TimeProviderBase
     {
         private Random rand;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RandomTimeProvider"/> class.
+        /// </summary>
         public RandomTimeProvider()
             :base()
         {
             rand = new Random();
         }
 
+        /// <summary>
+        /// Returns a random time value.
+        /// </summary>
+        /// <returns>A <see cref="TimeSpan"/> object containing a random time value.</returns>
         public override TimeSpan GetTime()
         {
             return new TimeSpan(rand.Next(23), rand.Next(59), rand.Next(59));

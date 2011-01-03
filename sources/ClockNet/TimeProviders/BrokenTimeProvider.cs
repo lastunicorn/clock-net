@@ -19,15 +19,29 @@ using System.ComponentModel;
 
 namespace DustInTheWind.Clock.TimeProviders
 {
+    /// <summary>
+    /// Provides time values from a time coordinate that is n time faster then the real one.
+    /// </summary>
     public class BrokenTimeProvider : TimeProviderBase
     {
+        /// <summary>
+        /// The default value of the time multiplier.
+        /// </summary>
         public const float MULTIPLIER = 10;
 
         TimeSpan lastValue;
         DateTime lastQueryTime;
 
+        /// <summary>
+        /// The time multiplier that specifies how much faster is the provided time compared to the real one.
+        /// </summary>
         private float multiplier;
+
+        /// <summary>
+        /// Gets or sets the time multiplier that specifies how much faster is the provided time compared to the real one.
+        /// </summary>
         [DefaultValue(MULTIPLIER)]
+        [Description("Specifies how much faster is the provided time compared to the real one.")]
         public float Multiplier
         {
             get { return multiplier; }
@@ -38,11 +52,19 @@ namespace DustInTheWind.Clock.TimeProviders
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RandomTimeProvider"/> class with
+        /// default values.
+        /// </summary>
         public BrokenTimeProvider()
             : this(MULTIPLIER)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RandomTimeProvider"/> class.
+        /// </summary>
+        /// <param name="multiplier">Specifies how much faster is the provided time compared to the real one.</param>
         public BrokenTimeProvider(float multiplier)
             : base()
         {
@@ -51,11 +73,16 @@ namespace DustInTheWind.Clock.TimeProviders
             lastValue = TimeSpan.Zero;
         }
 
+        /// <summary>
+        /// Returns a new time value.
+        /// </summary>
+        /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
         public override TimeSpan GetTime()
         {
             DateTime currentQueryTime = DateTime.Now;
             TimeSpan diffTime = currentQueryTime - lastQueryTime;
-            TimeSpan deltaTime = new TimeSpan((int)(diffTime.Ticks * multiplier));
+            double deltaTimeTicks = diffTime.Ticks * multiplier;
+            TimeSpan deltaTime = new TimeSpan((int)deltaTimeTicks); // By rounding here, small amounts of time are lost every time.
             TimeSpan newValue = lastValue + deltaTime;
             if (newValue.Days > 0)
                 newValue = newValue.Subtract(TimeSpan.FromDays(newValue.Days));

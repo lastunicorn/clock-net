@@ -51,7 +51,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// default values.
         /// </summary>
         public RectangleAngularShape()
-            : this(RectangleF.Empty, Color.Empty, Color.Empty, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 

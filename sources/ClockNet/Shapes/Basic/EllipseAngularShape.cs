@@ -45,7 +45,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// default values.
         /// </summary>
         public EllipseAngularShape()
-            : this(RectangleF.Empty, Color.Empty, Color.Empty, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 

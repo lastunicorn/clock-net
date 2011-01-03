@@ -21,6 +21,10 @@ using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes
 {
+    /// <summary>
+    /// The base implementation of the <see cref="IAngularShape"/> interface.
+    /// Provides common functionality for all the Angular Shapes.
+    /// </summary>
     public abstract class AngularShapeBase : ShapeBase, IAngularShape
     {
         /// <summary>

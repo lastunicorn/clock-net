@@ -51,7 +51,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// default values.
         /// </summary>
         public RectangleShape()
-            : this(RectangleF.Empty, Color.Empty, Color.Empty, LINE_WIDTH)
+            : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH)
         {
         }
 

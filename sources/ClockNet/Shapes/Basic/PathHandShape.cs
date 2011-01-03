@@ -45,7 +45,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// default values.
         /// </summary>
         public PathHandShape()
-            : this(new GraphicsPath(), Color.Empty, Color.Black, HEIGHT, LINE_WIDTH)
+            : this(new GraphicsPath(), OUTLINE_COLOR, FILL_COLOR, HEIGHT, LINE_WIDTH)
         {
         }
 

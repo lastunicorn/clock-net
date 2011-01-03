@@ -47,7 +47,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// default values.
         /// </summary>
         public EllipseHandShape()
-            : this(RectangleF.Empty, Color.Empty, Color.RoyalBlue, HEIGHT, LINE_WIDTH)
+            : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, HEIGHT, LINE_WIDTH)
         {
         }
 
@@ -57,7 +57,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// <param name="fillColor">The color used to draw the background of the hand.</param>
         /// <param name="height">The distance between the pin and the center of the ellipse.</param>
         public EllipseHandShape(Color fillColor, float height)
-            : this(RectangleF.Empty, Color.Empty, fillColor, height, LINE_WIDTH)
+            : this(RectangleF.Empty, OUTLINE_COLOR, fillColor, height, LINE_WIDTH)
         {
         }
 

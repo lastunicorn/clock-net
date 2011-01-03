@@ -21,6 +21,10 @@ using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.Clock.Shapes
 {
+    /// <summary>
+    /// The base implementation of the <see cref="IGroundShape"/> interface.
+    /// Provides common functionality for all the Background Shapes.
+    /// </summary>
     public abstract class GroundShapeBase : ShapeBase, IGroundShape
     {
         [Browsable(false)]

@@ -45,7 +45,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// default values.
         /// </summary>
         public PathAngularShape()
-            : this(null, Color.Empty, Color.Black, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(null, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
         {
 
         }

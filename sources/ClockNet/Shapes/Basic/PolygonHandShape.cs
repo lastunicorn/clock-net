@@ -45,7 +45,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// default values.
         /// </summary>
         public PolygonHandShape()
-            : this(null, Color.Empty, Color.Empty, HEIGHT, LINE_WIDTH)
+            : this(null, OUTLINE_COLOR, FILL_COLOR, HEIGHT, LINE_WIDTH)
         {
         }
 

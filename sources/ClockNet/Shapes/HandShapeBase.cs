@@ -21,7 +21,8 @@ using System.Drawing;
 namespace DustInTheWind.Clock.Shapes
 {
     /// <summary>
-    /// The base class for a shape that represents a clock hand.
+    /// The base implementation of the <see cref="IHandShape"/> interface.
+    /// Provides common functionality for all the Hand Shapes.
     /// </summary>
     public abstract class HandShapeBase : ShapeBase, IHandShape
     {

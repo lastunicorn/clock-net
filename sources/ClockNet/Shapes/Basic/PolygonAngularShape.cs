@@ -45,7 +45,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// default values.
         /// </summary>
         public PolygonAngularShape()
-            : this(null, Color.Empty, Color.Empty, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(null, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
         {
         }
 
