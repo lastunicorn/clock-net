@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.Shapes.Default;
+using DustInTheWind.Clock.Shapes.Advanced;
 
 namespace DustInTheWind.Clock.Shapes
 {

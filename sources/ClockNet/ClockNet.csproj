@@ -75,35 +75,35 @@
     <Compile Include="Shapes\Basic\PolygonGroundShape.cs" />
     <Compile Include="Shapes\AngularShapeBase.cs" />
     <Compile Include="Shapes\Basic\LineAngularShape.cs" />
-    <Compile Include="Shapes\Fancy\DigitalHandShape.cs" />
+    <Compile Include="Shapes\Advanced\DigitalHandShape.cs" />
     <Compile Include="Shapes\GroundShapeBase.cs" />
-    <Compile Include="Shapes\Fancy\DiamondHandShape.cs" />
-    <Compile Include="Shapes\Fancy\TicksShape.cs" />
-    <Compile Include="Shapes\Fancy\DialShape.cs">
+    <Compile Include="Shapes\Advanced\DiamondHandShape.cs" />
+    <Compile Include="Shapes\Advanced\TicksShape.cs" />
+    <Compile Include="Shapes\Advanced\DialShape.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Shapes\Fancy\DotHandShape.cs" />
+    <Compile Include="Shapes\Advanced\DotHandShape.cs" />
     <Compile Include="Shapes\IGroundShape.cs" />
     <Compile Include="Shapes\TimeComponent.cs" />
     <Compile Include="Shapes\VectorialHandShapeBase.cs" />
     <Compile Include="Shapes\HandShapeBase.cs" />
     <Compile Include="Shapes\VectorialAngularShapeBase.cs" />
-    <Compile Include="Shapes\Fancy\FancyDialShape.cs" />
+    <Compile Include="Shapes\Advanced\FancyDialShape.cs" />
     <Compile Include="Shapes\Basic\StringAngularShape.cs" />
     <Compile Include="Shapes\AngularShapeLocation.cs" />
-    <Compile Include="Shapes\Fancy\NibHandShape.cs" />
+    <Compile Include="Shapes\Advanced\NibHandShape.cs" />
     <Compile Include="Shapes\Basic\EllipseHandShape.cs" />
     <Compile Include="Shapes\Basic\StringGroundShape.cs" />
     <Compile Include="Shapes\IAngularShape.cs" />
     <Compile Include="Shapes\IHandShape.cs" />
-    <Compile Include="Shapes\Fancy\SlotHandShape.cs" />
-    <Compile Include="Shapes\Fancy\FancySweepHandShape.cs" />
+    <Compile Include="Shapes\Advanced\SlotHandShape.cs" />
+    <Compile Include="Shapes\Advanced\FancySweepHandShape.cs" />
     <Compile Include="Shapes\Basic\LineGroundShape.cs" />
     <Compile Include="Shapes\AngularOrientation.cs" />
     <Compile Include="Shapes\Basic\PathGroundShape.cs" />
     <Compile Include="Shapes\ShapeSet.cs" />
     <Compile Include="Shapes\Basic\ImageGroundShape.cs" />
-    <Compile Include="Shapes\Fancy\PinShape.cs" />
+    <Compile Include="Shapes\Advanced\PinShape.cs" />
     <Compile Include="Shapes\ShapeConverter.cs" />
     <Compile Include="Shapes\Basic\LineHandShape.cs" />
     <Compile Include="Shapes\VectorialGroundShapeBase.cs" />
@@ -132,10 +132,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\icon16.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Shapes\Advanced\" />
-    <Folder Include="Shapes\Default\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

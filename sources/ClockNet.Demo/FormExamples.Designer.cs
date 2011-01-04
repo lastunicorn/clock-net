@@ -45,208 +45,198 @@ namespace DustInTheWind.Clock.Demo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape1 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape2 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape1 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape2 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape1 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape1 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExamples));
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape1 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape2 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape1 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape2 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape1 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape3 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape3 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape2 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape3 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape4 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape3 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape4 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape2 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape2 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape4 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape5 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape2 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape4 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape5 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape3 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape5 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape6 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape5 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape6 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape3 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape3 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape3 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape2 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape4 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape7 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape8 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape7 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape8 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape4 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape4 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape4 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape5 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape9 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape10 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape9 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape10 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape5 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape5 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape6 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape5 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape6 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape3 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape6 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape11 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape12 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape11 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape12 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape6 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape6 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape7 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape8 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape6 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape7 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape8 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape4 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
-            DustInTheWind.Clock.Shapes.Default.DialShape dialShape1 = new DustInTheWind.Clock.Shapes.Default.DialShape();
+            DustInTheWind.Clock.Shapes.Advanced.DialShape dialShape1 = new DustInTheWind.Clock.Shapes.Advanced.DialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape7 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape13 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape14 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape13 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape14 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape7 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape7 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape9 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape10 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape7 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape9 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape10 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape5 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape8 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DigitalHandShape digitalHandShape1 = new DustInTheWind.Clock.Shapes.Default.DigitalHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape15 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape16 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DigitalHandShape digitalHandShape1 = new DustInTheWind.Clock.Shapes.Advanced.DigitalHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape15 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape16 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape8 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape8 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape11 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape12 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape8 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape11 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape12 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape6 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
-            DustInTheWind.Clock.Shapes.Default.DialShape dialShape2 = new DustInTheWind.Clock.Shapes.Default.DialShape();
+            DustInTheWind.Clock.Shapes.Advanced.DialShape dialShape2 = new DustInTheWind.Clock.Shapes.Advanced.DialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape9 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape17 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape18 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape17 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape18 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape9 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape9 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape13 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape14 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape9 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape13 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape14 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape7 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape15 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape15 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape10 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape19 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape20 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape10 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape16 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape17 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape19 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape20 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape10 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape16 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape17 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape8 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape11 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape21 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape22 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape11 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape18 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape19 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape21 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape22 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape11 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape18 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape19 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape9 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape12 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape23 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape24 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape23 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape24 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape10 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape12 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape12 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
             DustInTheWind.Clock.Shapes.Basic.ImageGroundShape imageGroundShape1 = new DustInTheWind.Clock.Shapes.Basic.ImageGroundShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape13 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Basic.ImageHandShape imageHandShape1 = new DustInTheWind.Clock.Shapes.Basic.ImageHandShape();
             DustInTheWind.Clock.Shapes.Basic.ImageHandShape imageHandShape2 = new DustInTheWind.Clock.Shapes.Basic.ImageHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape11 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape13 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.DialShape dialShape3 = new DustInTheWind.Clock.Shapes.Default.DialShape();
-            DustInTheWind.Clock.Shapes.Default.DialShape dialShape4 = new DustInTheWind.Clock.Shapes.Default.DialShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape13 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.DialShape dialShape3 = new DustInTheWind.Clock.Shapes.Advanced.DialShape();
+            DustInTheWind.Clock.Shapes.Advanced.DialShape dialShape4 = new DustInTheWind.Clock.Shapes.Advanced.DialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape14 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Fancy.DotHandShape dotHandShape1 = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape();
-            DustInTheWind.Clock.Shapes.Fancy.DotHandShape dotHandShape2 = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape14 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape20 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape21 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.DotHandShape dotHandShape1 = new DustInTheWind.Clock.Shapes.Advanced.DotHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DotHandShape dotHandShape2 = new DustInTheWind.Clock.Shapes.Advanced.DotHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape14 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape20 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape21 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape10 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape15 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Fancy.NibHandShape nibHandShape1 = new DustInTheWind.Clock.Shapes.Fancy.NibHandShape();
-            DustInTheWind.Clock.Shapes.Fancy.NibHandShape nibHandShape2 = new DustInTheWind.Clock.Shapes.Fancy.NibHandShape();
-            DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape fancySweepHandShape1 = new DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape15 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.NibHandShape nibHandShape1 = new DustInTheWind.Clock.Shapes.Advanced.NibHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.NibHandShape nibHandShape2 = new DustInTheWind.Clock.Shapes.Advanced.NibHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.FancySweepHandShape fancySweepHandShape1 = new DustInTheWind.Clock.Shapes.Advanced.FancySweepHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape15 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape11 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
-            DustInTheWind.Clock.Shapes.Default.DialShape dialShape5 = new DustInTheWind.Clock.Shapes.Default.DialShape();
-            DustInTheWind.Clock.Shapes.Fancy.SlotHandShape slotHandShape1 = new DustInTheWind.Clock.Shapes.Fancy.SlotHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DialShape dialShape5 = new DustInTheWind.Clock.Shapes.Advanced.DialShape();
+            DustInTheWind.Clock.Shapes.Advanced.SlotHandShape slotHandShape1 = new DustInTheWind.Clock.Shapes.Advanced.SlotHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape12 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape13 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape16 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape22 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape23 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape16 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape22 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape23 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape12 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape13 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
-            DustInTheWind.Clock.Shapes.Fancy.FancyDialShape fancyDialShape1 = new DustInTheWind.Clock.Shapes.Fancy.FancyDialShape();
+            DustInTheWind.Clock.Shapes.Advanced.FancyDialShape fancyDialShape1 = new DustInTheWind.Clock.Shapes.Advanced.FancyDialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape16 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape25 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape26 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape27 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape28 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape25 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape26 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape27 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape28 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape14 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape15 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape17 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape17 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape14 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape15 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
-            DustInTheWind.Clock.Shapes.Fancy.FancyDialShape fancyDialShape2 = new DustInTheWind.Clock.Shapes.Fancy.FancyDialShape();
+            DustInTheWind.Clock.Shapes.Advanced.FancyDialShape fancyDialShape2 = new DustInTheWind.Clock.Shapes.Advanced.FancyDialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape17 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Fancy.DotHandShape dotHandShape3 = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape();
-            DustInTheWind.Clock.Shapes.Fancy.DotHandShape dotHandShape4 = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape();
-            DustInTheWind.Clock.Shapes.Fancy.DotHandShape dotHandShape5 = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape24 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape25 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.DotHandShape dotHandShape3 = new DustInTheWind.Clock.Shapes.Advanced.DotHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DotHandShape dotHandShape4 = new DustInTheWind.Clock.Shapes.Advanced.DotHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DotHandShape dotHandShape5 = new DustInTheWind.Clock.Shapes.Advanced.DotHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape24 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape25 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape18 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape29 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape30 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape29 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape30 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape16 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape18 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape26 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape27 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape18 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape26 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape27 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape19 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape31 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape32 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape31 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape32 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape17 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape19 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape28 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape29 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape19 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape28 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape29 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape20 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape33 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape34 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape33 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape34 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape18 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape20 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape30 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape31 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape20 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape30 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape31 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape21 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape35 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape36 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape35 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape36 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape19 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape21 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape32 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape33 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape21 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape32 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape33 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape22 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape37 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape38 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape37 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape38 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape20 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape22 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape34 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape35 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape22 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape34 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape35 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape23 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape39 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape40 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape39 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape40 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape21 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape23 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape23 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanelTicksAndNumbers = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageDefault1 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelDefault1 = new System.Windows.Forms.Label();
-            this.tabPageDefault2 = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tabPageFancy = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanelColours = new System.Windows.Forms.FlowLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tabPageTimeZones = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.analogClockDefault = new DustInTheWind.Clock.AnalogClock();
             this.analogClockSimple = new DustInTheWind.Clock.AnalogClock();
             this.analogClockNoNumbers = new DustInTheWind.Clock.AnalogClock();
             this.analogClockRomanNumbers = new DustInTheWind.Clock.AnalogClock();
             this.analogClockClear = new DustInTheWind.Clock.AnalogClock();
             this.analogClockNESW = new DustInTheWind.Clock.AnalogClock();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageDefault1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelDefault1 = new System.Windows.Forms.Label();
+            this.tabPageDefault2 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClockBlue = new DustInTheWind.Clock.AnalogClock();
             this.analogClockDigital = new DustInTheWind.Clock.AnalogClock();
             this.analogClockGreen = new DustInTheWind.Clock.AnalogClock();
@@ -256,12 +246,20 @@ namespace DustInTheWind.Clock.Demo
             this.brokenTimeProvider1 = new DustInTheWind.Clock.TimeProviders.BrokenTimeProvider();
             this.analogClockBroken2 = new DustInTheWind.Clock.AnalogClock();
             this.brokenTimeProvider2 = new DustInTheWind.Clock.TimeProviders.BrokenTimeProvider();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabPageFancy = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelColours = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClockImages = new DustInTheWind.Clock.AnalogClock();
             this.analogClockBlackDot = new DustInTheWind.Clock.AnalogClock();
             this.analogClockFancy = new DustInTheWind.Clock.AnalogClock();
             this.analogClockWhiteFancy = new DustInTheWind.Clock.AnalogClock();
             this.analogClockBlack = new DustInTheWind.Clock.AnalogClock();
             this.analogClockSun = new DustInTheWind.Clock.AnalogClock();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tabPageTimeZones = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClockLocal = new DustInTheWind.Clock.AnalogClock();
             this.analogClockUTC = new DustInTheWind.Clock.AnalogClock();
             this.analogClockTokyo = new DustInTheWind.Clock.AnalogClock();
@@ -271,6 +269,8 @@ namespace DustInTheWind.Clock.Demo
             this.utcTimeProvider = new DustInTheWind.Clock.TimeProviders.UtcTimeProvider();
             this.analogClockTokyoProvider = new DustInTheWind.Clock.AnalogClock();
             this.tokyoTimeProvider = new DustInTheWind.Clock.TimeProviders.UtcOffsetTimeProvider();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.analogClock8 = new DustInTheWind.Clock.AnalogClock();
             this.flowLayoutPanelTicksAndNumbers.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -301,195 +301,6 @@ namespace DustInTheWind.Clock.Demo
             this.flowLayoutPanelTicksAndNumbers.Name = "flowLayoutPanelTicksAndNumbers";
             this.flowLayoutPanelTicksAndNumbers.Size = new System.Drawing.Size(988, 628);
             this.flowLayoutPanelTicksAndNumbers.TabIndex = 9;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageDefault1);
-            this.tabControl1.Controls.Add(this.tabPageDefault2);
-            this.tabControl1.Controls.Add(this.tabPageFancy);
-            this.tabControl1.Controls.Add(this.tabPageTimeZones);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1016, 715);
-            this.tabControl1.TabIndex = 10;
-            // 
-            // tabPageDefault1
-            // 
-            this.tabPageDefault1.Controls.Add(this.flowLayoutPanelTicksAndNumbers);
-            this.tabPageDefault1.Controls.Add(this.label1);
-            this.tabPageDefault1.Controls.Add(this.labelDefault1);
-            this.tabPageDefault1.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDefault1.Name = "tabPageDefault1";
-            this.tabPageDefault1.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPageDefault1.Size = new System.Drawing.Size(1008, 689);
-            this.tabPageDefault1.TabIndex = 0;
-            this.tabPageDefault1.Text = "Default";
-            this.tabPageDefault1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(10, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(988, 15);
-            this.label1.TabIndex = 11;
-            // 
-            // labelDefault1
-            // 
-            this.labelDefault1.AutoSize = true;
-            this.labelDefault1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelDefault1.Location = new System.Drawing.Point(10, 10);
-            this.labelDefault1.MaximumSize = new System.Drawing.Size(700, 0);
-            this.labelDefault1.Name = "labelDefault1";
-            this.labelDefault1.Size = new System.Drawing.Size(394, 26);
-            this.labelDefault1.TabIndex = 10;
-            this.labelDefault1.Text = "Uses default shapes.\r\nThese clocks are obtained only by changing the parameters o" +
-                "f the default shapes.";
-            // 
-            // tabPageDefault2
-            // 
-            this.tabPageDefault2.Controls.Add(this.flowLayoutPanel3);
-            this.tabPageDefault2.Controls.Add(this.label2);
-            this.tabPageDefault2.Controls.Add(this.label3);
-            this.tabPageDefault2.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDefault2.Name = "tabPageDefault2";
-            this.tabPageDefault2.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPageDefault2.Size = new System.Drawing.Size(1008, 689);
-            this.tabPageDefault2.TabIndex = 4;
-            this.tabPageDefault2.Text = "More then Default";
-            this.tabPageDefault2.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.AutoScroll = true;
-            this.flowLayoutPanel3.Controls.Add(this.analogClockBlue);
-            this.flowLayoutPanel3.Controls.Add(this.analogClockDigital);
-            this.flowLayoutPanel3.Controls.Add(this.analogClockGreen);
-            this.flowLayoutPanel3.Controls.Add(this.analogClockRandom);
-            this.flowLayoutPanel3.Controls.Add(this.analogClockBroken);
-            this.flowLayoutPanel3.Controls.Add(this.analogClockBroken2);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(10, 51);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(988, 628);
-            this.flowLayoutPanel3.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Location = new System.Drawing.Point(10, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(988, 15);
-            this.label2.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Location = new System.Drawing.Point(10, 10);
-            this.label3.MaximumSize = new System.Drawing.Size(700, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(289, 26);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Uses default shapes.\r\nHere, some additional Shapes and Time Providers are used.";
-            // 
-            // tabPageFancy
-            // 
-            this.tabPageFancy.Controls.Add(this.flowLayoutPanelColours);
-            this.tabPageFancy.Controls.Add(this.label4);
-            this.tabPageFancy.Controls.Add(this.label5);
-            this.tabPageFancy.Location = new System.Drawing.Point(4, 22);
-            this.tabPageFancy.Name = "tabPageFancy";
-            this.tabPageFancy.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPageFancy.Size = new System.Drawing.Size(1008, 689);
-            this.tabPageFancy.TabIndex = 1;
-            this.tabPageFancy.Text = "Fancy";
-            this.tabPageFancy.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanelColours
-            // 
-            this.flowLayoutPanelColours.AutoScroll = true;
-            this.flowLayoutPanelColours.Controls.Add(this.analogClockImages);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClockBlackDot);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClockFancy);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClockWhiteFancy);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClockBlack);
-            this.flowLayoutPanelColours.Controls.Add(this.analogClockSun);
-            this.flowLayoutPanelColours.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelColours.Location = new System.Drawing.Point(10, 51);
-            this.flowLayoutPanelColours.Name = "flowLayoutPanelColours";
-            this.flowLayoutPanelColours.Size = new System.Drawing.Size(988, 628);
-            this.flowLayoutPanelColours.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Location = new System.Drawing.Point(10, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(988, 15);
-            this.label4.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Location = new System.Drawing.Point(10, 10);
-            this.label5.MaximumSize = new System.Drawing.Size(700, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(240, 26);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Uses custom shapes.\r\nYou can see here the true power of the Shapes ;)";
-            // 
-            // tabPageTimeZones
-            // 
-            this.tabPageTimeZones.Controls.Add(this.flowLayoutPanel1);
-            this.tabPageTimeZones.Controls.Add(this.label6);
-            this.tabPageTimeZones.Controls.Add(this.label7);
-            this.tabPageTimeZones.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTimeZones.Name = "tabPageTimeZones";
-            this.tabPageTimeZones.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPageTimeZones.Size = new System.Drawing.Size(1008, 689);
-            this.tabPageTimeZones.TabIndex = 2;
-            this.tabPageTimeZones.Text = "Time Zones";
-            this.tabPageTimeZones.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.analogClockLocal);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockUTC);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockTokyo);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockLocalProvider);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockUTCProvider);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockTokyoProvider);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 51);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 628);
-            this.flowLayoutPanel1.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Location = new System.Drawing.Point(10, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(988, 15);
-            this.label6.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Location = new System.Drawing.Point(10, 10);
-            this.label7.MaximumSize = new System.Drawing.Size(700, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(630, 26);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Uses custom time providers.\r\nThe same result can be achived using the internal ti" +
-                "me mechanism (first three clocks) or an external Time Provider (last three clock" +
-                "s).";
             // 
             // analogClockDefault
             // 
@@ -852,6 +663,80 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockNESW.Time = System.TimeSpan.Parse("20:13:53.2107506");
             this.analogClockNESW.Timer = this.timer1;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageDefault1);
+            this.tabControl1.Controls.Add(this.tabPageDefault2);
+            this.tabControl1.Controls.Add(this.tabPageFancy);
+            this.tabControl1.Controls.Add(this.tabPageTimeZones);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1016, 715);
+            this.tabControl1.TabIndex = 10;
+            // 
+            // tabPageDefault1
+            // 
+            this.tabPageDefault1.Controls.Add(this.flowLayoutPanelTicksAndNumbers);
+            this.tabPageDefault1.Controls.Add(this.label1);
+            this.tabPageDefault1.Controls.Add(this.labelDefault1);
+            this.tabPageDefault1.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDefault1.Name = "tabPageDefault1";
+            this.tabPageDefault1.Padding = new System.Windows.Forms.Padding(10);
+            this.tabPageDefault1.Size = new System.Drawing.Size(1008, 689);
+            this.tabPageDefault1.TabIndex = 0;
+            this.tabPageDefault1.Text = "Default";
+            this.tabPageDefault1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(10, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(988, 15);
+            this.label1.TabIndex = 11;
+            // 
+            // labelDefault1
+            // 
+            this.labelDefault1.AutoSize = true;
+            this.labelDefault1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelDefault1.Location = new System.Drawing.Point(10, 10);
+            this.labelDefault1.MaximumSize = new System.Drawing.Size(700, 0);
+            this.labelDefault1.Name = "labelDefault1";
+            this.labelDefault1.Size = new System.Drawing.Size(394, 26);
+            this.labelDefault1.TabIndex = 10;
+            this.labelDefault1.Text = "Uses default shapes.\r\nThese clocks are obtained only by changing the parameters o" +
+                "f the default shapes.";
+            // 
+            // tabPageDefault2
+            // 
+            this.tabPageDefault2.Controls.Add(this.flowLayoutPanel3);
+            this.tabPageDefault2.Controls.Add(this.label2);
+            this.tabPageDefault2.Controls.Add(this.label3);
+            this.tabPageDefault2.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDefault2.Name = "tabPageDefault2";
+            this.tabPageDefault2.Padding = new System.Windows.Forms.Padding(10);
+            this.tabPageDefault2.Size = new System.Drawing.Size(1008, 689);
+            this.tabPageDefault2.TabIndex = 4;
+            this.tabPageDefault2.Text = "More then Default";
+            this.tabPageDefault2.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.AutoScroll = true;
+            this.flowLayoutPanel3.Controls.Add(this.analogClockBlue);
+            this.flowLayoutPanel3.Controls.Add(this.analogClockDigital);
+            this.flowLayoutPanel3.Controls.Add(this.analogClockGreen);
+            this.flowLayoutPanel3.Controls.Add(this.analogClockRandom);
+            this.flowLayoutPanel3.Controls.Add(this.analogClockBroken);
+            this.flowLayoutPanel3.Controls.Add(this.analogClockBroken2);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(10, 51);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(988, 628);
+            this.flowLayoutPanel3.TabIndex = 11;
+            // 
             // analogClockBlue
             // 
             ticksShape7.ExceptionIndex = 5;
@@ -1190,7 +1075,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockRandom.Size = new System.Drawing.Size(300, 300);
             this.analogClockRandom.TabIndex = 21;
             this.analogClockRandom.Text = "Broken\r\n(Random)";
-            this.analogClockRandom.Time = System.TimeSpan.Parse("10:22:03");
+            this.analogClockRandom.Time = System.TimeSpan.Parse("16:04:15");
             this.analogClockRandom.TimeProvider = this.randomTimeProvider1;
             this.analogClockRandom.Timer = this.timer1;
             // 
@@ -1354,6 +1239,53 @@ namespace DustInTheWind.Clock.Demo
             // 
             this.brokenTimeProvider2.LastValue = System.TimeSpan.Parse("03:14:00");
             this.brokenTimeProvider2.TimeMultiplier = -900F;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Location = new System.Drawing.Point(10, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(988, 15);
+            this.label2.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(10, 10);
+            this.label3.MaximumSize = new System.Drawing.Size(700, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(289, 26);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Uses default shapes.\r\nHere, some additional Shapes and Time Providers are used.";
+            // 
+            // tabPageFancy
+            // 
+            this.tabPageFancy.Controls.Add(this.flowLayoutPanelColours);
+            this.tabPageFancy.Controls.Add(this.label4);
+            this.tabPageFancy.Controls.Add(this.label5);
+            this.tabPageFancy.Location = new System.Drawing.Point(4, 22);
+            this.tabPageFancy.Name = "tabPageFancy";
+            this.tabPageFancy.Padding = new System.Windows.Forms.Padding(10);
+            this.tabPageFancy.Size = new System.Drawing.Size(1008, 689);
+            this.tabPageFancy.TabIndex = 1;
+            this.tabPageFancy.Text = "Fancy";
+            this.tabPageFancy.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelColours
+            // 
+            this.flowLayoutPanelColours.AutoScroll = true;
+            this.flowLayoutPanelColours.Controls.Add(this.analogClockImages);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClockBlackDot);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClockFancy);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClockWhiteFancy);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClockBlack);
+            this.flowLayoutPanelColours.Controls.Add(this.analogClockSun);
+            this.flowLayoutPanelColours.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelColours.Location = new System.Drawing.Point(10, 51);
+            this.flowLayoutPanelColours.Name = "flowLayoutPanelColours";
+            this.flowLayoutPanelColours.Size = new System.Drawing.Size(988, 628);
+            this.flowLayoutPanelColours.TabIndex = 10;
             // 
             // analogClockImages
             // 
@@ -1868,6 +1800,53 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockSun.Text = "[ Sun ]";
             this.analogClockSun.Timer = this.timer1;
             // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Location = new System.Drawing.Point(10, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(988, 15);
+            this.label4.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Location = new System.Drawing.Point(10, 10);
+            this.label5.MaximumSize = new System.Drawing.Size(700, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(240, 26);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Uses custom shapes.\r\nYou can see here the true power of the Shapes ;)";
+            // 
+            // tabPageTimeZones
+            // 
+            this.tabPageTimeZones.Controls.Add(this.flowLayoutPanel1);
+            this.tabPageTimeZones.Controls.Add(this.label6);
+            this.tabPageTimeZones.Controls.Add(this.label7);
+            this.tabPageTimeZones.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTimeZones.Name = "tabPageTimeZones";
+            this.tabPageTimeZones.Padding = new System.Windows.Forms.Padding(10);
+            this.tabPageTimeZones.Size = new System.Drawing.Size(1008, 689);
+            this.tabPageTimeZones.TabIndex = 2;
+            this.tabPageTimeZones.Text = "Time Zones";
+            this.tabPageTimeZones.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.analogClockLocal);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockUTC);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockTokyo);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockLocalProvider);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockUTCProvider);
+            this.flowLayoutPanel1.Controls.Add(this.analogClockTokyoProvider);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 51);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 628);
+            this.flowLayoutPanel1.TabIndex = 11;
+            // 
             // analogClockLocal
             // 
             ticksShape24.ExceptionIndex = 5;
@@ -2067,25 +2046,25 @@ namespace DustInTheWind.Clock.Demo
             diamondHandShape35.Height = 24.2F;
             diamondHandShape35.Name = "Diamond Hand Shape";
             diamondHandShape35.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape35.Time = System.TimeSpan.Parse("01:52:42.1250000");
+            diamondHandShape35.Time = System.TimeSpan.Parse("06:18:31.5625000");
             diamondHandShape36.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
             diamondHandShape36.FillColor = System.Drawing.Color.LimeGreen;
             diamondHandShape36.Height = 37F;
             diamondHandShape36.Name = "Diamond Hand Shape";
             diamondHandShape36.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape36.TailLength = 4F;
-            diamondHandShape36.Time = System.TimeSpan.Parse("01:52:42.1250000");
+            diamondHandShape36.Time = System.TimeSpan.Parse("06:18:31.5625000");
             diamondHandShape36.Width = 4F;
             lineHandShape19.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
             lineHandShape19.FillColor = System.Drawing.Color.Empty;
             lineHandShape19.Height = 42.5F;
             lineHandShape19.Name = "Line Hand Shape";
             lineHandShape19.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape19.Time = System.TimeSpan.Parse("01:52:42.1250000");
+            lineHandShape19.Time = System.TimeSpan.Parse("06:18:31.5625000");
             pinShape21.FillColor = System.Drawing.Color.Red;
             pinShape21.Name = "Pin Shape";
             pinShape21.OutlineColor = System.Drawing.Color.Empty;
-            pinShape21.Time = System.TimeSpan.Parse("01:52:42.1250000");
+            pinShape21.Time = System.TimeSpan.Parse("06:18:31.5625000");
             this.analogClockLocalProvider.HandShapes.Add(diamondHandShape35);
             this.analogClockLocalProvider.HandShapes.Add(diamondHandShape36);
             this.analogClockLocalProvider.HandShapes.Add(lineHandShape19);
@@ -2095,7 +2074,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockLocalProvider.Size = new System.Drawing.Size(300, 300);
             this.analogClockLocalProvider.TabIndex = 8;
             this.analogClockLocalProvider.Text = "Local";
-            this.analogClockLocalProvider.Time = System.TimeSpan.Parse("05:50:44.3281250");
+            this.analogClockLocalProvider.Time = System.TimeSpan.Parse("06:19:47.6250000");
             this.analogClockLocalProvider.TimeProvider = this.localTimeProvider;
             this.analogClockLocalProvider.Timer = this.timer1;
             // 
@@ -2125,25 +2104,25 @@ namespace DustInTheWind.Clock.Demo
             diamondHandShape37.Height = 24.2F;
             diamondHandShape37.Name = "Diamond Hand Shape";
             diamondHandShape37.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape37.Time = System.TimeSpan.Parse("23:52:42.1562500");
+            diamondHandShape37.Time = System.TimeSpan.Parse("04:18:31.5625000");
             diamondHandShape38.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
             diamondHandShape38.FillColor = System.Drawing.Color.LimeGreen;
             diamondHandShape38.Height = 37F;
             diamondHandShape38.Name = "Diamond Hand Shape";
             diamondHandShape38.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape38.TailLength = 4F;
-            diamondHandShape38.Time = System.TimeSpan.Parse("23:52:42.1562500");
+            diamondHandShape38.Time = System.TimeSpan.Parse("04:18:31.5625000");
             diamondHandShape38.Width = 4F;
             lineHandShape20.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
             lineHandShape20.FillColor = System.Drawing.Color.Empty;
             lineHandShape20.Height = 42.5F;
             lineHandShape20.Name = "Line Hand Shape";
             lineHandShape20.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape20.Time = System.TimeSpan.Parse("23:52:42.1562500");
+            lineHandShape20.Time = System.TimeSpan.Parse("04:18:31.5625000");
             pinShape22.FillColor = System.Drawing.Color.Red;
             pinShape22.Name = "Pin Shape";
             pinShape22.OutlineColor = System.Drawing.Color.Empty;
-            pinShape22.Time = System.TimeSpan.Parse("23:52:42.1562500");
+            pinShape22.Time = System.TimeSpan.Parse("04:18:31.5625000");
             this.analogClockUTCProvider.HandShapes.Add(diamondHandShape37);
             this.analogClockUTCProvider.HandShapes.Add(diamondHandShape38);
             this.analogClockUTCProvider.HandShapes.Add(lineHandShape20);
@@ -2153,7 +2132,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockUTCProvider.Size = new System.Drawing.Size(300, 300);
             this.analogClockUTCProvider.TabIndex = 7;
             this.analogClockUTCProvider.Text = "UTC";
-            this.analogClockUTCProvider.Time = System.TimeSpan.Parse("03:50:44.3437500");
+            this.analogClockUTCProvider.Time = System.TimeSpan.Parse("04:19:47.6406250");
             this.analogClockUTCProvider.TimeProvider = this.utcTimeProvider;
             this.analogClockUTCProvider.Timer = this.timer1;
             // 
@@ -2183,25 +2162,25 @@ namespace DustInTheWind.Clock.Demo
             diamondHandShape39.Height = 24.2F;
             diamondHandShape39.Name = "Diamond Hand Shape";
             diamondHandShape39.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape39.Time = System.TimeSpan.Parse("1.08:52:42.1562500");
+            diamondHandShape39.Time = System.TimeSpan.Parse("13:18:31.5625000");
             diamondHandShape40.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
             diamondHandShape40.FillColor = System.Drawing.Color.LimeGreen;
             diamondHandShape40.Height = 37F;
             diamondHandShape40.Name = "Diamond Hand Shape";
             diamondHandShape40.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape40.TailLength = 4F;
-            diamondHandShape40.Time = System.TimeSpan.Parse("1.08:52:42.1562500");
+            diamondHandShape40.Time = System.TimeSpan.Parse("13:18:31.5625000");
             diamondHandShape40.Width = 4F;
             lineHandShape21.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
             lineHandShape21.FillColor = System.Drawing.Color.Empty;
             lineHandShape21.Height = 42.5F;
             lineHandShape21.Name = "Line Hand Shape";
             lineHandShape21.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape21.Time = System.TimeSpan.Parse("1.08:52:42.1562500");
+            lineHandShape21.Time = System.TimeSpan.Parse("13:18:31.5625000");
             pinShape23.FillColor = System.Drawing.Color.Red;
             pinShape23.Name = "Pin Shape";
             pinShape23.OutlineColor = System.Drawing.Color.Empty;
-            pinShape23.Time = System.TimeSpan.Parse("1.08:52:42.1562500");
+            pinShape23.Time = System.TimeSpan.Parse("13:18:31.5625000");
             this.analogClockTokyoProvider.HandShapes.Add(diamondHandShape39);
             this.analogClockTokyoProvider.HandShapes.Add(diamondHandShape40);
             this.analogClockTokyoProvider.HandShapes.Add(lineHandShape21);
@@ -2211,13 +2190,34 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockTokyoProvider.Size = new System.Drawing.Size(300, 300);
             this.analogClockTokyoProvider.TabIndex = 9;
             this.analogClockTokyoProvider.Text = "Tokyo\r\n+9:00";
-            this.analogClockTokyoProvider.Time = System.TimeSpan.Parse("12:50:44.3437500");
+            this.analogClockTokyoProvider.Time = System.TimeSpan.Parse("13:19:47.6406250");
             this.analogClockTokyoProvider.TimeProvider = this.tokyoTimeProvider;
             this.analogClockTokyoProvider.Timer = this.timer1;
             // 
             // tokyoTimeProvider
             // 
             this.tokyoTimeProvider.UtcOffset = System.TimeSpan.Parse("09:00:00");
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Location = new System.Drawing.Point(10, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(988, 15);
+            this.label6.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Location = new System.Drawing.Point(10, 10);
+            this.label7.MaximumSize = new System.Drawing.Size(700, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(630, 26);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Uses custom time providers.\r\nThe same result can be achived using the internal ti" +
+                "me mechanism (first three clocks) or an external Time Provider (last three clock" +
+                "s).";
             // 
             // analogClock8
             // 

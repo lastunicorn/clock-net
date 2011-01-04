@@ -20,7 +20,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using TTRider.UI;
 
-namespace DustInTheWind.Clock.Shapes.Fancy
+namespace DustInTheWind.Clock.Shapes.Advanced
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the background of the dial.

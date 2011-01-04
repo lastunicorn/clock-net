@@ -45,16 +45,16 @@ namespace DustInTheWind.Clock.Demo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape1 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape2 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape1 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
+            DustInTheWind.Clock.Shapes.Advanced.TicksShape ticksShape2 = new DustInTheWind.Clock.Shapes.Advanced.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape textAngularShape1 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringAngularShape textAngularShape2 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
-            DustInTheWind.Clock.Shapes.Fancy.FancyDialShape fancyDialShape1 = new DustInTheWind.Clock.Shapes.Fancy.FancyDialShape();
+            DustInTheWind.Clock.Shapes.Advanced.FancyDialShape fancyDialShape1 = new DustInTheWind.Clock.Shapes.Advanced.FancyDialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape1 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape1 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
-            DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape2 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape1 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
+            DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape diamondHandShape2 = new DustInTheWind.Clock.Shapes.Advanced.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape1 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
-            DustInTheWind.Clock.Shapes.Default.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Default.PinShape();
+            DustInTheWind.Clock.Shapes.Advanced.PinShape pinShape1 = new DustInTheWind.Clock.Shapes.Advanced.PinShape();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDemo));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBoxTextFont = new System.Windows.Forms.TextBox();

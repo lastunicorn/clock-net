@@ -20,7 +20,7 @@ using System.Drawing.Drawing2D;
 using DustInTheWind.Clock.Shapes.Basic;
 using System.ComponentModel;
 
-namespace DustInTheWind.Clock.Shapes.Fancy
+namespace DustInTheWind.Clock.Shapes.Advanced
 {
     /// <summary>
     /// Draws a fancy clock hand that resambles to a nib.

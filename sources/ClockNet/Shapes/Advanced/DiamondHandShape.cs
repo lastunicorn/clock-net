@@ -19,7 +19,7 @@ using System.ComponentModel;
 using System.Drawing;
 using DustInTheWind.Clock.Shapes.Basic;
 
-namespace DustInTheWind.Clock.Shapes.Default
+namespace DustInTheWind.Clock.Shapes.Advanced
 {
     /// <summary>
     /// A Shape that draws a clock hand that resembles a distorted diamond.

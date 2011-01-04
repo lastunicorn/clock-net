@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes.Fancy
+namespace DustInTheWind.Clock.Shapes.Advanced
 {
     /// <summary>
     /// A Hand Shape that draws a dot at the specified distance from the pin.

@@ -21,7 +21,7 @@ using System.ComponentModel.Design;
 using System.Drawing.Design;
 using System.Text;
 
-namespace DustInTheWind.Clock.Shapes.Default
+namespace DustInTheWind.Clock.Shapes.Advanced
 {
     /// <summary>
     /// A Hand Shape that draws the time as a text in a fixed position on the dial.

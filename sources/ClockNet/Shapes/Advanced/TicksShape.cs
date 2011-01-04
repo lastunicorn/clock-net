@@ -19,7 +19,7 @@ using System.ComponentModel;
 using System.Drawing;
 using DustInTheWind.Clock.Shapes.Basic;
 
-namespace DustInTheWind.Clock.Shapes.Default
+namespace DustInTheWind.Clock.Shapes.Advanced
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the ticks that mark the seconds.

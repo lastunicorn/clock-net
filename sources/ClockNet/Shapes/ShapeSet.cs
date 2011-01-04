@@ -16,8 +16,7 @@
 
 using System.Drawing;
 using DustInTheWind.Clock.Shapes.Basic;
-using DustInTheWind.Clock.Shapes.Default;
-using DustInTheWind.Clock.Shapes.Fancy;
+using DustInTheWind.Clock.Shapes.Advanced;
 
 namespace DustInTheWind.Clock.Shapes
 {
