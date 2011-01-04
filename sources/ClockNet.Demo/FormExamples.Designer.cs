@@ -47,8 +47,9 @@ namespace DustInTheWind.Clock.Demo
             this.components = new System.ComponentModel.Container();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape1 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape2 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape1 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape1 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape1 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExamples));
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape1 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape2 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape1 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
@@ -66,7 +67,7 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape6 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape3 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape3 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape2 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape2 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape4 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape7 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape8 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
@@ -78,7 +79,7 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape5 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape5 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape6 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape3 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape3 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape6 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape11 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape12 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
@@ -86,7 +87,7 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape6 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape7 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape8 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape4 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape4 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Default.DialShape dialShape1 = new DustInTheWind.Clock.Shapes.Default.DialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape7 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape13 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
@@ -95,7 +96,7 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape7 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape9 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape10 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape5 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape5 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape8 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DigitalHandShape digitalHandShape1 = new DustInTheWind.Clock.Shapes.Default.DigitalHandShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape15 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
@@ -104,7 +105,7 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape8 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape11 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape12 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape6 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape6 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Default.DialShape dialShape2 = new DustInTheWind.Clock.Shapes.Default.DialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape9 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape17 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
@@ -113,7 +114,7 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape9 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape13 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape14 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape7 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape7 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape15 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape10 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape19 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
@@ -121,21 +122,20 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape10 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape16 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape17 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape8 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape8 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape11 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape21 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape22 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape11 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape18 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape19 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape9 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape9 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape12 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape23 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape24 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape10 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape12 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Basic.ImageGroundShape imageGroundShape1 = new DustInTheWind.Clock.Shapes.Basic.ImageGroundShape();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExamples));
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape13 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Basic.ImageHandShape imageHandShape1 = new DustInTheWind.Clock.Shapes.Basic.ImageHandShape();
             DustInTheWind.Clock.Shapes.Basic.ImageHandShape imageHandShape2 = new DustInTheWind.Clock.Shapes.Basic.ImageHandShape();
@@ -149,13 +149,13 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape14 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape20 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape21 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape10 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape10 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape15 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Fancy.NibHandShape nibHandShape1 = new DustInTheWind.Clock.Shapes.Fancy.NibHandShape();
             DustInTheWind.Clock.Shapes.Fancy.NibHandShape nibHandShape2 = new DustInTheWind.Clock.Shapes.Fancy.NibHandShape();
             DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape fancySweepHandShape1 = new DustInTheWind.Clock.Shapes.Fancy.FancySweepHandShape();
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape15 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape11 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape11 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Default.DialShape dialShape5 = new DustInTheWind.Clock.Shapes.Default.DialShape();
             DustInTheWind.Clock.Shapes.Fancy.SlotHandShape slotHandShape1 = new DustInTheWind.Clock.Shapes.Fancy.SlotHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape12 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
@@ -163,8 +163,8 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape16 = new DustInTheWind.Clock.Shapes.Default.PinShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape22 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape23 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape12 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape13 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape12 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape13 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Fancy.FancyDialShape fancyDialShape1 = new DustInTheWind.Clock.Shapes.Fancy.FancyDialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape16 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape25 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
@@ -174,8 +174,8 @@ namespace DustInTheWind.Clock.Demo
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape14 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Basic.LineHandShape lineHandShape15 = new DustInTheWind.Clock.Shapes.Basic.LineHandShape();
             DustInTheWind.Clock.Shapes.Default.PinShape pinShape17 = new DustInTheWind.Clock.Shapes.Default.PinShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape14 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape15 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape14 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape stringAngularShape15 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Fancy.FancyDialShape fancyDialShape2 = new DustInTheWind.Clock.Shapes.Fancy.FancyDialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape17 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Fancy.DotHandShape dotHandShape3 = new DustInTheWind.Clock.Shapes.Fancy.DotHandShape();
@@ -497,23 +497,20 @@ namespace DustInTheWind.Clock.Demo
             ticksShape1.FillColor = System.Drawing.Color.Empty;
             ticksShape1.Index = 61;
             ticksShape1.Name = "Ticks Shape";
-            ticksShape1.OffsetAngle = 0F;
             ticksShape2.Angle = 30F;
             ticksShape2.FillColor = System.Drawing.Color.Empty;
             ticksShape2.Index = 13;
             ticksShape2.Length = 5F;
             ticksShape2.LineWidth = 1F;
             ticksShape2.Name = "Ticks Shape";
-            ticksShape2.OffsetAngle = 0F;
-            textAngularShape1.Angle = 30F;
-            textAngularShape1.Font = new System.Drawing.Font("Arial", 6.25F);
-            textAngularShape1.Index = 13;
-            textAngularShape1.Name = "Text Angular Shape";
-            textAngularShape1.OffsetAngle = 0F;
-            textAngularShape1.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape1.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape1.PositionOffset = 13F;
-            textAngularShape1.Texts = new string[] {
+            stringAngularShape1.Angle = 30F;
+            stringAngularShape1.Font = new System.Drawing.Font("Arial", 6.25F);
+            stringAngularShape1.Index = 13;
+            stringAngularShape1.Name = "Text Angular Shape";
+            stringAngularShape1.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape1.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape1.PositionOffset = 13F;
+            stringAngularShape1.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -528,9 +525,10 @@ namespace DustInTheWind.Clock.Demo
         "12"};
             this.analogClockDefault.AngularShapes.Add(ticksShape1);
             this.analogClockDefault.AngularShapes.Add(ticksShape2);
-            this.analogClockDefault.AngularShapes.Add(textAngularShape1);
+            this.analogClockDefault.AngularShapes.Add(stringAngularShape1);
             stringGroundShape1.a = 0;
             stringGroundShape1.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape1.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape1.Location")));
             stringGroundShape1.Name = "String Ground Shape";
             stringGroundShape1.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape1.Text = "Default";
@@ -578,10 +576,10 @@ namespace DustInTheWind.Clock.Demo
             ticksShape3.Index = 13;
             ticksShape3.Length = 5F;
             ticksShape3.Name = "Ticks Shape";
-            ticksShape3.OffsetAngle = 0F;
             this.analogClockSimple.AngularShapes.Add(ticksShape3);
             stringGroundShape2.a = 0;
             stringGroundShape2.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape2.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape2.Location")));
             stringGroundShape2.Name = "String Ground Shape";
             stringGroundShape2.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape2.Text = "Simple";
@@ -628,18 +626,17 @@ namespace DustInTheWind.Clock.Demo
             ticksShape4.FillColor = System.Drawing.Color.Empty;
             ticksShape4.Index = 61;
             ticksShape4.Name = "Ticks Shape";
-            ticksShape4.OffsetAngle = 0F;
             ticksShape5.Angle = 30F;
             ticksShape5.FillColor = System.Drawing.Color.Empty;
             ticksShape5.Index = 13;
             ticksShape5.Length = 5F;
             ticksShape5.LineWidth = 1F;
             ticksShape5.Name = "Ticks Shape";
-            ticksShape5.OffsetAngle = 0F;
             this.analogClockNoNumbers.AngularShapes.Add(ticksShape4);
             this.analogClockNoNumbers.AngularShapes.Add(ticksShape5);
             stringGroundShape3.a = 0;
             stringGroundShape3.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape3.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape3.Location")));
             stringGroundShape3.Name = "String Ground Shape";
             stringGroundShape3.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape3.Text = "No Numbers";
@@ -682,15 +679,14 @@ namespace DustInTheWind.Clock.Demo
             // 
             // analogClockRomanNumbers
             // 
-            textAngularShape2.Angle = 30F;
-            textAngularShape2.Font = new System.Drawing.Font("Arial", 6.25F);
-            textAngularShape2.Index = 13;
-            textAngularShape2.Name = "Text Angular Shape";
-            textAngularShape2.OffsetAngle = 0F;
-            textAngularShape2.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape2.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape2.PositionOffset = 7F;
-            textAngularShape2.Texts = new string[] {
+            stringAngularShape2.Angle = 30F;
+            stringAngularShape2.Font = new System.Drawing.Font("Arial", 6.25F);
+            stringAngularShape2.Index = 13;
+            stringAngularShape2.Name = "Text Angular Shape";
+            stringAngularShape2.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape2.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape2.PositionOffset = 7F;
+            stringAngularShape2.Texts = new string[] {
         "I",
         "II",
         "III",
@@ -703,9 +699,10 @@ namespace DustInTheWind.Clock.Demo
         "X",
         "XI",
         "XII"};
-            this.analogClockRomanNumbers.AngularShapes.Add(textAngularShape2);
+            this.analogClockRomanNumbers.AngularShapes.Add(stringAngularShape2);
             stringGroundShape4.a = 0;
             stringGroundShape4.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape4.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape4.Location")));
             stringGroundShape4.Name = "String Ground Shape";
             stringGroundShape4.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape4.Text = "Roman Numbers";
@@ -750,6 +747,7 @@ namespace DustInTheWind.Clock.Demo
             // 
             stringGroundShape5.a = 0;
             stringGroundShape5.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape5.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape5.Location")));
             stringGroundShape5.Name = "String Ground Shape";
             stringGroundShape5.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape5.Text = "Clear";
@@ -798,24 +796,23 @@ namespace DustInTheWind.Clock.Demo
             ticksShape6.Index = 13;
             ticksShape6.Length = 5F;
             ticksShape6.Name = "Ticks Shape";
-            ticksShape6.OffsetAngle = 0F;
-            textAngularShape3.Angle = 90F;
-            textAngularShape3.Font = new System.Drawing.Font("Arial", 10F);
-            textAngularShape3.Index = 5;
-            textAngularShape3.Name = "Text Angular Shape";
-            textAngularShape3.OffsetAngle = 0F;
-            textAngularShape3.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape3.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape3.PositionOffset = 10F;
-            textAngularShape3.Texts = new string[] {
+            stringAngularShape3.Angle = 90F;
+            stringAngularShape3.Font = new System.Drawing.Font("Arial", 10F);
+            stringAngularShape3.Index = 5;
+            stringAngularShape3.Name = "Text Angular Shape";
+            stringAngularShape3.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape3.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape3.PositionOffset = 10F;
+            stringAngularShape3.Texts = new string[] {
         "3",
         "6",
         "9",
         "12"};
             this.analogClockNESW.AngularShapes.Add(ticksShape6);
-            this.analogClockNESW.AngularShapes.Add(textAngularShape3);
+            this.analogClockNESW.AngularShapes.Add(stringAngularShape3);
             stringGroundShape6.a = 0;
             stringGroundShape6.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape6.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape6.Location")));
             stringGroundShape6.Name = "String Ground Shape";
             stringGroundShape6.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape6.Text = "North East Sourh West";
@@ -861,7 +858,6 @@ namespace DustInTheWind.Clock.Demo
             ticksShape7.FillColor = System.Drawing.Color.Empty;
             ticksShape7.Index = 61;
             ticksShape7.Name = "Ticks Shape";
-            ticksShape7.OffsetAngle = 0F;
             ticksShape7.OutlineColor = System.Drawing.Color.RoyalBlue;
             ticksShape7.PositionOffset = 2F;
             ticksShape8.Angle = 30F;
@@ -870,19 +866,17 @@ namespace DustInTheWind.Clock.Demo
             ticksShape8.Length = 5F;
             ticksShape8.LineWidth = 2F;
             ticksShape8.Name = "Ticks Shape";
-            ticksShape8.OffsetAngle = 0F;
             ticksShape8.OutlineColor = System.Drawing.Color.Navy;
             ticksShape8.PositionOffset = 2F;
-            textAngularShape4.Angle = 30F;
-            textAngularShape4.FillColor = System.Drawing.Color.Navy;
-            textAngularShape4.Font = new System.Drawing.Font("Harrington", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textAngularShape4.Index = 13;
-            textAngularShape4.Name = "Text Angular Shape";
-            textAngularShape4.OffsetAngle = 0F;
-            textAngularShape4.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape4.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape4.PositionOffset = 15F;
-            textAngularShape4.Texts = new string[] {
+            stringAngularShape4.Angle = 30F;
+            stringAngularShape4.FillColor = System.Drawing.Color.Navy;
+            stringAngularShape4.Font = new System.Drawing.Font("Harrington", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            stringAngularShape4.Index = 13;
+            stringAngularShape4.Name = "Text Angular Shape";
+            stringAngularShape4.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape4.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape4.PositionOffset = 15F;
+            stringAngularShape4.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -897,7 +891,7 @@ namespace DustInTheWind.Clock.Demo
         "12"};
             this.analogClockBlue.AngularShapes.Add(ticksShape7);
             this.analogClockBlue.AngularShapes.Add(ticksShape8);
-            this.analogClockBlue.AngularShapes.Add(textAngularShape4);
+            this.analogClockBlue.AngularShapes.Add(stringAngularShape4);
             dialShape1.a = 0;
             dialShape1.FillColor = System.Drawing.Color.LightBlue;
             dialShape1.Name = "Dial Shape";
@@ -905,6 +899,7 @@ namespace DustInTheWind.Clock.Demo
             dialShape1.Radius = 50F;
             stringGroundShape7.a = 0;
             stringGroundShape7.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape7.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape7.Location")));
             stringGroundShape7.Name = "String Ground Shape";
             stringGroundShape7.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape7.Text = "Blue";
@@ -952,23 +947,20 @@ namespace DustInTheWind.Clock.Demo
             ticksShape9.FillColor = System.Drawing.Color.Empty;
             ticksShape9.Index = 61;
             ticksShape9.Name = "Ticks Shape";
-            ticksShape9.OffsetAngle = 0F;
             ticksShape10.Angle = 30F;
             ticksShape10.FillColor = System.Drawing.Color.Empty;
             ticksShape10.Index = 13;
             ticksShape10.Length = 5F;
             ticksShape10.LineWidth = 1F;
             ticksShape10.Name = "Ticks Shape";
-            ticksShape10.OffsetAngle = 0F;
-            textAngularShape5.Angle = 30F;
-            textAngularShape5.Font = new System.Drawing.Font("Arial", 6.25F);
-            textAngularShape5.Index = 13;
-            textAngularShape5.Name = "Text Angular Shape";
-            textAngularShape5.OffsetAngle = 0F;
-            textAngularShape5.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape5.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape5.PositionOffset = 13F;
-            textAngularShape5.Texts = new string[] {
+            stringAngularShape5.Angle = 30F;
+            stringAngularShape5.Font = new System.Drawing.Font("Arial", 6.25F);
+            stringAngularShape5.Index = 13;
+            stringAngularShape5.Name = "Text Angular Shape";
+            stringAngularShape5.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape5.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape5.PositionOffset = 13F;
+            stringAngularShape5.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -983,9 +975,10 @@ namespace DustInTheWind.Clock.Demo
         "12"};
             this.analogClockDigital.AngularShapes.Add(ticksShape9);
             this.analogClockDigital.AngularShapes.Add(ticksShape10);
-            this.analogClockDigital.AngularShapes.Add(textAngularShape5);
+            this.analogClockDigital.AngularShapes.Add(stringAngularShape5);
             stringGroundShape8.a = 0;
             stringGroundShape8.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape8.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape8.Location")));
             stringGroundShape8.Name = "String Ground Shape";
             stringGroundShape8.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape8.Text = "Digital";
@@ -1040,7 +1033,6 @@ namespace DustInTheWind.Clock.Demo
             ticksShape11.FillColor = System.Drawing.Color.Empty;
             ticksShape11.Index = 61;
             ticksShape11.Name = "Ticks Shape";
-            ticksShape11.OffsetAngle = 0F;
             ticksShape11.PositionOffset = 3F;
             ticksShape12.Angle = 30F;
             ticksShape12.FillColor = System.Drawing.Color.Empty;
@@ -1048,18 +1040,16 @@ namespace DustInTheWind.Clock.Demo
             ticksShape12.Length = 5F;
             ticksShape12.LineWidth = 5F;
             ticksShape12.Name = "Ticks Shape";
-            ticksShape12.OffsetAngle = 0F;
             ticksShape12.OutlineColor = System.Drawing.Color.DarkGreen;
-            textAngularShape6.Angle = 30F;
-            textAngularShape6.FillColor = System.Drawing.Color.DarkGreen;
-            textAngularShape6.Font = new System.Drawing.Font("Arial", 7F);
-            textAngularShape6.Index = 13;
-            textAngularShape6.Name = "Text Angular Shape";
-            textAngularShape6.OffsetAngle = 0F;
-            textAngularShape6.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape6.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape6.PositionOffset = 13F;
-            textAngularShape6.Texts = new string[] {
+            stringAngularShape6.Angle = 30F;
+            stringAngularShape6.FillColor = System.Drawing.Color.DarkGreen;
+            stringAngularShape6.Font = new System.Drawing.Font("Arial", 7F);
+            stringAngularShape6.Index = 13;
+            stringAngularShape6.Name = "Text Angular Shape";
+            stringAngularShape6.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape6.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape6.PositionOffset = 13F;
+            stringAngularShape6.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -1074,7 +1064,7 @@ namespace DustInTheWind.Clock.Demo
         "12"};
             this.analogClockGreen.AngularShapes.Add(ticksShape11);
             this.analogClockGreen.AngularShapes.Add(ticksShape12);
-            this.analogClockGreen.AngularShapes.Add(textAngularShape6);
+            this.analogClockGreen.AngularShapes.Add(stringAngularShape6);
             dialShape2.a = 0;
             dialShape2.FillColor = System.Drawing.Color.LightGreen;
             dialShape2.Name = "Dial Shape";
@@ -1082,6 +1072,7 @@ namespace DustInTheWind.Clock.Demo
             dialShape2.Radius = 50F;
             stringGroundShape9.a = 0;
             stringGroundShape9.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape9.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape9.Location")));
             stringGroundShape9.Name = "String Ground Shape";
             stringGroundShape9.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape9.Text = "Green";
@@ -1129,23 +1120,20 @@ namespace DustInTheWind.Clock.Demo
             ticksShape13.FillColor = System.Drawing.Color.Empty;
             ticksShape13.Index = 61;
             ticksShape13.Name = "Ticks Shape";
-            ticksShape13.OffsetAngle = 0F;
             ticksShape14.Angle = 30F;
             ticksShape14.FillColor = System.Drawing.Color.Empty;
             ticksShape14.Index = 13;
             ticksShape14.Length = 5F;
             ticksShape14.LineWidth = 1F;
             ticksShape14.Name = "Ticks Shape";
-            ticksShape14.OffsetAngle = 0F;
-            textAngularShape7.Angle = 30F;
-            textAngularShape7.Font = new System.Drawing.Font("Arial", 6.25F);
-            textAngularShape7.Index = 13;
-            textAngularShape7.Name = "Text Angular Shape";
-            textAngularShape7.OffsetAngle = 0F;
-            textAngularShape7.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape7.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape7.PositionOffset = 13F;
-            textAngularShape7.Texts = new string[] {
+            stringAngularShape7.Angle = 30F;
+            stringAngularShape7.Font = new System.Drawing.Font("Arial", 6.25F);
+            stringAngularShape7.Index = 13;
+            stringAngularShape7.Name = "Text Angular Shape";
+            stringAngularShape7.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape7.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape7.PositionOffset = 13F;
+            stringAngularShape7.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -1164,14 +1152,14 @@ namespace DustInTheWind.Clock.Demo
             ticksShape15.Length = 10F;
             ticksShape15.LineWidth = 1F;
             ticksShape15.Name = "Ticks Shape";
-            ticksShape15.OffsetAngle = 0F;
             ticksShape15.PositionOffset = 20F;
             this.analogClockRandom.AngularShapes.Add(ticksShape13);
             this.analogClockRandom.AngularShapes.Add(ticksShape14);
-            this.analogClockRandom.AngularShapes.Add(textAngularShape7);
+            this.analogClockRandom.AngularShapes.Add(stringAngularShape7);
             this.analogClockRandom.AngularShapes.Add(ticksShape15);
             stringGroundShape10.a = 0;
             stringGroundShape10.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape10.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape10.Location")));
             stringGroundShape10.Name = "String Ground Shape";
             stringGroundShape10.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape10.Text = "Broken\r\n(Random)";
@@ -1181,19 +1169,19 @@ namespace DustInTheWind.Clock.Demo
             diamondHandShape19.Height = 24F;
             diamondHandShape19.Name = "Diamond Hand Shape";
             diamondHandShape19.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape19.Time = System.TimeSpan.Parse("05:01:05");
+            diamondHandShape19.Time = System.TimeSpan.Parse("00:12:51");
             diamondHandShape20.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
             diamondHandShape20.FillColor = System.Drawing.Color.LimeGreen;
             diamondHandShape20.Height = 37F;
             diamondHandShape20.Name = "Diamond Hand Shape";
             diamondHandShape20.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape20.TailLength = 4F;
-            diamondHandShape20.Time = System.TimeSpan.Parse("05:01:05");
+            diamondHandShape20.Time = System.TimeSpan.Parse("00:12:51");
             diamondHandShape20.Width = 4F;
             pinShape10.FillColor = System.Drawing.Color.Red;
             pinShape10.Name = "Pin Shape";
             pinShape10.OutlineColor = System.Drawing.Color.Empty;
-            pinShape10.Time = System.TimeSpan.Parse("05:01:05");
+            pinShape10.Time = System.TimeSpan.Parse("00:12:51");
             this.analogClockRandom.HandShapes.Add(diamondHandShape19);
             this.analogClockRandom.HandShapes.Add(diamondHandShape20);
             this.analogClockRandom.HandShapes.Add(pinShape10);
@@ -1202,7 +1190,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockRandom.Size = new System.Drawing.Size(300, 300);
             this.analogClockRandom.TabIndex = 21;
             this.analogClockRandom.Text = "Broken\r\n(Random)";
-            this.analogClockRandom.Time = System.TimeSpan.Parse("05:01:05");
+            this.analogClockRandom.Time = System.TimeSpan.Parse("10:22:03");
             this.analogClockRandom.TimeProvider = this.randomTimeProvider1;
             this.analogClockRandom.Timer = this.timer1;
             // 
@@ -1212,23 +1200,20 @@ namespace DustInTheWind.Clock.Demo
             ticksShape16.FillColor = System.Drawing.Color.Empty;
             ticksShape16.Index = 61;
             ticksShape16.Name = "Ticks Shape";
-            ticksShape16.OffsetAngle = 0F;
             ticksShape17.Angle = 30F;
             ticksShape17.FillColor = System.Drawing.Color.Empty;
             ticksShape17.Index = 13;
             ticksShape17.Length = 5F;
             ticksShape17.LineWidth = 1F;
             ticksShape17.Name = "Ticks Shape";
-            ticksShape17.OffsetAngle = 0F;
-            textAngularShape8.Angle = 30F;
-            textAngularShape8.Font = new System.Drawing.Font("Arial", 6.25F);
-            textAngularShape8.Index = 13;
-            textAngularShape8.Name = "Text Angular Shape";
-            textAngularShape8.OffsetAngle = 0F;
-            textAngularShape8.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape8.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape8.PositionOffset = 13F;
-            textAngularShape8.Texts = new string[] {
+            stringAngularShape8.Angle = 30F;
+            stringAngularShape8.Font = new System.Drawing.Font("Arial", 6.25F);
+            stringAngularShape8.Index = 13;
+            stringAngularShape8.Name = "Text Angular Shape";
+            stringAngularShape8.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape8.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape8.PositionOffset = 13F;
+            stringAngularShape8.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -1243,9 +1228,10 @@ namespace DustInTheWind.Clock.Demo
         "12"};
             this.analogClockBroken.AngularShapes.Add(ticksShape16);
             this.analogClockBroken.AngularShapes.Add(ticksShape17);
-            this.analogClockBroken.AngularShapes.Add(textAngularShape8);
+            this.analogClockBroken.AngularShapes.Add(stringAngularShape8);
             stringGroundShape11.a = 0;
             stringGroundShape11.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape11.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape11.Location")));
             stringGroundShape11.Name = "String Ground Shape";
             stringGroundShape11.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape11.Text = "Broken\r\n(Fast)\r\n";
@@ -1283,7 +1269,7 @@ namespace DustInTheWind.Clock.Demo
             // brokenTimeProvider1
             // 
             this.brokenTimeProvider1.LastValue = System.TimeSpan.Parse("00:00:31.2500000");
-            this.brokenTimeProvider1.Multiplier = 1000F;
+            this.brokenTimeProvider1.TimeMultiplier = 1000F;
             // 
             // analogClockBroken2
             // 
@@ -1291,23 +1277,20 @@ namespace DustInTheWind.Clock.Demo
             ticksShape18.FillColor = System.Drawing.Color.Empty;
             ticksShape18.Index = 61;
             ticksShape18.Name = "Ticks Shape";
-            ticksShape18.OffsetAngle = 0F;
             ticksShape19.Angle = 30F;
             ticksShape19.FillColor = System.Drawing.Color.Empty;
             ticksShape19.Index = 13;
             ticksShape19.Length = 5F;
             ticksShape19.LineWidth = 1F;
             ticksShape19.Name = "Ticks Shape";
-            ticksShape19.OffsetAngle = 0F;
-            textAngularShape9.Angle = 30F;
-            textAngularShape9.Font = new System.Drawing.Font("Arial", 6.25F);
-            textAngularShape9.Index = 13;
-            textAngularShape9.Name = "Text Angular Shape";
-            textAngularShape9.OffsetAngle = 0F;
-            textAngularShape9.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape9.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape9.PositionOffset = 13F;
-            textAngularShape9.Texts = new string[] {
+            stringAngularShape9.Angle = 30F;
+            stringAngularShape9.Font = new System.Drawing.Font("Arial", 6.25F);
+            stringAngularShape9.Index = 13;
+            stringAngularShape9.Name = "Text Angular Shape";
+            stringAngularShape9.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape9.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape9.PositionOffset = 13F;
+            stringAngularShape9.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -1322,9 +1305,10 @@ namespace DustInTheWind.Clock.Demo
         "12"};
             this.analogClockBroken2.AngularShapes.Add(ticksShape18);
             this.analogClockBroken2.AngularShapes.Add(ticksShape19);
-            this.analogClockBroken2.AngularShapes.Add(textAngularShape9);
+            this.analogClockBroken2.AngularShapes.Add(stringAngularShape9);
             stringGroundShape12.a = 0;
             stringGroundShape12.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape12.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape12.Location")));
             stringGroundShape12.Name = "String Ground Shape";
             stringGroundShape12.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape12.Text = "Broken\r\n(Back)";
@@ -1369,7 +1353,7 @@ namespace DustInTheWind.Clock.Demo
             // brokenTimeProvider2
             // 
             this.brokenTimeProvider2.LastValue = System.TimeSpan.Parse("03:14:00");
-            this.brokenTimeProvider2.Multiplier = -900F;
+            this.brokenTimeProvider2.TimeMultiplier = -900F;
             // 
             // analogClockImages
             // 
@@ -1380,6 +1364,7 @@ namespace DustInTheWind.Clock.Demo
             stringGroundShape13.a = 0;
             stringGroundShape13.FillColor = System.Drawing.Color.Gainsboro;
             stringGroundShape13.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape13.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape13.Location")));
             stringGroundShape13.Name = "String Ground Shape";
             stringGroundShape13.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape13.Text = "Gothic";
@@ -1434,6 +1419,7 @@ namespace DustInTheWind.Clock.Demo
             stringGroundShape14.a = 0;
             stringGroundShape14.FillColor = System.Drawing.Color.Silver;
             stringGroundShape14.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape14.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape14.Location")));
             stringGroundShape14.Name = "String Ground Shape";
             stringGroundShape14.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape14.Text = "[ Dots ]";
@@ -1472,22 +1458,19 @@ namespace DustInTheWind.Clock.Demo
             ticksShape20.FillColor = System.Drawing.Color.Empty;
             ticksShape20.Index = 61;
             ticksShape20.Name = "Ticks Shape";
-            ticksShape20.OffsetAngle = 0F;
             ticksShape21.Angle = 30F;
             ticksShape21.FillColor = System.Drawing.Color.Empty;
             ticksShape21.Index = 13;
             ticksShape21.Length = 5F;
             ticksShape21.LineWidth = 1F;
             ticksShape21.Name = "Ticks Shape";
-            ticksShape21.OffsetAngle = 0F;
-            textAngularShape10.Angle = 30F;
-            textAngularShape10.Font = new System.Drawing.Font("Arial", 6.25F);
-            textAngularShape10.Index = 13;
-            textAngularShape10.Name = "Text Angular Shape";
-            textAngularShape10.OffsetAngle = 0F;
-            textAngularShape10.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape10.PositionOffset = 12F;
-            textAngularShape10.Texts = new string[] {
+            stringAngularShape10.Angle = 30F;
+            stringAngularShape10.Font = new System.Drawing.Font("Arial", 6.25F);
+            stringAngularShape10.Index = 13;
+            stringAngularShape10.Name = "Text Angular Shape";
+            stringAngularShape10.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape10.PositionOffset = 12F;
+            stringAngularShape10.Texts = new string[] {
         "I",
         "II",
         "III",
@@ -1502,9 +1485,10 @@ namespace DustInTheWind.Clock.Demo
         "XII"};
             this.analogClockFancy.AngularShapes.Add(ticksShape20);
             this.analogClockFancy.AngularShapes.Add(ticksShape21);
-            this.analogClockFancy.AngularShapes.Add(textAngularShape10);
+            this.analogClockFancy.AngularShapes.Add(stringAngularShape10);
             stringGroundShape15.a = 0;
             stringGroundShape15.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape15.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape15.Location")));
             stringGroundShape15.Name = "String Ground Shape";
             stringGroundShape15.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape15.Text = "Fancy";
@@ -1545,16 +1529,15 @@ namespace DustInTheWind.Clock.Demo
             // 
             // analogClockWhiteFancy
             // 
-            textAngularShape11.Angle = 30F;
-            textAngularShape11.FillColor = System.Drawing.Color.White;
-            textAngularShape11.Font = new System.Drawing.Font("Arial", 9F);
-            textAngularShape11.Index = 13;
-            textAngularShape11.Name = "Text Angular Shape";
-            textAngularShape11.OffsetAngle = 0F;
-            textAngularShape11.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape11.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape11.PositionOffset = 20F;
-            textAngularShape11.Texts = new string[] {
+            stringAngularShape11.Angle = 30F;
+            stringAngularShape11.FillColor = System.Drawing.Color.White;
+            stringAngularShape11.Font = new System.Drawing.Font("Arial", 9F);
+            stringAngularShape11.Index = 13;
+            stringAngularShape11.Name = "Text Angular Shape";
+            stringAngularShape11.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape11.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape11.PositionOffset = 20F;
+            stringAngularShape11.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -1567,7 +1550,7 @@ namespace DustInTheWind.Clock.Demo
         "10",
         "11",
         "12"};
-            this.analogClockWhiteFancy.AngularShapes.Add(textAngularShape11);
+            this.analogClockWhiteFancy.AngularShapes.Add(stringAngularShape11);
             dialShape5.a = 0;
             dialShape5.Name = "Dial Shape";
             dialShape5.OutlineColor = System.Drawing.Color.Empty;
@@ -1618,26 +1601,23 @@ namespace DustInTheWind.Clock.Demo
             ticksShape22.FillColor = System.Drawing.Color.Empty;
             ticksShape22.Index = 61;
             ticksShape22.Name = "Ticks Shape";
-            ticksShape22.OffsetAngle = 0F;
             ticksShape22.PositionOffset = 7F;
             ticksShape23.Angle = 30F;
             ticksShape23.FillColor = System.Drawing.Color.Empty;
             ticksShape23.Index = 13;
             ticksShape23.LineWidth = 1F;
             ticksShape23.Name = "Ticks Shape";
-            ticksShape23.OffsetAngle = 0F;
             ticksShape23.OutlineColor = System.Drawing.Color.LightGray;
             ticksShape23.PositionOffset = 7F;
-            textAngularShape12.Angle = 30F;
-            textAngularShape12.FillColor = System.Drawing.Color.LightGray;
-            textAngularShape12.Font = new System.Drawing.Font("Arial", 6.25F);
-            textAngularShape12.Index = 13;
-            textAngularShape12.Name = "Text Angular Shape";
-            textAngularShape12.OffsetAngle = 0F;
-            textAngularShape12.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape12.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape12.PositionOffset = 16F;
-            textAngularShape12.Texts = new string[] {
+            stringAngularShape12.Angle = 30F;
+            stringAngularShape12.FillColor = System.Drawing.Color.LightGray;
+            stringAngularShape12.Font = new System.Drawing.Font("Arial", 6.25F);
+            stringAngularShape12.Index = 13;
+            stringAngularShape12.Name = "Text Angular Shape";
+            stringAngularShape12.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape12.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape12.PositionOffset = 16F;
+            stringAngularShape12.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -1650,16 +1630,15 @@ namespace DustInTheWind.Clock.Demo
         "10",
         "11",
         "12"};
-            textAngularShape13.Angle = 30F;
-            textAngularShape13.FillColor = System.Drawing.Color.LightGray;
-            textAngularShape13.Font = new System.Drawing.Font("Arial", 2.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textAngularShape13.Index = 13;
-            textAngularShape13.Name = "Text Angular Shape";
-            textAngularShape13.OffsetAngle = 0F;
-            textAngularShape13.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape13.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape13.PositionOffset = 2.7F;
-            textAngularShape13.Texts = new string[] {
+            stringAngularShape13.Angle = 30F;
+            stringAngularShape13.FillColor = System.Drawing.Color.LightGray;
+            stringAngularShape13.Font = new System.Drawing.Font("Arial", 2.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            stringAngularShape13.Index = 13;
+            stringAngularShape13.Name = "Text Angular Shape";
+            stringAngularShape13.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape13.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape13.PositionOffset = 2.7F;
+            stringAngularShape13.Texts = new string[] {
         "5",
         "10",
         "15",
@@ -1674,14 +1653,15 @@ namespace DustInTheWind.Clock.Demo
         "60"};
             this.analogClockBlack.AngularShapes.Add(ticksShape22);
             this.analogClockBlack.AngularShapes.Add(ticksShape23);
-            this.analogClockBlack.AngularShapes.Add(textAngularShape12);
-            this.analogClockBlack.AngularShapes.Add(textAngularShape13);
+            this.analogClockBlack.AngularShapes.Add(stringAngularShape12);
+            this.analogClockBlack.AngularShapes.Add(stringAngularShape13);
             fancyDialShape1.a = 0;
             fancyDialShape1.Name = "Fancy Dial Shape";
             fancyDialShape1.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape16.a = 0;
             stringGroundShape16.FillColor = System.Drawing.Color.LightGray;
             stringGroundShape16.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape16.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape16.Location")));
             stringGroundShape16.Name = "String Ground Shape";
             stringGroundShape16.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape16.Text = "Shading Black";
@@ -1751,15 +1731,14 @@ namespace DustInTheWind.Clock.Demo
             // 
             // analogClockSun
             // 
-            textAngularShape14.Angle = 30F;
-            textAngularShape14.Font = new System.Drawing.Font("Arial", 6.25F);
-            textAngularShape14.Index = 13;
-            textAngularShape14.Name = "Text Angular Shape";
-            textAngularShape14.OffsetAngle = 0F;
-            textAngularShape14.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
-            textAngularShape14.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape14.PositionOffset = 20F;
-            textAngularShape14.Texts = new string[] {
+            stringAngularShape14.Angle = 30F;
+            stringAngularShape14.Font = new System.Drawing.Font("Arial", 6.25F);
+            stringAngularShape14.Index = 13;
+            stringAngularShape14.Name = "Text Angular Shape";
+            stringAngularShape14.Orientation = DustInTheWind.Clock.Shapes.AngularOrientation.Normal;
+            stringAngularShape14.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape14.PositionOffset = 20F;
+            stringAngularShape14.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -1772,13 +1751,12 @@ namespace DustInTheWind.Clock.Demo
         "10",
         "11",
         "12"};
-            textAngularShape15.Font = new System.Drawing.Font("Arial", 2.2F);
-            textAngularShape15.Index = 61;
-            textAngularShape15.Name = "Text Angular Shape";
-            textAngularShape15.OffsetAngle = 0F;
-            textAngularShape15.OutlineColor = System.Drawing.Color.Empty;
-            textAngularShape15.PositionOffset = 4F;
-            textAngularShape15.Texts = new string[] {
+            stringAngularShape15.Font = new System.Drawing.Font("Arial", 2.2F);
+            stringAngularShape15.Index = 61;
+            stringAngularShape15.Name = "Text Angular Shape";
+            stringAngularShape15.OutlineColor = System.Drawing.Color.Empty;
+            stringAngularShape15.PositionOffset = 4F;
+            stringAngularShape15.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -1839,8 +1817,8 @@ namespace DustInTheWind.Clock.Demo
         "58",
         "59",
         "60"};
-            this.analogClockSun.AngularShapes.Add(textAngularShape14);
-            this.analogClockSun.AngularShapes.Add(textAngularShape15);
+            this.analogClockSun.AngularShapes.Add(stringAngularShape14);
+            this.analogClockSun.AngularShapes.Add(stringAngularShape15);
             fancyDialShape2.a = 0;
             fancyDialShape2.FillColor = System.Drawing.Color.Chocolate;
             fancyDialShape2.InnerRimWidth = 23F;
@@ -1849,10 +1827,10 @@ namespace DustInTheWind.Clock.Demo
             fancyDialShape2.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape17.a = 0;
             stringGroundShape17.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape17.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape17.Location")));
             stringGroundShape17.Name = "String Ground Shape";
             stringGroundShape17.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape17.Text = "[ Sun ]";
-            stringGroundShape17.VerticalLocation = -2.5F;
             this.analogClockSun.BackgroundShapes.Add(fancyDialShape2);
             this.analogClockSun.BackgroundShapes.Add(stringGroundShape17);
             dotHandShape3.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Hour;
@@ -1896,18 +1874,17 @@ namespace DustInTheWind.Clock.Demo
             ticksShape24.FillColor = System.Drawing.Color.Empty;
             ticksShape24.Index = 61;
             ticksShape24.Name = "Ticks Shape";
-            ticksShape24.OffsetAngle = 0F;
             ticksShape25.Angle = 30F;
             ticksShape25.FillColor = System.Drawing.Color.Empty;
             ticksShape25.Index = 13;
             ticksShape25.Length = 5F;
             ticksShape25.LineWidth = 1F;
             ticksShape25.Name = "Ticks Shape";
-            ticksShape25.OffsetAngle = 0F;
             this.analogClockLocal.AngularShapes.Add(ticksShape24);
             this.analogClockLocal.AngularShapes.Add(ticksShape25);
             stringGroundShape18.a = 0;
             stringGroundShape18.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape18.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape18.Location")));
             stringGroundShape18.Name = "String Ground Shape";
             stringGroundShape18.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape18.Text = "Local";
@@ -1954,18 +1931,17 @@ namespace DustInTheWind.Clock.Demo
             ticksShape26.FillColor = System.Drawing.Color.Empty;
             ticksShape26.Index = 61;
             ticksShape26.Name = "Ticks Shape";
-            ticksShape26.OffsetAngle = 0F;
             ticksShape27.Angle = 30F;
             ticksShape27.FillColor = System.Drawing.Color.Empty;
             ticksShape27.Index = 13;
             ticksShape27.Length = 5F;
             ticksShape27.LineWidth = 1F;
             ticksShape27.Name = "Ticks Shape";
-            ticksShape27.OffsetAngle = 0F;
             this.analogClockUTC.AngularShapes.Add(ticksShape26);
             this.analogClockUTC.AngularShapes.Add(ticksShape27);
             stringGroundShape19.a = 0;
             stringGroundShape19.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape19.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape19.Location")));
             stringGroundShape19.Name = "String Ground Shape";
             stringGroundShape19.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape19.Text = "UTC";
@@ -2013,18 +1989,17 @@ namespace DustInTheWind.Clock.Demo
             ticksShape28.FillColor = System.Drawing.Color.Empty;
             ticksShape28.Index = 61;
             ticksShape28.Name = "Ticks Shape";
-            ticksShape28.OffsetAngle = 0F;
             ticksShape29.Angle = 30F;
             ticksShape29.FillColor = System.Drawing.Color.Empty;
             ticksShape29.Index = 13;
             ticksShape29.Length = 5F;
             ticksShape29.LineWidth = 1F;
             ticksShape29.Name = "Ticks Shape";
-            ticksShape29.OffsetAngle = 0F;
             this.analogClockTokyo.AngularShapes.Add(ticksShape28);
             this.analogClockTokyo.AngularShapes.Add(ticksShape29);
             stringGroundShape20.a = 0;
             stringGroundShape20.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape20.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape20.Location")));
             stringGroundShape20.Name = "String Ground Shape";
             stringGroundShape20.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape20.Text = "Tokyo\r\n+09:00";
@@ -2072,18 +2047,17 @@ namespace DustInTheWind.Clock.Demo
             ticksShape30.FillColor = System.Drawing.Color.Empty;
             ticksShape30.Index = 61;
             ticksShape30.Name = "Ticks Shape";
-            ticksShape30.OffsetAngle = 0F;
             ticksShape31.Angle = 30F;
             ticksShape31.FillColor = System.Drawing.Color.Empty;
             ticksShape31.Index = 13;
             ticksShape31.Length = 5F;
             ticksShape31.LineWidth = 1F;
             ticksShape31.Name = "Ticks Shape";
-            ticksShape31.OffsetAngle = 0F;
             this.analogClockLocalProvider.AngularShapes.Add(ticksShape30);
             this.analogClockLocalProvider.AngularShapes.Add(ticksShape31);
             stringGroundShape21.a = 0;
             stringGroundShape21.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape21.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape21.Location")));
             stringGroundShape21.Name = "String Ground Shape";
             stringGroundShape21.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape21.Text = "Local";
@@ -2093,25 +2067,25 @@ namespace DustInTheWind.Clock.Demo
             diamondHandShape35.Height = 24.2F;
             diamondHandShape35.Name = "Diamond Hand Shape";
             diamondHandShape35.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape35.Time = System.TimeSpan.Parse("01:17:34.4531250");
+            diamondHandShape35.Time = System.TimeSpan.Parse("01:52:42.1250000");
             diamondHandShape36.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
             diamondHandShape36.FillColor = System.Drawing.Color.LimeGreen;
             diamondHandShape36.Height = 37F;
             diamondHandShape36.Name = "Diamond Hand Shape";
             diamondHandShape36.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape36.TailLength = 4F;
-            diamondHandShape36.Time = System.TimeSpan.Parse("01:17:34.4531250");
+            diamondHandShape36.Time = System.TimeSpan.Parse("01:52:42.1250000");
             diamondHandShape36.Width = 4F;
             lineHandShape19.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
             lineHandShape19.FillColor = System.Drawing.Color.Empty;
             lineHandShape19.Height = 42.5F;
             lineHandShape19.Name = "Line Hand Shape";
             lineHandShape19.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape19.Time = System.TimeSpan.Parse("01:17:34.4531250");
+            lineHandShape19.Time = System.TimeSpan.Parse("01:52:42.1250000");
             pinShape21.FillColor = System.Drawing.Color.Red;
             pinShape21.Name = "Pin Shape";
             pinShape21.OutlineColor = System.Drawing.Color.Empty;
-            pinShape21.Time = System.TimeSpan.Parse("01:17:34.4531250");
+            pinShape21.Time = System.TimeSpan.Parse("01:52:42.1250000");
             this.analogClockLocalProvider.HandShapes.Add(diamondHandShape35);
             this.analogClockLocalProvider.HandShapes.Add(diamondHandShape36);
             this.analogClockLocalProvider.HandShapes.Add(lineHandShape19);
@@ -2121,7 +2095,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockLocalProvider.Size = new System.Drawing.Size(300, 300);
             this.analogClockLocalProvider.TabIndex = 8;
             this.analogClockLocalProvider.Text = "Local";
-            this.analogClockLocalProvider.Time = System.TimeSpan.Parse("01:18:44.3906250");
+            this.analogClockLocalProvider.Time = System.TimeSpan.Parse("05:50:44.3281250");
             this.analogClockLocalProvider.TimeProvider = this.localTimeProvider;
             this.analogClockLocalProvider.Timer = this.timer1;
             // 
@@ -2131,18 +2105,17 @@ namespace DustInTheWind.Clock.Demo
             ticksShape32.FillColor = System.Drawing.Color.Empty;
             ticksShape32.Index = 61;
             ticksShape32.Name = "Ticks Shape";
-            ticksShape32.OffsetAngle = 0F;
             ticksShape33.Angle = 30F;
             ticksShape33.FillColor = System.Drawing.Color.Empty;
             ticksShape33.Index = 13;
             ticksShape33.Length = 5F;
             ticksShape33.LineWidth = 1F;
             ticksShape33.Name = "Ticks Shape";
-            ticksShape33.OffsetAngle = 0F;
             this.analogClockUTCProvider.AngularShapes.Add(ticksShape32);
             this.analogClockUTCProvider.AngularShapes.Add(ticksShape33);
             stringGroundShape22.a = 0;
             stringGroundShape22.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape22.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape22.Location")));
             stringGroundShape22.Name = "String Ground Shape";
             stringGroundShape22.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape22.Text = "UTC";
@@ -2152,25 +2125,25 @@ namespace DustInTheWind.Clock.Demo
             diamondHandShape37.Height = 24.2F;
             diamondHandShape37.Name = "Diamond Hand Shape";
             diamondHandShape37.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape37.Time = System.TimeSpan.Parse("23:17:34.4687500");
+            diamondHandShape37.Time = System.TimeSpan.Parse("23:52:42.1562500");
             diamondHandShape38.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
             diamondHandShape38.FillColor = System.Drawing.Color.LimeGreen;
             diamondHandShape38.Height = 37F;
             diamondHandShape38.Name = "Diamond Hand Shape";
             diamondHandShape38.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape38.TailLength = 4F;
-            diamondHandShape38.Time = System.TimeSpan.Parse("23:17:34.4687500");
+            diamondHandShape38.Time = System.TimeSpan.Parse("23:52:42.1562500");
             diamondHandShape38.Width = 4F;
             lineHandShape20.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
             lineHandShape20.FillColor = System.Drawing.Color.Empty;
             lineHandShape20.Height = 42.5F;
             lineHandShape20.Name = "Line Hand Shape";
             lineHandShape20.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape20.Time = System.TimeSpan.Parse("23:17:34.4687500");
+            lineHandShape20.Time = System.TimeSpan.Parse("23:52:42.1562500");
             pinShape22.FillColor = System.Drawing.Color.Red;
             pinShape22.Name = "Pin Shape";
             pinShape22.OutlineColor = System.Drawing.Color.Empty;
-            pinShape22.Time = System.TimeSpan.Parse("23:17:34.4687500");
+            pinShape22.Time = System.TimeSpan.Parse("23:52:42.1562500");
             this.analogClockUTCProvider.HandShapes.Add(diamondHandShape37);
             this.analogClockUTCProvider.HandShapes.Add(diamondHandShape38);
             this.analogClockUTCProvider.HandShapes.Add(lineHandShape20);
@@ -2180,7 +2153,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockUTCProvider.Size = new System.Drawing.Size(300, 300);
             this.analogClockUTCProvider.TabIndex = 7;
             this.analogClockUTCProvider.Text = "UTC";
-            this.analogClockUTCProvider.Time = System.TimeSpan.Parse("23:18:44.3906250");
+            this.analogClockUTCProvider.Time = System.TimeSpan.Parse("03:50:44.3437500");
             this.analogClockUTCProvider.TimeProvider = this.utcTimeProvider;
             this.analogClockUTCProvider.Timer = this.timer1;
             // 
@@ -2190,18 +2163,17 @@ namespace DustInTheWind.Clock.Demo
             ticksShape34.FillColor = System.Drawing.Color.Empty;
             ticksShape34.Index = 61;
             ticksShape34.Name = "Ticks Shape";
-            ticksShape34.OffsetAngle = 0F;
             ticksShape35.Angle = 30F;
             ticksShape35.FillColor = System.Drawing.Color.Empty;
             ticksShape35.Index = 13;
             ticksShape35.Length = 5F;
             ticksShape35.LineWidth = 1F;
             ticksShape35.Name = "Ticks Shape";
-            ticksShape35.OffsetAngle = 0F;
             this.analogClockTokyoProvider.AngularShapes.Add(ticksShape34);
             this.analogClockTokyoProvider.AngularShapes.Add(ticksShape35);
             stringGroundShape23.a = 0;
             stringGroundShape23.Font = new System.Drawing.Font("Arial", 3F);
+            stringGroundShape23.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape23.Location")));
             stringGroundShape23.Name = "String Ground Shape";
             stringGroundShape23.OutlineColor = System.Drawing.Color.Empty;
             stringGroundShape23.Text = "Tokyo\r\n+9:00";
@@ -2211,25 +2183,25 @@ namespace DustInTheWind.Clock.Demo
             diamondHandShape39.Height = 24.2F;
             diamondHandShape39.Name = "Diamond Hand Shape";
             diamondHandShape39.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape39.Time = System.TimeSpan.Parse("1.08:17:34.5000000");
+            diamondHandShape39.Time = System.TimeSpan.Parse("1.08:52:42.1562500");
             diamondHandShape40.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Minute;
             diamondHandShape40.FillColor = System.Drawing.Color.LimeGreen;
             diamondHandShape40.Height = 37F;
             diamondHandShape40.Name = "Diamond Hand Shape";
             diamondHandShape40.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape40.TailLength = 4F;
-            diamondHandShape40.Time = System.TimeSpan.Parse("1.08:17:34.5000000");
+            diamondHandShape40.Time = System.TimeSpan.Parse("1.08:52:42.1562500");
             diamondHandShape40.Width = 4F;
             lineHandShape21.ComponentToDisplay = DustInTheWind.Clock.Shapes.TimeComponent.Second;
             lineHandShape21.FillColor = System.Drawing.Color.Empty;
             lineHandShape21.Height = 42.5F;
             lineHandShape21.Name = "Line Hand Shape";
             lineHandShape21.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape21.Time = System.TimeSpan.Parse("1.08:17:34.5000000");
+            lineHandShape21.Time = System.TimeSpan.Parse("1.08:52:42.1562500");
             pinShape23.FillColor = System.Drawing.Color.Red;
             pinShape23.Name = "Pin Shape";
             pinShape23.OutlineColor = System.Drawing.Color.Empty;
-            pinShape23.Time = System.TimeSpan.Parse("1.08:17:34.5000000");
+            pinShape23.Time = System.TimeSpan.Parse("1.08:52:42.1562500");
             this.analogClockTokyoProvider.HandShapes.Add(diamondHandShape39);
             this.analogClockTokyoProvider.HandShapes.Add(diamondHandShape40);
             this.analogClockTokyoProvider.HandShapes.Add(lineHandShape21);
@@ -2239,7 +2211,7 @@ namespace DustInTheWind.Clock.Demo
             this.analogClockTokyoProvider.Size = new System.Drawing.Size(300, 300);
             this.analogClockTokyoProvider.TabIndex = 9;
             this.analogClockTokyoProvider.Text = "Tokyo\r\n+9:00";
-            this.analogClockTokyoProvider.Time = System.TimeSpan.Parse("1.08:18:44.4062500");
+            this.analogClockTokyoProvider.Time = System.TimeSpan.Parse("12:50:44.3437500");
             this.analogClockTokyoProvider.TimeProvider = this.tokyoTimeProvider;
             this.analogClockTokyoProvider.Timer = this.timer1;
             // 

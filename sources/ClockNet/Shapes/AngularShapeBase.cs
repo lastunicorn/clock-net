@@ -37,10 +37,10 @@ namespace DustInTheWind.Clock.Shapes
         /// </summary>
         public const float ANGLE = 6f;
 
-        /// <summary>
-        /// The default value of the offset angle.
-        /// </summary>
-        public const float OFFSET_ANGLE = 6f;
+        ///// <summary>
+        ///// The default value of the offset angle.
+        ///// </summary>
+        //public const float OFFSET_ANGLE = 6f;
 
         /// <summary>
         /// The default value of the exception index.
@@ -81,23 +81,23 @@ namespace DustInTheWind.Clock.Shapes
         }
 
 
-        protected float offsetAngle;
+        //protected float offsetAngle;
 
-        /// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
-        [Category("Layout")]
-        [DefaultValue(OFFSET_ANGLE)]
-        public virtual float OffsetAngle
-        {
-            get { return offsetAngle; }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException("value", "The offset angle should be a number greater or equal with zero.");
+        ///// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
+        //[Category("Layout")]
+        //[DefaultValue(OFFSET_ANGLE)]
+        //public virtual float OffsetAngle
+        //{
+        //    get { return offsetAngle; }
+        //    set
+        //    {
+        //        if (value < 0)
+        //            throw new ArgumentOutOfRangeException("value", "The offset angle should be a number greater or equal with zero.");
 
-                offsetAngle = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        //        offsetAngle = value;
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
 
 
         /// <summary>

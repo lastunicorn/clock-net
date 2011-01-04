@@ -25,21 +25,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class LineHandShape : VectorialHandShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Line Hand Shape";
 
         /// <summary>
         /// The default value of the hand's tail length.
         /// </summary>
         public const float TAIL_LENGTH = 7f;
-
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Line Hand Shape"; }
-        //}
 
 
         /// <summary>

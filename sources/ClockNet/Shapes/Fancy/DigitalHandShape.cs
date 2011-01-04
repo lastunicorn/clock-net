@@ -28,6 +28,9 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class DigitalHandShape : VectorialHandShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Digital Hand Shape";
 
         /// <summary>
@@ -50,15 +53,6 @@ namespace DustInTheWind.Clock.Shapes.Default
         /// Formats the text displayed by the current instance.
         /// </summary>
         protected StringFormat stringFormat;
-
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Digital Text Shape"; }
-        //}
 
 
         /// <summary>

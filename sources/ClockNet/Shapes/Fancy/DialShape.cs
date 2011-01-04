@@ -26,20 +26,15 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class DialShape : VectorialGroundShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Dial Shape";
 
         /// <summary>
         /// The default value of the dot's radius.
         /// </summary>
         public const float RADIUS = 5f;
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Default Dial Shape"; }
-        //}
 
 
         /// <summary>
@@ -131,11 +126,16 @@ namespace DustInTheWind.Clock.Shapes.Default
             }
         }
 
-        //private float locationX = -50;
-        //private float locationY = -50;
-        //private float diameter = 100;
+        /// <summary>
+        /// The rectangle defining the circle that is drawn.
+        /// </summary>
         private RectangleF rect;
 
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
         protected override void CalculateDimensions()
         {
             rect = new RectangleF(-radius, -radius, radius * 2, radius * 2);

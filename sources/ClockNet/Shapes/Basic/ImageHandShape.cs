@@ -25,15 +25,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class ImageHandShape : HandShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Image Hand Shape";
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Image Hand Shape"; }
-        //}
 
 
         /// <summary>

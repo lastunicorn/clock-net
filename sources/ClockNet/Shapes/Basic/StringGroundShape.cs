@@ -27,6 +27,9 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class StringGroundShape : VectorialGroundShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "String Ground Shape";
 
         /// <summary>
@@ -34,12 +37,15 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// </summary>
         public const string TEXT = "Dust in the Wind";
 
+        /// <summary>
+        /// The default font used to draw the text.
+        /// </summary>
         public static Font FONT = new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point);
 
         /// <summary>
         /// The default vertical location of the text.
         /// </summary>
-        public const float VERTICAL_LOCATION = 12f;
+        public static PointF LOCATION = new PointF(0f, 0f);
 
         /// <summary>
         /// The maximum width of the rectangle where the text should be drawn.
@@ -51,15 +57,6 @@ namespace DustInTheWind.Clock.Shapes.Basic
         /// Formats the text displayed by the current instance.
         /// </summary>
         protected StringFormat stringFormat;
-
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Default Text Shape"; }
-        //}
 
 
         /// <summary>
@@ -130,16 +127,24 @@ namespace DustInTheWind.Clock.Shapes.Basic
         }
 
 
-        private float verticalLocation;
+        /// <summary>
+        /// The location where the text is drawn.
+        /// </summary>
+        private PointF location;
 
+        /// <summary>
+        /// Gets or sets the location where the text is drawn.
+        /// </summary>
         [Category("Layout")]
-        [DefaultValue(VERTICAL_LOCATION)]
-        public float VerticalLocation
+        [DefaultValue(typeof(PointF), "0;0")]
+        [TypeConverter(typeof(PointFConverter))]
+        [Description("The location where the text is drawn.")]
+        public PointF Location
         {
-            get { return verticalLocation; }
+            get { return location; }
             set
             {
-                verticalLocation = value;
+                location = value;
                 recalculateNeeded = true;
                 OnChanged(EventArgs.Empty);
             }
@@ -178,7 +183,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextGroundShape"/> class.
+        /// Initializes a new instance of the <see cref="StringGroundShape"/> class.
         /// </summary>
         /// <param name="text">The text that should be drawn.</param>
         /// <param name="color">The color used to draw the text.</param>
@@ -190,7 +195,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
 
             this.text = text;
             this.font = font;
-            this.verticalLocation = VERTICAL_LOCATION;
+            this.location = LOCATION;
 
             stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
@@ -208,8 +213,7 @@ namespace DustInTheWind.Clock.Shapes.Basic
         private void CalculateDimensions(Graphics g)
         {
             SizeF textSize = g.MeasureString(text, font, (int)maxWidth);
-            //PointF textLocation = new PointF(-textSize.Width / 2F, maxWidth / 5F);
-            PointF textLocation = new PointF(-textSize.Width / 2F, verticalLocation);
+            PointF textLocation = new PointF(location.X - textSize.Width / 2F, location.Y - textSize.Height / 2F);
             textRectangle = new RectangleF(textLocation, textSize);
 
             recalculateNeeded = false;

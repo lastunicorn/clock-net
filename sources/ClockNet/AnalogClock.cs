@@ -25,9 +25,8 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.Shapes.Default;
-using DustInTheWind.Clock.TimeProviders;
 using DustInTheWind.Clock.Shapes.Basic;
+using DustInTheWind.Clock.TimeProviders;
 
 namespace DustInTheWind.Clock
 {
@@ -42,7 +41,7 @@ namespace DustInTheWind.Clock
     /// </remarks>
     [Designer(typeof(AnalogClockDesigner))]
     [ToolboxBitmap(typeof(AnalogClock), "icon16.bmp")]
-    public partial class AnalogClock : Control
+    public class AnalogClock : Control
     {
         #region Event TimeProviderChanged
 
@@ -230,7 +229,7 @@ namespace DustInTheWind.Clock
         }
 
         /// <summary>
-        /// Gets or sets the text displayed by the first <see cref="TextShape"/> object
+        /// Gets or sets the text displayed by the first <see cref="StringGroundShape"/> object
         /// that can be found in the <see cref="BackgroundShapes"/> list.
         /// </summary>
         [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
@@ -734,8 +733,6 @@ namespace DustInTheWind.Clock
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             //SetStyle(ControlStyles.Opaque, true);
 
-            InitializeComponent();
-
             backgroundShapes = new BackgroundShapeCollection(this);
             angularShapes = new AngularShapeCollection(this);
             handShapes = new HandShapeCollection(this);
@@ -1132,6 +1129,35 @@ namespace DustInTheWind.Clock
                     }
                 }
             }
+        }
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                foreach (IGroundShape shape in backgroundShapes)
+                {
+                    if (shape != null)
+                        shape.Dispose();
+                }
+
+                foreach (IAngularShape shape in angularShapes)
+                {
+                    if (shape != null)
+                        shape.Dispose();
+                }
+
+                foreach (IHandShape shape in handShapes)
+                {
+                    if (shape != null)
+                        shape.Dispose();
+                }
+            }
+
+            base.Dispose(disposing);
         }
     }
 }

@@ -25,20 +25,15 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// </summary>
     public class DotHandShape : VectorialHandShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Dot Hand Shape";
 
         /// <summary>
         /// The default value of the dot's radius.
         /// </summary>
         public const float RADIUS = 5f;
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Dot Hand Shape"; }
-        //}
 
 
         /// <summary>

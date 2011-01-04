@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>The Shapes</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="../default.css" />
+	</head>
+	<body>
+		<h1>The Shapes</h1>
+		
+		<p>A Shape is a class that draws a graphical element on the clock. To be a Shape a class must implements the <span class="inline_code">IShape</span> interface.</p>
+				
+		<p>The clock contains three types of shapes:</p>
+		<ul>
+			<li><strong>Background Shapes</strong> - They draw the dial's background.</li>
+			<li><strong>Angular Shapes</strong> - They are repeated at different angles around the clock, like the ticks and the numbers.</li>
+			<li><strong>Hand Shapes</strong> - They draw the hands that display the time.</li>
+		</ul>
+		
+		<p><span class="inline_code">ShapeBase</span> abstract class is the default implemnentation of the <span class="inline_code">IShape</span> interface. When creating a new Shape, it is recomanded to derive from this class or one of its descendents, rather then implementing the <span class="inline_code">IShape</span> members from scratch.</p>
+		
+		<p>A tree with the basic Shapes can be found <a href="shapes_hierarchy.html">here</a>.</p>
+				
+		<div id="page_footer"></div>
+	</body>
+</html> 

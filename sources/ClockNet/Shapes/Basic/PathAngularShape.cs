@@ -24,15 +24,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class PathAngularShape : VectorialAngularShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Path Angular Shape";
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Path Angular Shape"; }
-        //}
 
         /// <summary>
         /// The path that is drawn.

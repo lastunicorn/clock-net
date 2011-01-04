@@ -60,7 +60,6 @@ namespace DustInTheWind.Clock.Demo
                 typeof(RectangleAngularShape),
                 typeof(EllipseAngularShape),
                 typeof(PathAngularShape),
-                typeof(StringAngularShape),
                 typeof(ImageAngularShape),
                 typeof(TicksShape)
             });

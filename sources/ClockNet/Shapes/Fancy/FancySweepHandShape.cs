@@ -27,7 +27,10 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// </summary>
     public class FancySweepHandShape : PathHandShape
     {
-        public const string NAME = "Fancy Sweep Hand Shape";
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
+        public new const string NAME = "Fancy Sweep Hand Shape";
 
         /// <summary>
         /// The default radius of the circle from the middle (or not so middle) of the hand.
@@ -43,15 +46,6 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// The default length of the tail of the hand.
         /// </summary>
         public const float TAIL_LENGTH = 7f;
-
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Fancy Sweep Hand Shape"; }
-        //}
 
 
         /// <summary>

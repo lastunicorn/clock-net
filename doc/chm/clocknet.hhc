@@ -37,18 +37,8 @@
 			</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Types of Shapes">
-				<param name="Local" value="ebook\analog_clock\shapes_types.html">
-				<param name="ImageNumber" value="11">
-				</OBJECT>
-			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="IShape Interface">
-				<param name="Local" value="ebook\analog_clock\ishape_interface.html">
-				<param name="ImageNumber" value="11">
-				</OBJECT>
-			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="IShape Implementations">
-				<param name="Local" value="ebook\analog_clock\ishape_implementations.html">
+				<param name="Name" value="The Shapes">
+				<param name="Local" value="ebook\analog_clock\shapes.html">
 				<param name="ImageNumber" value="11">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">

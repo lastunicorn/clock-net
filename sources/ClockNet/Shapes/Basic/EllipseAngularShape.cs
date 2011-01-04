@@ -23,26 +23,16 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class EllipseAngularShape : VectorialAngularShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Ellipse Angular Shape";
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Ellipse Angular Shape"; }
-        //}
 
 
         /// <summary>
         /// The rectangle defining the ellipse that is drawn.
         /// </summary>
         protected RectangleF rectangle;
-        public RectangleF Rectangle
-        {
-            get { return rectangle; }
-            set { rectangle = value; }
-        }
 
 
         #region Constructors

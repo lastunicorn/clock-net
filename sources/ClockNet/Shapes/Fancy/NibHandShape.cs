@@ -27,7 +27,10 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// </summary>
     public class NibHandShape : PathHandShape
     {
-        public const string NAME = "Nib Hand Shape";
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
+        public new const string NAME = "Nib Hand Shape";
 
         /// <summary>
         /// The default length of the width of the hand.
@@ -56,6 +59,7 @@ namespace DustInTheWind.Clock.Shapes.Fancy
                 OnChanged(EventArgs.Empty);
             }
         }
+
 
         #region Constructor
 
@@ -94,6 +98,12 @@ namespace DustInTheWind.Clock.Shapes.Fancy
 
         #endregion
 
+
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
         protected override void CalculateDimensions()
         {
             path.Reset();
@@ -179,100 +189,9 @@ namespace DustInTheWind.Clock.Shapes.Fancy
             });
         }
 
-        ///// <summary>
-        ///// Creates and returns the <see cref="GraphicsPath"/> object that should be drawn.
-        ///// The path is created once. The dimension of the hand is controlled by scaling the coordinate's system.
-        ///// </summary>
-        ///// <returns>An <see cref="GraphicsPath"/> object containing the path that will be drawn.</returns>
-        //private static GraphicsPath CreatePath()
-        //{
-        //    GraphicsPath path = new GraphicsPath();
-
-        //    path.Reset();
-
-        //    path.AddArc(new RectangleF(-12f, 43f, 24f, 24f), -60f, 300f);
-
-        //    path.AddCurve(new PointF[] {
-        //        //new PointF(-10f * (float)Math.Cos(Math.PI / 3f), 41f * (float)Math.Sin(Math.PI / 3f)),
-        //        new PointF(-4f, 39f),
-        //        new PointF(-8f, 35f)
-        //    });
-
-        //    path.AddCurve(new PointF[] {
-        //        new PointF(-8f, 35f),
-        //        new PointF(-4f, 29f),
-        //        new PointF(-2f, 11f)
-        //    });
-
-        //    path.AddArc(new RectangleF(-12f, -13f, 24, 24), 90, 90);
-
-        //    path.AddCurve(new PointF[] {
-        //        //new PointF(-12f, -1f),
-        //        new PointF(-12f, -7f),
-        //        new PointF(-2f, -59f),
-        //        new PointF(-10f, -119f)
-        //    });
-
-        //    path.AddCurve(new PointF[] {
-        //        new PointF(-10f, -119f),
-        //        new PointF(-5f, -124f),
-        //        new PointF(-3f, -129f)
-        //    });
-
-        //    path.AddArc(new RectangleF(-15f, -159f, 30f, 30f), 90f, 90f);
-
-        //    path.AddCurve(new PointF[] {
-        //        //new PointF(-15f, -144f),
-        //        new PointF(-14f, -151f),
-        //        new PointF(-3f, -199f),
-        //        new PointF(-1f, -249f)
-        //    });
-
-        //    path.AddLine(new PointF(-1f, -249f), new PointF(-1f, -280f));
-
-        //    // <- center
-
-        //    path.AddLine(new PointF(1f, -280f), new PointF(1f, -249f));
-
-        //    path.AddCurve(new PointF[] {
-        //        new PointF(1f, -249f),
-        //        new PointF(3f, -199f),
-        //        new PointF(14f, -151f)
-        //        //new PointF(15f, -144f)
-        //    });
-
-        //    path.AddArc(new RectangleF(-15f, -159f, 30f, 30f), 0f, 90f);
-
-        //    path.AddCurve(new PointF[] {
-        //        new PointF(3f, -129f),
-        //        new PointF(5f, -124f),
-        //        new PointF(10f, -119f)
-        //    });
-
-        //    path.AddCurve(new PointF[] {
-        //        new PointF(10f, -119f),
-        //        new PointF(2f, -59f),
-        //        new PointF(12f, -7f)
-        //        //new PointF(12f, -1f)
-        //    });
-
-        //    path.AddArc(new RectangleF(-12f, -13f, 24f, 24f), 0f, 90f);
-
-        //    path.AddCurve(new PointF[] {
-        //        new PointF(2f, 11f),
-        //        new PointF(4f, 29f),
-        //        new PointF(8f, 35f)
-        //    });
-
-        //    path.AddCurve(new PointF[] {
-        //        new PointF(8f, 35f),
-        //        new PointF(4f, 39f),
-        //        new PointF(10f * (float)Math.Cos(Math.PI / 3f), 41f * (float)Math.Sin(Math.PI / 3f))
-        //    });
-
-        //    return path;
-        //}
-
+        /// <summary>
+        /// Specifies if the hand should keep its proportions when its length is changed.
+        /// </summary>
         protected bool keepProportions = true;
 
 

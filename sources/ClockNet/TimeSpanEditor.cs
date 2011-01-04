@@ -22,6 +22,9 @@ using System.Windows.Forms.Design;
 
 namespace DustInTheWind.Clock
 {
+    /// <summary>
+    /// Provides an UI for editing <see cref="TimeSpan"/> and a <see cref="TimeSpan?"/> values.
+    /// </summary>
     public class TimeSpanEditor : UITypeEditor
     {
         public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)

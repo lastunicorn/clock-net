@@ -47,8 +47,8 @@ namespace DustInTheWind.Clock.Demo
             this.components = new System.ComponentModel.Container();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape1 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
             DustInTheWind.Clock.Shapes.Default.TicksShape ticksShape2 = new DustInTheWind.Clock.Shapes.Default.TicksShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape1 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
-            DustInTheWind.Clock.Shapes.Default.TextAngularShape textAngularShape2 = new DustInTheWind.Clock.Shapes.Default.TextAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape textAngularShape1 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
+            DustInTheWind.Clock.Shapes.Basic.StringAngularShape textAngularShape2 = new DustInTheWind.Clock.Shapes.Basic.StringAngularShape();
             DustInTheWind.Clock.Shapes.Fancy.FancyDialShape fancyDialShape1 = new DustInTheWind.Clock.Shapes.Fancy.FancyDialShape();
             DustInTheWind.Clock.Shapes.Basic.StringGroundShape stringGroundShape1 = new DustInTheWind.Clock.Shapes.Basic.StringGroundShape();
             DustInTheWind.Clock.Shapes.Default.DiamondHandShape diamondHandShape1 = new DustInTheWind.Clock.Shapes.Default.DiamondHandShape();
@@ -989,14 +989,14 @@ namespace DustInTheWind.Clock.Demo
             ticksShape1.FillColor = System.Drawing.Color.Empty;
             ticksShape1.Index = 61;
             ticksShape1.Name = "Second Ticks";
-            ticksShape1.OffsetAngle = 0F;
+
             ticksShape1.PositionOffset = 7F;
             ticksShape2.Angle = 30F;
             ticksShape2.FillColor = System.Drawing.Color.Empty;
             ticksShape2.Index = 13;
             ticksShape2.LineWidth = 1F;
             ticksShape2.Name = "Hour Ticks";
-            ticksShape2.OffsetAngle = 0F;
+
             ticksShape2.OutlineColor = System.Drawing.Color.White;
             ticksShape2.PositionOffset = 7F;
             textAngularShape1.Angle = 30F;
@@ -1004,7 +1004,7 @@ namespace DustInTheWind.Clock.Demo
             textAngularShape1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic);
             textAngularShape1.Index = 13;
             textAngularShape1.Name = "Hours";
-            textAngularShape1.OffsetAngle = 0F;
+
             textAngularShape1.OutlineColor = System.Drawing.Color.Empty;
             textAngularShape1.PositionOffset = 15F;
             textAngularShape1.Texts = new string[] {
@@ -1025,7 +1025,7 @@ namespace DustInTheWind.Clock.Demo
             textAngularShape2.Font = new System.Drawing.Font("Arial", 2.2F);
             textAngularShape2.Index = 13;
             textAngularShape2.Name = "Minutes";
-            textAngularShape2.OffsetAngle = 0F;
+
             textAngularShape2.OutlineColor = System.Drawing.Color.Empty;
             textAngularShape2.PositionOffset = 2.7F;
             textAngularShape2.Texts = new string[] {

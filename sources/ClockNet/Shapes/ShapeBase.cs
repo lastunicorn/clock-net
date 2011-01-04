@@ -26,6 +26,7 @@ namespace DustInTheWind.Clock.Shapes
     public abstract class ShapeBase : IShape
     {
         private string name;
+
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>

@@ -26,10 +26,8 @@ ebook\analog_clock\clocknet_explained.html
 ebook\analog_clock\shapes_hierarchy.html
 ebook\analog_clock\timer.html
 ebook\analog_clock\time_provider.html
-ebook\analog_clock\ishape_implementations.html
 ebook\analog_clock\appearance.html
-ebook\analog_clock\shapes_types.html
-ebook\analog_clock\ishape_interface.html
+ebook\analog_clock\shapes.html
 ebook\tutorials\developing_a_new_shape.html
 ebook\tutorials\first_time.html
 

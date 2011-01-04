@@ -23,15 +23,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class RectangleHandShape : VectorialHandShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Rectangle Hand Shape";
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Rectangle Hand Shape"; }
-        //}
 
 
         /// <summary>

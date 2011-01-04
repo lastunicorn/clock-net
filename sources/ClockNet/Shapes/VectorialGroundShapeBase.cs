@@ -125,7 +125,7 @@ namespace DustInTheWind.Clock.Shapes
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// Initializes a new instance of the <see cref="VectorialGroundShapeBase"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
@@ -135,7 +135,7 @@ namespace DustInTheWind.Clock.Shapes
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
+        /// Initializes a new instance of the <see cref="VectorialGroundShapeBase"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>

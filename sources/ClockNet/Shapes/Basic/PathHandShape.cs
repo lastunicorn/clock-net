@@ -24,15 +24,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class PathHandShape : VectorialHandShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Path Hand Shape";
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Path Hand Shape"; }
-        //}
 
         /// <summary>
         /// The path that is drawn.

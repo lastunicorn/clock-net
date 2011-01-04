@@ -27,9 +27,21 @@ namespace DustInTheWind.Clock.TimeProviders
         /// <summary>
         /// The default value of the time multiplier.
         /// </summary>
-        public const float MULTIPLIER = 10;
+        public const float TIME_MULTIPLIER = 10;
 
+
+        /// <summary>
+        /// The last value of the time provided by the current instance.
+        /// </summary>
         private TimeSpan lastValue;
+
+        /// <summary>
+        /// Gets or sets the last value of the time provided by the current instance.
+        /// When this value is set, it is considered a reference for the next time value
+        /// returned by the current instance.
+        /// </summary>
+        [DefaultValue(typeof(TimeSpan), "00:00:00")]
+        [Description("The last value of the time provided by the current instance.")]
         public TimeSpan LastValue
         {
             get { return lastValue; }
@@ -41,24 +53,29 @@ namespace DustInTheWind.Clock.TimeProviders
             }
         }
 
+        /// <summary>
+        /// The real time when the current instance provided the last time value.
+        /// </summary>
         private DateTime lastQueryTime;
 
+
         /// <summary>
-        /// The time multiplier that specifies how much faster is the provided time compared to the real one.
+        /// The time multiplier that specifies how much faster the time measured by the current instance
+        /// flows compared to the real one.
         /// </summary>
-        private float multiplier;
+        private float timeMultiplier;
 
         /// <summary>
         /// Gets or sets the time multiplier that specifies how much faster is the provided time compared to the real one.
         /// </summary>
-        [DefaultValue(MULTIPLIER)]
+        [DefaultValue(TIME_MULTIPLIER)]
         [Description("Specifies how much faster is the provided time compared to the real one.")]
-        public float Multiplier
+        public float TimeMultiplier
         {
-            get { return multiplier; }
+            get { return timeMultiplier; }
             set
             {
-                multiplier = value;
+                timeMultiplier = value;
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -68,7 +85,7 @@ namespace DustInTheWind.Clock.TimeProviders
         /// default values.
         /// </summary>
         public BrokenTimeProvider()
-            : this(MULTIPLIER)
+            : this(TIME_MULTIPLIER)
         {
         }
 
@@ -84,11 +101,12 @@ namespace DustInTheWind.Clock.TimeProviders
         /// <summary>
         /// Initializes a new instance of the <see cref="RandomTimeProvider"/> class.
         /// </summary>
-        /// <param name="multiplier">Specifies how much faster is the provided time compared to the real one.</param>
-        public BrokenTimeProvider(float multiplier, TimeSpan initialValue)
+        /// <param name="timeMultiplier">Specifies how much faster is the provided time compared to the real one.</param>
+        /// <param name="initialValue">The value of the time measured by the new instance at the moment of its creation.</param>
+        public BrokenTimeProvider(float timeMultiplier, TimeSpan initialValue)
             : base()
         {
-            this.multiplier = multiplier;
+            this.timeMultiplier = timeMultiplier;
             lastQueryTime = DateTime.Now;
             lastValue = initialValue;
         }
@@ -101,7 +119,7 @@ namespace DustInTheWind.Clock.TimeProviders
         {
             DateTime currentQueryTime = DateTime.Now;
             TimeSpan diffTime = currentQueryTime - lastQueryTime;
-            double deltaTimeTicks = diffTime.Ticks * multiplier;
+            double deltaTimeTicks = diffTime.Ticks * timeMultiplier;
             TimeSpan deltaTime = new TimeSpan((int)deltaTimeTicks); // By rounding here, small amounts of time are lost every time.
             TimeSpan newValue = lastValue + deltaTime;
             if (newValue.Days > 0)

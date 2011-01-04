@@ -22,6 +22,11 @@ using DustInTheWind.Clock.Shapes;
 
 namespace DustInTheWind.Clock
 {
+    /// <summary>
+    /// Provides a user interface that can edit most types of collections at design
+    /// time and offeres additional support for collections containing items of types
+    /// <see cref="IAngularShape"/>, <see cref="IHandShape"/> and <see cref="IGroundShape"/>.
+    /// </summary>
     public class ShapeCollectionEditor : CollectionEditor
     {
         /// <summary>

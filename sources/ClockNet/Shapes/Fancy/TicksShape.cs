@@ -26,21 +26,15 @@ namespace DustInTheWind.Clock.Shapes.Default
     /// </summary>
     public class TicksShape : LineAngularShape
     {
-        public const string NAME = "Ticks Shape";
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
+        public new const string NAME = "Ticks Shape";
 
         /// <summary>
         /// The default value of the length.
         /// </summary>
         public const float LENGTH = 2.5f;
-
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Default Ticks Shape"; }
-        //}
 
 
         /// <summary>

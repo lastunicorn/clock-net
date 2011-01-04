@@ -27,7 +27,10 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// </summary>
     public class SlotHandShape : PathHandShape
     {
-        public const string NAME = "Slot Hand Shape";
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
+        public new const string NAME = "Slot Hand Shape";
 
         /// <summary>
         /// The default length of the width of the hand.
@@ -43,25 +46,6 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// The default length of the tail of the hand.
         /// </summary>
         public const float TAIL_LENGTH = 6f;
-
-        ///// <summary>
-        ///// The default fill color.
-        ///// </summary>
-        //public new static Color FILL_COLOR = Color.White;
-
-        ///// <summary>
-        ///// The default outline color.
-        ///// </summary>
-        //public new static Color OUTLINE_COLOR = Color.Empty;
-
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Slot Hand Shape"; }
-        //}
 
 
         /// <summary>

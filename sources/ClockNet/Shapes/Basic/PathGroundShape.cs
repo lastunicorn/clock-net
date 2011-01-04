@@ -24,15 +24,10 @@ namespace DustInTheWind.Clock.Shapes.Basic
     /// </summary>
     public class PathGroundShape : VectorialGroundShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Path Ground Shape";
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Path Shape"; }
-        //}
 
         /// <summary>
         /// The path that is drawn.

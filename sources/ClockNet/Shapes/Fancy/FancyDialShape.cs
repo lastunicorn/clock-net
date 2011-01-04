@@ -27,6 +27,9 @@ namespace DustInTheWind.Clock.Shapes.Fancy
     /// </summary>
     public class FancyDialShape : VectorialGroundShapeBase
     {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
         public const string NAME = "Fancy Dial Shape";
 
         /// <summary>
@@ -39,14 +42,6 @@ namespace DustInTheWind.Clock.Shapes.Fancy
         /// </summary>
         public const float INNER_RIM_WIDTH = 1f;
 
-
-        ///// <summary>
-        ///// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
-        ///// </summary>
-        //public override string Name
-        //{
-        //    get { return "Fancy Dial Shape"; }
-        //}
 
         /// <summary>
         /// The width of the outer-most rim.

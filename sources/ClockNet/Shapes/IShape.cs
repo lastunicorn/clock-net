@@ -29,10 +29,8 @@ namespace DustInTheWind.Clock.Shapes
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
         /// </summary>
-        [Browsable(false)]
-        string Name { get; }
-
-        //string Name2 { get; set; }
+        /// <exception cref="ArgumentNullException"></exception>
+        string Name { get; set; }
 
         /// <summary>
         /// Gets or sets a value specifying if the shape should be drawn or not.
