@@ -16,10 +16,10 @@
 
 using System;
 using System.Windows.Forms;
-using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.TimeProviders;
+using DustInTheWind.ClockNet.Shapes;
+using DustInTheWind.ClockNet.TimeProviders;
 
-namespace DustInTheWind.Clock.Demo
+namespace DustInTheWind.ClockNet.Demo
 {
     public partial class FormExamples : Form
     {

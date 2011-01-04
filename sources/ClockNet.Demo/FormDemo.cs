@@ -17,13 +17,13 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using DustInTheWind.Clock.TimeProviders;
+using DustInTheWind.ClockNet.TimeProviders;
 using System.Reflection;
-using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.Shapes.Basic;
-using DustInTheWind.Clock.Shapes.Advanced;
+using DustInTheWind.ClockNet.Shapes;
+using DustInTheWind.ClockNet.Shapes.Basic;
+using DustInTheWind.ClockNet.Shapes.Advanced;
 
-namespace DustInTheWind.Clock.Demo
+namespace DustInTheWind.ClockNet.Demo
 {
     public partial class FormDemo : Form
     {

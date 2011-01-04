@@ -16,7 +16,7 @@
 
 using System;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
     /// Specifies a component of a time value.

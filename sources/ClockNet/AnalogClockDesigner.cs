@@ -19,11 +19,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms.Design;
-using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.Shapes.Basic;
-using DustInTheWind.Clock.Shapes.Advanced;
+using DustInTheWind.ClockNet.Shapes;
+using DustInTheWind.ClockNet.Shapes.Basic;
+using DustInTheWind.ClockNet.Shapes.Advanced;
 
-namespace DustInTheWind.Clock
+namespace DustInTheWind.ClockNet
 {
     /// <summary>
     /// Provides design time behavior for the <see cref="AnalogClock"/> control.
@@ -55,7 +55,9 @@ namespace DustInTheWind.Clock
 
                 if (backgroundShapes != null)
                 {
-                    backgroundShapes.Add(new StringGroundShape("Dust in the Wind", Color.Black));
+                    StringGroundShape textShape = new StringGroundShape("Dust in the Wind", Color.Black);
+                    textShape.Location = new PointF(0f, 20f);
+                    backgroundShapes.Add(textShape);
                 }
             }
 

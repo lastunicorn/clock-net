@@ -20,7 +20,6 @@ ebook\images\external_link.gif
 ebook\images\bullet.gif
 ebook\images\separator.png
 ebook\images\note.png
-ebook\analog_clock\design_time_support.html
 ebook\analog_clock\shape_sets.html
 ebook\analog_clock\clocknet_explained.html
 ebook\analog_clock\shapes_hierarchy.html
@@ -28,8 +27,10 @@ ebook\analog_clock\timer.html
 ebook\analog_clock\time_provider.html
 ebook\analog_clock\appearance.html
 ebook\analog_clock\shapes.html
-ebook\tutorials\developing_a_new_shape.html
+ebook\tutorials\tutorials.html
 ebook\tutorials\first_time.html
+ebook\tutorials\developing_a_new_shape.html
+ebook\tutorials\developing_a_new_time_provider.html
 
 [INFOTYPES]
 

@@ -1,12 +1,16 @@
-3) Add a Skin property.
+1) fix the flick from the the first display.
+
+3) Release 2.0 beta
+
 4) expose properties to control the image quality.
+5) Add a Skin property.
+
+
 
 7) Try to create a compas
 
 
-tutorials:
-	- Replacing the default shapes.
-	- Using a custom Time Provider.
+
 
 
 UITypeEditors
@@ -16,48 +20,6 @@ Designers
 
 
 http://www.codeproject.com/KB/cs/propertyeditor.aspx
-UITypeEditors
--------------
-[Editor(typeof(WidthEditor), typeof(UITypeEditor))]
-
-WidthEditor : System.Drawing.Design.UITypeEditor
-GetEditStyle()
-
-EditValue()
-IWindowsFormsEditorService frmsvr = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
-frmsvr.DropDownControl(tbr); //tbr = Object of Type track bar
-
-
-
-
-TypeConverter
--------------
-[TypeConverter(typeof(PhoneTypeConverter))]
-public class PhoneNumber
-{
-}
-
-
-PhoneTypeConverter : System.ComponentModel.TypeConverter 
-GetPropertiesSupported()
-GetProperties()
-
-
-
-
-
-Designers
----------
-
-
-
-
-
-
-
-
-
-
 
 
 If at first you don't succeed; call it version 1.0

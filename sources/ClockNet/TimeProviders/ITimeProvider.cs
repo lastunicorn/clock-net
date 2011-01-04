@@ -17,7 +17,7 @@
 using System;
 using System.ComponentModel;
 
-namespace DustInTheWind.Clock.TimeProviders
+namespace DustInTheWind.ClockNet.TimeProviders
 {
     /// <summary>
     /// Provides the time to be displayed by the a clock. The time is provided as <see cref="TimeSpan"/> objects.

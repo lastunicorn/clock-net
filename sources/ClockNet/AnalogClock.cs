@@ -24,11 +24,11 @@ using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.Shapes.Basic;
-using DustInTheWind.Clock.TimeProviders;
+using DustInTheWind.ClockNet.Shapes;
+using DustInTheWind.ClockNet.Shapes.Basic;
+using DustInTheWind.ClockNet.TimeProviders;
 
-namespace DustInTheWind.Clock
+namespace DustInTheWind.ClockNet
 {
     /// <summary>
     /// An Windows Forms control that displays an old style analog clock.
@@ -40,7 +40,7 @@ namespace DustInTheWind.Clock
     /// not be compiled at all, so it will not influence the performance.</para>
     /// </remarks>
     [Designer(typeof(AnalogClockDesigner))]
-    [ToolboxBitmap(typeof(AnalogClock), "icon16.bmp")]
+    //[ToolboxBitmap(typeof(AnalogClock), "icon16.bmp")]
     public class AnalogClock : Control
     {
         #region Event TimeProviderChanged
@@ -336,11 +336,9 @@ namespace DustInTheWind.Clock
 
                 if (timer != null)
                 {
-                    if (timeProvider != null)
-                    {
-                        time = timeProvider.GetTime();
-                        Invalidate();
-                    }
+                    UpdateTime();
+                    Invalidate();
+
                     timer.Tick += new EventHandler(timer_Tick);
                 }
             }
@@ -352,6 +350,16 @@ namespace DustInTheWind.Clock
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void timer_Tick(object sender, EventArgs e)
+        {
+            UpdateTime();
+            Invalidate();
+        }
+
+        /// <summary>
+        /// Updates the <see cref="Time"/> value with the one obtained from the <see cref="TimeProvider"/>
+        /// (if  one is provided) or obtained using internal mechanism if no <see cref="TimeProvider"/> exists.
+        /// </summary>
+        private void UpdateTime()
         {
             if (timeProvider != null)
             {
@@ -365,8 +373,6 @@ namespace DustInTheWind.Clock
             {
                 time = DateTime.UtcNow.TimeOfDay.Add(utcOffset.Value);
             }
-
-            Invalidate();
         }
 
         #endregion

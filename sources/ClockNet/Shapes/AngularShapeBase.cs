@@ -19,7 +19,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
     /// The base implementation of the <see cref="IAngularShape"/> interface.

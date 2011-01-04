@@ -20,7 +20,7 @@ using System.ComponentModel.Design;
 using System.Drawing;
 using System.Drawing.Design;
 
-namespace DustInTheWind.Clock.Shapes.Basic
+namespace DustInTheWind.ClockNet.Shapes.Basic
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the text displayed on the background of the dial.

@@ -17,7 +17,7 @@
 using System;
 using System.ComponentModel;
 
-namespace DustInTheWind.Clock.TimeProviders
+namespace DustInTheWind.ClockNet.TimeProviders
 {
     /// <summary>
     /// Implements base functionality for a time provider class.

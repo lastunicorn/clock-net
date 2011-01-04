@@ -18,9 +18,9 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using DustInTheWind.Clock.Shapes.Basic;
+using DustInTheWind.ClockNet.Shapes.Basic;
 
-namespace DustInTheWind.Clock.Shapes.Advanced
+namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
     /// <summary>
     /// Draws a clock hand that is a slot carved inside a disk. By default the disk is big as the clock.

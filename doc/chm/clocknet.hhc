@@ -69,14 +69,10 @@
 				<param name="ImageNumber" value="11">
 				</OBJECT>
 		</UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Design Time Support">
-			<param name="Local" value="ebook\analog_clock\design_time_support.html">
-			<param name="ImageNumber" value="11">
-			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Tutorials">
+		<param name="Local" value="ebook\tutorials\tutorials.html">
 		<param name="ImageNumber" value="1">
 		</OBJECT>
 	<UL>
@@ -88,6 +84,11 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Developing a New Shape">
 			<param name="Local" value="ebook\tutorials\developing_a_new_shape.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Developing a New Time Provider">
+			<param name="Local" value="ebook\tutorials\developing_a_new_time_provider.html">
+			<param name="ImageNumber" value="11">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">

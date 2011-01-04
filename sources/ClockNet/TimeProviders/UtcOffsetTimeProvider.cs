@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing.Design;
 
-namespace DustInTheWind.Clock.TimeProviders
+namespace DustInTheWind.ClockNet.TimeProviders
 {
     /// <summary>
     /// Provides the a time value calculated from the system's utc time to which an offset is added.

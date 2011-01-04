@@ -17,10 +17,10 @@
 using System;
 using System.ComponentModel;
 using System.Globalization;
-using DustInTheWind.Clock.Shapes;
-using DustInTheWind.Clock.Shapes.Advanced;
+using DustInTheWind.ClockNet.Shapes;
+using DustInTheWind.ClockNet.Shapes.Advanced;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
     /// Converts an <see cref="IShape"/> object to na user friendly string representaiton.

@@ -15,10 +15,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Drawing;
-using DustInTheWind.Clock.Shapes.Basic;
-using DustInTheWind.Clock.Shapes.Advanced;
+using DustInTheWind.ClockNet.Shapes.Basic;
+using DustInTheWind.ClockNet.Shapes.Advanced;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
     /// Keeps a collection of Shapes that can be applied to the <see cref="AnalogClock"/> all at once.

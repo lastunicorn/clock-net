@@ -8,7 +8,7 @@
     <ProjectGuid>{24E993CE-3CBC-4227-9293-08D618FFD1A1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DustInTheWind.Clock</RootNamespace>
+    <RootNamespace>DustInTheWind.ClockNet</RootNamespace>
     <AssemblyName>ClockNet</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes.Basic
+namespace DustInTheWind.ClockNet.Shapes.Basic
 {
     /// <summary>
     /// A Shape class that draws a bitmap image.

@@ -6,9 +6,11 @@
 	<body>
 		<h1>Developping a New Time Provider</h1>
 		
-		<p>A Time Provider is the way in which you can provide an external custom time to be displayed by the timer.</p>
+		<p>A Time Provider is the way in which you can provide an external custom time to be displayed by the timer. To create a new Time Provider you need to do the folowing steps:</p>
 		
-		<p>A time provider class should implement the <span class="inline_code">ITimeProvider</span> interface:</p>
+		<ol>
+			<li>
+		<p>Implement the <span class="inline_code">ITimeProvider</span> interface:</p>
 		<pre class="code">public class MyTimeProvider : ITimeProvider
 {
     ...
@@ -18,7 +20,15 @@
 {
     ...
 }</pre>
-
+			</li>
+			<li>
+				<p>Override the <span class="inline_code">GetTime</span> method. It should return the time value that will be displayed by the AnalogClock. For example, the LocalTimeProvider has the following <span class="inline_code">GetTime</span> method:</p>
+				<pre class="code">public override TimeSpan GetTime()
+{
+    return DateTime.Now.TimeOfDay;
+}</pre>
+			</li>
+		</ol>
 		
 		<div id="page_footer"></div>
 	</body>

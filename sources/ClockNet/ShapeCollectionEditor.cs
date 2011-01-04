@@ -18,9 +18,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Reflection;
-using DustInTheWind.Clock.Shapes;
+using DustInTheWind.ClockNet.Shapes;
 
-namespace DustInTheWind.Clock
+namespace DustInTheWind.ClockNet
 {
     /// <summary>
     /// Provides a user interface that can edit most types of collections at design

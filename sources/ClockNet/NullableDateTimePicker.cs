@@ -18,7 +18,7 @@ using System;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace DustInTheWind.Clock
+namespace DustInTheWind.ClockNet
 {
     /// <summary>
     /// An <see cref="UserControl"/> that similar to the <see cref="DateTimePicker"/> control

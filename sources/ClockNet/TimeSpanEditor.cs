@@ -20,7 +20,7 @@ using System.Drawing.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
-namespace DustInTheWind.Clock
+namespace DustInTheWind.ClockNet
 {
     /// <summary>
     /// Provides an UI for editing <see cref="TimeSpan"/> and a <see cref="TimeSpan?"/> values.

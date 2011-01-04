@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
     /// Represents a graphic element displayed in the <see cref="AnalogClock"/>.

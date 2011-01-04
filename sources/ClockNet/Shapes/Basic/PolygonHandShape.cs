@@ -17,7 +17,7 @@
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes.Basic
+namespace DustInTheWind.ClockNet.Shapes.Basic
 {
     /// <summary>
     /// An Hend Shape that draws a polygonal clock hand.

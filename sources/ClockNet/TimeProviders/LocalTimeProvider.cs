@@ -16,7 +16,7 @@
 
 using System;
 
-namespace DustInTheWind.Clock.TimeProviders
+namespace DustInTheWind.ClockNet.TimeProviders
 {
     /// <summary>
     /// Provides the system's local time.

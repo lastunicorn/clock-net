@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DustInTheWind.Clock.Shapes;
+using DustInTheWind.ClockNet.Shapes;
 
-namespace DustInTheWind.Clock.Demo
+namespace DustInTheWind.ClockNet.Demo
 {
     internal class TestAngularShape : AngularShapeBase
     {

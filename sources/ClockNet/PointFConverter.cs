@@ -19,7 +19,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 
-namespace DustInTheWind.Clock
+namespace DustInTheWind.ClockNet
 {
     /// <summary>
     ///  Provides a type converter to convert <see cref="PointF"/> to and from string representation.

@@ -1,4 +1,4 @@
-﻿namespace DustInTheWind.Clock
+﻿namespace DustInTheWind.ClockNet
 {
     partial class NullableDateTimePicker
     {

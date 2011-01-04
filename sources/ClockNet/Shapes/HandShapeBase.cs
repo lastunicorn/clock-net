@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.Clock.Shapes
+namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
     /// The base implementation of the <see cref="IHandShape"/> interface.

@@ -17,7 +17,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace DustInTheWind.Clock.Demo
+namespace DustInTheWind.ClockNet.Demo
 {
     static class Program
     {

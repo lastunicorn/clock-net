@@ -19,7 +19,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System;
 
-namespace DustInTheWind.Clock.Shapes.Advanced
+namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
     /// <summary>
     /// A Background Shape that draws a gradient background with two rims around it.

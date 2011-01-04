@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DustInTheWind.Clock.Demo.Properties {
+namespace DustInTheWind.ClockNet.Demo.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DustInTheWind.Clock.Demo.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DustInTheWind.Clock.Demo.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DustInTheWind.ClockNet.Demo.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
