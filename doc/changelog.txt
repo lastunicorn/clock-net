@@ -4,9 +4,8 @@ ClockNet
 ver 2.0 beta
 ------------
 I radically changed the Shape's hierarchy. Now there are three big groups of Shapes: backgrounds, angulars and hands.
-A Shape can be placed only in one of the three lists contained by the clock: BackgroundShapes, AngularShapes, HandShapes.
 I added design time support for changing the Shapes of a clock.
-I created more Shapes and improves the old ones.
+I created more Shapes and improved the old ones.
 I added more examples of the clock in the demo project.
 I added support for obtaining the time value internally if no ITimeProvider is configured.
 
