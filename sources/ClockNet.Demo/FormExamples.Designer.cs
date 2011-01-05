@@ -377,7 +377,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDefault.Size = new System.Drawing.Size(300, 300);
             this.analogClockDefault.TabIndex = 20;
             this.analogClockDefault.Text = "Default";
-            this.analogClockDefault.Time = System.TimeSpan.Parse("20:52:30.1875000");
+            this.analogClockDefault.Time = System.TimeSpan.Parse("22:32:54.9375000");
             this.analogClockDefault.Timer = this.timer1;
             // 
             // analogClockSimple
@@ -428,7 +428,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockSimple.Size = new System.Drawing.Size(300, 300);
             this.analogClockSimple.TabIndex = 16;
             this.analogClockSimple.Text = "Simple";
-            this.analogClockSimple.Time = System.TimeSpan.Parse("20:52:30.1875000");
+            this.analogClockSimple.Time = System.TimeSpan.Parse("22:32:54.9531250");
             this.analogClockSimple.Timer = this.timer1;
             // 
             // analogClockNoNumbers
@@ -485,7 +485,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockNoNumbers.Size = new System.Drawing.Size(300, 300);
             this.analogClockNoNumbers.TabIndex = 17;
             this.analogClockNoNumbers.Text = "No Numbers";
-            this.analogClockNoNumbers.Time = System.TimeSpan.Parse("20:52:30.1875000");
+            this.analogClockNoNumbers.Time = System.TimeSpan.Parse("22:32:54.9531250");
             this.analogClockNoNumbers.Timer = this.timer1;
             // 
             // analogClockRomanNumbers
@@ -551,7 +551,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockRomanNumbers.Size = new System.Drawing.Size(300, 300);
             this.analogClockRomanNumbers.TabIndex = 19;
             this.analogClockRomanNumbers.Text = "Roman Numbers";
-            this.analogClockRomanNumbers.Time = System.TimeSpan.Parse("20:52:30.1875000");
+            this.analogClockRomanNumbers.Time = System.TimeSpan.Parse("22:32:54.9531250");
             this.analogClockRomanNumbers.Timer = this.timer1;
             // 
             // analogClockClear
@@ -596,7 +596,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockClear.Size = new System.Drawing.Size(300, 300);
             this.analogClockClear.TabIndex = 18;
             this.analogClockClear.Text = "Clear";
-            this.analogClockClear.Time = System.TimeSpan.Parse("20:52:30.1875000");
+            this.analogClockClear.Time = System.TimeSpan.Parse("22:32:54.9531250");
             this.analogClockClear.Timer = this.timer1;
             // 
             // analogClockNESW
@@ -660,7 +660,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockNESW.Size = new System.Drawing.Size(300, 300);
             this.analogClockNESW.TabIndex = 13;
             this.analogClockNESW.Text = "North East Sourh West";
-            this.analogClockNESW.Time = System.TimeSpan.Parse("20:52:30.1875000");
+            this.analogClockNESW.Time = System.TimeSpan.Parse("22:32:54.9531250");
             this.analogClockNESW.Timer = this.timer1;
             // 
             // tabControl1
@@ -823,7 +823,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBlue.Size = new System.Drawing.Size(300, 300);
             this.analogClockBlue.TabIndex = 0;
             this.analogClockBlue.Text = "Blue";
-            this.analogClockBlue.Time = System.TimeSpan.Parse("20:52:30.2031250");
+            this.analogClockBlue.Time = System.TimeSpan.Parse("22:32:54.9687500");
             this.analogClockBlue.Timer = this.timer1;
             // 
             // analogClockDigital
@@ -909,7 +909,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDigital.Size = new System.Drawing.Size(300, 300);
             this.analogClockDigital.TabIndex = 14;
             this.analogClockDigital.Text = "Digital";
-            this.analogClockDigital.Time = System.TimeSpan.Parse("20:52:30.2187500");
+            this.analogClockDigital.Time = System.TimeSpan.Parse("22:32:54.9687500");
             this.analogClockDigital.Timer = this.timer1;
             // 
             // analogClockGreen
@@ -996,7 +996,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockGreen.Size = new System.Drawing.Size(300, 300);
             this.analogClockGreen.TabIndex = 11;
             this.analogClockGreen.Text = "Green";
-            this.analogClockGreen.Time = System.TimeSpan.Parse("20:52:30.2187500");
+            this.analogClockGreen.Time = System.TimeSpan.Parse("22:32:54.9687500");
             this.analogClockGreen.Timer = this.timer1;
             // 
             // analogClockRandom
@@ -1075,7 +1075,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockRandom.Size = new System.Drawing.Size(300, 300);
             this.analogClockRandom.TabIndex = 21;
             this.analogClockRandom.Text = "Broken\r\n(Random)";
-            this.analogClockRandom.Time = System.TimeSpan.Parse("05:29:38");
+            this.analogClockRandom.Time = System.TimeSpan.Parse("22:42:01");
             this.analogClockRandom.TimeProvider = this.randomTimeProvider1;
             this.analogClockRandom.Timer = this.timer1;
             // 
@@ -1334,7 +1334,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockImages.Size = new System.Drawing.Size(300, 300);
             this.analogClockImages.TabIndex = 19;
             this.analogClockImages.Text = "Gothic";
-            this.analogClockImages.Time = System.TimeSpan.Parse("20:52:30.2500000");
+            this.analogClockImages.Time = System.TimeSpan.Parse("22:32:55.0156250");
             this.analogClockImages.Timer = this.timer1;
             // 
             // analogClockBlackDot
@@ -1381,7 +1381,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBlackDot.Size = new System.Drawing.Size(300, 300);
             this.analogClockBlackDot.TabIndex = 20;
             this.analogClockBlackDot.Text = "[ Dots ]";
-            this.analogClockBlackDot.Time = System.TimeSpan.Parse("20:52:30.2500000");
+            this.analogClockBlackDot.Time = System.TimeSpan.Parse("22:32:55.0156250");
             this.analogClockBlackDot.Timer = this.timer1;
             // 
             // analogClockFancy
@@ -1456,7 +1456,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockFancy.Size = new System.Drawing.Size(300, 300);
             this.analogClockFancy.TabIndex = 16;
             this.analogClockFancy.Text = "Fancy";
-            this.analogClockFancy.Time = System.TimeSpan.Parse("20:52:30.2500000");
+            this.analogClockFancy.Time = System.TimeSpan.Parse("22:32:55.0156250");
             this.analogClockFancy.Timer = this.timer1;
             // 
             // analogClockWhiteFancy
@@ -1524,7 +1524,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockWhiteFancy.Size = new System.Drawing.Size(300, 300);
             this.analogClockWhiteFancy.TabIndex = 17;
             this.analogClockWhiteFancy.Text = null;
-            this.analogClockWhiteFancy.Time = System.TimeSpan.Parse("20:52:30.2656250");
+            this.analogClockWhiteFancy.Time = System.TimeSpan.Parse("22:32:55.0312500");
             this.analogClockWhiteFancy.Timer = this.timer1;
             // 
             // analogClockBlack
@@ -1658,7 +1658,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBlack.Size = new System.Drawing.Size(300, 300);
             this.analogClockBlack.TabIndex = 18;
             this.analogClockBlack.Text = "Shading Black";
-            this.analogClockBlack.Time = System.TimeSpan.Parse("20:52:30.2656250");
+            this.analogClockBlack.Time = System.TimeSpan.Parse("22:32:55.0312500");
             this.analogClockBlack.Timer = this.timer1;
             // 
             // analogClockSun
@@ -1798,7 +1798,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockSun.Size = new System.Drawing.Size(300, 300);
             this.analogClockSun.TabIndex = 21;
             this.analogClockSun.Text = "[ Sun ]";
-            this.analogClockSun.Time = System.TimeSpan.Parse("20:52:30.2656250");
+            this.analogClockSun.Time = System.TimeSpan.Parse("22:32:55.0312500");
             this.analogClockSun.Timer = this.timer1;
             // 
             // label4
@@ -1902,7 +1902,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockLocal.Size = new System.Drawing.Size(300, 300);
             this.analogClockLocal.TabIndex = 10;
             this.analogClockLocal.Text = "Local";
-            this.analogClockLocal.Time = System.TimeSpan.Parse("20:52:30.2812500");
+            this.analogClockLocal.Time = System.TimeSpan.Parse("22:32:55.0468750");
             this.analogClockLocal.Timer = this.timer1;
             // 
             // analogClockUTC
@@ -1959,7 +1959,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockUTC.Size = new System.Drawing.Size(300, 300);
             this.analogClockUTC.TabIndex = 6;
             this.analogClockUTC.Text = "UTC";
-            this.analogClockUTC.Time = System.TimeSpan.Parse("20:52:30.2812500");
+            this.analogClockUTC.Time = System.TimeSpan.Parse("22:32:55.0468750");
             this.analogClockUTC.Timer = this.timer1;
             this.analogClockUTC.UtcOffset = System.TimeSpan.Parse("00:00:00");
             // 
@@ -2017,7 +2017,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockTokyo.Size = new System.Drawing.Size(300, 300);
             this.analogClockTokyo.TabIndex = 11;
             this.analogClockTokyo.Text = "Tokyo\r\n+09:00";
-            this.analogClockTokyo.Time = System.TimeSpan.Parse("20:52:30.2812500");
+            this.analogClockTokyo.Time = System.TimeSpan.Parse("22:32:55.0468750");
             this.analogClockTokyo.Timer = this.timer1;
             this.analogClockTokyo.UtcOffset = System.TimeSpan.Parse("09:00:00");
             // 
@@ -2075,7 +2075,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockLocalProvider.Size = new System.Drawing.Size(300, 300);
             this.analogClockLocalProvider.TabIndex = 8;
             this.analogClockLocalProvider.Text = "Local";
-            this.analogClockLocalProvider.Time = System.TimeSpan.Parse("20:52:30.2968750");
+            this.analogClockLocalProvider.Time = System.TimeSpan.Parse("22:32:55.0468750");
             this.analogClockLocalProvider.TimeProvider = this.localTimeProvider;
             this.analogClockLocalProvider.Timer = this.timer1;
             // 
@@ -2133,7 +2133,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockUTCProvider.Size = new System.Drawing.Size(300, 300);
             this.analogClockUTCProvider.TabIndex = 7;
             this.analogClockUTCProvider.Text = "UTC";
-            this.analogClockUTCProvider.Time = System.TimeSpan.Parse("18:52:30.2968750");
+            this.analogClockUTCProvider.Time = System.TimeSpan.Parse("20:32:55.0625000");
             this.analogClockUTCProvider.TimeProvider = this.utcTimeProvider;
             this.analogClockUTCProvider.Timer = this.timer1;
             // 
@@ -2191,7 +2191,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockTokyoProvider.Size = new System.Drawing.Size(300, 300);
             this.analogClockTokyoProvider.TabIndex = 9;
             this.analogClockTokyoProvider.Text = "Tokyo\r\n+9:00";
-            this.analogClockTokyoProvider.Time = System.TimeSpan.Parse("1.03:52:30.2968750");
+            this.analogClockTokyoProvider.Time = System.TimeSpan.Parse("1.05:32:55.0625000");
             this.analogClockTokyoProvider.TimeProvider = this.tokyoTimeProvider;
             this.analogClockTokyoProvider.Timer = this.timer1;
             // 
@@ -2227,7 +2227,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClock8.Size = new System.Drawing.Size(300, 300);
             this.analogClock8.TabIndex = 0;
             this.analogClock8.Text = null;
-            this.analogClock8.Time = System.TimeSpan.Parse("20:52:30.3125000");
+            this.analogClock8.Time = System.TimeSpan.Parse("22:32:55.0781250");
             this.analogClock8.Timer = this.timer1;
             this.analogClock8.UtcOffset = System.TimeSpan.Parse("02:00:00");
             // 

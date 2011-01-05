@@ -49,6 +49,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
+    <Compile Include="Compass\CompassDirection.cs" />
+    <Compile Include="Compass\CompassDirectionFormat.cs" />
+    <Compile Include="Compass\CompassException.cs" />
+    <Compile Include="Compass\Quadrant.cs" />
     <Compile Include="NullableTimeSpanConverter.cs" />
     <Compile Include="NullableDateTimePicker.cs">
       <SubType>UserControl</SubType>
