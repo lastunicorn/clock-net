@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Drawing;
 
 namespace DustInTheWind.ClockNet.Shapes
 {
@@ -29,8 +30,10 @@ namespace DustInTheWind.ClockNet.Shapes
         float Height { get; set; }
 
         /// <summary>
-        /// Gets or sets the time that the current instance should represent.
+        /// Gets or sets the time that the current instance is representing.
         /// </summary>
         TimeSpan Time { get; set; }
+
+        bool HitTest(PointF point);
     }
 }

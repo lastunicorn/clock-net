@@ -286,7 +286,6 @@ namespace DustInTheWind.ClockNet.Demo
                 ConstructorInfo ctor = t.GetConstructor(new Type[0]);
                 IGroundShape shape = (IGroundShape)ctor.Invoke(null);
                 analogClockDemo.BackgroundShapes.Add(shape);
-                listBoxBackgroundShapes.Items.Add(shape);
             }
         }
 
@@ -295,7 +294,36 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxBackgroundShapes.SelectedItem != null)
             {
                 analogClockDemo.BackgroundShapes.Remove(listBoxBackgroundShapes.SelectedItem as IGroundShape);
-                listBoxBackgroundShapes.Items.Remove(listBoxBackgroundShapes.SelectedItem);
+            }
+        }
+
+        private void buttonBackgroundUp_Click(object sender, EventArgs e)
+        {
+            if (listBoxBackgroundShapes.SelectedIndex > 0)
+            {
+                int index = listBoxBackgroundShapes.SelectedIndex;
+                IGroundShape shape = listBoxBackgroundShapes.SelectedItem as IGroundShape;
+                if (shape != null)
+                {
+                    analogClockDemo.BackgroundShapes.RemoveAt(index);
+                    analogClockDemo.BackgroundShapes.Insert(index - 1, shape);
+                    listBoxBackgroundShapes.SelectedItem = shape;
+                }
+            }
+        }
+
+        private void buttonBackgroundDown_Click(object sender, EventArgs e)
+        {
+            if (listBoxBackgroundShapes.SelectedIndex >= 0 && listBoxBackgroundShapes.SelectedIndex < listBoxBackgroundShapes.Items.Count - 1)
+            {
+                int index = listBoxBackgroundShapes.SelectedIndex;
+                IGroundShape shape = listBoxBackgroundShapes.SelectedItem as IGroundShape;
+                if (shape != null)
+                {
+                    analogClockDemo.BackgroundShapes.RemoveAt(index);
+                    analogClockDemo.BackgroundShapes.Insert(index + 1, shape);
+                    listBoxBackgroundShapes.SelectedItem = shape;
+                }
             }
         }
 
@@ -330,7 +358,35 @@ namespace DustInTheWind.ClockNet.Demo
             }
         }
 
+        private void buttonAngularUp_Click(object sender, EventArgs e)
+        {
+            if (listBoxAngularShapes.SelectedIndex > 0)
+            {
+                int index = listBoxAngularShapes.SelectedIndex;
+                IAngularShape shape = listBoxAngularShapes.SelectedItem as IAngularShape;
+                if (shape != null)
+                {
+                    analogClockDemo.AngularShapes.RemoveAt(index);
+                    analogClockDemo.AngularShapes.Insert(index - 1, shape);
+                    listBoxAngularShapes.SelectedItem = shape;
+                }
+            }
+        }
 
+        private void buttonAngularDown_Click(object sender, EventArgs e)
+        {
+            if (listBoxAngularShapes.SelectedIndex >= 0 && listBoxAngularShapes.SelectedIndex < listBoxAngularShapes.Items.Count - 1)
+            {
+                int index = listBoxAngularShapes.SelectedIndex;
+                IAngularShape shape = listBoxAngularShapes.SelectedItem as IAngularShape;
+                if (shape != null)
+                {
+                    analogClockDemo.AngularShapes.RemoveAt(index);
+                    analogClockDemo.AngularShapes.Insert(index + 1, shape);
+                    listBoxAngularShapes.SelectedItem = shape;
+                }
+            }
+        }
 
         #endregion
 
@@ -363,6 +419,66 @@ namespace DustInTheWind.ClockNet.Demo
             }
         }
 
+        private void buttonHandUp_Click(object sender, EventArgs e)
+        {
+            if (listBoxHandShapes.SelectedIndex > 0)
+            {
+                int index = listBoxHandShapes.SelectedIndex;
+                IHandShape shape = listBoxHandShapes.SelectedItem as IHandShape;
+                if (shape != null)
+                {
+                    analogClockDemo.HandShapes.RemoveAt(index);
+                    analogClockDemo.HandShapes.Insert(index - 1, shape);
+                    listBoxHandShapes.SelectedItem = shape;
+                }
+            }
+        }
+
+        private void buttonHandDown_Click(object sender, EventArgs e)
+        {
+            if (listBoxHandShapes.SelectedIndex >= 0 && listBoxHandShapes.SelectedIndex < listBoxHandShapes.Items.Count - 1)
+            {
+                int index = listBoxHandShapes.SelectedIndex;
+                IHandShape shape = listBoxHandShapes.SelectedItem as IHandShape;
+                if (shape != null)
+                {
+                    analogClockDemo.HandShapes.RemoveAt(index);
+                    analogClockDemo.HandShapes.Insert(index + 1, shape);
+                    listBoxHandShapes.SelectedItem = shape;
+                }
+            }
+        }
+
         #endregion
+
+        private void analogClockDemo_BackgroundShapeAdded(object sender, ShapeAddedEventArgs e)
+        {
+            listBoxBackgroundShapes.Items.Insert(e.Index, e.Shape);
+        }
+
+        private void analogClockDemo_BackgroundShapeRemoved(object sender, ShapeRemovedEventArgs e)
+        {
+            listBoxBackgroundShapes.Items.Remove(e.Shape);
+        }
+
+        private void analogClockDemo_AngularShapeAdded(object sender, ShapeAddedEventArgs e)
+        {
+            listBoxAngularShapes.Items.Insert(e.Index, e.Shape);
+        }
+
+        private void analogClockDemo_AngularShapeRemoved(object sender, ShapeRemovedEventArgs e)
+        {
+            listBoxAngularShapes.Items.Remove(e.Shape);
+        }
+
+        private void analogClockDemo_HandShapeAdded(object sender, ShapeAddedEventArgs e)
+        {
+            listBoxHandShapes.Items.Insert(e.Index, e.Shape);
+        }
+
+        private void analogClockDemo_HandShapeRemoved(object sender, ShapeRemovedEventArgs e)
+        {
+            listBoxHandShapes.Items.Remove(e.Shape);
+        }
     }
 }

@@ -165,5 +165,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 g.DrawEllipse(pen, _locationX, _locationY, diameter, diameter);
             }
         }
+
+        public override bool HitTest(PointF point)
+        {
+            return false;
+        }
     }
 }

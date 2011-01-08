@@ -16,8 +16,7 @@
 
 using System;
 using System.Windows.Forms;
-using DustInTheWind.ClockNet.Shapes;
-using DustInTheWind.ClockNet.TimeProviders;
+using DustInTheWind.ClockNet.Compass;
 
 namespace DustInTheWind.ClockNet.Demo
 {
@@ -26,6 +25,70 @@ namespace DustInTheWind.ClockNet.Demo
         public FormExamples()
         {
             InitializeComponent();
+            RefreshCompass();
+        }
+
+        private void numericUpDownDegrees_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshCompass();
+        }
+
+        private void numericUpDownMinutes_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshCompass();
+        }
+
+        private void numericUpDownSeconds_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshCompass();
+        }
+
+        private void RefreshCompass()
+        {
+            int degrees = (int)numericUpDownDegrees.Value;
+            int minutes = (int)numericUpDownMinutes.Value;
+            int seconds = (int)numericUpDownSeconds.Value;
+
+            CompassDirection direction = CompassDirection.FromAzimuth(degrees, minutes, seconds);
+
+            analogClockCompass.Time = direction.ToTimeSpan();
+        }
+
+        private void FormExamples_Load(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+
+            numericUpDownDegrees.Value = rand.Next(360);
+            numericUpDownMinutes.Value = rand.Next(60);
+            numericUpDownSeconds.Value = rand.Next(60);
+        }
+
+        private void buttonNorth_Click(object sender, EventArgs e)
+        {
+            numericUpDownDegrees.Value = 0;
+            numericUpDownMinutes.Value = 0;
+            numericUpDownSeconds.Value = 0;
+        }
+
+        private void buttonEast_Click(object sender, EventArgs e)
+        {
+            numericUpDownDegrees.Value = 90;
+            numericUpDownMinutes.Value = 0;
+            numericUpDownSeconds.Value = 0;
+        }
+
+        private void buttonSouth_Click(object sender, EventArgs e)
+        {
+            numericUpDownDegrees.Value = 180;
+            numericUpDownMinutes.Value = 0;
+            numericUpDownSeconds.Value = 0;
+        }
+
+        private void buttonWest_Click(object sender, EventArgs e)
+        {
+            numericUpDownDegrees.Value = 270;
+            numericUpDownMinutes.Value = 0;
+            numericUpDownSeconds.Value = 0;
         }
     }
 }

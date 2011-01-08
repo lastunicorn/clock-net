@@ -219,5 +219,31 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
 
             base.DrawInternal(g);
         }
+
+        public override bool HitTest(PointF point)
+        {
+            PointF clickLocation;
+            
+            using (Matrix m = new Matrix())
+            {
+                if (keepProportions && height > 0)
+                {
+                    float scaleFactorY = height / 280f;
+                    m.Scale(1 / scaleFactorY, 1 / scaleFactorY);
+                }
+                else
+                {
+                    float scaleFactorY = height > 0 ? height / 280f : 1f;
+                    float scaleFactorX = width > 0 ? width / 30f : 1f;
+                    m.Scale(1 / scaleFactorX, 1 / scaleFactorY);
+                }
+
+                PointF[] points = new PointF[] { point };
+                m.TransformPoints(points);
+                clickLocation = points[0];
+            }
+
+            return base.HitTest(clickLocation);
+        }
     }
 }

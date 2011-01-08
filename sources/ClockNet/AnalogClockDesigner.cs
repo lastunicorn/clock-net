@@ -39,6 +39,14 @@ namespace DustInTheWind.ClockNet
             base.InitializeNewComponent(defaultValues);
 
 
+            PropertyDescriptor sizeDescriptor = TypeDescriptor.GetProperties(Component)["Size"];
+
+            if (sizeDescriptor != null && sizeDescriptor.PropertyType == typeof(Size) && !sizeDescriptor.IsReadOnly && sizeDescriptor.IsBrowsable)
+            {
+                sizeDescriptor.SetValue(Component, new Size(200, 200));
+            }
+
+
             PropertyDescriptor timeDescriptor = TypeDescriptor.GetProperties(Component)["Time"];
 
             if (timeDescriptor != null && timeDescriptor.PropertyType == typeof(TimeSpan) && !timeDescriptor.IsReadOnly && timeDescriptor.IsBrowsable)
@@ -71,16 +79,19 @@ namespace DustInTheWind.ClockNet
                 if (angularShapes != null)
                 {
                     TicksShape ticks1Shape = new TicksShape(Color.Black, TicksShape.LENGTH, TicksShape.LINE_WIDTH, 0f);
+                    ticks1Shape.Name = "Second Ticks";
                     ticks1Shape.Angle = 6f;
                     ticks1Shape.ExceptionIndex = 5;
                     angularShapes.Add(ticks1Shape);
 
                     TicksShape ticks5Shape = new TicksShape(Color.Black, TicksShape.LENGTH, 1f, 0f);
+                    ticks5Shape.Name = "Hour Ticks";
                     ticks5Shape.Angle = 30f;
                     ticks5Shape.Length = 5f;
                     angularShapes.Add(ticks5Shape);
 
                     StringAngularShape numbersShape = new StringAngularShape(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 13f);
+                    numbersShape.Name = "Hours";
                     numbersShape.Angle = 30f;
                     numbersShape.Orientation = AngularOrientation.Normal;
                     angularShapes.Add(numbersShape);
@@ -96,19 +107,23 @@ namespace DustInTheWind.ClockNet
                 if (handShapes != null)
                 {
                     DiamondHandShape hourHandShape = new DiamondHandShape(Color.Empty, Color.RoyalBlue, 24f, 5f, 6f);
+                    hourHandShape.Name = "Hour Hand Shape";
                     hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                     handShapes.Add(hourHandShape);
 
                     DiamondHandShape minuteHandShape = new DiamondHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
+                    minuteHandShape.Name = "Minute Hand Shape";
                     minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                     handShapes.Add(minuteHandShape);
 
                     LineHandShape sweepHandShape = new LineHandShape(Color.Red);
+                    sweepHandShape.Name = "Second Hand Shape";
                     sweepHandShape.ComponentToDisplay = TimeComponent.Second;
                     sweepHandShape.Height = 42.5f;
                     handShapes.Add(sweepHandShape);
 
                     PinShape pinShape = new PinShape(Color.Red, PinShape.DIAMETER);
+                    pinShape.Name = "Pin Shape";
                     handShapes.Add(pinShape);
                 }
             }

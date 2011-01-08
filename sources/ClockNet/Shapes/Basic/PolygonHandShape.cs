@@ -16,6 +16,7 @@
 
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.ClockNet.Shapes.Basic
 {
@@ -100,5 +101,44 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
                 g.DrawPolygon(pen, points);
             }
         }
+
+        public override bool HitTest(PointF point)
+        {
+            PointF clickLocation;
+
+            using (Matrix m = new Matrix())
+            {
+                float angle = GetRotationDegrees();
+                m.Rotate(-angle);
+
+                PointF[] points = new PointF[] { point };
+                m.TransformPoints(points);
+                clickLocation = points[0];
+            }
+
+            return PointInPolygon(clickLocation, this.points);
+        }
+
+
+        private bool PointInPolygon(PointF point, PointF[] polygon)
+        {
+            var j = polygon.Length - 1;
+            var oddNodes = false;
+
+            for (var i = 0; i < points.Length; i++)
+            {
+                if (polygon[i].Y < point.Y && polygon[j].Y >= point.Y || polygon[j].Y < point.Y && polygon[i].Y >= point.Y)
+                {
+                    if (polygon[i].X + (point.Y - polygon[i].Y) / (polygon[j].Y - polygon[i].Y) * (polygon[j].X - polygon[i].X) < point.X)
+                    {
+                        oddNodes = !oddNodes;
+                    }
+                }
+                j = i;
+            }
+
+            return oddNodes;
+        }
+
     }
 }

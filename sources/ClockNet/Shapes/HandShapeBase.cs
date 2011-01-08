@@ -195,5 +195,7 @@ namespace DustInTheWind.ClockNet.Shapes
                 DrawInternal(g);
             }
         }
+
+        public abstract bool HitTest(PointF point);
     }
 }

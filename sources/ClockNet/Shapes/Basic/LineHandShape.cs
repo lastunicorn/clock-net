@@ -140,5 +140,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
 
             g.DrawLine(pen, startPoint, endPoint);
         }
+
+        public override bool HitTest(PointF point)
+        {
+            return false;
+        }
     }
 }

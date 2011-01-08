@@ -116,5 +116,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
                 g.DrawRectangle(pen, roundedRectangle);
             }
         }
+
+        public override bool HitTest(PointF point)
+        {
+            return false;
+        }
     }
 }

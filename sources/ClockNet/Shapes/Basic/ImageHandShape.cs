@@ -141,5 +141,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
 
             g.DrawImage(image, -origin.X, -origin.Y, image.Width, image.Height);
         }
+
+        public override bool HitTest(PointF point)
+        {
+            return false;
+        }
     }
 }

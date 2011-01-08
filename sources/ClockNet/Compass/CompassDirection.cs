@@ -131,29 +131,29 @@ namespace DustInTheWind.ClockNet.Compass
             this.seconds = seconds;
         }
 
-        public static CompassDirection FromAzimuth(int gradees)
+        public static CompassDirection FromAzimuth(int degrees)
         {
-            if (gradees < 0 || gradees >= 360)
-                throw new ArgumentOutOfRangeException("gradees", "The gradees must be an integer number between 0 and 90.");
+            if (degrees < 0 || degrees >= 360)
+                throw new ArgumentOutOfRangeException("degrees", "The degrees must be an integer number between 0 and 360.");
 
-            return new CompassDirection(gradees * SecondsPerDegree);
+            return new CompassDirection(degrees * SecondsPerDegree);
         }
 
-        public static CompassDirection FromAzimuth(int gradees, int minutes)
+        public static CompassDirection FromAzimuth(int degrees, int minutes)
         {
-            if (gradees < 0 || gradees >= 360)
-                throw new ArgumentOutOfRangeException("gradees", "The gradees must be an integer number between 0 and 90.");
+            if (degrees < 0 || degrees >= 360)
+                throw new ArgumentOutOfRangeException("degrees", "The degrees must be an integer number between 0 and 360.");
 
             if (minutes < 0 || minutes > 60)
                 throw new ArgumentOutOfRangeException("minutes", "The minutes must be an integer number between 0 and 60.");
 
-            return new CompassDirection(gradees * SecondsPerDegree + minutes * SecondsPerMinute);
+            return new CompassDirection(degrees * SecondsPerDegree + minutes * SecondsPerMinute);
         }
 
-        public static CompassDirection FromAzimuth(int gradees, int minutes, int seconds)
+        public static CompassDirection FromAzimuth(int degrees, int minutes, int seconds)
         {
-            if (gradees < 0 || gradees >= 360)
-                throw new ArgumentOutOfRangeException("gradees", "The gradees must be an integer number between 0 and 90.");
+            if (degrees < 0 || degrees >= 360)
+                throw new ArgumentOutOfRangeException("degrees", "The degrees must be an integer number between 0 and 360.");
 
             if (minutes < 0 || minutes > 60)
                 throw new ArgumentOutOfRangeException("minutes", "The minutes must be an integer number between 0 and 60.");
@@ -161,15 +161,15 @@ namespace DustInTheWind.ClockNet.Compass
             if (seconds < 0 || seconds > 60)
                 throw new ArgumentOutOfRangeException("seconds", "The seconds must be an integer number between 0 and 60.");
 
-            return new CompassDirection(gradees * SecondsPerDegree + minutes * SecondsPerMinute + seconds);
+            return new CompassDirection(degrees * SecondsPerDegree + minutes * SecondsPerMinute + seconds);
         }
 
-        public static CompassDirection FromQuadrant(Quadrant quadrant, int gradees)
+        public static CompassDirection FromQuadrant(Quadrant quadrant, int degrees)
         {
-            if (gradees < 0 || gradees > 90)
-                throw new ArgumentOutOfRangeException("gradees", "The gradees must be an integer number between 0 and 90.");
+            if (degrees < 0 || degrees > 90)
+                throw new ArgumentOutOfRangeException("degrees", "The degrees must be an integer number between 0 and 90.");
 
-            int quadrantSeconds = gradees * SecondsPerDegree;
+            int quadrantSeconds = degrees * SecondsPerDegree;
 
             switch (quadrant)
             {
@@ -190,15 +190,15 @@ namespace DustInTheWind.ClockNet.Compass
             }
         }
 
-        public static CompassDirection FromQuadrant(Quadrant quadrant, int gradees, int minutes)
+        public static CompassDirection FromQuadrant(Quadrant quadrant, int degrees, int minutes)
         {
-            if (gradees < 0 || gradees > 90)
-                throw new ArgumentOutOfRangeException("gradees", "The gradees must be an integer number between 0 and 90.");
+            if (degrees < 0 || degrees > 90)
+                throw new ArgumentOutOfRangeException("degrees", "The degrees must be an integer number between 0 and 90.");
 
             if (minutes < 0 || minutes > 60)
                 throw new ArgumentOutOfRangeException("minutes", "The minutes must be an integer number between 0 and 60.");
 
-            int quadrantSeconds = gradees * SecondsPerDegree + minutes * SecondsPerMinute;
+            int quadrantSeconds = degrees * SecondsPerDegree + minutes * SecondsPerMinute;
 
             switch (quadrant)
             {
@@ -219,10 +219,10 @@ namespace DustInTheWind.ClockNet.Compass
             }
         }
 
-        public static CompassDirection FromQuadrant(Quadrant quadrant, int gradees, int minutes, int seconds)
+        public static CompassDirection FromQuadrant(Quadrant quadrant, int degrees, int minutes, int seconds)
         {
-            if (gradees < 0 || gradees > 90)
-                throw new ArgumentOutOfRangeException("gradees", "The gradees must be an integer number between 0 and 90.");
+            if (degrees < 0 || degrees > 90)
+                throw new ArgumentOutOfRangeException("degrees", "The degrees must be an integer number between 0 and 90.");
 
             if (minutes < 0 || minutes > 60)
                 throw new ArgumentOutOfRangeException("minutes", "The minutes must be an integer number between 0 and 60.");
@@ -230,7 +230,7 @@ namespace DustInTheWind.ClockNet.Compass
             if (seconds < 0 || seconds > 60)
                 throw new ArgumentOutOfRangeException("seconds", "The seconds must be an integer number between 0 and 60.");
 
-            int quadrantSeconds = gradees * SecondsPerDegree + minutes * SecondsPerMinute + seconds;
+            int quadrantSeconds = degrees * SecondsPerDegree + minutes * SecondsPerMinute + seconds;
 
             switch (quadrant)
             {

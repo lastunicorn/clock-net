@@ -17,6 +17,7 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
@@ -143,6 +144,30 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
 
                 //g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
                 g.DrawEllipse(pen, dotRectangle);
+            }
+        }
+
+        public override bool HitTest(PointF point)
+        {
+            Point dotCenter = new Point((int)(dotRectangle.X + radius), (int)(dotRectangle.Y + radius));
+
+            using (Matrix m = new Matrix())
+            {
+                float angle = GetRotationDegrees();
+                m.Rotate(angle);
+
+                Point[] points = new Point[] { dotCenter };
+                m.TransformPoints(points);
+
+                float centerX = points[0].X;
+                float centerY = points[0].Y;
+
+                float alphaX = point.X - centerX;
+                float alphaY = point.Y - centerY;
+
+                float dist = (float)Math.Sqrt(alphaX * alphaX + alphaY * alphaY);
+
+                return dist <= radius;
             }
         }
     }

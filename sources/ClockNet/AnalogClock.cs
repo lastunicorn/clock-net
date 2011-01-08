@@ -245,7 +245,7 @@ namespace DustInTheWind.ClockNet
                 }
                 else
                 {
-                    return null;
+                    return string.Empty;
                 }
             }
             set
@@ -1164,6 +1164,32 @@ namespace DustInTheWind.ClockNet
             }
 
             base.Dispose(disposing);
+        }
+
+        protected override void OnMouseClick(MouseEventArgs e)
+        {
+            using (Matrix m = new Matrix())
+            {
+                m.Translate(-centerX, -centerY);
+                m.Scale(1 / scaleX, 1 / scaleY, MatrixOrder.Append);
+
+                PointF[] points = new PointF[] { e.Location };
+                m.TransformPoints(points);
+                PointF clickLocation = points[0];
+
+                //Console.WriteLine("click: {0}; {1}", points[0].X, points[0].Y);
+
+                for (int i = handShapes.Count - 1; i >= 0; i--)
+                {
+                    if (handShapes[i].HitTest(points[0]))
+                    {
+                        Console.WriteLine(handShapes[i].Name);
+                        break;
+                    }
+                }
+
+                base.OnMouseClick(e);
+            }
         }
     }
 }

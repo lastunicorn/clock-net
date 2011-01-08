@@ -125,5 +125,20 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
 
             base.Dispose(disposing);
         }
+
+        public override bool HitTest(PointF point)
+        {
+            using (Matrix m = new Matrix())
+            {
+                float angle = GetRotationDegrees();
+                m.Rotate(-angle);
+
+                PointF[] points = new PointF[] { point };
+                m.TransformPoints(points);
+                PointF clickLocation = points[0];
+
+                return path.IsVisible(point);
+            }
+        }
     }
 }

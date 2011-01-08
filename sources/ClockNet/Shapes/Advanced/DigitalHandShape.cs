@@ -214,6 +214,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             }
         }
 
+        public override bool HitTest(PointF point)
+        {
+            return false;
+        }
+
         #region Dispose
 
         /// <summary>
