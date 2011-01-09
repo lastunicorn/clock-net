@@ -1,6 +1,10 @@
 ClockNet
 ========
 
+ver 2.0 beta2
+-------------
+Bug fix: The DigitalHandShape was crushing if the clock was trying to display an utc time to which was applied an offset smaller then the negative value of the utc time itself.
+
 ver 2.0 beta
 ------------
 I radically changed the Shape's hierarchy. Now there are three big groups of Shapes: backgrounds, angulars and hands.

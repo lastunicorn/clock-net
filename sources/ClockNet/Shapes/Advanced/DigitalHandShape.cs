@@ -202,7 +202,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             StringBuilder sb = new StringBuilder();
             string prepend = string.Empty;
 
-            string text = new DateTime(time.Ticks).ToString(format);
+            string text = time.Ticks < 0 ? "-" : string.Empty;
+            text += new DateTime(time.Duration().Ticks).ToString(format);
 
             if (text.Length > 0)
             {
@@ -218,6 +219,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             return false;
         }
+
+
 
         #region Dispose
 
