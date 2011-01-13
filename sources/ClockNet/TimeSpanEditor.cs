@@ -23,7 +23,7 @@ using System.Windows.Forms.Design;
 namespace DustInTheWind.ClockNet
 {
     /// <summary>
-    /// Provides an UI for editing <see cref="TimeSpan"/> and a <see cref="TimeSpan?"/> values.
+    /// Provides an UI for editing <see cref="TimeSpan"/> and a nullable TimeSpan values.
     /// </summary>
     public class TimeSpanEditor : UITypeEditor
     {

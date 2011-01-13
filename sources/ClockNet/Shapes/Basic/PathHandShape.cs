@@ -126,6 +126,11 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
             base.Dispose(disposing);
         }
 
+        /// <summary>
+        /// Tests if the specified point is contained by the Shape.
+        /// </summary>
+        /// <param name="point">The point to be ferified.</param>
+        /// <returns>true if the specified point is contained by the Shape; false otherwise.</returns>
         public override bool HitTest(PointF point)
         {
             using (Matrix m = new Matrix())

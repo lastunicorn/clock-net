@@ -34,6 +34,11 @@ namespace DustInTheWind.ClockNet.Shapes
         /// </summary>
         TimeSpan Time { get; set; }
 
+        /// <summary>
+        /// Tests if the specified point is contained by the Shape.
+        /// </summary>
+        /// <param name="point">The point to be ferified.</param>
+        /// <returns>true if the specified point is contained by the Shape; false otherwise.</returns>
         bool HitTest(PointF point);
     }
 }

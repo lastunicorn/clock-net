@@ -196,6 +196,11 @@ namespace DustInTheWind.ClockNet.Shapes
             }
         }
 
+        /// <summary>
+        /// Tests if the specified point is contained by the Shape.
+        /// </summary>
+        /// <param name="point">The point to be ferified.</param>
+        /// <returns>true if the specified point is contained by the Shape; false otherwise.</returns>
         public abstract bool HitTest(PointF point);
     }
 }

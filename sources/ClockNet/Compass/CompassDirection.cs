@@ -10,49 +10,108 @@ namespace DustInTheWind.ClockNet.Compass
         // 12 h = 720 min = 43.200 ses = 43.200.000 ms = 432.000.000.000 ticks
         // 360 d = 21.600 m = 1.296.000 s
 
+        /// <summary>
+        /// Represents the number of seconds contained in a minute. This field is constant.
+        /// </summary>
         public const int SecondsPerMinute = 60;
+
+        /// <summary>
+        /// Represents the number of seconds contained in a degree. This field is constant.
+        /// </summary>
         public const int SecondsPerDegree = 3600;
+
+        /// <summary>
+        /// Represents the number of seconds contained in 360 degrees (the whole compass). This field is constant.
+        /// </summary>
         public const int SecondsPerCompass = 1296000;
+
+        /// <summary>
+        /// Represents the number of seconds contained in 180 degrees (half of the compass). This field is constant.
+        /// </summary>
         public const int SecondsPerEmisfere = 648000;
+
+        /// <summary>
+        /// Represents the number of seconds contained in 90 degrees (a quater of the compass). This field is constant.
+        /// </summary>
         public const int SecondsPerQuadrant = 324000;
+
+        /// <summary>
+        /// Represents the number of minutes contained in a degree. This field is constant.
+        /// </summary>
         public const int MinutesPerDegree = 60;
+
+        /// <summary>
+        /// Represents the number of minutes contained in 360 degrees (the whole compass). This field is constant.
+        /// </summary>
         public const int MinutesPerCompass = 21600;
+
+        /// <summary>
+        /// Represents the number of minutes contained by the whole compass. This field is constant.
+        /// </summary>
         public const int DegreesPerCompass = 360;
 
+        /// <summary>
+        /// Represents the number of time ticks contained in a time second. This field is constant.
+        /// </summary>
         public const double TimeTicksPerSecond = 1000000 / 3;
 
+
+        /// <summary>
+        /// The direction represented as seconds.
+        /// </summary>
         private int seconds;
 
+        /// <summary>
+        /// Gets the number of whole degrees of the direction.
+        /// </summary>
         public int Degrees
         {
             get { return seconds / SecondsPerDegree; }
         }
 
+        /// <summary>
+        /// Gets the number of whole minutes of the direction.
+        /// </summary>
         public int Minutes
         {
             get { return (seconds % SecondsPerDegree) / SecondsPerMinute; }
         }
 
+        /// <summary>
+        /// Gets the number of whole seconds of the direction.
+        /// </summary>
         public int Seconds
         {
             get { return (seconds % SecondsPerDegree) % SecondsPerMinute; }
         }
 
+        /// <summary>
+        /// Gets the value of the disrection expressed in whole and fractional degrees.
+        /// </summary>
         public float TotalDegrees
         {
             get { return (float)seconds / (float)SecondsPerDegree; }
         }
 
+        /// <summary>
+        /// Gets the value of the disrection expressed in whole and fractional minutes.
+        /// </summary>
         public float TotalMinutes
         {
             get { return (float)seconds / (float)SecondsPerMinute; }
         }
 
+        /// <summary>
+        /// Gets the value of the disrection expressed in whole seconds.
+        /// </summary>
         public int TotalSeconds
         {
             get { return seconds; }
         }
 
+        /// <summary>
+        /// Gets the quadrant of the direction represented by the current structure.
+        /// </summary>
         public Quadrant Quadrant
         {
             get
@@ -68,6 +127,9 @@ namespace DustInTheWind.ClockNet.Compass
             }
         }
 
+        /// <summary>
+        /// Gets the number of whole degrees of the quadrant representation of the direction.
+        /// </summary>
         public int QuadrantDegrees
         {
             get
@@ -87,6 +149,9 @@ namespace DustInTheWind.ClockNet.Compass
             }
         }
 
+        /// <summary>
+        /// Gets the number of whole minutes of the quadrant representation of the direction.
+        /// </summary>
         public int QuadrantMinutes
         {
             get
@@ -106,6 +171,9 @@ namespace DustInTheWind.ClockNet.Compass
             }
         }
 
+        /// <summary>
+        /// Gets the number of whole seconds of the quadrant representation of the direction.
+        /// </summary>
         public int QuadrantSeconds
         {
             get
@@ -124,7 +192,6 @@ namespace DustInTheWind.ClockNet.Compass
                 return (seconds % SecondsPerDegree) % SecondsPerMinute;
             }
         }
-
 
         public CompassDirection(int seconds)
         {
