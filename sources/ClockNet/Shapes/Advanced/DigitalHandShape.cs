@@ -17,8 +17,6 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.ComponentModel.Design;
-using System.Drawing.Design;
 using System.Text;
 
 namespace DustInTheWind.ClockNet.Shapes.Advanced

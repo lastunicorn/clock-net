@@ -17,8 +17,6 @@
 using System;
 using System.ComponentModel;
 using System.Globalization;
-using DustInTheWind.ClockNet.Shapes;
-using DustInTheWind.ClockNet.Shapes.Advanced;
 
 namespace DustInTheWind.ClockNet.Shapes
 {

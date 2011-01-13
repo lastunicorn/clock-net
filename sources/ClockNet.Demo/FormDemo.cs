@@ -15,13 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using DustInTheWind.ClockNet.TimeProviders;
 using System.Reflection;
+using System.Windows.Forms;
 using DustInTheWind.ClockNet.Shapes;
-using DustInTheWind.ClockNet.Shapes.Basic;
 using DustInTheWind.ClockNet.Shapes.Advanced;
+using DustInTheWind.ClockNet.Shapes.Basic;
+using DustInTheWind.ClockNet.TimeProviders;
 
 namespace DustInTheWind.ClockNet.Demo
 {

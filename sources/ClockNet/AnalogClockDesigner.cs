@@ -20,8 +20,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms.Design;
 using DustInTheWind.ClockNet.Shapes;
-using DustInTheWind.ClockNet.Shapes.Basic;
 using DustInTheWind.ClockNet.Shapes.Advanced;
+using DustInTheWind.ClockNet.Shapes.Basic;
 
 namespace DustInTheWind.ClockNet
 {

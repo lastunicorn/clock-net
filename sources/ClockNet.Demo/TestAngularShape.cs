@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DustInTheWind.ClockNet.Shapes;
+﻿using DustInTheWind.ClockNet.Shapes;
 
 namespace DustInTheWind.ClockNet.Demo
 {
