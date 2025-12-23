@@ -85,6 +85,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClockNet.Compass\ClockNet.Compass.csproj">
+      <Project>{e973701e-2e86-4a7d-9a7a-00a64722f9c6}</Project>
+      <Name>ClockNet.Compass</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClockNet.TimeProviders\ClockNet.TimeProviders.csproj">
       <Project>{ca68f8e4-219e-4e1d-9d96-16e3d717f0b2}</Project>
       <Name>ClockNet.TimeProviders</Name>

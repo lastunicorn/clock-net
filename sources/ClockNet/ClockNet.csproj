@@ -52,10 +52,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
-    <Compile Include="Compass\CompassDirection.cs" />
-    <Compile Include="Compass\CompassDirectionFormat.cs" />
-    <Compile Include="Compass\CompassException.cs" />
-    <Compile Include="Compass\Quadrant.cs" />
     <Compile Include="NullableTimeSpanConverter.cs" />
     <Compile Include="NullableDateTimePicker.cs">
       <SubType>UserControl</SubType>
@@ -136,6 +132,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\icon16.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Compass\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
