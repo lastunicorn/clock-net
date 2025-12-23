@@ -70,7 +70,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="TestAngularShape.cs" />
     <EmbeddedResource Include="FormDemo.resx">
       <DependentUpon>FormDemo.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -86,6 +85,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClockNet.TimeProviders\ClockNet.TimeProviders.csproj">
+      <Project>{ca68f8e4-219e-4e1d-9d96-16e3d717f0b2}</Project>
+      <Name>ClockNet.TimeProviders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClockNet\ClockNet.csproj">
       <Project>{24E993CE-3CBC-4227-9293-08D618FFD1A1}</Project>
       <Name>ClockNet</Name>

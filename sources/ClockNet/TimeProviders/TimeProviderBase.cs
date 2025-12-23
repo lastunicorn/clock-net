@@ -24,6 +24,9 @@ namespace DustInTheWind.ClockNet.TimeProviders
     /// </summary>
     public abstract class TimeProviderBase : ITimeProvider
     {
+        [Browsable(false)]
+        public ISite Site { get; set; }
+
         #region Event Changed
 
         /// <summary>
@@ -39,10 +42,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnChanged(EventArgs e)
         {
-            if (Changed != null)
-            {
-                Changed(this, e);
-            }
+            Changed?.Invoke(this, e);
         }
 
         #endregion
@@ -52,14 +52,6 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
         public abstract TimeSpan GetTime();
-
-        private ISite site;
-        [Browsable(false)]
-        public ISite Site
-        {
-            get { return site; }
-            set { site = value; }
-        }
 
         #region IDisposable Members
 

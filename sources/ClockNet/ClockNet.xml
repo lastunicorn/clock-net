@@ -3575,85 +3575,6 @@
             </summary>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
-        <member name="T:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider">
-            <summary>
-            Provides time values from a time coordinate that is n time faster then the real one.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.TIME_MULTIPLIER">
-            <summary>
-            The default value of the time multiplier.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.lastValue">
-            <summary>
-            The last value of the time provided by the current instance.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.LastValue">
-            <summary>
-            Gets or sets the last value of the time provided by the current instance.
-            When this value is set, it is considered a reference for the next time value
-            returned by the current instance.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.lastQueryTime">
-            <summary>
-            The real time when the current instance provided the last time value.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.timeMultiplier">
-            <summary>
-            The time multiplier that specifies how much faster the time measured by the current instance
-            flows compared to the real one.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.TimeMultiplier">
-            <summary>
-            Gets or sets the time multiplier that specifies how much faster is the provided time compared to the real one.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.TimeProviders.RandomTimeProvider"/> class with
-            default values.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.#ctor(System.Single)">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.TimeProviders.RandomTimeProvider"/> class.
-            </summary>
-            <param name="multiplier">Specifies how much faster is the provided time compared to the real one.</param>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.#ctor(System.Single,System.TimeSpan)">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.TimeProviders.RandomTimeProvider"/> class.
-            </summary>
-            <param name="timeMultiplier">Specifies how much faster is the provided time compared to the real one.</param>
-            <param name="initialValue">The value of the time measured by the new instance at the moment of its creation.</param>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.BrokenTimeProvider.GetTime">
-            <summary>
-            Returns a new time value.
-            </summary>
-            <returns>A <see cref="T:System.TimeSpan"/> object containing the time value.</returns>
-        </member>
-        <member name="T:DustInTheWind.ClockNet.TimeProviders.RandomTimeProvider">
-            <summary>
-            Provides random time values.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.RandomTimeProvider.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.TimeProviders.RandomTimeProvider"/> class.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.RandomTimeProvider.GetTime">
-            <summary>
-            Returns a random time value.
-            </summary>
-            <returns>A <see cref="T:System.TimeSpan"/> object containing a random time value.</returns>
-        </member>
         <member name="T:DustInTheWind.ClockNet.TimeProviders.TimeProviderBase">
             <summary>
             Implements base functionality for a time provider class.
@@ -3714,40 +3635,6 @@
             <summary>
             Finalizer.
             </summary>
-        </member>
-        <member name="T:DustInTheWind.ClockNet.TimeProviders.UtcOffsetTimeProvider">
-            <summary>
-            Provides the a time value calculated from the system's utc time to which an offset is added.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.TimeProviders.UtcOffsetTimeProvider.utcOffset">
-            <summary>
-            The offset time used to decalates the system's utc time value provided.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.TimeProviders.UtcOffsetTimeProvider.UtcOffset">
-            <summary>
-            Gets or sets the offset time used to decalates the system's utc time value provided.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.UtcOffsetTimeProvider.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.TimeProviders.UtcOffsetTimeProvider"/> class
-            with zero offset.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.UtcOffsetTimeProvider.#ctor(System.TimeSpan)">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.TimeProviders.UtcOffsetTimeProvider"/> class
-            with an offset.
-            </summary>
-            <param name="utcOffset">The offset time to be added to the system's utc time.</param>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.UtcOffsetTimeProvider.GetTime">
-            <summary>
-            Returns the system's utc time added with the offset value.
-            </summary>
-            <returns>A <see cref="T:System.TimeSpan"/> object containing the time value.</returns>
         </member>
         <member name="T:DustInTheWind.ClockNet.TimeProviders.ITimeProvider">
             <summary>
