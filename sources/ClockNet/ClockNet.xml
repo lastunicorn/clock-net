@@ -2537,12 +2537,12 @@
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.WIDTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.DefaultWidth">
             <summary>
             The default length of the width of the hand.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.RADIUS">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.DefaultRadius">
             <summary>
             The default length of the radius of the opaque disk.
             </summary>
@@ -2622,12 +2622,12 @@
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.CIRCLE_RADIUS">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.DefaultCircleRadius">
             <summary>
             The default radius of the circle from the middle (or not so middle) of the hand.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.CIRCLE_OFFSET">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.DefaultCircleOffset">
             <summary>
             The default offset position of the center of the circle from the top of the hand.
             </summary>
@@ -2837,17 +2837,17 @@
             Base class for a clock hand shape that is drawn using vectorial tools.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.LINE_WIDTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.DefaultLineWidth">
             <summary>
             The default width of the line used to draw the shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.FILL_COLOR">
+        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.DefaultFillColor">
             <summary>
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.FillColor"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.OUTLINE_COLOR">
+        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.DefaultOutlineColor">
             <summary>
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.OutlineColor"/>.
             </summary>
