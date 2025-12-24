@@ -119,6 +119,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\DotsClockTemplate.cs" />
     <Compile Include="Templates\FancyClockTemplate.cs" />
+    <Compile Include="Templates\WhiteFancyClockTemplate.cs" />
     <Compile Include="TimeProviders\TimeProviderBase.cs" />
     <Compile Include="TimeProviders\ITimeProvider.cs" />
     <Compile Include="TimeProviders\LocalTimeProvider.cs" />

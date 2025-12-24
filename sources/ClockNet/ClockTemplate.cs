@@ -34,51 +34,6 @@ namespace DustInTheWind.ClockNet
         //    get { return new ShapeSet(); }
         //}
 
-        //public static ShapeSet WhiteFancy
-        //{
-        //    get
-        //    {
-        //        IShape[] backgrounds = new IShape[]{
-        //            new DustInTheWind.Clock.Shapes.Default.DialShape(Color.Black)
-        //        };
-
-        //        TicksShape ticks1Shape = new TicksShape(Color.Black, 5f, 0.3f, 7f);
-        //        ticks1Shape.Angle = 6f;
-        //        ticks1Shape.ExceptionIndex = 5;
-
-        //        TicksShape ticks5Shape = new TicksShape(Color.Black, 5f, 1f, 7f);
-        //        ticks5Shape.Angle = 30f;
-
-        //        IAngularShape[] angulars = new IAngularShape[]{
-        //            ticks1Shape,
-        //            ticks5Shape,
-        //            new TextAngularShape(Color.White, new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point), 13)
-        //        };
-
-        //        SlotHandShape hourHandShape = new SlotHandShape(Color.White, 49, 34, 6);
-        //        hourHandShape.ComponentToDisplay = TimeComponent.Hour;
-        //        LineHandShape minuteHandShape = new LineHandShape(Color.Black, 42, 3, 0);
-        //        minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
-        //        LineHandShape sweepHandShape = new LineHandShape(Color.Black, 45, 1, 15);
-        //        sweepHandShape.ComponentToDisplay = TimeComponent.Second;
-        //        PinShape pinShape = new PinShape(Color.Black, 9);
-
-        //        IHandShape[] hands = new IHandShape[]{
-        //            hourHandShape,
-        //            minuteHandShape,
-        //            sweepHandShape,
-        //            pinShape
-        //        };
-
-        //        return new ShapeSet()
-        //        {
-        //            backgroundShapes = backgrounds,
-        //            angularShapes = angulars,
-        //            handShapes = hands
-        //        };
-        //    }
-        //}
-
         //public static ShapeSet ImageShapes
         //{
         //    get

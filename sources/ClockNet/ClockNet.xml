@@ -3384,6 +3384,22 @@
             properties with their respective fancy values. Use this constructor to create a clock template with the
             fancy set of shapes.</remarks>
         </member>
+        <member name="T:DustInTheWind.ClockNet.Templates.WhiteFancyClockTemplate">
+            <summary>
+            Provides a white fancy visual template for rendering a clock, featuring a slot-style hour hand and elegant design.
+            </summary>
+            <remarks>This template supplies a distinctive analog clock appearance with a slot-carved hour hand,
+            line-style minute and second hands, and standard tick marks on a black dial background.</remarks>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Templates.WhiteFancyClockTemplate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.WhiteFancyClockTemplate"/> class with default background, angular, and hand
+            shapes.
+            </summary>
+            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
+            properties with their respective white fancy values. Use this constructor to create a clock template with the
+            white fancy set of shapes.</remarks>
+        </member>
         <member name="T:DustInTheWind.ClockNet.ClockTemplate">
             <summary>
             Keeps a collection of Shapes that can be applied to the <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> all at once.
