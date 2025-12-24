@@ -78,7 +78,7 @@ namespace DustInTheWind.ClockNet
 
                 if (angularShapes != null)
                 {
-                    TicksShape ticks1Shape = new TicksShape(Color.Black, TicksShape.LENGTH, TicksShape.LINE_WIDTH, 0f);
+                    TicksShape ticks1Shape = new TicksShape(Color.Black, TicksShape.LENGTH, TicksShape.DefaultLineWidth, 0f);
                     ticks1Shape.Name = "Second Ticks";
                     ticks1Shape.Angle = 6f;
                     ticks1Shape.ExceptionIndex = 5;

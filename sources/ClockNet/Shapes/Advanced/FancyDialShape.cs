@@ -23,7 +23,7 @@ using TTRider.UI;
 namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
     /// <summary>
-    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the background of the dial.
+    /// A Background Shape that draws a gradient background with two rims around it.
     /// </summary>
     public class FancyDialShape : VectorialGroundShapeBase
     {
@@ -60,7 +60,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 outerRimWidth = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -83,7 +83,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 innerRimWidth = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -118,8 +118,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             this.Name = NAME;
             this.outerRimWidth = outerRimWidth;
             this.innerRimWidth = innerRimWidth;
-
-            CalculateDimensions();
         }
 
         /// <summary>
@@ -128,11 +126,13 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         protected override void CreatePenIfNull()
         {
-            if (pen == null)
+            if (pen != null)
+                return;
+
+            pen = new Pen(outlineColor, lineWidth)
             {
-                pen = new Pen(outlineColor, lineWidth);
-                pen.Alignment = PenAlignment.Inset;
-            }
+                Alignment = PenAlignment.Inset
+            };
         }
 
         /// <summary>
@@ -140,13 +140,21 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         protected override void CreateBrushIfNull()
         {
-            if (brush == null)
-            {
-                outerRimBrush = new LinearGradientBrush(outerRimRectangle, HsbColor.ShiftBrighness(fillColor, 100f), HsbColor.ShiftBrighness(fillColor, -100f), 45f);
-                innerRimBrush = new LinearGradientBrush(innerRimRectangle, HsbColor.ShiftBrighness(fillColor, -100f), HsbColor.ShiftBrighness(fillColor, 100f), 45f);
-                Color faceColor = HsbColor.ShiftSaturation(fillColor, 50f);
-                brush = new LinearGradientBrush(faceRectangle, HsbColor.ShiftBrighness(faceColor, 100f), HsbColor.ShiftBrighness(faceColor, -150f), 45f);
-            }
+            if (brush != null)
+                return;
+
+            Color outerRimColor1 = HsbColor.ShiftBrighness(fillColor, 100f);
+            Color outerRimColor2 = HsbColor.ShiftBrighness(fillColor, -100f);
+            outerRimBrush = new LinearGradientBrush(outerRimRectangle, outerRimColor1, outerRimColor2, 45f);
+
+            Color innerRimColor1 = HsbColor.ShiftBrighness(fillColor, -100f);
+            Color innerRimColor2 = HsbColor.ShiftBrighness(fillColor, 100f);
+            innerRimBrush = new LinearGradientBrush(innerRimRectangle, innerRimColor1, innerRimColor2, 45f);
+
+            Color faceColor = HsbColor.ShiftSaturation(fillColor, 50f);
+            Color faceColor1 = HsbColor.ShiftBrighness(faceColor, 100f);
+            Color faceColor2 = HsbColor.ShiftBrighness(faceColor, -150f);
+            brush = new LinearGradientBrush(faceRectangle, faceColor1, faceColor2, 45f);
         }
 
         private LinearGradientBrush outerRimBrush;
@@ -156,13 +164,12 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         private RectangleF innerRimRectangle;
         private RectangleF faceRectangle;
 
-
         /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateDimensions()
+        protected override void CalculateLayout()
         {
             outerRimRectangle = new RectangleF(-50f, -50f, 100, 100);
             innerRimRectangle = RectangleF.Inflate(outerRimRectangle, -outerRimWidth, -outerRimWidth);
@@ -185,11 +192,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Draws the dial's background using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the dial.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             CreateBrushIfNull();
 
-            //g.FillEllipse(brush, locationX, locationY, diameter, diameter);
             g.FillEllipse(outerRimBrush, outerRimRectangle);
             g.FillEllipse(innerRimBrush, innerRimRectangle);
             g.FillEllipse(brush, faceRectangle);

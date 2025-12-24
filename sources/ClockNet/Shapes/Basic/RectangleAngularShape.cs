@@ -26,8 +26,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Rectangle Angular Shape";
-
+        public const string DefaultName = "Rectangle Angular Shape";
 
         /// <summary>
         /// The rectangle that is drawn.
@@ -40,15 +39,12 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         protected Rectangle roundedRectangle;
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="RectangleAngularShape"/> class with
         /// default values.
         /// </summary>
         public RectangleAngularShape()
-            : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
         {
         }
 
@@ -65,13 +61,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public RectangleAngularShape(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.rectangle = rectangle;
             this.roundedRectangle = Rectangle.Round(rectangle);
         }
-
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -89,10 +82,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
             {

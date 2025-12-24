@@ -27,8 +27,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Line Angular Shape";
-
+        public const string DefaultName = "Line Angular Shape";
 
         /// <summary>
         /// The location of the tail tip.
@@ -47,19 +46,16 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         [Browsable(false)]
         public override Color FillColor
         {
-            get { return base.FillColor; }
-            set { base.FillColor = value; }
+            get => base.FillColor;
+            set => base.FillColor = value;
         }
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LineAngularShape"/> class with
         /// default values.
         /// </summary>
         public LineAngularShape()
-            : this(PointF.Empty, PointF.Empty, Color.Black, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(PointF.Empty, PointF.Empty, Color.Black, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
         {
         }
 
@@ -76,15 +72,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public LineAngularShape(PointF startPoint, PointF endPoint, Color color, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(color, Color.Empty, lineWidth, angle, repeat, positionOffset)
         {
-            this.Name = NAME;
+            Name = DefaultName;
             this.startPoint = startPoint;
             this.endPoint = endPoint;
-
-            CalculateDimensions();
         }
-
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -102,10 +93,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             CreatePenIfNull();
             g.DrawLine(pen, startPoint, endPoint);

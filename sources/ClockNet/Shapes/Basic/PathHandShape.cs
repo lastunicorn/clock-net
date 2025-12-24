@@ -27,22 +27,19 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Path Hand Shape";
+        public const string DefaultName = "Path Hand Shape";
 
         /// <summary>
         /// The path that is drawn.
         /// </summary>
         protected GraphicsPath path;
 
-
-        #region Constructor
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PathHandShape"/> class with
         /// default values.
         /// </summary>
         public PathHandShape()
-            : this(new GraphicsPath(), OUTLINE_COLOR, FILL_COLOR, HEIGHT, LINE_WIDTH)
+            : this(new GraphicsPath(), DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultLineWidth)
         {
         }
 
@@ -53,7 +50,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
         public PathHandShape(GraphicsPath path, Color outlineColor, Color fillColor)
-            : this(path, outlineColor, fillColor, HEIGHT, LINE_WIDTH)
+            : this(path, outlineColor, fillColor, DefaultHeight, DefaultLineWidth)
         {
         }
 
@@ -68,12 +65,9 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public PathHandShape(GraphicsPath path, Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(outlineColor, fillColor, lineWidth, height)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.path = path;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -91,10 +85,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
             {

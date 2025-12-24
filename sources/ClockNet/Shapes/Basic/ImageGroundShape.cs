@@ -28,8 +28,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Image Ground Shape";
-
+        public const string DefaultName = "Image Ground Shape";
 
         /// <summary>
         /// The image to be drawn.
@@ -52,7 +51,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
             }
         }
 
-
         /// <summary>
         /// The location of the pin relative to the upper left corner of the image.
         /// </summary>
@@ -73,9 +71,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageGroundShape"/> class with
@@ -103,13 +98,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public ImageGroundShape(Image image, PointF origin)
             : base()
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.image = image;
             this.origin = origin;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -127,10 +119,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             float height = 50f;
 

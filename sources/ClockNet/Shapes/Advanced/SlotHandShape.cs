@@ -30,22 +30,22 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public new const string NAME = "Slot Hand Shape";
+        public new const string DefaultName = "Slot Hand Shape";
 
         /// <summary>
         /// The default length of the width of the hand.
         /// </summary>
-        public const float WIDTH = 5f;
+        public const float DefaultWidth = 5f;
 
         /// <summary>
         /// The default length of the radius of the opaque disk.
         /// </summary>
-        public const float RADIUS = 50f;
+        public const float DefaultRadius = 50f;
 
         /// <summary>
         /// The default length of the tail of the hand.
         /// </summary>
-        public const float TAIL_LENGTH = 6f;
+        public const float DefaultTailLength = 6f;
 
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// Gets or sets the width of the slot carved inside the disk.
         /// </summary>
-        [DefaultValue(WIDTH)]
+        [DefaultValue(DefaultWidth)]
         [Description("The width of the slot carved inside the disk.")]
         public virtual float Width
         {
@@ -64,7 +64,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 width = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -78,7 +78,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// Gets or sets the rasius of the opaque disk.
         /// </summary>
-        [DefaultValue(RADIUS)]
+        [DefaultValue(DefaultRadius)]
         [Description("The rasius of the opaque disk.")]
         public virtual float Radius
         {
@@ -86,7 +86,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 radius = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -101,7 +101,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Gets or sets the length of the tail of the hand.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(TAIL_LENGTH)]
+        [DefaultValue(DefaultTailLength)]
         [Description("The length of the tail of the hand.")]
         public virtual float TailLength
         {
@@ -109,7 +109,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 tailLength = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -122,7 +122,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public SlotHandShape()
-            : this(OUTLINE_COLOR, FILL_COLOR, RADIUS, HEIGHT, WIDTH)
+            : this(DefaultOutlineColor, DefaultFillColor, DefaultRadius, DefaultHeight, DefaultWidth)
         {
         }
 
@@ -134,7 +134,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="height">The length of the carving from the pin to the its top.</param>
         /// <param name="width">The width of the carving.</param>
         public SlotHandShape(Color fillColor, float radius, float height, float width)
-            : this(OUTLINE_COLOR, fillColor, radius, height, width)
+            : this(DefaultOutlineColor, fillColor, radius, height, width)
         {
         }
 
@@ -147,14 +147,12 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="height">The length of the carving from the pin to the its top.</param>
         /// <param name="width">The width of the carving.</param>
         public SlotHandShape(Color outlineColor, Color fillColor, float radius, float height, float width)
-            : base(new GraphicsPath(), outlineColor, fillColor, height, LINE_WIDTH)
+            : base(new GraphicsPath(), outlineColor, fillColor, height, DefaultLineWidth)
         {
-            this.Name = NAME;
+            Name = DefaultName;
             this.radius = radius;
             this.width = width;
-            tailLength = TAIL_LENGTH;
-
-            CalculateDimensions();
+            tailLength = DefaultTailLength;
         }
 
         #endregion
@@ -162,7 +160,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// Performs all the necessary calculations based on the public parameters, before drawing the shape.
         /// </summary>
-        protected override void CalculateDimensions()
+        protected override void CalculateLayout()
         {
             path.Reset();
 

@@ -29,12 +29,12 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// The default value of the height.
         /// </summary>
-        public const float HEIGHT = 45f;
+        public const float DefaultHeight = 45f;
 
         /// <summary>
         /// The default value of the <see cref="IntegralValue"/>.
         /// </summary>
-        public const bool INTEGRAL_VALUE = false;
+        public const bool DefaultIntegralValue = false;
 
         /// <summary>
         /// The length of the hand from the pin to the its top. For a clock with the diameter of 100px.
@@ -45,7 +45,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// Gets or sets the length of the hand from the pin to the its top. For a clock with the diameter of 100px.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(HEIGHT)]
+        [DefaultValue(DefaultHeight)]
         [Description("The length of the hand from the pin to the its top. For a clock with the diameter of 100px.")]
         public virtual float Height
         {
@@ -53,7 +53,7 @@ namespace DustInTheWind.ClockNet.Shapes
             set
             {
                 height = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -104,7 +104,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// Gets or set a value that specifies if the hand will hide the fractional part of the value that it displayes.
         /// </summary>
         [Category("Behavior")]
-        [DefaultValue(INTEGRAL_VALUE)]
+        [DefaultValue(DefaultIntegralValue)]
         [Description("Specifies if the hand will hide the fractional part of the value that it displayes.")]
         public virtual bool IntegralValue
         {
@@ -121,7 +121,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// default values.
         /// </summary>
         public HandShapeBase()
-            : this(HEIGHT)
+            : this(DefaultHeight)
         {
         }
 
@@ -133,7 +133,7 @@ namespace DustInTheWind.ClockNet.Shapes
             : base()
         {
             this.height = height;
-            this.integralValue = INTEGRAL_VALUE;
+            this.integralValue = DefaultIntegralValue;
         }
 
         /// <summary>
@@ -177,17 +177,19 @@ namespace DustInTheWind.ClockNet.Shapes
         /// Draws the shape using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        public override void Draw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g)
         {
-            if (AllowToDraw())
-            {
-                float degrees = GetRotationDegrees();
+            bool allowToDraw = base.OnBeforeDraw(g);
 
-                if (degrees != 0)
-                    g.RotateTransform(degrees);
+            if (!allowToDraw)
+                return false;
 
-                DrawInternal(g);
-            }
+            float degrees = GetRotationDegrees();
+
+            if (degrees != 0)
+                g.RotateTransform(degrees);
+
+            return true;
         }
 
         /// <summary>

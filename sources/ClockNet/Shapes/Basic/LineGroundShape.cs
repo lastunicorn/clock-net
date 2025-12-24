@@ -26,8 +26,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Line Ground Shape";
-
+        public const string DefaultName = "Line Ground Shape";
 
         /// <summary>
         /// The location of the tail tip.
@@ -38,9 +37,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// The lcation of the hand top.
         /// </summary>
         protected PointF endPoint;
-
-
-        #region Constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LineGroundShape"/> class with
@@ -71,12 +67,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public LineGroundShape(PointF startPoint, PointF endPoint, Color color, float lineWidth)
             : base(color, Color.Empty, lineWidth)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.startPoint = startPoint;
             this.endPoint = endPoint;
         }
-
-        #endregion
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -94,10 +88,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             CreatePenIfNull();
 

@@ -57,7 +57,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                     throw new ArgumentOutOfRangeException("value", "The diameter can not be a negative value.");
 
                 diameter = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -72,9 +72,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             get { return base.Height; }
             set { base.Height = value; }
         }
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PinShape"/> class with
@@ -114,14 +111,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public PinShape(Color outlineColor, Color fillColor, float diameter)
             : base(outlineColor, fillColor)
         {
-            this.Name = NAME;
+            Name = NAME;
             this.diameter = diameter;
-
-            CalculateDimensions();
         }
-
-        #endregion
-
 
         #region Calculated Values
 
@@ -133,7 +125,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateDimensions()
+        protected override void CalculateLayout()
         {
             _locationX = -diameter / 2f;
             _locationY = -diameter / 2f;
@@ -146,10 +138,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
             {

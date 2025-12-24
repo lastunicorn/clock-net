@@ -28,8 +28,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Image Angular Shape";
-
+        public const string DefaultName = "Image Angular Shape";
 
         /// <summary>
         /// The image to be drawn.
@@ -82,7 +81,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public ImageAngularShape()
-            : this(null, PointF.Empty, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(null, PointF.Empty, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
         {
         }
 
@@ -91,7 +90,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
         public ImageAngularShape(Image image)
-            : this(image, PointF.Empty, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(image, PointF.Empty, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
         {
         }
 
@@ -106,7 +105,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public ImageAngularShape(Image image, PointF location, float angle, bool repeat, float positionOffset)
             : base(angle, repeat, positionOffset)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.image = image;
             this.location = location;
         }
@@ -129,10 +128,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             g.DrawImage(image, location.X, location.Y, image.Width, image.Height);
         }

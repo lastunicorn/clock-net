@@ -27,22 +27,19 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Polygon Hand Shape";
+        public const string DefaultName = "Polygon Hand Shape";
 
         /// <summary>
         /// The points of the polygon.
         /// </summary>
         protected PointF[] points;
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PolygonHandShape"/> class with
         /// default values.
         /// </summary>
         public PolygonHandShape()
-            : this(null, OUTLINE_COLOR, FILL_COLOR, HEIGHT, LINE_WIDTH)
+            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultLineWidth)
         {
         }
 
@@ -57,13 +54,9 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public PolygonHandShape(PointF[] points, Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(outlineColor, fillColor, lineWidth, height)
         {
-            this.Name = NAME;
+            Name = DefaultName;
             this.points = points;
-
-            CalculateDimensions();
         }
-
-        #endregion
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -73,7 +66,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && points != null && points.Length >= 2;
+            return base.AllowToDraw();
         }
 
         /// <summary>
@@ -81,10 +74,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
             {
@@ -118,7 +111,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
             return PointInPolygon(clickLocation, this.points);
         }
 
-
         private bool PointInPolygon(PointF point, PointF[] polygon)
         {
             var j = polygon.Length - 1;
@@ -138,6 +130,5 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
 
             return oddNodes;
         }
-
     }
 }

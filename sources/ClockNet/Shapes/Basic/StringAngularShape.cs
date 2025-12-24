@@ -28,13 +28,12 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "String Angular Shape";
+        public const string DefaultName = "String Angular Shape";
 
         /// <summary>
         /// The default value of the position offset.
         /// </summary>
-        public new const float POSITION_OFFSET = 7f;
-
+        public new const float DefaultPositionOffset = 7f;
 
         /// <summary>
         /// Specifies the text format used to draw the text.
@@ -44,8 +43,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default font used to draw the text.
         /// </summary>
-        public static Font FONT = new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point);
-
+        public static Font DefaultFont = new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point);
 
         /// <summary>
         /// The array of texts that are draw.
@@ -98,7 +96,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public StringAngularShape()
-            : this(Color.Black, FONT, POSITION_OFFSET)
+            : this(Color.Black, DefaultFont, DefaultPositionOffset)
         {
         }
 
@@ -106,7 +104,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// Initializes a new instance of the <see cref="StringAngularShape"/> class.
         /// </summary>
         public StringAngularShape(Color color)
-            : this(color, FONT, POSITION_OFFSET)
+            : this(color, DefaultFont, DefaultPositionOffset)
         {
         }
 
@@ -116,7 +114,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="color">The color used to draw the text.</param>
         /// <param name="font">The font to be used to draw the numbers.</param>
         public StringAngularShape(Color color, Font font)
-            : this(color, font, POSITION_OFFSET)
+            : this(color, font, DefaultPositionOffset)
         {
         }
 
@@ -127,10 +125,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="font">The font to be used to draw the numbers.</param>
         /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
         public StringAngularShape(Color color, Font font, float positionOffset)
-            : base(Color.Empty, color, LINE_WIDTH, ANGLE, REPEAT, positionOffset)
+            : base(Color.Empty, color, DefaultLineWidth, DefaultAngle, DefaultRepeat, positionOffset)
         {
-            this.Name = NAME;
-            this.font = font == null ? FONT : font;
+            this.Name = DefaultName;
+            this.font = font == null ? DefaultFont : font;
 
             stringFormat = new StringFormat(StringFormatFlags.NoWrap);
             stringFormat.Alignment = StringAlignment.Center;
@@ -156,10 +154,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (index > 0 && index <= texts.Length)
             {

@@ -30,34 +30,34 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public new const string NAME = "Fancy Sweep Hand Shape";
+        public new const string DefaultName = "Fancy Sweep Hand Shape";
 
         /// <summary>
         /// The default radius of the circle from the middle (or not so middle) of the hand.
         /// </summary>
-        public const float CIRCLE_RADIUS = 3.5f;
+        public const float DefaultCircleRadius = 3.5f;
 
         /// <summary>
         /// The default offset position of the center of the circle from the top of the hand.
         /// </summary>
-        public const float CIRCLE_OFFSET = 12f;
+        public const float DefaultCircleOffset = 12f;
 
         /// <summary>
         /// The default length of the tail of the hand.
         /// </summary>
-        public const float TAIL_LENGTH = 7f;
+        public const float DefaultTailLength = 7f;
 
 
         /// <summary>
         /// The radius of the circle from the middle (or not so middle) of the hand.
         /// </summary>
-        protected float circleRadius = CIRCLE_RADIUS;
+        protected float circleRadius = DefaultCircleRadius;
 
         /// <summary>
         /// Gets or sets the radius of the circle from the middle (or not so middle) of the hand.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(CIRCLE_RADIUS)]
+        [DefaultValue(DefaultCircleRadius)]
         [Description("The radius of the circle from the middle (or not so middle) of the hand.")]
         public virtual float CircleRadius
         {
@@ -65,7 +65,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 circleRadius = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -73,20 +73,20 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The offset position of the center of the circle from the top of the hand.
         /// </summary>
-        protected float circleOffset = CIRCLE_OFFSET;
+        protected float circleOffset = DefaultCircleOffset;
 
         /// <summary>
         /// Gets or sets the offset position of the center of the circle from the top of the hand.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(CIRCLE_OFFSET)]
+        [DefaultValue(DefaultCircleOffset)]
         public virtual float CircleOffset
         {
             get => circleOffset;
             set
             {
                 circleOffset = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -101,7 +101,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Gets or sets the length of the tail of the hand.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(TAIL_LENGTH)]
+        [DefaultValue(DefaultTailLength)]
         [Description("The length of the tail of the hand.")]
         public virtual float TailLength
         {
@@ -109,7 +109,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 tailLength = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -119,7 +119,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public FancySweepHandShape()
-            : this(Color.Red, Color.Empty, HEIGHT, LINE_WIDTH)
+            : this(Color.Red, Color.Empty, DefaultHeight, DefaultLineWidth)
         {
         }
 
@@ -128,7 +128,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
         public FancySweepHandShape(Color outlineColor)
-            : this(outlineColor, Color.Empty, HEIGHT, LINE_WIDTH)
+            : this(outlineColor, Color.Empty, DefaultHeight, DefaultLineWidth)
         {
         }
 
@@ -138,7 +138,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
         /// <param name="height">The length of the hand from the pin to the its top.</param>
         public FancySweepHandShape(Color outlineColor, float height)
-            : this(outlineColor, Color.Empty, height, LINE_WIDTH)
+            : this(outlineColor, Color.Empty, height, DefaultLineWidth)
         {
         }
 
@@ -163,17 +163,15 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public FancySweepHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(new GraphicsPath(), outlineColor, fillColor, height, lineWidth)
         {
-            this.Name = NAME;
-            tailLength = TAIL_LENGTH;
-
-            CalculateDimensions();
+            Name = DefaultName;
+            tailLength = DefaultTailLength;
         }
 
         /// <summary>
         /// Calculates additional values and creates the <see cref="GraphicsPath"/> that will be displayed
         /// by the <see cref="IShape.Draw"/> method.
         /// </summary>
-        protected override void CalculateDimensions()
+        protected override void CalculateLayout()
         {
             path.Reset();
 

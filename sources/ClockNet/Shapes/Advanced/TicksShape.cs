@@ -29,7 +29,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public new const string NAME = "Ticks Shape";
+        public new const string DefaultName = "Ticks Shape";
 
         /// <summary>
         /// The default value of the length.
@@ -54,20 +54,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 length = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TicksShape"/> class with
         /// default values.
         /// </summary>
         public TicksShape()
-            : this(Color.Black, LENGTH, LINE_WIDTH, POSITION_OFFSET)
+            : this(Color.Black, LENGTH, DefaultLineWidth, DefaultPositionOffset)
         {
         }
 
@@ -81,21 +78,16 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public TicksShape(Color color, float length, float lineWidth, float positionOffset)
             : base(PointF.Empty, PointF.Empty, color, lineWidth, 6f, true, positionOffset)
         {
-            this.Name = NAME;
+            Name = DefaultName;
             this.length = length;
-
-            CalculateDimensions();
         }
-
-        #endregion
-
 
         /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateDimensions()
+        protected override void CalculateLayout()
         {
             startPoint = new PointF(0, 0);
             endPoint = new PointF(0, length);

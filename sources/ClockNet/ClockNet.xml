@@ -495,7 +495,7 @@
             A Hand Shape that draws a rectangle.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.RectangleHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.RectangleHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -542,13 +542,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleHandShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleHandShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleHandShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -557,7 +557,7 @@
             An Angular Shape class that draws a bitmap image.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.ImageAngularShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.ImageAngularShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -612,13 +612,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.ImageAngularShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.ImageAngularShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.ImageAngularShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.ImageAngularShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -627,7 +627,7 @@
             An Angular Shape class that draws a <see cref="T:System.Drawing.Drawing2D.GraphicsPath"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PathAngularShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PathAngularShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -671,13 +671,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PathAngularShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PathAngularShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PathAngularShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PathAngularShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -692,7 +692,7 @@
             An Angular Shape class that draws a ellipse.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseAngularShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseAngularShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -728,13 +728,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseAngularShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseAngularShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseAngularShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseAngularShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -743,7 +743,7 @@
             An Angular Shape class that draws a rectangle.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.RectangleAngularShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.RectangleAngularShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -785,13 +785,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleAngularShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleAngularShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleAngularShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleAngularShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -800,7 +800,7 @@
             An Angular Shape class that draws a polygon.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PolygonAngularShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PolygonAngularShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -836,13 +836,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonAngularShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonAngularShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonAngularShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonAngularShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -851,14 +851,76 @@
             A Shape class that draws a ellipse.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DefaultName">
             <summary>
             The default name for the Shape.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DefaultRadiusX">
+            <summary>
+            The default horizontal radius of the ellipse.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DefaultRadiusY">
+            <summary>
+            The default vertical radius of the ellipse.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DefaultCenterX">
+            <summary>
+            The default x coordinate of the center of the ellipse.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DefaultCenterY">
+            <summary>
+            The default y coordinate of the center of the ellipse.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.rectangle">
             <summary>
             The rectangle defining the ellipse that is drawn.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.radiusX">
+            <summary>
+            The radius of the ellipse.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.RadiusX">
+            <summary>
+            Gets or sets the horizontal radius of the ellipse.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.radiusY">
+            <summary>
+            The radius of the ellipse.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.RadiusY">
+            <summary>
+            Gets or sets the vertical radius of the ellipse.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.centerX">
+            <summary>
+            The x coordinate of the center of the ellipse.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.CenterX">
+            <summary>
+            Gets or sets the y coordinate of the center of the ellipse.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.centerY">
+            <summary>
+            The y coordinate of the center of the ellipse.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.CenterY">
+            <summary>
+            Gets or sets the y coordinate of the center of the ellipse.
             </summary>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.#ctor">
@@ -876,6 +938,13 @@
             <param name="fillColor">The color used to fill the ellipse's interior.</param>
             <param name="lineWidth">The width of the outline.</param>
         </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.CalculateLayout">
+            <summary>
+            Calculates additional values that are necessary by the drawing process, but that remain constant for every
+            successive draw if no parameter is changed.
+            This method should be called every time when is set a property that changes the physical dimensions.
+            </summary>
+        </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.AllowToDraw">
             <summary>
             Decides if the Shape should be drawn.
@@ -884,13 +953,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -899,7 +968,7 @@
             A Shape class that draws a rectangle.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.RectangleGroundShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.RectangleGroundShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -938,13 +1007,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleGroundShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleGroundShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleGroundShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.RectangleGroundShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -953,7 +1022,7 @@
             An Shape that draws a complex vectorial clock hand defined by a <see cref="T:System.Drawing.Drawing2D.GraphicsPath"/> object.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PathHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PathHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -995,13 +1064,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PathHandShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PathHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PathHandShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PathHandShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1023,7 +1092,7 @@
             An Hend Shape that draws a polygonal clock hand.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PolygonHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PolygonHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -1057,13 +1126,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonHandShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonHandShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonHandShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1072,7 +1141,7 @@
             A Shape class that draws a polygon.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PolygonGroundShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PolygonGroundShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -1105,13 +1174,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonGroundShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonGroundShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonGroundShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonGroundShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1120,7 +1189,7 @@
             An Angular Shape class that draws a line between two points.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.LineAngularShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.LineAngularShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -1166,13 +1235,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.LineAngularShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.LineAngularShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.LineAngularShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.LineAngularShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1181,12 +1250,12 @@
             The <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the numbers representing the hours.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.POSITION_OFFSET">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.DefaultPositionOffset">
             <summary>
             The default value of the position offset.
             </summary>
@@ -1196,7 +1265,7 @@
             Specifies the text format used to draw the text.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.FONT">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.DefaultFont">
             <summary>
             The default font used to draw the text.
             </summary>
@@ -1255,13 +1324,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1276,7 +1345,7 @@
             A Hand Shape that draws an ellipse.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -1317,13 +1386,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseHandShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseHandShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseHandShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1332,27 +1401,27 @@
             The <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the text displayed on the background of the dial.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.TEXT">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.DefaultText">
             <summary>
             The default text drawn.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.FONT">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.DefaultFont">
             <summary>
             The default font used to draw the text.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.LOCATION">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.DefaultLocation">
             <summary>
             The default vertical location of the text.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.MAX_WIDTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.DefaultMaxWidth">
             <summary>
             The maximum width of the rectangle where the text should be drawn.
             </summary>
@@ -1437,13 +1506,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1458,7 +1527,7 @@
             A Shape class that draws a simple straight line.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.LineGroundShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.LineGroundShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -1503,13 +1572,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.LineGroundShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.LineGroundShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.LineGroundShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.LineGroundShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1518,7 +1587,7 @@
             A Shape class that draws a <see cref="T:System.Drawing.Drawing2D.GraphicsPath"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PathGroundShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.PathGroundShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -1559,13 +1628,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PathGroundShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PathGroundShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PathGroundShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.PathGroundShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1580,7 +1649,7 @@
             A Shape class that draws a bitmap image.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.ImageGroundShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.ImageGroundShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -1632,13 +1701,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.ImageGroundShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.ImageGroundShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.ImageGroundShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.ImageGroundShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1647,12 +1716,12 @@
             An Hand Shape that draws a simple straight line.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.TAIL_LENGTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.DefaultTailLength">
             <summary>
             The default value of the hand's tail length.
             </summary>
@@ -1693,7 +1762,7 @@
             Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape"/> class.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.CalculateLayout">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
@@ -1708,13 +1777,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.LineHandShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1723,7 +1792,7 @@
             Displays an image hand in the <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> control.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.ImageHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.ImageHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -1776,13 +1845,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.ImageHandShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.ImageHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.ImageHandShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Basic.ImageHandShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -1792,27 +1861,27 @@
             Provides common functionality for all the Angular Shapes.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.POSITION_OFFSET">
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultPositionOffset">
             <summary>
             The default value of the position offset.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.ANGLE">
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultAngle">
             <summary>
             The default value of the angle.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.EXCEPTION_INDEX">
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultExceptionIndex">
             <summary>
             The default value of the exception index.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.REPEAT">
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultRepeat">
             <summary>
             The default value of the repeat.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.ORIENTATION">
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultOrientation">
             <summary>
             The default value of the shape's orientation.
             </summary>
@@ -1870,12 +1939,12 @@
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.index">
             <summary>
-            The index that should be drawn by the <see cref="M:DustInTheWind.ClockNet.Shapes.AngularShapeBase.Draw(System.Drawing.Graphics)"/> method next time it is call.
+            The index that should be drawn by the <see cref="!:Draw"/> method next time it is call.
             </summary>
         </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.AngularShapeBase.Index">
             <summary>
-            Gets or sets the index that should be drawn by the <see cref="M:DustInTheWind.ClockNet.Shapes.AngularShapeBase.Draw(System.Drawing.Graphics)"/> method next time it is call.
+            Gets or sets the index that should be drawn by the <see cref="!:Draw"/> method next time it is call.
             </summary>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.AngularShapeBase.#ctor">
@@ -1893,7 +1962,7 @@
             <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">The angle between two consecutive drawns of the shape should be a positive number.</exception>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.AngularShapeBase.Draw(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.AngularShapeBase.OnBeforeDraw(System.Drawing.Graphics)">
             <summary>
             Draws one tick using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
@@ -1997,13 +2066,13 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHandShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHandShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHandShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -2025,17 +2094,17 @@
             A Shape that draws a clock hand that resembles a distorted diamond.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.WIDTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.DefaultWidth">
             <summary>
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.Width"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.TAIL_LENGTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.DefaultTailLength">
             <summary>
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.TailLength"/>.
             </summary>
@@ -2083,7 +2152,7 @@
             <param name="tailLength">The width of the hand.</param>
             <param name="width">The length of the the tail that is drawn behind the pin.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape.CalculateLayout">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
@@ -2095,7 +2164,7 @@
             The <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the ticks that mark the seconds.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -2130,7 +2199,7 @@
             <param name="lineWidth">The width of the ticks.</param>
             <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape.CalculateLayout">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
@@ -2139,17 +2208,17 @@
         </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.DialShape">
             <summary>
-            A Background Shape that draws a gradient background with two rims around it.
+            The <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the background of the dial.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.RADIUS">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.DefaultRadius">
             <summary>
-            The default value of the dot's radius.
+            The default radius of the Dial Shape.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.radius">
@@ -2202,20 +2271,20 @@
             The rectangle defining the circle that is drawn.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.CalculateLayout">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
             This method should be called every time when is set a property that changes the physical dimensions.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -2224,7 +2293,7 @@
             A Hand Shape that draws a dot at the specified distance from the pin.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DotHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DotHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -2274,14 +2343,14 @@
             The rectangle defining the ellipse that is drawn.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHandShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHandShape.CalculateLayout">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
             This method should be called every time when is set a property that changes the physical dimensions.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHandShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Draws the hour hand using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
@@ -2293,7 +2362,7 @@
         </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape">
             <summary>
-            The <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the background of the dial.
+            A Background Shape that draws a gradient background with two rims around it.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.NAME">
@@ -2362,7 +2431,7 @@
             Creates the three <see cref="T:System.Drawing.Brush"/> objects if they does not exist already.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.CalculateLayout">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
@@ -2377,7 +2446,7 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Draws the dial's background using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
@@ -2394,7 +2463,7 @@
             Draws a fancy clock hand that resambles to a nib.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -2436,7 +2505,7 @@
             <param name="height">The length of the hour hand.</param>
             <param name="lineWidth">The width of the outline.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape.CalculateLayout">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
@@ -2448,7 +2517,7 @@
             Specifies if the hand should keep its proportions when its length is changed.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Draws the hour hand using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
@@ -2463,7 +2532,7 @@
             Draws a clock hand that is a slot carved inside a disk. By default the disk is big as the clock.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -2478,7 +2547,7 @@
             The default length of the radius of the opaque disk.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.TAIL_LENGTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.DefaultTailLength">
             <summary>
             The default length of the tail of the hand.
             </summary>
@@ -2538,7 +2607,7 @@
             <param name="height">The length of the carving from the pin to the its top.</param>
             <param name="width">The width of the carving.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.SlotHandShape.CalculateLayout">
             <summary>
             Performs all the necessary calculations based on the public parameters, before drawing the shape.
             </summary>
@@ -2548,7 +2617,7 @@
             Draws a sweep hand as a line with a circle near its top.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
@@ -2563,7 +2632,7 @@
             The default offset position of the center of the circle from the top of the hand.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.TAIL_LENGTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.DefaultTailLength">
             <summary>
             The default length of the tail of the hand.
             </summary>
@@ -2634,7 +2703,7 @@
             <param name="lineWidth">The width of the outline.</param>
             <param name="height">The length of the hand from the pin to the its top.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHandShape.CalculateLayout">
             <summary>
             Calculates additional values and creates the <see cref="T:System.Drawing.Drawing2D.GraphicsPath"/> that will be displayed
             by the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method.
@@ -2699,20 +2768,20 @@
             <param name="fillColor">The color used to fill the pin.</param>
             <param name="diameter">The diameter of the pin.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.CalculateDimensions">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.CalculateLayout">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
             This method should be called every time when is set a property that changes the physical dimensions.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
@@ -2866,12 +2935,12 @@
             Provides common functionality for all the Hand Shapes.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.HandShapeBase.HEIGHT">
+        <member name="F:DustInTheWind.ClockNet.Shapes.HandShapeBase.DefaultHeight">
             <summary>
             The default value of the height.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.HandShapeBase.INTEGRAL_VALUE">
+        <member name="F:DustInTheWind.ClockNet.Shapes.HandShapeBase.DefaultIntegralValue">
             <summary>
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.HandShapeBase.IntegralValue"/>.
             </summary>
@@ -2934,7 +3003,7 @@
             </summary>
             <returns>The degrees by which the hand should be rotated from the vertical position (12 o'clock hour).</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.HandShapeBase.Draw(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.HandShapeBase.OnBeforeDraw(System.Drawing.Graphics)">
             <summary>
             Draws the shape using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
@@ -2952,17 +3021,17 @@
             Provides common functionality for a vectorial shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.LINE_WIDTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.DefaultLineWidth">
             <summary>
             The default width of the line used to draw the shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.FILL_COLOR">
+        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.DefaultFillColor">
             <summary>
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.FillColor"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.OUTLINE_COLOR">
+        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.DefaultOutlineColor">
             <summary>
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.OutlineColor"/>.
             </summary>
@@ -3348,13 +3417,6 @@
             Examples: the color, the width of the line, etc.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.ShapeBase.CalculateDimensions">
-            <summary>
-            Calculates additional values that are necessary by the drawing process, but that remain constant for every
-            successive draw if no parameter is changed.
-            This method should be called every time when is set a property that changes the physical dimensions.
-            </summary>
-        </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.ShapeBase.AllowToDraw">
             <summary>
             Decides if the Shape should be drawn.
@@ -3363,19 +3425,26 @@
             </summary>
             <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.ShapeBase.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.ShapeBase.CalculateLayout">
+            <summary>
+            Calculates additional values that are necessary by the drawing process, but that remain constant for every
+            successive draw if no parameter is changed.
+            This method should be called every time when is set a property that changes the physical dimensions.
+            </summary>
+        </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.ShapeBase.Draw(System.Drawing.Graphics)">
             <summary>
             Draws the shape using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.ShapeBase.DrawInternal(System.Drawing.Graphics)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.ShapeBase.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.ShapeBase.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.ShapeBase.DrawInternal(System.Drawing.Graphics)"/> method.
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.ShapeBase.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>

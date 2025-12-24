@@ -27,15 +27,12 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Path Ground Shape";
+        public const string DefaultName = "Path Ground Shape";
 
         /// <summary>
         /// The path that is drawn.
         /// </summary>
         protected GraphicsPath path;
-
-
-        #region Constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PathGroundShape"/> class with
@@ -68,12 +65,9 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public PathGroundShape(GraphicsPath path, Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.path = path;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -91,10 +85,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
             {

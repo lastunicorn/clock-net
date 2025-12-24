@@ -30,7 +30,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public new const string NAME = "Nib Hand Shape";
+        public new const string DefaultName = "Nib Hand Shape";
 
         /// <summary>
         /// The default length of the width of the hand.
@@ -55,20 +55,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 width = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-        #region Constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NibHandShape"/> class with
         /// default values.
         /// </summary>
         public NibHandShape()
-            : this(OUTLINE_COLOR, FILL_COLOR, HEIGHT, LINE_WIDTH)
+            : this(DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultLineWidth)
         {
         }
 
@@ -78,7 +75,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="fillColor">The color used to fill the opaqu disk.</param>
         /// <param name="height">The length of the hour hand.</param>
         public NibHandShape(Color fillColor, float height)
-            : this(OUTLINE_COLOR, fillColor, height, LINE_WIDTH)
+            : this(DefaultOutlineColor, fillColor, height, DefaultLineWidth)
         {
         }
 
@@ -92,19 +89,15 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public NibHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(new GraphicsPath(), outlineColor, fillColor, height, lineWidth)
         {
-            this.Name = NAME;
-            CalculateDimensions();
+            Name = DefaultName;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateDimensions()
+        protected override void CalculateLayout()
         {
             path.Reset();
 
@@ -203,7 +196,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// The hand is drawn in vertical position from the origin of the coordinate system.
         /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
         /// </remarks>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (keepProportions && height > 0)
             {
@@ -217,7 +210,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 g.ScaleTransform(scaleFactorX, scaleFactorY);
             }
 
-            base.DrawInternal(g);
+            base.OnDraw(g);
         }
 
         public override bool HitTest(PointF point)

@@ -30,27 +30,27 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "String Ground Shape";
+        public const string DefaultName = "String Ground Shape";
 
         /// <summary>
         /// The default text drawn.
         /// </summary>
-        public const string TEXT = "Dust in the Wind";
+        public const string DefaultText = "Dust in the Wind";
 
         /// <summary>
         /// The default font used to draw the text.
         /// </summary>
-        public static Font FONT = new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point);
+        public static Font DefaultFont = new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point);
 
         /// <summary>
         /// The default vertical location of the text.
         /// </summary>
-        public static PointF LOCATION = new PointF(0f, 0f);
+        public static PointF DefaultLocation = new PointF(0f, 0f);
 
         /// <summary>
         /// The maximum width of the rectangle where the text should be drawn.
         /// </summary>
-        public const float MAX_WIDTH = 50f;
+        public const float DefaultMaxWidth = 50f;
 
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// Gets or sets the text that is drawn.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(TEXT)]
+        [DefaultValue(DefaultText)]
         [Description("The text that is drawn.")]
         [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
         public virtual string Text
@@ -113,7 +113,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// Gets or sets the maximum width of the rectangle where the text should be drawn.
         /// </summary>
         [Category("Layout")]
-        [DefaultValue(MAX_WIDTH)]
+        [DefaultValue(DefaultMaxWidth)]
         [Description("The maximum width of the rectangle where the text should be drawn.")]
         public virtual float MaxWidth
         {
@@ -148,18 +148,14 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
                 recalculateNeeded = true;
                 OnChanged(EventArgs.Empty);
             }
-
         }
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StringGroundShape"/> class with
         /// default values.
         /// </summary>
         public StringGroundShape()
-            : this(TEXT, Color.Black, FONT)
+            : this(DefaultText, Color.Black, DefaultFont)
         {
         }
 
@@ -168,7 +164,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <param name="text">The text that should be drawn.</param>
         public StringGroundShape(string text)
-            : this(text, Color.Black, FONT)
+            : this(text, Color.Black, DefaultFont)
         {
         }
 
@@ -178,7 +174,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="text">The text that should be drawn.</param>
         /// <param name="color">The color used to draw the text.</param>
         public StringGroundShape(string text, Color color)
-            : this(text, color, FONT)
+            : this(text, color, DefaultFont)
         {
         }
 
@@ -191,21 +187,19 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public StringGroundShape(string text, Color color, Font font)
             : base(Color.Empty, color)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
 
             this.text = text;
             this.font = font;
-            this.location = LOCATION;
+            this.location = DefaultLocation;
 
-            stringFormat = new StringFormat();
-            stringFormat.Alignment = StringAlignment.Center;
-            stringFormat.LineAlignment = StringAlignment.Center;
-            stringFormat.Trimming = StringTrimming.None;
+            stringFormat = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center,
+                Trimming = StringTrimming.None
+            };
         }
-
-        #endregion
-
-        #region Calculated Values
 
         private bool recalculateNeeded = true;
         private RectangleF textRectangle;
@@ -218,9 +212,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
 
             recalculateNeeded = false;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -238,10 +229,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             CreateBrushIfNull();
 

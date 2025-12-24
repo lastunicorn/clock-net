@@ -28,8 +28,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Image Hand Shape";
-
+        public const string DefaultName = "Image Hand Shape";
 
         /// <summary>
         /// The image to be drawn.
@@ -52,7 +51,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
             }
         }
 
-
         /// <summary>
         /// The location of the pin relative to the upper left corner of the image.
         /// </summary>
@@ -74,15 +72,12 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
             }
         }
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageHandShape"/> class with
         /// default values.
         /// </summary>
         public ImageHandShape()
-            : this(null, PointF.Empty, HEIGHT)
+            : this(null, PointF.Empty, DefaultHeight)
         {
         }
 
@@ -91,7 +86,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <param name="image">The immage to be used as a clock hand.</param>
         public ImageHandShape(Image image)
-            : this(image, PointF.Empty, HEIGHT)
+            : this(image, PointF.Empty, DefaultHeight)
         {
         }
 
@@ -104,13 +99,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public ImageHandShape(Image image, PointF origin, float height)
             : base(height)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.image = image;
             this.origin = origin;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -128,10 +120,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (origin.Y != 0 && height > 0)
             {

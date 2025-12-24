@@ -510,8 +510,8 @@ namespace DustInTheWind.ClockNet
                 base.SetItem(index, item);
 
                 clock.Invalidate();
-                clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(oldItem));
-                clock.OnBackgroundShapeAdded(new ShapeAddedEventArgs(index, item));
+                clock.OnAngularShapeRemoved(new ShapeRemovedEventArgs(oldItem));
+                clock.OnAngularShapeAdded(new ShapeAddedEventArgs(index, item));
             }
 
             protected override void ClearItems()
@@ -947,7 +947,6 @@ namespace DustInTheWind.ClockNet
                 if (shape != null)
                 {
                     g.Transform = centerMatrix;
-
                     shape.Draw(g);
                 }
             }

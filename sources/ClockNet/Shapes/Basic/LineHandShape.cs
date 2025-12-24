@@ -28,12 +28,12 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Line Hand Shape";
+        public const string DefaultName = "Line Hand Shape";
 
         /// <summary>
         /// The default value of the hand's tail length.
         /// </summary>
-        public const float TAIL_LENGTH = 7f;
+        public const float DefaultTailLength = 7f;
 
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// Gets or set the length of the hand's tail that is drawn on the other side of the pin.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(TAIL_LENGTH)]
+        [DefaultValue(DefaultTailLength)]
         [Description("The length of the hand's tail that is drawn on the other side of the pin.")]
         public virtual float TailLength
         {
@@ -64,20 +64,17 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
             set
             {
                 tailLength = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LineHandShape"/> class with
         /// default values.
         /// </summary>
         public LineHandShape()
-            : this(Color.Black, HEIGHT, LINE_WIDTH, TAIL_LENGTH)
+            : this(Color.Black, DefaultHeight, DefaultLineWidth, DefaultTailLength)
         {
         }
 
@@ -85,7 +82,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// Initializes a new instance of the <see cref="LineHandShape"/> class.
         /// </summary>
         public LineHandShape(Color color)
-            : this(color, HEIGHT, LINE_WIDTH, TAIL_LENGTH)
+            : this(color, DefaultHeight, DefaultLineWidth, DefaultTailLength)
         {
         }
 
@@ -95,21 +92,16 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public LineHandShape(Color color, float height, float width, float tailLength)
             : base(color, Color.Empty, width, height)
         {
-            this.Name = NAME;
+            Name = DefaultName;
             this.tailLength = tailLength;
-
-            CalculateDimensions();
         }
-
-        #endregion
-
 
         /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateDimensions()
+        protected override void CalculateLayout()
         {
             startPoint = new PointF(0f, tailLength);
             endPoint = new PointF(0f, -height);
@@ -131,10 +123,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             CreatePenIfNull();
 

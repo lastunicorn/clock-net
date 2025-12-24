@@ -29,17 +29,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public new const string NAME = "Diamond Hand Shape";
+        public new const string DefaultName = "Diamond Hand Shape";
 
         /// <summary>
         /// The default value of the <see cref="Width"/>.
         /// </summary>
-        public const float WIDTH = 5f;
+        public const float DefaultWidth = 5f;
 
         /// <summary>
         /// The default value of the <see cref="TailLength"/>.
         /// </summary>
-        public const float TAIL_LENGTH = 6f;
+        public const float DefaultTailLength = 6f;
 
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Gets or sets the length of the tail of the hand.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(TAIL_LENGTH)]
+        [DefaultValue(DefaultTailLength)]
         [Description("The length of the tail of the hand.")]
         public virtual float TailLength
         {
@@ -59,7 +59,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 tailLength = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -73,7 +73,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Gets or sets the width of the hand.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(WIDTH)]
+        [DefaultValue(DefaultWidth)]
         [Description("The width of the hand.")]
         public virtual float Width
         {
@@ -81,21 +81,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 width = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DiamondHandShape"/> class with
         /// default values.
         /// </summary>
         public DiamondHandShape()
-            : this(Color.Empty, Color.RoyalBlue, HEIGHT, WIDTH, TAIL_LENGTH)
+            : this(Color.Empty, Color.RoyalBlue, DefaultHeight, DefaultWidth, DefaultTailLength)
         {
         }
 
@@ -105,7 +101,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="outlineColor">The color used to draw the outline.</param>
         /// <param name="fillColor">The color used to fill the shape.</param>
         public DiamondHandShape(Color outlineColor, Color fillColor)
-            : this(outlineColor, fillColor, HEIGHT, WIDTH, TAIL_LENGTH)
+            : this(outlineColor, fillColor, DefaultHeight, DefaultWidth, DefaultTailLength)
         {
         }
 
@@ -118,27 +114,29 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="tailLength">The width of the hand.</param>
         /// <param name="width">The length of the the tail that is drawn behind the pin.</param>
         public DiamondHandShape(Color outlineColor, Color fillColor, float height, float width, float tailLength)
-            : base(null, outlineColor, fillColor, height, LINE_WIDTH)
+            : base(null, outlineColor, fillColor, height, DefaultLineWidth)
         {
-            this.Name = NAME;
+            Name = DefaultName;
             this.tailLength = tailLength;
             this.width = width;
-
-            CalculateDimensions();
         }
-
-        #endregion
-
 
         /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateDimensions()
+        protected override void CalculateLayout()
         {
             float halfWidth = width / 2f;
-            points = new PointF[] { new PointF(0f, tailLength), new PointF(-halfWidth, 0f), new PointF(0F, -height), new PointF(halfWidth, 0f) };
+
+            points = new PointF[]
+            {
+                new PointF(0f, tailLength),
+                new PointF(-halfWidth, 0f),
+                new PointF(0F, -height),
+                new PointF(halfWidth, 0f)
+            };
         }
     }
 }

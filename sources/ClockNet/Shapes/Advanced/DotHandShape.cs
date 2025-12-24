@@ -29,7 +29,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Dot Hand Shape";
+        public const string DefaultName = "Dot Hand Shape";
 
         /// <summary>
         /// The default value of the dot's radius.
@@ -58,7 +58,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                     throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
 
                 radius = value;
-                CalculateDimensions();
+                InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -70,7 +70,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public DotHandShape()
-            : this(Color.Empty, Color.Black, HEIGHT, LINE_WIDTH, RADIUS)
+            : this(Color.Empty, Color.Black, DefaultHeight, DefaultLineWidth, RADIUS)
         {
         }
 
@@ -81,7 +81,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="height">The distance between the pin and the center of the ellipse.</param>
         /// <param name="radius">The radius of the dot.</param>
         public DotHandShape(Color fillColor, float height, float radius)
-            : this(Color.Empty, fillColor, height, LINE_WIDTH, radius)
+            : this(Color.Empty, fillColor, height, DefaultLineWidth, radius)
         {
         }
 
@@ -96,10 +96,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public DotHandShape(Color outlineColor, Color fillColor, float height, float lineWidth, float radius)
             : base(outlineColor, fillColor, lineWidth, height)
         {
-            this.Name = NAME;
+            Name = DefaultName;
             this.radius = radius;
-
-            CalculateDimensions();
         }
 
         #endregion
@@ -114,7 +112,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateDimensions()
+        protected override void CalculateLayout()
         {
             dotRectangle = new RectangleF(-radius, -height - radius, radius * 2, radius * 2);
         }
@@ -128,7 +126,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// The hand is drawn in vertical position from the origin of the coordinate system.
         /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
         /// </remarks>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
             {

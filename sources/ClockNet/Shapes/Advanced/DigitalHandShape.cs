@@ -139,7 +139,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public DigitalHandShape()
-            : this(FILL_COLOR, FONT)
+            : this(DefaultFillColor, FONT)
         {
         }
 
@@ -158,7 +158,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="color">The color used to draw the text.</param>
         /// <param name="font">The font used to draw the text.</param>
         public DigitalHandShape(Color color, Font font)
-            : base(OUTLINE_COLOR, color)
+            : base(DefaultOutlineColor, color)
         {
             this.Name = NAME;
             this.font = font;
@@ -190,17 +190,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             CreateBrushIfNull();
 
-            StringBuilder sb = new StringBuilder();
-            string prepend = string.Empty;
+            string text = time.Ticks < 0
+                ? "-"
+                : string.Empty;
 
-            string text = time.Ticks < 0 ? "-" : string.Empty;
             text += new DateTime(time.Duration().Ticks).ToString(format);
 
             if (text.Length > 0)

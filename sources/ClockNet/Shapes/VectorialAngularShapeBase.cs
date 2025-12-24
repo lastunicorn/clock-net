@@ -28,17 +28,17 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// The default width of the line used to draw the shape.
         /// </summary>
-        public const float LINE_WIDTH = 0.3f;
+        public const float DefaultLineWidth = 0.3f;
 
         /// <summary>
         /// The default value of the <see cref="FillColor"/>.
         /// </summary>
-        public static Color FILL_COLOR = Color.Black;
+        public static Color DefaultFillColor = Color.Black;
 
         /// <summary>
         /// The default value of the <see cref="OutlineColor"/>.
         /// </summary>
-        public static Color OUTLINE_COLOR = Color.Empty;
+        public static Color DefaultOutlineColor = Color.Empty;
 
 
         /// <summary>
@@ -97,17 +97,16 @@ namespace DustInTheWind.ClockNet.Shapes
             }
         }
 
-
         /// <summary>
         /// The width of the outline.
         /// </summary>
-        protected float lineWidth = LINE_WIDTH;
+        protected float lineWidth = DefaultLineWidth;
 
         /// <summary>
         /// Gets or sets the width of the outline.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(LINE_WIDTH)]
+        [DefaultValue(DefaultLineWidth)]
         [Description("The width of the outline.")]
         public virtual float LineWidth
         {
@@ -127,7 +126,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         public VectorialAngularShapeBase(Color outlineColor, Color fillColor)
-            : this(outlineColor, fillColor, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(outlineColor, fillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
         {
         }
 

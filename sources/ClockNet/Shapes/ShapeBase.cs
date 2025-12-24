@@ -87,15 +87,6 @@ namespace DustInTheWind.ClockNet.Shapes
         }
 
         /// <summary>
-        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
-        /// successive draw if no parameter is changed.
-        /// This method should be called every time when is set a property that changes the physical dimensions.
-        /// </summary>
-        protected virtual void CalculateDimensions()
-        {
-        }
-
-        /// <summary>
         /// Decides if the Shape should be drawn.
         /// If this method returns false, the <see cref="Draw"/> method returns immediatelly,
         /// without doing anythig.
@@ -106,14 +97,48 @@ namespace DustInTheWind.ClockNet.Shapes
             return visible;
         }
 
+        private bool isLayoutValid = false;
+
+        protected void InvalidateLayout()
+        {
+            isLayoutValid = false;
+        }
+
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
+        protected virtual void CalculateLayout()
+        {
+        }
+
         /// <summary>
         /// Draws the shape using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        public virtual void Draw(Graphics g)
+        public void Draw(Graphics g)
         {
             if (AllowToDraw())
-                DrawInternal(g);
+            {
+                if (!isLayoutValid)
+                {
+                    CalculateLayout();
+                    isLayoutValid = true;
+                }
+
+                bool allowToDraw = OnBeforeDraw(g);
+
+                if (allowToDraw)
+                    OnDraw(g);
+
+                OnAfterDraw(g);
+            }
+        }
+
+        protected virtual bool OnBeforeDraw(Graphics g)
+        {
+            return true;
         }
 
         /// <summary>
@@ -121,10 +146,14 @@ namespace DustInTheWind.ClockNet.Shapes
         /// </summary>
         /// <remarks>
         /// The <see cref="Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected abstract void DrawInternal(Graphics g);
+        protected abstract void OnDraw(Graphics g);
+
+        protected virtual void OnAfterDraw(Graphics g)
+        {
+        }
 
 
         #region IDisposable Members

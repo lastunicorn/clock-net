@@ -26,16 +26,12 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Polygon Ground Shape";
-
+        public const string DefaultName = "Polygon Ground Shape";
 
         /// <summary>
         /// The points that defines the polygon.
         /// </summary>
         protected PointF[] points;
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PolygonGroundShape"/> class with
@@ -56,12 +52,9 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public PolygonGroundShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.points = points;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -79,10 +72,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
             {

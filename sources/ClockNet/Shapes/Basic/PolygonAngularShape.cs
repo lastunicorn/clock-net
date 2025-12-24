@@ -26,23 +26,19 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Polygon Angular Shape";
-
+        public const string DefaultName = "Polygon Angular Shape";
 
         /// <summary>
         /// The points that defines the polygon.
         /// </summary>
         protected PointF[] points;
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PolygonAngularShape"/> class with
         /// default values.
         /// </summary>
         public PolygonAngularShape()
-            : this(null, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH, ANGLE, REPEAT, POSITION_OFFSET)
+            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
         {
         }
 
@@ -59,11 +55,9 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public PolygonAngularShape(PointF[] points, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.points = points;
         }
-
-        #endregion
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -81,10 +75,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="DrawInternal"/> method.
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void DrawInternal(Graphics g)
+        protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
             {

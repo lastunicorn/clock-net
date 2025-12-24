@@ -344,7 +344,6 @@ namespace DustInTheWind.ClockNet.Demo
                 ConstructorInfo ctor = t.GetConstructor(new Type[0]);
                 IAngularShape shape = (IAngularShape)ctor.Invoke(null);
                 analogClockDemo.AngularShapes.Add(shape);
-                listBoxAngularShapes.Items.Add(shape);
             }
         }
 
@@ -353,7 +352,6 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxAngularShapes.SelectedItem != null)
             {
                 analogClockDemo.AngularShapes.Remove(listBoxAngularShapes.SelectedItem as IAngularShape);
-                listBoxAngularShapes.Items.Remove(listBoxAngularShapes.SelectedItem);
             }
         }
 
@@ -405,7 +403,6 @@ namespace DustInTheWind.ClockNet.Demo
                 ConstructorInfo ctor = t.GetConstructor(new Type[0]);
                 IHandShape shape = (IHandShape)ctor.Invoke(null);
                 analogClockDemo.HandShapes.Add(shape);
-                listBoxHandShapes.Items.Add(shape);
             }
         }
 
@@ -414,7 +411,6 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxHandShapes.SelectedItem != null)
             {
                 analogClockDemo.HandShapes.Remove(listBoxHandShapes.SelectedItem as IHandShape);
-                listBoxHandShapes.Items.Remove(listBoxHandShapes.SelectedItem);
             }
         }
 
