@@ -71,7 +71,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 OutlineColor = Color.RoyalBlue,
                 LineWidth = 0.75f,
-                PositionOffset = 5f,
+                DistanceFromEdge = 5f,
                 Length = 7.5f,
                 Angle = 6f,
                 ExceptionIndex = 5
@@ -82,7 +82,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 OutlineColor = Color.Navy,
                 LineWidth = 5f,
-                PositionOffset = 5f,
+                DistanceFromEdge = 5f,
                 Length = 5f,
                 Angle = 30f
             };
@@ -92,7 +92,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 FillColor = Color.Navy,
                 Angle = 30f,
-                PositionOffset = 20f,
+                DistanceFromEdge = 20f,
                 Orientation = AngularOrientation.Normal,
                 Repeat = true
             };

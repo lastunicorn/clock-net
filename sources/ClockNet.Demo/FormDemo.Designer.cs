@@ -1236,14 +1236,14 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape1.FillColor = System.Drawing.Color.Empty;
             ticksShape1.Index = 61;
             ticksShape1.Name = "Second Ticks";
-            ticksShape1.PositionOffset = 7F;
+            ticksShape1.DistanceFromEdge = 7F;
             ticksShape2.Angle = 30F;
             ticksShape2.FillColor = System.Drawing.Color.Empty;
             ticksShape2.Index = 13;
             ticksShape2.LineWidth = 1F;
             ticksShape2.Name = "Hour Ticks";
             ticksShape2.OutlineColor = System.Drawing.Color.White;
-            ticksShape2.PositionOffset = 7F;
+            ticksShape2.DistanceFromEdge = 7F;
             stringAngularShape1.Angle = 30F;
             stringAngularShape1.FillColor = System.Drawing.Color.LightGray;
             stringAngularShape1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic);
@@ -1251,7 +1251,7 @@ namespace DustInTheWind.ClockNet.Demo
             stringAngularShape1.Name = "Hours";
             stringAngularShape1.Orientation = DustInTheWind.ClockNet.Shapes.AngularOrientation.Normal;
             stringAngularShape1.OutlineColor = System.Drawing.Color.Empty;
-            stringAngularShape1.PositionOffset = 15F;
+            stringAngularShape1.DistanceFromEdge = 15F;
             stringAngularShape1.Texts = new string[] {
         "1",
         "2",
@@ -1271,7 +1271,7 @@ namespace DustInTheWind.ClockNet.Demo
             stringAngularShape2.Index = 13;
             stringAngularShape2.Name = "Minutes";
             stringAngularShape2.OutlineColor = System.Drawing.Color.Empty;
-            stringAngularShape2.PositionOffset = 2.7F;
+            stringAngularShape2.DistanceFromEdge = 2.7F;
             stringAngularShape2.Texts = new string[] {
         "5",
         "10",

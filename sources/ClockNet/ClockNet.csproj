@@ -79,6 +79,7 @@
     <Compile Include="Shapes\AngularShapeBase.cs" />
     <Compile Include="Shapes\Basic\LineAngularShape.cs" />
     <Compile Include="Shapes\Advanced\DigitalHandShape.cs" />
+    <Compile Include="Templates\BlackClockTemplate.cs" />
     <Compile Include="Templates\BlueClockTemplate.cs" />
     <Compile Include="Templates\DefaultClockTemplate.cs" />
     <Compile Include="Shapes\GroundShapeBase.cs" />

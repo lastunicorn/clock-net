@@ -68,7 +68,7 @@ namespace DustInTheWind.ClockNet.Shapes
         [Category("Layout")]
         [DefaultValue(DefaultPositionOffset)]
         [Description("The position offset relativelly to the edge of the dial.")]
-        public virtual float PositionOffset
+        public virtual float DistanceFromEdge
         {
             get { return positionOffset; }
             set

@@ -25,23 +25,22 @@ using DustInTheWind.ClockNet.Shapes.Basic;
 namespace DustInTheWind.ClockNet.Templates
 {
     /// <summary>
-    /// Provides the default visual template for rendering a clock, including standard background, tick marks, and hand
+    /// Provides a predefined clock template with a black-themed design, including default background, angular, and hand
     /// shapes.
     /// </summary>
-    /// <remarks>This template supplies a conventional analog clock appearance with predefined shapes for the
-    /// dial, tick marks, and hands. It can be used as a base or reference for custom clock templates. The default
-    /// configuration includes hour, minute, and second hands, as well as standard tick marks and background
-    /// elements.</remarks>
-    public class DefaultClockTemplate : ClockTemplate
+    /// <remarks>Use this class to create a clock template with a standard set of shapes and styles suitable
+    /// for a black or dark-themed clock face. The template initializes the BackgroundShapes, AngularShapes, and
+    /// HandShapes properties with default values representing a complete analog clock layout.</remarks>
+    public class BlackClockTemplate : ClockTemplate
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefaultClockTemplate"/> class with default background, angular, and hand
+        /// Initializes a new instance of the <see cref="BlackClockTemplate"/> class with default background, angular, and hand
         /// shapes.
         /// </summary>
         /// <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
         /// properties with their respective default values. Use this constructor to create a clock template with the
         /// standard set of shapes.</remarks>
-        public DefaultClockTemplate()
+        public BlackClockTemplate()
         {
             BackgroundShapes = EnumerateBackgroundShapes().ToArray();
             AngularShapes = EnumerateAngularShapes().ToArray();
@@ -50,18 +49,17 @@ namespace DustInTheWind.ClockNet.Templates
 
         private static IEnumerable<IGroundShape> EnumerateBackgroundShapes()
         {
-            yield return new DialShape
+            yield return new FancyDialShape
             {
-                FillColor = Color.LightGray,
-                Radius = 50
+                FillColor = Color.Black
             };
 
             yield return new StringGroundShape
             {
                 Location = new PointF(0, 15),
                 Font = new Font("Arial", 2.5f, FontStyle.Regular, GraphicsUnit.Point),
-                FillColor = Color.DarkSlateGray,
-                Text = "Dust in the Wind",
+                FillColor = Color.LightGray,
+                Text = "Black",
             };
         }
 
@@ -71,8 +69,8 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new TicksShape
             {
                 LineWidth = 0.3f,
-                DistanceFromEdge = 2f,
-                Length = 4f,
+                DistanceFromEdge = 8f,
+                Length = 3f,
                 Angle = 6f,
                 ExceptionIndex = 5
             };
@@ -81,7 +79,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new TicksShape
             {
                 LineWidth = 1f,
-                DistanceFromEdge = 2f,
+                DistanceFromEdge = 8f,
                 Length = 3f,
                 Angle = 30f
             };
@@ -89,10 +87,21 @@ namespace DustInTheWind.ClockNet.Templates
             // Hour numbers
             yield return new StringAngularShape
             {
+                Font = new Font("Arial", 5f, FontStyle.Regular, GraphicsUnit.Point),
+                FillColor = Color.WhiteSmoke,
                 Angle = 30f,
-                DistanceFromEdge = 13.5f,
-                Orientation = AngularOrientation.Normal,
-                Repeat = true
+                DistanceFromEdge = 17f,
+                Orientation = AngularOrientation.Normal
+            };
+
+            // Minute numbers
+            yield return new StringAngularShape
+            {
+                Font = new Font("Arial", 2.2f, FontStyle.Regular, GraphicsUnit.Point),
+                FillColor = Color.WhiteSmoke,
+                Angle = 30f,
+                DistanceFromEdge = 3f,
+                Texts = new string[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60" }
             };
         }
 
@@ -114,7 +123,8 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new LineHandShape
             {
                 ComponentToDisplay = TimeComponent.Second,
-                OutlineColor = Color.Red
+                OutlineColor = Color.Red,
+                Height = 42f
             };
 
             // Center pin

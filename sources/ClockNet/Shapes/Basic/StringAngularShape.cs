@@ -123,9 +123,9 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <param name="color">The color used to draw the text.</param>
         /// <param name="font">The font to be used to draw the numbers.</param>
-        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
-        public StringAngularShape(Color color, Font font, float positionOffset)
-            : base(Color.Empty, color, DefaultLineWidth, DefaultAngle, DefaultRepeat, positionOffset)
+        /// <param name="distanceFromEdge">The position offset relativelly to the edge of the dial.</param>
+        public StringAngularShape(Color color, Font font, float distanceFromEdge)
+            : base(Color.Empty, color, DefaultLineWidth, DefaultAngle, DefaultRepeat, distanceFromEdge)
         {
             Name = DefaultName;
             this.font = font == null

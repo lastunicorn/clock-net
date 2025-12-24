@@ -1296,7 +1296,7 @@
             </summary>
             <param name="color">The color used to draw the text.</param>
             <param name="font">The font to be used to draw the numbers.</param>
-            <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
+            <param name="distanceFromEdge">The position offset relativelly to the edge of the dial.</param>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape.AllowToDraw">
             <summary>
@@ -1873,7 +1873,7 @@
             The position offset relativelly to the edge of the dial.
             </summary>
         </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.AngularShapeBase.PositionOffset">
+        <member name="P:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DistanceFromEdge">
             <summary>
             Gets or sets the position offset relativelly to the edge of the dial.
             </summary>
@@ -3474,6 +3474,24 @@
             Draws the shape using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Templates.BlackClockTemplate">
+            <summary>
+            Provides a predefined clock template with a black-themed design, including default background, angular, and hand
+            shapes.
+            </summary>
+            <remarks>Use this class to create a clock template with a standard set of shapes and styles suitable
+            for a black or dark-themed clock face. The template initializes the BackgroundShapes, AngularShapes, and
+            HandShapes properties with default values representing a complete analog clock layout.</remarks>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Templates.BlackClockTemplate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.BlackClockTemplate"/> class with default background, angular, and hand
+            shapes.
+            </summary>
+            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
+            properties with their respective default values. Use this constructor to create a clock template with the
+            standard set of shapes.</remarks>
         </member>
         <member name="T:DustInTheWind.ClockNet.Templates.BlueClockTemplate">
             <summary>
