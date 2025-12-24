@@ -156,7 +156,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public EllipseGroundShape()
-            : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH)
+            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth)
         {
         }
 
@@ -218,18 +218,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillEllipse(brush, rectangle);
-            }
+                g.FillEllipse(Brush, rectangle);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawEllipse(pen, rectangle);
-            }
+                g.DrawEllipse(Pen, rectangle);
         }
     }
 }

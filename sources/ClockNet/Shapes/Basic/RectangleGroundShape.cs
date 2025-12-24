@@ -44,7 +44,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public RectangleGroundShape()
-            : this(RectangleF.Empty, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH)
+            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth)
         {
         }
 
@@ -85,18 +85,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillRectangle(brush, rectangle);
-            }
+                g.FillRectangle(Brush, rectangle);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawRectangle(pen, roundedRectangle);
-            }
+                g.DrawRectangle(Pen, roundedRectangle);
         }
     }
 }

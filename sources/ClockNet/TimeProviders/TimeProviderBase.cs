@@ -27,14 +27,18 @@ namespace DustInTheWind.ClockNet.TimeProviders
         [Browsable(false)]
         public ISite Site { get; set; }
 
-        #region Event Changed
-
         /// <summary>
         /// Event raised when the internal mechanism that generates time values is changed and therefore
         /// the already generated time values are obsolete. The clients should request new time values using
         /// <see cref="GetTime"/> method.
         /// </summary>
         public event EventHandler Changed;
+
+        /// <summary>
+        /// Returns a new time value.
+        /// </summary>
+        /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
+        public abstract TimeSpan GetTime();
 
         /// <summary>
         /// Raises the <see cref="Changed"/> event.
@@ -44,14 +48,6 @@ namespace DustInTheWind.ClockNet.TimeProviders
         {
             Changed?.Invoke(this, e);
         }
-
-        #endregion
-
-        /// <summary>
-        /// Returns a new time value.
-        /// </summary>
-        /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        public abstract TimeSpan GetTime();
 
         #region IDisposable Members
 
@@ -71,10 +67,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnDisposed(EventArgs e)
         {
-            if (Disposed != null)
-            {
-                Disposed(this, e);
-            }
+            Disposed?.Invoke(this, e);
         }
 
         /// <summary>

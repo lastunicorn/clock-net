@@ -38,7 +38,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public PolygonGroundShape()
-            : this(null, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH)
+            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth)
         {
         }
 
@@ -78,18 +78,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillPolygon(brush, points);
-            }
+                g.FillPolygon(Brush, points);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawPolygon(pen, points);
-            }
+                g.DrawPolygon(Pen, points);
         }
     }
 }

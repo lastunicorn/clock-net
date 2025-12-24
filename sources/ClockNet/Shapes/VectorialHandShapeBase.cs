@@ -40,17 +40,45 @@ namespace DustInTheWind.ClockNet.Shapes
         /// </summary>
         public static Color DefaultOutlineColor = Color.Empty;
 
+        private Brush brush;
+        private Pen pen;
 
         /// <summary>
         /// The brush used to fill the shape.
         /// </summary>
-        protected Brush brush;
+        protected Brush Brush
+        {
+            get
+            {
+                if (brush == null)
+                    brush = new SolidBrush(fillColor);
+
+                //System.Drawing.Drawing2D..::.HatchBrush
+                //System.Drawing.Drawing2D..::.LinearGradientBrush
+                //System.Drawing.Drawing2D..::.PathGradientBrush
+                //System.Drawing..::.SolidBrush
+                //System.Drawing..::.TextureBrush
+
+                return brush;
+            }
+            private set => brush = value;
+        }
 
         /// <summary>
-        /// The pen used to draw the outline of the shape
+        /// The pen used to draw the outline of the shape.
         /// </summary>
-        protected Pen pen;
+        protected Pen Pen
+        {
+            get
+            {
+                if (pen == null)
+                    pen = new Pen(outlineColor, lineWidth);
 
+                return pen;
+            }
+
+            private set => pen = value;
+        }
 
         /// <summary>
         /// The color used to draw the outline of the shape.
@@ -69,7 +97,7 @@ namespace DustInTheWind.ClockNet.Shapes
             set
             {
                 outlineColor = value;
-                InvalidateDrawingTools();
+                DisposeDrawingTools();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -92,7 +120,7 @@ namespace DustInTheWind.ClockNet.Shapes
             set
             {
                 fillColor = value;
-                InvalidateDrawingTools();
+                DisposeDrawingTools();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -116,8 +144,8 @@ namespace DustInTheWind.ClockNet.Shapes
             {
                 lineWidth = value;
 
-                if (pen != null)
-                    pen.Width = lineWidth;
+                if (Pen != null)
+                    Pen.Width = lineWidth;
 
                 OnChanged(EventArgs.Empty);
             }
@@ -149,47 +177,34 @@ namespace DustInTheWind.ClockNet.Shapes
         }
 
         /// <summary>
+        /// Determines whether the object is eligible to be drawn based on its fill and outline color states.
+        /// </summary>
+        /// <remarks>Drawing is permitted only if at least one of the colors (fill or outline) is set.</remarks>
+        /// <returns>true if drawing is allowed; otherwise, false.</returns>
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() &&
+                (!fillColor.IsEmpty || !outlineColor.IsEmpty);
+        }
+
+        /// <summary>
         /// Disposes all the classes used in the drawing process.
         /// </summary>
-        protected override void InvalidateDrawingTools()
+        protected override void DisposeDrawingTools()
         {
-            if (pen != null)
+            if (Pen != null)
             {
-                pen.Dispose();
-                pen = null;
+                Pen.Dispose();
+                Pen = null;
             }
 
-            if (brush != null)
+            if (Brush != null)
             {
-                brush.Dispose();
-                brush = null;
+                Brush.Dispose();
+                Brush = null;
             }
 
-            base.InvalidateDrawingTools();
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="Brush"/> object only if it does not already exist.
-        /// </summary>
-        protected virtual void CreateBrushIfNull()
-        {
-            if (brush == null)
-                brush = new SolidBrush(fillColor);
-
-            //System.Drawing.Drawing2D..::.HatchBrush
-            //System.Drawing.Drawing2D..::.LinearGradientBrush
-            //System.Drawing.Drawing2D..::.PathGradientBrush
-            //System.Drawing..::.SolidBrush
-            //System.Drawing..::.TextureBrush
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="Pen"/> object only if it does not already exist.
-        /// </summary>
-        protected virtual void CreatePenIfNull()
-        {
-            if (pen == null)
-                pen = new Pen(outlineColor, lineWidth);
+            base.DisposeDrawingTools();
         }
 
         #region Dispose
@@ -202,11 +217,8 @@ namespace DustInTheWind.ClockNet.Shapes
         {
             if (disposing)
             {
-                if (pen != null)
-                    pen.Dispose();
-
-                if (brush != null)
-                    brush.Dispose();
+                Pen?.Dispose();
+                Brush?.Dispose();
             }
 
             base.Dispose(disposing);

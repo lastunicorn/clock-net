@@ -28,13 +28,15 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Pin Shape";
+        public const string DefaultName = "Pin Shape";
 
         /// <summary>
         /// The default value of the diameter.
         /// </summary>
-        public const float DIAMETER = 1.33f;
+        public const float DefaultDiameter = 1.33f;
 
+        private float centerX;
+        private float centerY;
 
         /// <summary>
         /// The diameter of the pin.
@@ -46,11 +48,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         [Category("Appearance")]
-        [DefaultValue(DIAMETER)]
+        [DefaultValue(DefaultDiameter)]
         [Description("The diameter of the pin.")]
         public float Diameter
         {
-            get { return diameter; }
+            get => diameter;
             set
             {
                 if (value < 0)
@@ -69,8 +71,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Browsable(false)]
         public override float Height
         {
-            get { return base.Height; }
-            set { base.Height = value; }
+            get => base.Height;
+            set => base.Height = value;
         }
 
         /// <summary>
@@ -78,7 +80,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public PinShape()
-            : this(Color.Empty, Color.Black, DIAMETER)
+            : this(Color.Empty, Color.Black, DefaultDiameter)
         {
         }
 
@@ -98,7 +100,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="outlineColor">The color used to draw the outline of the pin.</param>
         /// <param name="fillColor">The color used to fill the pin.</param>
         public PinShape(Color outlineColor, Color fillColor)
-            : this(Color.Empty, fillColor, DIAMETER)
+            : this(Color.Empty, fillColor, DefaultDiameter)
         {
         }
 
@@ -111,14 +113,19 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public PinShape(Color outlineColor, Color fillColor, float diameter)
             : base(outlineColor, fillColor)
         {
-            Name = NAME;
+            Name = DefaultName;
             this.diameter = diameter;
         }
 
-        #region Calculated Values
-
-        private float _locationX;
-        private float _locationY;
+        /// <summary>
+        /// Determines whether the object is eligible to be drawn based on its fill and outline color states.
+        /// </summary>
+        /// <remarks>Drawing is permitted only if at least one of the colors (fill or outline) is set.</remarks>
+        /// <returns>true if drawing is allowed; otherwise, false.</returns>
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && diameter > 0;
+        }
 
         /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
@@ -127,14 +134,12 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         protected override void CalculateLayout()
         {
-            _locationX = -diameter / 2f;
-            _locationY = -diameter / 2f;
+            centerX = -diameter / 2f;
+            centerY = -diameter / 2f;
         }
 
-        #endregion
-
         /// <summary>
-        /// Internal method that draws the Shape unconditioned. 
+        /// Internal method that draws the shape.
         /// </summary>
         /// <remarks>
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
@@ -144,18 +149,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillEllipse(brush, _locationX, _locationY, diameter, diameter);
-            }
+                g.FillEllipse(Brush, centerX, centerY, diameter, diameter);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawEllipse(pen, _locationX, _locationY, diameter, diameter);
-            }
+                g.DrawEllipse(Pen, centerX, centerY, diameter, diameter);
         }
 
         public override bool HitTest(PointF point)

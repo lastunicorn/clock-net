@@ -67,7 +67,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public DialShape()
-            : this(OUTLINE_COLOR, Color.Black, DefaultRadius, LINE_WIDTH)
+            : this(DefaultOutlineColor, Color.Black, DefaultRadius, DefaultLineWidth)
         {
         }
 
@@ -76,7 +76,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
         public DialShape(Color fillColor)
-            : this(OUTLINE_COLOR, fillColor, DefaultRadius, LINE_WIDTH)
+            : this(DefaultOutlineColor, fillColor, DefaultRadius, DefaultLineWidth)
         {
         }
 
@@ -86,7 +86,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="fillColor">The color used to draw the dial's background.</param>
         /// <param name="radius">The radius of the dial.</param>
         public DialShape(Color fillColor, float radius)
-            : this(OUTLINE_COLOR, fillColor, radius, LINE_WIDTH)
+            : this(DefaultOutlineColor, fillColor, radius, DefaultLineWidth)
         {
         }
 
@@ -108,15 +108,12 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Creates a new <see cref="Pen"/> object if it does not exist already.
         /// The pen will have an Inset alignment.
         /// </summary>
-        protected override void CreatePenIfNull()
+        protected override Pen CreatePen()
         {
-            if (pen == null)
+            return new Pen(outlineColor, lineWidth)
             {
-                pen = new Pen(outlineColor, lineWidth)
-                {
-                    Alignment = PenAlignment.Inset
-                };
-            }
+                Alignment = PenAlignment.Inset
+            };
         }
 
         /// <summary>
@@ -146,16 +143,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-                g.FillEllipse(brush, rect);
-            }
+                g.FillEllipse(Brush, rect);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-                g.DrawEllipse(pen, rect);
-            }
+                g.DrawEllipse(Pen, rect);
         }
     }
 }

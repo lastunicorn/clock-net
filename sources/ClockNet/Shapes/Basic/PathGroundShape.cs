@@ -39,7 +39,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public PathGroundShape()
-            : this(null, OUTLINE_COLOR, FILL_COLOR, LINE_WIDTH)
+            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth)
         {
 
         }
@@ -51,7 +51,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
         public PathGroundShape(GraphicsPath path, Color outlineColor, Color fillColor)
-            : this(path, outlineColor, fillColor, LINE_WIDTH)
+            : this(path, outlineColor, fillColor, DefaultLineWidth)
         {
         }
 
@@ -91,18 +91,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillPath(brush, path);
-            }
+                g.FillPath(Brush, path);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawPath(pen, path);
-            }
+                g.DrawPath(Pen, path);
         }
 
         /// <summary>

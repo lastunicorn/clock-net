@@ -187,11 +187,11 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public StringGroundShape(string text, Color color, Font font)
             : base(Color.Empty, color)
         {
-            this.Name = DefaultName;
+            Name = DefaultName;
 
             this.text = text;
             this.font = font;
-            this.location = DefaultLocation;
+            location = DefaultLocation;
 
             stringFormat = new StringFormat
             {
@@ -234,12 +234,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
-            CreateBrushIfNull();
-
             if (recalculateNeeded)
                 CalculateDimensions(g);
 
-            g.DrawString(text, font, brush, textRectangle, stringFormat);
+            g.DrawString(text, font, Brush, textRectangle, stringFormat);
         }
 
         #region Dispose

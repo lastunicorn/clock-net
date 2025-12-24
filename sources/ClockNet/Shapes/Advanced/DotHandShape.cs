@@ -130,18 +130,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             if (!fillColor.IsEmpty)
             {
-                CreateBrushIfNull();
-
                 //g.FillEllipse(brush, -radius, -height - radius, radius * 2, radius);
-                g.FillEllipse(brush, dotRectangle);
+                g.FillEllipse(Brush, dotRectangle);
             }
 
             if (!outlineColor.IsEmpty)
             {
-                CreatePenIfNull();
-
                 //g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
-                g.DrawEllipse(pen, dotRectangle);
+                g.DrawEllipse(Pen, dotRectangle);
             }
         }
 

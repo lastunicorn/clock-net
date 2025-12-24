@@ -78,13 +78,13 @@ namespace DustInTheWind.ClockNet
 
                 if (angularShapes != null)
                 {
-                    TicksShape ticks1Shape = new TicksShape(Color.Black, TicksShape.LENGTH, TicksShape.DefaultLineWidth, 0f);
+                    TicksShape ticks1Shape = new TicksShape(Color.Black, TicksShape.DefaultLength, TicksShape.DefaultLineWidth, 0f);
                     ticks1Shape.Name = "Second Ticks";
                     ticks1Shape.Angle = 6f;
                     ticks1Shape.ExceptionIndex = 5;
                     angularShapes.Add(ticks1Shape);
 
-                    TicksShape ticks5Shape = new TicksShape(Color.Black, TicksShape.LENGTH, 1f, 0f);
+                    TicksShape ticks5Shape = new TicksShape(Color.Black, TicksShape.DefaultLength, 1f, 0f);
                     ticks5Shape.Name = "Hour Ticks";
                     ticks5Shape.Angle = 30f;
                     ticks5Shape.Length = 5f;
@@ -122,7 +122,7 @@ namespace DustInTheWind.ClockNet
                     sweepHandShape.Height = 42.5f;
                     handShapes.Add(sweepHandShape);
 
-                    PinShape pinShape = new PinShape(Color.Red, PinShape.DIAMETER);
+                    PinShape pinShape = new PinShape(Color.Red, PinShape.DefaultDiameter);
                     pinShape.Name = "Pin Shape";
                     handShapes.Add(pinShape);
                 }

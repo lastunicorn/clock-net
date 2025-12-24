@@ -82,7 +82,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// This method is called every time when is set a property that changes the way the Shape is drawn.
         /// Examples: the color, the width of the line, etc.
         /// </summary>
-        protected virtual void InvalidateDrawingTools()
+        protected virtual void DisposeDrawingTools()
         {
         }
 

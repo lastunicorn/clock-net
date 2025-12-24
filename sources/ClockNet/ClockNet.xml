@@ -220,12 +220,12 @@
             default aspect of the interface.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.AnalogClock.#ctor(DustInTheWind.ClockNet.Shapes.ShapeSet,DustInTheWind.ClockNet.TimeProviders.ITimeProvider)">
+        <member name="M:DustInTheWind.ClockNet.AnalogClock.#ctor(DustInTheWind.ClockNet.Shapes.ClockTemplate,DustInTheWind.ClockNet.TimeProviders.ITimeProvider)">
             <summary>
             Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> class with
             a set of shapes and a time provider.
             </summary>
-            <param name="shapeSet">An <see cref="T:DustInTheWind.ClockNet.Shapes.ShapeSet"/> object containing the shapes that creats the interface.</param>
+            <param name="clockTemplate">An <see cref="T:DustInTheWind.ClockNet.Shapes.ClockTemplate"/> object containing the shapes that creats the interface.</param>
             <param name="timeProvider">An instance of the <see cref="T:DustInTheWind.ClockNet.TimeProviders.ITimeProvider"/> that provides the time to be displayed in the control.</param>
         </member>
         <member name="M:DustInTheWind.ClockNet.AnalogClock.shape_Changed(System.Object,System.EventArgs)">
@@ -296,11 +296,11 @@
             </summary>
             <param name="e"></param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.AnalogClock.SetShapes(DustInTheWind.ClockNet.Shapes.ShapeSet)">
+        <member name="M:DustInTheWind.ClockNet.AnalogClock.ApplyTemplate(DustInTheWind.ClockNet.Shapes.ClockTemplate)">
             <summary>
             Sets a new set of shapes to be used by the clock.
             </summary>
-            <param name="shapeSet">An instance of <see cref="T:DustInTheWind.ClockNet.Shapes.ShapeSet"/> class containing the <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> instances.</param>
+            <param name="clockTemplate">An instance of <see cref="T:DustInTheWind.ClockNet.Shapes.ClockTemplate"/> class containing the <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> instances.</param>
         </member>
         <member name="M:DustInTheWind.ClockNet.AnalogClock.Dispose(System.Boolean)">
             <summary> 
@@ -1107,14 +1107,6 @@
             <param name="fillColor">The color used to fill the path's interior.</param>
             <param name="height">The length of the hand from the pin to the its top.</param>
             <param name="lineWidth">The width of the outline.</param>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonHandShape.AllowToDraw">
-            <summary>
-            Decides if the Shape should be drawn.
-            If this method returns false, the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method returns immediatelly,
-            without doing anythig.
-            </summary>
-            <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Basic.PolygonHandShape.OnDraw(System.Drawing.Graphics)">
             <summary>
@@ -2159,7 +2151,7 @@
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape.LENGTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape.DefaultLength">
             <summary>
             The default value of the length.
             </summary>
@@ -2250,7 +2242,7 @@
             <param name="radius">The radius of the dial.</param>
             <param name="lineWidth">The width of the outline.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.CreatePenIfNull">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DialShape.CreatePen">
             <summary>
             Creates a new <see cref="T:System.Drawing.Pen"/> object if it does not exist already.
             The pen will have an Inset alignment.
@@ -2355,17 +2347,17 @@
             A Background Shape that draws a gradient background with two rims around it.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.OUTER_RIM_WIDTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.DefaultOuterRimWidth">
             <summary>
             The default value of the outer rim width.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.INNER_RIM_WIDTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.DefaultInnerRimWidth">
             <summary>
             The default value of the inner rim width.
             </summary>
@@ -2410,16 +2402,38 @@
             <param name="innerRimWidth">The width of the outer-most rim.</param>
             <param name="outerRimWidth">The width of the second rim.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.CreatePenIfNull">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.CreatePen">
             <summary>
             Creates a new <see cref="T:System.Drawing.Pen"/> object if it does not exist already.
             The pen will have an Inset alignment.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.CreateBrushIfNull">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.CreateBrush">
             <summary>
             Creates the three <see cref="T:System.Drawing.Brush"/> objects if they does not exist already.
             </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.DisposeDrawingTools">
+            <summary>
+            Releases resources used by the drawing tools associated with this object.
+            </summary>
+            <remarks>This method disposes of any managed resources related to drawing, such as brushes,
+            and should be called when the object is no longer needed to free up system resources. Overrides the base
+            implementation to ensure all custom drawing resources are properly released.</remarks>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.OuterRimBrush">
+            <summary>
+            Gets or sets the linear gradient brush used to render the outer rim of the control.
+            </summary>
+            <remarks>The brush is created using a gradient based on the current fill color and the bounds
+            of the outer rim. The brush is lazily initialized and updated when the property is set.</remarks>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.InnerRimBrush">
+            <summary>
+            Gets the linear gradient brush used to render the inner rim of the control.
+            </summary>
+            <remarks>The brush is created based on the current fill color and is cached for subsequent
+            accesses. The gradient direction and colors are determined by the control's visual state.</remarks>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape.CalculateLayout">
             <summary>
@@ -2704,12 +2718,12 @@
             The <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the pin from the center of the dial.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.NAME">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.DefaultName">
             <summary>
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.DIAMETER">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.DefaultDiameter">
             <summary>
             The default value of the diameter.
             </summary>
@@ -2758,6 +2772,13 @@
             <param name="fillColor">The color used to fill the pin.</param>
             <param name="diameter">The diameter of the pin.</param>
         </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.AllowToDraw">
+            <summary>
+            Determines whether the object is eligible to be drawn based on its fill and outline color states.
+            </summary>
+            <remarks>Drawing is permitted only if at least one of the colors (fill or outline) is set.</remarks>
+            <returns>true if drawing is allowed; otherwise, false.</returns>
+        </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.CalculateLayout">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
@@ -2767,13 +2788,23 @@
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.OnDraw(System.Drawing.Graphics)">
             <summary>
-            Internal method that draws the Shape unconditioned. 
+            Internal method that draws the shape.
             </summary>
             <remarks>
             The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
             coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Shapes.DefaultClockTemplate">
+            <summary>
+            Provides the default visual template for rendering a clock, including standard background, tick marks, and hand
+            shapes.
+            </summary>
+            <remarks>This template supplies a conventional analog clock appearance with predefined shapes for the
+            dial, tick marks, and hands. It can be used as a base or reference for custom clock templates. The default
+            configuration includes hour, minute, and second hands, as well as standard tick marks and background
+            elements.</remarks>
         </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.GroundShapeBase">
             <summary>
@@ -2842,14 +2873,14 @@
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.OutlineColor"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.brush">
+        <member name="P:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.Brush">
             <summary>
             The brush used to fill the shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.pen">
+        <member name="P:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.Pen">
             <summary>
-            The pen used to draw the outline of the shape
+            The pen used to draw the outline of the shape.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.outlineColor">
@@ -2898,19 +2929,16 @@
             <param name="lineWidth">The width of the outline.</param>
             <param name="height">The length of the hand. This value is given in pixels for a clock with the diameter of 100px.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.InvalidateDrawingTools">
+        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.AllowToDraw">
+            <summary>
+            Determines whether the object is eligible to be drawn based on its fill and outline color states.
+            </summary>
+            <remarks>Drawing is permitted only if at least one of the colors (fill or outline) is set.</remarks>
+            <returns>true if drawing is allowed; otherwise, false.</returns>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.DisposeDrawingTools">
             <summary>
             Disposes all the classes used in the drawing process.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.CreateBrushIfNull">
-            <summary>
-            Creates a new <see cref="T:System.Drawing.Brush"/> object only if it does not already exist.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.CreatePenIfNull">
-            <summary>
-            Creates a new <see cref="T:System.Drawing.Pen"/> object only if it does not already exist.
             </summary>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.VectorialHandShapeBase.Dispose(System.Boolean)">
@@ -3084,7 +3112,7 @@
             <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
             <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.InvalidateDrawingTools">
+        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.DisposeDrawingTools">
             <summary>
             Disposes all the classes used in the drawing process.
             </summary>
@@ -3231,37 +3259,22 @@
             The numbers are displayed oriented to the outside of the clock.
             </summary>
         </member>
-        <member name="T:DustInTheWind.ClockNet.Shapes.ShapeSet">
+        <member name="T:DustInTheWind.ClockNet.Shapes.ClockTemplate">
             <summary>
             Keeps a collection of Shapes that can be applied to the <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> all at once.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.ShapeSet.backgroundShapes">
-            <summary>
-            The array of Shapes that are drawn on the background of the clock.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.ShapeSet.BackgroundShapes">
+        <member name="P:DustInTheWind.ClockNet.Shapes.ClockTemplate.BackgroundShapes">
             <summary>
             Gets or sets the array of Shapes that are drawn on the background of the clock.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.ShapeSet.angularShapes">
-            <summary>
-            The array of Shapes that are drawn repetitively around the clock.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.ShapeSet.AngularShapes">
+        <member name="P:DustInTheWind.ClockNet.Shapes.ClockTemplate.AngularShapes">
             <summary>
             Gets or sets the array of Shapes that are drawn repetitively around the clock.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.ShapeSet.handShapes">
-            <summary>
-            The array of Shapes that represents hands on the clock.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.ShapeSet.HandShapes">
+        <member name="P:DustInTheWind.ClockNet.Shapes.ClockTemplate.HandShapes">
             <summary>
             Gets or sets the array of Shapes that represents hands on the clock.
             </summary>
@@ -3277,29 +3290,29 @@
             Provides common functionality for a vectorial shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.LINE_WIDTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.DefaultLineWidth">
             <summary>
             The default width of the line used to draw the shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.FILL_COLOR">
+        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.DefaultFillColor">
             <summary>
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.FillColor"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.OUTLINE_COLOR">
+        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.DefaultOutlineColor">
             <summary>
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.OutlineColor"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.brush">
+        <member name="P:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.Brush">
             <summary>
             The brush used to fill the shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.pen">
+        <member name="P:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.Pen">
             <summary>
-            The pen used to draw the outline of the shape
+            The pen used to draw the outline of the shape.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.outlineColor">
@@ -3347,19 +3360,9 @@
             <param name="fillColor">The color used to draw the background of the shape.</param>
             <param name="lineWidth">The width of the outline.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.InvalidateDrawingTools">
+        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.DisposeDrawingTools">
             <summary>
             Disposes all the classes used in the drawing process.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.CreateBrushIfNull">
-            <summary>
-            Creates a new <see cref="T:System.Drawing.Brush"/> object only if it does not already exist.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.CreatePenIfNull">
-            <summary>
-            Creates a new <see cref="T:System.Drawing.Pen"/> object only if it does not already exist.
             </summary>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.VectorialGroundShapeBase.Dispose(System.Boolean)">
@@ -3400,7 +3403,7 @@
             </summary>
             <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.ShapeBase.InvalidateDrawingTools">
+        <member name="M:DustInTheWind.ClockNet.Shapes.ShapeBase.DisposeDrawingTools">
             <summary>
             Disposes all the classes used in the drawing process.
             This method is called every time when is set a property that changes the way the Shape is drawn.
@@ -3514,17 +3517,17 @@
             <see cref="M:DustInTheWind.ClockNet.TimeProviders.TimeProviderBase.GetTime"/> method.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.TimeProviders.TimeProviderBase.OnChanged(System.EventArgs)">
-            <summary>
-            Raises the <see cref="E:DustInTheWind.ClockNet.TimeProviders.TimeProviderBase.Changed"/> event.
-            </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
-        </member>
         <member name="M:DustInTheWind.ClockNet.TimeProviders.TimeProviderBase.GetTime">
             <summary>
             Returns a new time value.
             </summary>
             <returns>A <see cref="T:System.TimeSpan"/> object containing the time value.</returns>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.TimeProviders.TimeProviderBase.OnChanged(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:DustInTheWind.ClockNet.TimeProviders.TimeProviderBase.Changed"/> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
         </member>
         <member name="F:DustInTheWind.ClockNet.TimeProviders.TimeProviderBase.disposed">
             <summary>

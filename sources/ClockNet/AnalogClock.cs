@@ -614,10 +614,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn on the background of the clock.")]
-        public Collection<IGroundShape> BackgroundShapes
-        {
-            get { return backgroundShapes; }
-        }
+        public Collection<IGroundShape> BackgroundShapes => backgroundShapes;
 
         #endregion
 
@@ -635,10 +632,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn repetitively on the edge of the clock.")]
-        public Collection<IAngularShape> AngularShapes
-        {
-            get { return angularShapes; }
-        }
+        public Collection<IAngularShape> AngularShapes => angularShapes;
 
         #endregion
 
@@ -656,10 +650,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that display the time.")]
-        public Collection<IHandShape> HandShapes
-        {
-            get { return handShapes; }
-        }
+        public Collection<IHandShape> HandShapes => handShapes;
 
         #endregion
 
@@ -679,7 +670,7 @@ namespace DustInTheWind.ClockNet
         [Description("A value that specifies if the drawn clock should alwais keep its proportions inside the control's area.")]
         public bool KeepProportions
         {
-            get { return keepProportions; }
+            get => keepProportions;
             set
             {
                 keepProportions = value;
@@ -706,9 +697,9 @@ namespace DustInTheWind.ClockNet
         /// Initializes a new instance of the <see cref="AnalogClock"/> class with
         /// a set of shapes and a time provider.
         /// </summary>
-        /// <param name="shapeSet">An <see cref="ShapeSet"/> object containing the shapes that creats the interface.</param>
+        /// <param name="clockTemplate">An <see cref="ClockTemplate"/> object containing the shapes that creats the interface.</param>
         /// <param name="timeProvider">An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed in the control.</param>
-        public AnalogClock(ShapeSet shapeSet, ITimeProvider timeProvider)
+        public AnalogClock(ClockTemplate clockTemplate, ITimeProvider timeProvider)
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             //SetStyle(ControlStyles.Opaque, true);
@@ -717,32 +708,7 @@ namespace DustInTheWind.ClockNet
             angularShapes = new AngularShapeCollection(this);
             handShapes = new HandShapeCollection(this);
 
-            if (shapeSet != null)
-            {
-                if (shapeSet.BackgroundShapes != null)
-                {
-                    foreach (IGroundShape shape in shapeSet.BackgroundShapes)
-                    {
-                        backgroundShapes.Add(shape);
-                    }
-                }
-
-                if (shapeSet.AngularShapes != null)
-                {
-                    foreach (IAngularShape shape in shapeSet.AngularShapes)
-                    {
-                        angularShapes.Add(shape);
-                    }
-                }
-
-                if (shapeSet.HandShapes != null)
-                {
-                    foreach (IHandShape shape in shapeSet.HandShapes)
-                    {
-                        handShapes.Add(shape);
-                    }
-                }
-            }
+            ApplyTemplate(clockTemplate);
 
             if (timeProvider != null)
             {
@@ -967,9 +933,7 @@ namespace DustInTheWind.ClockNet
                         g.TranslateTransform(0f, -radius);
 
                         if ((shape.Index == 0 || shape.Repeat) && i % shape.Angle == 0)
-                        {
                             shape.Draw(g);
-                        }
                     }
                 }
             }
@@ -1047,36 +1011,30 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// Sets a new set of shapes to be used by the clock.
         /// </summary>
-        /// <param name="shapeSet">An instance of <see cref="ShapeSet"/> class containing the <see cref="IShape"/> instances.</param>
-        public void SetShapes(ShapeSet shapeSet)
+        /// <param name="clockTemplate">An instance of <see cref="ClockTemplate"/> class containing the <see cref="IShape"/> instances.</param>
+        public void ApplyTemplate(ClockTemplate clockTemplate)
         {
-            if (shapeSet != null)
+            if (clockTemplate != null)
             {
                 backgroundShapes.Clear();
-                if (shapeSet.BackgroundShapes != null)
+                if (clockTemplate.BackgroundShapes != null)
                 {
-                    foreach (IGroundShape shape in shapeSet.BackgroundShapes)
-                    {
+                    foreach (IGroundShape shape in clockTemplate.BackgroundShapes)
                         backgroundShapes.Add(shape);
-                    }
                 }
 
                 angularShapes.Clear();
-                if (shapeSet.AngularShapes != null)
+                if (clockTemplate.AngularShapes != null)
                 {
-                    foreach (IAngularShape shape in shapeSet.AngularShapes)
-                    {
+                    foreach (IAngularShape shape in clockTemplate.AngularShapes)
                         angularShapes.Add(shape);
-                    }
                 }
 
                 handShapes.Clear();
-                if (shapeSet.HandShapes != null)
+                if (clockTemplate.HandShapes != null)
                 {
-                    foreach (IHandShape shape in shapeSet.HandShapes)
-                    {
+                    foreach (IHandShape shape in clockTemplate.HandShapes)
                         handShapes.Add(shape);
-                    }
                 }
             }
         }
@@ -1089,22 +1047,13 @@ namespace DustInTheWind.ClockNet
             if (disposing)
             {
                 foreach (IGroundShape shape in backgroundShapes)
-                {
-                    if (shape != null)
-                        shape.Dispose();
-                }
+                    shape?.Dispose();
 
                 foreach (IAngularShape shape in angularShapes)
-                {
-                    if (shape != null)
-                        shape.Dispose();
-                }
+                    shape?.Dispose();
 
                 foreach (IHandShape shape in handShapes)
-                {
-                    if (shape != null)
-                        shape.Dispose();
-                }
+                    shape?.Dispose();
             }
 
             base.Dispose(disposing);
@@ -1112,13 +1061,13 @@ namespace DustInTheWind.ClockNet
 
         protected override void OnMouseClick(MouseEventArgs e)
         {
-            using (Matrix m = new Matrix())
+            using (Matrix matrix = new Matrix())
             {
-                m.Translate(-centerX, -centerY);
-                m.Scale(1 / scaleX, 1 / scaleY, MatrixOrder.Append);
+                matrix.Translate(-centerX, -centerY);
+                matrix.Scale(1 / scaleX, 1 / scaleY, MatrixOrder.Append);
 
                 PointF[] points = new PointF[] { e.Location };
-                m.TransformPoints(points);
+                matrix.TransformPoints(points);
                 PointF clickLocation = points[0];
 
                 //Console.WriteLine("click: {0}; {1}", points[0].X, points[0].Y);

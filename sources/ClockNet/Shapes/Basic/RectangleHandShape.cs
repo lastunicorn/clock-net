@@ -39,9 +39,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         protected Rectangle roundedRectangle;
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="RectangleHandShape"/> class with
         /// default values.
@@ -77,8 +74,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
             this.roundedRectangle = Rectangle.Round(rectangle);
         }
 
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -102,18 +97,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillRectangle(brush, rectangle);
-            }
+                g.FillRectangle(Brush, rectangle);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawRectangle(pen, roundedRectangle);
-            }
+                g.DrawRectangle(Pen, roundedRectangle);
         }
 
         public override bool HitTest(PointF point)

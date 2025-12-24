@@ -34,7 +34,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default value of the length.
         /// </summary>
-        public const float LENGTH = 2.5f;
+        public const float DefaultLength = 2.5f;
 
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Gets or sets the length of the ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(LENGTH)]
+        [DefaultValue(DefaultLength)]
         [Description("The length of the ticks. This value is given for a clock with diameter of 100px.")]
         public virtual float Length
         {
@@ -64,7 +64,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public TicksShape()
-            : this(Color.Black, LENGTH, DefaultLineWidth, DefaultPositionOffset)
+            : this(Color.Black, DefaultLength, DefaultLineWidth, DefaultPositionOffset)
         {
         }
 

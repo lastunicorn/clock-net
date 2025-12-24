@@ -27,7 +27,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// <summary>
         /// The default value of the time multiplier.
         /// </summary>
-        public const float TIME_MULTIPLIER = 10;
+        public const float DefaultTimeMultiplier = 10;
 
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// Gets or sets the time multiplier that specifies how much faster is the provided time
         /// compared to the real one.
         /// </summary>
-        [DefaultValue(TIME_MULTIPLIER)]
+        [DefaultValue(DefaultTimeMultiplier)]
         [Description("Specifies how much faster is the provided time compared to the real one.")]
         public float TimeMultiplier
         {
@@ -85,7 +85,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// default values.
         /// </summary>
         public BrokenTimeProvider()
-            : this(TIME_MULTIPLIER)
+            : this(DefaultTimeMultiplier)
         {
         }
 

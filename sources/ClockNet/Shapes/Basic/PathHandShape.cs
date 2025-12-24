@@ -91,18 +91,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillPath(brush, path);
-            }
+                g.FillPath(Brush, path);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawPath(pen, path);
-            }
+                g.DrawPath(Pen, path);
         }
 
         /// <summary>
@@ -113,8 +105,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         {
             if (disposing)
             {
-                if (path != null)
-                    path.Dispose();
+                path?.Dispose();
             }
 
             base.Dispose(disposing);
@@ -127,13 +118,13 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <returns>true if the specified point is contained by the Shape; false otherwise.</returns>
         public override bool HitTest(PointF point)
         {
-            using (Matrix m = new Matrix())
+            using (Matrix matrix = new Matrix())
             {
                 float angle = GetRotationDegrees();
-                m.Rotate(-angle);
+                matrix.Rotate(-angle);
 
                 PointF[] points = new PointF[] { point };
-                m.TransformPoints(points);
+                matrix.TransformPoints(points);
                 PointF clickLocation = points[0];
 
                 return path.IsVisible(point);

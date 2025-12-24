@@ -69,7 +69,7 @@ namespace DustInTheWind.ClockNet.Shapes
             set
             {
                 outlineColor = value;
-                InvalidateDrawingTools();
+                DisposeDrawingTools();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -92,7 +92,7 @@ namespace DustInTheWind.ClockNet.Shapes
             set
             {
                 fillColor = value;
-                InvalidateDrawingTools();
+                DisposeDrawingTools();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -150,7 +150,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// Disposes all the classes used in the drawing process.
         /// </summary>
-        protected override void InvalidateDrawingTools()
+        protected override void DisposeDrawingTools()
         {
             if (pen != null)
             {
@@ -164,7 +164,7 @@ namespace DustInTheWind.ClockNet.Shapes
                 brush = null;
             }
 
-            base.InvalidateDrawingTools();
+            base.DisposeDrawingTools();
         }
 
         /// <summary>

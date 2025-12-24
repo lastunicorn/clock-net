@@ -59,17 +59,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         }
 
         /// <summary>
-        /// Decides if the Shape should be drawn.
-        /// If this method returns false, the <see cref="IShape.Draw"/> method returns immediatelly,
-        /// without doing anythig.
-        /// </summary>
-        /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
-        protected override bool AllowToDraw()
-        {
-            return base.AllowToDraw();
-        }
-
-        /// <summary>
         /// Internal method that draws the Shape unconditioned. 
         /// </summary>
         /// <remarks>
@@ -80,43 +69,35 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillPolygon(brush, points);
-            }
+                g.FillPolygon(Brush, points);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawPolygon(pen, points);
-            }
+                g.DrawPolygon(Pen, points);
         }
 
         public override bool HitTest(PointF point)
         {
             PointF clickLocation;
 
-            using (Matrix m = new Matrix())
+            using (Matrix matrix = new Matrix())
             {
                 float angle = GetRotationDegrees();
-                m.Rotate(-angle);
+                matrix.Rotate(-angle);
 
                 PointF[] points = new PointF[] { point };
-                m.TransformPoints(points);
+                matrix.TransformPoints(points);
                 clickLocation = points[0];
             }
 
-            return PointInPolygon(clickLocation, this.points);
+            return PointInPolygon(clickLocation, points);
         }
 
         private bool PointInPolygon(PointF point, PointF[] polygon)
         {
-            var j = polygon.Length - 1;
-            var oddNodes = false;
+            int j = polygon.Length - 1;
+            bool oddNodes = false;
 
-            for (var i = 0; i < points.Length; i++)
+            for (int i = 0; i < points.Length; i++)
             {
                 if (polygon[i].Y < point.Y && polygon[j].Y >= point.Y || polygon[j].Y < point.Y && polygon[i].Y >= point.Y)
                 {

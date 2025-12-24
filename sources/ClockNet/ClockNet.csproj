@@ -79,6 +79,7 @@
     <Compile Include="Shapes\AngularShapeBase.cs" />
     <Compile Include="Shapes\Basic\LineAngularShape.cs" />
     <Compile Include="Shapes\Advanced\DigitalHandShape.cs" />
+    <Compile Include="Shapes\DefaultClockTemplate.cs" />
     <Compile Include="Shapes\GroundShapeBase.cs" />
     <Compile Include="Shapes\Advanced\DiamondHandShape.cs" />
     <Compile Include="Shapes\Advanced\TicksShape.cs" />
@@ -104,7 +105,7 @@
     <Compile Include="Shapes\Basic\LineGroundShape.cs" />
     <Compile Include="Shapes\AngularOrientation.cs" />
     <Compile Include="Shapes\Basic\PathGroundShape.cs" />
-    <Compile Include="Shapes\ShapeSet.cs" />
+    <Compile Include="Shapes\ClockTemplate.cs" />
     <Compile Include="Shapes\Basic\ImageGroundShape.cs" />
     <Compile Include="Shapes\Advanced\PinShape.cs" />
     <Compile Include="Shapes\ShapeConverter.cs" />

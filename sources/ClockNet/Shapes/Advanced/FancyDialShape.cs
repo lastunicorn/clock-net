@@ -30,17 +30,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Fancy Dial Shape";
+        public const string DefaultName = "Fancy Dial Shape";
 
         /// <summary>
         /// The default value of the outer rim width.
         /// </summary>
-        public const float OUTER_RIM_WIDTH = 5f;
+        public const float DefaultOuterRimWidth = 5f;
 
         /// <summary>
         /// The default value of the inner rim width.
         /// </summary>
-        public const float INNER_RIM_WIDTH = 1f;
+        public const float DefaultInnerRimWidth = 1f;
 
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Gets or sets the width of the outer-most rim.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(OUTER_RIM_WIDTH)]
+        [DefaultValue(DefaultOuterRimWidth)]
         [Description("The width of the outer-most rim.")]
         public float OuterRimWidth
         {
@@ -75,7 +75,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Gets or sets the width of the second rim.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(INNER_RIM_WIDTH)]
+        [DefaultValue(DefaultInnerRimWidth)]
         [Description("The width of the second rim.")]
         public float InnerRimWidth
         {
@@ -93,7 +93,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public FancyDialShape()
-            : this(FILL_COLOR, OUTER_RIM_WIDTH, INNER_RIM_WIDTH)
+            : this(DefaultFillColor, DefaultOuterRimWidth, DefaultInnerRimWidth)
         {
         }
 
@@ -102,7 +102,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
         public FancyDialShape(Color fillColor)
-            : this(fillColor, OUTER_RIM_WIDTH, INNER_RIM_WIDTH)
+            : this(fillColor, DefaultOuterRimWidth, DefaultInnerRimWidth)
         {
         }
 
@@ -113,9 +113,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="innerRimWidth">The width of the outer-most rim.</param>
         /// <param name="outerRimWidth">The width of the second rim.</param>
         public FancyDialShape(Color fillColor, float outerRimWidth, float innerRimWidth)
-            : base(OUTLINE_COLOR, fillColor, LINE_WIDTH)
+            : base(DefaultOutlineColor, fillColor, DefaultLineWidth)
         {
-            this.Name = NAME;
+            Name = DefaultName;
             this.outerRimWidth = outerRimWidth;
             this.innerRimWidth = innerRimWidth;
         }
@@ -124,12 +124,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Creates a new <see cref="Pen"/> object if it does not exist already.
         /// The pen will have an Inset alignment.
         /// </summary>
-        protected override void CreatePenIfNull()
+        protected override Pen CreatePen()
         {
-            if (pen != null)
-                return;
-
-            pen = new Pen(outlineColor, lineWidth)
+            return new Pen(outlineColor, lineWidth)
             {
                 Alignment = PenAlignment.Inset
             };
@@ -138,27 +135,79 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// Creates the three <see cref="Brush"/> objects if they does not exist already.
         /// </summary>
-        protected override void CreateBrushIfNull()
+        protected override Brush CreateBrush()
         {
-            if (brush != null)
-                return;
-
-            Color outerRimColor1 = HsbColor.ShiftBrighness(fillColor, 100f);
-            Color outerRimColor2 = HsbColor.ShiftBrighness(fillColor, -100f);
-            outerRimBrush = new LinearGradientBrush(outerRimRectangle, outerRimColor1, outerRimColor2, 45f);
-
-            Color innerRimColor1 = HsbColor.ShiftBrighness(fillColor, -100f);
-            Color innerRimColor2 = HsbColor.ShiftBrighness(fillColor, 100f);
-            innerRimBrush = new LinearGradientBrush(innerRimRectangle, innerRimColor1, innerRimColor2, 45f);
-
             Color faceColor = HsbColor.ShiftSaturation(fillColor, 50f);
             Color faceColor1 = HsbColor.ShiftBrighness(faceColor, 100f);
             Color faceColor2 = HsbColor.ShiftBrighness(faceColor, -150f);
-            brush = new LinearGradientBrush(faceRectangle, faceColor1, faceColor2, 45f);
+
+            return new LinearGradientBrush(faceRectangle, faceColor1, faceColor2, 45f);
+        }
+
+        /// <summary>
+        /// Releases resources used by the drawing tools associated with this object.
+        /// </summary>
+        /// <remarks>This method disposes of any managed resources related to drawing, such as brushes,
+        /// and should be called when the object is no longer needed to free up system resources. Overrides the base
+        /// implementation to ensure all custom drawing resources are properly released.</remarks>
+        protected override void DisposeDrawingTools()
+        {
+            outerRimBrush?.Dispose();
+            outerRimBrush = null;
+
+            innerRimBrush?.Dispose();
+            innerRimBrush = null;
+
+            base.DisposeDrawingTools();
         }
 
         private LinearGradientBrush outerRimBrush;
+
+        /// <summary>
+        /// Gets or sets the linear gradient brush used to render the outer rim of the control.
+        /// </summary>
+        /// <remarks>The brush is created using a gradient based on the current fill color and the bounds
+        /// of the outer rim. The brush is lazily initialized and updated when the property is set.</remarks>
+        protected LinearGradientBrush OuterRimBrush
+        {
+            get
+            {
+                if (outerRimBrush == null)
+                {
+                    Color outerRimColor1 = HsbColor.ShiftBrighness(fillColor, 100f);
+                    Color outerRimColor2 = HsbColor.ShiftBrighness(fillColor, -100f);
+
+                    outerRimBrush = new LinearGradientBrush(outerRimRectangle, outerRimColor1, outerRimColor2, 45f);
+                }
+
+                return outerRimBrush;
+            }
+            private set => outerRimBrush = value;
+        }
+
         private LinearGradientBrush innerRimBrush;
+
+        /// <summary>
+        /// Gets the linear gradient brush used to render the inner rim of the control.
+        /// </summary>
+        /// <remarks>The brush is created based on the current fill color and is cached for subsequent
+        /// accesses. The gradient direction and colors are determined by the control's visual state.</remarks>
+        protected LinearGradientBrush InnerRimBrush
+        {
+            get
+            {
+                if (innerRimBrush == null)
+                {
+                    Color innerRimColor1 = HsbColor.ShiftBrighness(fillColor, -100f);
+                    Color innerRimColor2 = HsbColor.ShiftBrighness(fillColor, 100f);
+
+                    innerRimBrush = new LinearGradientBrush(innerRimRectangle, innerRimColor1, innerRimColor2, 45f);
+                }
+
+                return innerRimBrush;
+            }
+            private set => innerRimBrush = value;
+        }
 
         private RectangleF outerRimRectangle;
         private RectangleF innerRimRectangle;
@@ -194,11 +243,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="g">The <see cref="Graphics"/> on which to draw the dial.</param>
         protected override void OnDraw(Graphics g)
         {
-            CreateBrushIfNull();
-
-            g.FillEllipse(outerRimBrush, outerRimRectangle);
-            g.FillEllipse(innerRimBrush, innerRimRectangle);
-            g.FillEllipse(brush, faceRectangle);
+            g.FillEllipse(OuterRimBrush, outerRimRectangle);
+            g.FillEllipse(InnerRimBrush, innerRimRectangle);
+            g.FillEllipse(Brush, faceRectangle);
         }
 
         /// <summary>
@@ -209,11 +256,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             if (disposing)
             {
-                if (outerRimBrush != null)
-                    outerRimBrush.Dispose();
-
-                if (innerRimBrush != null)
-                    innerRimBrush.Dispose();
+                outerRimBrush?.Dispose();
+                innerRimBrush?.Dispose();
             }
 
             base.Dispose(disposing);

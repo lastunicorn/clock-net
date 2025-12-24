@@ -195,8 +195,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
-            CreateBrushIfNull();
-
             string text = time.Ticks < 0
                 ? "-"
                 : string.Empty;
@@ -209,7 +207,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 PointF textLocation = new PointF(-textSize.Width / 2F, verticalLocation);
                 RectangleF textRectangle = new RectangleF(textLocation, textSize);
 
-                g.DrawString(text, font, brush, textRectangle, stringFormat);
+                g.DrawString(text, font, Brush, textRectangle, stringFormat);
             }
         }
 
