@@ -846,71 +846,9 @@
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DefaultRadiusX">
-            <summary>
-            The default horizontal radius of the ellipse.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DefaultRadiusY">
-            <summary>
-            The default vertical radius of the ellipse.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DefaultCenterX">
-            <summary>
-            The default x coordinate of the center of the ellipse.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.DefaultCenterY">
-            <summary>
-            The default y coordinate of the center of the ellipse.
-            </summary>
-        </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.rectangle">
             <summary>
             The rectangle defining the ellipse that is drawn.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.radiusX">
-            <summary>
-            The radius of the ellipse.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.RadiusX">
-            <summary>
-            Gets or sets the horizontal radius of the ellipse.
-            </summary>
-            <exception cref="T:System.ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.radiusY">
-            <summary>
-            The radius of the ellipse.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.RadiusY">
-            <summary>
-            Gets or sets the vertical radius of the ellipse.
-            </summary>
-            <exception cref="T:System.ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.centerX">
-            <summary>
-            The x coordinate of the center of the ellipse.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.CenterX">
-            <summary>
-            Gets or sets the y coordinate of the center of the ellipse.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.centerY">
-            <summary>
-            The y coordinate of the center of the ellipse.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.CenterY">
-            <summary>
-            Gets or sets the y coordinate of the center of the ellipse.
             </summary>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Basic.EllipseGroundShape.#ctor">
@@ -3524,6 +3462,20 @@
         <member name="M:DustInTheWind.ClockNet.Templates.DefaultClockTemplate.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.DefaultClockTemplate"/> class with default background, angular, and hand
+            shapes.
+            </summary>
+            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
+            properties with their respective default values. Use this constructor to create a clock template with the
+            standard set of shapes.</remarks>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Templates.DotsClockTemplate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Templates.DotsClockTemplate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.BlueClockTemplate"/> class with default background, angular, and hand
             shapes.
             </summary>
             <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes

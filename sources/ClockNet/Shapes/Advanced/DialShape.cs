@@ -34,7 +34,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default radius of the Dial Shape.
         /// </summary>
-        public const float DefaultRadius = 5f;
+        public const float DefaultRadius = 50f;
 
         /// <summary>
         /// The radius of the dial.

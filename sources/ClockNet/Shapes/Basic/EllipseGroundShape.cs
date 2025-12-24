@@ -30,122 +30,133 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         public const string DefaultName = "Ellipse Ground Shape";
 
-        /// <summary>
-        /// The default horizontal radius of the ellipse.
-        /// </summary>
-        public const float DefaultRadiusX = 15f;
+        ///// <summary>
+        ///// The default horizontal radius of the ellipse.
+        ///// </summary>
+        //public const float DefaultRadiusX = 15f;
 
-        /// <summary>
-        /// The default vertical radius of the ellipse.
-        /// </summary>
-        public const float DefaultRadiusY = 10f;
+        ///// <summary>
+        ///// The default vertical radius of the ellipse.
+        ///// </summary>
+        //public const float DefaultRadiusY = 10f;
 
-        /// <summary>
-        /// The default x coordinate of the center of the ellipse.
-        /// </summary>
-        public const float DefaultCenterX = 0f;
+        ///// <summary>
+        ///// The default x coordinate of the center of the ellipse.
+        ///// </summary>
+        //public const float DefaultCenterX = 0f;
 
-        /// <summary>
-        /// The default y coordinate of the center of the ellipse.
-        /// </summary>
-        public const float DefaultCenterY = -5f;
+        ///// <summary>
+        ///// The default y coordinate of the center of the ellipse.
+        ///// </summary>
+        //public const float DefaultCenterY = -5f;
 
         /// <summary>
         /// The rectangle defining the ellipse that is drawn.
         /// </summary>
-        protected RectangleF rectangle;
+        private RectangleF rectangle;
 
-        /// <summary>
-        /// The radius of the ellipse.
-        /// </summary>
-        protected float radiusX;
+        ///// <summary>
+        ///// The radius of the ellipse.
+        ///// </summary>
+        //protected float radiusX;
 
-        /// <summary>
-        /// Gets or sets the horizontal radius of the ellipse.
-        /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
-        [Category("Appearance")]
-        [DefaultValue(DefaultRadiusX)]
-        [Description("The radius of the dial.")]
-        public virtual float RadiusX
+        ///// <summary>
+        ///// Gets or sets the horizontal radius of the ellipse.
+        ///// </summary>
+        ///// <exception cref="ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
+        //[Category("Appearance")]
+        //[DefaultValue(DefaultRadiusX)]
+        //[Description("The radius of the dial.")]
+        //public virtual float RadiusX
+        //{
+        //    get => radiusX;
+        //    set
+        //    {
+        //        if (value < 0)
+        //            throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
+
+        //        radiusX = value;
+        //        InvalidateLayout();
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
+
+        ///// <summary>
+        ///// The radius of the ellipse.
+        ///// </summary>
+        //protected float radiusY;
+
+        ///// <summary>
+        ///// Gets or sets the vertical radius of the ellipse.
+        ///// </summary>
+        ///// <exception cref="ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
+        //[Category("Appearance")]
+        //[DefaultValue(DefaultRadiusY)]
+        //[Description("The radius of the dial.")]
+        //public virtual float RadiusY
+        //{
+        //    get => radiusY;
+        //    set
+        //    {
+        //        if (value < 0)
+        //            throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
+
+        //        radiusY = value;
+        //        InvalidateLayout();
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
+
+        ///// <summary>
+        ///// The x coordinate of the center of the ellipse.
+        ///// </summary>
+        //protected float centerX;
+
+        ///// <summary>
+        ///// Gets or sets the y coordinate of the center of the ellipse.
+        ///// </summary>
+        //[Category("Appearance")]
+        //[DefaultValue(DefaultCenterX)]
+        //[Description("The x coordinate of the center of the ellipse.")]
+        //public virtual float CenterX
+        //{
+        //    get => centerX;
+        //    set
+        //    {
+        //        centerX = value;
+        //        InvalidateLayout();
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
+
+        ///// <summary>
+        ///// The y coordinate of the center of the ellipse.
+        ///// </summary>
+        //protected float centerY;
+
+        ///// <summary>
+        ///// Gets or sets the y coordinate of the center of the ellipse.
+        ///// </summary>
+        //[Category("Appearance")]
+        //[DefaultValue(DefaultCenterY)]
+        //[Description("The y coordinate of the center of the ellipse.")]
+        //public virtual float CenterY
+        //{
+        //    get => centerY;
+        //    set
+        //    {
+        //        centerY = value;
+        //        InvalidateLayout();
+        //        OnChanged(EventArgs.Empty);
+        //    }
+        //}
+
+        protected RectangleF Rectangle
         {
-            get => radiusX;
+            get => rectangle;
             set
             {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
-
-                radiusX = value;
-                InvalidateLayout();
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// The radius of the ellipse.
-        /// </summary>
-        protected float radiusY;
-
-        /// <summary>
-        /// Gets or sets the vertical radius of the ellipse.
-        /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
-        [Category("Appearance")]
-        [DefaultValue(DefaultRadiusY)]
-        [Description("The radius of the dial.")]
-        public virtual float RadiusY
-        {
-            get => radiusY;
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
-
-                radiusY = value;
-                InvalidateLayout();
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// The x coordinate of the center of the ellipse.
-        /// </summary>
-        protected float centerX;
-
-        /// <summary>
-        /// Gets or sets the y coordinate of the center of the ellipse.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(DefaultCenterX)]
-        [Description("The x coordinate of the center of the ellipse.")]
-        public virtual float CenterX
-        {
-            get => centerX;
-            set
-            {
-                centerX = value;
-                InvalidateLayout();
-                OnChanged(EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// The y coordinate of the center of the ellipse.
-        /// </summary>
-        protected float centerY;
-
-        /// <summary>
-        /// Gets or sets the y coordinate of the center of the ellipse.
-        /// </summary>
-        [Category("Appearance")]
-        [DefaultValue(DefaultCenterY)]
-        [Description("The y coordinate of the center of the ellipse.")]
-        public virtual float CenterY
-        {
-            get => centerY;
-            set
-            {
-                centerY = value;
+                rectangle = value;
                 InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
@@ -171,13 +182,13 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
             : base(outlineColor, fillColor, lineWidth)
         {
             this.Name = DefaultName;
-            this.rectangle = rectangle;
-            
-            centerX = DefaultCenterX;
-            centerY = DefaultCenterY;
+            this.Rectangle = rectangle;
 
-            radiusX = DefaultRadiusX;
-            radiusY = DefaultRadiusY;
+            //centerX = DefaultCenterX;
+            //centerY = DefaultCenterY;
+
+            //radiusX = DefaultRadiusX;
+            //radiusY = DefaultRadiusY;
         }
 
         /// <summary>
@@ -187,13 +198,13 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         protected override void CalculateLayout()
         {
-            float rectX = centerX - radiusX;
-            float rectY = centerY - radiusY;
+            //float rectX = centerX - radiusX;
+            //float rectY = centerY - radiusY;
 
-            float rectWidth = radiusX * 2;
-            float rectHeight = radiusY * 2;
+            //float rectWidth = radiusX * 2;
+            //float rectHeight = radiusY * 2;
 
-            rectangle = new RectangleF(rectX, rectY, rectWidth, rectHeight);
+            //Rectangle = new RectangleF(rectX, rectY, rectWidth, rectHeight);
         }
 
         /// <summary>
@@ -204,7 +215,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && !rectangle.IsEmpty;
+            return base.AllowToDraw() && !Rectangle.IsEmpty;
         }
 
         /// <summary>
@@ -218,10 +229,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-                g.FillEllipse(Brush, rectangle);
+                g.FillEllipse(Brush, Rectangle);
 
             if (!outlineColor.IsEmpty)
-                g.DrawEllipse(Pen, rectangle);
+                g.DrawEllipse(Pen, Rectangle);
         }
     }
 }

@@ -84,40 +84,6 @@ namespace DustInTheWind.ClockNet
         //    }
         //}
 
-        //public static ShapeSet Dots
-        //{
-        //    get
-        //    {
-        //        IShape[] backgrounds = new IShape[]{
-        //            new EllipseShape(new RectangleF(-50f, -50f, 100f, 100f), Color.Empty, Color.Black, 0f),
-        //            new EllipseShape(new RectangleF(-48f, -48f, 96f, 96f), Color.Empty, Color.White, 0f)
-        //        };
-
-        //        IAngularShape[] angulars = null;
-
-        //        DotHandShape hourHandShape = new DotHandShape(Color.Black, 20, 4.5f);
-        //        hourHandShape.ComponentToDisplay = TimeComponent.Hour;
-        //        DotHandShape minuteHandShape = new DotHandShape(Color.Black, 40, 2.75f);
-        //        minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
-        //        LineHandShape sweepHandShape = null;
-        //        PinShape pinShape = new PinShape(Color.Black, 8);
-
-        //        IHandShape[] hands = new IHandShape[]{
-        //            hourHandShape,
-        //            minuteHandShape,
-        //            sweepHandShape,
-        //            pinShape
-        //        };
-
-        //        return new ShapeSet()
-        //        {
-        //            backgroundShapes = backgrounds,
-        //            angularShapes = angulars,
-        //            handShapes = hands
-        //        };
-        //    }
-        //}
-
         //public static ShapeSet WhiteFancy
         //{
         //    get
