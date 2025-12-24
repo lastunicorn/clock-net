@@ -22,6 +22,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a <see cref="GraphicsPath"/>.
     /// </summary>
+    [Shape("38318de4-00f8-41fd-b020-0d9b6d4f2aa5")]
     public class PathGroundShape : VectorialGroundShapeBase
     {
         /// <summary>

@@ -23,6 +23,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a ellipse.
     /// </summary>
+    [Shape("8447c9ee-3aae-45ec-8f73-ac9900d192d3")]
     public class EllipseGroundShape : VectorialGroundShapeBase
     {
         /// <summary>

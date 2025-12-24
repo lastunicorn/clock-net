@@ -21,6 +21,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// A Hand Shape that draws a rectangle.
     /// </summary>
+    [Shape("58d977c7-766c-4ad4-91ab-217478956dbf")]
     public class RectangleHandShape : VectorialHandShapeBase
     {
         /// <summary>

@@ -23,6 +23,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the pin from the center of the dial.
     /// </summary>
+    [Shape("da32532e-8aa5-4361-9235-5298d6657882")]
     public class PinShape : VectorialHandShapeBase
     {
         /// <summary>

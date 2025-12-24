@@ -23,6 +23,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the numbers representing the hours.
     /// </summary>
+    [Shape("fdc94554-15c6-4f2a-9033-9349f1471013")]
     public class StringAngularShape : VectorialAngularShapeBase
     {
         /// <summary>

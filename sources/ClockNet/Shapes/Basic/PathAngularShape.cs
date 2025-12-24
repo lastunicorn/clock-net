@@ -22,6 +22,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// An Angular Shape class that draws a <see cref="GraphicsPath"/>.
     /// </summary>
+    [Shape("6f0b8ee9-2bb3-464d-ac30-d4bc7aceb611")]
     public class PathAngularShape : VectorialAngularShapeBase
     {
         /// <summary>

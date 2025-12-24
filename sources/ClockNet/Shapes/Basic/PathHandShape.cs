@@ -22,6 +22,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// An Shape that draws a complex vectorial clock hand defined by a <see cref="GraphicsPath"/> object.
     /// </summary>
+    [Shape("a22d7691-ea25-481e-a9ef-8a40bb4478cf")]
     public class PathHandShape : VectorialHandShapeBase
     {
         /// <summary>

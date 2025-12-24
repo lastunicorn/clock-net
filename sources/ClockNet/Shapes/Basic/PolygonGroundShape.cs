@@ -21,6 +21,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a polygon.
     /// </summary>
+    [Shape("f649d1a0-bec4-4bbb-85d1-4e5342e1cfa3")]
     public class PolygonGroundShape : VectorialGroundShapeBase
     {
         /// <summary>

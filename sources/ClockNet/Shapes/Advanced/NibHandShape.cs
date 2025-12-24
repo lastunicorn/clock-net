@@ -25,6 +25,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     /// <summary>
     /// Draws a fancy clock hand that resambles to a nib.
     /// </summary>
+    [Shape("88ab6f71-b94c-452d-a38c-df826032e83d")]
     public class NibHandShape : PathHandShape
     {
         /// <summary>
@@ -145,7 +146,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 //new PointF(12f, -1f)
             });
 
-            path.AddArc(new RectangleF(-12f, -13f, 24f, 24f), 0f, 90f);
+            path.AddArc(new RectangleF(-12f, -13f, 24f, 24), 0f, 90f);
 
             path.AddCurve(new PointF[] {
                 new PointF(2f, 11f),

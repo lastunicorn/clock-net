@@ -25,6 +25,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     /// <summary>
     /// Draws a clock hand that is a slot carved inside a disk. By default the disk is big as the clock.
     /// </summary>
+    [Shape("d605fe8f-cda0-4ba5-954d-be7266c04e2d")]
     public class SlotHandShape : PathHandShape
     {
         /// <summary>

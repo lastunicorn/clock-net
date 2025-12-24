@@ -23,6 +23,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a bitmap image.
     /// </summary>
+    [Shape("f8f41461-b01f-44f2-8433-d5eab5678694")]
     public class ImageGroundShape : GroundShapeBase
     {
         /// <summary>

@@ -21,6 +21,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// An Angular Shape class that draws a ellipse.
     /// </summary>
+    [Shape("840bf574-faff-4bc8-a660-90af9a66b71f")]
     public class EllipseAngularShape : VectorialAngularShapeBase
     {
         /// <summary>

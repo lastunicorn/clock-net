@@ -21,6 +21,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a simple straight line.
     /// </summary>
+    [Shape("8dccd001-47d8-4b7b-9330-7d832c262858")]
     public class LineGroundShape : VectorialGroundShapeBase
     {
         /// <summary>

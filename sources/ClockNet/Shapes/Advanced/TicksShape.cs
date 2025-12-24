@@ -24,6 +24,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the ticks that mark the seconds.
     /// </summary>
+    [Shape("2350ba42-86a9-4562-a392-e3c66c973bed")]
     public class TicksShape : LineAngularShape
     {
         /// <summary>

@@ -21,6 +21,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// A Hand Shape that draws an ellipse.
     /// </summary>
+    [Shape("c0af87a2-fbec-4ab5-8dea-9197550f87e6")]
     public class EllipseHandShape : VectorialHandShapeBase
     {
         /// <summary>

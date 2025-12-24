@@ -22,6 +22,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// An Hend Shape that draws a polygonal clock hand.
     /// </summary>
+    [Shape("26357157-e6a8-4a58-977c-eb472c012905")]
     public class PolygonHandShape : VectorialHandShapeBase
     {
         /// <summary>

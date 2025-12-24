@@ -23,6 +23,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// An Hand Shape that draws a simple straight line.
     /// </summary>
+    [Shape("8e8a0b29-16a5-48ed-b5a8-431a4520ffa4")]
     public class LineHandShape : VectorialHandShapeBase
     {
         /// <summary>

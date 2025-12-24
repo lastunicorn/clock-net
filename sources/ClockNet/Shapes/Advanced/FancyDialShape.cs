@@ -24,6 +24,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     /// <summary>
     /// A Background Shape that draws a gradient background with two rims around it.
     /// </summary>
+    [Shape("c71e41be-5254-4df4-94b0-81f3cfa6468e")]
     public class FancyDialShape : VectorialGroundShapeBase
     {
         /// <summary>

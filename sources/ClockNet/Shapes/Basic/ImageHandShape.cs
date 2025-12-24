@@ -23,6 +23,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// Displays an image hand in the <see cref="AnalogClock"/> control.
     /// </summary>
+    [Shape("92058cfd-fe33-4b43-ac87-a3746aa92d01")]
     public class ImageHandShape : HandShapeBase
     {
         /// <summary>

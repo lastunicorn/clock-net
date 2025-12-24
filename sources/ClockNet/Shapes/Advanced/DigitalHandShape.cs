@@ -17,13 +17,13 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Text;
 
 namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
     /// <summary>
     /// A Hand Shape that draws the time as a text in a fixed position on the dial.
     /// </summary>
+    [Shape("4b95231b-9675-4851-b0b9-1ec9c029d46c")]
     public class DigitalHandShape : VectorialHandShapeBase
     {
         /// <summary>

@@ -24,6 +24,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     /// <summary>
     /// A Shape that draws a clock hand that resembles a distorted diamond.
     /// </summary>
+    [Shape("67304439-3fcd-49cd-9aca-fcea79eed26a")]
     public class DiamondHandShape : PolygonHandShape
     {
         /// <summary>

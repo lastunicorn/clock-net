@@ -22,6 +22,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// An Angular Shape class that draws a line between two points.
     /// </summary>
+    [Shape("52d7515b-c6c6-44af-bf84-ffdd82238d31")]
     public class LineAngularShape : VectorialAngularShapeBase
     {
         /// <summary>

@@ -23,6 +23,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// An Angular Shape class that draws a bitmap image.
     /// </summary>
+    [Shape("062f2c94-2c81-4241-8938-00d98741c4ab")]
     public class ImageAngularShape : AngularShapeBase
     {
         /// <summary>

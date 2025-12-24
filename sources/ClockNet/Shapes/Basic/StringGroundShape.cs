@@ -25,6 +25,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the text displayed on the background of the dial.
     /// </summary>
+    [Shape("2702ec4a-dde3-441a-bc60-436b2a24b36b")]
     public class StringGroundShape : VectorialGroundShapeBase
     {
         /// <summary>

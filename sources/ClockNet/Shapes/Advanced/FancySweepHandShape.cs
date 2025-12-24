@@ -25,6 +25,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     /// <summary>
     /// Draws a sweep hand as a line with a circle near its top.
     /// </summary>
+    [Shape("230ab218-4d4f-42a0-a019-1fc2a804bcea")]
     public class FancySweepHandShape : PathHandShape
     {
         /// <summary>

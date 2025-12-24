@@ -80,6 +80,8 @@
     <Compile Include="Shapes\AngularShapeBase.cs" />
     <Compile Include="Shapes\Basic\LineAngularShape.cs" />
     <Compile Include="Shapes\Advanced\DigitalHandShape.cs" />
+    <Compile Include="Shapes\ShapeAttribute.cs" />
+    <Compile Include="TemplateSerialization.cs" />
     <Compile Include="Templates\BlackClockTemplate.cs" />
     <Compile Include="Templates\BlueClockTemplate.cs" />
     <Compile Include="Templates\DefaultClockTemplate.cs" />

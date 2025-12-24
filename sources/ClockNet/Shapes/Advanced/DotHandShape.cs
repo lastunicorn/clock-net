@@ -24,6 +24,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     /// <summary>
     /// A Hand Shape that draws a dot at the specified distance from the pin.
     /// </summary>
+    [Shape("3950244f-9e48-4484-bdc9-1d0a39c4a8f6")]
     public class DotHandShape : VectorialHandShapeBase
     {
         /// <summary>

@@ -2639,6 +2639,25 @@
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
+        <member name="T:DustInTheWind.ClockNet.Shapes.ShapeAttribute">
+            <summary>
+            An attribute that uniquely identifies a shape class.
+            This attribute should be applied to all instantiable (non-abstract) shape classes.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.ShapeAttribute.Id">
+            <summary>
+            Gets the unique identifier for the shape type.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.ShapeAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.ShapeAttribute"/> class.
+            </summary>
+            <param name="id">A string representation of the GUID that uniquely identifies this shape type.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="id"/> is null.</exception>
+            <exception cref="T:System.FormatException">Thrown when <paramref name="id"/> is not a valid GUID format.</exception>
+        </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.GroundShapeBase">
             <summary>
             The base implementation of the <see cref="T:DustInTheWind.ClockNet.Shapes.IGroundShape"/> interface.
@@ -3307,6 +3326,57 @@
             Draws the shape using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.TemplateSerialization">
+            <summary>
+            Provides methods to serialize and deserialize a <see cref="T:DustInTheWind.ClockNet.ClockTemplate"/> to and from a stream.
+            Shape types are identified by the GUID specified in their <see cref="T:DustInTheWind.ClockNet.Shapes.ShapeAttribute"/>.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.TemplateSerialization.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.TemplateSerialization"/> class.
+            Discovers all shape types with <see cref="T:DustInTheWind.ClockNet.Shapes.ShapeAttribute"/> in the current assembly.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.TemplateSerialization.#ctor(System.Reflection.Assembly[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.TemplateSerialization"/> class.
+            Discovers all shape types with <see cref="T:DustInTheWind.ClockNet.Shapes.ShapeAttribute"/> in the specified assemblies.
+            </summary>
+            <param name="assemblies">The assemblies to scan for shape types.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.TemplateSerialization.Serialize(DustInTheWind.ClockNet.ClockTemplate,System.IO.Stream)">
+            <summary>
+            Serializes the specified <see cref="T:DustInTheWind.ClockNet.ClockTemplate"/> to the given stream.
+            </summary>
+            <param name="template">The template to serialize.</param>
+            <param name="stream">The stream to write the serialized data to.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="template"/> or <paramref name="stream"/> is null.</exception>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.TemplateSerialization.SerializeToString(DustInTheWind.ClockNet.ClockTemplate)">
+            <summary>
+            Serializes the specified <see cref="T:DustInTheWind.ClockNet.ClockTemplate"/> to an XML string.
+            </summary>
+            <param name="template">The template to serialize.</param>
+            <returns>An XML string representation of the template.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="template"/> is null.</exception>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.TemplateSerialization.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserializes a <see cref="T:DustInTheWind.ClockNet.ClockTemplate"/> from the given stream.
+            </summary>
+            <param name="stream">The stream containing the serialized template data.</param>
+            <returns>The deserialized <see cref="T:DustInTheWind.ClockNet.ClockTemplate"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="stream"/> is null.</exception>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.TemplateSerialization.DeserializeFromString(System.String)">
+            <summary>
+            Deserializes a <see cref="T:DustInTheWind.ClockNet.ClockTemplate"/> from the given XML string.
+            </summary>
+            <param name="xml">The XML string containing the serialized template data.</param>
+            <returns>The deserialized <see cref="T:DustInTheWind.ClockNet.ClockTemplate"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="xml"/> is null.</exception>
         </member>
         <member name="T:DustInTheWind.ClockNet.Templates.BlackClockTemplate">
             <summary>

@@ -21,6 +21,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
     /// <summary>
     /// A Shape class that draws a rectangle.
     /// </summary>
+    [Shape("caae1fad-f84a-4ae1-99ed-fcc97377da46")]
     public class RectangleGroundShape : VectorialGroundShapeBase
     {
         /// <summary>
