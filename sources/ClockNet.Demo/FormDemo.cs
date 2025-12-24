@@ -20,6 +20,7 @@ using System.Windows.Forms;
 using DustInTheWind.ClockNet.Shapes;
 using DustInTheWind.ClockNet.Shapes.Advanced;
 using DustInTheWind.ClockNet.Shapes.Basic;
+using DustInTheWind.ClockNet.Templates;
 using DustInTheWind.ClockNet.TimeProviders;
 
 namespace DustInTheWind.ClockNet.Demo

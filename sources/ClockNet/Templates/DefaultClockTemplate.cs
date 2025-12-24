@@ -18,10 +18,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using DustInTheWind.ClockNet.Shapes;
 using DustInTheWind.ClockNet.Shapes.Advanced;
 using DustInTheWind.ClockNet.Shapes.Basic;
 
-namespace DustInTheWind.ClockNet.Shapes
+namespace DustInTheWind.ClockNet.Templates
 {
     /// <summary>
     /// Provides the default visual template for rendering a clock, including standard background, tick marks, and hand
@@ -33,6 +34,13 @@ namespace DustInTheWind.ClockNet.Shapes
     /// elements.</remarks>
     public class DefaultClockTemplate : ClockTemplate
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultClockTemplate"/> class with default background, angular, and hand
+        /// shapes.
+        /// </summary>
+        /// <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
+        /// properties with their respective default values. Use this constructor to create a clock template with the
+        /// standard set of shapes.</remarks>
         public DefaultClockTemplate()
         {
             BackgroundShapes = EnumerateBackgroundShapes().ToArray();
@@ -78,7 +86,7 @@ namespace DustInTheWind.ClockNet.Shapes
                 Angle = 30f
             };
 
-            // ???
+            // Hour numbers
             yield return new StringAngularShape
             {
                 Angle = 30f,

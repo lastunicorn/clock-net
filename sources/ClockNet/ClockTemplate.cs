@@ -15,7 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-namespace DustInTheWind.ClockNet.Shapes
+using DustInTheWind.ClockNet.Shapes;
+
+namespace DustInTheWind.ClockNet
 {
     /// <summary>
     /// Keeps a collection of Shapes that can be applied to the <see cref="AnalogClock"/> all at once.
@@ -30,102 +32,6 @@ namespace DustInTheWind.ClockNet.Shapes
         //public static ShapeSet Empty
         //{
         //    get { return new ShapeSet(); }
-        //}
-
-        ///// <summary>
-        ///// Creates and returns a <see cref="ShapeSet"/> object that contains the Shapes used by default
-        ///// by an <see cref="AnalogClock"/>.
-        ///// </summary>
-        //public static ShapeSet Default
-        //{
-        //    get
-        //    {
-        //        IShape[] backgrounds = new IShape[]{
-        //            new DustInTheWind.Clock.Shapes.Default.DialShape(),
-        //            new DustInTheWind.Clock.Shapes.Default.TextShape()
-        //        };
-
-        //        TicksShape ticks1Shape = new TicksShape(Color.Black, 5f, 0.3f, 7f);
-        //        ticks1Shape.Angle = 6f;
-        //        ticks1Shape.ExceptionIndex = 5;
-
-        //        TicksShape ticks5Shape = new TicksShape(Color.Black, 5f, 1f, 7f);
-        //        ticks5Shape.Angle = 30f;
-
-        //        IAngularShape[] angulars = new IAngularShape[]{
-        //            ticks1Shape,
-        //            ticks5Shape,
-        //            new TextAngularShape()
-        //        };
-
-        //        DiamondHandShape hourHandShape = new DiamondHandShape(Color.Empty, Color.RoyalBlue, 24f, 5f, 6f);
-        //        hourHandShape.ComponentToDisplay = TimeComponent.Hour;
-        //        DiamondHandShape minuteHandShape = new DiamondHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
-        //        minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
-        //        LineHandShape sweepHandShape = new LineHandShape();
-        //        sweepHandShape.ComponentToDisplay = TimeComponent.Second;
-        //        PinShape pinShape = new PinShape();
-
-        //        IHandShape[] hands = new IHandShape[]{
-        //            hourHandShape,
-        //            minuteHandShape,
-        //            sweepHandShape,
-        //            pinShape
-        //        };
-
-        //        return new ShapeSet()
-        //        {
-        //            backgroundShapes = backgrounds,
-        //            angularShapes = angulars,
-        //            handShapes = hands
-        //        };
-        //    }
-        //}
-
-        //public static ShapeSet Blue
-        //{
-        //    get
-        //    {
-        //        IShape[] backgrounds = new IShape[]{
-        //            new DialShape(Color.LightBlue),
-        //            new TextShape("Blue")
-        //        };
-
-        //        TicksShape ticks1Shape = new TicksShape(Color.RoyalBlue, 7.5f, 0.75f, 5f);
-        //        ticks1Shape.Angle = 6f;
-        //        ticks1Shape.ExceptionIndex = 5;
-
-        //        TicksShape ticks5Shape = new TicksShape(Color.Navy, 5f, 15f, 5f);
-        //        ticks5Shape.Angle = 30f;
-
-        //        IAngularShape[] angulars = new IAngularShape[]{
-        //            ticks1Shape,
-        //            ticks5Shape,
-        //            new DustInTheWind.Clock.Shapes.Default.TextAngularShape(Color.Navy)
-        //        };
-
-        //        DiamondHandShape hourHandShape = new DiamondHandShape(Color.Empty, Color.Navy, 24f, 5f, 6f);
-        //        hourHandShape.ComponentToDisplay = TimeComponent.Hour;
-        //        DiamondHandShape minuteHandShape = new DiamondHandShape(Color.Empty, Color.RoyalBlue, 37f, 4f, 4f);
-        //        minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
-        //        LineHandShape sweepHandShape = new LineHandShape(Color.DeepSkyBlue);
-        //        sweepHandShape.ComponentToDisplay = TimeComponent.Second;
-        //        PinShape pinShape = new PinShape(Color.Empty, Color.Navy);
-
-        //        IHandShape[] hands = new IHandShape[]{
-        //            hourHandShape,
-        //            minuteHandShape,
-        //            sweepHandShape,
-        //            pinShape
-        //        };
-
-        //        return new ShapeSet()
-        //        {
-        //            backgroundShapes = backgrounds,
-        //            angularShapes = angulars,
-        //            handShapes = hands
-        //        };
-        //    }
         //}
 
         //public static ShapeSet Black

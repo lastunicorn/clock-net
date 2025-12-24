@@ -220,12 +220,12 @@
             default aspect of the interface.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.AnalogClock.#ctor(DustInTheWind.ClockNet.Shapes.ClockTemplate,DustInTheWind.ClockNet.TimeProviders.ITimeProvider)">
+        <member name="M:DustInTheWind.ClockNet.AnalogClock.#ctor(DustInTheWind.ClockNet.ClockTemplate,DustInTheWind.ClockNet.TimeProviders.ITimeProvider)">
             <summary>
             Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> class with
             a set of shapes and a time provider.
             </summary>
-            <param name="clockTemplate">An <see cref="T:DustInTheWind.ClockNet.Shapes.ClockTemplate"/> object containing the shapes that creats the interface.</param>
+            <param name="clockTemplate">An <see cref="T:DustInTheWind.ClockNet.ClockTemplate"/> object containing the shapes that creats the interface.</param>
             <param name="timeProvider">An instance of the <see cref="T:DustInTheWind.ClockNet.TimeProviders.ITimeProvider"/> that provides the time to be displayed in the control.</param>
         </member>
         <member name="M:DustInTheWind.ClockNet.AnalogClock.shape_Changed(System.Object,System.EventArgs)">
@@ -296,11 +296,11 @@
             </summary>
             <param name="e"></param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.AnalogClock.ApplyTemplate(DustInTheWind.ClockNet.Shapes.ClockTemplate)">
+        <member name="M:DustInTheWind.ClockNet.AnalogClock.ApplyTemplate(DustInTheWind.ClockNet.ClockTemplate)">
             <summary>
             Sets a new set of shapes to be used by the clock.
             </summary>
-            <param name="clockTemplate">An instance of <see cref="T:DustInTheWind.ClockNet.Shapes.ClockTemplate"/> class containing the <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> instances.</param>
+            <param name="clockTemplate">An instance of <see cref="T:DustInTheWind.ClockNet.ClockTemplate"/> class containing the <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> instances.</param>
         </member>
         <member name="M:DustInTheWind.ClockNet.AnalogClock.Dispose(System.Boolean)">
             <summary> 
@@ -2796,16 +2796,6 @@
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
         </member>
-        <member name="T:DustInTheWind.ClockNet.Shapes.DefaultClockTemplate">
-            <summary>
-            Provides the default visual template for rendering a clock, including standard background, tick marks, and hand
-            shapes.
-            </summary>
-            <remarks>This template supplies a conventional analog clock appearance with predefined shapes for the
-            dial, tick marks, and hands. It can be used as a base or reference for custom clock templates. The default
-            configuration includes hour, minute, and second hands, as well as standard tick marks and background
-            elements.</remarks>
-        </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.GroundShapeBase">
             <summary>
             The base implementation of the <see cref="T:DustInTheWind.ClockNet.Shapes.IGroundShape"/> interface.
@@ -3259,26 +3249,6 @@
             The numbers are displayed oriented to the outside of the clock.
             </summary>
         </member>
-        <member name="T:DustInTheWind.ClockNet.Shapes.ClockTemplate">
-            <summary>
-            Keeps a collection of Shapes that can be applied to the <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> all at once.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.ClockTemplate.BackgroundShapes">
-            <summary>
-            Gets or sets the array of Shapes that are drawn on the background of the clock.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.ClockTemplate.AngularShapes">
-            <summary>
-            Gets or sets the array of Shapes that are drawn repetitively around the clock.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.ClockTemplate.HandShapes">
-            <summary>
-            Gets or sets the array of Shapes that represents hands on the clock.
-            </summary>
-        </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.ShapeConverter">
             <summary>
             Converts an <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> object to an user friendly string representaiton.
@@ -3504,6 +3474,63 @@
             Draws the shape using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Templates.BlueClockTemplate">
+            <summary>
+            Provides a predefined clock template with a blue-themed design, including default background, angular, and hand
+            shapes.
+            </summary>
+            <remarks>Use this class to create a clock face with a standard set of shapes and colors suitable for
+            blue-themed or modern clock displays. The template initializes its shape collections with default values
+            representing a typical analog clock layout.</remarks>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Templates.BlueClockTemplate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.BlueClockTemplate"/> class with default background, angular, and hand
+            shapes.
+            </summary>
+            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
+            properties with their respective default values. Use this constructor to create a clock template with the
+            standard set of shapes.</remarks>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Templates.DefaultClockTemplate">
+            <summary>
+            Provides the default visual template for rendering a clock, including standard background, tick marks, and hand
+            shapes.
+            </summary>
+            <remarks>This template supplies a conventional analog clock appearance with predefined shapes for the
+            dial, tick marks, and hands. It can be used as a base or reference for custom clock templates. The default
+            configuration includes hour, minute, and second hands, as well as standard tick marks and background
+            elements.</remarks>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Templates.DefaultClockTemplate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.DefaultClockTemplate"/> class with default background, angular, and hand
+            shapes.
+            </summary>
+            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
+            properties with their respective default values. Use this constructor to create a clock template with the
+            standard set of shapes.</remarks>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.ClockTemplate">
+            <summary>
+            Keeps a collection of Shapes that can be applied to the <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> all at once.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.ClockTemplate.BackgroundShapes">
+            <summary>
+            Gets or sets the array of Shapes that are drawn on the background of the clock.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.ClockTemplate.AngularShapes">
+            <summary>
+            Gets or sets the array of Shapes that are drawn repetitively around the clock.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.ClockTemplate.HandShapes">
+            <summary>
+            Gets or sets the array of Shapes that represents hands on the clock.
+            </summary>
         </member>
         <member name="T:DustInTheWind.ClockNet.TimeProviders.TimeProviderBase">
             <summary>

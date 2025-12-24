@@ -127,12 +127,16 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         public StringAngularShape(Color color, Font font, float positionOffset)
             : base(Color.Empty, color, DefaultLineWidth, DefaultAngle, DefaultRepeat, positionOffset)
         {
-            this.Name = DefaultName;
-            this.font = font == null ? DefaultFont : font;
+            Name = DefaultName;
+            this.font = font == null
+                ? DefaultFont
+                : font;
 
-            stringFormat = new StringFormat(StringFormatFlags.NoWrap);
-            stringFormat.Alignment = StringAlignment.Center;
-            stringFormat.LineAlignment = StringAlignment.Center;
+            stringFormat = new StringFormat(StringFormatFlags.NoWrap)
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
         }
 
         #endregion
