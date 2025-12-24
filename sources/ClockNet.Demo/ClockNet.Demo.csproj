@@ -89,9 +89,9 @@
       <Project>{e973701e-2e86-4a7d-9a7a-00a64722f9c6}</Project>
       <Name>ClockNet.Compass</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ClockNet.TimeProviders\ClockNet.TimeProviders.csproj">
-      <Project>{ca68f8e4-219e-4e1d-9d96-16e3d717f0b2}</Project>
-      <Name>ClockNet.TimeProviders</Name>
+    <ProjectReference Include="..\ClockNet.Core\ClockNet.Core.csproj">
+      <Project>{63682b7f-4e6a-4c57-ab59-fdb55654270b}</Project>
+      <Name>ClockNet.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\ClockNet\ClockNet.csproj">
       <Project>{24E993CE-3CBC-4227-9293-08D618FFD1A1}</Project>

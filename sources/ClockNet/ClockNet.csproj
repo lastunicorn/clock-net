@@ -48,103 +48,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalogClock.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="AnalogClockDesigner.cs" />
-    <Compile Include="ColorExtensions.cs" />
-    <Compile Include="NullableTimeSpanConverter.cs" />
-    <Compile Include="NullableDateTimePicker.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NullableDateTimePicker.Designer.cs">
-      <DependentUpon>NullableDateTimePicker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PerformanceInfo.cs" />
-    <Compile Include="ShapeCollectionEditor.cs" />
-    <Compile Include="ShapeRemovedEventArgs.cs" />
-    <Compile Include="ShapeAddedEventArgs.cs" />
-    <Compile Include="HsbColor.cs" />
-    <Compile Include="PointFConverter.cs" />
-    <Compile Include="Shapes\Basic\RectangleHandShape.cs" />
-    <Compile Include="Shapes\Basic\ImageAngularShape.cs" />
-    <Compile Include="Shapes\Basic\PathAngularShape.cs" />
-    <Compile Include="Shapes\Basic\EllipseAngularShape.cs" />
-    <Compile Include="Shapes\Basic\RectangleAngularShape.cs" />
-    <Compile Include="Shapes\Basic\PolygonAngularShape.cs" />
-    <Compile Include="Shapes\Basic\EllipseGroundShape.cs" />
-    <Compile Include="Shapes\Basic\RectangleGroundShape.cs" />
-    <Compile Include="Shapes\Basic\PathHandShape.cs" />
-    <Compile Include="Shapes\Basic\PolygonHandShape.cs" />
-    <Compile Include="Shapes\Basic\PolygonGroundShape.cs" />
-    <Compile Include="Shapes\AngularShapeBase.cs" />
-    <Compile Include="Shapes\Basic\LineAngularShape.cs" />
-    <Compile Include="Shapes\Advanced\DigitalHandShape.cs" />
-    <Compile Include="Shapes\ShapeAttribute.cs" />
-    <Compile Include="TemplateSerialization.cs" />
     <Compile Include="Templates\BlackClockTemplate.cs" />
     <Compile Include="Templates\BlueClockTemplate.cs" />
     <Compile Include="Templates\DefaultClockTemplate.cs" />
-    <Compile Include="Shapes\GroundShapeBase.cs" />
-    <Compile Include="Shapes\Advanced\DiamondHandShape.cs" />
-    <Compile Include="Shapes\Advanced\TicksShape.cs" />
-    <Compile Include="Shapes\Advanced\DialShape.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\Advanced\DotHandShape.cs" />
-    <Compile Include="Shapes\IGroundShape.cs" />
-    <Compile Include="Shapes\TimeComponent.cs" />
-    <Compile Include="Shapes\VectorialHandShapeBase.cs" />
-    <Compile Include="Shapes\HandShapeBase.cs" />
-    <Compile Include="Shapes\VectorialAngularShapeBase.cs" />
-    <Compile Include="Shapes\Advanced\FancyDialShape.cs" />
-    <Compile Include="Shapes\Basic\StringAngularShape.cs" />
-    <Compile Include="Shapes\AngularShapeLocation.cs" />
-    <Compile Include="Shapes\Advanced\NibHandShape.cs" />
-    <Compile Include="Shapes\Basic\EllipseHandShape.cs" />
-    <Compile Include="Shapes\Basic\StringGroundShape.cs" />
-    <Compile Include="Shapes\IAngularShape.cs" />
-    <Compile Include="Shapes\IHandShape.cs" />
-    <Compile Include="Shapes\Advanced\SlotHandShape.cs" />
-    <Compile Include="Shapes\Advanced\FancySweepHandShape.cs" />
-    <Compile Include="Shapes\Basic\LineGroundShape.cs" />
-    <Compile Include="Shapes\AngularOrientation.cs" />
-    <Compile Include="Shapes\Basic\PathGroundShape.cs" />
-    <Compile Include="ClockTemplate.cs" />
-    <Compile Include="Shapes\Basic\ImageGroundShape.cs" />
-    <Compile Include="Shapes\Advanced\PinShape.cs" />
-    <Compile Include="Shapes\ShapeConverter.cs" />
-    <Compile Include="Shapes\Basic\LineHandShape.cs" />
-    <Compile Include="Shapes\VectorialGroundShapeBase.cs" />
-    <Compile Include="Shapes\ShapeBase.cs" />
-    <Compile Include="Shapes\Basic\ImageHandShape.cs" />
-    <Compile Include="Shapes\IShape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\DotsClockTemplate.cs" />
     <Compile Include="Templates\FancyClockTemplate.cs" />
     <Compile Include="Templates\WhiteFancyClockTemplate.cs" />
-    <Compile Include="TimeProviders\TimeProviderBase.cs" />
-    <Compile Include="TimeProviders\ITimeProvider.cs" />
-    <Compile Include="TimeProviders\LocalTimeProvider.cs" />
-    <Compile Include="TimeProviders\UtcTimeProvider.cs" />
-    <Compile Include="TimeSpanEditor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AnalogClock.resx">
-      <DependentUpon>AnalogClock.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="NullableDateTimePicker.resx">
-      <DependentUpon>NullableDateTimePicker.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\icon16.bmp" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="ShapeInterfaces.cd" />
-    <None Include="ShapesDiagram.cd" />
+    <ProjectReference Include="..\ClockNet.Core\ClockNet.Core.csproj">
+      <Project>{63682b7f-4e6a-4c57-ab59-fdb55654270b}</Project>
+      <Name>ClockNet.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
