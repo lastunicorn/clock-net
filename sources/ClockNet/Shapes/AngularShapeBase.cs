@@ -29,7 +29,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// The default value of the position offset.
         /// </summary>
-        public const float DefaultPositionOffset = 0f;
+        public const float DefaultDistanceFromEdge = 0f;
 
         /// <summary>
         /// The default value of the angle.
@@ -66,7 +66,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// Gets or sets the position offset relativelly to the edge of the dial.
         /// </summary>
         [Category("Layout")]
-        [DefaultValue(DefaultPositionOffset)]
+        [DefaultValue(DefaultDistanceFromEdge)]
         [Description("The position offset relativelly to the edge of the dial.")]
         public virtual float DistanceFromEdge
         {
@@ -203,15 +203,12 @@ namespace DustInTheWind.ClockNet.Shapes
             set { index = value; }
         }
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="AngularShapeBase"/> class with
         /// default values.
         /// </summary>
         public AngularShapeBase()
-            : this(DefaultAngle, DefaultRepeat, DefaultPositionOffset)
+            : this(DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 
@@ -220,9 +217,9 @@ namespace DustInTheWind.ClockNet.Shapes
         /// </summary>
         /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
         /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
-        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
+        /// <param name="DistanceFromEdge">The position offset relativelly to the edge of the dial.</param>
         /// <exception cref="ArgumentOutOfRangeException">The angle between two consecutive drawns of the shape should be a positive number.</exception>
-        public AngularShapeBase(float angle, bool repeat, float positionOffset)
+        public AngularShapeBase(float angle, bool repeat, float DistanceFromEdge)
             : base()
         {
             if (angle <= 0)
@@ -230,12 +227,9 @@ namespace DustInTheWind.ClockNet.Shapes
 
             this.angle = angle;
             this.repeat = repeat;
-            this.positionOffset = positionOffset;
+            this.positionOffset = DistanceFromEdge;
             orientation = DefaultOrientation;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Draws one tick using the provided <see cref="Graphics"/> object.

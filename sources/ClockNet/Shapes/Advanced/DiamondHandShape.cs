@@ -134,7 +134,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             {
                 new PointF(0f, tailLength),
                 new PointF(-halfWidth, 0f),
-                new PointF(0F, -height),
+                new PointF(0F, -length),
                 new PointF(halfWidth, 0f)
             };
         }

@@ -165,7 +165,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             path.Reset();
 
             path.AddEllipse(-radius, -radius, radius * 2f, radius * 2f);
-            path.AddRectangle(new RectangleF(-width / 2f, -height, width, height + tailLength));
+            path.AddRectangle(new RectangleF(-width / 2f, -length, width, length + tailLength));
         }
     }
 }

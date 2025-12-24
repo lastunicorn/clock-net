@@ -55,7 +55,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public LineAngularShape()
-            : this(PointF.Empty, PointF.Empty, Color.Black, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
+            : this(PointF.Empty, PointF.Empty, Color.Black, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 

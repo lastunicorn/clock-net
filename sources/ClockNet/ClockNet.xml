@@ -1781,7 +1781,7 @@
             Provides common functionality for all the Angular Shapes.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultPositionOffset">
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultDistanceFromEdge">
             <summary>
             The default value of the position offset.
             </summary>
@@ -1879,7 +1879,7 @@
             </summary>
             <param name="angle">The angle between two consecutive drawns of the shape.</param>
             <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
-            <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
+            <param name="DistanceFromEdge">The position offset relativelly to the edge of the dial.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">The angle between two consecutive drawns of the shape should be a positive number.</exception>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.AngularShapeBase.OnBeforeDraw(System.Drawing.Graphics)">
@@ -2109,15 +2109,6 @@
             Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape"/> class with
             default values.
             </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape.#ctor(System.Drawing.Color,System.Single,System.Single,System.Single)">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape"/> class.
-            </summary>
-            <param name="color">The color used to draw the tick shapes.</param>
-            <param name="length">The length of the ticks.</param>
-            <param name="lineWidth">The width of the ticks.</param>
-            <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.TicksShape.CalculateLayout">
             <summary>
@@ -2431,13 +2422,6 @@
             default values.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape.#ctor(System.Drawing.Color,System.Single)">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape"/> class.
-            </summary>
-            <param name="fillColor">The color used to fill the opaqu disk.</param>
-            <param name="height">The length of the hour hand.</param>
-        </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape.#ctor(System.Drawing.Color,System.Drawing.Color,System.Single,System.Single)">
             <summary>
             Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.NibHandShape"/> class.
@@ -2677,7 +2661,7 @@
             </summary>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.Height">
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.PinShape.Length">
             <summary>
             Not used.
             </summary>
@@ -2891,12 +2875,12 @@
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.HandShapeBase.IntegralValue"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.HandShapeBase.height">
+        <member name="F:DustInTheWind.ClockNet.Shapes.HandShapeBase.length">
             <summary>
             The length of the hand from the pin to the its top. For a clock with the diameter of 100px.
             </summary>
         </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.HandShapeBase.Height">
+        <member name="P:DustInTheWind.ClockNet.Shapes.HandShapeBase.Length">
             <summary>
             Gets or sets the length of the hand from the pin to the its top. For a clock with the diameter of 100px.
             </summary>
@@ -3150,7 +3134,7 @@
             Represents a clock hand that is drawn on the clock in the <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> control.
             </summary>
         </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.IHandShape.Height">
+        <member name="P:DustInTheWind.ClockNet.Shapes.IHandShape.Length">
             <summary>
             When implemented in a derived class, gets or sets the height of the hand from the pin to the top.
             </summary>
@@ -3481,6 +3465,22 @@
             <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
             properties with their respective default values. Use this constructor to create a clock template with the
             standard set of shapes.</remarks>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Templates.FancyClockTemplate">
+            <summary>
+            Provides a fancy visual template for rendering a clock, featuring nib-style hands and a decorative sweep hand.
+            </summary>
+            <remarks>This template supplies an elegant analog clock appearance with nib-style hour and minute hands,
+            a fancy sweep hand for seconds, and standard tick marks and background elements.</remarks>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Templates.FancyClockTemplate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.FancyClockTemplate"/> class with default background, angular, and hand
+            shapes.
+            </summary>
+            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
+            properties with their respective fancy values. Use this constructor to create a clock template with the
+            fancy set of shapes.</remarks>
         </member>
         <member name="T:DustInTheWind.ClockNet.ClockTemplate">
             <summary>

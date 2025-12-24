@@ -50,7 +50,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new DotHandShape
             {
                 FillColor = Color.Black,
-                Height = 20f,
+                Length = 20f,
                 Radius = 7f,
                 ComponentToDisplay = TimeComponent.Hour
             };
@@ -59,7 +59,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new DotHandShape
             {
                 FillColor = Color.Black,
-                Height = 38f,
+                Length = 38f,
                 Radius = 5f,
                 ComponentToDisplay = TimeComponent.Minute
             };

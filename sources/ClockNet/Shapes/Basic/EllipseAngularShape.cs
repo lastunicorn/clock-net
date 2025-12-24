@@ -38,7 +38,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public EllipseAngularShape()
-            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
+            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 

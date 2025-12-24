@@ -81,7 +81,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public ImageAngularShape()
-            : this(null, PointF.Empty, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
+            : this(null, PointF.Empty, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 
@@ -90,7 +90,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
         public ImageAngularShape(Image image)
-            : this(image, PointF.Empty, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
+            : this(image, PointF.Empty, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 

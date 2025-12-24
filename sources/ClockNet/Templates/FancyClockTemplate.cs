@@ -1,4 +1,4 @@
-﻿// ClockNet
+// ClockNet
 // Copyright (C) 2010 Dust in the Wind
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -25,22 +25,20 @@ using DustInTheWind.ClockNet.Shapes.Basic;
 namespace DustInTheWind.ClockNet.Templates
 {
     /// <summary>
-    /// Provides a predefined clock template with a blue-themed design, including default background, angular, and hand
-    /// shapes.
+    /// Provides a fancy visual template for rendering a clock, featuring nib-style hands and a decorative sweep hand.
     /// </summary>
-    /// <remarks>Use this class to create a clock face with a standard set of shapes and colors suitable for
-    /// blue-themed or modern clock displays. The template initializes its shape collections with default values
-    /// representing a typical analog clock layout.</remarks>
-    public class BlueClockTemplate : ClockTemplate
+    /// <remarks>This template supplies an elegant analog clock appearance with nib-style hour and minute hands,
+    /// a fancy sweep hand for seconds, and standard tick marks and background elements.</remarks>
+    public class FancyClockTemplate : ClockTemplate
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BlueClockTemplate"/> class with default background, angular, and hand
+        /// Initializes a new instance of the <see cref="FancyClockTemplate"/> class with default background, angular, and hand
         /// shapes.
         /// </summary>
         /// <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
-        /// properties with their respective default values. Use this constructor to create a clock template with the
-        /// standard set of shapes.</remarks>
-        public BlueClockTemplate()
+        /// properties with their respective fancy values. Use this constructor to create a clock template with the
+        /// fancy set of shapes.</remarks>
+        public FancyClockTemplate()
         {
             BackgroundShapes = EnumerateBackgroundShapes().ToArray();
             AngularShapes = EnumerateAngularShapes().ToArray();
@@ -51,85 +49,80 @@ namespace DustInTheWind.ClockNet.Templates
         {
             yield return new DialShape
             {
-                FillColor = Color.LightBlue
+                FillColor = Color.White
             };
 
             yield return new StringGroundShape
             {
                 Location = new PointF(0, 15),
                 Font = new Font("Arial", 2.5f, FontStyle.Regular, GraphicsUnit.Point),
-                FillColor = Color.DarkSlateGray,
-                Text = "Blue",
+                FillColor = Color.FromArgb(0x60, 0x60, 0x60),
+                Text = "Fancy",
             };
         }
 
         private static IEnumerable<IAngularShape> EnumerateAngularShapes()
         {
-            // Ticks for minutes
+            // Ticks for minutes (every 6 degrees, skip every 5th)
             yield return new TicksShape
             {
-                OutlineColor = Color.RoyalBlue,
-                LineWidth = 0.75f,
-                DistanceFromEdge = 5f,
-                Length = 7.5f,
+                OutlineColor = Color.Black,
+                Length = 3f,
+                LineWidth = 0.3f,
+                DistanceFromEdge = 0f,
                 Angle = 6f,
                 ExceptionIndex = 5
             };
 
-            // Ticks for hours
+            // Ticks for hours (every 30 degrees)
             yield return new TicksShape
             {
-                OutlineColor = Color.Navy,
-                LineWidth = 5f,
-                DistanceFromEdge = 5f,
-                Length = 5f,
+                OutlineColor = Color.Black,
+                Length = 3f,
+                LineWidth = 1f,
                 Angle = 30f
             };
 
             // Hour numbers
             yield return new StringAngularShape
             {
-                FillColor = Color.Navy,
                 Angle = 30f,
-                DistanceFromEdge = 20f,
-                Orientation = AngularOrientation.Normal,
-                Repeat = true
+                DistanceFromEdge = 10f,
+                Orientation = AngularOrientation.Normal
             };
         }
 
         private static IEnumerable<IHandShape> EnumerateHandShapes()
         {
-            // Hour hand
-            yield return new DiamondHandShape
+            // Hour hand - Nib style
+            yield return new NibHandShape
             {
-                FillColor = Color.Navy,
-                Length = 24f,
+                FillColor = Color.Black,
+                Length = 30f,
+                ComponentToDisplay = TimeComponent.Hour,
                 Width = 5f,
-                TailLength = 6f,
-                ComponentToDisplay = TimeComponent.Hour
+                OutlineColor = Color.FromArgb(0x60, 0x60, 0x60),
+                LineWidth = 1.5f
             };
 
-            // Minute hand
-            yield return new DiamondHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f)
+            // Minute hand - Nib style
+            yield return new NibHandShape
             {
-                FillColor = Color.RoyalBlue,
-                Length = 37f,
-                Width = 4f,
-                TailLength = 4f,
-                ComponentToDisplay = TimeComponent.Minute
+                ComponentToDisplay = TimeComponent.Minute,
+                OutlineColor = Color.FromArgb(0x60, 0x60, 0x60),
+                LineWidth = 1.5f
             };
 
-            // Second hand
-            yield return new LineHandShape
+            // Second hand - Fancy sweep style
+            yield return new FancySweepHandShape
             {
-                OutlineColor = Color.DeepSkyBlue,
                 ComponentToDisplay = TimeComponent.Second
             };
 
             // Center pin
             yield return new PinShape
             {
-                FillColor = Color.Navy
+                FillColor = Color.FromArgb(0x60, 0x60, 0x60)
             };
         }
     }

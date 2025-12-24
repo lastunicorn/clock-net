@@ -39,7 +39,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public PathAngularShape()
-            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
+            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
 
         }
@@ -51,7 +51,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
         public PathAngularShape(GraphicsPath path, Color outlineColor, Color fillColor)
-            : this(path, outlineColor, fillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
+            : this(path, outlineColor, fillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 

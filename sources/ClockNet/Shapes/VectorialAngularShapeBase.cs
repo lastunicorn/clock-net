@@ -126,7 +126,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         public VectorialAngularShapeBase(Color outlineColor, Color fillColor)
-            : this(outlineColor, fillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultPositionOffset)
+            : this(outlineColor, fillColor, DefaultLineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 

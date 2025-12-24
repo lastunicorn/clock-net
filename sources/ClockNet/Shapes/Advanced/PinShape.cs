@@ -69,10 +69,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Not used.
         /// </summary>
         [Browsable(false)]
-        public override float Height
+        public override float Length
         {
-            get => base.Height;
-            set => base.Height = value;
+            get => base.Length;
+            set => base.Length = value;
         }
 
         /// <summary>

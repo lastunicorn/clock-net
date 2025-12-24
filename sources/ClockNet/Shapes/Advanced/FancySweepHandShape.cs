@@ -175,11 +175,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             path.Reset();
 
-            float circleCenterX = -height + circleOffset;
+            float circleCenterX = -length + circleOffset;
 
             path.AddLine(new PointF(0f, tailLength), new PointF(0f, circleCenterX + circleRadius));
             path.AddEllipse(-circleRadius, circleCenterX - circleRadius, circleRadius * 2f, circleRadius * 2f);
-            path.AddLine(new PointF(0f, circleCenterX - circleRadius), new PointF(0f, -height));
+            path.AddLine(new PointF(0f, circleCenterX - circleRadius), new PointF(0f, -length));
         }
     }
 }

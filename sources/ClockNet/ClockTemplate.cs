@@ -34,56 +34,6 @@ namespace DustInTheWind.ClockNet
         //    get { return new ShapeSet(); }
         //}
 
-        //public static ShapeSet Fancy
-        //{
-        //    get
-        //    {
-        //        IShape[] backgrounds = new IShape[]{
-        //            new DustInTheWind.Clock.Shapes.Default.DialShape(),
-        //            new DustInTheWind.Clock.Shapes.Default.TextShape()
-        //        };
-
-        //        TicksShape ticks1Shape = new TicksShape(Color.Black, 3f, 0.3f, 0f);
-        //        ticks1Shape.Angle = 6f;
-        //        ticks1Shape.ExceptionIndex = 5;
-
-        //        TicksShape ticks5Shape = new TicksShape(Color.Black, 3f, 1f, 0f);
-        //        ticks5Shape.Angle = 30f;
-
-        //        TextAngularShape numbersShape = new TextAngularShape();
-        //        numbersShape.PositionOffset = 6f;
-
-        //        IAngularShape[] angulars = new IAngularShape[]{
-        //            ticks1Shape,
-        //            ticks5Shape,
-        //            numbersShape
-        //        };
-
-        //        NibHandShape hourHandShape = new NibHandShape(Color.Black, 30f);
-        //        hourHandShape.ComponentToDisplay = TimeComponent.Hour;
-        //        hourHandShape.Width = 5f;
-        //        NibHandShape minuteHandShape = new NibHandShape();
-        //        minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
-        //        FancySweepHandShape sweepHandShape = new FancySweepHandShape();
-        //        sweepHandShape.ComponentToDisplay = TimeComponent.Second;
-        //        PinShape pinShape = new PinShape();
-
-        //        IHandShape[] hands = new IHandShape[]{
-        //            hourHandShape,
-        //            minuteHandShape,
-        //            sweepHandShape,
-        //            pinShape
-        //        };
-
-        //        return new ShapeSet()
-        //        {
-        //            backgroundShapes = backgrounds,
-        //            angularShapes = angulars,
-        //            handShapes = hands
-        //        };
-        //    }
-        //}
-
         //public static ShapeSet WhiteFancy
         //{
         //    get

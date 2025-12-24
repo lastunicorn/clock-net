@@ -27,7 +27,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// When implemented in a derived class, gets or sets the height of the hand from the pin to the top.
         /// </summary>
-        float Height { get; set; }
+        float Length { get; set; }
 
         /// <summary>
         /// Gets or sets the time that the current instance is representing.

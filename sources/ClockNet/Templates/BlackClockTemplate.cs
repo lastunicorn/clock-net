@@ -124,7 +124,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 ComponentToDisplay = TimeComponent.Second,
                 OutlineColor = Color.Red,
-                Height = 42f
+                Length = 42f
             };
 
             // Center pin

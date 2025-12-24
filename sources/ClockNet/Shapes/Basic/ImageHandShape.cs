@@ -125,9 +125,9 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
-            if (origin.Y != 0 && height > 0)
+            if (origin.Y != 0 && length > 0)
             {
-                float scaleFactor = height / origin.Y;
+                float scaleFactor = length / origin.Y;
                 g.ScaleTransform(scaleFactor, scaleFactor);
             }
 

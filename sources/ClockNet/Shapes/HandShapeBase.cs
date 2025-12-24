@@ -39,7 +39,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// The length of the hand from the pin to the its top. For a clock with the diameter of 100px.
         /// </summary>
-        protected float height;
+        protected float length;
 
         /// <summary>
         /// Gets or sets the length of the hand from the pin to the its top. For a clock with the diameter of 100px.
@@ -47,12 +47,12 @@ namespace DustInTheWind.ClockNet.Shapes
         [Category("Appearance")]
         [DefaultValue(DefaultHeight)]
         [Description("The length of the hand from the pin to the its top. For a clock with the diameter of 100px.")]
-        public virtual float Height
+        public virtual float Length
         {
-            get { return height; }
+            get { return length; }
             set
             {
-                height = value;
+                length = value;
                 InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
@@ -132,7 +132,7 @@ namespace DustInTheWind.ClockNet.Shapes
         public HandShapeBase(float height)
             : base()
         {
-            this.height = height;
+            this.length = height;
             this.integralValue = DefaultIntegralValue;
         }
 

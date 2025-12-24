@@ -52,8 +52,7 @@ namespace DustInTheWind.ClockNet.Templates
         {
             yield return new DialShape
             {
-                FillColor = Color.LightGray,
-                Radius = 50
+                FillColor = Color.LightGray
             };
 
             yield return new StringGroundShape

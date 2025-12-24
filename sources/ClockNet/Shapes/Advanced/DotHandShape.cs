@@ -114,7 +114,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         protected override void CalculateLayout()
         {
-            dotRectangle = new RectangleF(-radius, -height - radius, radius * 2, radius * 2);
+            dotRectangle = new RectangleF(-radius, -length - radius, radius * 2, radius * 2);
         }
 
 

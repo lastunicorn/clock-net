@@ -36,7 +36,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public const float DefaultLength = 2.5f;
 
-
         /// <summary>
         /// The length of the ticks. This value is given for a clock with diameter of 100px.
         /// </summary>
@@ -64,22 +63,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public TicksShape()
-            : this(Color.Black, DefaultLength, DefaultLineWidth, DefaultPositionOffset)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TicksShape"/> class.
-        /// </summary>
-        /// <param name="color">The color used to draw the tick shapes.</param>
-        /// <param name="length">The length of the ticks.</param>
-        /// <param name="lineWidth">The width of the ticks.</param>
-        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
-        public TicksShape(Color color, float length, float lineWidth, float positionOffset)
-            : base(PointF.Empty, PointF.Empty, color, lineWidth, 6f, true, positionOffset)
+            : base(PointF.Empty, PointF.Empty, Color.Black, DefaultLineWidth, 6f, true, DefaultDistanceFromEdge)
         {
             Name = DefaultName;
-            this.length = length;
+            length = DefaultLength;
         }
 
         /// <summary>

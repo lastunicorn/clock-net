@@ -1303,13 +1303,13 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDemo.Dock = System.Windows.Forms.DockStyle.Fill;
             diamondHandShape1.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
             diamondHandShape1.FillColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape1.Height = 25F;
+            diamondHandShape1.Length = 25F;
             diamondHandShape1.Name = "Hour Hand Shape";
             diamondHandShape1.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape1.Time = System.TimeSpan.Parse("02:45:24.6273918");
             diamondHandShape2.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Minute;
             diamondHandShape2.FillColor = System.Drawing.Color.LimeGreen;
-            diamondHandShape2.Height = 38F;
+            diamondHandShape2.Length = 38F;
             diamondHandShape2.Name = "Minute Hand Shape";
             diamondHandShape2.OutlineColor = System.Drawing.Color.Empty;
             diamondHandShape2.TailLength = 4F;
@@ -1317,7 +1317,7 @@ namespace DustInTheWind.ClockNet.Demo
             diamondHandShape2.Width = 4F;
             lineHandShape1.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Second;
             lineHandShape1.FillColor = System.Drawing.Color.Empty;
-            lineHandShape1.Height = 43F;
+            lineHandShape1.Length = 43F;
             lineHandShape1.Name = "Second Hand Shape";
             lineHandShape1.OutlineColor = System.Drawing.Color.Red;
             lineHandShape1.Time = System.TimeSpan.Parse("02:45:24.6273918");

@@ -72,16 +72,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// Initializes a new instance of the <see cref="NibHandShape"/> class.
         /// </summary>
-        /// <param name="fillColor">The color used to fill the opaqu disk.</param>
-        /// <param name="height">The length of the hour hand.</param>
-        public NibHandShape(Color fillColor, float height)
-            : this(DefaultOutlineColor, fillColor, height, DefaultLineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NibHandShape"/> class.
-        /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
         /// <param name="fillColor">The color used to fill the opaqu disk.</param>
         /// <param name="height">The length of the hour hand.</param>
@@ -198,14 +188,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </remarks>
         protected override void OnDraw(Graphics g)
         {
-            if (keepProportions && height > 0)
+            if (keepProportions && length > 0)
             {
-                float scaleFactorY = height / 280f;
+                float scaleFactorY = length / 280f;
                 g.ScaleTransform(scaleFactorY, scaleFactorY);
             }
             else
             {
-                float scaleFactorY = height > 0 ? height / 280f : 1f;
+                float scaleFactorY = length > 0 ? length / 280f : 1f;
                 float scaleFactorX = width > 0 ? width / 30f : 1f;
                 g.ScaleTransform(scaleFactorX, scaleFactorY);
             }
@@ -219,14 +209,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             
             using (Matrix m = new Matrix())
             {
-                if (keepProportions && height > 0)
+                if (keepProportions && length > 0)
                 {
-                    float scaleFactorY = height / 280f;
+                    float scaleFactorY = length / 280f;
                     m.Scale(1 / scaleFactorY, 1 / scaleFactorY);
                 }
                 else
                 {
-                    float scaleFactorY = height > 0 ? height / 280f : 1f;
+                    float scaleFactorY = length > 0 ? length / 280f : 1f;
                     float scaleFactorX = width > 0 ? width / 30f : 1f;
                     m.Scale(1 / scaleFactorX, 1 / scaleFactorY);
                 }

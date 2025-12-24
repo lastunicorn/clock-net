@@ -104,7 +104,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void CalculateLayout()
         {
             startPoint = new PointF(0f, tailLength);
-            endPoint = new PointF(0f, -height);
+            endPoint = new PointF(0f, -length);
         }
 
         /// <summary>
