@@ -65,19 +65,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public NibHandShape()
-            : this(DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultLineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NibHandShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
-        /// <param name="fillColor">The color used to fill the opaqu disk.</param>
-        /// <param name="height">The length of the hour hand.</param>
-        /// <param name="lineWidth">The width of the outline.</param>
-        public NibHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
-            : base(new GraphicsPath(), outlineColor, fillColor, height, lineWidth)
+            : base(new GraphicsPath(), DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultLineWidth)
         {
             Name = DefaultName;
         }
@@ -206,7 +194,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public override bool HitTest(PointF point)
         {
             PointF clickLocation;
-            
+
             using (Matrix m = new Matrix())
             {
                 if (keepProportions && length > 0)

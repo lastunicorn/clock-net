@@ -119,49 +119,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public FancySweepHandShape()
-            : this(Color.Red, Color.Empty, DefaultHeight, DefaultLineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FancySweepHandShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
-        public FancySweepHandShape(Color outlineColor)
-            : this(outlineColor, Color.Empty, DefaultHeight, DefaultLineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FancySweepHandShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
-        /// <param name="height">The length of the hand from the pin to the its top.</param>
-        public FancySweepHandShape(Color outlineColor, float height)
-            : this(outlineColor, Color.Empty, height, DefaultLineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FancySweepHandShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
-        /// <param name="lineWidth">The width of the outline.</param>
-        /// <param name="height">The length of the hand from the pin to the its top.</param>
-        public FancySweepHandShape(Color outlineColor, float height, float lineWidth)
-            : this(outlineColor, Color.Empty, height, lineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FancySweepHandShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
-        /// <param name="fillColor">The color used to fill the circle from the middle of the hand. <see cref="Color.Empty"/> will let the circle transparent.</param>
-        /// <param name="lineWidth">The width of the outline.</param>
-        /// <param name="height">The length of the hand from the pin to the its top.</param>
-        public FancySweepHandShape(Color outlineColor, Color fillColor, float height, float lineWidth)
-            : base(new GraphicsPath(), outlineColor, fillColor, height, lineWidth)
+            : base(new GraphicsPath(), Color.Red, Color.Empty, DefaultHeight, DefaultLineWidth)
         {
             Name = DefaultName;
             tailLength = DefaultTailLength;

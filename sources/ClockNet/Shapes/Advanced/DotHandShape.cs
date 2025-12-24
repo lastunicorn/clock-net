@@ -34,7 +34,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default value of the dot's radius.
         /// </summary>
-        public const float RADIUS = 5f;
+        public const float DefaultRadius = 5f;
 
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
         [Category("Appearance")]
-        [DefaultValue(RADIUS)]
+        [DefaultValue(DefaultRadius)]
         [Description("The radius of the dot.")]
         public virtual float Radius
         {
@@ -63,49 +63,27 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             }
         }
 
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="DotHandShape"/> class with
         /// default values.
         /// </summary>
         public DotHandShape()
-            : this(Color.Empty, Color.Black, DefaultHeight, DefaultLineWidth, RADIUS)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DotHandShape"/> class.
-        /// </summary>
-        /// <param name="fillColor">The color used to draw the background of the hand.</param>
-        /// <param name="height">The distance between the pin and the center of the ellipse.</param>
-        /// <param name="radius">The radius of the dot.</param>
-        public DotHandShape(Color fillColor, float height, float radius)
-            : this(Color.Empty, fillColor, height, DefaultLineWidth, radius)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DotHandShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
-        /// <param name="fillColor">The color used to draw the background of the hand.</param>
-        /// <param name="height">The distance between the pin and the center of the dot.</param>
-        /// <param name="lineWidth">The width of the outline.</param>
-        /// <param name="radius">The radius of the dot.</param>
-        public DotHandShape(Color outlineColor, Color fillColor, float height, float lineWidth, float radius)
-            : base(outlineColor, fillColor, lineWidth, height)
+            : base(Color.Empty, Color.Black, DefaultLineWidth, DefaultHeight)
         {
             Name = DefaultName;
-            this.radius = radius;
+            radius = DefaultRadius;
         }
-
-        #endregion
 
         /// <summary>
         /// The rectangle defining the ellipse that is drawn.
         /// </summary>
         private RectangleF dotRectangle;
+
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() &&
+                radius > 0 && length > 0;
+        }
 
         /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
@@ -114,7 +92,13 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         protected override void CalculateLayout()
         {
-            dotRectangle = new RectangleF(-radius, -length - radius, radius * 2, radius * 2);
+            float x = -radius;
+            float y = -length - radius;
+
+            float width = radius * 2;
+            float height = radius * 2;
+
+            dotRectangle = new RectangleF(x, y, width, height);
         }
 
 
@@ -129,16 +113,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                //g.FillEllipse(brush, -radius, -height - radius, radius * 2, radius);
                 g.FillEllipse(Brush, dotRectangle);
-            }
 
             if (!outlineColor.IsEmpty)
-            {
-                //g.DrawEllipse(pen, -radius, -height - radius, radius, radius);
                 g.DrawEllipse(Pen, dotRectangle);
-            }
         }
 
         public override bool HitTest(PointF point)

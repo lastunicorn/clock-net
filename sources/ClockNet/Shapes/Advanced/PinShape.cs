@@ -80,41 +80,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public PinShape()
-            : this(Color.Empty, Color.Black, DefaultDiameter)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PinShape"/> class.
-        /// </summary>
-        /// <param name="fillColor">The color used to fill the pin.</param>
-        /// <param name="diameter">The diameter of the pin.</param>
-        public PinShape(Color fillColor, float diameter)
-            : this(Color.Empty, fillColor, diameter)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PinShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the pin.</param>
-        /// <param name="fillColor">The color used to fill the pin.</param>
-        public PinShape(Color outlineColor, Color fillColor)
-            : this(Color.Empty, fillColor, DefaultDiameter)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PinShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the pin.</param>
-        /// <param name="fillColor">The color used to fill the pin.</param>
-        /// <param name="diameter">The diameter of the pin.</param>
-        public PinShape(Color outlineColor, Color fillColor, float diameter)
-            : base(outlineColor, fillColor)
+            : base(Color.Empty, Color.Black)
         {
             Name = DefaultName;
-            this.diameter = diameter;
+            diameter = DefaultDiameter;
         }
 
         /// <summary>

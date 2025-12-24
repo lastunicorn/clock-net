@@ -114,48 +114,18 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             }
         }
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SlotHandShape"/> class with
         /// default values.
         /// </summary>
         public SlotHandShape()
-            : this(DefaultOutlineColor, DefaultFillColor, DefaultRadius, DefaultHeight, DefaultWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SlotHandShape"/> class.
-        /// </summary>
-        /// <param name="fillColor">The color used to fill the opaqu disk.</param>
-        /// <param name="radius">The radius of the opaque disk.</param>
-        /// <param name="height">The length of the carving from the pin to the its top.</param>
-        /// <param name="width">The width of the carving.</param>
-        public SlotHandShape(Color fillColor, float radius, float height, float width)
-            : this(DefaultOutlineColor, fillColor, radius, height, width)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SlotHandShape"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline of the hand.</param>
-        /// <param name="fillColor">The color used to fill the opaqu disk.</param>
-        /// <param name="radius">The radius of the opaque disk.</param>
-        /// <param name="height">The length of the carving from the pin to the its top.</param>
-        /// <param name="width">The width of the carving.</param>
-        public SlotHandShape(Color outlineColor, Color fillColor, float radius, float height, float width)
-            : base(new GraphicsPath(), outlineColor, fillColor, height, DefaultLineWidth)
+            : base(new GraphicsPath(), DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultLineWidth)
         {
             Name = DefaultName;
-            this.radius = radius;
-            this.width = width;
+            radius = DefaultRadius;
+            width = DefaultWidth;
             tailLength = DefaultTailLength;
         }
-
-        #endregion
 
         /// <summary>
         /// Performs all the necessary calculations based on the public parameters, before drawing the shape.

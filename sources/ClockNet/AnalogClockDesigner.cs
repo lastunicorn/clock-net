@@ -130,7 +130,9 @@ namespace DustInTheWind.ClockNet
                     sweepHandShape.Length = 42.5f;
                     handShapes.Add(sweepHandShape);
 
-                    PinShape pinShape = new PinShape(Color.Red, PinShape.DefaultDiameter);
+                    PinShape pinShape = new PinShape();
+                    pinShape.FillColor = Color.Red;
+                    pinShape.Diameter = PinShape.DefaultDiameter;
                     pinShape.Name = "Pin Shape";
                     handShapes.Add(pinShape);
                 }
