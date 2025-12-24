@@ -27,8 +27,6 @@ namespace DustInTheWind.ClockNet.Shapes
         [Browsable(false)]
         public int a { get; set; }
 
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="GroundShapeBase"/> class with
         /// default values.
@@ -37,7 +35,5 @@ namespace DustInTheWind.ClockNet.Shapes
             : base()
         {
         }
-
-        #endregion
     }
 }

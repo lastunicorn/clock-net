@@ -21,7 +21,7 @@ using System.Globalization;
 namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
-    /// Converts an <see cref="IShape"/> object to na user friendly string representaiton.
+    /// Converts an <see cref="IShape"/> object to an user friendly string representaiton.
     /// Can not convert the string back to the object.
     /// </summary>
     public class ShapeConverter : ExpandableObjectConverter
@@ -37,26 +37,7 @@ namespace DustInTheWind.ClockNet.Shapes
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
             if (value is string)
-            {
                 return null;
-                //switch ((string)value)
-                //{
-                //    case HourHandShape.NAME:
-                //        return new HourHandShape();
-
-                //    case MinuteHandShape.NAME:
-                //        return new MinuteHandShape();
-
-                //    case SweepHandShape.NAME:
-                //        return new SweepHandShape();
-
-                //    case PinShape.NAME:
-                //        return new PinShape();
-
-                //    default:
-                //        return null;
-                //}
-            }
 
             return base.ConvertFrom(context, culture, value);
         }
@@ -65,9 +46,6 @@ namespace DustInTheWind.ClockNet.Shapes
         {
             if (destinationType == typeof(string))
                 return true;
-
-            //if (destinationType == typeof(InstanceDescriptor))
-            //    return true;
 
             return base.CanConvertTo(context, destinationType);
         }
@@ -81,17 +59,6 @@ namespace DustInTheWind.ClockNet.Shapes
                 else
                     return null;
             }
-
-            //if (destinationType == typeof(InstanceDescriptor) && value is PointF)
-            //{
-            //    PointF pt = (PointF)value;
-
-            //    ConstructorInfo ctor = typeof(PointF).GetConstructor(new Type[] { typeof(float), typeof(float) });
-            //    if (ctor != null)
-            //    {
-            //        return new InstanceDescriptor(ctor, new object[] { pt.X, pt.Y });
-            //    }
-            //}
 
             return base.ConvertTo(context, culture, value, destinationType);
         }

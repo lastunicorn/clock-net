@@ -65,7 +65,7 @@ namespace DustInTheWind.ClockNet.Shapes
         [Description("Gets or sets the color used to draw the outline of the shape.")]
         public virtual Color OutlineColor
         {
-            get { return outlineColor; }
+            get => outlineColor;
             set
             {
                 outlineColor = value;
@@ -88,7 +88,7 @@ namespace DustInTheWind.ClockNet.Shapes
         [Description("Gets or sets the color used to draw the background of the shape.")]
         public virtual Color FillColor
         {
-            get { return fillColor; }
+            get => fillColor;
             set
             {
                 fillColor = value;
@@ -111,7 +111,7 @@ namespace DustInTheWind.ClockNet.Shapes
         [Description("The width of the outline.")]
         public virtual float LineWidth
         {
-            get { return lineWidth; }
+            get => lineWidth;
             set
             {
                 lineWidth = value;
@@ -120,9 +120,6 @@ namespace DustInTheWind.ClockNet.Shapes
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-        #region Constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorialHandShapeBase"/> class.
@@ -148,9 +145,6 @@ namespace DustInTheWind.ClockNet.Shapes
             this.fillColor = fillColor;
             this.lineWidth = lineWidth;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Disposes all the classes used in the drawing process.

@@ -409,6 +409,16 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="F:DustInTheWind.ClockNet.PerformanceInfo.sessionCount">
+            <summary>
+            Counts the times the control has been repainted.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.PerformanceInfo.totalTicks">
+            <summary>
+            Keeps the total time (in ticks) the control consumed executing the <see cref="!:OnPaint"/> method.
+            </summary>
+        </member>
         <member name="T:DustInTheWind.ClockNet.ShapeCollectionEditor">
             <summary>
             Provides a user interface that can edit most types of collections at design
@@ -3199,7 +3209,7 @@
         </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.ShapeConverter">
             <summary>
-            Converts an <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> object to na user friendly string representaiton.
+            Converts an <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> object to an user friendly string representaiton.
             Can not convert the string back to the object.
             </summary>
         </member>
@@ -3539,9 +3549,29 @@
             Provides an UI for editing <see cref="T:System.TimeSpan"/> and a nullable TimeSpan values.
             </summary>
         </member>
-        <member name="T:TTRider.UI.HSBColor">
+        <member name="T:TTRider.UI.HsbColor">
             <summary>
             Provides Round-trip conversion from RGB to HSB and back
+            </summary>
+        </member>
+        <member name="P:TTRider.UI.HsbColor.H">
+            <summary>
+            Hue
+            </summary>
+        </member>
+        <member name="P:TTRider.UI.HsbColor.S">
+            <summary>
+            Saturation
+            </summary>
+        </member>
+        <member name="P:TTRider.UI.HsbColor.B">
+            <summary>
+            Brightness
+            </summary>
+        </member>
+        <member name="P:TTRider.UI.HsbColor.A">
+            <summary>
+            Alpha
             </summary>
         </member>
     </members>

@@ -33,14 +33,8 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <exception cref="ArgumentNullException"></exception>
         public string Name
         {
-            get { return name; }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException("value");
-
-                name = value;
-            }
+            get => name;
+            set => name = value ?? throw new ArgumentNullException("value");
         }
 
         /// <summary>
@@ -56,7 +50,7 @@ namespace DustInTheWind.ClockNet.Shapes
         [Description("A value specifying if the shape should be drawn or not.")]
         public virtual bool Visible
         {
-            get { return visible; }
+            get => visible;
             set
             {
                 visible = value;
@@ -77,10 +71,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnChanged(EventArgs e)
         {
-            if (Changed != null)
-            {
-                Changed(this, e);
-            }
+            Changed?.Invoke(this, e);
         }
 
         #endregion
@@ -122,9 +113,7 @@ namespace DustInTheWind.ClockNet.Shapes
         public virtual void Draw(Graphics g)
         {
             if (AllowToDraw())
-            {
                 DrawInternal(g);
-            }
         }
 
         /// <summary>

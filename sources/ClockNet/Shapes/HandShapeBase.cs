@@ -116,9 +116,6 @@ namespace DustInTheWind.ClockNet.Shapes
             }
         }
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="HandShapeBase"/> class with
         /// default values.
@@ -138,9 +135,6 @@ namespace DustInTheWind.ClockNet.Shapes
             this.height = height;
             this.integralValue = INTEGRAL_VALUE;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Returns the degrees by which the hand should be rotated from the vertical position (12 o'clock hour).

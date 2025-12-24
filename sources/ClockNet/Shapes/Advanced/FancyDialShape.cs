@@ -88,9 +88,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             }
         }
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="FancyDialShape"/> class with
         /// default values.
@@ -125,9 +122,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             CalculateDimensions();
         }
 
-        #endregion
-
-
         /// <summary>
         /// Creates a new <see cref="Pen"/> object if it does not exist already.
         /// The pen will have an Inset alignment.
@@ -148,10 +142,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             if (brush == null)
             {
-                outerRimBrush = new LinearGradientBrush(outerRimRectangle, HSBColor.ShiftBrighness(fillColor, 100f), HSBColor.ShiftBrighness(fillColor, -100f), 45f);
-                innerRimBrush = new LinearGradientBrush(innerRimRectangle, HSBColor.ShiftBrighness(fillColor, -100f), HSBColor.ShiftBrighness(fillColor, 100f), 45f);
-                Color faceColor = HSBColor.ShiftSaturation(fillColor, 50f);
-                brush = new LinearGradientBrush(faceRectangle, HSBColor.ShiftBrighness(faceColor, 100f), HSBColor.ShiftBrighness(faceColor, -150f), 45f);
+                outerRimBrush = new LinearGradientBrush(outerRimRectangle, HsbColor.ShiftBrighness(fillColor, 100f), HsbColor.ShiftBrighness(fillColor, -100f), 45f);
+                innerRimBrush = new LinearGradientBrush(innerRimRectangle, HsbColor.ShiftBrighness(fillColor, -100f), HsbColor.ShiftBrighness(fillColor, 100f), 45f);
+                Color faceColor = HsbColor.ShiftSaturation(fillColor, 50f);
+                brush = new LinearGradientBrush(faceRectangle, HsbColor.ShiftBrighness(faceColor, 100f), HsbColor.ShiftBrighness(faceColor, -150f), 45f);
             }
         }
 

@@ -9,14 +9,14 @@ namespace TTRider.UI
     /// <summary>
     /// Provides Round-trip conversion from RGB to HSB and back
     /// </summary>
-    public struct HSBColor
+    public struct HsbColor
     {
         float h;
         float s;
         float b;
         int a;
 
-        public HSBColor(float h, float s, float b)
+        public HsbColor(float h, float s, float b)
         {
             this.a = 0xff;
             this.h = Math.Min(Math.Max(h, 0), 255);
@@ -24,7 +24,7 @@ namespace TTRider.UI
             this.b = Math.Min(Math.Max(b, 0), 255);
         }
 
-        public HSBColor(int a, float h, float s, float b)
+        public HsbColor(int a, float h, float s, float b)
         {
             this.a = a;
             this.h = Math.Min(Math.Max(h, 0), 255);
@@ -32,73 +32,68 @@ namespace TTRider.UI
             this.b = Math.Min(Math.Max(b, 0), 255);
         }
 
-        public HSBColor(Color color)
+        public HsbColor(Color color)
         {
-            HSBColor temp = FromColor(color);
+            HsbColor temp = FromColor(color);
             this.a = temp.a;
             this.h = temp.h;
             this.s = temp.s;
             this.b = temp.b;
         }
 
-        public float H
-        {
-            get { return h; }
-        }
+        /// <summary>
+        /// Hue
+        /// </summary>
+        public float H => h;
 
-        public float S
-        {
-            get { return s; }
-        }
+        /// <summary>
+        /// Saturation
+        /// </summary>
+        public float S => s;
 
-        public float B
-        {
-            get { return b; }
-        }
+        /// <summary>
+        /// Brightness
+        /// </summary>
+        public float B => b;
 
-        public int A
-        {
-            get { return a; }
-        }
+        /// <summary>
+        /// Alpha
+        /// </summary>
+        public int A => a;
 
-        public Color Color
-        {
-            get
-            {
-                return FromHSB(this);
-            }
-        }
+        public Color Color => FromHsb(this);
 
-        public static Color ShiftHue(Color c, float hueDelta)
+        public static Color ShiftHue(Color color, float hueDelta)
         {
-            HSBColor hsb = HSBColor.FromColor(c);
+            HsbColor hsb = FromColor(color);
             hsb.h += hueDelta;
             hsb.h = Math.Min(Math.Max(hsb.h, 0), 255);
-            return FromHSB(hsb);
+            return FromHsb(hsb);
         }
 
-        public static Color ShiftSaturation(Color c, float saturationDelta)
+        public static Color ShiftSaturation(Color color, float saturationDelta)
         {
-            HSBColor hsb = HSBColor.FromColor(c);
+            HsbColor hsb = FromColor(color);
             hsb.s += saturationDelta;
             hsb.s = Math.Min(Math.Max(hsb.s, 0), 255);
-            return FromHSB(hsb);
+            return FromHsb(hsb);
         }
 
 
-        public static Color ShiftBrighness(Color c, float brightnessDelta)
+        public static Color ShiftBrighness(Color color, float brightnessDelta)
         {
-            HSBColor hsb = HSBColor.FromColor(c);
+            HsbColor hsb = HsbColor.FromColor(color);
             hsb.b += brightnessDelta;
             hsb.b = Math.Min(Math.Max(hsb.b, 0), 255);
-            return FromHSB(hsb);
+            return FromHsb(hsb);
         }
 
-        public static Color FromHSB(HSBColor hsbColor)
+        public static Color FromHsb(HsbColor hsbColor)
         {
             float r = hsbColor.b;
             float g = hsbColor.b;
             float b = hsbColor.b;
+
             if (hsbColor.s != 0)
             {
                 float max = hsbColor.b;
@@ -151,19 +146,20 @@ namespace TTRider.UI
                 }
             }
 
-            return Color.FromArgb
-                (
-                    hsbColor.a,
-                    (int)Math.Round(Math.Min(Math.Max(r, 0), 255)),
-                    (int)Math.Round(Math.Min(Math.Max(g, 0), 255)),
-                    (int)Math.Round(Math.Min(Math.Max(b, 0), 255))
-                    );
+            int alpha = hsbColor.a;
+            int red = (int)Math.Round(Math.Min(Math.Max(r, 0), 255));
+            int green = (int)Math.Round(Math.Min(Math.Max(g, 0), 255));
+            int blue = (int)Math.Round(Math.Min(Math.Max(b, 0), 255));
+
+            return Color.FromArgb(alpha, red, green, blue);
         }
 
-        public static HSBColor FromColor(Color color)
+        public static HsbColor FromColor(Color color)
         {
-            HSBColor ret = new HSBColor(0f, 0f, 0f);
-            ret.a = color.A;
+            HsbColor hsbColor = new HsbColor(0f, 0f, 0f)
+            {
+                a = color.A
+            };
 
             float r = color.R;
             float g = color.G;
@@ -173,7 +169,7 @@ namespace TTRider.UI
 
             if (max <= 0)
             {
-                return ret;
+                return hsbColor;
             }
 
             float min = Math.Min(r, Math.Min(g, b));
@@ -183,35 +179,35 @@ namespace TTRider.UI
             {
                 if (g == max)
                 {
-                    ret.h = (b - r) / dif * 60f + 120f;
+                    hsbColor.h = (b - r) / dif * 60f + 120f;
                 }
                 else if (b == max)
                 {
-                    ret.h = (r - g) / dif * 60f + 240f;
+                    hsbColor.h = (r - g) / dif * 60f + 240f;
                 }
                 else if (b > g)
                 {
-                    ret.h = (g - b) / dif * 60f + 360f;
+                    hsbColor.h = (g - b) / dif * 60f + 360f;
                 }
                 else
                 {
-                    ret.h = (g - b) / dif * 60f;
+                    hsbColor.h = (g - b) / dif * 60f;
                 }
-                if (ret.h < 0)
+                if (hsbColor.h < 0)
                 {
-                    ret.h = ret.h + 360f;
+                    hsbColor.h = hsbColor.h + 360f;
                 }
             }
             else
             {
-                ret.h = 0;
+                hsbColor.h = 0;
             }
 
-            ret.h *= 255f / 360f;
-            ret.s = (dif / max) * 255f;
-            ret.b = max;
+            hsbColor.h *= 255f / 360f;
+            hsbColor.s = (dif / max) * 255f;
+            hsbColor.b = max;
 
-            return ret;
+            return hsbColor;
         }
     }
 }

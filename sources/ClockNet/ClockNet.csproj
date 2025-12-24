@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;PERFORMANCE_INFO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>ClockNet.xml</DocumentationFile>
@@ -59,12 +59,12 @@
     <Compile Include="NullableDateTimePicker.Designer.cs">
       <DependentUpon>NullableDateTimePicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceInfo.cs" />
     <Compile Include="ShapeCollectionEditor.cs" />
     <Compile Include="ShapeRemovedEventArgs.cs" />
     <Compile Include="ShapeAddedEventArgs.cs" />
-    <Compile Include="HSBColor.cs" />
+    <Compile Include="HsbColor.cs" />
     <Compile Include="PointFConverter.cs" />
-    <Compile Include="Shapes\AngularExceptionRule.cs" />
     <Compile Include="Shapes\Basic\RectangleHandShape.cs" />
     <Compile Include="Shapes\Basic\ImageAngularShape.cs" />
     <Compile Include="Shapes\Basic\PathAngularShape.cs" />
@@ -133,9 +133,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\icon16.bmp" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Compass\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -121,9 +121,6 @@ namespace DustInTheWind.ClockNet.Shapes
             }
         }
 
-
-        #region Constructor
-
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorialAngularShapeBase"/> class.
         /// </summary>
@@ -150,9 +147,6 @@ namespace DustInTheWind.ClockNet.Shapes
             this.fillColor = fillColor;
             this.lineWidth = lineWidth;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Disposes all the classes used in the drawing process.

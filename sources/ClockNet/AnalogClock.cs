@@ -58,10 +58,7 @@ namespace DustInTheWind.ClockNet
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnTimeProviderChanged(EventArgs e)
         {
-            if (TimeProviderChanged != null)
-            {
-                TimeProviderChanged(this, e);
-            }
+            TimeProviderChanged?.Invoke(this, e);
         }
 
         #endregion
@@ -81,10 +78,7 @@ namespace DustInTheWind.ClockNet
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnBackgroundShapeAdded(ShapeAddedEventArgs e)
         {
-            if (BackgroundShapeAdded != null)
-            {
-                BackgroundShapeAdded(this, e);
-            }
+            BackgroundShapeAdded?.Invoke(this, e);
         }
 
         #endregion
@@ -104,10 +98,7 @@ namespace DustInTheWind.ClockNet
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnBackgroundShapeRemoved(ShapeRemovedEventArgs e)
         {
-            if (BackgroundShapeRemoved != null)
-            {
-                BackgroundShapeRemoved(this, e);
-            }
+            BackgroundShapeRemoved?.Invoke(this, e);
         }
 
         #endregion
@@ -127,10 +118,7 @@ namespace DustInTheWind.ClockNet
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnAngularShapeAdded(ShapeAddedEventArgs e)
         {
-            if (AngularShapeAdded != null)
-            {
-                AngularShapeAdded(this, e);
-            }
+            AngularShapeAdded?.Invoke(this, e);
         }
 
         #endregion
@@ -150,10 +138,7 @@ namespace DustInTheWind.ClockNet
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnAngularShapeRemoved(ShapeRemovedEventArgs e)
         {
-            if (AngularShapeRemoved != null)
-            {
-                AngularShapeRemoved(this, e);
-            }
+            AngularShapeRemoved?.Invoke(this, e);
         }
 
         #endregion
@@ -173,10 +158,7 @@ namespace DustInTheWind.ClockNet
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnHandShapeAdded(ShapeAddedEventArgs e)
         {
-            if (HandShapeAdded != null)
-            {
-                HandShapeAdded(this, e);
-            }
+            HandShapeAdded?.Invoke(this, e);
         }
 
         #endregion
@@ -196,10 +178,7 @@ namespace DustInTheWind.ClockNet
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnHandShapeRemoved(ShapeRemovedEventArgs e)
         {
-            if (HandShapeRemoved != null)
-            {
-                HandShapeRemoved(this, e);
-            }
+            HandShapeRemoved?.Invoke(this, e);
         }
 
         #endregion
@@ -239,22 +218,17 @@ namespace DustInTheWind.ClockNet
             get
             {
                 StringGroundShape textShape = DefaultTextShape;
-                if (textShape != null)
-                {
-                    return textShape.Text;
-                }
-                else
-                {
-                    return string.Empty;
-                }
+
+                return textShape != null
+                    ? textShape.Text
+                    : string.Empty;
             }
             set
             {
                 StringGroundShape textShape = DefaultTextShape;
+
                 if (textShape != null)
-                {
                     textShape.Text = value;
-                }
             }
         }
 
@@ -928,18 +902,7 @@ namespace DustInTheWind.ClockNet
 #if PERFORMANCE_INFO
 
         // >> Needed to display performance info.
-
-        /// <summary>
-        /// Counts the times the control has been repainted.
-        /// </summary>
-        private long paintCount = 0;
-
-        /// <summary>
-        /// Keeps the total time (in ticks) the control consumed executing the <see cref="OnPaint"/> method.
-        /// </summary>
-        private long paintTotalTicks = 0;
-
-        private long lastPaintTicks = 0;
+        private PerformanceInfo performanceInfo = new PerformanceInfo();
 
 #endif
 
@@ -956,16 +919,7 @@ namespace DustInTheWind.ClockNet
 
 #if PERFORMANCE_INFO
 
-            // >> Needed to display performance info.
-
-            // Create and start a new Stopwatch.
-            System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-            DateTime now = DateTime.Now;
-            long intervalTicks = now.Ticks - lastPaintTicks;
-            lastPaintTicks = now.Ticks;
-
-            long test = stopwatch.ElapsedTicks;
+            performanceInfo.Start();
 #endif
 
             base.OnPaint(e);
@@ -998,33 +952,9 @@ namespace DustInTheWind.ClockNet
                 }
             }
 
-
-            // Calculate the angle increment value.
-
-            float angleIncrement = 0;
-
-            if (angularShapes.Count == 1)
-            {
-                angularShapes[0].Reset();
-
-                angleIncrement = angularShapes[0].Angle;
-            }
-            else if (angularShapes.Count > 1)
-            {
-                angularShapes[0].Reset();
-                angularShapes[1].Reset();
-
-                angleIncrement = cmmdc(angularShapes[0].Angle, angularShapes[1].Angle);
-
-                for (int i = 2; i < angularShapes.Count; i++)
-                {
-                    angularShapes[i].Reset();
-
-                    angleIncrement = cmmdc(angleIncrement, angularShapes[i].Angle);
-                }
-            }
-
             // Draw the angular shapes.
+
+            float angleIncrement = CalculateAngleIncrement();
 
             if (angleIncrement > 0)
             {
@@ -1059,26 +989,12 @@ namespace DustInTheWind.ClockNet
 
 #if PERFORMANCE_INFO
 
-            // >> Needed to display performance info.
-
-            stopwatch.Stop();
-
-            paintCount++;
-            paintTotalTicks += stopwatch.ElapsedTicks;
-
-            long averageTicks = paintTotalTicks / paintCount;
-
-            string text = string.Format("average: {1} ms\ninstant: {0} ms\ncount: {2}\n{3}",
-                TimeSpan.FromTicks(stopwatch.ElapsedTicks).TotalMilliseconds,
-                TimeSpan.FromTicks(averageTicks).TotalMilliseconds,
-                paintCount,
-                //TimeSpan.FromTicks(intervalTicks).TotalMilliseconds);
-                //TimeSpan.FromTicks(DateTime.Now.Ticks - now.Ticks).TotalMilliseconds);
-                test);
+            performanceInfo.Stop();
 
             g.Transform = originalMatrix;
             using (Font performanceTestFont = new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point))
             {
+                string text = performanceInfo.ToString();
                 g.DrawString(text, performanceTestFont, Brushes.Black, 0, 0);
             }
 
@@ -1086,16 +1002,45 @@ namespace DustInTheWind.ClockNet
 
         }
 
-        private float cmmdc(float a, float b)
+        private float CalculateAngleIncrement()
         {
-            while (a != b)
+            if (angularShapes.Count == 1)
             {
-                if (a > b)
-                    a -= b;
-                else
-                    b -= a;
+                angularShapes[0].Reset();
+                return angularShapes[0].Angle;
             }
-            return a;
+            else if (angularShapes.Count > 1)
+            {
+                angularShapes[0].Reset();
+                angularShapes[1].Reset();
+
+                float angleIncrement = GreatestCommonFactor(angularShapes[0].Angle, angularShapes[1].Angle);
+
+                for (int i = 2; i < angularShapes.Count; i++)
+                {
+                    angularShapes[i].Reset();
+
+                    angleIncrement = GreatestCommonFactor(angleIncrement, angularShapes[i].Angle);
+                }
+
+                return angleIncrement;
+            }
+            else
+            {
+                return 0f;
+            }
+        }
+
+        static float GreatestCommonFactor(float num1, float num2)
+        {
+            //while (num2 != 0)
+            while (num2 > double.Epsilon)
+            {
+                float temp = num2;
+                num2 = num1 % num2;
+                num1 = temp;
+            }
+            return num1;
         }
 
         #endregion

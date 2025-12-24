@@ -34,9 +34,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         protected RectangleF rectangle;
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="EllipseAngularShape"/> class with
         /// default values.
@@ -62,8 +59,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
             this.Name = NAME;
             this.rectangle = rectangle;
         }
-
-        #endregion
 
         /// <summary>
         /// Decides if the Shape should be drawn.

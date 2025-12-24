@@ -61,7 +61,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Description("The radius of the circle from the middle (or not so middle) of the hand.")]
         public virtual float CircleRadius
         {
-            get { return circleRadius; }
+            get => circleRadius;
             set
             {
                 circleRadius = value;
@@ -82,7 +82,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [DefaultValue(CIRCLE_OFFSET)]
         public virtual float CircleOffset
         {
-            get { return circleOffset; }
+            get => circleOffset;
             set
             {
                 circleOffset = value;
@@ -105,7 +105,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Description("The length of the tail of the hand.")]
         public virtual float TailLength
         {
-            get { return tailLength; }
+            get => tailLength;
             set
             {
                 tailLength = value;
@@ -113,9 +113,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FancySweepHandShape"/> class with
@@ -171,9 +168,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
 
             CalculateDimensions();
         }
-
-        #endregion
-
 
         /// <summary>
         /// Calculates additional values and creates the <see cref="GraphicsPath"/> that will be displayed

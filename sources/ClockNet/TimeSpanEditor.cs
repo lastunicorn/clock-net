@@ -34,43 +34,43 @@ namespace DustInTheWind.ClockNet
 
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
-            IWindowsFormsEditorService frmsvr = null;
-            frmsvr = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
+            IWindowsFormsEditorService editorService = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
 
-            if (frmsvr != null)
+            if (editorService == null)
+                return value;
+
+            DateTime? time;
+
+            if (value == null)
             {
-                DateTime? time;
+                time = null;
+            }
+            else if (value.GetType() == typeof(TimeSpan?))
+            {
+                time = DateTime.Today.Add(((TimeSpan?)value).Value);
+            }
+            else if (value.GetType() == typeof(TimeSpan))
+            {
+                time = DateTime.Today.Add((TimeSpan)value);
+            }
+            else
+            {
+                return value;
+            }
 
-                if (value == null)
-                {
-                    time = null;
-                }
-                else if (value.GetType() == typeof(TimeSpan?))
-                {
-                    time = DateTime.Today.Add(((TimeSpan?)value).Value);
-                }
-                else if (value.GetType() == typeof(TimeSpan))
-                {
-                    time = DateTime.Today.Add((TimeSpan)value);
-                }
+            using (NullableDateTimePicker nullableDateTimePicker = new NullableDateTimePicker())
+            {
+                nullableDateTimePicker.Value = time;
+                nullableDateTimePicker.DateTimePicker.Format = DateTimePickerFormat.Time;
+                nullableDateTimePicker.DateTimePicker.ShowUpDown = true;
+                nullableDateTimePicker.Width = 200;
+
+                editorService.DropDownControl(nullableDateTimePicker);
+
+                if (nullableDateTimePicker.IsNull)
+                    value = (TimeSpan?)null;
                 else
-                {
-                    return value;
-                }
-
-                using (NullableDateTimePicker dtp = new NullableDateTimePicker())
-                {
-                    dtp.Value = time;
-                    dtp.DateTimePicker.Format = DateTimePickerFormat.Time;
-                    dtp.DateTimePicker.ShowUpDown = true;
-                    dtp.Width = 200;
-
-                    frmsvr.DropDownControl(dtp);
-                    if (dtp.IsNull)
-                        value = (TimeSpan?)null;
-                    else
-                        value = (TimeSpan?)dtp.Value.Value.TimeOfDay;
-                }
+                    value = (TimeSpan?)nullableDateTimePicker.Value.Value.TimeOfDay;
             }
 
             return value;
