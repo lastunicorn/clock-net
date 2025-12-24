@@ -409,16 +409,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.PerformanceInfo.sessionCount">
-            <summary>
-            Counts the times the control has been repainted.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.PerformanceInfo.totalTicks">
-            <summary>
-            Keeps the total time (in ticks) the control consumed executing the <see cref="!:OnPaint"/> method.
-            </summary>
-        </member>
         <member name="T:DustInTheWind.ClockNet.ShapeCollectionEditor">
             <summary>
             Provides a user interface that can edit most types of collections at design

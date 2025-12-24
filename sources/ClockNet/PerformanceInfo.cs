@@ -22,20 +22,11 @@ namespace DustInTheWind.ClockNet
 {
     internal class PerformanceInfo
     {
-        /// <summary>
-        /// Counts the times the control has been repainted.
-        /// </summary>
-        private long sessionCount;
-
-        /// <summary>
-        /// Keeps the total time (in ticks) the control consumed executing the <see cref="OnPaint"/> method.
-        /// </summary>
-        private long totalTicks;
-
-        private long lastSessionTicks;
-
-        // Create and start a new Stopwatch.
         private Stopwatch stopwatch = new Stopwatch();
+
+        private long sessionCount;
+        private long totalTicks;
+        private long lastSessionTicks;
 
         public void Start()
         {
