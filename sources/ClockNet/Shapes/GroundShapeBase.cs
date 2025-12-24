@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System.ComponentModel;
-
 namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
@@ -24,9 +22,6 @@ namespace DustInTheWind.ClockNet.Shapes
     /// </summary>
     public abstract class GroundShapeBase : ShapeBase, IGroundShape
     {
-        [Browsable(false)]
-        public int a { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="GroundShapeBase"/> class with
         /// default values.

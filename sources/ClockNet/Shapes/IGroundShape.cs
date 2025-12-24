@@ -21,6 +21,5 @@ namespace DustInTheWind.ClockNet.Shapes
     /// </summary>
     public interface IGroundShape : IShape
     {
-        int a { get; set; }
     }
 }

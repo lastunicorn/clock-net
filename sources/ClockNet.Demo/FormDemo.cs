@@ -82,6 +82,7 @@ namespace DustInTheWind.ClockNet.Demo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //analogClockDemo.ApplyTemplate(new DefaultClockTemplate());
             // Timer
             numericUpDownTimerInterval.Value = timer1.Interval;
 

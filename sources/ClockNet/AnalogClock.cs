@@ -657,7 +657,8 @@ namespace DustInTheWind.ClockNet
             angularShapes = new AngularShapeCollection(this);
             handShapes = new HandShapeCollection(this);
 
-            ApplyTemplate(clockTemplate);
+            if (clockTemplate != null)
+                ApplyTemplate(clockTemplate);
 
             if (timeProvider != null)
             {

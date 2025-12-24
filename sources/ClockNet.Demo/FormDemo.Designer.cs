@@ -1289,10 +1289,8 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDemo.AngularShapes.Add(ticksShape2);
             this.analogClockDemo.AngularShapes.Add(stringAngularShape1);
             this.analogClockDemo.AngularShapes.Add(stringAngularShape2);
-            fancyDialShape1.a = 0;
             fancyDialShape1.Name = "Fancy Dial Shape";
             fancyDialShape1.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape1.a = 0;
             stringGroundShape1.FillColor = System.Drawing.Color.White;
             stringGroundShape1.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape1.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape1.Location")));

@@ -361,7 +361,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDefault.AngularShapes.Add(ticksShape37);
             this.analogClockDefault.AngularShapes.Add(ticksShape38);
             this.analogClockDefault.AngularShapes.Add(stringAngularShape18);
-            stringGroundShape25.a = 0;
             stringGroundShape25.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape25.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape25.Location")));
             stringGroundShape25.Name = "String Ground Shape";
@@ -412,7 +411,6 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape1.Length = 5F;
             ticksShape1.Name = "Ticks Shape";
             this.analogClockSimple.AngularShapes.Add(ticksShape1);
-            stringGroundShape1.a = 0;
             stringGroundShape1.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape1.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape1.Location")));
             stringGroundShape1.Name = "String Ground Shape";
@@ -469,7 +467,6 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape3.Name = "Ticks Shape";
             this.analogClockNoNumbers.AngularShapes.Add(ticksShape2);
             this.analogClockNoNumbers.AngularShapes.Add(ticksShape3);
-            stringGroundShape2.a = 0;
             stringGroundShape2.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape2.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape2.Location")));
             stringGroundShape2.Name = "String Ground Shape";
@@ -535,7 +532,6 @@ namespace DustInTheWind.ClockNet.Demo
         "XI",
         "XII"};
             this.analogClockRomanNumbers.AngularShapes.Add(stringAngularShape1);
-            stringGroundShape3.a = 0;
             stringGroundShape3.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape3.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape3.Location")));
             stringGroundShape3.Name = "String Ground Shape";
@@ -580,7 +576,6 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockClear
             // 
-            stringGroundShape4.a = 0;
             stringGroundShape4.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape4.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape4.Location")));
             stringGroundShape4.Name = "String Ground Shape";
@@ -645,7 +640,6 @@ namespace DustInTheWind.ClockNet.Demo
         "12"};
             this.analogClockNESW.AngularShapes.Add(ticksShape4);
             this.analogClockNESW.AngularShapes.Add(stringAngularShape2);
-            stringGroundShape5.a = 0;
             stringGroundShape5.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape5.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape5.Location")));
             stringGroundShape5.Name = "String Ground Shape";
@@ -802,12 +796,10 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBlue.AngularShapes.Add(ticksShape5);
             this.analogClockBlue.AngularShapes.Add(ticksShape6);
             this.analogClockBlue.AngularShapes.Add(stringAngularShape3);
-            dialShape6.a = 0;
             dialShape6.FillColor = System.Drawing.Color.LightBlue;
             dialShape6.Name = "Dial Shape";
             dialShape6.OutlineColor = System.Drawing.Color.Empty;
             dialShape6.Radius = 50F;
-            stringGroundShape6.a = 0;
             stringGroundShape6.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape6.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape6.Location")));
             stringGroundShape6.Name = "String Ground Shape";
@@ -886,7 +878,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDigital.AngularShapes.Add(ticksShape7);
             this.analogClockDigital.AngularShapes.Add(ticksShape8);
             this.analogClockDigital.AngularShapes.Add(stringAngularShape4);
-            stringGroundShape7.a = 0;
             stringGroundShape7.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape7.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape7.Location")));
             stringGroundShape7.Name = "String Ground Shape";
@@ -975,12 +966,10 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockGreen.AngularShapes.Add(ticksShape9);
             this.analogClockGreen.AngularShapes.Add(ticksShape10);
             this.analogClockGreen.AngularShapes.Add(stringAngularShape5);
-            dialShape1.a = 0;
             dialShape1.FillColor = System.Drawing.Color.LightGreen;
             dialShape1.Name = "Dial Shape";
             dialShape1.OutlineColor = System.Drawing.Color.Empty;
             dialShape1.Radius = 50F;
-            stringGroundShape8.a = 0;
             stringGroundShape8.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape8.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape8.Location")));
             stringGroundShape8.Name = "String Ground Shape";
@@ -1067,7 +1056,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockRandom.AngularShapes.Add(ticksShape12);
             this.analogClockRandom.AngularShapes.Add(stringAngularShape6);
             this.analogClockRandom.AngularShapes.Add(ticksShape39);
-            stringGroundShape9.a = 0;
             stringGroundShape9.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape9.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape9.Location")));
             stringGroundShape9.Name = "String Ground Shape";
@@ -1139,7 +1127,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBroken.AngularShapes.Add(ticksShape13);
             this.analogClockBroken.AngularShapes.Add(ticksShape14);
             this.analogClockBroken.AngularShapes.Add(stringAngularShape7);
-            stringGroundShape10.a = 0;
             stringGroundShape10.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape10.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape10.Location")));
             stringGroundShape10.Name = "String Ground Shape";
@@ -1216,7 +1203,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBroken2.AngularShapes.Add(ticksShape15);
             this.analogClockBroken2.AngularShapes.Add(ticksShape16);
             this.analogClockBroken2.AngularShapes.Add(stringAngularShape8);
-            stringGroundShape11.a = 0;
             stringGroundShape11.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape11.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape11.Location")));
             stringGroundShape11.Name = "String Ground Shape";
@@ -1314,11 +1300,9 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockImages
             // 
-            imageGroundShape2.a = 0;
             imageGroundShape2.Image = global::DustInTheWind.ClockNet.Demo.Properties.Resources.dial;
             imageGroundShape2.Name = "Image Ground Shape";
             imageGroundShape2.Origin = ((System.Drawing.PointF)(resources.GetObject("imageGroundShape2.Origin")));
-            stringGroundShape12.a = 0;
             stringGroundShape12.FillColor = System.Drawing.Color.Gainsboro;
             stringGroundShape12.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape12.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape12.Location")));
@@ -1364,16 +1348,13 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockBlackDot
             // 
-            dialShape2.a = 0;
             dialShape2.Name = "Dial Shape";
             dialShape2.OutlineColor = System.Drawing.Color.Empty;
             dialShape2.Radius = 50F;
-            dialShape7.a = 0;
             dialShape7.FillColor = System.Drawing.Color.White;
             dialShape7.Name = "Dial Shape";
             dialShape7.OutlineColor = System.Drawing.Color.Empty;
             dialShape7.Radius = 48F;
-            stringGroundShape13.a = 0;
             stringGroundShape13.FillColor = System.Drawing.Color.Silver;
             stringGroundShape13.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape13.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape13.Location")));
@@ -1444,7 +1425,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockFancy.AngularShapes.Add(ticksShape17);
             this.analogClockFancy.AngularShapes.Add(ticksShape18);
             this.analogClockFancy.AngularShapes.Add(stringAngularShape9);
-            stringGroundShape14.a = 0;
             stringGroundShape14.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape14.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape14.Location")));
             stringGroundShape14.Name = "String Ground Shape";
@@ -1509,7 +1489,6 @@ namespace DustInTheWind.ClockNet.Demo
         "11",
         "12"};
             this.analogClockWhiteFancy.AngularShapes.Add(stringAngularShape10);
-            dialShape3.a = 0;
             dialShape3.Name = "Dial Shape";
             dialShape3.OutlineColor = System.Drawing.Color.Empty;
             dialShape3.Radius = 50F;
@@ -1612,10 +1591,8 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBlack.AngularShapes.Add(ticksShape20);
             this.analogClockBlack.AngularShapes.Add(stringAngularShape11);
             this.analogClockBlack.AngularShapes.Add(stringAngularShape19);
-            fancyDialShape3.a = 0;
             fancyDialShape3.Name = "Fancy Dial Shape";
             fancyDialShape3.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape15.a = 0;
             stringGroundShape15.FillColor = System.Drawing.Color.LightGray;
             stringGroundShape15.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape15.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape15.Location")));
@@ -1776,13 +1753,11 @@ namespace DustInTheWind.ClockNet.Demo
         "60"};
             this.analogClockSun.AngularShapes.Add(stringAngularShape12);
             this.analogClockSun.AngularShapes.Add(stringAngularShape13);
-            fancyDialShape1.a = 0;
             fancyDialShape1.FillColor = System.Drawing.Color.Chocolate;
             fancyDialShape1.InnerRimWidth = 23F;
             fancyDialShape1.Name = "Fancy Dial Shape";
             fancyDialShape1.OuterRimWidth = 7F;
             fancyDialShape1.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape16.a = 0;
             stringGroundShape16.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape16.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape16.Location")));
             stringGroundShape16.Name = "String Ground Shape";
@@ -1887,7 +1862,6 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape22.Name = "Ticks Shape";
             this.analogClockLocal.AngularShapes.Add(ticksShape21);
             this.analogClockLocal.AngularShapes.Add(ticksShape22);
-            stringGroundShape17.a = 0;
             stringGroundShape17.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape17.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape17.Location")));
             stringGroundShape17.Name = "String Ground Shape";
@@ -1944,7 +1918,6 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape24.Name = "Ticks Shape";
             this.analogClockUTC.AngularShapes.Add(ticksShape23);
             this.analogClockUTC.AngularShapes.Add(ticksShape24);
-            stringGroundShape18.a = 0;
             stringGroundShape18.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape18.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape18.Location")));
             stringGroundShape18.Name = "String Ground Shape";
@@ -2002,7 +1975,6 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape26.Name = "Ticks Shape";
             this.analogClockTokyo.AngularShapes.Add(ticksShape25);
             this.analogClockTokyo.AngularShapes.Add(ticksShape26);
-            stringGroundShape19.a = 0;
             stringGroundShape19.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape19.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape19.Location")));
             stringGroundShape19.Name = "String Ground Shape";
@@ -2060,7 +2032,6 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape28.Name = "Ticks Shape";
             this.analogClockLocalProvider.AngularShapes.Add(ticksShape27);
             this.analogClockLocalProvider.AngularShapes.Add(ticksShape28);
-            stringGroundShape20.a = 0;
             stringGroundShape20.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape20.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape20.Location")));
             stringGroundShape20.Name = "String Ground Shape";
@@ -2118,7 +2089,6 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape30.Name = "Ticks Shape";
             this.analogClockUTCProvider.AngularShapes.Add(ticksShape29);
             this.analogClockUTCProvider.AngularShapes.Add(ticksShape30);
-            stringGroundShape21.a = 0;
             stringGroundShape21.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape21.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape21.Location")));
             stringGroundShape21.Name = "String Ground Shape";
@@ -2176,7 +2146,6 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape32.Name = "Ticks Shape";
             this.analogClockTokyoProvider.AngularShapes.Add(ticksShape31);
             this.analogClockTokyoProvider.AngularShapes.Add(ticksShape32);
-            stringGroundShape22.a = 0;
             stringGroundShape22.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape22.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape22.Location")));
             stringGroundShape22.Name = "String Ground Shape";
@@ -2445,7 +2414,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockCompass.AngularShapes.Add(ticksShape33);
             this.analogClockCompass.AngularShapes.Add(stringAngularShape14);
             this.analogClockCompass.AngularShapes.Add(stringAngularShape15);
-            stringGroundShape23.a = 0;
             stringGroundShape23.Font = new System.Drawing.Font("Arial", 3F);
             stringGroundShape23.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape23.Location")));
             stringGroundShape23.Name = "String Ground Shape";
