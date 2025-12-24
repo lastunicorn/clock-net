@@ -1793,9 +1793,14 @@
             The default value of the angle.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultExceptionIndex">
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultOffsetAngle">
             <summary>
-            The default value of the exception index.
+            The default value of the offset angle.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultSkipIndex">
+            <summary>
+            The default value of the skip index.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.DefaultRepeat">
@@ -1808,7 +1813,7 @@
             The default value of the shape's orientation.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.positionOffset">
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.distanceFromEdge">
             <summary>
             The position offset relativelly to the edge of the dial.
             </summary>
@@ -1818,23 +1823,29 @@
             Gets or sets the position offset relativelly to the edge of the dial.
             </summary>
         </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.AngularShapeBase.OffsetAngle">
+            <summary>
+            Gets or sets the angle, in degrees, by which the layout is offset from its default orientation.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
+        </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.angle">
             <summary>
-            The angle between two consecutive drawns of the shape.
+            The angle between two consecutive instances of the shape.
             </summary>
         </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.AngularShapeBase.Angle">
             <summary>
-            Gets or sets the angle between two consecutive drawns of the shape.
+            Gets or sets the angle between two consecutive instances of the shape.
             </summary>
-            <exception cref="T:System.ArgumentOutOfRangeException">The angle between two consecutive drawns of the shape should be a positive number.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">The angle between two consecutive instances of the shape should be a positive number.</exception>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.exceptionIndex">
+        <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.skipIndex">
             <summary>
             The index and its multiples that should be skipped from beeing drawn.
             </summary>
         </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.AngularShapeBase.ExceptionIndex">
+        <member name="P:DustInTheWind.ClockNet.Shapes.AngularShapeBase.SkipIndex">
             <summary>
             Gets or sets the index and its multiples that should be skipped from beeing drawn.
             </summary>
@@ -1861,12 +1872,12 @@
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.AngularShapeBase.index">
             <summary>
-            The index that should be drawn by the <see cref="!:Draw"/> method next time it is call.
+            The index that should be drawn by the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method next time it is call.
             </summary>
         </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.AngularShapeBase.Index">
             <summary>
-            Gets or sets the index that should be drawn by the <see cref="!:Draw"/> method next time it is call.
+            Gets or sets the index that should be drawn by the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method next time it is call.
             </summary>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.AngularShapeBase.#ctor">
@@ -1889,6 +1900,12 @@
             Draws one tick using the provided <see cref="T:System.Drawing.Graphics"/> object.
             </summary>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the image.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.AngularShapeBase.OnAfterDraw(System.Drawing.Graphics)">
+            <summary>
+            Performs additional processing after the control has completed its drawing operations.
+            </summary>
+            <param name="g">The <see cref="T:System.Drawing.Graphics"/> object used to draw the control's content.</param>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.AngularShapeBase.Reset">
             <summary>
@@ -2870,14 +2887,14 @@
             The default value of the <see cref="P:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.OutlineColor"/>.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.brush">
+        <member name="P:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.Brush">
             <summary>
             The brush used to fill the shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.pen">
+        <member name="P:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.Pen">
             <summary>
-            The pen used to draw the outline of the shape
+            The pen used to draw the outline of the shape.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.outlineColor">
@@ -2931,16 +2948,6 @@
         <member name="M:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.DisposeDrawingTools">
             <summary>
             Disposes all the classes used in the drawing process.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.CreateBrushIfNull">
-            <summary>
-            Creates a new <see cref="T:System.Drawing.Brush"/> object only if it does not already exist.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.CreatePenIfNull">
-            <summary>
-            Creates a new <see cref="T:System.Drawing.Pen"/> object only if it does not already exist.
             </summary>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.VectorialAngularShapeBase.Dispose(System.Boolean)">

@@ -1232,7 +1232,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockDemo
             // 
-            ticksShape1.ExceptionIndex = 5;
+            ticksShape1.SkipIndex = 5;
             ticksShape1.FillColor = System.Drawing.Color.Empty;
             ticksShape1.Index = 61;
             ticksShape1.Name = "Second Ticks";

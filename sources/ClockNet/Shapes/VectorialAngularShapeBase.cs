@@ -40,16 +40,39 @@ namespace DustInTheWind.ClockNet.Shapes
         /// </summary>
         public static Color DefaultOutlineColor = Color.Empty;
 
+        private Brush brush;
+        private Pen pen;
 
         /// <summary>
         /// The brush used to fill the shape.
         /// </summary>
-        protected Brush brush;
+        protected Brush Brush
+        {
+            get
+            {
+                if (brush == null)
+                    brush = CreateBrush();
+
+                return brush;
+            }
+            private set => brush = value;
+        }
 
         /// <summary>
-        /// The pen used to draw the outline of the shape
+        /// The pen used to draw the outline of the shape.
         /// </summary>
-        protected Pen pen;
+        protected Pen Pen
+        {
+            get
+            {
+                if (pen == null)
+                    pen = CreatePen();
+
+                return pen;
+            }
+
+            private set => pen = value;
+        }
 
 
         /// <summary>
@@ -147,6 +170,22 @@ namespace DustInTheWind.ClockNet.Shapes
             this.lineWidth = lineWidth;
         }
 
+        protected virtual SolidBrush CreateBrush()
+        {
+            return new SolidBrush(fillColor);
+
+            //System.Drawing.Drawing2D..::.HatchBrush
+            //System.Drawing.Drawing2D..::.LinearGradientBrush
+            //System.Drawing.Drawing2D..::.PathGradientBrush
+            //System.Drawing..::.SolidBrush
+            //System.Drawing..::.TextureBrush
+        }
+
+        protected virtual Pen CreatePen()
+        {
+            return new Pen(outlineColor, lineWidth);
+        }
+
         /// <summary>
         /// Disposes all the classes used in the drawing process.
         /// </summary>
@@ -165,30 +204,6 @@ namespace DustInTheWind.ClockNet.Shapes
             }
 
             base.DisposeDrawingTools();
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="Brush"/> object only if it does not already exist.
-        /// </summary>
-        protected virtual void CreateBrushIfNull()
-        {
-            if (brush == null)
-                brush = new SolidBrush(fillColor);
-
-            //System.Drawing.Drawing2D..::.HatchBrush
-            //System.Drawing.Drawing2D..::.LinearGradientBrush
-            //System.Drawing.Drawing2D..::.PathGradientBrush
-            //System.Drawing..::.SolidBrush
-            //System.Drawing..::.TextureBrush
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="Pen"/> object only if it does not already exist.
-        /// </summary>
-        protected virtual void CreatePenIfNull()
-        {
-            if (pen == null)
-                pen = new Pen(outlineColor, lineWidth);
         }
 
         #region Dispose

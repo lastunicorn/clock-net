@@ -328,7 +328,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockDefault
             // 
-            ticksShape37.ExceptionIndex = 5;
+            ticksShape37.SkipIndex = 5;
             ticksShape37.FillColor = System.Drawing.Color.Empty;
             ticksShape37.Index = 61;
             ticksShape37.Name = "Ticks Shape";
@@ -457,7 +457,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockNoNumbers
             // 
-            ticksShape2.ExceptionIndex = 5;
+            ticksShape2.SkipIndex = 5;
             ticksShape2.FillColor = System.Drawing.Color.Empty;
             ticksShape2.Index = 61;
             ticksShape2.Name = "Ticks Shape";
@@ -626,7 +626,7 @@ namespace DustInTheWind.ClockNet.Demo
             // analogClockNESW
             // 
             ticksShape4.Angle = 30F;
-            ticksShape4.ExceptionIndex = 3;
+            ticksShape4.SkipIndex = 3;
             ticksShape4.FillColor = System.Drawing.Color.Empty;
             ticksShape4.Index = 13;
             ticksShape4.Length = 5F;
@@ -764,7 +764,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockBlue
             // 
-            ticksShape5.ExceptionIndex = 5;
+            ticksShape5.SkipIndex = 5;
             ticksShape5.FillColor = System.Drawing.Color.Empty;
             ticksShape5.Index = 61;
             ticksShape5.Name = "Ticks Shape";
@@ -853,7 +853,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockDigital
             // 
-            ticksShape7.ExceptionIndex = 5;
+            ticksShape7.SkipIndex = 5;
             ticksShape7.FillColor = System.Drawing.Color.Empty;
             ticksShape7.Index = 61;
             ticksShape7.Name = "Ticks Shape";
@@ -939,7 +939,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockGreen
             // 
-            ticksShape9.ExceptionIndex = 5;
+            ticksShape9.SkipIndex = 5;
             ticksShape9.FillColor = System.Drawing.Color.Empty;
             ticksShape9.Index = 61;
             ticksShape9.Name = "Ticks Shape";
@@ -1026,7 +1026,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockRandom
             // 
-            ticksShape11.ExceptionIndex = 5;
+            ticksShape11.SkipIndex = 5;
             ticksShape11.FillColor = System.Drawing.Color.Empty;
             ticksShape11.Index = 61;
             ticksShape11.Name = "Ticks Shape";
@@ -1106,7 +1106,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockBroken
             // 
-            ticksShape13.ExceptionIndex = 5;
+            ticksShape13.SkipIndex = 5;
             ticksShape13.FillColor = System.Drawing.Color.Empty;
             ticksShape13.Index = 61;
             ticksShape13.Name = "Ticks Shape";
@@ -1183,7 +1183,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockBroken2
             // 
-            ticksShape15.ExceptionIndex = 5;
+            ticksShape15.SkipIndex = 5;
             ticksShape15.FillColor = System.Drawing.Color.Empty;
             ticksShape15.Index = 61;
             ticksShape15.Name = "Ticks Shape";
@@ -1412,7 +1412,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockFancy
             // 
-            ticksShape17.ExceptionIndex = 5;
+            ticksShape17.SkipIndex = 5;
             ticksShape17.FillColor = System.Drawing.Color.Empty;
             ticksShape17.Index = 61;
             ticksShape17.Name = "Ticks Shape";
@@ -1554,7 +1554,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockBlack
             // 
-            ticksShape19.ExceptionIndex = 5;
+            ticksShape19.SkipIndex = 5;
             ticksShape19.FillColor = System.Drawing.Color.Empty;
             ticksShape19.Index = 61;
             ticksShape19.Name = "Ticks Shape";
@@ -1875,7 +1875,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockLocal
             // 
-            ticksShape21.ExceptionIndex = 5;
+            ticksShape21.SkipIndex = 5;
             ticksShape21.FillColor = System.Drawing.Color.Empty;
             ticksShape21.Index = 61;
             ticksShape21.Name = "Ticks Shape";
@@ -1932,7 +1932,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockUTC
             // 
-            ticksShape23.ExceptionIndex = 5;
+            ticksShape23.SkipIndex = 5;
             ticksShape23.FillColor = System.Drawing.Color.Empty;
             ticksShape23.Index = 61;
             ticksShape23.Name = "Ticks Shape";
@@ -1990,7 +1990,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockTokyo
             // 
-            ticksShape25.ExceptionIndex = 5;
+            ticksShape25.SkipIndex = 5;
             ticksShape25.FillColor = System.Drawing.Color.Empty;
             ticksShape25.Index = 61;
             ticksShape25.Name = "Ticks Shape";
@@ -2048,7 +2048,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockLocalProvider
             // 
-            ticksShape27.ExceptionIndex = 5;
+            ticksShape27.SkipIndex = 5;
             ticksShape27.FillColor = System.Drawing.Color.Empty;
             ticksShape27.Index = 61;
             ticksShape27.Name = "Ticks Shape";
@@ -2106,7 +2106,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockUTCProvider
             // 
-            ticksShape29.ExceptionIndex = 5;
+            ticksShape29.SkipIndex = 5;
             ticksShape29.FillColor = System.Drawing.Color.Empty;
             ticksShape29.Index = 61;
             ticksShape29.Name = "Ticks Shape";
@@ -2164,7 +2164,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockTokyoProvider
             // 
-            ticksShape31.ExceptionIndex = 5;
+            ticksShape31.SkipIndex = 5;
             ticksShape31.FillColor = System.Drawing.Color.Empty;
             ticksShape31.Index = 61;
             ticksShape31.Name = "Ticks Shape";

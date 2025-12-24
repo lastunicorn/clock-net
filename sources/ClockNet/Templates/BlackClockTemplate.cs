@@ -72,7 +72,7 @@ namespace DustInTheWind.ClockNet.Templates
                 DistanceFromEdge = 8f,
                 Length = 3f,
                 Angle = 6f,
-                ExceptionIndex = 5
+                SkipIndex = 5
             };
 
             // Ticks for hours

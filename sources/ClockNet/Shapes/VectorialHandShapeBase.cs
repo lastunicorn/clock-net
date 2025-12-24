@@ -51,13 +51,7 @@ namespace DustInTheWind.ClockNet.Shapes
             get
             {
                 if (brush == null)
-                    brush = new SolidBrush(fillColor);
-
-                //System.Drawing.Drawing2D..::.HatchBrush
-                //System.Drawing.Drawing2D..::.LinearGradientBrush
-                //System.Drawing.Drawing2D..::.PathGradientBrush
-                //System.Drawing..::.SolidBrush
-                //System.Drawing..::.TextureBrush
+                    brush = CreateBrush();
 
                 return brush;
             }
@@ -72,7 +66,7 @@ namespace DustInTheWind.ClockNet.Shapes
             get
             {
                 if (pen == null)
-                    pen = new Pen(outlineColor, lineWidth);
+                    pen = CreatePen();
 
                 return pen;
             }
@@ -185,6 +179,22 @@ namespace DustInTheWind.ClockNet.Shapes
         {
             return base.AllowToDraw() &&
                 (!fillColor.IsEmpty || !outlineColor.IsEmpty);
+        }
+
+        protected virtual SolidBrush CreateBrush()
+        {
+            return new SolidBrush(fillColor);
+
+            //System.Drawing.Drawing2D..::.HatchBrush
+            //System.Drawing.Drawing2D..::.LinearGradientBrush
+            //System.Drawing.Drawing2D..::.PathGradientBrush
+            //System.Drawing..::.SolidBrush
+            //System.Drawing..::.TextureBrush
+        }
+
+        protected virtual Pen CreatePen()
+        {
+            return new Pen(outlineColor, lineWidth);
         }
 
         /// <summary>

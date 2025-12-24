@@ -71,7 +71,7 @@ namespace DustInTheWind.ClockNet.Templates
                 LineWidth = 0.3f,
                 DistanceFromEdge = 0f,
                 Angle = 6f,
-                ExceptionIndex = 5
+                SkipIndex = 5
             };
 
             // Ticks for hours (every 30 degrees)

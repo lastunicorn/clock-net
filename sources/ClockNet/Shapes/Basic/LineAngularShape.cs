@@ -98,8 +98,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
-            CreatePenIfNull();
-            g.DrawLine(pen, startPoint, endPoint);
+            g.DrawLine(Pen, startPoint, endPoint);
         }
     }
 }

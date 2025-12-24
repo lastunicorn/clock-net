@@ -169,14 +169,12 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
 
                 if (number != null && number.Length > 0)
                 {
-                    CreateBrushIfNull();
-
                     SizeF numberSize = g.MeasureString(number, font, int.MaxValue, stringFormat);
                     PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
 
                     try
                     {
-                        g.DrawString(number, font, brush, new RectangleF(numberPosition, numberSize), stringFormat);
+                        g.DrawString(number, font, Brush, new RectangleF(numberPosition, numberSize), stringFormat);
                     }
                     catch (System.Runtime.InteropServices.ExternalException)
                     {

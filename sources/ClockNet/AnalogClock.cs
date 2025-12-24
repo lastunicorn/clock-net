@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -22,6 +23,7 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.Linq;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Shapes;
 using DustInTheWind.ClockNet.TimeProviders;
@@ -673,17 +675,6 @@ namespace DustInTheWind.ClockNet
         #endregion
 
 
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        CreateParams cp = base.CreateParams;
-        //        cp.ExStyle |= 0x20;
-        //        return cp;
-        //    }
-        //}
-
-
         /// <summary>
         /// Call-back function called when one of the shapes is changed. And the clock needs repainting.
         /// </summary>
@@ -846,7 +837,6 @@ namespace DustInTheWind.ClockNet
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = TextRenderingHint.AntiAlias;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            //g.InterpolationMode = InterpolationMode.HighQualityBilinear;
 
             Matrix originalMatrix = e.Graphics.Transform;
 
@@ -854,48 +844,9 @@ namespace DustInTheWind.ClockNet
             g.ScaleTransform(scaleX, scaleY);
             Matrix centerMatrix = e.Graphics.Transform;
 
-            // Draw the background shapes.
-            foreach (IGroundShape shape in backgroundShapes)
-            {
-                if (shape != null)
-                {
-                    g.Transform = centerMatrix;
-                    shape.Draw(g);
-                }
-            }
-
-            // Draw the angular shapes.
-
-            float angleIncrement = CalculateAngleIncrement();
-
-            if (angleIncrement > 0)
-            {
-                for (float i = 0; i <= 360; i += angleIncrement)
-                {
-                    foreach (IAngularShape shape in angularShapes)
-                    {
-                        g.Transform = centerMatrix;
-                        g.RotateTransform(i);
-
-                        g.TranslateTransform(0f, -radius);
-
-                        if ((shape.Index == 0 || shape.Repeat) && i % shape.Angle == 0)
-                            shape.Draw(g);
-                    }
-                }
-            }
-
-            // Draw the hand shapes.
-            foreach (IHandShape shape in handShapes)
-            {
-                if (shape != null)
-                {
-                    g.Transform = centerMatrix;
-
-                    shape.Time = time;
-                    shape.Draw(g);
-                }
-            }
+            DrawBackgroundShapes(g, centerMatrix);
+            DrawAngularShapes(g, centerMatrix);
+            DrawHandShapes(g, centerMatrix);
 
 #if PERFORMANCE_INFO
 
@@ -912,45 +863,61 @@ namespace DustInTheWind.ClockNet
 
         }
 
-        private float CalculateAngleIncrement()
+        private void DrawBackgroundShapes(Graphics g, Matrix initialMatrix)
         {
-            if (angularShapes.Count == 1)
+            IEnumerable<IGroundShape> backgroundShapesNotNull = backgroundShapes
+                .Where(x => x != null);
+
+            foreach (IGroundShape backgroundShape in backgroundShapesNotNull)
             {
-                angularShapes[0].Reset();
-                return angularShapes[0].Angle;
-            }
-            else if (angularShapes.Count > 1)
-            {
-                angularShapes[0].Reset();
-                angularShapes[1].Reset();
-
-                float angleIncrement = GreatestCommonFactor(angularShapes[0].Angle, angularShapes[1].Angle);
-
-                for (int i = 2; i < angularShapes.Count; i++)
-                {
-                    angularShapes[i].Reset();
-
-                    angleIncrement = GreatestCommonFactor(angleIncrement, angularShapes[i].Angle);
-                }
-
-                return angleIncrement;
-            }
-            else
-            {
-                return 0f;
+                g.Transform = initialMatrix;
+                backgroundShape.Draw(g);
             }
         }
 
-        static float GreatestCommonFactor(float num1, float num2)
+        private void DrawAngularShapes(Graphics g, Matrix initialMatrix)
         {
-            //while (num2 != 0)
-            while (num2 > double.Epsilon)
+            IEnumerable<IAngularShape> angularShapesNotNull = angularShapes
+                .Where(x => x != null);
+
+            foreach (IAngularShape angularShape in angularShapesNotNull)
             {
-                float temp = num2;
-                num2 = num1 % num2;
-                num1 = temp;
+                angularShape.Reset();
+
+                if (angularShape.Repeat)
+                {
+                    for (float i = 0; i <= 360; i += angularShape.Angle)
+                    {
+                        g.Transform = initialMatrix;
+                        g.RotateTransform(i);
+                        g.TranslateTransform(0f, -radius);
+
+                        angularShape.Draw(g);
+                    }
+                }
+                else if (angularShape.Index == 0)
+                {
+                    g.Transform = initialMatrix;
+                    g.RotateTransform(angularShape.Angle);
+                    g.TranslateTransform(0f, -radius);
+
+                    angularShape.Draw(g);
+                }
             }
-            return num1;
+        }
+
+        private void DrawHandShapes(Graphics g, Matrix initialMatrix)
+        {
+            IEnumerable<IHandShape> handShapesNotNull = handShapes
+                .Where(x => x != null);
+
+            foreach (IHandShape handShape in handShapesNotNull)
+            {
+                g.Transform = initialMatrix;
+
+                handShape.Time = time;
+                handShape.Draw(g);
+            }
         }
 
         #endregion
@@ -961,28 +928,51 @@ namespace DustInTheWind.ClockNet
         /// <param name="clockTemplate">An instance of <see cref="ClockTemplate"/> class containing the <see cref="IShape"/> instances.</param>
         public void ApplyTemplate(ClockTemplate clockTemplate)
         {
-            if (clockTemplate != null)
+            if (clockTemplate is null) throw new ArgumentNullException(nameof(clockTemplate));
+
+            backgroundShapes.Clear();
+            if (clockTemplate.BackgroundShapes != null)
             {
-                backgroundShapes.Clear();
-                if (clockTemplate.BackgroundShapes != null)
+                foreach (IGroundShape shape in clockTemplate.BackgroundShapes)
+                    backgroundShapes.Add(shape);
+            }
+
+            angularShapes.Clear();
+            if (clockTemplate.AngularShapes != null)
+            {
+                foreach (IAngularShape shape in clockTemplate.AngularShapes)
+                    angularShapes.Add(shape);
+            }
+
+            handShapes.Clear();
+            if (clockTemplate.HandShapes != null)
+            {
+                foreach (IHandShape shape in clockTemplate.HandShapes)
+                    handShapes.Add(shape);
+            }
+        }
+
+        protected override void OnMouseClick(MouseEventArgs e)
+        {
+            using (Matrix matrix = new Matrix())
+            {
+                matrix.Translate(-centerX, -centerY);
+                matrix.Scale(1 / scaleX, 1 / scaleY, MatrixOrder.Append);
+
+                PointF[] points = new PointF[] { e.Location };
+                matrix.TransformPoints(points);
+                PointF clickLocation = points[0];
+
+                for (int i = handShapes.Count - 1; i >= 0; i--)
                 {
-                    foreach (IGroundShape shape in clockTemplate.BackgroundShapes)
-                        backgroundShapes.Add(shape);
+                    if (handShapes[i].HitTest(points[0]))
+                    {
+                        Console.WriteLine("click: [{0} x {1}]; Shape: {2}", points[0].X, points[0].Y, handShapes[i].Name);
+                        break;
+                    }
                 }
 
-                angularShapes.Clear();
-                if (clockTemplate.AngularShapes != null)
-                {
-                    foreach (IAngularShape shape in clockTemplate.AngularShapes)
-                        angularShapes.Add(shape);
-                }
-
-                handShapes.Clear();
-                if (clockTemplate.HandShapes != null)
-                {
-                    foreach (IHandShape shape in clockTemplate.HandShapes)
-                        handShapes.Add(shape);
-                }
+                base.OnMouseClick(e);
             }
         }
 
@@ -1004,32 +994,6 @@ namespace DustInTheWind.ClockNet
             }
 
             base.Dispose(disposing);
-        }
-
-        protected override void OnMouseClick(MouseEventArgs e)
-        {
-            using (Matrix matrix = new Matrix())
-            {
-                matrix.Translate(-centerX, -centerY);
-                matrix.Scale(1 / scaleX, 1 / scaleY, MatrixOrder.Append);
-
-                PointF[] points = new PointF[] { e.Location };
-                matrix.TransformPoints(points);
-                PointF clickLocation = points[0];
-
-                //Console.WriteLine("click: {0}; {1}", points[0].X, points[0].Y);
-
-                for (int i = handShapes.Count - 1; i >= 0; i--)
-                {
-                    if (handShapes[i].HitTest(points[0]))
-                    {
-                        Console.WriteLine(handShapes[i].Name);
-                        break;
-                    }
-                }
-
-                base.OnMouseClick(e);
-            }
         }
     }
 }

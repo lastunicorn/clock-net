@@ -81,18 +81,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillPolygon(brush, points);
-            }
+                g.FillPolygon(Brush, points);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawPolygon(pen, points);
-            }
+                g.DrawPolygon(Pen, points);
         }
     }
 }

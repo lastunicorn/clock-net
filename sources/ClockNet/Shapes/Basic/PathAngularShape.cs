@@ -94,18 +94,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         protected override void OnDraw(Graphics g)
         {
             if (!fillColor.IsEmpty)
-            {
-                CreateBrushIfNull();
-
-                g.FillPath(brush, path);
-            }
+                g.FillPath(Brush, path);
 
             if (!outlineColor.IsEmpty)
-            {
-                CreatePenIfNull();
-
-                g.DrawPath(pen, path);
-            }
+                g.DrawPath(Pen, path);
         }
 
         /// <summary>

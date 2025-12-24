@@ -85,7 +85,7 @@ namespace DustInTheWind.ClockNet
                     ticks1Shape.DistanceFromEdge = 0f;
                     ticks1Shape.Name = "Second Ticks";
                     ticks1Shape.Angle = 6f;
-                    ticks1Shape.ExceptionIndex = 5;
+                    ticks1Shape.SkipIndex = 5;
                     angularShapes.Add(ticks1Shape);
 
                     TicksShape ticks5Shape = new TicksShape();

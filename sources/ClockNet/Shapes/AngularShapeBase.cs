@@ -36,15 +36,15 @@ namespace DustInTheWind.ClockNet.Shapes
         /// </summary>
         public const float DefaultAngle = 6f;
 
-        ///// <summary>
-        ///// The default value of the offset angle.
-        ///// </summary>
-        //public const float OFFSET_ANGLE = 6f;
+        /// <summary>
+        /// The default value of the offset angle.
+        /// </summary>
+        public const float DefaultOffsetAngle = 6f;
 
         /// <summary>
-        /// The default value of the exception index.
+        /// The default value of the skip index.
         /// </summary>
-        public const int DefaultExceptionIndex = 0;
+        public const int DefaultSkipIndex = 0;
 
         /// <summary>
         /// The default value of the repeat.
@@ -60,7 +60,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// The position offset relativelly to the edge of the dial.
         /// </summary>
-        protected float positionOffset;
+        protected float distanceFromEdge;
 
         /// <summary>
         /// Gets or sets the position offset relativelly to the edge of the dial.
@@ -70,54 +70,55 @@ namespace DustInTheWind.ClockNet.Shapes
         [Description("The position offset relativelly to the edge of the dial.")]
         public virtual float DistanceFromEdge
         {
-            get { return positionOffset; }
+            get => distanceFromEdge;
             set
             {
-                positionOffset = value;
+                distanceFromEdge = value;
                 InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
 
-
-        //protected float offsetAngle;
-
-        ///// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
-        //[Category("Layout")]
-        //[DefaultValue(OFFSET_ANGLE)]
-        //public virtual float OffsetAngle
-        //{
-        //    get { return offsetAngle; }
-        //    set
-        //    {
-        //        if (value < 0)
-        //            throw new ArgumentOutOfRangeException("value", "The offset angle should be a number greater or equal with zero.");
-
-        //        offsetAngle = value;
-        //        OnChanged(EventArgs.Empty);
-        //    }
-        //}
-
+        protected float offsetAngle = DefaultOffsetAngle;
 
         /// <summary>
-        /// The angle between two consecutive drawns of the shape.
+        /// Gets or sets the angle, in degrees, by which the layout is offset from its default orientation.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
+        [Category("Layout")]
+        [DefaultValue(DefaultOffsetAngle)]
+        public virtual float OffsetAngle
+        {
+            get => offsetAngle;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("value", "The offset angle should be a number greater or equal with zero.");
+
+                offsetAngle = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// The angle between two consecutive instances of the shape.
         /// </summary>
         protected float angle;
 
         /// <summary>
-        /// Gets or sets the angle between two consecutive drawns of the shape.
+        /// Gets or sets the angle between two consecutive instances of the shape.
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException">The angle between two consecutive drawns of the shape should be a positive number.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">The angle between two consecutive instances of the shape should be a positive number.</exception>
         [Category("Layout")]
         [DefaultValue(DefaultAngle)]
-        [Description("The angle between two consecutive drawns of the shape.")]
+        [Description("The angle between two consecutive instances of the shape.")]
         public virtual float Angle
         {
-            get { return angle; }
+            get => angle;
             set
             {
                 if (value <= 0)
-                    throw new ArgumentOutOfRangeException("value", "The angle between two consecutive drawns of the shape should be a positive number.");
+                    throw new ArgumentOutOfRangeException("value", "The angle between two consecutive instances of the shape should be a positive number.");
 
                 angle = value;
                 OnChanged(EventArgs.Empty);
@@ -127,24 +128,23 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// The index and its multiples that should be skipped from beeing drawn.
         /// </summary>
-        protected int exceptionIndex;
+        protected int skipIndex;
 
         /// <summary>
         /// Gets or sets the index and its multiples that should be skipped from beeing drawn.
         /// </summary>
         [Category("Behavior")]
-        [DefaultValue(DefaultExceptionIndex)]
+        [DefaultValue(DefaultSkipIndex)]
         [Description("The index and its multiples that should be skipped from beeing drawn.")]
-        public virtual int ExceptionIndex
+        public virtual int SkipIndex
         {
-            get { return exceptionIndex; }
+            get => skipIndex;
             set
             {
-                exceptionIndex = value;
+                skipIndex = value;
                 OnChanged(EventArgs.Empty);
             }
         }
-
 
         /// <summary>
         /// A value specifying if the shape should be repeated all around the clock's dial.
@@ -159,7 +159,7 @@ namespace DustInTheWind.ClockNet.Shapes
         [Description("Specifies if the shape should be repeated all around the clock's dial.")]
         public virtual bool Repeat
         {
-            get { return repeat; }
+            get => repeat;
             set
             {
                 repeat = value;
@@ -180,7 +180,7 @@ namespace DustInTheWind.ClockNet.Shapes
         [Description("Specifies the orientation of the shape.")]
         public virtual AngularOrientation Orientation
         {
-            get { return orientation; }
+            get => orientation;
             set
             {
                 orientation = value;
@@ -189,18 +189,18 @@ namespace DustInTheWind.ClockNet.Shapes
         }
 
         /// <summary>
-        /// The index that should be drawn by the <see cref="Draw"/> method next time it is call.
+        /// The index that should be drawn by the <see cref="IShape.Draw"/> method next time it is call.
         /// </summary>
         protected int index = 0;
 
         /// <summary>
-        /// Gets or sets the index that should be drawn by the <see cref="Draw"/> method next time it is call.
+        /// Gets or sets the index that should be drawn by the <see cref="IShape.Draw"/> method next time it is call.
         /// </summary>
         [Browsable(false)]
         public int Index
         {
-            get { return index; }
-            set { index = value; }
+            get => index;
+            set => index = value;
         }
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace DustInTheWind.ClockNet.Shapes
 
             this.angle = angle;
             this.repeat = repeat;
-            this.positionOffset = DistanceFromEdge;
+            distanceFromEdge = DistanceFromEdge;
             orientation = DefaultOrientation;
         }
 
@@ -242,14 +242,14 @@ namespace DustInTheWind.ClockNet.Shapes
             if (!allowToDraw)
                 return false;
 
-            if (index == 0)
+            //if (index == 0)
+            //    return false;
+
+            if (skipIndex > 0 && index % skipIndex == 0)
                 return false;
 
-            if (exceptionIndex > 0 && index % exceptionIndex == 0)
-                return false;
-
-            if (positionOffset != 0)
-                g.TranslateTransform(0, positionOffset);
+            if (distanceFromEdge != 0)
+                g.TranslateTransform(0, distanceFromEdge);
 
             switch (orientation)
             {
@@ -262,14 +262,18 @@ namespace DustInTheWind.ClockNet.Shapes
 
                 default:
                 case AngularOrientation.Normal:
-                    float ang = -(this.angle * index);
-                    g.RotateTransform(ang);
+                    float totalAngle = -(angle * index);
+                    g.RotateTransform(totalAngle);
                     break;
             }
 
             return true;
         }
 
+        /// <summary>
+        /// Performs additional processing after the control has completed its drawing operations.
+        /// </summary>
+        /// <param name="g">The <see cref="Graphics"/> object used to draw the control's content.</param>
         protected override void OnAfterDraw(Graphics g)
         {
             index++;
