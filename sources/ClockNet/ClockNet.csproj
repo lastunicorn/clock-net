@@ -52,6 +52,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
+    <Compile Include="ColorExtensions.cs" />
     <Compile Include="NullableTimeSpanConverter.cs" />
     <Compile Include="NullableDateTimePicker.cs">
       <SubType>UserControl</SubType>
@@ -139,7 +140,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\icon16.bmp" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="ShapeInterfaces.cd" />
+    <None Include="ShapesDiagram.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

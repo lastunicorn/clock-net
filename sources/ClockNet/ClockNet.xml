@@ -92,12 +92,6 @@
             </summary>
             <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
         </member>
-        <member name="P:DustInTheWind.ClockNet.AnalogClock.Text">
-            <summary>
-            Gets or sets the text displayed by the first <see cref="T:DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape"/> object
-            that can be found in the <see cref="P:DustInTheWind.ClockNet.AnalogClock.BackgroundShapes"/> list.
-            </summary>
-        </member>
         <member name="F:DustInTheWind.ClockNet.AnalogClock.time">
             <summary>
             The time displayed by the clock.
@@ -474,6 +468,14 @@
             </summary>
             <param name="index">The index where the Shape was added into the list.</param>
             <param name="shape">The Shape that was added to the list.</param>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.HsbColor">
+            <summary>
+            Provides Round-trip conversion from RGB to HSB and back
+            </summary>
+            <remarks>
+            Based on an original script developed by Vladimir Yangurskiy
+            </remarks>
         </member>
         <member name="T:DustInTheWind.ClockNet.PointFConverter">
             <summary>
@@ -3524,31 +3526,6 @@
         <member name="T:DustInTheWind.ClockNet.TimeSpanEditor">
             <summary>
             Provides an UI for editing <see cref="T:System.TimeSpan"/> and a nullable TimeSpan values.
-            </summary>
-        </member>
-        <member name="T:TTRider.UI.HsbColor">
-            <summary>
-            Provides Round-trip conversion from RGB to HSB and back
-            </summary>
-        </member>
-        <member name="P:TTRider.UI.HsbColor.H">
-            <summary>
-            Hue
-            </summary>
-        </member>
-        <member name="P:TTRider.UI.HsbColor.S">
-            <summary>
-            Saturation
-            </summary>
-        </member>
-        <member name="P:TTRider.UI.HsbColor.B">
-            <summary>
-            Brightness
-            </summary>
-        </member>
-        <member name="P:TTRider.UI.HsbColor.A">
-            <summary>
-            Alpha
             </summary>
         </member>
     </members>

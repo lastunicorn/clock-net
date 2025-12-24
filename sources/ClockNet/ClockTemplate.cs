@@ -24,66 +24,6 @@ namespace DustInTheWind.ClockNet
     /// </summary>
     public class ClockTemplate
     {
-        #region Predefined Shape Sets
-
-        ///// <summary>
-        ///// Creates and returns a <see cref="ShapeSet"/> object that contains no Shapes.
-        ///// </summary>
-        //public static ShapeSet Empty
-        //{
-        //    get { return new ShapeSet(); }
-        //}
-
-        //public static ShapeSet ImageShapes
-        //{
-        //    get
-        //    {
-        //        IShape[] backgrounds = new IShape[]{
-        //            new TextShape("Image Hands", Color.Black, new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point))
-        //        };
-
-        //        TicksShape ticks1Shape = new TicksShape(Color.Black, 3.33f, 0.25f, 0f);
-        //        ticks1Shape.Angle = 6f;
-        //        ticks1Shape.ExceptionIndex = 5;
-
-        //        TicksShape ticks5Shape = new TicksShape(Color.Black, 3.33f, 3f, 0f);
-        //        ticks5Shape.Angle = 30f;
-
-        //        TextAngularShape numbersShape = new TextAngularShape(Color.Black, new Font("Viner Hand ITC", 7.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))), 5f);
-        //        numbersShape.Angle = 30f;
-
-        //        IAngularShape[] angulars = new IAngularShape[]{
-        //            ticks1Shape,
-        //            ticks5Shape,
-        //            numbersShape
-        //        };
-
-        //        ImageHandShape hourHandShape = new ImageHandShape(Resources.hour_hand, new PointF(32f, 155.5f), 25);
-        //        hourHandShape.ComponentToDisplay = TimeComponent.Hour;
-        //        ImageHandShape minuteHandShape = new ImageHandShape(Resources.minute_hand, new PointF(14.5f, 206f), 35);
-        //        minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
-        //        LineHandShape sweepHandShape = new LineHandShape(Color.Red);
-        //        sweepHandShape.ComponentToDisplay = TimeComponent.Second;
-        //        PinShape pinShape = new PinShape();
-
-        //        IHandShape[] hands = new IHandShape[]{
-        //            hourHandShape,
-        //            minuteHandShape,
-        //            sweepHandShape,
-        //            pinShape
-        //        };
-
-        //        return new ShapeSet()
-        //        {
-        //            backgroundShapes = backgrounds,
-        //            angularShapes = angulars,
-        //            handShapes = hands
-        //        };
-        //    }
-        //}
-
-        #endregion
-
         /// <summary>
         /// Gets or sets the array of Shapes that are drawn on the background of the clock.
         /// </summary>

@@ -18,7 +18,6 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using TTRider.UI;
 
 namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
@@ -137,9 +136,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         protected override Brush CreateBrush()
         {
-            Color faceColor = HsbColor.ShiftSaturation(fillColor, 50f);
-            Color faceColor1 = HsbColor.ShiftBrighness(faceColor, 100f);
-            Color faceColor2 = HsbColor.ShiftBrighness(faceColor, -150f);
+            Color faceColor = fillColor.ShiftSaturation(50f);
+            Color faceColor1 = faceColor.ShiftBrighness(100f);
+            Color faceColor2 = faceColor.ShiftBrighness(-150f);
 
             return new LinearGradientBrush(faceRectangle, faceColor1, faceColor2, 45f);
         }
@@ -174,8 +173,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             {
                 if (outerRimBrush == null)
                 {
-                    Color outerRimColor1 = HsbColor.ShiftBrighness(fillColor, 100f);
-                    Color outerRimColor2 = HsbColor.ShiftBrighness(fillColor, -100f);
+                    Color outerRimColor1 = fillColor.ShiftBrighness(100f);
+                    Color outerRimColor2 = fillColor.ShiftBrighness(-100f);
 
                     outerRimBrush = new LinearGradientBrush(outerRimRectangle, outerRimColor1, outerRimColor2, 45f);
                 }
@@ -198,8 +197,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             {
                 if (innerRimBrush == null)
                 {
-                    Color innerRimColor1 = HsbColor.ShiftBrighness(fillColor, -100f);
-                    Color innerRimColor2 = HsbColor.ShiftBrighness(fillColor, 100f);
+                    Color innerRimColor1 = fillColor.ShiftBrighness(-100f);
+                    Color innerRimColor2 = fillColor.ShiftBrighness(100f);
 
                     innerRimBrush = new LinearGradientBrush(innerRimRectangle, innerRimColor1, innerRimColor2, 45f);
                 }

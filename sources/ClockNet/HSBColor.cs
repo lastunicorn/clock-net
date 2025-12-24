@@ -1,106 +1,78 @@
-/////////////////////////////////////////////////////////////////////////////////////////////
-//// Author: Vladimir Yangurskiy                                                         ////
-/////////////////////////////////////////////////////////////////////////////////////////////
 using System;
 using System.Drawing;
 
-namespace TTRider.UI
+namespace DustInTheWind.ClockNet
 {
     /// <summary>
     /// Provides Round-trip conversion from RGB to HSB and back
     /// </summary>
+    /// <remarks>
+    /// Based on an original script developed by Vladimir Yangurskiy
+    /// </remarks>
     public struct HsbColor
     {
-        float h;
-        float s;
-        float b;
-        int a;
+        public int Alpha { get; }
 
-        public HsbColor(float h, float s, float b)
+        public float Hue { get; }
+
+        public float Saturation { get; }
+
+        public float Brightness { get; }
+
+        public HsbColor(float hue, float saturation, float brightness)
         {
-            this.a = 0xff;
-            this.h = Math.Min(Math.Max(h, 0), 255);
-            this.s = Math.Min(Math.Max(s, 0), 255);
-            this.b = Math.Min(Math.Max(b, 0), 255);
+            this.Alpha = 0xff;
+            this.Hue = Math.Min(Math.Max(hue, 0), 255);
+            this.Saturation = Math.Min(Math.Max(saturation, 0), 255);
+            this.Brightness = Math.Min(Math.Max(brightness, 0), 255);
         }
 
-        public HsbColor(int a, float h, float s, float b)
+        public HsbColor(int alpha, float hue, float saturation, float brightness)
         {
-            this.a = a;
-            this.h = Math.Min(Math.Max(h, 0), 255);
-            this.s = Math.Min(Math.Max(s, 0), 255);
-            this.b = Math.Min(Math.Max(b, 0), 255);
+            this.Alpha = alpha;
+            this.Hue = Math.Min(Math.Max(hue, 0), 255);
+            this.Saturation = Math.Min(Math.Max(saturation, 0), 255);
+            this.Brightness = Math.Min(Math.Max(brightness, 0), 255);
         }
 
-        public HsbColor(Color color)
+        public HsbColor ShiftHue(float hueDelta)
         {
-            HsbColor temp = FromColor(color);
-            this.a = temp.a;
-            this.h = temp.h;
-            this.s = temp.s;
-            this.b = temp.b;
+            float hue = this.Hue + hueDelta;
+            hue = Math.Min(Math.Max(hue, 0), 255);
+
+            return new HsbColor(Alpha, hue, Saturation, Brightness);
         }
 
-        /// <summary>
-        /// Hue
-        /// </summary>
-        public float H => h;
-
-        /// <summary>
-        /// Saturation
-        /// </summary>
-        public float S => s;
-
-        /// <summary>
-        /// Brightness
-        /// </summary>
-        public float B => b;
-
-        /// <summary>
-        /// Alpha
-        /// </summary>
-        public int A => a;
-
-        public Color Color => FromHsb(this);
-
-        public static Color ShiftHue(Color color, float hueDelta)
+        public HsbColor ShiftSaturation(float saturationDelta)
         {
-            HsbColor hsb = FromColor(color);
-            hsb.h += hueDelta;
-            hsb.h = Math.Min(Math.Max(hsb.h, 0), 255);
-            return FromHsb(hsb);
-        }
+            float saturation = this.Saturation + saturationDelta;
+            saturation = Math.Min(Math.Max(saturation, 0), 255);
 
-        public static Color ShiftSaturation(Color color, float saturationDelta)
-        {
-            HsbColor hsb = FromColor(color);
-            hsb.s += saturationDelta;
-            hsb.s = Math.Min(Math.Max(hsb.s, 0), 255);
-            return FromHsb(hsb);
+            return new HsbColor(Alpha, Hue, saturation, Brightness);
         }
 
 
-        public static Color ShiftBrighness(Color color, float brightnessDelta)
+        public HsbColor ShiftBrighness(float brightnessDelta)
         {
-            HsbColor hsb = HsbColor.FromColor(color);
-            hsb.b += brightnessDelta;
-            hsb.b = Math.Min(Math.Max(hsb.b, 0), 255);
-            return FromHsb(hsb);
+            float brightness = this.Brightness + brightnessDelta;
+            brightness = Math.Min(Math.Max(brightness, 0), 255);
+
+            return new HsbColor(Alpha, Hue, Saturation, brightness);
         }
 
-        public static Color FromHsb(HsbColor hsbColor)
+        public Color ToColor()
         {
-            float r = hsbColor.b;
-            float g = hsbColor.b;
-            float b = hsbColor.b;
+            float r = Brightness;
+            float g = Brightness;
+            float b = Brightness;
 
-            if (hsbColor.s != 0)
+            if (Saturation != 0)
             {
-                float max = hsbColor.b;
-                float dif = hsbColor.b * hsbColor.s / 255f;
-                float min = hsbColor.b - dif;
+                float max = Brightness;
+                float dif = Brightness * Saturation / 255f;
+                float min = Brightness - dif;
 
-                float h = hsbColor.h * 360f / 255f;
+                float h = Hue * 360f / 255f;
 
                 if (h < 60f)
                 {
@@ -146,7 +118,7 @@ namespace TTRider.UI
                 }
             }
 
-            int alpha = hsbColor.a;
+            int alpha = this.Alpha;
             int red = (int)Math.Round(Math.Min(Math.Max(r, 0), 255));
             int green = (int)Math.Round(Math.Min(Math.Max(g, 0), 255));
             int blue = (int)Math.Round(Math.Min(Math.Max(b, 0), 255));
@@ -156,10 +128,10 @@ namespace TTRider.UI
 
         public static HsbColor FromColor(Color color)
         {
-            HsbColor hsbColor = new HsbColor(0f, 0f, 0f)
-            {
-                a = color.A
-            };
+            int alpha = color.A;
+            float hue = 0f;
+            float saturation = 0f;
+            float brightness = 0f;
 
             float r = color.R;
             float g = color.G;
@@ -167,47 +139,55 @@ namespace TTRider.UI
 
             float max = Math.Max(r, Math.Max(g, b));
 
-            if (max <= 0)
+            if (max > 0)
             {
-                return hsbColor;
-            }
+                float min = Math.Min(r, Math.Min(g, b));
+                float dif = max - min;
 
-            float min = Math.Min(r, Math.Min(g, b));
-            float dif = max - min;
-
-            if (max > min)
-            {
-                if (g == max)
+                if (max > min)
                 {
-                    hsbColor.h = (b - r) / dif * 60f + 120f;
-                }
-                else if (b == max)
-                {
-                    hsbColor.h = (r - g) / dif * 60f + 240f;
-                }
-                else if (b > g)
-                {
-                    hsbColor.h = (g - b) / dif * 60f + 360f;
+                    if (g == max)
+                    {
+                        hue = (b - r) / dif * 60f + 120f;
+                    }
+                    else if (b == max)
+                    {
+                        hue = (r - g) / dif * 60f + 240f;
+                    }
+                    else if (b > g)
+                    {
+                        hue = (g - b) / dif * 60f + 360f;
+                    }
+                    else
+                    {
+                        hue = (g - b) / dif * 60f;
+                    }
+                    if (hue < 0)
+                    {
+                        hue = hue + 360f;
+                    }
                 }
                 else
                 {
-                    hsbColor.h = (g - b) / dif * 60f;
+                    hue = 0;
                 }
-                if (hsbColor.h < 0)
-                {
-                    hsbColor.h = hsbColor.h + 360f;
-                }
-            }
-            else
-            {
-                hsbColor.h = 0;
+
+                hue *= 255f / 360f;
+                saturation = (dif / max) * 255f;
+                brightness = max;
             }
 
-            hsbColor.h *= 255f / 360f;
-            hsbColor.s = (dif / max) * 255f;
-            hsbColor.b = max;
+            return new HsbColor(alpha, hue, saturation, brightness);
+        }
 
-            return hsbColor;
+        public static implicit operator Color(HsbColor hsbColor)
+        {
+            return hsbColor.ToColor();
+        }
+
+        public static implicit operator HsbColor(Color color)
+        {
+            return FromColor(color);
         }
     }
 }

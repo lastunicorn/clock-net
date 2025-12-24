@@ -17,7 +17,6 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Design;
@@ -25,7 +24,6 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Shapes;
-using DustInTheWind.ClockNet.Shapes.Basic;
 using DustInTheWind.ClockNet.TimeProviders;
 
 namespace DustInTheWind.ClockNet
@@ -179,57 +177,6 @@ namespace DustInTheWind.ClockNet
         protected virtual void OnHandShapeRemoved(ShapeRemovedEventArgs e)
         {
             HandShapeRemoved?.Invoke(this, e);
-        }
-
-        #endregion
-
-
-        #region Text
-
-        private StringGroundShape defaultTextShape;
-        private StringGroundShape DefaultTextShape
-        {
-            get
-            {
-                //if (defaultTextShape == null)
-                {
-                    foreach (IGroundShape shape in backgroundShapes)
-                    {
-                        if (shape is StringGroundShape)
-                        {
-                            defaultTextShape = (StringGroundShape)shape;
-                            break;
-                        }
-                    }
-                }
-
-                return defaultTextShape;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the text displayed by the first <see cref="StringGroundShape"/> object
-        /// that can be found in the <see cref="BackgroundShapes"/> list.
-        /// </summary>
-        [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
-        [Description("The text displayed by the first TextShape object that can be found in the BackgroundShapes list.")]
-        public override string Text
-        {
-            get
-            {
-                StringGroundShape textShape = DefaultTextShape;
-
-                return textShape != null
-                    ? textShape.Text
-                    : string.Empty;
-            }
-            set
-            {
-                StringGroundShape textShape = DefaultTextShape;
-
-                if (textShape != null)
-                    textShape.Text = value;
-            }
         }
 
         #endregion

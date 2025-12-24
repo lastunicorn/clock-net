@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="DustInTheWind.ClockNet.Shapes.IAngularShape">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAEMAAAAAAAA=</HashCode>
+      <FileName>Shapes\IAngularShape.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DustInTheWind.ClockNet.Shapes.IGroundShape">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Shapes\IGroundShape.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DustInTheWind.ClockNet.Shapes.IHandShape">
+    <Position X="5.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Shapes\IHandShape.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DustInTheWind.ClockNet.Shapes.IShape">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAABAAAAAQAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Shapes\IShape.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
