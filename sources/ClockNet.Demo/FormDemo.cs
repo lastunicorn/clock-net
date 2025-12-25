@@ -78,11 +78,17 @@ namespace DustInTheWind.ClockNet.Demo
                 typeof(NibHandShape),
                 typeof(SlotHandShape)
             });
+
+            comboBoxClockTemplates.Items.Add(typeof(DefaultClockTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(BlackClockTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(BlueClockTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(DotsClockTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(FancyClockTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(WhiteFancyClockTemplate));
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //analogClockDemo.ApplyTemplate(new DefaultClockTemplate());
             // Timer
             numericUpDownTimerInterval.Value = timer1.Interval;
 
@@ -106,10 +112,6 @@ namespace DustInTheWind.ClockNet.Demo
             numericUpDownPaddingTop.Value = analogClockDemo.Padding.Top;
             numericUpDownPaddingRight.Value = analogClockDemo.Padding.Right;
             numericUpDownPaddingBottom.Value = analogClockDemo.Padding.Bottom;
-
-            // >> Text
-            textBoxText.Text = analogClockDemo.Text;
-            //propertyGridText.SelectedObject = analogClock1.TextShape;
 
             // >> Font
             textBoxTextFont.Text = analogClockDemo.Font.ToString();
@@ -211,11 +213,6 @@ namespace DustInTheWind.ClockNet.Demo
                 (int)numericUpDownPaddingBottom.Value);
         }
 
-        private void textBoxText_TextChanged(object sender, EventArgs e)
-        {
-            analogClockDemo.Text = textBoxText.Text;
-        }
-
         private void checkBoxKeepProportions_CheckedChanged(object sender, EventArgs e)
         {
             analogClockDemo.KeepProportions = checkBoxKeepProportions.Checked;
@@ -239,10 +236,10 @@ namespace DustInTheWind.ClockNet.Demo
             }
             else
             {
-                Type t = (Type)comboBoxTimeProviders.SelectedItem;
+                Type type = (Type)comboBoxTimeProviders.SelectedItem;
 
-                ConstructorInfo ctor = t.GetConstructor(new Type[0]);
-                ITimeProvider timeProvider = (ITimeProvider)ctor.Invoke(null);
+                ConstructorInfo constructorInfo = type.GetConstructor(new Type[0]);
+                ITimeProvider timeProvider = (ITimeProvider)constructorInfo.Invoke(null);
                 analogClockDemo.TimeProvider = timeProvider;
             }
         }
@@ -250,9 +247,7 @@ namespace DustInTheWind.ClockNet.Demo
         private void buttonExamples_Click(object sender, EventArgs e)
         {
             using (FormExamples form = new FormExamples())
-            {
                 form.ShowDialog();
-            }
         }
 
         private void numericUpDownTimerInterval_ValueChanged(object sender, EventArgs e)
@@ -460,6 +455,11 @@ namespace DustInTheWind.ClockNet.Demo
             listBoxBackgroundShapes.Items.Remove(e.Shape);
         }
 
+        private void analogClockDemo_BackgroundShapeClear(object sender, EventArgs e)
+        {
+            listBoxBackgroundShapes.Items.Clear();
+        }
+
         private void analogClockDemo_AngularShapeAdded(object sender, ShapeAddedEventArgs e)
         {
             listBoxAngularShapes.Items.Insert(e.Index, e.Shape);
@@ -470,6 +470,11 @@ namespace DustInTheWind.ClockNet.Demo
             listBoxAngularShapes.Items.Remove(e.Shape);
         }
 
+        private void analogClockDemo_AngularShapeCleared(object sender, EventArgs e)
+        {
+            listBoxAngularShapes.Items.Clear();
+        }
+
         private void analogClockDemo_HandShapeAdded(object sender, ShapeAddedEventArgs e)
         {
             listBoxHandShapes.Items.Insert(e.Index, e.Shape);
@@ -478,6 +483,25 @@ namespace DustInTheWind.ClockNet.Demo
         private void analogClockDemo_HandShapeRemoved(object sender, ShapeRemovedEventArgs e)
         {
             listBoxHandShapes.Items.Remove(e.Shape);
+        }
+
+        private void analogClockDemo_HandShapeCleared(object sender, EventArgs e)
+        {
+            listBoxHandShapes.Items.Clear();
+        }
+
+        private void comboBoxClockTemplates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxClockTemplates.SelectedItem != null)
+            {
+                Type type = (Type)comboBoxClockTemplates.SelectedItem;
+
+                ConstructorInfo constructorInfo = type.GetConstructor(new Type[0]);
+                ClockTemplate clockTemplate = (ClockTemplate)constructorInfo.Invoke(null);
+
+                if (clockTemplate != null)
+                    analogClockDemo.ApplyTemplate(clockTemplate);
+            }
         }
     }
 }

@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -24,9 +25,11 @@ using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Shapes;
 using DustInTheWind.ClockNet.TimeProviders;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace DustInTheWind.ClockNet
 {
@@ -103,6 +106,26 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
+        #region Event BackgroundShapeCleared
+
+        /// <summary>
+        /// Event raised when the BackgroundShapes collection is cleared.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Event raised when the BackgroundShapes collection is cleared (all the shapes are removed).")]
+        public event EventHandler BackgroundShapeCleared;
+
+        /// <summary>
+        /// Raises the <see cref="BackgroundShapeCleared"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        protected virtual void OnBackgroundShapeCleared(EventArgs e)
+        {
+            BackgroundShapeCleared?.Invoke(this, e);
+        }
+
+        #endregion
+
         #region Event AngularShapeAdded
 
         /// <summary>
@@ -143,6 +166,26 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
+        #region Event AngularShapeCleared
+
+        /// <summary>
+        /// Event raised when the AngularShapes collection is cleared.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Event raised when the AngularShapes collection is cleared (all the shapes are removed).")]
+        public event EventHandler AngularShapeCleared;
+
+        /// <summary>
+        /// Raises the <see cref="AngularShapeCleared"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        protected virtual void OnAngularShapeCleared(EventArgs e)
+        {
+            AngularShapeCleared?.Invoke(this, e);
+        }
+
+        #endregion
+
         #region Event HandShapeAdded
 
         /// <summary>
@@ -179,6 +222,26 @@ namespace DustInTheWind.ClockNet
         protected virtual void OnHandShapeRemoved(ShapeRemovedEventArgs e)
         {
             HandShapeRemoved?.Invoke(this, e);
+        }
+
+        #endregion
+
+        #region Event HandShapeCleared
+
+        /// <summary>
+        /// Event raised when the HandShapes collection is cleared.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Event raised when the HandShapes collection is cleared (all the shapes are removed).")]
+        public event EventHandler HandShapeCleared;
+
+        /// <summary>
+        /// Raises the <see cref="HandShapeCleared"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        protected virtual void OnHandShapeCleared(EventArgs e)
+        {
+            HandShapeCleared?.Invoke(this, e);
         }
 
         #endregion
@@ -334,227 +397,12 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-
-        #region BackgroundShapeCollection class
-
-        private class BackgroundShapeCollection : Collection<IGroundShape>
-        {
-            AnalogClock clock;
-
-            /// <summary>
-            /// Initializes a new instance of the <see cref="BackgroundShapeCollection"/> class.
-            /// </summary>
-            /// <param name="clock">The parent clock of the current instance.</param>
-            /// <exception cref="ArgumentNullException"></exception>
-            public BackgroundShapeCollection(AnalogClock clock)
-            {
-                if (clock == null)
-                    throw new ArgumentNullException("clock");
-
-                this.clock = clock;
-            }
-
-            protected override void InsertItem(int index, IGroundShape item)
-            {
-                base.InsertItem(index, item);
-
-                if (item != null)
-                    item.Changed += new EventHandler(clock.shape_Changed);
-
-                clock.Invalidate();
-                clock.OnBackgroundShapeAdded(new ShapeAddedEventArgs(index, item));
-            }
-
-            protected override void RemoveItem(int index)
-            {
-                IGroundShape item = this[index];
-
-                if (item != null)
-                    item.Changed -= new EventHandler(clock.shape_Changed);
-
-                base.RemoveItem(index);
-
-                clock.Invalidate();
-                clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(item));
-            }
-
-            protected override void SetItem(int index, IGroundShape item)
-            {
-                IGroundShape oldItem = this[index];
-
-                if (oldItem != null)
-                    oldItem.Changed -= new EventHandler(clock.shape_Changed);
-
-                base.SetItem(index, item);
-
-                clock.Invalidate();
-                clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(oldItem));
-                clock.OnBackgroundShapeAdded(new ShapeAddedEventArgs(index, item));
-            }
-
-            protected override void ClearItems()
-            {
-                foreach (IGroundShape item in Items)
-                {
-                    if (item != null)
-                        item.Changed -= new EventHandler(clock.shape_Changed);
-                }
-
-                base.ClearItems();
-            }
-        }
-
-        #endregion
-
-        #region AngularShapeCollection class
-
-        private class AngularShapeCollection : Collection<IAngularShape>
-        {
-            AnalogClock clock;
-
-            /// <summary>
-            /// Initializes a new instance of the <see cref="AngularShapeCollection"/> class.
-            /// </summary>
-            /// <param name="clock">The parent clock of the current instance.</param>
-            /// <exception cref="ArgumentNullException"></exception>
-            public AngularShapeCollection(AnalogClock clock)
-            {
-                if (clock == null)
-                    throw new ArgumentNullException("clock");
-
-                this.clock = clock;
-            }
-
-            protected override void InsertItem(int index, IAngularShape item)
-            {
-                base.InsertItem(index, item);
-
-                if (item != null)
-                    item.Changed += new EventHandler(clock.shape_Changed);
-
-                clock.Invalidate();
-                clock.OnAngularShapeAdded(new ShapeAddedEventArgs(index, item));
-            }
-
-            protected override void RemoveItem(int index)
-            {
-                IAngularShape item = this[index];
-
-                if (item != null)
-                    item.Changed -= new EventHandler(clock.shape_Changed);
-
-                base.RemoveItem(index);
-
-                clock.Invalidate();
-                clock.OnAngularShapeRemoved(new ShapeRemovedEventArgs(item));
-            }
-
-            protected override void SetItem(int index, IAngularShape item)
-            {
-                IAngularShape oldItem = this[index];
-
-                if (oldItem != null)
-                    oldItem.Changed -= new EventHandler(clock.shape_Changed);
-
-                base.SetItem(index, item);
-
-                clock.Invalidate();
-                clock.OnAngularShapeRemoved(new ShapeRemovedEventArgs(oldItem));
-                clock.OnAngularShapeAdded(new ShapeAddedEventArgs(index, item));
-            }
-
-            protected override void ClearItems()
-            {
-                foreach (IAngularShape item in Items)
-                {
-                    if (item != null)
-                        item.Changed -= new EventHandler(clock.shape_Changed);
-                }
-
-                base.ClearItems();
-            }
-        }
-
-        #endregion
-
-        #region HandShapeCollection class
-
-        private class HandShapeCollection : Collection<IHandShape>
-        {
-            AnalogClock clock;
-
-            /// <summary>
-            /// Initializes a new instance of the <see cref="HandShapeCollection"/> class.
-            /// </summary>
-            /// <param name="clock">The parent clock of the current instance.</param>
-            /// <exception cref="ArgumentNullException"></exception>
-            public HandShapeCollection(AnalogClock clock)
-            {
-                if (clock == null)
-                    throw new ArgumentNullException("clock");
-
-                this.clock = clock;
-            }
-
-            protected override void InsertItem(int index, IHandShape item)
-            {
-                base.InsertItem(index, item);
-
-                if (item != null)
-                    item.Changed += new EventHandler(clock.shape_Changed);
-
-                clock.Invalidate();
-                clock.OnHandShapeAdded(new ShapeAddedEventArgs(index, item));
-            }
-
-            protected override void RemoveItem(int index)
-            {
-                IHandShape item = this[index];
-
-                if (item != null)
-                    item.Changed -= new EventHandler(clock.shape_Changed);
-
-                base.RemoveItem(index);
-
-                clock.Invalidate();
-                clock.OnHandShapeRemoved(new ShapeRemovedEventArgs(item));
-            }
-
-            protected override void SetItem(int index, IHandShape item)
-            {
-                IHandShape oldItem = this[index];
-
-                if (oldItem != null)
-                    oldItem.Changed -= new EventHandler(clock.shape_Changed);
-
-                base.SetItem(index, item);
-
-                clock.Invalidate();
-                clock.OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(oldItem));
-                clock.OnBackgroundShapeAdded(new ShapeAddedEventArgs(index, item));
-            }
-
-            protected override void ClearItems()
-            {
-                foreach (IHandShape item in Items)
-                {
-                    if (item != null)
-                        item.Changed -= new EventHandler(clock.shape_Changed);
-                }
-
-                base.ClearItems();
-            }
-        }
-
-        #endregion
-
-
         #region BackgroundShapes
 
         /// <summary>
         /// The list of shapes that are drawn on the background of the clock.
         /// </summary>
-        private BackgroundShapeCollection backgroundShapes;
+        private ShapeCollection<IGroundShape> backgroundShapes;
 
         /// <summary>
         /// Gets the list of shapes that are drawn on the background of the clock.
@@ -563,7 +411,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn on the background of the clock.")]
-        public Collection<IGroundShape> BackgroundShapes => backgroundShapes;
+        public ShapeCollection<IGroundShape> BackgroundShapes => backgroundShapes;
 
         #endregion
 
@@ -572,7 +420,7 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// The list of shapes that are drawn repetitively on the edge of the clock.
         /// </summary>
-        private AngularShapeCollection angularShapes;
+        private ShapeCollection<IAngularShape> angularShapes;
 
         /// <summary>
         /// Gets the list of shapes that are drawn repetitively on the edge of the clock.
@@ -581,7 +429,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn repetitively on the edge of the clock.")]
-        public Collection<IAngularShape> AngularShapes => angularShapes;
+        public ShapeCollection<IAngularShape> AngularShapes => angularShapes;
 
         #endregion
 
@@ -590,7 +438,7 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// The list of shapes that display the time.
         /// </summary>
-        private HandShapeCollection handShapes;
+        private ShapeCollection<IHandShape> handShapes;
 
         /// <summary>
         /// Gets the list of shapes that display the time.
@@ -599,7 +447,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that display the time.")]
-        public Collection<IHandShape> HandShapes => handShapes;
+        public ShapeCollection<IHandShape> HandShapes => handShapes;
 
         #endregion
 
@@ -653,9 +501,20 @@ namespace DustInTheWind.ClockNet
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             //SetStyle(ControlStyles.Opaque, true);
 
-            backgroundShapes = new BackgroundShapeCollection(this);
-            angularShapes = new AngularShapeCollection(this);
-            handShapes = new HandShapeCollection(this);
+            backgroundShapes = new ShapeCollection<IGroundShape>();
+            backgroundShapes.ShapeAdded += HandleGroundShapeAdded;
+            backgroundShapes.ShapeRemoved += HandleGroundShapeRemoved;
+            backgroundShapes.Cleared += HandleGroundShapeCleared;
+
+            angularShapes = new ShapeCollection<IAngularShape>();
+            angularShapes.ShapeAdded += HandleAngularShapeAdded;
+            angularShapes.ShapeRemoved += HandleAngularShapeRemoved;
+            angularShapes.Cleared += HandleAngularShapeCleared;
+
+            handShapes = new ShapeCollection<IHandShape>();
+            handShapes.ShapeAdded += HandleHandShapeAdded;
+            handShapes.ShapeRemoved += HandleHandShapeRemoved;
+            handShapes.Cleared += HandleHandShapeCleared;
 
             if (clockTemplate != null)
                 ApplyTemplate(clockTemplate);
@@ -675,23 +534,78 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
+        private void HandleGroundShapeAdded(object sender, ShapeAddedEventArgs e)
+        {
+            OnBackgroundShapeAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
 
-        /// <summary>
-        /// Call-back function called when one of the shapes is changed. And the clock needs repainting.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void shape_Changed(object sender, EventArgs e)
+            e.Shape.Changed += new EventHandler(HandleShapeChanged);
+            Invalidate();
+        }
+
+        private void HandleGroundShapeRemoved(object sender, ShapeRemovedEventArgs e)
+        {
+            OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(e.Shape));
+
+            e.Shape.Changed -= new EventHandler(HandleShapeChanged);
+            Invalidate();
+        }
+
+        private void HandleGroundShapeCleared(object sender, EventArgs e)
+        {
+            OnBackgroundShapeCleared(EventArgs.Empty);
+            Invalidate();
+        }
+
+        private void HandleAngularShapeAdded(object sender, ShapeAddedEventArgs e)
+        {
+            OnAngularShapeAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
+
+            e.Shape.Changed += new EventHandler(HandleShapeChanged);
+            Invalidate();
+        }
+
+        private void HandleAngularShapeRemoved(object sender, ShapeRemovedEventArgs e)
+        {
+            OnAngularShapeRemoved(new ShapeRemovedEventArgs(e.Shape));
+
+            e.Shape.Changed -= new EventHandler(HandleShapeChanged);
+            Invalidate();
+        }
+
+        private void HandleAngularShapeCleared(object sender, EventArgs e)
+        {
+            OnAngularShapeCleared(EventArgs.Empty);
+            Invalidate();
+        }
+
+        private void HandleHandShapeAdded(object sender, ShapeAddedEventArgs e)
+        {
+            OnHandShapeAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
+
+            e.Shape.Changed += new EventHandler(HandleShapeChanged);
+            Invalidate();
+        }
+
+        private void HandleHandShapeRemoved(object sender, ShapeRemovedEventArgs e)
+        {
+            OnHandShapeRemoved(new ShapeRemovedEventArgs(e.Shape));
+
+            e.Shape.Changed -= new EventHandler(HandleShapeChanged);
+            Invalidate();
+        }
+
+        private void HandleHandShapeCleared(object sender, EventArgs e)
+        {
+            OnHandShapeCleared(EventArgs.Empty);
+            Invalidate();
+        }
+
+        private void HandleShapeChanged(object sender, EventArgs e)
         {
             Debug.WriteLine(sender.GetType().ToString());
             Invalidate();
         }
 
-        /// <summary>
-        /// Call-back function called when the <see cref="TimeProvider"/> is changed. And the clock needs repainting.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void timeProvider_Changed(object sender, EventArgs e)
         {
             Invalidate();

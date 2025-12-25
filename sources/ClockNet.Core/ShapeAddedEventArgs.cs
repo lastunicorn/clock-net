@@ -25,30 +25,14 @@ namespace DustInTheWind.ClockNet
     public class ShapeAddedEventArgs : EventArgs
     {
         /// <summary>
-        /// The index where the Shape was added into the list.
-        /// </summary>
-        private int index;
-
-        /// <summary>
         /// Gets the index where the Shape was added into the list.
         /// </summary>
-        public int Index
-        {
-            get { return index; }
-        }
-
-        /// <summary>
-        /// The Shape that was added to the list.
-        /// </summary>
-        private IShape shape;
+        public int Index { get; }
 
         /// <summary>
         /// Gets the Shape that was added to the list.
         /// </summary>
-        public IShape Shape
-        {
-            get { return shape; }
-        }
+        public IShape Shape { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ShapeAddedEventArgs"/> class.
@@ -57,8 +41,8 @@ namespace DustInTheWind.ClockNet
         /// <param name="shape">The Shape that was added to the list.</param>
         public ShapeAddedEventArgs(int index, IShape shape)
         {
-            this.index = index;
-            this.shape = shape;
+            Index = index;
+            Shape = shape;
         }
     }
 }
