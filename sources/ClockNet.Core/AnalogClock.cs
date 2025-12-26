@@ -289,7 +289,6 @@ namespace DustInTheWind.ClockNet
                 {
                     timeProvider.Stop();
                     timeProvider.TimeChanged -= HandleTimeProviderTimeChanged;
-                    timeProvider.Changed -= HandleTimeProviderChanged;
                 }
 
                 timeProvider = value;
@@ -297,7 +296,6 @@ namespace DustInTheWind.ClockNet
                 if (timeProvider != null)
                 {
                     timeProvider.TimeChanged += HandleTimeProviderTimeChanged;
-                    timeProvider.Changed += HandleTimeProviderChanged;
                     timeProvider.Start();
                 }
 
@@ -310,11 +308,6 @@ namespace DustInTheWind.ClockNet
         private void HandleTimeProviderTimeChanged(object sender, TimeChangedEventArgs e)
         {
             time = e.Time;
-            Invalidate();
-        }
-
-        private void HandleTimeProviderChanged(object sender, EventArgs e)
-        {
             Invalidate();
         }
 
@@ -446,7 +439,6 @@ namespace DustInTheWind.ClockNet
             {
                 this.timeProvider = timeProvider;
                 this.timeProvider.TimeChanged += HandleTimeProviderTimeChanged;
-                this.timeProvider.Changed += HandleTimeProviderChanged;
                 this.timeProvider.Start();
             }
 
@@ -822,7 +814,6 @@ namespace DustInTheWind.ClockNet
                 {
                     timeProvider.Stop();
                     timeProvider.TimeChanged -= HandleTimeProviderTimeChanged;
-                    timeProvider.Changed -= HandleTimeProviderChanged;
                 }
 
                 foreach (IBackground shape in backgroundShapes)

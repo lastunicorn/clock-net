@@ -25,25 +25,12 @@ namespace DustInTheWind.ClockNet.TimeProviders
     public class UtcTimeProvider : TimeProviderBase
     {
         /// <summary>
-        /// The offset time used to decalates the system's UTC time value provided.
-        /// </summary>
-        private TimeSpan utcOffset;
-
-        /// <summary>
         /// Gets or sets the offset time used to decalates the system's UTC time value provided.
         /// </summary>
         [Category("Value")]
         [DefaultValue(typeof(TimeSpan), "0")]
         [Description("The offset time used to decalates the system's UTC time value provided.")]
-        public TimeSpan UtcOffset
-        {
-            get => utcOffset;
-            set
-            {
-                utcOffset = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        public TimeSpan UtcOffset { get; set; }
 
         /// <summary>
         /// Returns the system's UTC time added with the offset value.
@@ -51,9 +38,9 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
         protected override TimeSpan GetTime()
         {
-            return utcOffset == TimeSpan.Zero
+            return UtcOffset == TimeSpan.Zero
                 ? DateTime.UtcNow.TimeOfDay
-                : DateTime.UtcNow.TimeOfDay.Add(utcOffset);
+                : DateTime.UtcNow.TimeOfDay.Add(UtcOffset);
         }
     }
 }

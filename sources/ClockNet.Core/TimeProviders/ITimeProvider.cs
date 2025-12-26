@@ -30,12 +30,6 @@ namespace DustInTheWind.ClockNet.TimeProviders
         event EventHandler<TimeChangedEventArgs> TimeChanged;
 
         /// <summary>
-        /// Event raised when the internal mechanism that generates time values is changed and therefore
-        /// the already generated time values are obsolete.
-        /// </summary>
-        event EventHandler Changed;
-
-        /// <summary>
         /// Gets or sets the interval in milliseconds at which the time provider generates time values.
         /// </summary>
         int Interval { get; set; }

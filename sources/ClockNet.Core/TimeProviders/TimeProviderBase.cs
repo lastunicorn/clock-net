@@ -26,7 +26,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
     public abstract class TimeProviderBase : ITimeProvider
     {
         private readonly Timer timer;
-        private int interval = 1000;
+        private int interval = 100;
 
         [Browsable(false)]
         public ISite Site { get; set; }
@@ -35,7 +35,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// Gets or sets the interval in milliseconds at which the time provider generates time values.
         /// </summary>
         [Category("Behavior")]
-        [DefaultValue(1000)]
+        [DefaultValue(100)]
         [Description("The interval in milliseconds at which the time provider generates time values.")]
         public int Interval
         {
@@ -59,18 +59,14 @@ namespace DustInTheWind.ClockNet.TimeProviders
         public event EventHandler<TimeChangedEventArgs> TimeChanged;
 
         /// <summary>
-        /// Event raised when the internal mechanism that generates time values is changed and therefore
-        /// the already generated time values are obsolete.
-        /// </summary>
-        public event EventHandler Changed;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="TimeProviderBase"/> class.
         /// </summary>
         protected TimeProviderBase()
         {
-            timer = new Timer();
-            timer.Interval = interval;
+            timer = new Timer
+            {
+                Interval = interval
+            };
             timer.Tick += HandleTimerTick;
         }
 
@@ -112,15 +108,6 @@ namespace DustInTheWind.ClockNet.TimeProviders
         protected virtual void OnTimeChanged(TimeChangedEventArgs e)
         {
             TimeChanged?.Invoke(this, e);
-        }
-
-        /// <summary>
-        /// Raises the <see cref="Changed"/> event.
-        /// </summary>
-        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnChanged(EventArgs e)
-        {
-            Changed?.Invoke(this, e);
         }
 
         #region IDisposable Members
