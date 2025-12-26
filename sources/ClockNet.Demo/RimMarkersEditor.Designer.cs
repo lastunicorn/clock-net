@@ -91,7 +91,7 @@
             this.groupBoxAngularShapes.Size = new System.Drawing.Size(394, 194);
             this.groupBoxAngularShapes.TabIndex = 2;
             this.groupBoxAngularShapes.TabStop = false;
-            this.groupBoxAngularShapes.Text = "Angular Shapes";
+            this.groupBoxAngularShapes.Text = "Rim Markers";
             // 
             // tableLayoutPanelAngularShapes
             // 
