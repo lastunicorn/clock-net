@@ -34,12 +34,6 @@ namespace DustInTheWind.ClockNet.Demo
             nullableDateTimePickerUtcOffset.DateTimePicker.Format = DateTimePickerFormat.Time;
             nullableDateTimePickerUtcOffset.DateTimePicker.ShowUpDown = true;
 
-            comboBoxTimeProviders.Items.Add("(none)");
-            comboBoxTimeProviders.Items.Add(typeof(LocalTimeProvider));
-            comboBoxTimeProviders.Items.Add(typeof(UtcTimeProvider));
-            comboBoxTimeProviders.Items.Add(typeof(BrokenTimeProvider));
-            comboBoxTimeProviders.Items.Add(typeof(RandomTimeProvider));
-
             comboBoxClockTemplates.Items.Add(typeof(DefaultClockTemplate));
             comboBoxClockTemplates.Items.Add(typeof(BlackClockTemplate));
             comboBoxClockTemplates.Items.Add(typeof(BlueClockTemplate));
@@ -86,15 +80,7 @@ namespace DustInTheWind.ClockNet.Demo
             handsEditor1.AnalogClock = analogClockDemo;
 
             // Time Provider
-            if (analogClockDemo.TimeProvider == null)
-            {
-                comboBoxTimeProviders.SelectedIndex = 0;
-            }
-            else
-            {
-                comboBoxTimeProviders.SelectedItem = analogClockDemo.TimeProvider.GetType();
-            }
-            propertyGridTimeProvider.SelectedObject = analogClockDemo.TimeProvider == null ? null : analogClockDemo.TimeProvider.GetType();
+            timeProvidersEditor1.AnalogClock = analogClockDemo;
         }
 
         private void labelBackgroundColor_Click(object sender, EventArgs e)
@@ -176,22 +162,6 @@ namespace DustInTheWind.ClockNet.Demo
             }
         }
 
-        private void comboBoxTimeProviders_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxTimeProviders.SelectedItem == null || comboBoxTimeProviders.SelectedItem.Equals("(none)"))
-            {
-                analogClockDemo.TimeProvider = null;
-            }
-            else
-            {
-                Type type = (Type)comboBoxTimeProviders.SelectedItem;
-
-                ConstructorInfo constructorInfo = type.GetConstructor(new Type[0]);
-                ITimeProvider timeProvider = (ITimeProvider)constructorInfo.Invoke(null);
-                analogClockDemo.TimeProvider = timeProvider;
-            }
-        }
-
         private void buttonExamples_Click(object sender, EventArgs e)
         {
             using (FormExamples form = new FormExamples())
@@ -208,13 +178,6 @@ namespace DustInTheWind.ClockNet.Demo
             analogClockDemo.UtcOffset = nullableDateTimePickerUtcOffset.Value == null ? (TimeSpan?)null : nullableDateTimePickerUtcOffset.Value.Value.TimeOfDay;
         }
 
-        private void analogClockDemo_TimeProviderChanged(object sender, EventArgs e)
-        {
-            checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
-            nullableDateTimePickerUtcOffset.Enabled = analogClockDemo.TimeProvider == null;
-            propertyGridTimeProvider.SelectedObject = analogClockDemo.TimeProvider;
-        }
-
         private void comboBoxClockTemplates_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxClockTemplates.SelectedItem != null)
@@ -227,6 +190,12 @@ namespace DustInTheWind.ClockNet.Demo
                 if (clockTemplate != null)
                     analogClockDemo.ApplyTemplate(clockTemplate);
             }
+        }
+
+        private void analogClockDemo_TimeProviderChanged(object sender, EventArgs e)
+        {
+            checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
+            nullableDateTimePickerUtcOffset.Enabled = analogClockDemo.TimeProvider == null;
         }
     }
 }

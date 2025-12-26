@@ -87,16 +87,9 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageMiscellaneous = new System.Windows.Forms.TabPage();
             this.tabPageBackgrounds = new System.Windows.Forms.TabPage();
-            this.backgroundsEditor1 = new DustInTheWind.ClockNet.Demo.BackgroundsEditor();
             this.tabPageRimMarkers = new System.Windows.Forms.TabPage();
-            this.rimMarkersEditor1 = new DustInTheWind.ClockNet.Demo.RimMarkersEditor();
             this.tabPageHands = new System.Windows.Forms.TabPage();
             this.tabPageTimeProviders = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.propertyGridTimeProvider = new System.Windows.Forms.PropertyGrid();
-            this.groupBoxTimeProviders = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxTimeProviders = new System.Windows.Forms.ComboBox();
             this.panelClock = new System.Windows.Forms.Panel();
             this.analogClockDemo = new DustInTheWind.ClockNet.AnalogClock();
             this.buttonExamples = new System.Windows.Forms.Button();
@@ -108,7 +101,10 @@ namespace DustInTheWind.ClockNet.Demo
             this.label2 = new System.Windows.Forms.Label();
             this.panelParameters = new System.Windows.Forms.Panel();
             this.localTimeProvider1 = new DustInTheWind.ClockNet.TimeProviders.LocalTimeProvider();
+            this.backgroundsEditor1 = new DustInTheWind.ClockNet.Demo.BackgroundsEditor();
+            this.rimMarkersEditor1 = new DustInTheWind.ClockNet.Demo.RimMarkersEditor();
             this.handsEditor1 = new DustInTheWind.ClockNet.Demo.HandsEditor();
+            this.timeProvidersEditor1 = new DustInTheWind.ClockNet.Demo.TimeProvidersEditor();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).BeginInit();
@@ -123,8 +119,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabPageRimMarkers.SuspendLayout();
             this.tabPageHands.SuspendLayout();
             this.tabPageTimeProviders.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.groupBoxTimeProviders.SuspendLayout();
             this.panelClock.SuspendLayout();
             this.flowLayoutPanelButtons.SuspendLayout();
             this.groupBoxExternalTimer.SuspendLayout();
@@ -446,15 +440,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabPageBackgrounds.Text = "Backgrounds";
             this.tabPageBackgrounds.UseVisualStyleBackColor = true;
             // 
-            // backgroundsEditor1
-            // 
-            this.backgroundsEditor1.AnalogClock = null;
-            this.backgroundsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backgroundsEditor1.Location = new System.Drawing.Point(3, 3);
-            this.backgroundsEditor1.Name = "backgroundsEditor1";
-            this.backgroundsEditor1.Size = new System.Drawing.Size(403, 540);
-            this.backgroundsEditor1.TabIndex = 0;
-            // 
             // tabPageRimMarkers
             // 
             this.tabPageRimMarkers.Controls.Add(this.rimMarkersEditor1);
@@ -465,15 +450,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabPageRimMarkers.TabIndex = 10;
             this.tabPageRimMarkers.Text = "Rim Markers";
             this.tabPageRimMarkers.UseVisualStyleBackColor = true;
-            // 
-            // rimMarkersEditor1
-            // 
-            this.rimMarkersEditor1.AnalogClock = null;
-            this.rimMarkersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rimMarkersEditor1.Location = new System.Drawing.Point(3, 3);
-            this.rimMarkersEditor1.Name = "rimMarkersEditor1";
-            this.rimMarkersEditor1.Size = new System.Drawing.Size(403, 540);
-            this.rimMarkersEditor1.TabIndex = 0;
             // 
             // tabPageHands
             // 
@@ -488,76 +464,13 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // tabPageTimeProviders
             // 
-            this.tabPageTimeProviders.Controls.Add(this.tableLayoutPanel5);
+            this.tabPageTimeProviders.Controls.Add(this.timeProvidersEditor1);
             this.tabPageTimeProviders.Location = new System.Drawing.Point(4, 22);
             this.tabPageTimeProviders.Name = "tabPageTimeProviders";
             this.tabPageTimeProviders.Size = new System.Drawing.Size(409, 546);
             this.tabPageTimeProviders.TabIndex = 8;
             this.tabPageTimeProviders.Text = "Time Providers";
             this.tabPageTimeProviders.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.AutoSize = true;
-            this.tableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.propertyGridTimeProvider, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.groupBoxTimeProviders, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(409, 546);
-            this.tableLayoutPanel5.TabIndex = 13;
-            // 
-            // propertyGridTimeProvider
-            // 
-            this.propertyGridTimeProvider.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.SetColumnSpan(this.propertyGridTimeProvider, 2);
-            this.propertyGridTimeProvider.Location = new System.Drawing.Point(3, 65);
-            this.propertyGridTimeProvider.Name = "propertyGridTimeProvider";
-            this.propertyGridTimeProvider.Size = new System.Drawing.Size(403, 478);
-            this.propertyGridTimeProvider.TabIndex = 12;
-            // 
-            // groupBoxTimeProviders
-            // 
-            this.groupBoxTimeProviders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.SetColumnSpan(this.groupBoxTimeProviders, 2);
-            this.groupBoxTimeProviders.Controls.Add(this.label1);
-            this.groupBoxTimeProviders.Controls.Add(this.comboBoxTimeProviders);
-            this.groupBoxTimeProviders.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxTimeProviders.Name = "groupBoxTimeProviders";
-            this.groupBoxTimeProviders.Size = new System.Drawing.Size(403, 56);
-            this.groupBoxTimeProviders.TabIndex = 2;
-            this.groupBoxTimeProviders.TabStop = false;
-            this.groupBoxTimeProviders.Text = "Time Providers";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Time Providers";
-            // 
-            // comboBoxTimeProviders
-            // 
-            this.comboBoxTimeProviders.DisplayMember = "Name";
-            this.comboBoxTimeProviders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTimeProviders.FormattingEnabled = true;
-            this.comboBoxTimeProviders.Location = new System.Drawing.Point(95, 19);
-            this.comboBoxTimeProviders.Name = "comboBoxTimeProviders";
-            this.comboBoxTimeProviders.Size = new System.Drawing.Size(265, 21);
-            this.comboBoxTimeProviders.TabIndex = 0;
-            this.comboBoxTimeProviders.SelectedIndexChanged += new System.EventHandler(this.comboBoxTimeProviders_SelectedIndexChanged);
             // 
             // panelClock
             // 
@@ -586,25 +499,25 @@ namespace DustInTheWind.ClockNet.Demo
             diamondHand1.Length = 25F;
             diamondHand1.Name = "Hour Hand Shape";
             diamondHand1.OutlineColor = System.Drawing.Color.Empty;
-            diamondHand1.Time = System.TimeSpan.Parse("21:32:37.2668540");
+            diamondHand1.Time = System.TimeSpan.Parse("21:51:53.6106987");
             diamondHand2.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Minute;
             diamondHand2.FillColor = System.Drawing.Color.LimeGreen;
             diamondHand2.Length = 38F;
             diamondHand2.Name = "Minute Hand Shape";
             diamondHand2.OutlineColor = System.Drawing.Color.Empty;
             diamondHand2.TailLength = 4F;
-            diamondHand2.Time = System.TimeSpan.Parse("21:32:37.2668540");
+            diamondHand2.Time = System.TimeSpan.Parse("21:51:53.6106987");
             diamondHand2.Width = 4F;
             lineHand1.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Second;
             lineHand1.FillColor = System.Drawing.Color.Empty;
             lineHand1.Length = 43F;
             lineHand1.Name = "Second Hand Shape";
             lineHand1.OutlineColor = System.Drawing.Color.Red;
-            lineHand1.Time = System.TimeSpan.Parse("21:32:37.2668540");
+            lineHand1.Time = System.TimeSpan.Parse("21:51:53.6106987");
             pin1.FillColor = System.Drawing.Color.Red;
             pin1.Name = "Pin Shape";
             pin1.OutlineColor = System.Drawing.Color.Empty;
-            pin1.Time = System.TimeSpan.Parse("21:32:37.2668540");
+            pin1.Time = System.TimeSpan.Parse("21:51:53.6106987");
             this.analogClockDemo.Hands.Add(diamondHand1);
             this.analogClockDemo.Hands.Add(diamondHand2);
             this.analogClockDemo.Hands.Add(lineHand1);
@@ -671,7 +584,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDemo.Size = new System.Drawing.Size(663, 611);
             this.analogClockDemo.TabIndex = 0;
             this.analogClockDemo.Text = "Dust in the Wind";
-            this.analogClockDemo.Time = System.TimeSpan.Parse("21:32:37.2668540");
+            this.analogClockDemo.Time = System.TimeSpan.Parse("21:51:53.6106987");
             this.analogClockDemo.Timer = this.timer1;
             this.analogClockDemo.TimeProviderChanged += new System.EventHandler(this.analogClockDemo_TimeProviderChanged);
             // 
@@ -774,6 +687,24 @@ namespace DustInTheWind.ClockNet.Demo
             this.panelParameters.Size = new System.Drawing.Size(417, 627);
             this.panelParameters.TabIndex = 1;
             // 
+            // backgroundsEditor1
+            // 
+            this.backgroundsEditor1.AnalogClock = null;
+            this.backgroundsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backgroundsEditor1.Location = new System.Drawing.Point(3, 3);
+            this.backgroundsEditor1.Name = "backgroundsEditor1";
+            this.backgroundsEditor1.Size = new System.Drawing.Size(403, 540);
+            this.backgroundsEditor1.TabIndex = 0;
+            // 
+            // rimMarkersEditor1
+            // 
+            this.rimMarkersEditor1.AnalogClock = null;
+            this.rimMarkersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rimMarkersEditor1.Location = new System.Drawing.Point(3, 3);
+            this.rimMarkersEditor1.Name = "rimMarkersEditor1";
+            this.rimMarkersEditor1.Size = new System.Drawing.Size(403, 540);
+            this.rimMarkersEditor1.TabIndex = 0;
+            // 
             // handsEditor1
             // 
             this.handsEditor1.AnalogClock = null;
@@ -782,6 +713,15 @@ namespace DustInTheWind.ClockNet.Demo
             this.handsEditor1.Name = "handsEditor1";
             this.handsEditor1.Size = new System.Drawing.Size(403, 540);
             this.handsEditor1.TabIndex = 0;
+            // 
+            // timeProvidersEditor1
+            // 
+            this.timeProvidersEditor1.AnalogClock = null;
+            this.timeProvidersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeProvidersEditor1.Location = new System.Drawing.Point(0, 0);
+            this.timeProvidersEditor1.Name = "timeProvidersEditor1";
+            this.timeProvidersEditor1.Size = new System.Drawing.Size(409, 546);
+            this.timeProvidersEditor1.TabIndex = 0;
             // 
             // FormDemo
             // 
@@ -815,10 +755,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabPageRimMarkers.ResumeLayout(false);
             this.tabPageHands.ResumeLayout(false);
             this.tabPageTimeProviders.ResumeLayout(false);
-            this.tabPageTimeProviders.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.groupBoxTimeProviders.ResumeLayout(false);
-            this.groupBoxTimeProviders.PerformLayout();
             this.panelClock.ResumeLayout(false);
             this.flowLayoutPanelButtons.ResumeLayout(false);
             this.flowLayoutPanelButtons.PerformLayout();
@@ -862,11 +798,6 @@ namespace DustInTheWind.ClockNet.Demo
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabPageTimeProviders;
-        private System.Windows.Forms.PropertyGrid propertyGridTimeProvider;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.GroupBox groupBoxTimeProviders;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxTimeProviders;
         private System.Windows.Forms.Button buttonExamples;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelButtons;
         private System.Windows.Forms.GroupBox groupBoxExternalTimer;
@@ -886,6 +817,7 @@ namespace DustInTheWind.ClockNet.Demo
         private BackgroundsEditor backgroundsEditor1;
         private RimMarkersEditor rimMarkersEditor1;
         private HandsEditor handsEditor1;
+        private TimeProvidersEditor timeProvidersEditor1;
     }
 }
 
