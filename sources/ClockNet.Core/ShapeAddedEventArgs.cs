@@ -20,7 +20,7 @@ using DustInTheWind.ClockNet.Shapes;
 namespace DustInTheWind.ClockNet
 {
     /// <summary>
-    /// Provides data for <see cref="AnalogClock.BackgroundAdded"/> and <see cref="AnalogClock.AngularShapeAdded"/> events.
+    /// Provides data for <see cref="AnalogClock.BackgroundAdded"/> and <see cref="AnalogClock.RimMarkerAdded"/> events.
     /// </summary>
     public class ShapeAddedEventArgs : EventArgs
     {

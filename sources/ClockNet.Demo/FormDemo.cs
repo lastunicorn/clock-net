@@ -40,16 +40,6 @@ namespace DustInTheWind.ClockNet.Demo
             comboBoxTimeProviders.Items.Add(typeof(BrokenTimeProvider));
             comboBoxTimeProviders.Items.Add(typeof(RandomTimeProvider));
 
-            listBoxRimMarkersAvailable.Items.AddRange(new Type[] {
-                typeof(LineRimMarker),
-                typeof(PolygonRimMarker),
-                typeof(RectangleRimMarker),
-                typeof(EllipseRimMarker),
-                typeof(PathRimMarker),
-                typeof(ImageRimMarker),
-                typeof(Ticks)
-            });
-
             listBoxHandsAvailable.Items.AddRange(new Type[] {
                 typeof(LineHand),
                 typeof(PolygonHand),
@@ -110,10 +100,7 @@ namespace DustInTheWind.ClockNet.Demo
             backgroundsEditor1.AnalogClock = analogClockDemo;
 
             // Angular Shapes
-            foreach (IRimMarker shape in analogClockDemo.RimMarkers)
-            {
-                listBoxRimMarkers.Items.Add(shape);
-            }
+            rimMarkersEditor1.AnalogClock = analogClockDemo;
 
             // Hand Shapes
             foreach (IHand shape in analogClockDemo.Hands)
@@ -252,65 +239,6 @@ namespace DustInTheWind.ClockNet.Demo
         }
 
 
-        #region Rim Markers
-
-        private void listBoxAngularShapes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            propertyGridAngularShapes.SelectedObject = listBoxRimMarkers.SelectedItem;
-        }
-
-        private void buttonAddAngularShape_Click(object sender, EventArgs e)
-        {
-            if (listBoxRimMarkersAvailable.SelectedItem != null)
-            {
-                Type t = (Type)listBoxRimMarkersAvailable.SelectedItem;
-
-                ConstructorInfo ctor = t.GetConstructor(new Type[0]);
-                IRimMarker shape = (IRimMarker)ctor.Invoke(null);
-                analogClockDemo.RimMarkers.Add(shape);
-            }
-        }
-
-        private void buttonRemoveAngularShape_Click(object sender, EventArgs e)
-        {
-            if (listBoxRimMarkers.SelectedItem != null)
-            {
-                analogClockDemo.RimMarkers.Remove(listBoxRimMarkers.SelectedItem as IRimMarker);
-            }
-        }
-
-        private void buttonAngularUp_Click(object sender, EventArgs e)
-        {
-            if (listBoxRimMarkers.SelectedIndex > 0)
-            {
-                int index = listBoxRimMarkers.SelectedIndex;
-                IRimMarker shape = listBoxRimMarkers.SelectedItem as IRimMarker;
-                if (shape != null)
-                {
-                    analogClockDemo.RimMarkers.RemoveAt(index);
-                    analogClockDemo.RimMarkers.Insert(index - 1, shape);
-                    listBoxRimMarkers.SelectedItem = shape;
-                }
-            }
-        }
-
-        private void buttonAngularDown_Click(object sender, EventArgs e)
-        {
-            if (listBoxRimMarkers.SelectedIndex >= 0 && listBoxRimMarkers.SelectedIndex < listBoxRimMarkers.Items.Count - 1)
-            {
-                int index = listBoxRimMarkers.SelectedIndex;
-                IRimMarker shape = listBoxRimMarkers.SelectedItem as IRimMarker;
-                if (shape != null)
-                {
-                    analogClockDemo.RimMarkers.RemoveAt(index);
-                    analogClockDemo.RimMarkers.Insert(index + 1, shape);
-                    listBoxRimMarkers.SelectedItem = shape;
-                }
-            }
-        }
-
-        #endregion
-
         #region Hand Shapes
 
         private void listBoxHandShapes_SelectedIndexChanged(object sender, EventArgs e)
@@ -369,21 +297,6 @@ namespace DustInTheWind.ClockNet.Demo
         }
 
         #endregion
-
-        private void analogClockDemo_AngularShapeAdded(object sender, ShapeAddedEventArgs e)
-        {
-            listBoxRimMarkers.Items.Insert(e.Index, e.Shape);
-        }
-
-        private void analogClockDemo_AngularShapeRemoved(object sender, ShapeRemovedEventArgs e)
-        {
-            listBoxRimMarkers.Items.Remove(e.Shape);
-        }
-
-        private void analogClockDemo_AngularShapeCleared(object sender, EventArgs e)
-        {
-            listBoxRimMarkers.Items.Clear();
-        }
 
         private void analogClockDemo_HandShapeAdded(object sender, ShapeAddedEventArgs e)
         {

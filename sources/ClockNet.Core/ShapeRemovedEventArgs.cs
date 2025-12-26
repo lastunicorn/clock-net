@@ -20,7 +20,7 @@ using DustInTheWind.ClockNet.Shapes;
 namespace DustInTheWind.ClockNet
 {
     /// <summary>
-    /// Provides data for <see cref="AnalogClock.BackgroundRemoved"/> and <see cref="AnalogClock.AngularShapeRemoved"/> events.
+    /// Provides data for <see cref="AnalogClock.BackgroundRemoved"/> and <see cref="AnalogClock.RimMarkerRemoved"/> events.
     /// </summary>
     public class ShapeRemovedEventArgs : EventArgs
     {

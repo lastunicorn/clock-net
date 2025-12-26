@@ -34,8 +34,6 @@
             this.tableLayoutPanelBackgroundShapes = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonBackgroundUp = new System.Windows.Forms.Button();
-            this.buttonBackgroundDown = new System.Windows.Forms.Button();
             this.listBoxBackgrounds = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonAddBackground = new System.Windows.Forms.Button();
@@ -43,6 +41,8 @@
             this.listBoxBackgroundsAvailable = new System.Windows.Forms.ListBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.buttonMoveUp = new System.Windows.Forms.Button();
+            this.buttonMoveDown = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBoxBackgroundShapes.SuspendLayout();
             this.tableLayoutPanelBackgroundShapes.SuspendLayout();
@@ -137,8 +137,8 @@
             // 
             this.flowLayoutPanel4.AutoSize = true;
             this.flowLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel4.Controls.Add(this.buttonBackgroundUp);
-            this.flowLayoutPanel4.Controls.Add(this.buttonBackgroundDown);
+            this.flowLayoutPanel4.Controls.Add(this.buttonMoveUp);
+            this.flowLayoutPanel4.Controls.Add(this.buttonMoveDown);
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -146,31 +146,6 @@
             this.flowLayoutPanel4.Size = new System.Drawing.Size(30, 60);
             this.flowLayoutPanel4.TabIndex = 2;
             this.flowLayoutPanel4.WrapContents = false;
-            // 
-            // buttonBackgroundUp
-            // 
-            this.buttonBackgroundUp.BackgroundImage = global::DustInTheWind.ClockNet.Demo.Properties.Resources.arrow_up;
-            this.buttonBackgroundUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonBackgroundUp.Location = new System.Drawing.Point(0, 0);
-            this.buttonBackgroundUp.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonBackgroundUp.Name = "buttonBackgroundUp";
-            this.buttonBackgroundUp.Size = new System.Drawing.Size(30, 30);
-            this.buttonBackgroundUp.TabIndex = 0;
-            this.buttonBackgroundUp.UseVisualStyleBackColor = true;
-            this.buttonBackgroundUp.Click += new System.EventHandler(this.buttonBackgroundUp_Click);
-            // 
-            // buttonBackgroundDown
-            // 
-            this.buttonBackgroundDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBackgroundDown.BackgroundImage = global::DustInTheWind.ClockNet.Demo.Properties.Resources.arrow_down;
-            this.buttonBackgroundDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonBackgroundDown.Location = new System.Drawing.Point(0, 30);
-            this.buttonBackgroundDown.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonBackgroundDown.Name = "buttonBackgroundDown";
-            this.buttonBackgroundDown.Size = new System.Drawing.Size(30, 30);
-            this.buttonBackgroundDown.TabIndex = 1;
-            this.buttonBackgroundDown.UseVisualStyleBackColor = true;
-            this.buttonBackgroundDown.Click += new System.EventHandler(this.buttonBackgroundDown_Click);
             // 
             // listBoxBackgrounds
             // 
@@ -253,6 +228,31 @@
             this.label14.TabIndex = 10;
             this.label14.Text = "Available";
             // 
+            // buttonMoveUp
+            // 
+            this.buttonMoveUp.BackgroundImage = global::DustInTheWind.ClockNet.Demo.Properties.Resources.arrow_up;
+            this.buttonMoveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonMoveUp.Location = new System.Drawing.Point(0, 0);
+            this.buttonMoveUp.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonMoveUp.Name = "buttonMoveUp";
+            this.buttonMoveUp.Size = new System.Drawing.Size(30, 30);
+            this.buttonMoveUp.TabIndex = 0;
+            this.buttonMoveUp.UseVisualStyleBackColor = true;
+            this.buttonMoveUp.Click += new System.EventHandler(this.buttonMoveUp_Click);
+            // 
+            // buttonMoveDown
+            // 
+            this.buttonMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonMoveDown.BackgroundImage = global::DustInTheWind.ClockNet.Demo.Properties.Resources.arrow_down;
+            this.buttonMoveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonMoveDown.Location = new System.Drawing.Point(0, 30);
+            this.buttonMoveDown.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonMoveDown.Name = "buttonMoveDown";
+            this.buttonMoveDown.Size = new System.Drawing.Size(30, 30);
+            this.buttonMoveDown.TabIndex = 1;
+            this.buttonMoveDown.UseVisualStyleBackColor = true;
+            this.buttonMoveDown.Click += new System.EventHandler(this.buttonMoveDown_Click);
+            // 
             // BackgroundsEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,8 +281,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelBackgroundShapes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Button buttonBackgroundUp;
-        private System.Windows.Forms.Button buttonBackgroundDown;
+        private System.Windows.Forms.Button buttonMoveUp;
+        private System.Windows.Forms.Button buttonMoveDown;
         private System.Windows.Forms.ListBox listBoxBackgrounds;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button buttonAddBackground;

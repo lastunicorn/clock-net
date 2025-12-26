@@ -76,6 +76,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RimMarkersEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RimMarkersEditor.Designer.cs">
+      <DependentUpon>RimMarkersEditor.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BackgroundsEditor.resx">
       <DependentUpon>BackgroundsEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +97,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RimMarkersEditor.resx">
+      <DependentUpon>RimMarkersEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

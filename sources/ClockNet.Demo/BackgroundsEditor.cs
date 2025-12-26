@@ -107,7 +107,7 @@ namespace DustInTheWind.ClockNet.Demo
             }
         }
 
-        private void buttonBackgroundUp_Click(object sender, EventArgs e)
+        private void buttonMoveUp_Click(object sender, EventArgs e)
         {
             if (listBoxBackgrounds.SelectedIndex > 0)
             {
@@ -122,7 +122,7 @@ namespace DustInTheWind.ClockNet.Demo
             }
         }
 
-        private void buttonBackgroundDown_Click(object sender, EventArgs e)
+        private void buttonMoveDown_Click(object sender, EventArgs e)
         {
             if (listBoxBackgrounds.SelectedIndex >= 0 && listBoxBackgrounds.SelectedIndex < listBoxBackgrounds.Items.Count - 1)
             {

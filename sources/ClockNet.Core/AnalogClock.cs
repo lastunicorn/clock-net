@@ -122,62 +122,62 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Event AngularShapeAdded
+        #region Event RimMarkerAdded
 
         /// <summary>
         /// Event raised when a Shape is added to the <see cref="RimMarkers"/> collection.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when a Shape is added to the AngularShapes collection.")]
-        public event EventHandler<ShapeAddedEventArgs> AngularShapeAdded;
+        [Description("Event raised when a Shape is added to the RimMarkers collection.")]
+        public event EventHandler<ShapeAddedEventArgs> RimMarkerAdded;
 
         /// <summary>
-        /// Raises the <see cref="AngularShapeAdded"/> event.
+        /// Raises the <see cref="RimMarkerAdded"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnAngularShapeAdded(ShapeAddedEventArgs e)
+        protected virtual void OnRimMarkerAdded(ShapeAddedEventArgs e)
         {
-            AngularShapeAdded?.Invoke(this, e);
+            RimMarkerAdded?.Invoke(this, e);
         }
 
         #endregion
 
-        #region Event AngularShapeRemoved
+        #region Event RimMarkerRemoved
 
         /// <summary>
         /// Event raised when a Shape is removed from the <see cref="RimMarkers"/> collection.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when a Shape is removed from the AngularShapes collection.")]
-        public event EventHandler<ShapeRemovedEventArgs> AngularShapeRemoved;
+        [Description("Event raised when a Shape is removed from the RimMarkers collection.")]
+        public event EventHandler<ShapeRemovedEventArgs> RimMarkerRemoved;
 
         /// <summary>
-        /// Raises the <see cref="AngularShapeRemoved"/> event.
+        /// Raises the <see cref="RimMarkerRemoved"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnAngularShapeRemoved(ShapeRemovedEventArgs e)
+        protected virtual void OnRimMarkerRemoved(ShapeRemovedEventArgs e)
         {
-            AngularShapeRemoved?.Invoke(this, e);
+            RimMarkerRemoved?.Invoke(this, e);
         }
 
         #endregion
 
-        #region Event AngularShapeCleared
+        #region Event RimMarkersCleared
 
         /// <summary>
         /// Event raised when the AngularShapes collection is cleared.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when the AngularShapes collection is cleared (all the shapes are removed).")]
-        public event EventHandler AngularShapeCleared;
+        [Description("Event raised when the RimMarkers collection is cleared (all the shapes are removed).")]
+        public event EventHandler RimMarkersCleared;
 
         /// <summary>
-        /// Raises the <see cref="AngularShapeCleared"/> event.
+        /// Raises the <see cref="RimMarkersCleared"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnAngularShapeCleared(EventArgs e)
+        protected virtual void OnRimMarkersCleared(EventArgs e)
         {
-            AngularShapeCleared?.Invoke(this, e);
+            RimMarkersCleared?.Invoke(this, e);
         }
 
         #endregion
@@ -554,7 +554,7 @@ namespace DustInTheWind.ClockNet
 
         private void HandleAngularShapeAdded(object sender, ShapeAddedEventArgs e)
         {
-            OnAngularShapeAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
+            OnRimMarkerAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
 
             e.Shape.Changed += new EventHandler(HandleShapeChanged);
             Invalidate();
@@ -562,7 +562,7 @@ namespace DustInTheWind.ClockNet
 
         private void HandleAngularShapeRemoved(object sender, ShapeRemovedEventArgs e)
         {
-            OnAngularShapeRemoved(new ShapeRemovedEventArgs(e.Shape));
+            OnRimMarkerRemoved(new ShapeRemovedEventArgs(e.Shape));
 
             e.Shape.Changed -= new EventHandler(HandleShapeChanged);
             Invalidate();
@@ -570,7 +570,7 @@ namespace DustInTheWind.ClockNet
 
         private void HandleAngularShapeCleared(object sender, EventArgs e)
         {
-            OnAngularShapeCleared(EventArgs.Empty);
+            OnRimMarkersCleared(EventArgs.Empty);
             Invalidate();
         }
 
