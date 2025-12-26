@@ -1,0 +1,133 @@
+﻿// ClockNet
+// Copyright (C) 2010 Dust in the Wind
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System;
+using System.ComponentModel;
+using System.Drawing;
+
+namespace DustInTheWind.ClockNet.Shapes.Advanced
+{
+    /// <summary>
+    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the pin from the center of the dial.
+    /// </summary>
+    [Shape("da32532e-8aa5-4361-9235-5298d6657882")]
+    public class Pin : VectorialHandBase
+    {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
+        public const string DefaultName = "Pin";
+
+        /// <summary>
+        /// The default value of the diameter.
+        /// </summary>
+        public const float DefaultDiameter = 1.33f;
+
+        private float centerX;
+        private float centerY;
+
+        /// <summary>
+        /// The diameter of the pin.
+        /// </summary>
+        protected float diameter;
+
+        /// <summary>
+        /// Gets or sets the diameter of the pin.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [Category("Appearance")]
+        [DefaultValue(DefaultDiameter)]
+        [Description("The diameter of the pin.")]
+        public float Diameter
+        {
+            get => diameter;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("value", "The diameter can not be a negative value.");
+
+                diameter = value;
+                InvalidateLayout();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+
+        /// <summary>
+        /// Not used.
+        /// </summary>
+        [Browsable(false)]
+        public override float Length
+        {
+            get => base.Length;
+            set => base.Length = value;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Pin"/> class with
+        /// default values.
+        /// </summary>
+        public Pin()
+            : base(Color.Empty, Color.Black)
+        {
+            Name = DefaultName;
+            diameter = DefaultDiameter;
+        }
+
+        /// <summary>
+        /// Determines whether the object is eligible to be drawn based on its fill and outline color states.
+        /// </summary>
+        /// <remarks>Drawing is permitted only if at least one of the colors (fill or outline) is set.</remarks>
+        /// <returns>true if drawing is allowed; otherwise, false.</returns>
+        protected override bool AllowToDraw()
+        {
+            return base.AllowToDraw() && diameter > 0;
+        }
+
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
+        protected override void CalculateLayout()
+        {
+            centerX = -diameter / 2f;
+            centerY = -diameter / 2f;
+        }
+
+        /// <summary>
+        /// Internal method that draws the shape.
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
+        /// </remarks>
+        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
+        protected override void OnDraw(Graphics g)
+        {
+            if (!FillColor.IsEmpty)
+                g.FillEllipse(Brush, centerX, centerY, diameter, diameter);
+
+            if (!OutlineColor.IsEmpty)
+                g.DrawEllipse(Pen, centerX, centerY, diameter, diameter);
+        }
+
+        public override bool HitTest(PointF point)
+        {
+            return false;
+        }
+    }
+}

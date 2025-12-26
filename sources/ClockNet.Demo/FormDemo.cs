@@ -42,41 +42,41 @@ namespace DustInTheWind.ClockNet.Demo
             comboBoxTimeProviders.Items.Add(typeof(RandomTimeProvider));
 
             listBoxBackgroundShapeTypes.Items.AddRange(new Type[] {
-                typeof(LineGroundShape),
-                typeof(PolygonGroundShape),
-                typeof(RectangleGroundShape),
-                typeof(EllipseGroundShape),
-                typeof(PathGroundShape),
-                typeof(StringGroundShape),
-                typeof(ImageGroundShape),
-                typeof(DialShape),
-                typeof(FancyDialShape)
+                typeof(LineBackground),
+                typeof(PolygonBackground),
+                typeof(RectangleBackground),
+                typeof(EllipseBackground),
+                typeof(PathBackground),
+                typeof(StringBackground),
+                typeof(ImageBackground),
+                typeof(ClockBackground),
+                typeof(FancyBackground)
             });
 
             listBoxAngularShapeTypes.Items.AddRange(new Type[] {
-                typeof(LineAngularShape),
-                typeof(PolygonAngularShape),
-                typeof(RectangleAngularShape),
-                typeof(EllipseAngularShape),
-                typeof(PathAngularShape),
-                typeof(ImageAngularShape),
-                typeof(TicksShape)
+                typeof(LineRimMarker),
+                typeof(PolygonRimMarker),
+                typeof(RectangleRimMarker),
+                typeof(EllipseRimMarker),
+                typeof(PathRimMarker),
+                typeof(ImageRimMarker),
+                typeof(Ticks)
             });
 
             listBoxHandShapeTypes.Items.AddRange(new Type[] {
-                typeof(LineHandShape),
-                typeof(PolygonHandShape),
-                typeof(RectangleHandShape),
-                typeof(EllipseHandShape),
-                typeof(PathHandShape),
-                typeof(ImageHandShape),
-                typeof(DiamondHandShape),
-                typeof(DigitalHandShape),
-                typeof(PinShape),
-                typeof(DotHandShape),
-                typeof(FancySweepHandShape),
-                typeof(NibHandShape),
-                typeof(SlotHandShape)
+                typeof(LineHand),
+                typeof(PolygonHand),
+                typeof(RectangleHand),
+                typeof(EllipseHand),
+                typeof(PathHand),
+                typeof(ImageHand),
+                typeof(DiamondHand),
+                typeof(DigitalHand),
+                typeof(Pin),
+                typeof(DotHand),
+                typeof(FancySweepHand),
+                typeof(NibHand),
+                typeof(SlotHand)
             });
 
             comboBoxClockTemplates.Items.Add(typeof(DefaultClockTemplate));
@@ -120,19 +120,19 @@ namespace DustInTheWind.ClockNet.Demo
             checkBoxKeepProportions.Checked = analogClockDemo.KeepProportions;
 
             // Background Shapes
-            foreach (IGroundShape shape in analogClockDemo.BackgroundShapes)
+            foreach (IBackground shape in analogClockDemo.BackgroundShapes)
             {
                 listBoxBackgroundShapes.Items.Add(shape);
             }
 
             // Angular Shapes
-            foreach (IAngularShape shape in analogClockDemo.AngularShapes)
+            foreach (IRimMarker shape in analogClockDemo.AngularShapes)
             {
                 listBoxAngularShapes.Items.Add(shape);
             }
 
             // Hand Shapes
-            foreach (IHandShape shape in analogClockDemo.HandShapes)
+            foreach (IHand shape in analogClockDemo.HandShapes)
             {
                 listBoxHandShapes.Items.Add(shape);
             }
@@ -282,7 +282,7 @@ namespace DustInTheWind.ClockNet.Demo
                 Type t = (Type)listBoxBackgroundShapeTypes.SelectedItem;
 
                 ConstructorInfo ctor = t.GetConstructor(new Type[0]);
-                IGroundShape shape = (IGroundShape)ctor.Invoke(null);
+                IBackground shape = (IBackground)ctor.Invoke(null);
                 analogClockDemo.BackgroundShapes.Add(shape);
             }
         }
@@ -291,7 +291,7 @@ namespace DustInTheWind.ClockNet.Demo
         {
             if (listBoxBackgroundShapes.SelectedItem != null)
             {
-                analogClockDemo.BackgroundShapes.Remove(listBoxBackgroundShapes.SelectedItem as IGroundShape);
+                analogClockDemo.BackgroundShapes.Remove(listBoxBackgroundShapes.SelectedItem as IBackground);
             }
         }
 
@@ -300,7 +300,7 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxBackgroundShapes.SelectedIndex > 0)
             {
                 int index = listBoxBackgroundShapes.SelectedIndex;
-                IGroundShape shape = listBoxBackgroundShapes.SelectedItem as IGroundShape;
+                IBackground shape = listBoxBackgroundShapes.SelectedItem as IBackground;
                 if (shape != null)
                 {
                     analogClockDemo.BackgroundShapes.RemoveAt(index);
@@ -315,7 +315,7 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxBackgroundShapes.SelectedIndex >= 0 && listBoxBackgroundShapes.SelectedIndex < listBoxBackgroundShapes.Items.Count - 1)
             {
                 int index = listBoxBackgroundShapes.SelectedIndex;
-                IGroundShape shape = listBoxBackgroundShapes.SelectedItem as IGroundShape;
+                IBackground shape = listBoxBackgroundShapes.SelectedItem as IBackground;
                 if (shape != null)
                 {
                     analogClockDemo.BackgroundShapes.RemoveAt(index);
@@ -341,7 +341,7 @@ namespace DustInTheWind.ClockNet.Demo
                 Type t = (Type)listBoxAngularShapeTypes.SelectedItem;
 
                 ConstructorInfo ctor = t.GetConstructor(new Type[0]);
-                IAngularShape shape = (IAngularShape)ctor.Invoke(null);
+                IRimMarker shape = (IRimMarker)ctor.Invoke(null);
                 analogClockDemo.AngularShapes.Add(shape);
             }
         }
@@ -350,7 +350,7 @@ namespace DustInTheWind.ClockNet.Demo
         {
             if (listBoxAngularShapes.SelectedItem != null)
             {
-                analogClockDemo.AngularShapes.Remove(listBoxAngularShapes.SelectedItem as IAngularShape);
+                analogClockDemo.AngularShapes.Remove(listBoxAngularShapes.SelectedItem as IRimMarker);
             }
         }
 
@@ -359,7 +359,7 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxAngularShapes.SelectedIndex > 0)
             {
                 int index = listBoxAngularShapes.SelectedIndex;
-                IAngularShape shape = listBoxAngularShapes.SelectedItem as IAngularShape;
+                IRimMarker shape = listBoxAngularShapes.SelectedItem as IRimMarker;
                 if (shape != null)
                 {
                     analogClockDemo.AngularShapes.RemoveAt(index);
@@ -374,7 +374,7 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxAngularShapes.SelectedIndex >= 0 && listBoxAngularShapes.SelectedIndex < listBoxAngularShapes.Items.Count - 1)
             {
                 int index = listBoxAngularShapes.SelectedIndex;
-                IAngularShape shape = listBoxAngularShapes.SelectedItem as IAngularShape;
+                IRimMarker shape = listBoxAngularShapes.SelectedItem as IRimMarker;
                 if (shape != null)
                 {
                     analogClockDemo.AngularShapes.RemoveAt(index);
@@ -400,7 +400,7 @@ namespace DustInTheWind.ClockNet.Demo
                 Type t = (Type)listBoxHandShapeTypes.SelectedItem;
 
                 ConstructorInfo ctor = t.GetConstructor(new Type[0]);
-                IHandShape shape = (IHandShape)ctor.Invoke(null);
+                IHand shape = (IHand)ctor.Invoke(null);
                 analogClockDemo.HandShapes.Add(shape);
             }
         }
@@ -409,7 +409,7 @@ namespace DustInTheWind.ClockNet.Demo
         {
             if (listBoxHandShapes.SelectedItem != null)
             {
-                analogClockDemo.HandShapes.Remove(listBoxHandShapes.SelectedItem as IHandShape);
+                analogClockDemo.HandShapes.Remove(listBoxHandShapes.SelectedItem as IHand);
             }
         }
 
@@ -418,7 +418,7 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxHandShapes.SelectedIndex > 0)
             {
                 int index = listBoxHandShapes.SelectedIndex;
-                IHandShape shape = listBoxHandShapes.SelectedItem as IHandShape;
+                IHand shape = listBoxHandShapes.SelectedItem as IHand;
                 if (shape != null)
                 {
                     analogClockDemo.HandShapes.RemoveAt(index);
@@ -433,7 +433,7 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxHandShapes.SelectedIndex >= 0 && listBoxHandShapes.SelectedIndex < listBoxHandShapes.Items.Count - 1)
             {
                 int index = listBoxHandShapes.SelectedIndex;
-                IHandShape shape = listBoxHandShapes.SelectedItem as IHandShape;
+                IHand shape = listBoxHandShapes.SelectedItem as IHand;
                 if (shape != null)
                 {
                     analogClockDemo.HandShapes.RemoveAt(index);

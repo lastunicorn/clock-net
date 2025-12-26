@@ -147,19 +147,19 @@ namespace DustInTheWind.ClockNet
             XmlNode backgroundNode = doc.SelectSingleNode("/ClockTemplate/BackgroundShapes");
             if (backgroundNode != null)
             {
-                template.BackgroundShapes = ReadShapes<IGroundShape>(backgroundNode);
+                template.BackgroundShapes = ReadShapes<IBackground>(backgroundNode);
             }
 
             XmlNode angularNode = doc.SelectSingleNode("/ClockTemplate/AngularShapes");
             if (angularNode != null)
             {
-                template.AngularShapes = ReadShapes<IAngularShape>(angularNode);
+                template.AngularShapes = ReadShapes<IRimMarker>(angularNode);
             }
 
             XmlNode handNode = doc.SelectSingleNode("/ClockTemplate/HandShapes");
             if (handNode != null)
             {
-                template.HandShapes = ReadShapes<IHandShape>(handNode);
+                template.HandShapes = ReadShapes<IHand>(handNode);
             }
 
             return template;

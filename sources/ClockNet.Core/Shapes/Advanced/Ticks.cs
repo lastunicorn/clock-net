@@ -1,0 +1,82 @@
+﻿// ClockNet
+// Copyright (C) 2010 Dust in the Wind
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using DustInTheWind.ClockNet.Shapes.Basic;
+
+namespace DustInTheWind.ClockNet.Shapes.Advanced
+{
+    /// <summary>
+    /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the ticks that mark the seconds.
+    /// </summary>
+    [Shape("2350ba42-86a9-4562-a392-e3c66c973bed")]
+    public class Ticks : LineRimMarker
+    {
+        /// <summary>
+        /// The default name for the Shape.
+        /// </summary>
+        public new const string DefaultName = "Ticks";
+
+        /// <summary>
+        /// The default value of the length.
+        /// </summary>
+        public const float DefaultLength = 2.5f;
+
+        private float length = DefaultLength;
+
+        /// <summary>
+        /// Gets or sets the length of the ticks. This value is given for a clock with diameter of 100px.
+        /// </summary>
+        [Category("Appearance")]
+        [DefaultValue(DefaultLength)]
+        [Description("The length of the ticks. This value is given for a clock with diameter of 100px.")]
+        public virtual float Length
+        {
+            get => length;
+            set
+            {
+                length = value;
+                InvalidateLayout();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Ticks"/> class with
+        /// default values.
+        /// </summary>
+        public Ticks()
+        {
+            Name = DefaultName;
+            OutlineColor = Color.Black;
+            OutlineWidth = DefaultOutlineWidth;
+            DistanceFromEdge = DefaultDistanceFromEdge;
+        }
+
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
+        protected override void CalculateLayout()
+        {
+            StartPoint = new PointF(0, 0);
+            EndPoint = new PointF(0, length);
+        }
+    }
+}

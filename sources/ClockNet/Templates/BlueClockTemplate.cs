@@ -47,14 +47,14 @@ namespace DustInTheWind.ClockNet.Templates
             HandShapes = EnumerateHandShapes().ToArray();
         }
 
-        private static IEnumerable<IGroundShape> EnumerateBackgroundShapes()
+        private static IEnumerable<IBackground> EnumerateBackgroundShapes()
         {
-            yield return new DialShape
+            yield return new ClockBackground
             {
                 FillColor = Color.LightBlue
             };
 
-            yield return new StringGroundShape
+            yield return new StringBackground
             {
                 Location = new PointF(0, 15),
                 Font = new Font("Arial", 2.5f, FontStyle.Regular, GraphicsUnit.Point),
@@ -63,13 +63,13 @@ namespace DustInTheWind.ClockNet.Templates
             };
         }
 
-        private static IEnumerable<IAngularShape> EnumerateAngularShapes()
+        private static IEnumerable<IRimMarker> EnumerateAngularShapes()
         {
             // Ticks for minutes
-            yield return new TicksShape
+            yield return new Ticks
             {
                 OutlineColor = Color.RoyalBlue,
-                LineWidth = 0.75f,
+                OutlineWidth = 0.75f,
                 DistanceFromEdge = 5f,
                 Length = 7.5f,
                 Angle = 6f,
@@ -77,30 +77,30 @@ namespace DustInTheWind.ClockNet.Templates
             };
 
             // Ticks for hours
-            yield return new TicksShape
+            yield return new Ticks
             {
                 OutlineColor = Color.Navy,
-                LineWidth = 5f,
+                OutlineWidth = 5f,
                 DistanceFromEdge = 5f,
                 Length = 5f,
                 Angle = 30f
             };
 
             // Hour numbers
-            yield return new StringAngularShape
+            yield return new StringRimMarker
             {
                 FillColor = Color.Navy,
                 Angle = 30f,
                 DistanceFromEdge = 20f,
-                Orientation = AngularOrientation.Normal,
+                Orientation = RimMarkerOrientation.Normal,
                 Repeat = true
             };
         }
 
-        private static IEnumerable<IHandShape> EnumerateHandShapes()
+        private static IEnumerable<IHand> EnumerateHandShapes()
         {
             // Hour hand
-            yield return new DiamondHandShape
+            yield return new DiamondHand
             {
                 FillColor = Color.Navy,
                 Length = 24f,
@@ -110,7 +110,7 @@ namespace DustInTheWind.ClockNet.Templates
             };
 
             // Minute hand
-            yield return new DiamondHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f)
+            yield return new DiamondHand(Color.Empty, Color.LimeGreen, 37f, 4f, 4f)
             {
                 FillColor = Color.RoyalBlue,
                 Length = 37f,
@@ -120,14 +120,14 @@ namespace DustInTheWind.ClockNet.Templates
             };
 
             // Second hand
-            yield return new LineHandShape
+            yield return new LineHand
             {
                 OutlineColor = Color.DeepSkyBlue,
                 ComponentToDisplay = TimeComponent.Second
             };
 
             // Center pin
-            yield return new PinShape
+            yield return new Pin
             {
                 FillColor = Color.Navy
             };

@@ -25,29 +25,29 @@ namespace DustInTheWind.ClockNet.Templates
             HandShapes = EnumerateHandShapes().ToArray();
         }
 
-        private static IEnumerable<IGroundShape> EnumerateBackgroundShapes()
+        private static IEnumerable<IBackground> EnumerateBackgroundShapes()
         {
-            yield return new DialShape
+            yield return new ClockBackground
             {
                 FillColor = Color.Black
             };
 
-            yield return new DialShape
+            yield return new ClockBackground
             {
                 FillColor = Color.White,
                 Radius = 48f
             };
         }
 
-        private static IEnumerable<IAngularShape> EnumerateAngularShapes()
+        private static IEnumerable<IRimMarker> EnumerateAngularShapes()
         {
-            return Enumerable.Empty<IAngularShape>();
+            return Enumerable.Empty<IRimMarker>();
         }
 
-        private static IEnumerable<IHandShape> EnumerateHandShapes()
+        private static IEnumerable<IHand> EnumerateHandShapes()
         {
             // Hour hand
-            yield return new DotHandShape
+            yield return new DotHand
             {
                 FillColor = Color.Black,
                 Length = 20f,
@@ -56,7 +56,7 @@ namespace DustInTheWind.ClockNet.Templates
             };
 
             // Minute hand
-            yield return new DotHandShape
+            yield return new DotHand
             {
                 FillColor = Color.Black,
                 Length = 38f,
@@ -65,7 +65,7 @@ namespace DustInTheWind.ClockNet.Templates
             };
 
             // Center pin
-            yield return new PinShape
+            yield return new Pin
             {
                 FillColor = Color.Black,
                 Diameter = 2f

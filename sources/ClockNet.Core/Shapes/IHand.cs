@@ -15,38 +15,30 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.ComponentModel;
 using System.Drawing;
 
 namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
-    /// Represents a graphic element displayed in the <see cref="AnalogClock"/>.
+    /// Represents a clock hand that is drawn on the clock in the <see cref="AnalogClock"/> control.
     /// </summary>
-    [TypeConverter(typeof(ShapeConverter))]
-    public interface IShape : IDisposable
+    public interface IHand : IShape
     {
         /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the
-        /// way the shape is rendered.
+        /// Gets or sets the length of the hand from the pin to the tip.
         /// </summary>
-        /// <exception cref="ArgumentNullException"></exception>
-        string Name { get; set; }
+        float Length { get; set; }
 
         /// <summary>
-        /// Gets or sets a value specifying if the shape should be drawn or not.
+        /// Gets or sets the time that the current instance is representing.
         /// </summary>
-        bool Visible { get; set; }
+        TimeSpan Time { get; set; }
 
         /// <summary>
-        /// Event raised when the shape's parameters are changed and it should be rerendered.
+        /// Tests if the specified coordinates from the client display area represent a point contained by the hand.
         /// </summary>
-        event EventHandler Changed;
-
-        /// <summary>
-        /// Draws the shape using the provided <see cref="Graphics"/> object.
-        /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        void Draw(Graphics g);
+        /// <param name="point">The point to be verified.</param>
+        /// <returns><c>true</c> if the specified point is contained by the hand; <c>false </c> otherwise.</returns>
+        bool HitTest(PointF point);
     }
 }

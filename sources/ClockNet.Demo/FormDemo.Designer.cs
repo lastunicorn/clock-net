@@ -45,17 +45,17 @@ namespace DustInTheWind.ClockNet.Demo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DustInTheWind.ClockNet.Shapes.Advanced.TicksShape ticksShape1 = new DustInTheWind.ClockNet.Shapes.Advanced.TicksShape();
-            DustInTheWind.ClockNet.Shapes.Advanced.TicksShape ticksShape2 = new DustInTheWind.ClockNet.Shapes.Advanced.TicksShape();
-            DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape stringAngularShape1 = new DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape();
-            DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape stringAngularShape2 = new DustInTheWind.ClockNet.Shapes.Basic.StringAngularShape();
-            DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape fancyDialShape1 = new DustInTheWind.ClockNet.Shapes.Advanced.FancyDialShape();
-            DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape stringGroundShape1 = new DustInTheWind.ClockNet.Shapes.Basic.StringGroundShape();
+            DustInTheWind.ClockNet.Shapes.Advanced.Ticks ticksShape1 = new DustInTheWind.ClockNet.Shapes.Advanced.Ticks();
+            DustInTheWind.ClockNet.Shapes.Advanced.Ticks ticksShape2 = new DustInTheWind.ClockNet.Shapes.Advanced.Ticks();
+            DustInTheWind.ClockNet.Shapes.Basic.StringRimMarker stringAngularShape1 = new DustInTheWind.ClockNet.Shapes.Basic.StringRimMarker();
+            DustInTheWind.ClockNet.Shapes.Basic.StringRimMarker stringAngularShape2 = new DustInTheWind.ClockNet.Shapes.Basic.StringRimMarker();
+            DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground fancyDialShape1 = new DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground();
+            DustInTheWind.ClockNet.Shapes.Basic.StringBackground stringGroundShape1 = new DustInTheWind.ClockNet.Shapes.Basic.StringBackground();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDemo));
-            DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape diamondHandShape1 = new DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape();
-            DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape diamondHandShape2 = new DustInTheWind.ClockNet.Shapes.Advanced.DiamondHandShape();
-            DustInTheWind.ClockNet.Shapes.Basic.LineHandShape lineHandShape1 = new DustInTheWind.ClockNet.Shapes.Basic.LineHandShape();
-            DustInTheWind.ClockNet.Shapes.Advanced.PinShape pinShape1 = new DustInTheWind.ClockNet.Shapes.Advanced.PinShape();
+            DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand diamondHandShape1 = new DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand();
+            DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand diamondHandShape2 = new DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand();
+            DustInTheWind.ClockNet.Shapes.Basic.LineHand lineHandShape1 = new DustInTheWind.ClockNet.Shapes.Basic.LineHand();
+            DustInTheWind.ClockNet.Shapes.Advanced.Pin pinShape1 = new DustInTheWind.ClockNet.Shapes.Advanced.Pin();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBoxTextFont = new System.Windows.Forms.TextBox();
             this.checkBoxKeepProportions = new System.Windows.Forms.CheckBox();
@@ -1310,7 +1310,7 @@ namespace DustInTheWind.ClockNet.Demo
             ticksShape2.DistanceFromEdge = 7F;
             ticksShape2.FillColor = System.Drawing.Color.Empty;
             ticksShape2.Index = 13;
-            ticksShape2.LineWidth = 1F;
+            ticksShape2.OutlineWidth = 1F;
             ticksShape2.Name = "Hour Ticks";
             ticksShape2.OutlineColor = System.Drawing.Color.White;
             stringAngularShape1.Angle = 30F;
@@ -1319,7 +1319,7 @@ namespace DustInTheWind.ClockNet.Demo
             stringAngularShape1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic);
             stringAngularShape1.Index = 13;
             stringAngularShape1.Name = "Hours";
-            stringAngularShape1.Orientation = DustInTheWind.ClockNet.Shapes.AngularOrientation.Normal;
+            stringAngularShape1.Orientation = DustInTheWind.ClockNet.Shapes.RimMarkerOrientation.Normal;
             stringAngularShape1.OutlineColor = System.Drawing.Color.Empty;
             stringAngularShape1.Texts = new string[] {
         "1",

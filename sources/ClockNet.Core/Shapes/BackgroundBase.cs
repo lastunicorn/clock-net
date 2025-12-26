@@ -14,29 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
-using DustInTheWind.ClockNet.Shapes;
-
-namespace DustInTheWind.ClockNet
+namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
-    /// Keeps a collection of Shapes that can be applied to the <see cref="AnalogClock"/> all at once.
+    /// The base implementation of the <see cref="IBackground"/> interface.
+    /// Provides common functionality for all the Background Shapes.
     /// </summary>
-    public class ClockTemplate
+    public abstract class BackgroundBase : ShapeBase, IBackground
     {
         /// <summary>
-        /// Gets or sets the array of Shapes that are drawn on the background of the clock.
+        /// Initializes a new instance of the <see cref="BackgroundBase"/> class with
+        /// default values.
         /// </summary>
-        public IBackground[] BackgroundShapes { get; set; }
-
-        /// <summary>
-        /// Gets or sets the array of Shapes that are drawn repetitively around the clock.
-        /// </summary>
-        public IRimMarker[] AngularShapes { get; set; }
-
-        /// <summary>
-        /// Gets or sets the array of Shapes that represents hands on the clock.
-        /// </summary>
-        public IHand[] HandShapes { get; set; }
+        public BackgroundBase()
+            : base()
+        {
+        }
     }
 }

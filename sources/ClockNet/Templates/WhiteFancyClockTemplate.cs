@@ -45,31 +45,31 @@ namespace DustInTheWind.ClockNet.Templates
             HandShapes = EnumerateHandShapes().ToArray();
         }
 
-        private static IEnumerable<IGroundShape> EnumerateBackgroundShapes()
+        private static IEnumerable<IBackground> EnumerateBackgroundShapes()
         {
-            yield return new DialShape
+            yield return new ClockBackground
             {
                 FillColor = Color.Black
             };
         }
 
-        private static IEnumerable<IAngularShape> EnumerateAngularShapes()
+        private static IEnumerable<IRimMarker> EnumerateAngularShapes()
         {
             // Hour numbers
-            yield return new StringAngularShape
+            yield return new StringRimMarker
             {
                 FillColor = Color.White,
                 Font = new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point),
                 DistanceFromEdge = 23f,
                 Angle = 30f,
-                Orientation = AngularOrientation.Normal
+                Orientation = RimMarkerOrientation.Normal
             };
         }
 
-        private static IEnumerable<IHandShape> EnumerateHandShapes()
+        private static IEnumerable<IHand> EnumerateHandShapes()
         {
             // Hour hand - Slot style
-            yield return new SlotHandShape
+            yield return new SlotHand
             {
                 FillColor = Color.White,
                 Radius = 49f,
@@ -79,27 +79,27 @@ namespace DustInTheWind.ClockNet.Templates
             };
 
             // Minute hand - Line style
-            yield return new LineHandShape
+            yield return new LineHand
             {
                 OutlineColor = Color.Black,
                 Length = 45f,
-                LineWidth = 3f,
+                OutlineWidth = 3f,
                 TailLength = 0f,
                 ComponentToDisplay = TimeComponent.Minute
             };
 
             // Second hand - Line style
-            yield return new LineHandShape
+            yield return new LineHand
             {
                 OutlineColor = Color.Black,
                 Length = 45f,
-                LineWidth = 1f,
+                OutlineWidth = 1f,
                 TailLength = 15f,
                 ComponentToDisplay = TimeComponent.Second
             };
 
             // Center pin
-            yield return new PinShape
+            yield return new Pin
             {
                 FillColor = Color.Black,
                 Diameter = 9f

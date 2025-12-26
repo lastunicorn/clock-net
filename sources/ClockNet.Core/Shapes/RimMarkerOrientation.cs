@@ -14,29 +14,26 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
-using DustInTheWind.ClockNet.Shapes;
-
-namespace DustInTheWind.ClockNet
+namespace DustInTheWind.ClockNet.Shapes
 {
     /// <summary>
-    /// Keeps a collection of Shapes that can be applied to the <see cref="AnalogClock"/> all at once.
+    /// Specifies the orientation of the numbers that marks the hours.
     /// </summary>
-    public class ClockTemplate
+    public enum RimMarkerOrientation
     {
         /// <summary>
-        /// Gets or sets the array of Shapes that are drawn on the background of the clock.
+        /// The numbers are displayed as normal text, oriented up-down.
         /// </summary>
-        public IBackground[] BackgroundShapes { get; set; }
+        Normal,
 
         /// <summary>
-        /// Gets or sets the array of Shapes that are drawn repetitively around the clock.
+        /// The numbers are displayed oriented to the center of the clock.
         /// </summary>
-        public IRimMarker[] AngularShapes { get; set; }
+        FaceCenter,
 
         /// <summary>
-        /// Gets or sets the array of Shapes that represents hands on the clock.
+        /// The numbers are displayed oriented to the outside of the clock.
         /// </summary>
-        public IHand[] HandShapes { get; set; }
+        FaceOut
     }
 }

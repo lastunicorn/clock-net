@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DustInTheWind.ClockNet.Shapes.ShapeBase" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAASAAAgAABABBABYAABBEAAAMAAAACAACAAg=</HashCode>
+      <FileName>Shapes\ShapeBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.VectorialRimMarkerBase" Collapsed="true">
+    <Position X="10.75" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAEAQAgAiEACAIAAAgAAAICAAAAAgAACAAAAAgAAEA=</HashCode>
+      <FileName>Shapes\VectorialRimMarkerBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.VectorialHandBase" Collapsed="true">
+    <Position X="20" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAEAQAgAiEACAIAAAgAAAICAABAAgAACAAAAAgAAEA=</HashCode>
+      <FileName>Shapes\VectorialHandBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.HandBase" Collapsed="true">
+    <Position X="20.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAABAAAIBAEAAARBAAQAAAAAgAAAAAAAIAQA=</HashCode>
+      <FileName>Shapes\HandBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground" Collapsed="true">
+    <Position X="1.25" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAACAAAAAAAAAjAIAAAABAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\ClockBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand" Collapsed="true">
+    <Position X="24.25" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAQAAAAEAAADBAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\DiamondHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand" Collapsed="true">
+    <Position X="18.5" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACBgAABAAAJACAAQAAhAAAAABAAAAAgCAEA=</HashCode>
+      <FileName>Shapes\Advanced\DigitalHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.DotHand" Collapsed="true">
+    <Position X="18.5" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAACABAAAAAAATAAAAAABBAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\DotHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground" Collapsed="true">
+    <Position X="1.25" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAISgACAEgABAAAhAUAIAEBBBAACAAIAAgAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\FancyBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand" Collapsed="true">
+    <Position X="23.75" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAEAEAAAAAAAAAEABAHBAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\FancySweepHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.NibHand" Collapsed="true">
+    <Position X="21.5" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAQABAAEAAABQAQAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\NibHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.Pin" Collapsed="true">
+    <Position X="18.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAABAABhAABBAAAEAAIABQAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\Pin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.SlotHand" Collapsed="true">
+    <Position X="19.25" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAACEAAAAAAQACAAEAAADBAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\SlotHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.Ticks" Collapsed="true">
+    <Position X="15" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEEAAABAABAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\Ticks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.EllipseHand" Collapsed="true">
+    <Position X="21.5" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAABAACAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\EllipseHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.EllipseBackground" Collapsed="true">
+    <Position X="4.25" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAACAAABBgAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\EllipseBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.EllipseRimMarker" Collapsed="true">
+    <Position X="12.25" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAACAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\EllipseRimMarker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.ImageRimMarker" Collapsed="true">
+    <Position X="8.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAJAAAACEABAABAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\ImageRimMarker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.ImageHand" Collapsed="true">
+    <Position X="17.75" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAABAAAAAAABAAAAAEABAABAAAIAAAAgAAAA=</HashCode>
+      <FileName>Shapes\Basic\ImageHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.LineBackground" Collapsed="true">
+    <Position X="4.25" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAEBAAAAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\LineBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.LineHand" Collapsed="true">
+    <Position X="21.5" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAABAAAAAAEBAAEAAADBAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\LineHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.PathBackground" Collapsed="true">
+    <Position X="4.25" Y="11.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAABCAAAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\PathBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.PathRimMarker" Collapsed="true">
+    <Position X="12.25" Y="11.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAABCAAAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\PathRimMarker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.PathHand" Collapsed="true">
+    <Position X="21.5" Y="11.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBAAAAAAABCAAAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\PathHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.PolygonBackground" Collapsed="true">
+    <Position X="4.25" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAABAAAAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\PolygonBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.PolygonRimMarker" Collapsed="true">
+    <Position X="12.25" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAABAAAAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\PolygonRimMarker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.PolygonHand" Collapsed="true">
+    <Position X="21.5" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAABAAAAAAABAAAAAAAAAAAAAAIAIAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\PolygonHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.RectangleBackground" Collapsed="true">
+    <Position X="4.25" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQBAACAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\RectangleBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.RectangleHand" Collapsed="true">
+    <Position X="21.5" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAQBAACAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\RectangleHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.RectangleRimMarker" Collapsed="true">
+    <Position X="12.25" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQBAACAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\RectangleRimMarker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.StringRimMarker" Collapsed="true">
+    <Position X="12.25" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAIAABAAACAIAAAAAEJAAAAAAABAAAAAAIAAAAACAAA=</HashCode>
+      <FileName>Shapes\Basic\StringRimMarker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.StringBackground" Collapsed="true">
+    <Position X="4.25" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAIACAIAAAAAQJiAABCAABAAAAIAIAAGAACABA=</HashCode>
+      <FileName>Shapes\Basic\StringBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.BackgroundBase" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shapes\BackgroundBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.ImageBackground" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAJAAAACEABAABAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Basic\ImageBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.VectorialBackgroundBase" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAEAQAgAiEACAIAAAgAAAICAAAAAgAACAAAAAgAAEA=</HashCode>
+      <FileName>Shapes\VectorialBackgroundBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.RimMarkerBase" Collapsed="true">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAIIQAgJCAEAAAgABAAGAAAAhAAAEMgAABDAAg=</HashCode>
+      <FileName>Shapes\RimMarkerBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Basic.LineRimMarker" Collapsed="true">
+    <Position X="12.25" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAABAAAAAAABAAAAAAIAAAAgAAAg=</HashCode>
+      <FileName>Shapes\Basic\LineRimMarker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

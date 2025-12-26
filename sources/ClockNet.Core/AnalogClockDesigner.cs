@@ -57,13 +57,13 @@ namespace DustInTheWind.ClockNet
 
             PropertyDescriptor backgroundShapeDescriptor = TypeDescriptor.GetProperties(Component)["BackgroundShapes"];
 
-            if (backgroundShapeDescriptor != null && backgroundShapeDescriptor.PropertyType == typeof(Collection<IGroundShape>) && backgroundShapeDescriptor.IsBrowsable)
+            if (backgroundShapeDescriptor != null && backgroundShapeDescriptor.PropertyType == typeof(Collection<IBackground>) && backgroundShapeDescriptor.IsBrowsable)
             {
-                Collection<IGroundShape> backgroundShapes = backgroundShapeDescriptor.GetValue(Component) as Collection<IGroundShape>;
+                Collection<IBackground> backgroundShapes = backgroundShapeDescriptor.GetValue(Component) as Collection<IBackground>;
 
                 if (backgroundShapes != null)
                 {
-                    StringGroundShape textShape = new StringGroundShape("Dust in the Wind", Color.Black);
+                    StringBackground textShape = new StringBackground("Dust in the Wind", Color.Black);
                     textShape.Location = new PointF(0f, 20f);
                     backgroundShapes.Add(textShape);
                 }
@@ -72,67 +72,67 @@ namespace DustInTheWind.ClockNet
 
             PropertyDescriptor angularShapeDescriptor = TypeDescriptor.GetProperties(Component)["AngularShapes"];
 
-            if (angularShapeDescriptor != null && angularShapeDescriptor.PropertyType == typeof(Collection<IAngularShape>) && angularShapeDescriptor.IsBrowsable)
+            if (angularShapeDescriptor != null && angularShapeDescriptor.PropertyType == typeof(Collection<IRimMarker>) && angularShapeDescriptor.IsBrowsable)
             {
-                Collection<IAngularShape> angularShapes = angularShapeDescriptor.GetValue(Component) as Collection<IAngularShape>;
+                Collection<IRimMarker> angularShapes = angularShapeDescriptor.GetValue(Component) as Collection<IRimMarker>;
 
                 if (angularShapes != null)
                 {
-                    TicksShape ticks1Shape = new TicksShape();
+                    Ticks ticks1Shape = new Ticks();
                     ticks1Shape.OutlineColor = Color.Black;
-                    ticks1Shape.Length = TicksShape.DefaultLength;
-                    ticks1Shape.LineWidth = TicksShape.DefaultLineWidth;
+                    ticks1Shape.Length = Ticks.DefaultLength;
+                    ticks1Shape.OutlineWidth = Ticks.DefaultOutlineWidth;
                     ticks1Shape.DistanceFromEdge = 0f;
                     ticks1Shape.Name = "Second Ticks";
                     ticks1Shape.Angle = 6f;
                     ticks1Shape.SkipIndex = 5;
                     angularShapes.Add(ticks1Shape);
 
-                    TicksShape ticks5Shape = new TicksShape();
+                    Ticks ticks5Shape = new Ticks();
                     ticks1Shape.OutlineColor = Color.Black;
-                    ticks1Shape.Length = TicksShape.DefaultLength;
-                    ticks1Shape.LineWidth = 1f;
+                    ticks1Shape.Length = Ticks.DefaultLength;
+                    ticks1Shape.OutlineWidth = 1f;
                     ticks1Shape.DistanceFromEdge = 0f;
                     ticks5Shape.Name = "Hour Ticks";
                     ticks5Shape.Angle = 30f;
                     ticks5Shape.Length = 5f;
                     angularShapes.Add(ticks5Shape);
 
-                    StringAngularShape numbersShape = new StringAngularShape(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 13f);
+                    StringRimMarker numbersShape = new StringRimMarker(Color.Black, new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point), 13f);
                     numbersShape.Name = "Hours";
                     numbersShape.Angle = 30f;
-                    numbersShape.Orientation = AngularOrientation.Normal;
+                    numbersShape.Orientation = RimMarkerOrientation.Normal;
                     angularShapes.Add(numbersShape);
                 }
             }
 
             PropertyDescriptor handShapeDescriptor = TypeDescriptor.GetProperties(Component)["HandShapes"];
 
-            if (handShapeDescriptor != null && handShapeDescriptor.PropertyType == typeof(Collection<IHandShape>) && handShapeDescriptor.IsBrowsable)
+            if (handShapeDescriptor != null && handShapeDescriptor.PropertyType == typeof(Collection<IHand>) && handShapeDescriptor.IsBrowsable)
             {
-                Collection<IHandShape> handShapes = handShapeDescriptor.GetValue(Component) as Collection<IHandShape>;
+                Collection<IHand> handShapes = handShapeDescriptor.GetValue(Component) as Collection<IHand>;
 
                 if (handShapes != null)
                 {
-                    DiamondHandShape hourHandShape = new DiamondHandShape(Color.Empty, Color.RoyalBlue, 24f, 5f, 6f);
+                    DiamondHand hourHandShape = new DiamondHand(Color.Empty, Color.RoyalBlue, 24f, 5f, 6f);
                     hourHandShape.Name = "Hour Hand Shape";
                     hourHandShape.ComponentToDisplay = TimeComponent.Hour;
                     handShapes.Add(hourHandShape);
 
-                    DiamondHandShape minuteHandShape = new DiamondHandShape(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
+                    DiamondHand minuteHandShape = new DiamondHand(Color.Empty, Color.LimeGreen, 37f, 4f, 4f);
                     minuteHandShape.Name = "Minute Hand Shape";
                     minuteHandShape.ComponentToDisplay = TimeComponent.Minute;
                     handShapes.Add(minuteHandShape);
 
-                    LineHandShape sweepHandShape = new LineHandShape(Color.Red);
+                    LineHand sweepHandShape = new LineHand(Color.Red);
                     sweepHandShape.Name = "Second Hand Shape";
                     sweepHandShape.ComponentToDisplay = TimeComponent.Second;
                     sweepHandShape.Length = 42.5f;
                     handShapes.Add(sweepHandShape);
 
-                    PinShape pinShape = new PinShape();
+                    Pin pinShape = new Pin();
                     pinShape.FillColor = Color.Red;
-                    pinShape.Diameter = PinShape.DefaultDiameter;
+                    pinShape.Diameter = Pin.DefaultDiameter;
                     pinShape.Name = "Pin Shape";
                     handShapes.Add(pinShape);
                 }

@@ -25,7 +25,7 @@ namespace DustInTheWind.ClockNet
     /// <summary>
     /// Provides a user interface that can edit most types of collections at design
     /// time and offeres additional support for collections containing items of types
-    /// <see cref="IAngularShape"/>, <see cref="IHandShape"/> and <see cref="IGroundShape"/>.
+    /// <see cref="IRimMarker"/>, <see cref="IHand"/> and <see cref="IBackground"/>.
     /// </summary>
     public class ShapeCollectionEditor : CollectionEditor
     {
@@ -44,12 +44,12 @@ namespace DustInTheWind.ClockNet
             {
                 return new Type[0];
             }
-            else if (CollectionItemType.Equals(typeof(IAngularShape)))
+            else if (CollectionItemType.Equals(typeof(IRimMarker)))
             {
                 List<Type> types = new List<Type>();
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
-                string interfaceName = typeof(IAngularShape).FullName;
+                string interfaceName = typeof(IRimMarker).FullName;
 
                 foreach (Type type in assembly.GetTypes())
                 {
@@ -62,12 +62,12 @@ namespace DustInTheWind.ClockNet
 
                 return types.ToArray();
             }
-            else if (CollectionItemType.Equals(typeof(IHandShape)))
+            else if (CollectionItemType.Equals(typeof(IHand)))
             {
                 List<Type> types = new List<Type>();
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
-                string interfaceName = typeof(IHandShape).FullName;
+                string interfaceName = typeof(IHand).FullName;
 
                 foreach (Type type in assembly.GetTypes())
                 {
@@ -80,12 +80,12 @@ namespace DustInTheWind.ClockNet
 
                 return types.ToArray();
             }
-            else if (CollectionItemType.Equals(typeof(IGroundShape)))
+            else if (CollectionItemType.Equals(typeof(IBackground)))
             {
                 List<Type> types = new List<Type>();
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
-                string interfaceName = typeof(IGroundShape).FullName;
+                string interfaceName = typeof(IBackground).FullName;
 
                 foreach (Type type in assembly.GetTypes())
                 {

@@ -402,7 +402,7 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// The list of shapes that are drawn on the background of the clock.
         /// </summary>
-        private ShapeCollection<IGroundShape> backgroundShapes;
+        private ShapeCollection<IBackground> backgroundShapes;
 
         /// <summary>
         /// Gets the list of shapes that are drawn on the background of the clock.
@@ -411,7 +411,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn on the background of the clock.")]
-        public ShapeCollection<IGroundShape> BackgroundShapes => backgroundShapes;
+        public ShapeCollection<IBackground> BackgroundShapes => backgroundShapes;
 
         #endregion
 
@@ -420,7 +420,7 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// The list of shapes that are drawn repetitively on the edge of the clock.
         /// </summary>
-        private ShapeCollection<IAngularShape> angularShapes;
+        private ShapeCollection<IRimMarker> angularShapes;
 
         /// <summary>
         /// Gets the list of shapes that are drawn repetitively on the edge of the clock.
@@ -429,7 +429,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn repetitively on the edge of the clock.")]
-        public ShapeCollection<IAngularShape> AngularShapes => angularShapes;
+        public ShapeCollection<IRimMarker> AngularShapes => angularShapes;
 
         #endregion
 
@@ -438,7 +438,7 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// The list of shapes that display the time.
         /// </summary>
-        private ShapeCollection<IHandShape> handShapes;
+        private ShapeCollection<IHand> handShapes;
 
         /// <summary>
         /// Gets the list of shapes that display the time.
@@ -447,7 +447,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that display the time.")]
-        public ShapeCollection<IHandShape> HandShapes => handShapes;
+        public ShapeCollection<IHand> HandShapes => handShapes;
 
         #endregion
 
@@ -501,17 +501,17 @@ namespace DustInTheWind.ClockNet
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             //SetStyle(ControlStyles.Opaque, true);
 
-            backgroundShapes = new ShapeCollection<IGroundShape>();
+            backgroundShapes = new ShapeCollection<IBackground>();
             backgroundShapes.ShapeAdded += HandleGroundShapeAdded;
             backgroundShapes.ShapeRemoved += HandleGroundShapeRemoved;
             backgroundShapes.Cleared += HandleGroundShapeCleared;
 
-            angularShapes = new ShapeCollection<IAngularShape>();
+            angularShapes = new ShapeCollection<IRimMarker>();
             angularShapes.ShapeAdded += HandleAngularShapeAdded;
             angularShapes.ShapeRemoved += HandleAngularShapeRemoved;
             angularShapes.Cleared += HandleAngularShapeCleared;
 
-            handShapes = new ShapeCollection<IHandShape>();
+            handShapes = new ShapeCollection<IHand>();
             handShapes.ShapeAdded += HandleHandShapeAdded;
             handShapes.ShapeRemoved += HandleHandShapeRemoved;
             handShapes.Cleared += HandleHandShapeCleared;
@@ -780,10 +780,10 @@ namespace DustInTheWind.ClockNet
 
         private void DrawBackgroundShapes(Graphics g, Matrix initialMatrix)
         {
-            IEnumerable<IGroundShape> backgroundShapesNotNull = backgroundShapes
+            IEnumerable<IBackground> backgroundShapesNotNull = backgroundShapes
                 .Where(x => x != null);
 
-            foreach (IGroundShape backgroundShape in backgroundShapesNotNull)
+            foreach (IBackground backgroundShape in backgroundShapesNotNull)
             {
                 g.Transform = initialMatrix;
                 backgroundShape.Draw(g);
@@ -792,10 +792,10 @@ namespace DustInTheWind.ClockNet
 
         private void DrawAngularShapes(Graphics g, Matrix initialMatrix)
         {
-            IEnumerable<IAngularShape> angularShapesNotNull = angularShapes
+            IEnumerable<IRimMarker> angularShapesNotNull = angularShapes
                 .Where(x => x != null);
 
-            foreach (IAngularShape angularShape in angularShapesNotNull)
+            foreach (IRimMarker angularShape in angularShapesNotNull)
             {
                 angularShape.Reset();
 
@@ -823,10 +823,10 @@ namespace DustInTheWind.ClockNet
 
         private void DrawHandShapes(Graphics g, Matrix initialMatrix)
         {
-            IEnumerable<IHandShape> handShapesNotNull = handShapes
+            IEnumerable<IHand> handShapesNotNull = handShapes
                 .Where(x => x != null);
 
-            foreach (IHandShape handShape in handShapesNotNull)
+            foreach (IHand handShape in handShapesNotNull)
             {
                 g.Transform = initialMatrix;
 
@@ -848,21 +848,21 @@ namespace DustInTheWind.ClockNet
             backgroundShapes.Clear();
             if (clockTemplate.BackgroundShapes != null)
             {
-                foreach (IGroundShape shape in clockTemplate.BackgroundShapes)
+                foreach (IBackground shape in clockTemplate.BackgroundShapes)
                     backgroundShapes.Add(shape);
             }
 
             angularShapes.Clear();
             if (clockTemplate.AngularShapes != null)
             {
-                foreach (IAngularShape shape in clockTemplate.AngularShapes)
+                foreach (IRimMarker shape in clockTemplate.AngularShapes)
                     angularShapes.Add(shape);
             }
 
             handShapes.Clear();
             if (clockTemplate.HandShapes != null)
             {
-                foreach (IHandShape shape in clockTemplate.HandShapes)
+                foreach (IHand shape in clockTemplate.HandShapes)
                     handShapes.Add(shape);
             }
         }
@@ -898,13 +898,13 @@ namespace DustInTheWind.ClockNet
         {
             if (disposing)
             {
-                foreach (IGroundShape shape in backgroundShapes)
+                foreach (IBackground shape in backgroundShapes)
                     shape?.Dispose();
 
-                foreach (IAngularShape shape in angularShapes)
+                foreach (IRimMarker shape in angularShapes)
                     shape?.Dispose();
 
-                foreach (IHandShape shape in handShapes)
+                foreach (IHand shape in handShapes)
                     shape?.Dispose();
             }
 

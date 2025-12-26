@@ -26,9 +26,11 @@ namespace DustInTheWind.ClockNet.Shapes
     public abstract class ShapeBase : IShape
     {
         private string name;
+        private bool isLayoutValid;
 
         /// <summary>
-        /// An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.
+        /// An user friendly name. Used only to be displayed to the user. Does not influence the
+        /// way the shape is rendered.
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
         public string Name
@@ -61,7 +63,7 @@ namespace DustInTheWind.ClockNet.Shapes
         #region Event Changed
 
         /// <summary>
-        /// Event raised when the shape's parameters are changed and it should be redrawn.
+        /// Event raised when the shape's parameters are changed and it should be rerendered.
         /// </summary>
         public event EventHandler Changed;
 
@@ -76,41 +78,36 @@ namespace DustInTheWind.ClockNet.Shapes
 
         #endregion
 
-
         /// <summary>
         /// Disposes all the classes used in the drawing process.
-        /// This method is called every time when is set a property that changes the way the Shape is drawn.
-        /// Examples: the color, the width of the line, etc.
+        /// This method is called every time when is set a property that needs to regenrate the
+        /// drawing tools like <see cref="Brush"/>s and <see cref="Pen"/>s.
         /// </summary>
         protected virtual void DisposeDrawingTools()
         {
         }
 
         /// <summary>
-        /// Decides if the Shape should be drawn.
-        /// If this method returns false, the <see cref="Draw"/> method returns immediatelly,
+        /// Decides if the shape should be rendered.
+        /// This method is used by the <see cref="Draw(Graphics)"/> method.
+        /// If this method returns <c>false</c>, the <see cref="Draw(Graphics)"/> method returns immediatelly,
         /// without doing anythig.
         /// </summary>
-        /// <returns>true if the <see cref="Draw"/> method is allowed to be executed; false otherwise.</returns>
+        /// <returns><c>true</c> if the <see cref="Draw"/> method is allowed to be executed; <c>false</c> otherwise.</returns>
         protected virtual bool AllowToDraw()
         {
             return visible;
         }
 
-        private bool isLayoutValid = false;
-
+        /// <summary>
+        /// Marks the current layout as invalid, indicating that a layout update is required.
+        /// </summary>
+        /// <remarks>Call this method when changes occur that affect the layout, so that the layout system
+        /// can recalculate positions and sizes as needed. This method does not immediately update the layout; it only
+        /// flags it for a future update.</remarks>
         protected void InvalidateLayout()
         {
             isLayoutValid = false;
-        }
-
-        /// <summary>
-        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
-        /// successive draw if no parameter is changed.
-        /// This method should be called every time when is set a property that changes the physical dimensions.
-        /// </summary>
-        protected virtual void CalculateLayout()
-        {
         }
 
         /// <summary>
@@ -136,21 +133,44 @@ namespace DustInTheWind.ClockNet.Shapes
             }
         }
 
+        /// <summary>
+        /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
+        /// successive draw if no parameter is changed.
+        /// This method should be called every time when is set a property that changes the physical dimensions.
+        /// </summary>
+        protected virtual void CalculateLayout()
+        {
+        }
+
+        /// <summary>
+        /// Called before the drawing operation begins, allowing derived classes to perform custom pre-draw logic.
+        /// </summary>
+        /// <remarks>Override this method in a derived class to implement custom logic that determines
+        /// whether the drawing operation should continue. Returning <c>false</c> will prevent the drawing from
+        /// occurring.</remarks>
+        /// <param name="g">The <see cref="Graphics"/> context used for drawing. Cannot be <c>null</c>.</param>
+        /// <returns><c>true</c> if drawing should proceed; otherwise, <c>false</c>.</returns>
         protected virtual bool OnBeforeDraw(Graphics g)
         {
             return true;
         }
 
         /// <summary>
-        /// Internal method that draws the Shape unconditioned. 
+        /// Performs custom drawing operations using the specified graphics surface.
         /// </summary>
-        /// <remarks>
-        /// The <see cref="Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
-        /// </remarks>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
+        /// <remarks>Override this method in a derived class to implement custom rendering logic. The
+        /// provided <paramref name="g"/> parameter represents the drawing surface for the current paint
+        /// operation.</remarks>
+        /// <param name="g">The <see cref="Graphics"/> object used to render drawing commands. Cannot be <c>null</c>.</param>
         protected abstract void OnDraw(Graphics g);
 
+        /// <summary>
+        /// Called after the drawing operation is completed, allowing for custom post-draw logic.
+        /// </summary>
+        /// <remarks>Override this method in a derived class to perform additional actions after the main
+        /// drawing routine has finished. This method is called with the same graphics context used during
+        /// drawing.</remarks>
+        /// <param name="g">The <see cref="Graphics"/> context used for drawing. Cannot be <c>null</c>.</param>
         protected virtual void OnAfterDraw(Graphics g)
         {
         }
