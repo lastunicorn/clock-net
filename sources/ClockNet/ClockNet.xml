@@ -4,6 +4,553 @@
         <name>ClockNet</name>
     </assembly>
     <members>
+        <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground">
+            <summary>
+            The <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the background of the dial.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.DefaultName">
+            <summary>
+            The default name for the Shape.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.DefaultRadius">
+            <summary>
+            The default radius of the Dial Shape.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.Radius">
+            <summary>
+            Gets or sets the radius of the dial.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground"/> class with
+            default values.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.#ctor(System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground"/> class.
+            </summary>
+            <param name="fillColor">The color used to draw the dial's background.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.#ctor(System.Drawing.Color,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground"/> class.
+            </summary>
+            <param name="fillColor">The color used to draw the dial's background.</param>
+            <param name="radius">The radius of the dial.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.#ctor(System.Drawing.Color,System.Drawing.Color,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground"/> class.
+            </summary>
+            <param name="outlineColor">The color used to draw the outline of the dial.</param>
+            <param name="fillColor">The color used to draw the dial's background.</param>
+            <param name="radius">The radius of the dial.</param>
+            <param name="lineWidth">The width of the outline.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.CreatePen">
+            <summary>
+            Creates a new <see cref="T:System.Drawing.Pen"/> object if it does not exist already.
+            The pen will have an Inset alignment.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.CalculateLayout">
+            <summary>
+            Calculates additional values that are necessary by the drawing process, but that remain constant for every
+            successive draw if no parameter is changed.
+            This method should be called every time when is set a property that changes the physical dimensions.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.OnDraw(System.Drawing.Graphics)">
+            <summary>
+            Internal method that draws the Shape unconditioned. 
+            </summary>
+            <remarks>
+            The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.OnDraw(System.Drawing.Graphics)"/> method.
+            </remarks>
+            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand">
+            <summary>
+            A Hand Shape that draws the time as a text in a fixed position on the dial.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.NAME">
+            <summary>
+            The default name for the Shape.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.FONT">
+            <summary>
+            The default font used to draw the time.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.VERTICAL_LOCATION">
+            <summary>
+            The default vertical location of the text.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.FORMAT">
+            <summary>
+            The default value of the time format.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.stringFormat">
+            <summary>
+            Formats the text displayed by the current instance.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.FillColor">
+            <summary>
+            Gets or sets the color used to draw the text.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.font">
+            <summary>
+            The font used to draw the text.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.Font">
+            <summary>
+            Gets or sets the font used to draw the text.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.verticalLocation">
+            <summary>
+            The vertical location where the text is drawn.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.VerticalLocation">
+            <summary>
+            Gets or sets the vertical location where the text is drawn.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.format">
+            <summary>
+            The format in which the time is displayed.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.Format">
+            <summary>
+            Gets or sets the format in which the time is displayed.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand"/> class with
+            default values.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.#ctor(System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand"/> class.
+            </summary>
+            <param name="color">The color used to draw the text.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.#ctor(System.Drawing.Color,System.Drawing.Font)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand"/> class.
+            </summary>
+            <param name="color">The color used to draw the text.</param>
+            <param name="font">The font used to draw the text.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.AllowToDraw">
+            <summary>
+            Decides if the Shape should be drawn.
+            If this method returns false, the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method returns immediatelly,
+            without doing anythig.
+            </summary>
+            <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnDraw(System.Drawing.Graphics)">
+            <summary>
+            Internal method that draws the Shape unconditioned. 
+            </summary>
+            <remarks>
+            The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnDraw(System.Drawing.Graphics)"/> method.
+            </remarks>
+            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.HitTest(System.Drawing.PointF)">
+            <summary>
+            Tests if the specified point is contained by the Shape.
+            </summary>
+            <param name="point">The point to be ferified.</param>
+            <returns>true if the specified point is contained by the Shape; false otherwise.</returns>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">Specifies if the managed resources should be disposed, too.</param>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.DotHand">
+            <summary>
+            A Hand Shape that draws a dot at the specified distance from the pin.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.DefaultName">
+            <summary>
+            The default name for the Shape.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.DefaultRadius">
+            <summary>
+            The default value of the dot's radius.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.radius">
+            <summary>
+            The radius of the dot.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.Radius">
+            <summary>
+            Gets or sets the radius of the dot.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.DotHand"/> class with
+            default values.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.dotRectangle">
+            <summary>
+            The rectangle defining the ellipse that is drawn.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.CalculateLayout">
+            <summary>
+            Calculates additional values that are necessary by the drawing process, but that remain constant for every
+            successive draw if no parameter is changed.
+            This method should be called every time when is set a property that changes the physical dimensions.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.OnDraw(System.Drawing.Graphics)">
+            <summary>
+            Draws the hour hand using the provided <see cref="T:System.Drawing.Graphics"/> object.
+            </summary>
+            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the dot.</param>
+            <remarks>
+            The hand is drawn in vertical position from the origin of the coordinate system.
+            Before this method beeng called, the coordinate system has to be rotated in the corect position.
+            </remarks>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground">
+            <summary>
+            A Background Shape that draws a gradient background with two rims around it.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.DefaultName">
+            <summary>
+            The default name for the Shape.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.DefaultOuterRimWidth">
+            <summary>
+            The default value of the outer rim width.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.DefaultInnerRimWidth">
+            <summary>
+            The default value of the inner rim width.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.outerRimWidth">
+            <summary>
+            The width of the outer-most rim.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OuterRimWidth">
+            <summary>
+            Gets or sets the width of the outer-most rim.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.innerRimWidth">
+            <summary>
+            The width of the second rim.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.InnerRimWidth">
+            <summary>
+            Gets or sets the width of the second rim.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground"/> class with
+            default values.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.#ctor(System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground"/> class.
+            </summary>
+            <param name="fillColor">The color used to draw the dial's background.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.#ctor(System.Drawing.Color,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground"/> class.
+            </summary>
+            <param name="fillColor">The color used to draw the dial's background.</param>
+            <param name="innerRimWidth">The width of the outer-most rim.</param>
+            <param name="outerRimWidth">The width of the second rim.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.CreatePen">
+            <summary>
+            Creates a new <see cref="T:System.Drawing.Pen"/> object if it does not exist already.
+            The pen will have an Inset alignment.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.CreateBrush">
+            <summary>
+            Creates the three <see cref="T:System.Drawing.Brush"/> objects if they does not exist already.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.DisposeDrawingTools">
+            <summary>
+            Releases resources used by the drawing tools associated with this object.
+            </summary>
+            <remarks>This method disposes of any managed resources related to drawing, such as brushes,
+            and should be called when the object is no longer needed to free up system resources. Overrides the base
+            implementation to ensure all custom drawing resources are properly released.</remarks>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OuterRimBrush">
+            <summary>
+            Gets or sets the linear gradient brush used to render the outer rim of the control.
+            </summary>
+            <remarks>The brush is created using a gradient based on the current fill color and the bounds
+            of the outer rim. The brush is lazily initialized and updated when the property is set.</remarks>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.InnerRimBrush">
+            <summary>
+            Gets the linear gradient brush used to render the inner rim of the control.
+            </summary>
+            <remarks>The brush is created based on the current fill color and is cached for subsequent
+            accesses. The gradient direction and colors are determined by the control's visual state.</remarks>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.CalculateLayout">
+            <summary>
+            Calculates additional values that are necessary by the drawing process, but that remain constant for every
+            successive draw if no parameter is changed.
+            This method should be called every time when is set a property that changes the physical dimensions.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.AllowToDraw">
+            <summary>
+            Decides if the Shape should be drawn.
+            If this method returns false, the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method returns immediatelly,
+            without doing anythig.
+            </summary>
+            <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OnDraw(System.Drawing.Graphics)">
+            <summary>
+            Draws the dial's background using the provided <see cref="T:System.Drawing.Graphics"/> object.
+            </summary>
+            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the dial.</param>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">Speifies if the managed resources should be disposed, too.</param>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand">
+            <summary>
+            Draws a sweep hand as a line with a circle near its top.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.DefaultName">
+            <summary>
+            The default name for the Shape.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.DefaultCircleRadius">
+            <summary>
+            The default radius of the circle from the middle (or not so middle) of the hand.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.DefaultCircleOffset">
+            <summary>
+            The default offset position of the center of the circle from the top of the hand.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.DefaultTailLength">
+            <summary>
+            The default length of the tail of the hand.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.circleRadius">
+            <summary>
+            The radius of the circle from the middle (or not so middle) of the hand.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.CircleRadius">
+            <summary>
+            Gets or sets the radius of the circle from the middle (or not so middle) of the hand.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.circleOffset">
+            <summary>
+            The offset position of the center of the circle from the top of the hand.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.CircleOffset">
+            <summary>
+            Gets or sets the offset position of the center of the circle from the top of the hand.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.tailLength">
+            <summary>
+            The length of the the hand's tail.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.TailLength">
+            <summary>
+            Gets or sets the length of the tail of the hand.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand"/> class with
+            default values.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.CalculateLayout">
+            <summary>
+            Calculates additional values and creates the <see cref="T:System.Drawing.Drawing2D.GraphicsPath"/> that will be displayed
+            by the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method.
+            </summary>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.NibHand">
+            <summary>
+            Draws a fancy clock hand that resambles to a nib.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.DefaultName">
+            <summary>
+            The default name for the Shape.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.WIDTH">
+            <summary>
+            The default length of the width of the hand.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.width">
+            <summary>
+            The width of the slot carved inside the disk.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.Width">
+            <summary>
+            Gets or sets the width of the slot carved inside the disk.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.NibHand"/> class with
+            default values.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.CalculateLayout">
+            <summary>
+            Calculates additional values that are necessary by the drawing process, but that remain constant for every
+            successive draw if no parameter is changed.
+            This method should be called every time when is set a property that changes the physical dimensions.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.keepProportions">
+            <summary>
+            Specifies if the hand should keep its proportions when its length is changed.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.OnDraw(System.Drawing.Graphics)">
+            <summary>
+            Draws the hour hand using the provided <see cref="T:System.Drawing.Graphics"/> object.
+            </summary>
+            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the dot.</param>
+            <remarks>
+            The hand is drawn in vertical position from the origin of the coordinate system.
+            Before this method beeng called, the coordinate system has to be rotated in the corect position.
+            </remarks>
+        </member>
+        <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand">
+            <summary>
+            Draws a clock hand that is a slot carved inside a disk. By default the disk is big as the clock.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.DefaultName">
+            <summary>
+            The default name for the Shape.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.DefaultWidth">
+            <summary>
+            The default length of the width of the hand.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.DefaultRadius">
+            <summary>
+            The default length of the radius of the opaque disk.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.DefaultTailLength">
+            <summary>
+            The default length of the tail of the hand.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.width">
+            <summary>
+            The width of the slot carved inside the disk.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.Width">
+            <summary>
+            Gets or sets the width of the slot carved inside the disk.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.radius">
+            <summary>
+            The rasius of the opaque disk.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.Radius">
+            <summary>
+            Gets or sets the rasius of the opaque disk.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.tailLength">
+            <summary>
+            The length of the the hand's tail.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.TailLength">
+            <summary>
+            Gets or sets the length of the tail of the hand.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand"/> class with
+            default values.
+            </summary>
+        </member>
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.CalculateLayout">
+            <summary>
+            Performs all the necessary calculations based on the public parameters, before drawing the shape.
+            </summary>
+        </member>
         <member name="T:DustInTheWind.ClockNet.Templates.BlackClockTemplate">
             <summary>
             Provides a predefined clock template with a black-themed design, including default background, angular, and hand

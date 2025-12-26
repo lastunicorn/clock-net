@@ -42,11 +42,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public const float DefaultTailLength = 6f;
 
-
-        /// <summary>
-        /// The length of the the hand's tail.
-        /// </summary>
-        protected float tailLength;
+        private float tailLength;
+        private float width;
 
         /// <summary>
         /// Gets or sets the length of the tail of the hand.
@@ -56,7 +53,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Description("The length of the tail of the hand.")]
         public virtual float TailLength
         {
-            get { return tailLength; }
+            get => tailLength;
             set
             {
                 tailLength = value;
@@ -66,11 +63,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         }
 
         /// <summary>
-        /// The width of the hand.
-        /// </summary>
-        protected float width;
-
-        /// <summary>
         /// Gets or sets the width of the hand.
         /// </summary>
         [Category("Appearance")]
@@ -78,7 +70,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Description("The width of the hand.")]
         public virtual float Width
         {
-            get { return width; }
+            get => width;
             set
             {
                 width = value;
@@ -101,21 +93,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline.</param>
         /// <param name="fillColor">The color used to fill the shape.</param>
-        public DiamondHand(Color outlineColor, Color fillColor)
-            : this(outlineColor, fillColor, DefaultHeight, DefaultWidth, DefaultTailLength)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DiamondHand"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline.</param>
-        /// <param name="fillColor">The color used to fill the shape.</param>
-        /// <param name="height">The length of the hour hand for a clock with the diameter of 100px.</param>
+        /// <param name="length">The length of the hour hand for a clock with the diameter of 100px.</param>
         /// <param name="tailLength">The width of the hand.</param>
         /// <param name="width">The length of the the tail that is drawn behind the pin.</param>
-        public DiamondHand(Color outlineColor, Color fillColor, float height, float width, float tailLength)
-            : base(null, outlineColor, fillColor, height, DefaultOutlineWidth)
+        public DiamondHand(Color outlineColor, Color fillColor, float length, float width, float tailLength)
+            : base(null, outlineColor, fillColor, length, DefaultOutlineWidth)
         {
             Name = DefaultName;
             this.tailLength = tailLength;

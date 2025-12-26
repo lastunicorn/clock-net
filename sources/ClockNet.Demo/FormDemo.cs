@@ -37,23 +37,10 @@ namespace DustInTheWind.ClockNet.Demo
             comboBoxTimeProviders.Items.Add("(none)");
             comboBoxTimeProviders.Items.Add(typeof(LocalTimeProvider));
             comboBoxTimeProviders.Items.Add(typeof(UtcTimeProvider));
-            comboBoxTimeProviders.Items.Add(typeof(UtcOffsetTimeProvider));
             comboBoxTimeProviders.Items.Add(typeof(BrokenTimeProvider));
             comboBoxTimeProviders.Items.Add(typeof(RandomTimeProvider));
 
-            listBoxBackgroundShapeTypes.Items.AddRange(new Type[] {
-                typeof(LineBackground),
-                typeof(PolygonBackground),
-                typeof(RectangleBackground),
-                typeof(EllipseBackground),
-                typeof(PathBackground),
-                typeof(StringBackground),
-                typeof(ImageBackground),
-                typeof(ClockBackground),
-                typeof(FancyBackground)
-            });
-
-            listBoxAngularShapeTypes.Items.AddRange(new Type[] {
+            listBoxRimMarkersAvailable.Items.AddRange(new Type[] {
                 typeof(LineRimMarker),
                 typeof(PolygonRimMarker),
                 typeof(RectangleRimMarker),
@@ -63,7 +50,7 @@ namespace DustInTheWind.ClockNet.Demo
                 typeof(Ticks)
             });
 
-            listBoxHandShapeTypes.Items.AddRange(new Type[] {
+            listBoxHandsAvailable.Items.AddRange(new Type[] {
                 typeof(LineHand),
                 typeof(PolygonHand),
                 typeof(RectangleHand),
@@ -120,21 +107,18 @@ namespace DustInTheWind.ClockNet.Demo
             checkBoxKeepProportions.Checked = analogClockDemo.KeepProportions;
 
             // Background Shapes
-            foreach (IBackground shape in analogClockDemo.BackgroundShapes)
-            {
-                listBoxBackgroundShapes.Items.Add(shape);
-            }
+            backgroundsEditor1.AnalogClock = analogClockDemo;
 
             // Angular Shapes
-            foreach (IRimMarker shape in analogClockDemo.AngularShapes)
+            foreach (IRimMarker shape in analogClockDemo.RimMarkers)
             {
-                listBoxAngularShapes.Items.Add(shape);
+                listBoxRimMarkers.Items.Add(shape);
             }
 
             // Hand Shapes
-            foreach (IHand shape in analogClockDemo.HandShapes)
+            foreach (IHand shape in analogClockDemo.Hands)
             {
-                listBoxHandShapes.Items.Add(shape);
+                listBoxHands.Items.Add(shape);
             }
 
             // Time Provider
@@ -268,118 +252,59 @@ namespace DustInTheWind.ClockNet.Demo
         }
 
 
-        #region Background Shapes
-
-        private void listBoxBackgroundShapes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            propertyGridBackgroundShapes.SelectedObject = listBoxBackgroundShapes.SelectedItem;
-        }
-
-        private void buttonAddBackgroundShape_Click(object sender, EventArgs e)
-        {
-            if (listBoxBackgroundShapeTypes.SelectedItem != null)
-            {
-                Type t = (Type)listBoxBackgroundShapeTypes.SelectedItem;
-
-                ConstructorInfo ctor = t.GetConstructor(new Type[0]);
-                IBackground shape = (IBackground)ctor.Invoke(null);
-                analogClockDemo.BackgroundShapes.Add(shape);
-            }
-        }
-
-        private void buttonRemoveBackgroundShape_Click(object sender, EventArgs e)
-        {
-            if (listBoxBackgroundShapes.SelectedItem != null)
-            {
-                analogClockDemo.BackgroundShapes.Remove(listBoxBackgroundShapes.SelectedItem as IBackground);
-            }
-        }
-
-        private void buttonBackgroundUp_Click(object sender, EventArgs e)
-        {
-            if (listBoxBackgroundShapes.SelectedIndex > 0)
-            {
-                int index = listBoxBackgroundShapes.SelectedIndex;
-                IBackground shape = listBoxBackgroundShapes.SelectedItem as IBackground;
-                if (shape != null)
-                {
-                    analogClockDemo.BackgroundShapes.RemoveAt(index);
-                    analogClockDemo.BackgroundShapes.Insert(index - 1, shape);
-                    listBoxBackgroundShapes.SelectedItem = shape;
-                }
-            }
-        }
-
-        private void buttonBackgroundDown_Click(object sender, EventArgs e)
-        {
-            if (listBoxBackgroundShapes.SelectedIndex >= 0 && listBoxBackgroundShapes.SelectedIndex < listBoxBackgroundShapes.Items.Count - 1)
-            {
-                int index = listBoxBackgroundShapes.SelectedIndex;
-                IBackground shape = listBoxBackgroundShapes.SelectedItem as IBackground;
-                if (shape != null)
-                {
-                    analogClockDemo.BackgroundShapes.RemoveAt(index);
-                    analogClockDemo.BackgroundShapes.Insert(index + 1, shape);
-                    listBoxBackgroundShapes.SelectedItem = shape;
-                }
-            }
-        }
-
-        #endregion
-
-        #region Angular Shapes
+        #region Rim Markers
 
         private void listBoxAngularShapes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            propertyGridAngularShapes.SelectedObject = listBoxAngularShapes.SelectedItem;
+            propertyGridAngularShapes.SelectedObject = listBoxRimMarkers.SelectedItem;
         }
 
         private void buttonAddAngularShape_Click(object sender, EventArgs e)
         {
-            if (listBoxAngularShapeTypes.SelectedItem != null)
+            if (listBoxRimMarkersAvailable.SelectedItem != null)
             {
-                Type t = (Type)listBoxAngularShapeTypes.SelectedItem;
+                Type t = (Type)listBoxRimMarkersAvailable.SelectedItem;
 
                 ConstructorInfo ctor = t.GetConstructor(new Type[0]);
                 IRimMarker shape = (IRimMarker)ctor.Invoke(null);
-                analogClockDemo.AngularShapes.Add(shape);
+                analogClockDemo.RimMarkers.Add(shape);
             }
         }
 
         private void buttonRemoveAngularShape_Click(object sender, EventArgs e)
         {
-            if (listBoxAngularShapes.SelectedItem != null)
+            if (listBoxRimMarkers.SelectedItem != null)
             {
-                analogClockDemo.AngularShapes.Remove(listBoxAngularShapes.SelectedItem as IRimMarker);
+                analogClockDemo.RimMarkers.Remove(listBoxRimMarkers.SelectedItem as IRimMarker);
             }
         }
 
         private void buttonAngularUp_Click(object sender, EventArgs e)
         {
-            if (listBoxAngularShapes.SelectedIndex > 0)
+            if (listBoxRimMarkers.SelectedIndex > 0)
             {
-                int index = listBoxAngularShapes.SelectedIndex;
-                IRimMarker shape = listBoxAngularShapes.SelectedItem as IRimMarker;
+                int index = listBoxRimMarkers.SelectedIndex;
+                IRimMarker shape = listBoxRimMarkers.SelectedItem as IRimMarker;
                 if (shape != null)
                 {
-                    analogClockDemo.AngularShapes.RemoveAt(index);
-                    analogClockDemo.AngularShapes.Insert(index - 1, shape);
-                    listBoxAngularShapes.SelectedItem = shape;
+                    analogClockDemo.RimMarkers.RemoveAt(index);
+                    analogClockDemo.RimMarkers.Insert(index - 1, shape);
+                    listBoxRimMarkers.SelectedItem = shape;
                 }
             }
         }
 
         private void buttonAngularDown_Click(object sender, EventArgs e)
         {
-            if (listBoxAngularShapes.SelectedIndex >= 0 && listBoxAngularShapes.SelectedIndex < listBoxAngularShapes.Items.Count - 1)
+            if (listBoxRimMarkers.SelectedIndex >= 0 && listBoxRimMarkers.SelectedIndex < listBoxRimMarkers.Items.Count - 1)
             {
-                int index = listBoxAngularShapes.SelectedIndex;
-                IRimMarker shape = listBoxAngularShapes.SelectedItem as IRimMarker;
+                int index = listBoxRimMarkers.SelectedIndex;
+                IRimMarker shape = listBoxRimMarkers.SelectedItem as IRimMarker;
                 if (shape != null)
                 {
-                    analogClockDemo.AngularShapes.RemoveAt(index);
-                    analogClockDemo.AngularShapes.Insert(index + 1, shape);
-                    listBoxAngularShapes.SelectedItem = shape;
+                    analogClockDemo.RimMarkers.RemoveAt(index);
+                    analogClockDemo.RimMarkers.Insert(index + 1, shape);
+                    listBoxRimMarkers.SelectedItem = shape;
                 }
             }
         }
@@ -390,104 +315,89 @@ namespace DustInTheWind.ClockNet.Demo
 
         private void listBoxHandShapes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            propertyGridHandShapes.SelectedObject = listBoxHandShapes.SelectedItem;
+            propertyGridHandShapes.SelectedObject = listBoxHands.SelectedItem;
         }
 
         private void buttonAddHandShape_Click(object sender, EventArgs e)
         {
-            if (listBoxHandShapeTypes.SelectedItem != null)
+            if (listBoxHandsAvailable.SelectedItem != null)
             {
-                Type t = (Type)listBoxHandShapeTypes.SelectedItem;
+                Type t = (Type)listBoxHandsAvailable.SelectedItem;
 
                 ConstructorInfo ctor = t.GetConstructor(new Type[0]);
                 IHand shape = (IHand)ctor.Invoke(null);
-                analogClockDemo.HandShapes.Add(shape);
+                analogClockDemo.Hands.Add(shape);
             }
         }
 
         private void buttonRemoveHandShape_Click(object sender, EventArgs e)
         {
-            if (listBoxHandShapes.SelectedItem != null)
+            if (listBoxHands.SelectedItem != null)
             {
-                analogClockDemo.HandShapes.Remove(listBoxHandShapes.SelectedItem as IHand);
+                analogClockDemo.Hands.Remove(listBoxHands.SelectedItem as IHand);
             }
         }
 
         private void buttonHandUp_Click(object sender, EventArgs e)
         {
-            if (listBoxHandShapes.SelectedIndex > 0)
+            if (listBoxHands.SelectedIndex > 0)
             {
-                int index = listBoxHandShapes.SelectedIndex;
-                IHand shape = listBoxHandShapes.SelectedItem as IHand;
+                int index = listBoxHands.SelectedIndex;
+                IHand shape = listBoxHands.SelectedItem as IHand;
                 if (shape != null)
                 {
-                    analogClockDemo.HandShapes.RemoveAt(index);
-                    analogClockDemo.HandShapes.Insert(index - 1, shape);
-                    listBoxHandShapes.SelectedItem = shape;
+                    analogClockDemo.Hands.RemoveAt(index);
+                    analogClockDemo.Hands.Insert(index - 1, shape);
+                    listBoxHands.SelectedItem = shape;
                 }
             }
         }
 
         private void buttonHandDown_Click(object sender, EventArgs e)
         {
-            if (listBoxHandShapes.SelectedIndex >= 0 && listBoxHandShapes.SelectedIndex < listBoxHandShapes.Items.Count - 1)
+            if (listBoxHands.SelectedIndex >= 0 && listBoxHands.SelectedIndex < listBoxHands.Items.Count - 1)
             {
-                int index = listBoxHandShapes.SelectedIndex;
-                IHand shape = listBoxHandShapes.SelectedItem as IHand;
+                int index = listBoxHands.SelectedIndex;
+                IHand shape = listBoxHands.SelectedItem as IHand;
                 if (shape != null)
                 {
-                    analogClockDemo.HandShapes.RemoveAt(index);
-                    analogClockDemo.HandShapes.Insert(index + 1, shape);
-                    listBoxHandShapes.SelectedItem = shape;
+                    analogClockDemo.Hands.RemoveAt(index);
+                    analogClockDemo.Hands.Insert(index + 1, shape);
+                    listBoxHands.SelectedItem = shape;
                 }
             }
         }
 
         #endregion
 
-        private void analogClockDemo_BackgroundShapeAdded(object sender, ShapeAddedEventArgs e)
-        {
-            listBoxBackgroundShapes.Items.Insert(e.Index, e.Shape);
-        }
-
-        private void analogClockDemo_BackgroundShapeRemoved(object sender, ShapeRemovedEventArgs e)
-        {
-            listBoxBackgroundShapes.Items.Remove(e.Shape);
-        }
-
-        private void analogClockDemo_BackgroundShapeClear(object sender, EventArgs e)
-        {
-            listBoxBackgroundShapes.Items.Clear();
-        }
-
         private void analogClockDemo_AngularShapeAdded(object sender, ShapeAddedEventArgs e)
         {
-            listBoxAngularShapes.Items.Insert(e.Index, e.Shape);
+            listBoxRimMarkers.Items.Insert(e.Index, e.Shape);
         }
 
         private void analogClockDemo_AngularShapeRemoved(object sender, ShapeRemovedEventArgs e)
         {
-            listBoxAngularShapes.Items.Remove(e.Shape);
+            listBoxRimMarkers.Items.Remove(e.Shape);
         }
 
         private void analogClockDemo_AngularShapeCleared(object sender, EventArgs e)
         {
-            listBoxAngularShapes.Items.Clear();
+            listBoxRimMarkers.Items.Clear();
         }
 
         private void analogClockDemo_HandShapeAdded(object sender, ShapeAddedEventArgs e)
         {
-            listBoxHandShapes.Items.Insert(e.Index, e.Shape);
+            listBoxHands.Items.Insert(e.Index, e.Shape);
         }
 
         private void analogClockDemo_HandShapeRemoved(object sender, ShapeRemovedEventArgs e)
         {
-            listBoxHandShapes.Items.Remove(e.Shape);
+            listBoxHands.Items.Remove(e.Shape);
         }
 
         private void analogClockDemo_HandShapeCleared(object sender, EventArgs e)
         {
-            listBoxHandShapes.Items.Clear();
+            listBoxHands.Items.Clear();
         }
 
         private void comboBoxClockTemplates_SelectedIndexChanged(object sender, EventArgs e)

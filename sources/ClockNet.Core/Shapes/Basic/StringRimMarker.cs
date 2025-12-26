@@ -46,7 +46,7 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// </summary>
         public static Font DefaultFont = new Font("Arial", 7, FontStyle.Regular, GraphicsUnit.Point);
 
-        private string[] texts = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
+        private string[] texts = { "•" };
         private Font font;
 
         /// <summary>
@@ -91,24 +91,6 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <summary>
         /// Initializes a new instance of the <see cref="StringRimMarker"/> class.
         /// </summary>
-        public StringRimMarker(Color color)
-            : this(color, DefaultFont, DefaultPositionOffset)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StringRimMarker"/> class.
-        /// </summary>
-        /// <param name="color">The color used to draw the text.</param>
-        /// <param name="font">The font to be used to draw the numbers.</param>
-        public StringRimMarker(Color color, Font font)
-            : this(color, font, DefaultPositionOffset)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StringRimMarker"/> class.
-        /// </summary>
         /// <param name="color">The color used to draw the text.</param>
         /// <param name="font">The font to be used to draw the numbers.</param>
         /// <param name="distanceFromEdge">The position offset relativelly to the edge of the dial.</param>
@@ -133,7 +115,11 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && font != null && texts != null && !FillColor.IsEmpty;
+            return base.AllowToDraw() &&
+                font != null &&
+                texts != null &&
+                texts.Length > 0 &&
+                !FillColor.IsEmpty;
         }
 
         /// <summary>
@@ -146,26 +132,28 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
-            if (Index > 0 && Index <= texts.Length)
+            if (Index == 0)
+                return;
+
+            int actualIndex = (Index -1) % texts.Length;
+
+            string number = texts[actualIndex];
+
+            if (number != null && number.Length > 0)
             {
-                string number = texts[Index - 1];
+                SizeF numberSize = g.MeasureString(number, font, int.MaxValue, stringFormat);
+                PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
 
-                if (number != null && number.Length > 0)
+                try
                 {
-                    SizeF numberSize = g.MeasureString(number, font, int.MaxValue, stringFormat);
-                    PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
-
-                    try
-                    {
-                        g.DrawString(number, font, Brush, new RectangleF(numberPosition, numberSize), stringFormat);
-                    }
-                    catch (System.Runtime.InteropServices.ExternalException)
-                    {
-                        // When the dimension of the clock is less then 0, this exception is raised.
-                        // I do not understend the reason.
-                        // I just ignore it. The text will not be displayed, but at the size of one pixel, it is not visible, so, no problem.
-                        // I hope this exception will not be thrown in some other situations.
-                    }
+                    g.DrawString(number, font, Brush, new RectangleF(numberPosition, numberSize), stringFormat);
+                }
+                catch (System.Runtime.InteropServices.ExternalException)
+                {
+                    // When the dimension of the clock is less then 0, this exception is raised.
+                    // I do not understend the reason.
+                    // I just ignore it. The text will not be displayed, but at the size of one pixel, it is not visible, so, no problem.
+                    // I hope this exception will not be thrown in some other situations.
                 }
             }
         }

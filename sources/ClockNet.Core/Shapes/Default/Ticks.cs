@@ -33,6 +33,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public new const string DefaultName = "Ticks";
 
         /// <summary>
+        /// The default value of the position offset.
+        /// </summary>
+        public new const float DefaultDistanceFromEdge = 5f;
+
+        /// <summary>
         /// The default value of the length.
         /// </summary>
         public const float DefaultLength = 2.5f;

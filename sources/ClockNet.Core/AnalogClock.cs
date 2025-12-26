@@ -16,8 +16,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -25,11 +23,9 @@ using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Shapes;
 using DustInTheWind.ClockNet.TimeProviders;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace DustInTheWind.ClockNet
 {
@@ -66,62 +62,62 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Event BackgroundShapeAdded
+        #region Event BackgroundAdded
 
         /// <summary>
-        /// Event raised when a Shape is added to the <see cref="BackgroundShapes"/> collection.
+        /// Event raised when a Shape is added to the <see cref="Backgrounds"/> collection.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when a Shape is added to the BackgroundShapes collection.")]
-        public event EventHandler<ShapeAddedEventArgs> BackgroundShapeAdded;
+        [Description("Event raised when a Shape is added to the Backgrounds collection.")]
+        public event EventHandler<ShapeAddedEventArgs> BackgroundAdded;
 
         /// <summary>
-        /// Raises the <see cref="BackgroundShapeAdded"/> event.
+        /// Raises the <see cref="BackgroundAdded"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnBackgroundShapeAdded(ShapeAddedEventArgs e)
+        protected virtual void OnBackgroundAdded(ShapeAddedEventArgs e)
         {
-            BackgroundShapeAdded?.Invoke(this, e);
+            BackgroundAdded?.Invoke(this, e);
         }
 
         #endregion
 
-        #region Event BackgroundShapeRemoved
+        #region Event BackgroundRemoved
 
         /// <summary>
-        /// Event raised when a Shape is removed from the <see cref="BackgroundShapes"/> collection.
+        /// Event raised when a Shape is removed from the <see cref="Backgrounds"/> collection.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when a Shape is removed from the BackgroundShapes collection.")]
-        public event EventHandler<ShapeRemovedEventArgs> BackgroundShapeRemoved;
+        [Description("Event raised when a Shape is removed from the Backgrounds collection.")]
+        public event EventHandler<ShapeRemovedEventArgs> BackgroundRemoved;
 
         /// <summary>
-        /// Raises the <see cref="BackgroundShapeRemoved"/> event.
+        /// Raises the <see cref="BackgroundRemoved"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnBackgroundShapeRemoved(ShapeRemovedEventArgs e)
+        protected virtual void OnBackgroundRemoved(ShapeRemovedEventArgs e)
         {
-            BackgroundShapeRemoved?.Invoke(this, e);
+            BackgroundRemoved?.Invoke(this, e);
         }
 
         #endregion
 
-        #region Event BackgroundShapeCleared
+        #region Event BackgroundsCleared
 
         /// <summary>
         /// Event raised when the BackgroundShapes collection is cleared.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when the BackgroundShapes collection is cleared (all the shapes are removed).")]
-        public event EventHandler BackgroundShapeCleared;
+        [Description("Event raised when the Backgrounds collection is cleared (all the shapes are removed).")]
+        public event EventHandler BackgroundsCleared;
 
         /// <summary>
-        /// Raises the <see cref="BackgroundShapeCleared"/> event.
+        /// Raises the <see cref="BackgroundsCleared"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnBackgroundShapeCleared(EventArgs e)
+        protected virtual void OnBackgroundsCleared(EventArgs e)
         {
-            BackgroundShapeCleared?.Invoke(this, e);
+            BackgroundsCleared?.Invoke(this, e);
         }
 
         #endregion
@@ -129,7 +125,7 @@ namespace DustInTheWind.ClockNet
         #region Event AngularShapeAdded
 
         /// <summary>
-        /// Event raised when a Shape is added to the <see cref="AngularShapes"/> collection.
+        /// Event raised when a Shape is added to the <see cref="RimMarkers"/> collection.
         /// </summary>
         [Category("Property Changed")]
         [Description("Event raised when a Shape is added to the AngularShapes collection.")]
@@ -149,7 +145,7 @@ namespace DustInTheWind.ClockNet
         #region Event AngularShapeRemoved
 
         /// <summary>
-        /// Event raised when a Shape is removed from the <see cref="AngularShapes"/> collection.
+        /// Event raised when a Shape is removed from the <see cref="RimMarkers"/> collection.
         /// </summary>
         [Category("Property Changed")]
         [Description("Event raised when a Shape is removed from the AngularShapes collection.")]
@@ -189,7 +185,7 @@ namespace DustInTheWind.ClockNet
         #region Event HandShapeAdded
 
         /// <summary>
-        /// Event raised when a Shape is added to the <see cref="HandShapes"/> collection.
+        /// Event raised when a Shape is added to the <see cref="Hands"/> collection.
         /// </summary>
         [Category("Property Changed")]
         [Description("Event raised when a Shape is added to the HandShapes collection.")]
@@ -209,7 +205,7 @@ namespace DustInTheWind.ClockNet
         #region Event HandShapeRemoved
 
         /// <summary>
-        /// Event raised when a Shape is removed from the <see cref="HandShapes"/> collection.
+        /// Event raised when a Shape is removed from the <see cref="Hands"/> collection.
         /// </summary>
         [Category("Property Changed")]
         [Description("Event raised when a Shape is removed from the HandShapes collection.")]
@@ -411,7 +407,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn on the background of the clock.")]
-        public ShapeCollection<IBackground> BackgroundShapes => backgroundShapes;
+        public ShapeCollection<IBackground> Backgrounds => backgroundShapes;
 
         #endregion
 
@@ -429,7 +425,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn repetitively on the edge of the clock.")]
-        public ShapeCollection<IRimMarker> AngularShapes => angularShapes;
+        public ShapeCollection<IRimMarker> RimMarkers => angularShapes;
 
         #endregion
 
@@ -438,7 +434,7 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// The list of shapes that display the time.
         /// </summary>
-        private ShapeCollection<IHand> handShapes;
+        private ShapeCollection<IHand> hands;
 
         /// <summary>
         /// Gets the list of shapes that display the time.
@@ -447,7 +443,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that display the time.")]
-        public ShapeCollection<IHand> HandShapes => handShapes;
+        public ShapeCollection<IHand> Hands => hands;
 
         #endregion
 
@@ -511,10 +507,10 @@ namespace DustInTheWind.ClockNet
             angularShapes.ShapeRemoved += HandleAngularShapeRemoved;
             angularShapes.Cleared += HandleAngularShapeCleared;
 
-            handShapes = new ShapeCollection<IHand>();
-            handShapes.ShapeAdded += HandleHandShapeAdded;
-            handShapes.ShapeRemoved += HandleHandShapeRemoved;
-            handShapes.Cleared += HandleHandShapeCleared;
+            hands = new ShapeCollection<IHand>();
+            hands.ShapeAdded += HandleHandShapeAdded;
+            hands.ShapeRemoved += HandleHandShapeRemoved;
+            hands.Cleared += HandleHandShapeCleared;
 
             if (clockTemplate != null)
                 ApplyTemplate(clockTemplate);
@@ -536,7 +532,7 @@ namespace DustInTheWind.ClockNet
 
         private void HandleGroundShapeAdded(object sender, ShapeAddedEventArgs e)
         {
-            OnBackgroundShapeAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
+            OnBackgroundAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
 
             e.Shape.Changed += new EventHandler(HandleShapeChanged);
             Invalidate();
@@ -544,7 +540,7 @@ namespace DustInTheWind.ClockNet
 
         private void HandleGroundShapeRemoved(object sender, ShapeRemovedEventArgs e)
         {
-            OnBackgroundShapeRemoved(new ShapeRemovedEventArgs(e.Shape));
+            OnBackgroundRemoved(new ShapeRemovedEventArgs(e.Shape));
 
             e.Shape.Changed -= new EventHandler(HandleShapeChanged);
             Invalidate();
@@ -552,7 +548,7 @@ namespace DustInTheWind.ClockNet
 
         private void HandleGroundShapeCleared(object sender, EventArgs e)
         {
-            OnBackgroundShapeCleared(EventArgs.Empty);
+            OnBackgroundsCleared(EventArgs.Empty);
             Invalidate();
         }
 
@@ -823,7 +819,7 @@ namespace DustInTheWind.ClockNet
 
         private void DrawHandShapes(Graphics g, Matrix initialMatrix)
         {
-            IEnumerable<IHand> handShapesNotNull = handShapes
+            IEnumerable<IHand> handShapesNotNull = hands
                 .Where(x => x != null);
 
             foreach (IHand handShape in handShapesNotNull)
@@ -859,11 +855,11 @@ namespace DustInTheWind.ClockNet
                     angularShapes.Add(shape);
             }
 
-            handShapes.Clear();
+            hands.Clear();
             if (clockTemplate.HandShapes != null)
             {
                 foreach (IHand shape in clockTemplate.HandShapes)
-                    handShapes.Add(shape);
+                    hands.Add(shape);
             }
         }
 
@@ -878,11 +874,11 @@ namespace DustInTheWind.ClockNet
                 matrix.TransformPoints(points);
                 PointF clickLocation = points[0];
 
-                for (int i = handShapes.Count - 1; i >= 0; i--)
+                for (int i = hands.Count - 1; i >= 0; i--)
                 {
-                    if (handShapes[i].HitTest(points[0]))
+                    if (hands[i].HitTest(points[0]))
                     {
-                        Console.WriteLine("click: [{0} x {1}]; Shape: {2}", points[0].X, points[0].Y, handShapes[i].Name);
+                        Console.WriteLine("click: [{0} x {1}]; Shape: {2}", points[0].X, points[0].Y, hands[i].Name);
                         break;
                     }
                 }
@@ -904,7 +900,7 @@ namespace DustInTheWind.ClockNet
                 foreach (IRimMarker shape in angularShapes)
                     shape?.Dispose();
 
-                foreach (IHand shape in handShapes)
+                foreach (IHand shape in hands)
                     shape?.Dispose();
             }
 

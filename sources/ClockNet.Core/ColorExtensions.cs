@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace DustInTheWind.ClockNet
 {
-    internal static class ColorExtensions
+    public static class ColorExtensions
     {
         public static Color ShiftHue(this Color color, float hueDelta)
         {

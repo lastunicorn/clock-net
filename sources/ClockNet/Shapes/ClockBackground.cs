@@ -37,10 +37,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public const float DefaultRadius = 50f;
 
-        /// <summary>
-        /// The radius of the dial.
-        /// </summary>
-        protected float radius;
+        private float radius;
+        private RectangleF rect;
 
         /// <summary>
         /// Gets or sets the radius of the dial.
@@ -101,7 +99,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public ClockBackground(Color outlineColor, Color fillColor, float radius, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
-            this.Name = DefaultName;
+            Name = DefaultName;
             this.radius = radius;
         }
 
@@ -116,11 +114,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 Alignment = PenAlignment.Inset
             };
         }
-
-        /// <summary>
-        /// The rectangle defining the circle that is drawn.
-        /// </summary>
-        private RectangleF rect;
 
         /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every

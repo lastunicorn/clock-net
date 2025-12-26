@@ -156,42 +156,11 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// default values.
         /// </summary>
         public StringBackground()
-            : this(DefaultText, Color.Black, DefaultFont)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StringBackground"/> class.
-        /// </summary>
-        /// <param name="text">The text that should be drawn.</param>
-        public StringBackground(string text)
-            : this(text, Color.Black, DefaultFont)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StringBackground"/> class.
-        /// </summary>
-        /// <param name="text">The text that should be drawn.</param>
-        /// <param name="color">The color used to draw the text.</param>
-        public StringBackground(string text, Color color)
-            : this(text, color, DefaultFont)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StringBackground"/> class.
-        /// </summary>
-        /// <param name="text">The text that should be drawn.</param>
-        /// <param name="color">The color used to draw the text.</param>
-        /// <param name="font">The font used to draw the text.</param>
-        public StringBackground(string text, Color color, Font font)
-            : base(Color.Empty, color)
         {
             Name = DefaultName;
 
-            this.text = text;
-            this.font = font;
+            text = DefaultText;
+            font = DefaultFont;
             location = DefaultLocation;
 
             stringFormat = new StringFormat

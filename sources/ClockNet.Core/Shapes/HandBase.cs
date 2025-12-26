@@ -128,12 +128,12 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// Initializes a new instance of the <see cref="HandBase"/> class.
         /// </summary>
-        /// <param name="height">The length of the hour hand for a clock with the diameter of 100px.</param>
-        public HandBase(float height)
+        /// <param name="length">The length of the hour hand for a clock with the diameter of 100px.</param>
+        public HandBase(float length)
             : base()
         {
-            this.length = height;
-            this.integralValue = DefaultIntegralValue;
+            this.length = length;
+            integralValue = DefaultIntegralValue;
         }
 
         /// <summary>

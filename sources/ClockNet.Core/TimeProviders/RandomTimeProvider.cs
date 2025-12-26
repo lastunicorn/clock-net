@@ -29,7 +29,6 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// Initializes a new instance of the <see cref="RandomTimeProvider"/> class.
         /// </summary>
         public RandomTimeProvider()
-            : base()
         {
             rand = new Random();
         }

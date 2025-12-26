@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundsEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BackgroundsEditor.Designer.cs">
+      <DependentUpon>BackgroundsEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDemo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BackgroundsEditor.resx">
+      <DependentUpon>BackgroundsEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDemo.resx">
       <DependentUpon>FormDemo.cs</DependentUpon>
       <SubType>Designer</SubType>

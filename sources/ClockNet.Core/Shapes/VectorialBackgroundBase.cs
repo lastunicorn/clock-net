@@ -104,6 +104,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// The brush used to fill the shape.
         /// </summary>
+        [Browsable(false)]
         protected Brush Brush
         {
             get
@@ -119,6 +120,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <summary>
         /// The pen used to draw the outline of the shape.
         /// </summary>
+        [Browsable(false)]
         protected Pen Pen
         {
             get
@@ -137,9 +139,11 @@ namespace DustInTheWind.ClockNet.Shapes
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
-        public VectorialBackgroundBase(Color outlineColor, Color fillColor)
-            : this(outlineColor, fillColor, DefaultOutlineWidth)
+        public VectorialBackgroundBase()
         {
+            outlineColor = DefaultOutlineColor;
+            fillColor = DefaultFillColor;
+            outlineWidth = DefaultOutlineWidth;
         }
 
         /// <summary>
@@ -149,7 +153,6 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         /// <param name="outlineWidth">The width of the outline.</param>
         public VectorialBackgroundBase(Color outlineColor, Color fillColor, float outlineWidth)
-            : base()
         {
             this.outlineColor = outlineColor;
             this.fillColor = fillColor;

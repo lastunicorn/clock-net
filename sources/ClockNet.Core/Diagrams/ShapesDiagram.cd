@@ -30,76 +30,6 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground" Collapsed="true">
-    <Position X="1.25" Y="7" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAIAAAACAAAAAAAAAjAIAAAABAAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>Shapes\Advanced\ClockBackground.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand" Collapsed="true">
-    <Position X="24.25" Y="10.25" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAAAAAQAAAAEAAADBAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>Shapes\Advanced\DiamondHand.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand" Collapsed="true">
-    <Position X="18.5" Y="8.25" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAACBgAABAAAJACAAQAAhAAAAABAAAAAgCAEA=</HashCode>
-      <FileName>Shapes\Advanced\DigitalHand.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.DotHand" Collapsed="true">
-    <Position X="18.5" Y="5.75" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAIAAAACABAAAAAAATAAAAAABBAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>Shapes\Advanced\DotHand.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground" Collapsed="true">
-    <Position X="1.25" Y="5.75" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAISgACAEgABAAAhAUAIAEBBBAACAAIAAgAAAAAA=</HashCode>
-      <FileName>Shapes\Advanced\FancyBackground.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand" Collapsed="true">
-    <Position X="23.75" Y="13.25" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAABAEAEAAAAAAAAAEABAHBAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>Shapes\Advanced\FancySweepHand.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.NibHand" Collapsed="true">
-    <Position X="21.5" Y="13.25" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAQABAAEAAABQAQAAAAIAAAAAAAAA=</HashCode>
-      <FileName>Shapes\Advanced\NibHand.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.Pin" Collapsed="true">
-    <Position X="18.5" Y="7" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAABAABhAABBAAAEAAIABQAAAAAA=</HashCode>
-      <FileName>Shapes\Advanced\Pin.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.SlotHand" Collapsed="true">
-    <Position X="19.25" Y="13.25" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAIAAAACEAAAAAAQACAAEAAADBAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>Shapes\Advanced\SlotHand.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.Ticks" Collapsed="true">
-    <Position X="15" Y="9" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEEAAABAABAAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>Shapes\Advanced\Ticks.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="DustInTheWind.ClockNet.Shapes.Basic.EllipseHand" Collapsed="true">
     <Position X="21.5" Y="7.75" Width="2" />
     <TypeIdentifier>
@@ -261,6 +191,27 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAAABAAAAAAABAAAAAAIAAAAgAAAg=</HashCode>
       <FileName>Shapes\Basic\LineRimMarker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand" Collapsed="true">
+    <Position X="24.25" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAQAAAAEAAADBAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\DiamondHand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.Pin" Collapsed="true">
+    <Position X="18.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAABAABhAABBAAAEAAIABQAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\Pin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DustInTheWind.ClockNet.Shapes.Advanced.Ticks" Collapsed="true">
+    <Position X="15" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEEAAABAABAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Shapes\Advanced\Ticks.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

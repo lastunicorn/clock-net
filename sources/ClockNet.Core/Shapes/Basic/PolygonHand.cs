@@ -50,10 +50,10 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
         /// <param name="points">The points defining the polygon that will be drawn.</param>
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
-        /// <param name="height">The length of the hand from the pin to the its top.</param>
+        /// <param name="length">The length of the hand from the pin to the its top.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public PolygonHand(PointF[] points, Color outlineColor, Color fillColor, float height, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth, height)
+        public PolygonHand(PointF[] points, Color outlineColor, Color fillColor, float length, float lineWidth)
+            : base(outlineColor, fillColor, lineWidth, length)
         {
             Name = DefaultName;
             this.points = points;

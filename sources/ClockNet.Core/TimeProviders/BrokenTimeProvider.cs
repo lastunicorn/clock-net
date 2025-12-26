@@ -29,11 +29,9 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// </summary>
         public const float DefaultTimeMultiplier = 10;
 
-
-        /// <summary>
-        /// The last value of the time provided by the current instance.
-        /// </summary>
-        private TimeSpan lastValue;
+        private TimeSpan initialTime = TimeSpan.Zero;
+        private DateTime initialRealTime = DateTime.UtcNow;
+        private float timeMultiplier = DefaultTimeMultiplier;
 
         /// <summary>
         /// Gets or sets the last value of the time provided by the current instance.
@@ -42,27 +40,16 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// </summary>
         [DefaultValue(typeof(TimeSpan), "00:00:00")]
         [Description("The last value of the time provided by the current instance.")]
-        public TimeSpan LastValue
+        public TimeSpan InitialTime
         {
-            get => lastValue;
+            get => initialTime;
             set
             {
-                lastValue = value;
-                lastQueryTime = DateTime.Now;
+                initialTime = value;
+                initialRealTime = DateTime.UtcNow;
                 OnChanged(EventArgs.Empty);
             }
         }
-
-        /// <summary>
-        /// The real time when the current instance provided the last time value.
-        /// </summary>
-        private DateTime lastQueryTime;
-
-        /// <summary>
-        /// The time multiplier that specifies how much faster the time measured by the current instance
-        /// flows compared to the real one.
-        /// </summary>
-        private float timeMultiplier;
 
         /// <summary>
         /// Gets or sets the time multiplier that specifies how much faster is the provided time
@@ -72,7 +59,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
         [Description("Specifies how much faster is the provided time compared to the real one.")]
         public float TimeMultiplier
         {
-            get { return timeMultiplier; }
+            get => timeMultiplier;
             set
             {
                 timeMultiplier = value;
@@ -81,53 +68,20 @@ namespace DustInTheWind.ClockNet.TimeProviders
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RandomTimeProvider"/> class with
-        /// default values.
-        /// </summary>
-        public BrokenTimeProvider()
-            : this(DefaultTimeMultiplier)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RandomTimeProvider"/> class.
-        /// </summary>
-        /// <param name="multiplier">Specifies how much faster is the provided time compared to the real one.</param>
-        public BrokenTimeProvider(float multiplier)
-            : this(multiplier, TimeSpan.Zero)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RandomTimeProvider"/> class.
-        /// </summary>
-        /// <param name="timeMultiplier">Specifies how much faster is the provided time compared to the real one.</param>
-        /// <param name="initialValue">The value of the time measured by the new instance at the moment of its creation.</param>
-        public BrokenTimeProvider(float timeMultiplier, TimeSpan initialValue)
-            : base()
-        {
-            this.timeMultiplier = timeMultiplier;
-            lastQueryTime = DateTime.Now;
-            lastValue = initialValue;
-        }
-
-        /// <summary>
         /// Returns a new time value.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
         public override TimeSpan GetTime()
         {
-            DateTime currentQueryTime = DateTime.Now;
-            TimeSpan diffTime = currentQueryTime - lastQueryTime;
-            double deltaTimeTicks = diffTime.Ticks * timeMultiplier;
-            TimeSpan deltaTime = new TimeSpan((int)deltaTimeTicks); // By rounding here, small amounts of time are lost every time.
-            TimeSpan newValue = lastValue + deltaTime;
-            if (newValue.Days > 0)
-                newValue = newValue.Subtract(TimeSpan.FromDays(newValue.Days));
-            lastValue = newValue;
-            lastQueryTime = currentQueryTime;
+            DateTime currentRealTime = DateTime.UtcNow;
+            long realDeltaTicks = currentRealTime.Ticks - initialRealTime.Ticks;
+            double fakeDeltaTicks = realDeltaTicks * timeMultiplier;
+            TimeSpan fakeDelta = TimeSpan.FromTicks((long)fakeDeltaTicks);
+            TimeSpan fakeTime = initialTime + fakeDelta;
 
-            return newValue;
+            return fakeTime.Days > 0
+                ? fakeTime.Subtract(TimeSpan.FromDays(fakeTime.Days))
+                : fakeTime;
         }
     }
 }

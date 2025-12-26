@@ -65,16 +65,10 @@
     <Compile Include="ShapeAddedEventArgs.cs" />
     <Compile Include="ShapeCollectionEditor.cs" />
     <Compile Include="ShapeRemovedEventArgs.cs" />
-    <Compile Include="Shapes\Advanced\ClockBackground.cs" />
-    <Compile Include="Shapes\Advanced\DiamondHand.cs" />
-    <Compile Include="Shapes\Advanced\DigitalHand.cs" />
-    <Compile Include="Shapes\Advanced\DotHand.cs" />
-    <Compile Include="Shapes\Advanced\FancyBackground.cs" />
-    <Compile Include="Shapes\Advanced\FancySweepHand.cs" />
-    <Compile Include="Shapes\Advanced\NibHand.cs" />
-    <Compile Include="Shapes\Advanced\Pin.cs" />
-    <Compile Include="Shapes\Advanced\SlotHand.cs" />
-    <Compile Include="Shapes\Advanced\Ticks.cs" />
+    <Compile Include="Shapes\Default\DiamondHand.cs" />
+    <Compile Include="Shapes\Default\Hours.cs" />
+    <Compile Include="Shapes\Default\Pin.cs" />
+    <Compile Include="Shapes\Default\Ticks.cs" />
     <Compile Include="Shapes\RimMarkerOrientation.cs" />
     <Compile Include="Shapes\RimMarkerBase.cs" />
     <Compile Include="Shapes\Basic\EllipseRimMarker.cs" />
@@ -116,7 +110,6 @@
     <Compile Include="TimeProviders\LocalTimeProvider.cs" />
     <Compile Include="TimeProviders\RandomTimeProvider.cs" />
     <Compile Include="TimeProviders\TimeProviderBase.cs" />
-    <Compile Include="TimeProviders\UtcOffsetTimeProvider.cs" />
     <Compile Include="TimeProviders\UtcTimeProvider.cs" />
     <Compile Include="TimeSpanEditor.cs" />
   </ItemGroup>
@@ -134,5 +127,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

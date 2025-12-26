@@ -15,21 +15,45 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.ComponentModel;
 
 namespace DustInTheWind.ClockNet.TimeProviders
 {
     /// <summary>
-    /// Provides the system's utc time from the moment of the request.
+    /// Provides the UTC time. Optionally, an offset may be provided.
     /// </summary>
     public class UtcTimeProvider : TimeProviderBase
     {
         /// <summary>
-        /// Returns the system's utc time from the moment of the request.
+        /// The offset time used to decalates the system's UTC time value provided.
+        /// </summary>
+        private TimeSpan utcOffset;
+
+        /// <summary>
+        /// Gets or sets the offset time used to decalates the system's UTC time value provided.
+        /// </summary>
+        [Category("Value")]
+        [DefaultValue(typeof(TimeSpan), "0")]
+        [Description("The offset time used to decalates the system's UTC time value provided.")]
+        public TimeSpan UtcOffset
+        {
+            get => utcOffset;
+            set
+            {
+                utcOffset = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// Returns the system's UTC time added with the offset value.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
         public override TimeSpan GetTime()
         {
-            return DateTime.UtcNow.TimeOfDay;
+            return utcOffset == TimeSpan.Zero
+                ? DateTime.UtcNow.TimeOfDay
+                : DateTime.UtcNow.TimeOfDay.Add(utcOffset);
         }
     }
 }
