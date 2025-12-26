@@ -71,7 +71,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// Returns a new time value.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        public override TimeSpan GetTime()
+        protected override TimeSpan GetTime()
         {
             DateTime currentRealTime = DateTime.UtcNow;
             long realDeltaTicks = currentRealTime.Ticks - initialRealTime.Ticks;

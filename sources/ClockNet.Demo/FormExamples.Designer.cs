@@ -401,7 +401,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDefault.TabIndex = 20;
             this.analogClockDefault.Text = "Default";
             this.analogClockDefault.Time = System.TimeSpan.Parse("16:00:55.3371108");
-            this.analogClockDefault.Timer = this.timer1;
             // 
             // analogClockSimple
             // 
@@ -451,7 +450,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockSimple.TabIndex = 16;
             this.analogClockSimple.Text = "Simple";
             this.analogClockSimple.Time = System.TimeSpan.Parse("16:00:55.3381104");
-            this.analogClockSimple.Timer = this.timer1;
             // 
             // analogClockNoNumbers
             // 
@@ -507,7 +505,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockNoNumbers.TabIndex = 17;
             this.analogClockNoNumbers.Text = "No Numbers";
             this.analogClockNoNumbers.Time = System.TimeSpan.Parse("16:00:55.3391106");
-            this.analogClockNoNumbers.Timer = this.timer1;
             // 
             // analogClockRomanNumbers
             // 
@@ -572,7 +569,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockRomanNumbers.TabIndex = 19;
             this.analogClockRomanNumbers.Text = "Roman Numerals";
             this.analogClockRomanNumbers.Time = System.TimeSpan.Parse("16:00:55.3391106");
-            this.analogClockRomanNumbers.Timer = this.timer1;
             // 
             // analogClockClear
             // 
@@ -616,7 +612,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockClear.TabIndex = 18;
             this.analogClockClear.Text = "Clear";
             this.analogClockClear.Time = System.TimeSpan.Parse("16:00:55.3401103");
-            this.analogClockClear.Timer = this.timer1;
             // 
             // analogClockNESW
             // 
@@ -679,7 +674,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockNESW.TabIndex = 13;
             this.analogClockNESW.Text = "North East Sourh West";
             this.analogClockNESW.Time = System.TimeSpan.Parse("16:00:55.3411119");
-            this.analogClockNESW.Timer = this.timer1;
             // 
             // tabControl1
             // 
@@ -841,7 +835,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBlue.TabIndex = 0;
             this.analogClockBlue.Text = "Blue";
             this.analogClockBlue.Time = System.TimeSpan.Parse("16:00:55.3525817");
-            this.analogClockBlue.Timer = this.timer1;
             // 
             // analogClockDigital
             // 
@@ -926,7 +919,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDigital.TabIndex = 14;
             this.analogClockDigital.Text = "Digital";
             this.analogClockDigital.Time = System.TimeSpan.Parse("16:00:55.3535816");
-            this.analogClockDigital.Timer = this.timer1;
             // 
             // analogClockGreen
             // 
@@ -1011,7 +1003,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockGreen.TabIndex = 11;
             this.analogClockGreen.Text = "Green";
             this.analogClockGreen.Time = System.TimeSpan.Parse("16:00:55.3545817");
-            this.analogClockGreen.Timer = this.timer1;
             // 
             // analogClockRandom
             // 
@@ -1090,7 +1081,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockRandom.Text = "Broken\r\n(Random)";
             this.analogClockRandom.Time = System.TimeSpan.Parse("04:34:31");
             this.analogClockRandom.TimeProvider = this.randomTimeProvider1;
-            this.analogClockRandom.Timer = this.timer1;
             // 
             // analogClockBroken
             // 
@@ -1161,7 +1151,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBroken.Text = "Broken\r\n(Fast)\r\n";
             this.analogClockBroken.Time = System.TimeSpan.Parse("00:00:31.2500000");
             this.analogClockBroken.TimeProvider = this.brokenTimeProvider1;
-            this.analogClockBroken.Timer = this.timer1;
             // 
             // brokenTimeProvider1
             // 
@@ -1244,7 +1233,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBroken2.Text = "Broken\r\n(Back)";
             this.analogClockBroken2.Time = System.TimeSpan.Parse("03:13:45.0371400");
             this.analogClockBroken2.TimeProvider = this.brokenTimeProvider2;
-            this.analogClockBroken2.Timer = this.timer1;
             // 
             // brokenTimeProvider2
             // 
@@ -1344,7 +1332,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockImages.TabIndex = 19;
             this.analogClockImages.Text = "Gothic";
             this.analogClockImages.Time = System.TimeSpan.Parse("16:00:55.3719673");
-            this.analogClockImages.Timer = this.timer1;
             // 
             // analogClockBlackDot
             // 
@@ -1389,7 +1376,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBlackDot.TabIndex = 20;
             this.analogClockBlackDot.Text = "[ Dots ]";
             this.analogClockBlackDot.Time = System.TimeSpan.Parse("16:00:55.3729672");
-            this.analogClockBlackDot.Timer = this.timer1;
             // 
             // analogClockFancy
             // 
@@ -1407,6 +1393,7 @@ namespace DustInTheWind.ClockNet.Demo
             stringAngularShape9.Font = new System.Drawing.Font("Arial", 6.25F);
             stringAngularShape9.Index = 13;
             stringAngularShape9.Name = "Text Angular Shape";
+            stringAngularShape9.Orientation = DustInTheWind.ClockNet.Shapes.RimMarkerOrientation.Normal;
             stringAngularShape9.OutlineColor = System.Drawing.Color.Empty;
             stringAngularShape9.DistanceFromEdge = 12F;
             stringAngularShape9.Texts = new string[] {
@@ -1463,13 +1450,11 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockFancy.TabIndex = 16;
             this.analogClockFancy.Text = "Fancy";
             this.analogClockFancy.Time = System.TimeSpan.Parse("16:00:55.3739702");
-            this.analogClockFancy.Timer = this.timer1;
             // 
             // analogClockWhiteFancy
             // 
             stringAngularShape10.Angle = 30F;
-            stringAngularShape10.FillColor = System.Drawing.Color.White;
-            stringAngularShape10.Font = new System.Drawing.Font("Arial", 9F);
+            stringAngularShape10.Font = new System.Drawing.Font("Arial", 6.25F);
             stringAngularShape10.Index = 13;
             stringAngularShape10.Name = "Text Angular Shape";
             stringAngularShape10.Orientation = DustInTheWind.ClockNet.Shapes.RimMarkerOrientation.Normal;
@@ -1528,8 +1513,8 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockWhiteFancy.Name = "analogClockWhiteFancy";
             this.analogClockWhiteFancy.Size = new System.Drawing.Size(300, 300);
             this.analogClockWhiteFancy.TabIndex = 17;
+            this.analogClockWhiteFancy.Text = "Fancy";
             this.analogClockWhiteFancy.Time = System.TimeSpan.Parse("16:00:55.3739702");
-            this.analogClockWhiteFancy.Timer = this.timer1;
             // 
             // analogClockBlack
             // 
@@ -1661,7 +1646,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBlack.TabIndex = 18;
             this.analogClockBlack.Text = "Shading Black";
             this.analogClockBlack.Time = System.TimeSpan.Parse("16:00:55.3749704");
-            this.analogClockBlack.Timer = this.timer1;
             // 
             // analogClockSun
             // 
@@ -1799,695 +1783,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockSun.TabIndex = 21;
             this.analogClockSun.Text = "[ Sun ]";
             this.analogClockSun.Time = System.TimeSpan.Parse("16:00:55.3759683");
-            this.analogClockSun.Timer = this.timer1;
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Location = new System.Drawing.Point(10, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(988, 15);
-            this.label4.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Location = new System.Drawing.Point(10, 10);
-            this.label5.MaximumSize = new System.Drawing.Size(700, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(240, 26);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Uses custom shapes.\r\nYou can see here the true power of the Shapes ;)";
-            // 
-            // tabPageTimeZones
-            // 
-            this.tabPageTimeZones.Controls.Add(this.flowLayoutPanel1);
-            this.tabPageTimeZones.Controls.Add(this.label6);
-            this.tabPageTimeZones.Controls.Add(this.label7);
-            this.tabPageTimeZones.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTimeZones.Name = "tabPageTimeZones";
-            this.tabPageTimeZones.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPageTimeZones.Size = new System.Drawing.Size(1008, 689);
-            this.tabPageTimeZones.TabIndex = 2;
-            this.tabPageTimeZones.Text = "Time Zones";
-            this.tabPageTimeZones.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.analogClockLocal);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockUTC);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockTokyo);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockLocalProvider);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockUTCProvider);
-            this.flowLayoutPanel1.Controls.Add(this.analogClockTokyoProvider);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 51);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 628);
-            this.flowLayoutPanel1.TabIndex = 11;
-            // 
-            // analogClockLocal
-            // 
-            ticksShape21.SkipIndex = 5;
-            ticksShape21.FillColor = System.Drawing.Color.Empty;
-            ticksShape21.Index = 61;
-            ticksShape21.Name = "Ticks Shape";
-            ticksShape22.Angle = 30F;
-            ticksShape22.FillColor = System.Drawing.Color.Empty;
-            ticksShape22.Index = 13;
-            ticksShape22.Length = 5F;
-            ticksShape22.OutlineWidth = 1F;
-            ticksShape22.Name = "Ticks Shape";
-            this.analogClockLocal.RimMarkers.Add(ticksShape21);
-            this.analogClockLocal.RimMarkers.Add(ticksShape22);
-            stringGroundShape17.Font = new System.Drawing.Font("Arial", 3F);
-            stringGroundShape17.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape17.Location")));
-            stringGroundShape17.Name = "String Ground Shape";
-            stringGroundShape17.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape17.Text = "Local";
-            this.analogClockLocal.Backgrounds.Add(stringGroundShape17);
-            diamondHandShape25.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
-            diamondHandShape25.FillColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape25.Length = 24.2F;
-            diamondHandShape25.Name = "Diamond Hand Shape";
-            diamondHandShape25.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape25.Time = System.TimeSpan.Parse("16:00:55.3851751");
-            diamondHandShape26.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Minute;
-            diamondHandShape26.FillColor = System.Drawing.Color.LimeGreen;
-            diamondHandShape26.Length = 37F;
-            diamondHandShape26.Name = "Diamond Hand Shape";
-            diamondHandShape26.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape26.TailLength = 4F;
-            diamondHandShape26.Time = System.TimeSpan.Parse("16:00:55.3851751");
-            diamondHandShape26.Width = 4F;
-            lineHandShape14.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Second;
-            lineHandShape14.FillColor = System.Drawing.Color.Empty;
-            lineHandShape14.Length = 42.5F;
-            lineHandShape14.Name = "Line Hand Shape";
-            lineHandShape14.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape14.Time = System.TimeSpan.Parse("16:00:55.3851751");
-            pinShape17.FillColor = System.Drawing.Color.Red;
-            pinShape17.Name = "Pin Shape";
-            pinShape17.OutlineColor = System.Drawing.Color.Empty;
-            pinShape17.Time = System.TimeSpan.Parse("16:00:55.3851751");
-            this.analogClockLocal.Hands.Add(diamondHandShape25);
-            this.analogClockLocal.Hands.Add(diamondHandShape26);
-            this.analogClockLocal.Hands.Add(lineHandShape14);
-            this.analogClockLocal.Hands.Add(pinShape17);
-            this.analogClockLocal.Location = new System.Drawing.Point(3, 3);
-            this.analogClockLocal.Name = "analogClockLocal";
-            this.analogClockLocal.Size = new System.Drawing.Size(300, 300);
-            this.analogClockLocal.TabIndex = 10;
-            this.analogClockLocal.Text = "Local";
-            this.analogClockLocal.Time = System.TimeSpan.Parse("16:00:55.3851751");
-            this.analogClockLocal.Timer = this.timer1;
-            // 
-            // analogClockUTC
-            // 
-            ticksShape23.SkipIndex = 5;
-            ticksShape23.FillColor = System.Drawing.Color.Empty;
-            ticksShape23.Index = 61;
-            ticksShape23.Name = "Ticks Shape";
-            ticksShape24.Angle = 30F;
-            ticksShape24.FillColor = System.Drawing.Color.Empty;
-            ticksShape24.Index = 13;
-            ticksShape24.Length = 5F;
-            ticksShape24.OutlineWidth = 1F;
-            ticksShape24.Name = "Ticks Shape";
-            this.analogClockUTC.RimMarkers.Add(ticksShape23);
-            this.analogClockUTC.RimMarkers.Add(ticksShape24);
-            stringGroundShape18.Font = new System.Drawing.Font("Arial", 3F);
-            stringGroundShape18.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape18.Location")));
-            stringGroundShape18.Name = "String Ground Shape";
-            stringGroundShape18.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape18.Text = "UTC";
-            this.analogClockUTC.Backgrounds.Add(stringGroundShape18);
-            diamondHandShape27.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
-            diamondHandShape27.FillColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape27.Length = 24.2F;
-            diamondHandShape27.Name = "Diamond Hand Shape";
-            diamondHandShape27.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape27.Time = System.TimeSpan.Parse("16:00:55.3861751");
-            diamondHandShape28.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Minute;
-            diamondHandShape28.FillColor = System.Drawing.Color.LimeGreen;
-            diamondHandShape28.Length = 37F;
-            diamondHandShape28.Name = "Diamond Hand Shape";
-            diamondHandShape28.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape28.TailLength = 4F;
-            diamondHandShape28.Time = System.TimeSpan.Parse("16:00:55.3861751");
-            diamondHandShape28.Width = 4F;
-            lineHandShape15.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Second;
-            lineHandShape15.FillColor = System.Drawing.Color.Empty;
-            lineHandShape15.Length = 42.5F;
-            lineHandShape15.Name = "Line Hand Shape";
-            lineHandShape15.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape15.Time = System.TimeSpan.Parse("16:00:55.3861751");
-            pinShape18.FillColor = System.Drawing.Color.Red;
-            pinShape18.Name = "Pin Shape";
-            pinShape18.OutlineColor = System.Drawing.Color.Empty;
-            pinShape18.Time = System.TimeSpan.Parse("16:00:55.3861751");
-            this.analogClockUTC.Hands.Add(diamondHandShape27);
-            this.analogClockUTC.Hands.Add(diamondHandShape28);
-            this.analogClockUTC.Hands.Add(lineHandShape15);
-            this.analogClockUTC.Hands.Add(pinShape18);
-            this.analogClockUTC.Location = new System.Drawing.Point(309, 3);
-            this.analogClockUTC.Name = "analogClockUTC";
-            this.analogClockUTC.Size = new System.Drawing.Size(300, 300);
-            this.analogClockUTC.TabIndex = 6;
-            this.analogClockUTC.Text = "UTC";
-            this.analogClockUTC.Time = System.TimeSpan.Parse("16:00:55.3861751");
-            this.analogClockUTC.Timer = this.timer1;
-            this.analogClockUTC.UtcOffset = System.TimeSpan.Parse("00:00:00");
-            // 
-            // analogClockTokyo
-            // 
-            ticksShape25.SkipIndex = 5;
-            ticksShape25.FillColor = System.Drawing.Color.Empty;
-            ticksShape25.Index = 61;
-            ticksShape25.Name = "Ticks Shape";
-            ticksShape26.Angle = 30F;
-            ticksShape26.FillColor = System.Drawing.Color.Empty;
-            ticksShape26.Index = 13;
-            ticksShape26.Length = 5F;
-            ticksShape26.OutlineWidth = 1F;
-            ticksShape26.Name = "Ticks Shape";
-            this.analogClockTokyo.RimMarkers.Add(ticksShape25);
-            this.analogClockTokyo.RimMarkers.Add(ticksShape26);
-            stringGroundShape19.Font = new System.Drawing.Font("Arial", 3F);
-            stringGroundShape19.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape19.Location")));
-            stringGroundShape19.Name = "String Ground Shape";
-            stringGroundShape19.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape19.Text = "Tokyo\r\n+09:00";
-            this.analogClockTokyo.Backgrounds.Add(stringGroundShape19);
-            diamondHandShape29.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
-            diamondHandShape29.FillColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape29.Length = 24.2F;
-            diamondHandShape29.Name = "Diamond Hand Shape";
-            diamondHandShape29.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape29.Time = System.TimeSpan.Parse("16:00:55.3871755");
-            diamondHandShape30.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Minute;
-            diamondHandShape30.FillColor = System.Drawing.Color.LimeGreen;
-            diamondHandShape30.Length = 37F;
-            diamondHandShape30.Name = "Diamond Hand Shape";
-            diamondHandShape30.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape30.TailLength = 4F;
-            diamondHandShape30.Time = System.TimeSpan.Parse("16:00:55.3871755");
-            diamondHandShape30.Width = 4F;
-            lineHandShape16.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Second;
-            lineHandShape16.FillColor = System.Drawing.Color.Empty;
-            lineHandShape16.Length = 42.5F;
-            lineHandShape16.Name = "Line Hand Shape";
-            lineHandShape16.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape16.Time = System.TimeSpan.Parse("16:00:55.3871755");
-            pinShape19.FillColor = System.Drawing.Color.Red;
-            pinShape19.Name = "Pin Shape";
-            pinShape19.OutlineColor = System.Drawing.Color.Empty;
-            pinShape19.Time = System.TimeSpan.Parse("16:00:55.3871755");
-            this.analogClockTokyo.Hands.Add(diamondHandShape29);
-            this.analogClockTokyo.Hands.Add(diamondHandShape30);
-            this.analogClockTokyo.Hands.Add(lineHandShape16);
-            this.analogClockTokyo.Hands.Add(pinShape19);
-            this.analogClockTokyo.Location = new System.Drawing.Point(615, 3);
-            this.analogClockTokyo.Name = "analogClockTokyo";
-            this.analogClockTokyo.Size = new System.Drawing.Size(300, 300);
-            this.analogClockTokyo.TabIndex = 11;
-            this.analogClockTokyo.Text = "Tokyo\r\n+09:00";
-            this.analogClockTokyo.Time = System.TimeSpan.Parse("16:00:55.3871755");
-            this.analogClockTokyo.Timer = this.timer1;
-            this.analogClockTokyo.UtcOffset = System.TimeSpan.Parse("09:00:00");
-            // 
-            // analogClockLocalProvider
-            // 
-            ticksShape27.SkipIndex = 5;
-            ticksShape27.FillColor = System.Drawing.Color.Empty;
-            ticksShape27.Index = 61;
-            ticksShape27.Name = "Ticks Shape";
-            ticksShape28.Angle = 30F;
-            ticksShape28.FillColor = System.Drawing.Color.Empty;
-            ticksShape28.Index = 13;
-            ticksShape28.Length = 5F;
-            ticksShape28.OutlineWidth = 1F;
-            ticksShape28.Name = "Ticks Shape";
-            this.analogClockLocalProvider.RimMarkers.Add(ticksShape27);
-            this.analogClockLocalProvider.RimMarkers.Add(ticksShape28);
-            stringGroundShape20.Font = new System.Drawing.Font("Arial", 3F);
-            stringGroundShape20.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape20.Location")));
-            stringGroundShape20.Name = "String Ground Shape";
-            stringGroundShape20.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape20.Text = "Local";
-            this.analogClockLocalProvider.Backgrounds.Add(stringGroundShape20);
-            diamondHandShape31.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
-            diamondHandShape31.FillColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape31.Length = 24.2F;
-            diamondHandShape31.Name = "Diamond Hand Shape";
-            diamondHandShape31.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape31.Time = System.TimeSpan.Parse("16:00:55.3891758");
-            diamondHandShape32.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Minute;
-            diamondHandShape32.FillColor = System.Drawing.Color.LimeGreen;
-            diamondHandShape32.Length = 37F;
-            diamondHandShape32.Name = "Diamond Hand Shape";
-            diamondHandShape32.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape32.TailLength = 4F;
-            diamondHandShape32.Time = System.TimeSpan.Parse("16:00:55.3891758");
-            diamondHandShape32.Width = 4F;
-            lineHandShape17.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Second;
-            lineHandShape17.FillColor = System.Drawing.Color.Empty;
-            lineHandShape17.Length = 42.5F;
-            lineHandShape17.Name = "Line Hand Shape";
-            lineHandShape17.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape17.Time = System.TimeSpan.Parse("16:00:55.3891758");
-            pinShape20.FillColor = System.Drawing.Color.Red;
-            pinShape20.Name = "Pin Shape";
-            pinShape20.OutlineColor = System.Drawing.Color.Empty;
-            pinShape20.Time = System.TimeSpan.Parse("16:00:55.3891758");
-            this.analogClockLocalProvider.Hands.Add(diamondHandShape31);
-            this.analogClockLocalProvider.Hands.Add(diamondHandShape32);
-            this.analogClockLocalProvider.Hands.Add(lineHandShape17);
-            this.analogClockLocalProvider.Hands.Add(pinShape20);
-            this.analogClockLocalProvider.Location = new System.Drawing.Point(3, 309);
-            this.analogClockLocalProvider.Name = "analogClockLocalProvider";
-            this.analogClockLocalProvider.Size = new System.Drawing.Size(300, 300);
-            this.analogClockLocalProvider.TabIndex = 8;
-            this.analogClockLocalProvider.Text = "Local";
-            this.analogClockLocalProvider.Time = System.TimeSpan.Parse("16:00:55.3891758");
-            this.analogClockLocalProvider.TimeProvider = this.localTimeProvider;
-            this.analogClockLocalProvider.Timer = this.timer1;
-            // 
-            // analogClockUTCProvider
-            // 
-            ticksShape29.SkipIndex = 5;
-            ticksShape29.FillColor = System.Drawing.Color.Empty;
-            ticksShape29.Index = 61;
-            ticksShape29.Name = "Ticks Shape";
-            ticksShape30.Angle = 30F;
-            ticksShape30.FillColor = System.Drawing.Color.Empty;
-            ticksShape30.Index = 13;
-            ticksShape30.Length = 5F;
-            ticksShape30.OutlineWidth = 1F;
-            ticksShape30.Name = "Ticks Shape";
-            this.analogClockUTCProvider.RimMarkers.Add(ticksShape29);
-            this.analogClockUTCProvider.RimMarkers.Add(ticksShape30);
-            stringGroundShape21.Font = new System.Drawing.Font("Arial", 3F);
-            stringGroundShape21.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape21.Location")));
-            stringGroundShape21.Name = "String Ground Shape";
-            stringGroundShape21.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape21.Text = "UTC";
-            this.analogClockUTCProvider.Backgrounds.Add(stringGroundShape21);
-            diamondHandShape33.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
-            diamondHandShape33.FillColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape33.Length = 24.2F;
-            diamondHandShape33.Name = "Diamond Hand Shape";
-            diamondHandShape33.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape33.Time = System.TimeSpan.Parse("14:00:55.3911793");
-            diamondHandShape34.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Minute;
-            diamondHandShape34.FillColor = System.Drawing.Color.LimeGreen;
-            diamondHandShape34.Length = 37F;
-            diamondHandShape34.Name = "Diamond Hand Shape";
-            diamondHandShape34.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape34.TailLength = 4F;
-            diamondHandShape34.Time = System.TimeSpan.Parse("14:00:55.3911793");
-            diamondHandShape34.Width = 4F;
-            lineHandShape18.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Second;
-            lineHandShape18.FillColor = System.Drawing.Color.Empty;
-            lineHandShape18.Length = 42.5F;
-            lineHandShape18.Name = "Line Hand Shape";
-            lineHandShape18.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape18.Time = System.TimeSpan.Parse("14:00:55.3911793");
-            pinShape21.FillColor = System.Drawing.Color.Red;
-            pinShape21.Name = "Pin Shape";
-            pinShape21.OutlineColor = System.Drawing.Color.Empty;
-            pinShape21.Time = System.TimeSpan.Parse("14:00:55.3911793");
-            this.analogClockUTCProvider.Hands.Add(diamondHandShape33);
-            this.analogClockUTCProvider.Hands.Add(diamondHandShape34);
-            this.analogClockUTCProvider.Hands.Add(lineHandShape18);
-            this.analogClockUTCProvider.Hands.Add(pinShape21);
-            this.analogClockUTCProvider.Location = new System.Drawing.Point(309, 309);
-            this.analogClockUTCProvider.Name = "analogClockUTCProvider";
-            this.analogClockUTCProvider.Size = new System.Drawing.Size(300, 300);
-            this.analogClockUTCProvider.TabIndex = 7;
-            this.analogClockUTCProvider.Text = "UTC";
-            this.analogClockUTCProvider.Time = System.TimeSpan.Parse("14:00:55.3911793");
-            this.analogClockUTCProvider.TimeProvider = this.utcTimeProvider;
-            this.analogClockUTCProvider.Timer = this.timer1;
-            // 
-            // analogClockTokyoProvider
-            // 
-            ticksShape31.SkipIndex = 5;
-            ticksShape31.FillColor = System.Drawing.Color.Empty;
-            ticksShape31.Index = 61;
-            ticksShape31.Name = "Ticks Shape";
-            ticksShape32.Angle = 30F;
-            ticksShape32.FillColor = System.Drawing.Color.Empty;
-            ticksShape32.Index = 13;
-            ticksShape32.Length = 5F;
-            ticksShape32.OutlineWidth = 1F;
-            ticksShape32.Name = "Ticks Shape";
-            this.analogClockTokyoProvider.RimMarkers.Add(ticksShape31);
-            this.analogClockTokyoProvider.RimMarkers.Add(ticksShape32);
-            stringGroundShape22.Font = new System.Drawing.Font("Arial", 3F);
-            stringGroundShape22.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape22.Location")));
-            stringGroundShape22.Name = "String Ground Shape";
-            stringGroundShape22.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape22.Text = "Tokyo\r\n+9:00";
-            this.analogClockTokyoProvider.Backgrounds.Add(stringGroundShape22);
-            diamondHandShape35.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
-            diamondHandShape35.FillColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape35.Length = 24.2F;
-            diamondHandShape35.Name = "Diamond Hand Shape";
-            diamondHandShape35.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape35.Time = System.TimeSpan.Parse("23:00:55.3931820");
-            diamondHandShape36.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Minute;
-            diamondHandShape36.FillColor = System.Drawing.Color.LimeGreen;
-            diamondHandShape36.Length = 37F;
-            diamondHandShape36.Name = "Diamond Hand Shape";
-            diamondHandShape36.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape36.TailLength = 4F;
-            diamondHandShape36.Time = System.TimeSpan.Parse("23:00:55.3931820");
-            diamondHandShape36.Width = 4F;
-            lineHandShape19.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Second;
-            lineHandShape19.FillColor = System.Drawing.Color.Empty;
-            lineHandShape19.Length = 42.5F;
-            lineHandShape19.Name = "Line Hand Shape";
-            lineHandShape19.OutlineColor = System.Drawing.Color.Red;
-            lineHandShape19.Time = System.TimeSpan.Parse("23:00:55.3931820");
-            pinShape22.FillColor = System.Drawing.Color.Red;
-            pinShape22.Name = "Pin Shape";
-            pinShape22.OutlineColor = System.Drawing.Color.Empty;
-            pinShape22.Time = System.TimeSpan.Parse("23:00:55.3931820");
-            this.analogClockTokyoProvider.Hands.Add(diamondHandShape35);
-            this.analogClockTokyoProvider.Hands.Add(diamondHandShape36);
-            this.analogClockTokyoProvider.Hands.Add(lineHandShape19);
-            this.analogClockTokyoProvider.Hands.Add(pinShape22);
-            this.analogClockTokyoProvider.Location = new System.Drawing.Point(615, 309);
-            this.analogClockTokyoProvider.Name = "analogClockTokyoProvider";
-            this.analogClockTokyoProvider.Size = new System.Drawing.Size(300, 300);
-            this.analogClockTokyoProvider.TabIndex = 9;
-            this.analogClockTokyoProvider.Text = "Tokyo\r\n+9:00";
-            this.analogClockTokyoProvider.Time = System.TimeSpan.Parse("23:00:55.3931820");
-            this.analogClockTokyoProvider.TimeProvider = this.tokyoTimeProvider;
-            this.analogClockTokyoProvider.Timer = this.timer1;
-            // 
-            // tokyoTimeProvider
-            // 
-            this.tokyoTimeProvider.UtcOffset = System.TimeSpan.Parse("09:00:00");
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Location = new System.Drawing.Point(10, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(988, 15);
-            this.label6.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Location = new System.Drawing.Point(10, 10);
-            this.label7.MaximumSize = new System.Drawing.Size(700, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(630, 26);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Uses custom time providers.\r\nThe same result can be achived using the internal ti" +
-    "me mechanism (first three clocks) or an external Time Provider (last three clock" +
-    "s).";
-            // 
-            // tabPageCompass
-            // 
-            this.tabPageCompass.Controls.Add(this.buttonWest);
-            this.tabPageCompass.Controls.Add(this.buttonSouth);
-            this.tabPageCompass.Controls.Add(this.buttonEast);
-            this.tabPageCompass.Controls.Add(this.buttonNorth);
-            this.tabPageCompass.Controls.Add(this.tableLayoutPanel1);
-            this.tabPageCompass.Controls.Add(this.analogClockCompass);
-            this.tabPageCompass.Location = new System.Drawing.Point(4, 22);
-            this.tabPageCompass.Name = "tabPageCompass";
-            this.tabPageCompass.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCompass.Size = new System.Drawing.Size(1008, 689);
-            this.tabPageCompass.TabIndex = 5;
-            this.tabPageCompass.Text = "Compass";
-            this.tabPageCompass.UseVisualStyleBackColor = true;
-            // 
-            // buttonWest
-            // 
-            this.buttonWest.Location = new System.Drawing.Point(371, 283);
-            this.buttonWest.Name = "buttonWest";
-            this.buttonWest.Size = new System.Drawing.Size(75, 23);
-            this.buttonWest.TabIndex = 4;
-            this.buttonWest.Text = "West";
-            this.buttonWest.UseVisualStyleBackColor = true;
-            this.buttonWest.Click += new System.EventHandler(this.buttonWest_Click);
-            // 
-            // buttonSouth
-            // 
-            this.buttonSouth.Location = new System.Drawing.Point(371, 255);
-            this.buttonSouth.Name = "buttonSouth";
-            this.buttonSouth.Size = new System.Drawing.Size(75, 23);
-            this.buttonSouth.TabIndex = 4;
-            this.buttonSouth.Text = "South";
-            this.buttonSouth.UseVisualStyleBackColor = true;
-            this.buttonSouth.Click += new System.EventHandler(this.buttonSouth_Click);
-            // 
-            // buttonEast
-            // 
-            this.buttonEast.Location = new System.Drawing.Point(371, 226);
-            this.buttonEast.Name = "buttonEast";
-            this.buttonEast.Size = new System.Drawing.Size(75, 23);
-            this.buttonEast.TabIndex = 4;
-            this.buttonEast.Text = "East";
-            this.buttonEast.UseVisualStyleBackColor = true;
-            this.buttonEast.Click += new System.EventHandler(this.buttonEast_Click);
-            // 
-            // buttonNorth
-            // 
-            this.buttonNorth.Location = new System.Drawing.Point(371, 197);
-            this.buttonNorth.Name = "buttonNorth";
-            this.buttonNorth.Size = new System.Drawing.Size(75, 23);
-            this.buttonNorth.TabIndex = 4;
-            this.buttonNorth.Text = "North";
-            this.buttonNorth.UseVisualStyleBackColor = true;
-            this.buttonNorth.Click += new System.EventHandler(this.buttonNorth_Click);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDownDegrees, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDownSeconds, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDownMinutes, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(371, 113);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(134, 78);
-            this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // numericUpDownDegrees
-            // 
-            this.numericUpDownDegrees.Location = new System.Drawing.Point(61, 3);
-            this.numericUpDownDegrees.Maximum = new decimal(new int[] {
-            359,
-            0,
-            0,
-            0});
-            this.numericUpDownDegrees.Name = "numericUpDownDegrees";
-            this.numericUpDownDegrees.Size = new System.Drawing.Size(70, 20);
-            this.numericUpDownDegrees.TabIndex = 2;
-            this.numericUpDownDegrees.Value = new decimal(new int[] {
-            80,
-            0,
-            0,
-            0});
-            this.numericUpDownDegrees.ValueChanged += new System.EventHandler(this.numericUpDownDegrees_ValueChanged);
-            // 
-            // numericUpDownSeconds
-            // 
-            this.numericUpDownSeconds.Location = new System.Drawing.Point(61, 55);
-            this.numericUpDownSeconds.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.numericUpDownSeconds.Name = "numericUpDownSeconds";
-            this.numericUpDownSeconds.Size = new System.Drawing.Size(70, 20);
-            this.numericUpDownSeconds.TabIndex = 2;
-            this.numericUpDownSeconds.Value = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.numericUpDownSeconds.ValueChanged += new System.EventHandler(this.numericUpDownSeconds_ValueChanged);
-            // 
-            // numericUpDownMinutes
-            // 
-            this.numericUpDownMinutes.Location = new System.Drawing.Point(61, 29);
-            this.numericUpDownMinutes.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.numericUpDownMinutes.Name = "numericUpDownMinutes";
-            this.numericUpDownMinutes.Size = new System.Drawing.Size(70, 20);
-            this.numericUpDownMinutes.TabIndex = 2;
-            this.numericUpDownMinutes.Value = new decimal(new int[] {
-            45,
-            0,
-            0,
-            0});
-            this.numericUpDownMinutes.ValueChanged += new System.EventHandler(this.numericUpDownMinutes_ValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 6);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Degrees:";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 32);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Minutes:";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 58);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Seconds:";
-            // 
-            // analogClockCompass
-            // 
-            ticksShape33.Angle = 45F;
-            ticksShape33.FillColor = System.Drawing.Color.Empty;
-            ticksShape33.Index = 9;
-            ticksShape33.Length = 5F;
-            ticksShape33.OutlineWidth = 1F;
-            ticksShape33.Name = "Ticks";
-            stringAngularShape14.Angle = 90F;
-            stringAngularShape14.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
-            stringAngularShape14.Index = 5;
-            stringAngularShape14.Name = "NESW";
-            stringAngularShape14.Orientation = DustInTheWind.ClockNet.Shapes.RimMarkerOrientation.Normal;
-            stringAngularShape14.OutlineColor = System.Drawing.Color.Empty;
-            stringAngularShape14.DistanceFromEdge = 13F;
-            stringAngularShape14.Texts = new string[] {
-        "E",
-        "S",
-        "W",
-        "N"};
-            stringAngularShape15.Angle = 45F;
-            stringAngularShape15.Font = new System.Drawing.Font("Arial", 4F);
-            stringAngularShape15.Index = 9;
-            stringAngularShape15.Name = "String Angular Shape";
-            stringAngularShape15.Orientation = DustInTheWind.ClockNet.Shapes.RimMarkerOrientation.Normal;
-            stringAngularShape15.OutlineColor = System.Drawing.Color.Empty;
-            stringAngularShape15.DistanceFromEdge = 12F;
-            stringAngularShape15.Texts = new string[] {
-        "NE",
-        "",
-        "SE",
-        "",
-        "SW",
-        "",
-        "NW"};
-            this.analogClockCompass.RimMarkers.Add(ticksShape33);
-            this.analogClockCompass.RimMarkers.Add(stringAngularShape14);
-            this.analogClockCompass.RimMarkers.Add(stringAngularShape15);
-            stringGroundShape23.Font = new System.Drawing.Font("Arial", 3F);
-            stringGroundShape23.Location = ((System.Drawing.PointF)(resources.GetObject("stringGroundShape23.Location")));
-            stringGroundShape23.Name = "String Ground Shape";
-            stringGroundShape23.OutlineColor = System.Drawing.Color.Empty;
-            stringGroundShape23.Text = "Compass";
-            this.analogClockCompass.Backgrounds.Add(stringGroundShape23);
-            diamondHandShape37.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
-            diamondHandShape37.FillColor = System.Drawing.Color.Red;
-            diamondHandShape37.Length = 40F;
-            diamondHandShape37.Name = "North Hand";
-            diamondHandShape37.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape37.TailLength = 0F;
-            diamondHandShape37.Time = System.TimeSpan.Parse("03:40:18");
-            diamondHandShape37.Width = 7F;
-            diamondHandShape38.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
-            diamondHandShape38.FillColor = System.Drawing.Color.RoyalBlue;
-            diamondHandShape38.Length = 0F;
-            diamondHandShape38.Name = "South Hand";
-            diamondHandShape38.OutlineColor = System.Drawing.Color.Empty;
-            diamondHandShape38.TailLength = 40F;
-            diamondHandShape38.Time = System.TimeSpan.Parse("03:40:18");
-            diamondHandShape38.Width = 7F;
-            this.analogClockCompass.Hands.Add(diamondHandShape37);
-            this.analogClockCompass.Hands.Add(diamondHandShape38);
-            this.analogClockCompass.Location = new System.Drawing.Point(8, 6);
-            this.analogClockCompass.Name = "analogClockCompass";
-            this.analogClockCompass.Size = new System.Drawing.Size(300, 300);
-            this.analogClockCompass.TabIndex = 0;
-            this.analogClockCompass.Text = "Compass";
-            this.analogClockCompass.Time = System.TimeSpan.Parse("03:40:18");
-            // 
-            // analogClock8
-            // 
-            this.analogClock8.Location = new System.Drawing.Point(3, 3);
-            this.analogClock8.Name = "analogClock8";
-            this.analogClock8.Size = new System.Drawing.Size(300, 300);
-            this.analogClock8.TabIndex = 0;
-            this.analogClock8.Time = System.TimeSpan.Parse("16:00:55.4336409");
-            this.analogClock8.Timer = this.timer1;
-            this.analogClock8.UtcOffset = System.TimeSpan.Parse("02:00:00");
-            // 
-            // FormExamples
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 715);
-            this.Controls.Add(this.tabControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormExamples";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Clock Examples";
-            this.Load += new System.EventHandler(this.FormExamples_Load);
-            this.flowLayoutPanelTicksAndNumbers.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPageDefault1.ResumeLayout(false);
-            this.tabPageDefault1.PerformLayout();
-            this.tabPageDefault2.ResumeLayout(false);
-            this.tabPageDefault2.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.tabPageFancy.ResumeLayout(false);
-            this.tabPageFancy.PerformLayout();
-            this.flowLayoutPanelColours.ResumeLayout(false);
-            this.tabPageTimeZones.ResumeLayout(false);
-            this.tabPageTimeZones.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.tabPageCompass.ResumeLayout(false);
-            this.tabPageCompass.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDegrees)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSeconds)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinutes)).EndInit();
-            this.ResumeLayout(false);
-
         }
 
         #endregion

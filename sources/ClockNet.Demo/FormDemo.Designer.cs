@@ -585,7 +585,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDemo.TabIndex = 0;
             this.analogClockDemo.Text = "Dust in the Wind";
             this.analogClockDemo.Time = System.TimeSpan.Parse("21:51:53.6106987");
-            this.analogClockDemo.Timer = this.timer1;
             this.analogClockDemo.TimeProviderChanged += new System.EventHandler(this.analogClockDemo_TimeProviderChanged);
             // 
             // buttonExamples

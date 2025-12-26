@@ -265,98 +265,6 @@ namespace DustInTheWind.ClockNet
             }
         }
 
-        /// <summary>
-        /// The offset time used to decalate the displayed utc time.
-        /// </summary>
-        private TimeSpan? utcOffset;
-
-        /// <summary>
-        /// Gets or sets the offset time used to decalate the displayed utc time.
-        /// If the value is null, the local time is displayed.
-        /// To display the UTC time, set this property to zero.
-        /// </summary>
-        [DefaultValue(null)]
-        [Category("Value")]
-        [Description("Specifies the offset time used to decalate the displayed utc time.")]
-        [TypeConverter(typeof(NullableTimeSpanConverter))]
-        [EditorAttribute(typeof(TimeSpanEditor), typeof(UITypeEditor))]
-        public TimeSpan? UtcOffset
-        {
-            get { return utcOffset; }
-            set
-            {
-                utcOffset = value;
-                if (timeProvider == null)
-                    Invalidate();
-            }
-        }
-
-        #endregion
-
-        #region Timer
-
-        /// <summary>
-        /// The <see cref="System.Windows.Forms.Timer"/> used to automatically update the control with the time retrieved from the time provider.
-        /// </summary>
-        private Timer timer;
-
-        /// <summary>
-        /// Gets or sets the <see cref="System.Windows.Forms.Timer"/> used to automatically update the control with the time retrieved from the time provider.
-        /// </summary>
-        [Category("Behavior")]
-        [DefaultValue(null)]
-        [Description("The timer used to automatically update the control with the time retrieved from the time provider.")]
-        public Timer Timer
-        {
-            get { return timer; }
-            set
-            {
-                if (timer != null)
-                    timer.Tick -= new EventHandler(timer_Tick);
-
-                timer = value;
-
-                if (timer != null)
-                {
-                    UpdateTime();
-                    Invalidate();
-
-                    timer.Tick += new EventHandler(timer_Tick);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Call-back function called by the timer when the time elapsed. The clock is updated with a new time from the time provider.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            UpdateTime();
-            Invalidate();
-        }
-
-        /// <summary>
-        /// Updates the <see cref="Time"/> value with the one obtained from the <see cref="TimeProvider"/>
-        /// (if  one is provided) or obtained using internal mechanism if no <see cref="TimeProvider"/> exists.
-        /// </summary>
-        private void UpdateTime()
-        {
-            if (timeProvider != null)
-            {
-                time = timeProvider.GetTime();
-            }
-            else if (utcOffset == null)
-            {
-                time = DateTime.Now.TimeOfDay;
-            }
-            else
-            {
-                time = DateTime.UtcNow.TimeOfDay.Add(utcOffset.Value);
-            }
-        }
-
         #endregion
 
         #region Time Provider
@@ -378,17 +286,36 @@ namespace DustInTheWind.ClockNet
             set
             {
                 if (timeProvider != null)
-                    timeProvider.Changed -= new EventHandler(timeProvider_Changed);
+                {
+                    timeProvider.Stop();
+                    timeProvider.TimeChanged -= HandleTimeProviderTimeChanged;
+                    timeProvider.Changed -= HandleTimeProviderChanged;
+                }
 
                 timeProvider = value;
 
                 if (timeProvider != null)
-                    timeProvider.Changed += new EventHandler(timeProvider_Changed);
+                {
+                    timeProvider.TimeChanged += HandleTimeProviderTimeChanged;
+                    timeProvider.Changed += HandleTimeProviderChanged;
+                    timeProvider.Start();
+                }
 
                 Invalidate();
 
                 OnTimeProviderChanged(EventArgs.Empty);
             }
+        }
+
+        private void HandleTimeProviderTimeChanged(object sender, TimeChangedEventArgs e)
+        {
+            time = e.Time;
+            Invalidate();
+        }
+
+        private void HandleTimeProviderChanged(object sender, EventArgs e)
+        {
+            Invalidate();
         }
 
         #endregion
@@ -518,7 +445,9 @@ namespace DustInTheWind.ClockNet
             if (timeProvider != null)
             {
                 this.timeProvider = timeProvider;
-                this.timeProvider.Changed += new EventHandler(timeProvider_Changed);
+                this.timeProvider.TimeChanged += HandleTimeProviderTimeChanged;
+                this.timeProvider.Changed += HandleTimeProviderChanged;
+                this.timeProvider.Start();
             }
 
             DoubleBuffered = true;
@@ -599,11 +528,6 @@ namespace DustInTheWind.ClockNet
         private void HandleShapeChanged(object sender, EventArgs e)
         {
             Debug.WriteLine(sender.GetType().ToString());
-            Invalidate();
-        }
-
-        private void timeProvider_Changed(object sender, EventArgs e)
-        {
             Invalidate();
         }
 
@@ -894,6 +818,13 @@ namespace DustInTheWind.ClockNet
         {
             if (disposing)
             {
+                if (timeProvider != null)
+                {
+                    timeProvider.Stop();
+                    timeProvider.TimeChanged -= HandleTimeProviderTimeChanged;
+                    timeProvider.Changed -= HandleTimeProviderChanged;
+                }
+
                 foreach (IBackground shape in backgroundShapes)
                     shape?.Dispose();
 

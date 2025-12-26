@@ -109,6 +109,7 @@
     <Compile Include="TimeProviders\ITimeProvider.cs" />
     <Compile Include="TimeProviders\LocalTimeProvider.cs" />
     <Compile Include="TimeProviders\RandomTimeProvider.cs" />
+    <Compile Include="TimeProviders\TimeChangedEventArgs.cs" />
     <Compile Include="TimeProviders\TimeProviderBase.cs" />
     <Compile Include="TimeProviders\UtcTimeProvider.cs" />
     <Compile Include="TimeSpanEditor.cs" />

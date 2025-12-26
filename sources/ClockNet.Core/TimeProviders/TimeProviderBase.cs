@@ -16,6 +16,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace DustInTheWind.ClockNet.TimeProviders
 {
@@ -24,21 +25,94 @@ namespace DustInTheWind.ClockNet.TimeProviders
     /// </summary>
     public abstract class TimeProviderBase : ITimeProvider
     {
+        private readonly Timer timer;
+        private int interval = 1000;
+
         [Browsable(false)]
         public ISite Site { get; set; }
 
         /// <summary>
+        /// Gets or sets the interval in milliseconds at which the time provider generates time values.
+        /// </summary>
+        [Category("Behavior")]
+        [DefaultValue(1000)]
+        [Description("The interval in milliseconds at which the time provider generates time values.")]
+        public int Interval
+        {
+            get => interval;
+            set
+            {
+                interval = value;
+                timer.Interval = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the time provider is currently running.
+        /// </summary>
+        [Browsable(false)]
+        public bool IsRunning => timer.Enabled;
+
+        /// <summary>
+        /// Event raised when the time provider produces a new time value.
+        /// </summary>
+        public event EventHandler<TimeChangedEventArgs> TimeChanged;
+
+        /// <summary>
         /// Event raised when the internal mechanism that generates time values is changed and therefore
-        /// the already generated time values are obsolete. The clients should request new time values using
-        /// <see cref="GetTime"/> method.
+        /// the already generated time values are obsolete.
         /// </summary>
         public event EventHandler Changed;
 
         /// <summary>
-        /// Returns a new time value.
+        /// Initializes a new instance of the <see cref="TimeProviderBase"/> class.
+        /// </summary>
+        protected TimeProviderBase()
+        {
+            timer = new Timer();
+            timer.Interval = interval;
+            timer.Tick += HandleTimerTick;
+        }
+
+        private void HandleTimerTick(object sender, EventArgs e)
+        {
+            TimeSpan time = GetTime();
+            OnTimeChanged(new TimeChangedEventArgs(time));
+        }
+
+        /// <summary>
+        /// Returns the current time value. This method is called internally by the timer.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        public abstract TimeSpan GetTime();
+        protected abstract TimeSpan GetTime();
+
+        /// <summary>
+        /// Starts the time provider. The time provider will begin generating time values.
+        /// </summary>
+        public void Start()
+        {
+            TimeSpan time = GetTime();
+            OnTimeChanged(new TimeChangedEventArgs(time));
+
+            timer.Start();
+        }
+
+        /// <summary>
+        /// Stops the time provider. The time provider will stop generating time values.
+        /// </summary>
+        public void Stop()
+        {
+            timer.Stop();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="TimeChanged"/> event.
+        /// </summary>
+        /// <param name="e">A <see cref="TimeChangedEventArgs"/> object that contains the event data.</param>
+        protected virtual void OnTimeChanged(TimeChangedEventArgs e)
+        {
+            TimeChanged?.Invoke(this, e);
+        }
 
         /// <summary>
         /// Raises the <see cref="Changed"/> event.
@@ -96,8 +170,9 @@ namespace DustInTheWind.ClockNet.TimeProviders
                 // If disposing equals true, dispose all managed resources.
                 if (disposing)
                 {
-                    // Dispose managed resources.
-                    // ...
+                    timer.Stop();
+                    timer.Tick -= HandleTimerTick;
+                    timer.Dispose();
                 }
 
                 // Call the appropriate methods to clean up unmanaged resources here.

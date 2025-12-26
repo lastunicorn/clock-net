@@ -25,16 +25,34 @@ namespace DustInTheWind.ClockNet.TimeProviders
     public interface ITimeProvider : IComponent
     {
         /// <summary>
+        /// Event raised when the time provider produces a new time value.
+        /// </summary>
+        event EventHandler<TimeChangedEventArgs> TimeChanged;
+
+        /// <summary>
         /// Event raised when the internal mechanism that generates time values is changed and therefore
-        /// the already generated time values are obsolete. The clients should request new time values using
-        /// <see cref="GetTime"/> method.
+        /// the already generated time values are obsolete.
         /// </summary>
         event EventHandler Changed;
 
         /// <summary>
-        /// Returns a new time value.
+        /// Gets or sets the interval in milliseconds at which the time provider generates time values.
         /// </summary>
-        /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        TimeSpan GetTime();
+        int Interval { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the time provider is currently running.
+        /// </summary>
+        bool IsRunning { get; }
+
+        /// <summary>
+        /// Starts the time provider. The time provider will begin generating time values.
+        /// </summary>
+        void Start();
+
+        /// <summary>
+        /// Stops the time provider. The time provider will stop generating time values.
+        /// </summary>
+        void Stop();
     }
 }

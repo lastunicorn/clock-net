@@ -49,7 +49,7 @@ namespace DustInTheWind.ClockNet.TimeProviders
         /// Returns the system's UTC time added with the offset value.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        public override TimeSpan GetTime()
+        protected override TimeSpan GetTime()
         {
             return utcOffset == TimeSpan.Zero
                 ? DateTime.UtcNow.TimeOfDay
