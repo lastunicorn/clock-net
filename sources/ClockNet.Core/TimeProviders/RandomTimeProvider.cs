@@ -16,7 +16,7 @@
 
 using System;
 
-namespace DustInTheWind.ClockNet.TimeProviders
+namespace DustInTheWind.ClockNet.Core.TimeProviders
 {
     /// <summary>
     /// Provides random time values.

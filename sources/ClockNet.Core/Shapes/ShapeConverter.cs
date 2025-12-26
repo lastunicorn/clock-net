@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace DustInTheWind.ClockNet.Shapes
+namespace DustInTheWind.ClockNet.Core.Shapes
 {
     /// <summary>
     /// Converts an <see cref="IShape"/> object to an user friendly string representaiton.

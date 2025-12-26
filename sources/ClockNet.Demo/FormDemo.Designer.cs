@@ -46,16 +46,16 @@ namespace DustInTheWind.ClockNet.Demo
         {
             this.components = new System.ComponentModel.Container();
             DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground fancyBackground1 = new DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground();
-            DustInTheWind.ClockNet.Shapes.Basic.StringBackground stringBackground1 = new DustInTheWind.ClockNet.Shapes.Basic.StringBackground();
+            DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground1 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDemo));
-            DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand diamondHand1 = new DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand();
-            DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand diamondHand2 = new DustInTheWind.ClockNet.Shapes.Advanced.DiamondHand();
-            DustInTheWind.ClockNet.Shapes.Basic.LineHand lineHand1 = new DustInTheWind.ClockNet.Shapes.Basic.LineHand();
-            DustInTheWind.ClockNet.Shapes.Advanced.Pin pin1 = new DustInTheWind.ClockNet.Shapes.Advanced.Pin();
-            DustInTheWind.ClockNet.Shapes.Advanced.Ticks ticks1 = new DustInTheWind.ClockNet.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Shapes.Advanced.Ticks ticks2 = new DustInTheWind.ClockNet.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Shapes.Basic.StringRimMarker stringRimMarker1 = new DustInTheWind.ClockNet.Shapes.Basic.StringRimMarker();
-            DustInTheWind.ClockNet.Shapes.Basic.StringRimMarker stringRimMarker2 = new DustInTheWind.ClockNet.Shapes.Basic.StringRimMarker();
+            DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand1 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
+            DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand2 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
+            DustInTheWind.ClockNet.Core.Shapes.Basic.LineHand lineHand1 = new DustInTheWind.ClockNet.Core.Shapes.Basic.LineHand();
+            DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin1 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
+            DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks1 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
+            DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks2 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
+            DustInTheWind.ClockNet.Core.Shapes.Basic.StringRimMarker stringRimMarker1 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringRimMarker();
+            DustInTheWind.ClockNet.Core.Shapes.Basic.StringRimMarker stringRimMarker2 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringRimMarker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBoxTextFont = new System.Windows.Forms.TextBox();
             this.checkBoxKeepProportions = new System.Windows.Forms.CheckBox();
@@ -100,7 +100,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.numericUpDownTimerInterval = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panelParameters = new System.Windows.Forms.Panel();
-            this.localTimeProvider1 = new DustInTheWind.ClockNet.TimeProviders.LocalTimeProvider();
+            this.localTimeProvider1 = new DustInTheWind.ClockNet.Core.TimeProviders.LocalTimeProvider();
             this.backgroundsEditor1 = new DustInTheWind.ClockNet.Demo.BackgroundsEditor();
             this.rimMarkersEditor1 = new DustInTheWind.ClockNet.Demo.RimMarkersEditor();
             this.handsEditor1 = new DustInTheWind.ClockNet.Demo.HandsEditor();
@@ -494,13 +494,13 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDemo.Backgrounds.Add(fancyBackground1);
             this.analogClockDemo.Backgrounds.Add(stringBackground1);
             this.analogClockDemo.Dock = System.Windows.Forms.DockStyle.Fill;
-            diamondHand1.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Hour;
+            diamondHand1.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Hour;
             diamondHand1.FillColor = System.Drawing.Color.RoyalBlue;
             diamondHand1.Length = 25F;
             diamondHand1.Name = "Hour Hand Shape";
             diamondHand1.OutlineColor = System.Drawing.Color.Empty;
             diamondHand1.Time = System.TimeSpan.Parse("21:51:53.6106987");
-            diamondHand2.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Minute;
+            diamondHand2.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Minute;
             diamondHand2.FillColor = System.Drawing.Color.LimeGreen;
             diamondHand2.Length = 38F;
             diamondHand2.Name = "Minute Hand Shape";
@@ -508,7 +508,7 @@ namespace DustInTheWind.ClockNet.Demo
             diamondHand2.TailLength = 4F;
             diamondHand2.Time = System.TimeSpan.Parse("21:51:53.6106987");
             diamondHand2.Width = 4F;
-            lineHand1.ComponentToDisplay = DustInTheWind.ClockNet.Shapes.TimeComponent.Second;
+            lineHand1.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Second;
             lineHand1.FillColor = System.Drawing.Color.Empty;
             lineHand1.Length = 43F;
             lineHand1.Name = "Second Hand Shape";
@@ -542,7 +542,7 @@ namespace DustInTheWind.ClockNet.Demo
             stringRimMarker1.Font = new System.Drawing.Font("Vivaldi", 6.25F, System.Drawing.FontStyle.Italic);
             stringRimMarker1.Index = 13;
             stringRimMarker1.Name = "Hours";
-            stringRimMarker1.Orientation = DustInTheWind.ClockNet.Shapes.RimMarkerOrientation.Normal;
+            stringRimMarker1.Orientation = DustInTheWind.ClockNet.Core.Shapes.RimMarkerOrientation.Normal;
             stringRimMarker1.OutlineColor = System.Drawing.Color.Empty;
             stringRimMarker1.Texts = new string[] {
         "1",
@@ -804,7 +804,7 @@ namespace DustInTheWind.ClockNet.Demo
         private System.Windows.Forms.Panel panelParameters;
         private System.Windows.Forms.NumericUpDown numericUpDownTimerInterval;
         private AnalogClock analogClockDemo;
-        private DustInTheWind.ClockNet.TimeProviders.LocalTimeProvider localTimeProvider1;
+        private DustInTheWind.ClockNet.Core.TimeProviders.LocalTimeProvider localTimeProvider1;
         private System.Windows.Forms.Label label6;
         private NullableDateTimePicker nullableDateTimePickerUtcOffset;
         private System.Windows.Forms.CheckBox checkBoxTimeProviderPresent;

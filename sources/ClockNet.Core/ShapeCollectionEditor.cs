@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Reflection;
-using DustInTheWind.ClockNet.Shapes;
+using DustInTheWind.ClockNet.Core.Shapes;
 
 namespace DustInTheWind.ClockNet
 {

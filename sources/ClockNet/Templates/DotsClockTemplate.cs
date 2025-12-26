@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using DustInTheWind.ClockNet.Shapes;
+using DustInTheWind.ClockNet.Core.Shapes;
+using DustInTheWind.ClockNet.Core.Shapes.Advanced;
 using DustInTheWind.ClockNet.Shapes.Advanced;
 
 namespace DustInTheWind.ClockNet.Templates

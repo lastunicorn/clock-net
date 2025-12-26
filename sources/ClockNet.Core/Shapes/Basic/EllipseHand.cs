@@ -16,7 +16,7 @@
 
 using System.Drawing;
 
-namespace DustInTheWind.ClockNet.Shapes.Basic
+namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
     /// A Hand Shape that draws an ellipse.

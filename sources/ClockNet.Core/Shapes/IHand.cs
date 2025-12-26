@@ -17,7 +17,7 @@
 using System;
 using System.Drawing;
 
-namespace DustInTheWind.ClockNet.Shapes
+namespace DustInTheWind.ClockNet.Core.Shapes
 {
     /// <summary>
     /// Represents a clock hand that is drawn on the clock in the <see cref="AnalogClock"/> control.

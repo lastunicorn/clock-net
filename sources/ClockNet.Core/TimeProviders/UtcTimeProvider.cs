@@ -17,7 +17,7 @@
 using System;
 using System.ComponentModel;
 
-namespace DustInTheWind.ClockNet.TimeProviders
+namespace DustInTheWind.ClockNet.Core.TimeProviders
 {
     /// <summary>
     /// Provides the UTC time. Optionally, an offset may be provided.

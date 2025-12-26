@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.ClockNet.Shapes
+namespace DustInTheWind.ClockNet.Core.Shapes
 {
     /// <summary>
     /// Base class for a clock hand shape that is drawn using vectorial tools.

@@ -24,8 +24,8 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
-using DustInTheWind.ClockNet.Shapes;
-using DustInTheWind.ClockNet.TimeProviders;
+using DustInTheWind.ClockNet.Core.Shapes;
+using DustInTheWind.ClockNet.Core.TimeProviders;
 
 namespace DustInTheWind.ClockNet
 {
@@ -672,7 +672,7 @@ namespace DustInTheWind.ClockNet
             Matrix centerMatrix = e.Graphics.Transform;
 
             DrawBackgroundShapes(g, centerMatrix);
-            DrawAngularShapes(g, centerMatrix);
+            DrawRimMarkersShapes(g, centerMatrix);
             DrawHandShapes(g, centerMatrix);
 
 #if PERFORMANCE_INFO
@@ -702,7 +702,7 @@ namespace DustInTheWind.ClockNet
             }
         }
 
-        private void DrawAngularShapes(Graphics g, Matrix initialMatrix)
+        private void DrawRimMarkersShapes(Graphics g, Matrix initialMatrix)
         {
             IEnumerable<IRimMarker> angularShapesNotNull = angularShapes
                 .Where(x => x != null);

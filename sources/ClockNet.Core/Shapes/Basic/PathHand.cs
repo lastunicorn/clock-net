@@ -17,7 +17,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace DustInTheWind.ClockNet.Shapes.Basic
+namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
     /// An Shape that draws a complex vectorial clock hand defined by a <see cref="GraphicsPath"/> object.

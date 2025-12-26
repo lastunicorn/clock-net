@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.ClockNet.Shapes.Basic
+namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the numbers representing the hours.
@@ -137,16 +137,20 @@ namespace DustInTheWind.ClockNet.Shapes.Basic
 
             int actualIndex = (Index -1) % texts.Length;
 
-            string number = texts[actualIndex];
+            string text = texts[actualIndex];
 
-            if (number != null && number.Length > 0)
+            if (text != null && text.Length > 0)
             {
-                SizeF numberSize = g.MeasureString(number, font, int.MaxValue, stringFormat);
-                PointF numberPosition = new PointF(-numberSize.Width / 2f, -numberSize.Height / 2f);
+                SizeF textSize = g.MeasureString(text, font, int.MaxValue, stringFormat);
+                
+                float textX = -textSize.Width / 2f;
+                float textY = -textSize.Height / 2f;
+                PointF textPosition = new PointF(textX, textY);
 
                 try
                 {
-                    g.DrawString(number, font, Brush, new RectangleF(numberPosition, numberSize), stringFormat);
+                    RectangleF layoutRectangle = new RectangleF(textPosition, textSize);
+                    g.DrawString(text, font, Brush, layoutRectangle, stringFormat);
                 }
                 catch (System.Runtime.InteropServices.ExternalException)
                 {

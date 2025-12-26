@@ -14,13 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using DustInTheWind.ClockNet.Shapes;
+using DustInTheWind.ClockNet.Core.Shapes;
+using DustInTheWind.ClockNet.Core.Shapes.Advanced;
+using DustInTheWind.ClockNet.Core.Shapes.Basic;
 using DustInTheWind.ClockNet.Shapes.Advanced;
-using DustInTheWind.ClockNet.Shapes.Basic;
 
 namespace DustInTheWind.ClockNet.Templates
 {

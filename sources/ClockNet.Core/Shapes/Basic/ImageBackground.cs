@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.ClockNet.Shapes.Basic
+namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
     /// A Background Shape representing bitmap image.

@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.ClockNet.Shapes
+namespace DustInTheWind.ClockNet.Core.Shapes
 {
     /// <summary>
     /// Provides common functionality for a vectorial shape.

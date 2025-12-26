@@ -7,8 +7,8 @@
     <ProjectGuid>{63682B7F-4E6A-4C57-AB59-FDB55654270B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClockNet.Core</RootNamespace>
-    <AssemblyName>ClockNet.Core</AssemblyName>
+    <RootNamespace>DustInTheWind.ClockNet.Core</RootNamespace>
+    <AssemblyName>DustInTheWind.ClockNet.Core</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

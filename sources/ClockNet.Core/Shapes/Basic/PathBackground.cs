@@ -17,7 +17,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace DustInTheWind.ClockNet.Shapes.Basic
+namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
     /// A Shape class that draws a <see cref="GraphicsPath"/>.

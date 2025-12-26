@@ -17,6 +17,7 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using DustInTheWind.ClockNet.Core.Shapes;
 
 namespace DustInTheWind.ClockNet.Shapes.Advanced
 {

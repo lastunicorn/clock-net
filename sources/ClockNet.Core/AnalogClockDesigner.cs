@@ -18,10 +18,10 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms.Design;
-using ClockNet.Core.Shapes.Default;
-using DustInTheWind.ClockNet.Shapes;
-using DustInTheWind.ClockNet.Shapes.Advanced;
-using DustInTheWind.ClockNet.Shapes.Basic;
+using DustInTheWind.ClockNet.Core.Shapes;
+using DustInTheWind.ClockNet.Core.Shapes.Advanced;
+using DustInTheWind.ClockNet.Core.Shapes.Basic;
+using DustInTheWind.ClockNet.Core.Shapes.Default;
 
 namespace DustInTheWind.ClockNet
 {

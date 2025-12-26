@@ -6,7 +6,7 @@
     <members>
         <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground">
             <summary>
-            The <see cref="T:DustInTheWind.ClockNet.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the background of the dial.
+            The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the background of the dial.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.DefaultName">
@@ -71,7 +71,7 @@
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
-            The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
+            The <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
             coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
@@ -163,17 +163,17 @@
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.AllowToDraw">
             <summary>
             Decides if the Shape should be drawn.
-            If this method returns false, the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method returns immediatelly,
+            If this method returns false, the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method returns immediatelly,
             without doing anythig.
             </summary>
-            <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
+            <returns>true if the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnDraw(System.Drawing.Graphics)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
-            The <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
+            The <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
             coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnDraw(System.Drawing.Graphics)"/> method.
             </remarks>
             <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
@@ -348,10 +348,10 @@
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.AllowToDraw">
             <summary>
             Decides if the Shape should be drawn.
-            If this method returns false, the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method returns immediatelly,
+            If this method returns false, the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method returns immediatelly,
             without doing anythig.
             </summary>
-            <returns>true if the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
+            <returns>true if the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OnDraw(System.Drawing.Graphics)">
             <summary>
@@ -429,7 +429,7 @@
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.CalculateLayout">
             <summary>
             Calculates additional values and creates the <see cref="T:System.Drawing.Drawing2D.GraphicsPath"/> that will be displayed
-            by the <see cref="M:DustInTheWind.ClockNet.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method.
+            by the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method.
             </summary>
         </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.NibHand">

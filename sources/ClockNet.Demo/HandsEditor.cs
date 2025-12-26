@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
-using DustInTheWind.ClockNet.Shapes;
+using DustInTheWind.ClockNet.Core.Shapes;
+using DustInTheWind.ClockNet.Core.Shapes.Advanced;
+using DustInTheWind.ClockNet.Core.Shapes.Basic;
 using DustInTheWind.ClockNet.Shapes.Advanced;
-using DustInTheWind.ClockNet.Shapes.Basic;
 
 namespace DustInTheWind.ClockNet.Demo
 {

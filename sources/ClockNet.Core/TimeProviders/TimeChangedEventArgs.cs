@@ -16,7 +16,7 @@
 
 using System;
 
-namespace DustInTheWind.ClockNet.TimeProviders
+namespace DustInTheWind.ClockNet.Core.TimeProviders
 {
     /// <summary>
     /// Contains the event data for the <see cref="ITimeProvider.TimeChanged"/> event.

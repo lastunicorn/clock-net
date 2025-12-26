@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
-using DustInTheWind.ClockNet.TimeProviders;
+using DustInTheWind.ClockNet.Core.TimeProviders;
 
 namespace DustInTheWind.ClockNet.Demo
 {

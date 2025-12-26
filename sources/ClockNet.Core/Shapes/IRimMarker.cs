@@ -16,7 +16,7 @@
 
 using System.Drawing;
 
-namespace DustInTheWind.ClockNet.Shapes
+namespace DustInTheWind.ClockNet.Core.Shapes
 {
     /// <summary>
     /// Represents a <see cref="IShape"/> that is drawn repeatedly around the dial at equal angles between instances.

@@ -18,7 +18,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace DustInTheWind.ClockNet.Shapes
+namespace DustInTheWind.ClockNet.Core.Shapes
 {
     /// <summary>
     /// The base implementation of the <see cref="IRimMarker"/> interface.
@@ -178,17 +178,11 @@ namespace DustInTheWind.ClockNet.Shapes
             }
         }
 
-        private int index = 0;
-
         /// <summary>
         /// Gets or sets the index that should be drawn next time the  <see cref="IShape.Draw"/> method is called.
         /// </summary>
         [Browsable(false)]
-        public int Index
-        {
-            get => index;
-            set => index = value;
-        }
+        public int Index { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RimMarkerBase"/> class with
@@ -234,7 +228,7 @@ namespace DustInTheWind.ClockNet.Shapes
             if (!allowToDraw)
                 return false;
 
-            bool shouldSkip = skipIndex > 0 && index % skipIndex == 0;
+            bool shouldSkip = skipIndex > 0 && Index % skipIndex == 0;
 
             if (shouldSkip)
                 return false;
@@ -253,7 +247,7 @@ namespace DustInTheWind.ClockNet.Shapes
 
                 default:
                 case RimMarkerOrientation.Normal:
-                    float totalAngle = -(angle * index);
+                    float totalAngle = -(angle * Index);
                     g.RotateTransform(totalAngle);
                     break;
             }
@@ -267,7 +261,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// <param name="g">The <see cref="Graphics"/> object used to draw the control's content.</param>
         protected override void OnAfterDraw(Graphics g)
         {
-            index++;
+            Index++;
             base.OnAfterDraw(g);
         }
 
@@ -277,7 +271,7 @@ namespace DustInTheWind.ClockNet.Shapes
         /// </summary>
         public void Reset()
         {
-            index = 0;
+            Index = 0;
         }
     }
 }

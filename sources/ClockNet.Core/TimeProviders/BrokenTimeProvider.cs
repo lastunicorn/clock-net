@@ -17,7 +17,7 @@
 using System;
 using System.ComponentModel;
 
-namespace DustInTheWind.ClockNet.TimeProviders
+namespace DustInTheWind.ClockNet.Core.TimeProviders
 {
     /// <summary>
     /// Provides time values from a time coordinate that is n time faster then the real one.
