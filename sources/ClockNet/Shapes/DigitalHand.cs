@@ -196,11 +196,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
-            string text = time.Ticks < 0
+            string text = Time.Ticks < 0
                 ? "-"
                 : string.Empty;
 
-            text += new DateTime(time.Duration().Ticks).ToString(format);
+            text += new DateTime(Time.Duration().Ticks).ToString(format);
 
             if (text.Length > 0)
             {

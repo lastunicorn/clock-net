@@ -75,7 +75,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// default values.
         /// </summary>
         public LineHand()
-            : this(Color.Black, DefaultHeight, DefaultOutlineWidth, DefaultTailLength)
+            : this(Color.Black, DefaultLength, DefaultOutlineWidth, DefaultTailLength)
         {
         }
 
@@ -83,7 +83,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// Initializes a new instance of the <see cref="LineHand"/> class.
         /// </summary>
         public LineHand(Color color)
-            : this(color, DefaultHeight, DefaultOutlineWidth, DefaultTailLength)
+            : this(color, DefaultLength, DefaultOutlineWidth, DefaultTailLength)
         {
         }
 
@@ -105,7 +105,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         protected override void CalculateLayout()
         {
             startPoint = new PointF(0f, tailLength);
-            endPoint = new PointF(0f, -length);
+            endPoint = new PointF(0f, -Length);
         }
 
         /// <summary>

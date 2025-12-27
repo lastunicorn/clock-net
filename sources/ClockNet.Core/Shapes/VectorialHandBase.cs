@@ -140,7 +140,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         public VectorialHandBase(Color outlineColor, Color fillColor)
-            : this(outlineColor, fillColor, DefaultOutlineWidth, DefaultHeight)
+            : this(outlineColor, fillColor, DefaultOutlineWidth, DefaultLength)
         {
         }
 
@@ -152,11 +152,11 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <param name="outlineWidth">The width of the outline.</param>
         /// <param name="length">The length of the hand. This value is given in pixels for a clock with the diameter of 100px.</param>
         public VectorialHandBase(Color outlineColor, Color fillColor, float outlineWidth, float length)
-            : base(length)
         {
             this.outlineColor = outlineColor;
             this.fillColor = fillColor;
             this.outlineWidth = outlineWidth;
+            Length = length;
         }
 
         /// <summary>

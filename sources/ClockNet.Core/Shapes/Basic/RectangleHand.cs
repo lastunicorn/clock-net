@@ -45,7 +45,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// default values.
         /// </summary>
         public RectangleHand()
-            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultOutlineWidth)
+            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultLength, DefaultOutlineWidth)
         {
         }
 

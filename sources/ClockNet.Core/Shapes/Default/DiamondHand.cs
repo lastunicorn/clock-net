@@ -84,7 +84,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// default values.
         /// </summary>
         public DiamondHand()
-            : this(Color.Empty, Color.RoyalBlue, DefaultHeight, DefaultWidth, DefaultTailLength)
+            : this(Color.Empty, Color.RoyalBlue, DefaultLength, DefaultWidth, DefaultTailLength)
         {
         }
 
@@ -117,7 +117,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
             {
                 new PointF(0f, tailLength),
                 new PointF(-halfWidth, 0f),
-                new PointF(0F, -length),
+                new PointF(0F, -Length),
                 new PointF(halfWidth, 0f)
             };
         }

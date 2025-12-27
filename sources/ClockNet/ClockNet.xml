@@ -401,19 +401,19 @@
             The default name for the Shape.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.WIDTH">
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.DefaultWidth">
             <summary>
             The default length of the width of the hand.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.width">
-            <summary>
-            The width of the slot carved inside the disk.
             </summary>
         </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.Width">
             <summary>
             Gets or sets the width of the slot carved inside the disk.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.KeepProportions">
+            <summary>
+            Gets or sets a value specifying if the hand should keep its proportions when its length is changed.
             </summary>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.#ctor">
@@ -429,11 +429,6 @@
             This method should be called every time when is set a property that changes the physical dimensions.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.keepProportions">
-            <summary>
-            Specifies if the hand should keep its proportions when its length is changed.
-            </summary>
-        </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.OnDraw(System.Drawing.Graphics)">
             <summary>
             Draws the hour hand using the provided <see cref="T:System.Drawing.Graphics"/> object.
@@ -446,32 +441,29 @@
         </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand">
             <summary>
-            Draws a clock hand that is a slot carved inside a disk. By default the disk is big as the clock.
+            A clock's hand that is actually a big disk with a rectangle slot carved in it through
+            which the user can see whatever is under the disk. Usually, the hours would be visible under the slot.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.DefaultName">
             <summary>
-            The default name for the Shape.
+            The default name for the hand.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.DefaultWidth">
             <summary>
-            The default length of the width of the hand.
+            The default length of the slot in the disk.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.DefaultRadius">
             <summary>
-            The default length of the radius of the opaque disk.
+            The default radius of the opaque disk.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.DefaultTailLength">
             <summary>
             The default length of the tail of the hand.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.width">
-            <summary>
-            The width of the slot carved inside the disk.
+            The tail is the length of the rectangle that extends in the other direction beyond the center of the disk.
             </summary>
         </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.Width">
@@ -479,19 +471,9 @@
             Gets or sets the width of the slot carved inside the disk.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.radius">
-            <summary>
-            The rasius of the opaque disk.
-            </summary>
-        </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.Radius">
             <summary>
-            Gets or sets the rasius of the opaque disk.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.tailLength">
-            <summary>
-            The length of the the hand's tail.
+            Gets or sets the radius of the opaque disk.
             </summary>
         </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.TailLength">

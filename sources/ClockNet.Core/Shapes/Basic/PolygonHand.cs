@@ -40,7 +40,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// default values.
         /// </summary>
         public PolygonHand()
-            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultOutlineWidth)
+            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultLength, DefaultOutlineWidth)
         {
         }
 

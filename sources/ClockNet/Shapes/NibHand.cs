@@ -37,26 +37,37 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default length of the width of the hand.
         /// </summary>
-        public const float WIDTH = 5f;
+        public const float DefaultWidth = 5f;
 
-
-        /// <summary>
-        /// The width of the slot carved inside the disk.
-        /// </summary>
-        protected float width;
+        private float width;
+        private bool keepProportions = true;
 
         /// <summary>
         /// Gets or sets the width of the slot carved inside the disk.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(WIDTH)]
+        [DefaultValue(DefaultWidth)]
         [Description("The width of the slot carved inside the disk.")]
         public virtual float Width
         {
-            get { return width; }
+            get => width;
             set
             {
                 width = value;
+                InvalidateLayout();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value specifying if the hand should keep its proportions when its length is changed.
+        /// </summary>
+        public bool KeepProportions
+        {
+            get => keepProportions;
+            set
+            {
+                keepProportions = value;
                 InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
@@ -67,7 +78,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public NibHand()
-            : base(new GraphicsPath(), DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultOutlineWidth)
+            : base(new GraphicsPath(), DefaultOutlineColor, DefaultFillColor, DefaultLength, DefaultOutlineWidth)
         {
             Name = DefaultName;
         }
@@ -163,12 +174,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         }
 
         /// <summary>
-        /// Specifies if the hand should keep its proportions when its length is changed.
-        /// </summary>
-        protected bool keepProportions = true;
-
-
-        /// <summary>
         /// Draws the hour hand using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the dot.</param>
@@ -178,14 +183,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </remarks>
         protected override void OnDraw(Graphics g)
         {
-            if (keepProportions && length > 0)
+            if (keepProportions && Length > 0)
             {
-                float scaleFactorY = length / 280f;
+                float scaleFactorY = Length / 280f;
                 g.ScaleTransform(scaleFactorY, scaleFactorY);
             }
             else
             {
-                float scaleFactorY = length > 0 ? length / 280f : 1f;
+                float scaleFactorY = Length > 0 ? Length / 280f : 1f;
                 float scaleFactorX = width > 0 ? width / 30f : 1f;
                 g.ScaleTransform(scaleFactorX, scaleFactorY);
             }
@@ -199,14 +204,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
 
             using (Matrix m = new Matrix())
             {
-                if (keepProportions && length > 0)
+                if (keepProportions && Length > 0)
                 {
-                    float scaleFactorY = length / 280f;
+                    float scaleFactorY = Length / 280f;
                     m.Scale(1 / scaleFactorY, 1 / scaleFactorY);
                 }
                 else
                 {
-                    float scaleFactorY = length > 0 ? length / 280f : 1f;
+                    float scaleFactorY = Length > 0 ? Length / 280f : 1f;
                     float scaleFactorX = width > 0 ? width / 30f : 1f;
                     m.Scale(1 / scaleFactorX, 1 / scaleFactorY);
                 }

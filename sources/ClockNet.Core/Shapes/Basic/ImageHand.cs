@@ -78,16 +78,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// default values.
         /// </summary>
         public ImageHand()
-            : this(null, PointF.Empty, DefaultHeight)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageHand"/> class.
-        /// </summary>
-        /// <param name="image">The immage to be used as a clock hand.</param>
-        public ImageHand(Image image)
-            : this(image, PointF.Empty, DefaultHeight)
+            : this(null, PointF.Empty, DefaultLength)
         {
         }
 
@@ -96,13 +87,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// </summary>
         /// <param name="image">The immage to be used as a clock hand.</param>
         /// <param name="origin">The location of the pin relative of the top left corner of the image.</param>
-        /// <param name="height">The height of the hand from the pin to the top.</param>
-        public ImageHand(Image image, PointF origin, float height)
-            : base(height)
+        /// <param name="length">The height of the hand from the pin to the top.</param>
+        public ImageHand(Image image, PointF origin, float length)
         {
-            this.Name = DefaultName;
+            Name = DefaultName;
             this.image = image;
             this.origin = origin;
+            Length = length;
         }
 
         /// <summary>
@@ -126,9 +117,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
-            if (origin.Y != 0 && length > 0)
+            if (origin.Y != 0 && Length > 0)
             {
-                float scaleFactor = length / origin.Y;
+                float scaleFactor = Length / origin.Y;
                 g.ScaleTransform(scaleFactor, scaleFactor);
             }
 

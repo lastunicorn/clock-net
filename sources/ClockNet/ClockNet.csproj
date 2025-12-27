@@ -53,6 +53,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Shapes\CapsuleHand.cs" />
     <Compile Include="Shapes\DigitalHand.cs" />
     <Compile Include="Shapes\DotHand.cs" />
     <Compile Include="Shapes\FancyBackground.cs" />

@@ -27,57 +27,44 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     public abstract class HandBase : ShapeBase, IHand
     {
         /// <summary>
-        /// The default value of the height.
+        /// The default value of the length of the clock's hand..
         /// </summary>
-        public const float DefaultHeight = 45f;
+        public const float DefaultLength = 45f;
 
         /// <summary>
         /// The default value of the <see cref="IntegralValue"/>.
         /// </summary>
         public const bool DefaultIntegralValue = false;
 
-        /// <summary>
-        /// The length of the hand from the pin to the its top. For a clock with the diameter of 100px.
-        /// </summary>
-        protected float length;
+        private float length;
+        private TimeComponent componentToDisplay;
+        private bool integralValue;
 
         /// <summary>
         /// Gets or sets the length of the hand from the pin to the its top. For a clock with the diameter of 100px.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(DefaultHeight)]
+        [DefaultValue(DefaultLength)]
         [Description("The length of the hand from the pin to the its top. For a clock with the diameter of 100px.")]
         public virtual float Length
         {
-            get { return length; }
+            get => length;
             set
             {
+                if (value == length)
+                    return;
+
                 length = value;
                 InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
 
-
         /// <summary>
-        /// The time that the current instance should represent.
-        /// </summary>
-        protected TimeSpan time;
-
-        /// <summary>
-        /// Gets or sets the time that the current instance should represent.
+        /// Gets or sets the time that the current instance should display.
         /// </summary>
         [Browsable(false)]
-        public virtual TimeSpan Time
-        {
-            get { return time; }
-            set { time = value; }
-        }
-
-        /// <summary>
-        /// Specifies the component that is displayed from the time value.
-        /// </summary>
-        protected TimeComponent componentToDisplay;
+        public TimeSpan Time { get; set; }
 
         /// <summary>
         /// Gets or sets a value that specifies the component that is displayed from the time value.
@@ -85,20 +72,18 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         [DefaultValue(typeof(TimeComponent), "None")]
         [Category("Behavior")]
         [Description("Specifies the component that is displayed from the time value.")]
-        public virtual TimeComponent ComponentToDisplay
+        public TimeComponent ComponentToDisplay
         {
-            get { return componentToDisplay; }
+            get => componentToDisplay;
             set
             {
+                if (value == componentToDisplay)
+                    return;
+
                 componentToDisplay = value;
                 OnChanged(EventArgs.Empty);
             }
         }
-
-        /// <summary>
-        /// A value that specifies if the hand will hide the fractional part of the value that it displayes.
-        /// </summary>
-        protected bool integralValue;
 
         /// <summary>
         /// Gets or set a value that specifies if the hand will hide the fractional part of the value that it displayes.
@@ -106,11 +91,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         [Category("Behavior")]
         [DefaultValue(DefaultIntegralValue)]
         [Description("Specifies if the hand will hide the fractional part of the value that it displayes.")]
-        public virtual bool IntegralValue
+        public bool IntegralValue
         {
-            get { return integralValue; }
+            get => integralValue;
             set
             {
+                if (value == integralValue)
+                    return;
+
                 integralValue = value;
                 OnChanged(EventArgs.Empty);
             }
@@ -121,18 +109,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// default values.
         /// </summary>
         public HandBase()
-            : this(DefaultHeight)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HandBase"/> class.
-        /// </summary>
-        /// <param name="length">The length of the hour hand for a clock with the diameter of 100px.</param>
-        public HandBase(float length)
-            : base()
-        {
-            this.length = length;
+            length = DefaultLength;
             integralValue = DefaultIntegralValue;
         }
 
@@ -147,25 +125,25 @@ namespace DustInTheWind.ClockNet.Core.Shapes
                 case TimeComponent.Hour:
                     {
                         if (integralValue)
-                            return (float)((time.Hours % 12) * 30);
+                            return (float)((Time.Hours % 12) * 30);
                         else
-                            return (float)((time.Hours % 12 + time.Minutes / 60F) * 30);
+                            return (float)((Time.Hours % 12 + Time.Minutes / 60F) * 30);
                     }
 
                 case TimeComponent.Minute:
                     {
                         if (integralValue)
-                            return (float)(time.Minutes * 6);
+                            return (float)(Time.Minutes * 6);
                         else
-                            return (float)((time.Minutes + time.Seconds / 60F) * 6);
+                            return (float)((Time.Minutes + Time.Seconds / 60F) * 6);
                     }
 
                 case TimeComponent.Second:
                     {
                         if (integralValue)
-                            return (float)(time.Seconds * 6);
+                            return (float)(Time.Seconds * 6);
                         else
-                            return (float)((time.Seconds + time.Milliseconds / 1000F) * 6);
+                            return (float)((Time.Seconds + Time.Milliseconds / 1000F) * 6);
                     }
 
                 default:

@@ -121,7 +121,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public FancySweepHand()
-            : base(new GraphicsPath(), Color.Red, Color.Empty, DefaultHeight, DefaultOutlineWidth)
+            : base(new GraphicsPath(), Color.Red, Color.Empty, DefaultLength, DefaultOutlineWidth)
         {
             Name = DefaultName;
             tailLength = DefaultTailLength;
@@ -135,11 +135,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             path.Reset();
 
-            float circleCenterX = -length + circleOffset;
+            float circleCenterX = -Length + circleOffset;
 
             path.AddLine(new PointF(0f, tailLength), new PointF(0f, circleCenterX + circleRadius));
             path.AddEllipse(-circleRadius, circleCenterX - circleRadius, circleRadius * 2f, circleRadius * 2f);
-            path.AddLine(new PointF(0f, circleCenterX - circleRadius), new PointF(0f, -length));
+            path.AddLine(new PointF(0f, circleCenterX - circleRadius), new PointF(0f, -Length));
         }
     }
 }

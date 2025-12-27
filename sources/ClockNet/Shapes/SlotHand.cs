@@ -24,80 +24,74 @@ using DustInTheWind.ClockNet.Core.Shapes.Basic;
 namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
     /// <summary>
-    /// Draws a clock hand that is a slot carved inside a disk. By default the disk is big as the clock.
+    /// A clock's hand that is actually a big disk with a rectangle slot carved in it through
+    /// which the user can see whatever is under the disk. Usually, the hours would be visible under the slot.
     /// </summary>
     [Shape("d605fe8f-cda0-4ba5-954d-be7266c04e2d")]
     public class SlotHand : PathHand
     {
         /// <summary>
-        /// The default name for the Shape.
+        /// The default name for the hand.
         /// </summary>
         public new const string DefaultName = "Slot Hand";
 
         /// <summary>
-        /// The default length of the width of the hand.
+        /// The default length of the slot in the disk.
         /// </summary>
         public const float DefaultWidth = 5f;
 
         /// <summary>
-        /// The default length of the radius of the opaque disk.
+        /// The default radius of the opaque disk.
         /// </summary>
         public const float DefaultRadius = 50f;
 
         /// <summary>
         /// The default length of the tail of the hand.
+        /// The tail is the length of the rectangle that extends in the other direction beyond the center of the disk.
         /// </summary>
         public const float DefaultTailLength = 6f;
 
-
-        /// <summary>
-        /// The width of the slot carved inside the disk.
-        /// </summary>
-        protected float width;
+        private float width;
+        private float radius;
+        private float tailLength;
 
         /// <summary>
         /// Gets or sets the width of the slot carved inside the disk.
         /// </summary>
         [DefaultValue(DefaultWidth)]
         [Description("The width of the slot carved inside the disk.")]
-        public virtual float Width
+        public float Width
         {
-            get { return width; }
+            get => width;
             set
             {
+                if (width == value)
+                    return;
+
                 width = value;
                 InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
 
-
         /// <summary>
-        /// The rasius of the opaque disk.
-        /// </summary>
-        protected float radius;
-
-        /// <summary>
-        /// Gets or sets the rasius of the opaque disk.
+        /// Gets or sets the radius of the opaque disk.
         /// </summary>
         [DefaultValue(DefaultRadius)]
-        [Description("The rasius of the opaque disk.")]
-        public virtual float Radius
+        [Description("The radius of the opaque disk.")]
+        public float Radius
         {
-            get { return radius; }
+            get => radius;
             set
             {
+                if (radius == value)
+                    return;
+
                 radius = value;
                 InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-        /// <summary>
-        /// The length of the the hand's tail.
-        /// </summary>
-        protected float tailLength;
 
         /// <summary>
         /// Gets or sets the length of the tail of the hand.
@@ -105,9 +99,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Category("Appearance")]
         [DefaultValue(DefaultTailLength)]
         [Description("The length of the tail of the hand.")]
-        public virtual float TailLength
+        public float TailLength
         {
-            get { return tailLength; }
+            get => tailLength;
             set
             {
                 tailLength = value;
@@ -121,7 +115,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public SlotHand()
-            : base(new GraphicsPath(), DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultOutlineWidth)
         {
             Name = DefaultName;
             radius = DefaultRadius;
@@ -136,8 +129,26 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             path.Reset();
 
-            path.AddEllipse(-radius, -radius, radius * 2f, radius * 2f);
-            path.AddRectangle(new RectangleF(-width / 2f, -length, width, length + tailLength));
+            // The circular disk
+
+            float ellipseX = -Radius;
+            float ellipseY = -Radius;
+
+            float ellipseWidth = Radius * 2f;
+            float ellipseHeight = Radius * 2f;
+
+            path.AddEllipse(ellipseX, ellipseY, ellipseWidth, ellipseHeight);
+
+            // The rectangle slot
+
+            float rectangleX = -Width / 2f;
+            float rectangleY = -Length;
+
+            float rectangleWidth = Width;
+            float rectangleHeight = Length + TailLength;
+
+            RectangleF rect = new RectangleF(rectangleX, rectangleY, rectangleWidth, rectangleHeight);
+            path.AddRectangle(rect);
         }
     }
 }

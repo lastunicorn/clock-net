@@ -70,7 +70,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public DotHand()
-            : base(Color.Empty, Color.Black, DefaultOutlineWidth, DefaultHeight)
+            : base(Color.Empty, Color.Black, DefaultOutlineWidth, DefaultLength)
         {
             Name = DefaultName;
             radius = DefaultRadius;
@@ -84,7 +84,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         protected override bool AllowToDraw()
         {
             return base.AllowToDraw() &&
-                radius > 0 && length > 0;
+                radius > 0 && Length > 0;
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         protected override void CalculateLayout()
         {
             float x = -radius;
-            float y = -length - radius;
+            float y = -Length - radius;
 
             float width = radius * 2;
             float height = radius * 2;

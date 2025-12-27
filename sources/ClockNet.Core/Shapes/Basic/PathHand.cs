@@ -40,18 +40,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// default values.
         /// </summary>
         public PathHand()
-            : this(new GraphicsPath(), DefaultOutlineColor, DefaultFillColor, DefaultHeight, DefaultOutlineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PathHand"/> class.
-        /// </summary>
-        /// <param name="path">The path that should be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
-        /// <param name="fillColor">The color used to fill the path's interior.</param>
-        public PathHand(GraphicsPath path, Color outlineColor, Color fillColor)
-            : this(path, outlineColor, fillColor, DefaultHeight, DefaultOutlineWidth)
+            : this(new GraphicsPath(), DefaultOutlineColor, DefaultFillColor, DefaultLength, DefaultOutlineWidth)
         {
         }
 
@@ -66,7 +55,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         public PathHand(GraphicsPath path, Color outlineColor, Color fillColor, float height, float lineWidth)
             : base(outlineColor, fillColor, lineWidth, height)
         {
-            this.Name = DefaultName;
+            Name = DefaultName;
             this.path = path;
         }
 

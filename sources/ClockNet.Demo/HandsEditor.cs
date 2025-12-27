@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Core.Shapes;
@@ -44,21 +46,36 @@ namespace DustInTheWind.ClockNet.Demo
         {
             InitializeComponent();
 
-            listBoxHandsAvailable.Items.AddRange(new Type[] {
-                typeof(LineHand),
-                typeof(PolygonHand),
-                typeof(RectangleHand),
-                typeof(EllipseHand),
-                typeof(PathHand),
-                typeof(ImageHand),
-                typeof(DiamondHand),
-                typeof(DigitalHand),
-                typeof(Pin),
-                typeof(DotHand),
-                typeof(FancySweepHand),
-                typeof(NibHand),
-                typeof(SlotHand)
-            });
+            Type[] hands = GetAllHands();
+            listBoxHandsAvailable.Items.AddRange(hands);
+        }
+
+        private static Type[] GetAllHands()
+        {
+            Type handInterface = typeof(IHand);
+
+            List<Type> handTypes = new List<Type>();
+
+            Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+            foreach (Assembly assembly in assemblies)
+            {
+                try
+                {
+                    Type[] types = assembly.GetTypes();
+
+                    IEnumerable<Type> hands = types
+                        .Where(x => handInterface.IsAssignableFrom(x) && x.IsClass && !x.IsAbstract);
+
+                    handTypes.AddRange(hands);
+                }
+                catch (ReflectionTypeLoadException)
+                {
+                    // Skip assemblies that cannot be loaded
+                }
+            }
+
+            return handTypes.ToArray();
         }
 
         private void listBoxHands_SelectedIndexChanged(object sender, EventArgs e)
