@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Shapes\DigitalHand.cs" />
     <Compile Include="Shapes\DotHand.cs" />
     <Compile Include="Shapes\FancyBackground.cs" />
@@ -57,20 +62,34 @@
     <Compile Include="Templates\BlackTemplate.cs" />
     <Compile Include="Templates\BlueTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\ShadowHandsTemplate.cs" />
+    <Compile Include="Templates\GothicTemplate.cs" />
     <Compile Include="Templates\PandaTemplate.cs" />
     <Compile Include="Templates\FancyTemplate.cs" />
     <Compile Include="Templates\SunTemplate.cs" />
     <Compile Include="Templates\WhiteFancyTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\icon16.bmp" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ClockNet.Core\ClockNet.Core.csproj">
       <Project>{63682b7f-4e6a-4c57-ab59-fdb55654270b}</Project>
       <Name>ClockNet.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hour_hand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minute_hand.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

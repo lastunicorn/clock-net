@@ -4,6 +4,37 @@
         <name>ClockNet</name>
     </assembly>
     <members>
+        <member name="T:DustInTheWind.ClockNet.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Properties.Resources.dial">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Properties.Resources.hour_hand">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Properties.Resources.minute_hand">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand">
             <summary>
             A Hand Shape that draws the time as a text in a fixed position on the dial.

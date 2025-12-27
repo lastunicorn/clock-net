@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Advanced;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
@@ -66,7 +67,9 @@ namespace DustInTheWind.ClockNet.Templates
                 DistanceFromEdge = 2.7F,
                 FillColor = Color.DarkGray,
                 Font = new Font("Arial", 2.2F),
-                Texts = new string[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60" }
+                Texts = Enumerable.Range(1, 12)
+                    .Select(x => (x * 5).ToString())
+                    .ToArray()
             };
         }
 

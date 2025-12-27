@@ -23,15 +23,7 @@ using DustInTheWind.ClockNet.Core.Shapes.Default;
 
 namespace DustInTheWind.ClockNet.Templates
 {
-    /// <summary>
-    /// Provides the default visual template for rendering a clock, including standard background, tick marks, and hand
-    /// shapes.
-    /// </summary>
-    /// <remarks>This template supplies a conventional analog clock appearance with predefined shapes for the
-    /// dial, tick marks, and hands. It can be used as a base or reference for custom clock templates. The default
-    /// configuration includes hour, minute, and second hands, as well as standard tick marks and background
-    /// elements.</remarks>
-    public class DefaultTemplate : TemplateBase
+    public class ShadowHandsTemplate : TemplateBase
     {
         protected override IEnumerable<IBackground> EnumerateBackgrounds()
         {
@@ -52,7 +44,6 @@ namespace DustInTheWind.ClockNet.Templates
 
         protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
         {
-            // Ticks for minutes
             yield return new Ticks
             {
                 Name = "Minute Ticks",
@@ -62,7 +53,6 @@ namespace DustInTheWind.ClockNet.Templates
                 SkipIndex = 5
             };
 
-            // Ticks for hours
             yield return new Ticks
             {
                 Name = "Hour Ticks",
@@ -71,7 +61,6 @@ namespace DustInTheWind.ClockNet.Templates
                 Angle = 30f
             };
 
-            // Hour numbers
             yield return new Hours
             {
                 Name = "Hours",
@@ -81,7 +70,18 @@ namespace DustInTheWind.ClockNet.Templates
 
         protected override IEnumerable<IHand> EnumerateHands()
         {
-            // Hour hand
+            yield return new DiamondHand
+            {
+                Name = "Hour Hand Shadow",
+                ComponentToDisplay = TimeComponent.Hour,
+                FillColor = Color.Empty,
+                OutlineColor = Color.DarkGray,
+                Length = 24f,
+                Width = 5f,
+                TailLength = 6f,
+                IntegralValue = true
+            };
+
             yield return new DiamondHand
             {
                 Name = "Hour Hand",
@@ -92,7 +92,18 @@ namespace DustInTheWind.ClockNet.Templates
                 TailLength = 6f
             };
 
-            // Minute hand
+            yield return new DiamondHand(Color.Empty, Color.LimeGreen, 37f, 4f, 4f)
+            {
+                Name = "Minute Hand Shadow",
+                ComponentToDisplay = TimeComponent.Minute,
+                FillColor = Color.Empty,
+                OutlineColor = Color.DarkGray,
+                Length = 37f,
+                Width = 4f,
+                TailLength = 4f,
+                IntegralValue = true
+            };
+
             yield return new DiamondHand(Color.Empty, Color.LimeGreen, 37f, 4f, 4f)
             {
                 Name = "Minute Hand",
@@ -103,7 +114,15 @@ namespace DustInTheWind.ClockNet.Templates
                 TailLength = 4f
             };
 
-            // Second hand
+            yield return new LineHand
+            {
+                Name = "Second Hand Shadow",
+                ComponentToDisplay = TimeComponent.Second,
+                OutlineColor = Color.DarkGray,
+                Length = 42.5f,
+                IntegralValue = true
+            };
+
             yield return new LineHand
             {
                 Name = "Second Hand",
@@ -112,7 +131,6 @@ namespace DustInTheWind.ClockNet.Templates
                 Length = 42.5f
             };
 
-            // Center pin
             yield return new Pin
             {
                 Name = "Pin",

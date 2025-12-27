@@ -29,11 +29,13 @@ namespace DustInTheWind.ClockNet.Demo
             InitializeComponent();
 
             comboBoxClockTemplates.Items.Add(typeof(DefaultTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(ShadowHandsTemplate));
             comboBoxClockTemplates.Items.Add(typeof(BlackTemplate));
             comboBoxClockTemplates.Items.Add(typeof(PandaTemplate));
             comboBoxClockTemplates.Items.Add(typeof(FancyTemplate));
             comboBoxClockTemplates.Items.Add(typeof(WhiteFancyTemplate));
             comboBoxClockTemplates.Items.Add(typeof(SunTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(GothicTemplate));
         }
 
         private void Form1_Load(object sender, EventArgs e)
