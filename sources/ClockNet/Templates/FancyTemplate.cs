@@ -16,10 +16,10 @@
 
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Advanced;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
+using DustInTheWind.ClockNet.Core.Shapes.Default;
 using DustInTheWind.ClockNet.Shapes.Advanced;
 
 namespace DustInTheWind.ClockNet.Templates
@@ -29,31 +29,19 @@ namespace DustInTheWind.ClockNet.Templates
     /// </summary>
     /// <remarks>This template supplies an elegant analog clock appearance with nib-style hour and minute hands,
     /// a fancy sweep hand for seconds, and standard tick marks and background elements.</remarks>
-    public class FancyClockTemplate : ClockTemplate
+    public class FancyTemplate : TemplateBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FancyClockTemplate"/> class with default background, angular, and hand
-        /// shapes.
-        /// </summary>
-        /// <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
-        /// properties with their respective fancy values. Use this constructor to create a clock template with the
-        /// fancy set of shapes.</remarks>
-        public FancyClockTemplate()
+        protected override IEnumerable<IBackground> EnumerateBackgrounds()
         {
-            BackgroundShapes = EnumerateBackgroundShapes().ToArray();
-            AngularShapes = EnumerateAngularShapes().ToArray();
-            HandShapes = EnumerateHandShapes().ToArray();
-        }
-
-        private static IEnumerable<IBackground> EnumerateBackgroundShapes()
-        {
-            yield return new ClockBackground
+            yield return new FlatBackground
             {
+                Name = "Background",
                 FillColor = Color.White
             };
 
             yield return new StringBackground
             {
+                Name = "Title",
                 Location = new PointF(0, 15),
                 Font = new Font("Arial", 2.5f, FontStyle.Regular, GraphicsUnit.Point),
                 FillColor = Color.FromArgb(0x60, 0x60, 0x60),
@@ -61,15 +49,16 @@ namespace DustInTheWind.ClockNet.Templates
             };
         }
 
-        private static IEnumerable<IRimMarker> EnumerateAngularShapes()
+        protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
         {
             // Ticks for minutes (every 6 degrees, skip every 5th)
             yield return new Ticks
             {
+                Name = "Minute Ticks",
                 OutlineColor = Color.Black,
                 Length = 3f,
                 OutlineWidth = 0.3f,
-                DistanceFromEdge = 0f,
+                DistanceFromEdge = 3f,
                 Angle = 6f,
                 SkipIndex = 5
             };
@@ -77,6 +66,7 @@ namespace DustInTheWind.ClockNet.Templates
             // Ticks for hours (every 30 degrees)
             yield return new Ticks
             {
+                Name = "Hour Ticks",
                 OutlineColor = Color.Black,
                 Length = 3f,
                 OutlineWidth = 1f,
@@ -84,19 +74,19 @@ namespace DustInTheWind.ClockNet.Templates
             };
 
             // Hour numbers
-            yield return new StringRimMarker
+            yield return new Hours
             {
-                Angle = 30f,
-                DistanceFromEdge = 10f,
-                Orientation = RimMarkerOrientation.Normal
+                Name = "Hours",
+                DistanceFromEdge = 13f
             };
         }
 
-        private static IEnumerable<IHand> EnumerateHandShapes()
+        protected override IEnumerable<IHand> EnumerateHands()
         {
             // Hour hand - Nib style
             yield return new NibHand
             {
+                Name = "Hour Hand",
                 FillColor = Color.Black,
                 Length = 30f,
                 ComponentToDisplay = TimeComponent.Hour,
@@ -108,6 +98,7 @@ namespace DustInTheWind.ClockNet.Templates
             // Minute hand - Nib style
             yield return new NibHand
             {
+                Name = "Minute Hand",
                 ComponentToDisplay = TimeComponent.Minute,
                 OutlineColor = Color.FromArgb(0x60, 0x60, 0x60),
                 OutlineWidth = 1.5f
@@ -116,13 +107,15 @@ namespace DustInTheWind.ClockNet.Templates
             // Second hand - Fancy sweep style
             yield return new FancySweepHand
             {
+                Name = "Shweep Hand",
                 ComponentToDisplay = TimeComponent.Second
             };
 
             // Center pin
             yield return new Pin
             {
-                FillColor = Color.FromArgb(0x60, 0x60, 0x60)
+                Name = "Pin",
+                FillColor = Color.FromArgb(0x64, 0x64, 0x64)
             };
         }
     }

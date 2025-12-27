@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using DustInTheWind.ClockNet.Core.Shapes.Default;
+
 namespace DustInTheWind.ClockNet.Demo
 {
     partial class FormExamples
@@ -85,7 +87,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin5 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks4 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringRimMarker stringRimMarker1 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringRimMarker();
-            DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground clockBackground6 = new DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground();
+            FlatBackground clockBackground6 = new DustInTheWind.ClockNet.Core.Shapes.Default.FlatBackground();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground6 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand11 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand12 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
@@ -103,7 +105,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks7 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks8 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours1 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
-            DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground clockBackground1 = new DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground();
+            FlatBackground clockBackground1 = new DustInTheWind.ClockNet.Core.Shapes.Default.FlatBackground();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground8 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand15 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand16 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
@@ -141,8 +143,8 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Basic.ImageHand imageHand4 = new DustInTheWind.ClockNet.Core.Shapes.Basic.ImageHand();
             DustInTheWind.ClockNet.Core.Shapes.Basic.LineHand lineHand10 = new DustInTheWind.ClockNet.Core.Shapes.Basic.LineHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin12 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
-            DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground clockBackground2 = new DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground();
-            DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground clockBackground7 = new DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground();
+            FlatBackground clockBackground2 = new DustInTheWind.ClockNet.Core.Shapes.Default.FlatBackground();
+            FlatBackground clockBackground7 = new DustInTheWind.ClockNet.Core.Shapes.Default.FlatBackground();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground13 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Shapes.Advanced.DotHand dotHand6 = new DustInTheWind.ClockNet.Shapes.Advanced.DotHand();
             DustInTheWind.ClockNet.Shapes.Advanced.DotHand dotHand7 = new DustInTheWind.ClockNet.Shapes.Advanced.DotHand();
@@ -155,7 +157,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks17 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks18 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringRimMarker stringRimMarker3 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringRimMarker();
-            DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground clockBackground3 = new DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground();
+            FlatBackground clockBackground3 = new DustInTheWind.ClockNet.Core.Shapes.Default.FlatBackground();
             DustInTheWind.ClockNet.Shapes.Advanced.SlotHand slotHand2 = new DustInTheWind.ClockNet.Shapes.Advanced.SlotHand();
             DustInTheWind.ClockNet.Core.Shapes.Basic.LineHand lineHand11 = new DustInTheWind.ClockNet.Core.Shapes.Basic.LineHand();
             DustInTheWind.ClockNet.Core.Shapes.Basic.LineHand lineHand20 = new DustInTheWind.ClockNet.Core.Shapes.Basic.LineHand();
@@ -656,7 +658,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground22.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground22.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground22.Location")));
-            stringBackground22.Name = "String Ground Shape";
+            stringBackground22.Name = "String Background";
             stringBackground22.OutlineColor = System.Drawing.Color.Empty;
             stringBackground22.Text = "Default";
             this.analogClockDefault.Backgrounds.Add(stringBackground22);
@@ -735,7 +737,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground1.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground1.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground1.Location")));
-            stringBackground1.Name = "String Ground Shape";
+            stringBackground1.Name = "String Background";
             stringBackground1.OutlineColor = System.Drawing.Color.Empty;
             stringBackground1.Text = "Simple";
             this.analogClockSimple.Backgrounds.Add(stringBackground1);
@@ -786,7 +788,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground2.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground2.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground2.Location")));
-            stringBackground2.Name = "String Ground Shape";
+            stringBackground2.Name = "String Background";
             stringBackground2.OutlineColor = System.Drawing.Color.Empty;
             stringBackground2.Text = "No Numbers";
             this.analogClockNoNumbers.Backgrounds.Add(stringBackground2);
@@ -844,7 +846,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground3.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground3.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground3.Location")));
-            stringBackground3.Name = "String Ground Shape";
+            stringBackground3.Name = "String Background";
             stringBackground3.OutlineColor = System.Drawing.Color.Empty;
             stringBackground3.Text = "Roman Numerals";
             this.analogClockRomanNumbers.Backgrounds.Add(stringBackground3);
@@ -909,7 +911,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground4.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground4.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground4.Location")));
-            stringBackground4.Name = "String Ground Shape";
+            stringBackground4.Name = "String Background";
             stringBackground4.OutlineColor = System.Drawing.Color.Empty;
             stringBackground4.Text = "Clear";
             this.analogClockClear.Backgrounds.Add(stringBackground4);
@@ -953,7 +955,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground5.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground5.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground5.Location")));
-            stringBackground5.Name = "String Ground Shape";
+            stringBackground5.Name = "String Background";
             stringBackground5.OutlineColor = System.Drawing.Color.Empty;
             stringBackground5.Text = "North East Sourh West";
             this.analogClockNESW.Backgrounds.Add(stringBackground5);
@@ -1020,7 +1022,7 @@ namespace DustInTheWind.ClockNet.Demo
             clockBackground6.OutlineColor = System.Drawing.Color.Empty;
             stringBackground6.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground6.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground6.Location")));
-            stringBackground6.Name = "String Ground Shape";
+            stringBackground6.Name = "String Background";
             stringBackground6.OutlineColor = System.Drawing.Color.Empty;
             stringBackground6.Text = "Blue";
             this.analogClockBlue.Backgrounds.Add(clockBackground6);
@@ -1103,7 +1105,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground7.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground7.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground7.Location")));
-            stringBackground7.Name = "String Ground Shape";
+            stringBackground7.Name = "String Background";
             stringBackground7.OutlineColor = System.Drawing.Color.Empty;
             stringBackground7.Text = "Digital";
             this.analogClockDigital.Backgrounds.Add(stringBackground7);
@@ -1193,7 +1195,7 @@ namespace DustInTheWind.ClockNet.Demo
             clockBackground1.OutlineColor = System.Drawing.Color.Empty;
             stringBackground8.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground8.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground8.Location")));
-            stringBackground8.Name = "String Ground Shape";
+            stringBackground8.Name = "String Background";
             stringBackground8.OutlineColor = System.Drawing.Color.Empty;
             stringBackground8.Text = "Green";
             this.analogClockGreen.Backgrounds.Add(clockBackground1);
@@ -1275,7 +1277,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground9.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground9.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground9.Location")));
-            stringBackground9.Name = "String Ground Shape";
+            stringBackground9.Name = "String Background";
             stringBackground9.OutlineColor = System.Drawing.Color.Empty;
             stringBackground9.Text = "Broken\r\n(Random)";
             this.analogClockRandom.Backgrounds.Add(stringBackground9);
@@ -1355,7 +1357,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground10.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground10.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground10.Location")));
-            stringBackground10.Name = "String Ground Shape";
+            stringBackground10.Name = "String Background";
             stringBackground10.OutlineColor = System.Drawing.Color.Empty;
             stringBackground10.Text = "Broken\r\n(Fast)\r\n";
             this.analogClockBroken.Backgrounds.Add(stringBackground10);
@@ -1432,7 +1434,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground11.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground11.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground11.Location")));
-            stringBackground11.Name = "String Ground Shape";
+            stringBackground11.Name = "String Background";
             stringBackground11.OutlineColor = System.Drawing.Color.Empty;
             stringBackground11.Text = "Broken\r\n(Back)";
             this.analogClockBroken2.Backgrounds.Add(stringBackground11);
@@ -1516,11 +1518,11 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             imageBackground2.Image = global::DustInTheWind.ClockNet.Demo.Properties.Resources.dial;
             imageBackground2.Location = ((System.Drawing.PointF)(resources.GetObject("imageBackground2.Location")));
-            imageBackground2.Name = "Image Ground Shape";
+            imageBackground2.Name = "Image Background";
             stringBackground12.FillColor = System.Drawing.Color.Gainsboro;
             stringBackground12.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground12.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground12.Location")));
-            stringBackground12.Name = "String Ground Shape";
+            stringBackground12.Name = "String Background";
             stringBackground12.OutlineColor = System.Drawing.Color.Empty;
             stringBackground12.Text = "Gothic";
             this.analogClockImages.Backgrounds.Add(imageBackground2);
@@ -1571,7 +1573,7 @@ namespace DustInTheWind.ClockNet.Demo
             stringBackground13.FillColor = System.Drawing.Color.Silver;
             stringBackground13.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground13.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground13.Location")));
-            stringBackground13.Name = "String Ground Shape";
+            stringBackground13.Name = "String Background";
             stringBackground13.OutlineColor = System.Drawing.Color.Empty;
             stringBackground13.Text = "[ Dots ]";
             this.analogClockBlackDot.Backgrounds.Add(clockBackground2);
@@ -1608,7 +1610,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground14.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground14.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground14.Location")));
-            stringBackground14.Name = "String Ground Shape";
+            stringBackground14.Name = "String Background";
             stringBackground14.OutlineColor = System.Drawing.Color.Empty;
             stringBackground14.Text = "Fancy";
             this.analogClockFancy.Backgrounds.Add(stringBackground14);
@@ -1753,7 +1755,7 @@ namespace DustInTheWind.ClockNet.Demo
             stringBackground15.FillColor = System.Drawing.Color.LightGray;
             stringBackground15.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground15.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground15.Location")));
-            stringBackground15.Name = "String Ground Shape";
+            stringBackground15.Name = "String Background";
             stringBackground15.OutlineColor = System.Drawing.Color.Empty;
             stringBackground15.Text = "Shading Black";
             this.analogClockBlack.Backgrounds.Add(fancyBackground3);
@@ -1887,7 +1889,7 @@ namespace DustInTheWind.ClockNet.Demo
             fancyBackground1.OutlineColor = System.Drawing.Color.Empty;
             stringBackground16.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground16.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground16.Location")));
-            stringBackground16.Name = "String Ground Shape";
+            stringBackground16.Name = "String Background";
             stringBackground16.OutlineColor = System.Drawing.Color.Empty;
             stringBackground16.Text = "[ Sun ]";
             this.analogClockSun.Backgrounds.Add(fancyBackground1);
@@ -2020,7 +2022,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground17.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground17.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground17.Location")));
-            stringBackground17.Name = "String Ground Shape";
+            stringBackground17.Name = "String Background";
             stringBackground17.OutlineColor = System.Drawing.Color.Empty;
             stringBackground17.Text = "Local";
             this.analogClockLocalProvider.Backgrounds.Add(stringBackground17);
@@ -2099,7 +2101,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground18.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground18.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground18.Location")));
-            stringBackground18.Name = "String Ground Shape";
+            stringBackground18.Name = "String Background";
             stringBackground18.OutlineColor = System.Drawing.Color.Empty;
             stringBackground18.Text = "UTC";
             this.analogClockUTCProvider.Backgrounds.Add(stringBackground18);
@@ -2178,7 +2180,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground19.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground19.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground19.Location")));
-            stringBackground19.Name = "String Ground Shape";
+            stringBackground19.Name = "String Background";
             stringBackground19.OutlineColor = System.Drawing.Color.Empty;
             stringBackground19.Text = "Tokyo\r\n+9:00";
             this.analogClockTokyoProvider.Backgrounds.Add(stringBackground19);
@@ -2261,7 +2263,7 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             stringBackground20.Font = new System.Drawing.Font("Arial", 3F);
             stringBackground20.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground20.Location")));
-            stringBackground20.Name = "String Ground Shape";
+            stringBackground20.Name = "String Background";
             stringBackground20.OutlineColor = System.Drawing.Color.Empty;
             stringBackground20.Text = "Compass";
             this.analogClockCompass.Backgrounds.Add(stringBackground20);

@@ -22,6 +22,7 @@ using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Advanced;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
 using DustInTheWind.ClockNet.Core.Shapes.Default;
+using DustInTheWind.ClockNet.Templates;
 
 namespace DustInTheWind.ClockNet
 {
@@ -40,9 +41,12 @@ namespace DustInTheWind.ClockNet
 
             DescribeSizeProperty();
             DescribeTimeProperty();
-            DescribeBackgroundsProperty();
-            DescribeRimMarkersProperty();
-            DescribeHandsProperty();
+
+            DefaultTemplate defaultTemplate = new DefaultTemplate();
+            (Component as AnalogClock).ApplyTemplate(defaultTemplate);
+            //DescribeBackgroundsProperty();
+            //DescribeRimMarkersProperty();
+            //DescribeHandsProperty();
         }
 
         private void DescribeSizeProperty()
@@ -94,7 +98,7 @@ namespace DustInTheWind.ClockNet
                 {
                     Ticks swipeTicks = new Ticks
                     {
-                        Name = "Second Ticks",
+                        Name = "Minute Ticks",
                         SkipIndex = 5
                     };
                     rimMarkers.Add(swipeTicks);
@@ -123,7 +127,7 @@ namespace DustInTheWind.ClockNet
                 {
                     DiamondHand hourHandShape = new DiamondHand
                     {
-                        Name = "Hour Hand Shape",
+                        Name = "Hour Hand",
                         ComponentToDisplay = TimeComponent.Hour,
                         OutlineColor = Color.Empty,
                         FillColor = Color.RoyalBlue,
@@ -135,7 +139,7 @@ namespace DustInTheWind.ClockNet
 
                     DiamondHand minuteHandShape = new DiamondHand
                     {
-                        Name = "Minute Hand Shape",
+                        Name = "Minute Hand",
                         ComponentToDisplay = TimeComponent.Minute,
                         OutlineColor = Color.Empty,
                         FillColor = Color.LimeGreen,
@@ -148,7 +152,7 @@ namespace DustInTheWind.ClockNet
 
                     LineHand sweepHandShape = new LineHand
                     {
-                        Name = "Second Hand Shape",
+                        Name = "Second Hand",
                         ComponentToDisplay = TimeComponent.Second,
                         OutlineColor = Color.Red,
                         Length = 42.5f

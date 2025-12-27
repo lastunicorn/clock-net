@@ -20,13 +20,13 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using DustInTheWind.ClockNet.Core.Shapes;
 
-namespace DustInTheWind.ClockNet.Shapes.Advanced
+namespace DustInTheWind.ClockNet.Core.Shapes.Default
 {
     /// <summary>
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the background of the dial.
     /// </summary>
     [Shape("ac17028b-424c-4b91-b961-72b9f0b4733a")]
-    public class ClockBackground : VectorialBackgroundBase
+    public class FlatBackground : VectorialBackgroundBase
     {
         /// <summary>
         /// The default name for the Shape.
@@ -63,41 +63,41 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClockBackground"/> class with
+        /// Initializes a new instance of the <see cref="FlatBackground"/> class with
         /// default values.
         /// </summary>
-        public ClockBackground()
+        public FlatBackground()
             : this(DefaultOutlineColor, Color.Black, DefaultRadius, DefaultOutlineWidth)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClockBackground"/> class.
+        /// Initializes a new instance of the <see cref="FlatBackground"/> class.
         /// </summary>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
-        public ClockBackground(Color fillColor)
+        public FlatBackground(Color fillColor)
             : this(DefaultOutlineColor, fillColor, DefaultRadius, DefaultOutlineWidth)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClockBackground"/> class.
+        /// Initializes a new instance of the <see cref="FlatBackground"/> class.
         /// </summary>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
         /// <param name="radius">The radius of the dial.</param>
-        public ClockBackground(Color fillColor, float radius)
+        public FlatBackground(Color fillColor, float radius)
             : this(DefaultOutlineColor, fillColor, radius, DefaultOutlineWidth)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClockBackground"/> class.
+        /// Initializes a new instance of the <see cref="FlatBackground"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the dial.</param>
         /// <param name="fillColor">The color used to draw the dial's background.</param>
         /// <param name="radius">The radius of the dial.</param>
         /// <param name="lineWidth">The width of the outline.</param>
-        public ClockBackground(Color outlineColor, Color fillColor, float radius, float lineWidth)
+        public FlatBackground(Color outlineColor, Color fillColor, float radius, float lineWidth)
             : base(outlineColor, fillColor, lineWidth)
         {
             Name = DefaultName;

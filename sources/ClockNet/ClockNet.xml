@@ -4,78 +4,6 @@
         <name>ClockNet</name>
     </assembly>
     <members>
-        <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground">
-            <summary>
-            The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.IShape"/> class used by default in <see cref="T:DustInTheWind.ClockNet.AnalogClock"/> to draw the background of the dial.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.DefaultName">
-            <summary>
-            The default name for the Shape.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.DefaultRadius">
-            <summary>
-            The default radius of the Dial Shape.
-            </summary>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.Radius">
-            <summary>
-            Gets or sets the radius of the dial.
-            </summary>
-            <exception cref="T:System.ArgumentOutOfRangeException">The radius can not be a negative value.</exception>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground"/> class with
-            default values.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.#ctor(System.Drawing.Color)">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground"/> class.
-            </summary>
-            <param name="fillColor">The color used to draw the dial's background.</param>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.#ctor(System.Drawing.Color,System.Single)">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground"/> class.
-            </summary>
-            <param name="fillColor">The color used to draw the dial's background.</param>
-            <param name="radius">The radius of the dial.</param>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.#ctor(System.Drawing.Color,System.Drawing.Color,System.Single,System.Single)">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground"/> class.
-            </summary>
-            <param name="outlineColor">The color used to draw the outline of the dial.</param>
-            <param name="fillColor">The color used to draw the dial's background.</param>
-            <param name="radius">The radius of the dial.</param>
-            <param name="lineWidth">The width of the outline.</param>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.CreatePen">
-            <summary>
-            Creates a new <see cref="T:System.Drawing.Pen"/> object if it does not exist already.
-            The pen will have an Inset alignment.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.CalculateLayout">
-            <summary>
-            Calculates additional values that are necessary by the drawing process, but that remain constant for every
-            successive draw if no parameter is changed.
-            This method should be called every time when is set a property that changes the physical dimensions.
-            </summary>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.OnDraw(System.Drawing.Graphics)">
-            <summary>
-            Internal method that draws the Shape unconditioned. 
-            </summary>
-            <remarks>
-            The <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.ClockBackground.OnDraw(System.Drawing.Graphics)"/> method.
-            </remarks>
-            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
-        </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand">
             <summary>
             A Hand Shape that draws the time as a text in a fixed position on the dial.
@@ -551,7 +479,7 @@
             Performs all the necessary calculations based on the public parameters, before drawing the shape.
             </summary>
         </member>
-        <member name="T:DustInTheWind.ClockNet.Templates.BlackClockTemplate">
+        <member name="T:DustInTheWind.ClockNet.Templates.BlackTemplate">
             <summary>
             Provides a predefined clock template with a black-themed design, including default background, angular, and hand
             shapes.
@@ -560,16 +488,7 @@
             for a black or dark-themed clock face. The template initializes the BackgroundShapes, AngularShapes, and
             HandShapes properties with default values representing a complete analog clock layout.</remarks>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Templates.BlackClockTemplate.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.BlackClockTemplate"/> class with default background, angular, and hand
-            shapes.
-            </summary>
-            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
-            properties with their respective default values. Use this constructor to create a clock template with the
-            standard set of shapes.</remarks>
-        </member>
-        <member name="T:DustInTheWind.ClockNet.Templates.BlueClockTemplate">
+        <member name="T:DustInTheWind.ClockNet.Templates.BlueTemplate">
             <summary>
             Provides a predefined clock template with a blue-themed design, including default background, angular, and hand
             shapes.
@@ -578,79 +497,24 @@
             blue-themed or modern clock displays. The template initializes its shape collections with default values
             representing a typical analog clock layout.</remarks>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Templates.BlueClockTemplate.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.BlueClockTemplate"/> class with default background, angular, and hand
-            shapes.
-            </summary>
-            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
-            properties with their respective default values. Use this constructor to create a clock template with the
-            standard set of shapes.</remarks>
-        </member>
-        <member name="T:DustInTheWind.ClockNet.Templates.DefaultClockTemplate">
-            <summary>
-            Provides the default visual template for rendering a clock, including standard background, tick marks, and hand
-            shapes.
-            </summary>
-            <remarks>This template supplies a conventional analog clock appearance with predefined shapes for the
-            dial, tick marks, and hands. It can be used as a base or reference for custom clock templates. The default
-            configuration includes hour, minute, and second hands, as well as standard tick marks and background
-            elements.</remarks>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Templates.DefaultClockTemplate.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.DefaultClockTemplate"/> class with default background, angular, and hand
-            shapes.
-            </summary>
-            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
-            properties with their respective default values. Use this constructor to create a clock template with the
-            standard set of shapes.</remarks>
-        </member>
-        <member name="T:DustInTheWind.ClockNet.Templates.DotsClockTemplate">
+        <member name="T:DustInTheWind.ClockNet.Templates.PandaTemplate">
             <summary>
             
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Templates.DotsClockTemplate.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.BlueClockTemplate"/> class with default background, angular, and hand
-            shapes.
-            </summary>
-            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
-            properties with their respective default values. Use this constructor to create a clock template with the
-            standard set of shapes.</remarks>
-        </member>
-        <member name="T:DustInTheWind.ClockNet.Templates.FancyClockTemplate">
+        <member name="T:DustInTheWind.ClockNet.Templates.FancyTemplate">
             <summary>
             Provides a fancy visual template for rendering a clock, featuring nib-style hands and a decorative sweep hand.
             </summary>
             <remarks>This template supplies an elegant analog clock appearance with nib-style hour and minute hands,
             a fancy sweep hand for seconds, and standard tick marks and background elements.</remarks>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Templates.FancyClockTemplate.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.FancyClockTemplate"/> class with default background, angular, and hand
-            shapes.
-            </summary>
-            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
-            properties with their respective fancy values. Use this constructor to create a clock template with the
-            fancy set of shapes.</remarks>
-        </member>
-        <member name="T:DustInTheWind.ClockNet.Templates.WhiteFancyClockTemplate">
+        <member name="T:DustInTheWind.ClockNet.Templates.WhiteFancyTemplate">
             <summary>
             Provides a white fancy visual template for rendering a clock, featuring a slot-style hour hand and elegant design.
             </summary>
             <remarks>This template supplies a distinctive analog clock appearance with a slot-carved hour hand,
             line-style minute and second hands, and standard tick marks on a black dial background.</remarks>
-        </member>
-        <member name="M:DustInTheWind.ClockNet.Templates.WhiteFancyClockTemplate.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:DustInTheWind.ClockNet.Templates.WhiteFancyClockTemplate"/> class with default background, angular, and hand
-            shapes.
-            </summary>
-            <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
-            properties with their respective white fancy values. Use this constructor to create a clock template with the
-            white fancy set of shapes.</remarks>
         </member>
     </members>
 </doc>

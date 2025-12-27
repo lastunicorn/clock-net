@@ -35,7 +35,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// <summary>
         /// The default value of the position offset.
         /// </summary>
-        public new const float DefaultDistanceFromEdge = 5f;
+        public new const float DefaultDistanceFromEdge = 3f;
 
         /// <summary>
         /// The default value of the length.

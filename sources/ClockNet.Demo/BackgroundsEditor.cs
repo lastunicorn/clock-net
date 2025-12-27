@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
+using DustInTheWind.ClockNet.Core.Shapes.Default;
 using DustInTheWind.ClockNet.Shapes.Advanced;
 
 namespace DustInTheWind.ClockNet.Demo
@@ -22,6 +23,11 @@ namespace DustInTheWind.ClockNet.Demo
                     analogClock.BackgroundRemoved -= analogClockDemo_BackgroundRemoved;
                     analogClock.BackgroundsCleared -= analogClockDemo_BackgroundsCleared;
 
+                    foreach (IBackground background in listBoxBackgrounds.Items)
+                    {
+                        background.NameChanged -= HandleBackbroundNameChanged;
+                    }
+
                     listBoxBackgrounds.Items.Clear();
                 }
 
@@ -34,7 +40,10 @@ namespace DustInTheWind.ClockNet.Demo
                     analogClock.BackgroundsCleared += analogClockDemo_BackgroundsCleared;
 
                     foreach (IBackground background in analogClock.Backgrounds)
+                    {
                         listBoxBackgrounds.Items.Add(background);
+                        background.NameChanged += HandleBackbroundNameChanged;
+                    }
                 }
             }
         }
@@ -51,7 +60,7 @@ namespace DustInTheWind.ClockNet.Demo
                 typeof(PathBackground),
                 typeof(StringBackground),
                 typeof(ImageBackground),
-                typeof(ClockBackground),
+                typeof(FlatBackground),
                 typeof(FancyBackground)
             });
         }
@@ -86,6 +95,15 @@ namespace DustInTheWind.ClockNet.Demo
             ConstructorInfo ctor = backgroundType.GetConstructor(new Type[0]);
             IBackground background = (IBackground)ctor.Invoke(null);
             AnalogClock.Backgrounds.Add(background);
+            background.NameChanged += HandleBackbroundNameChanged;
+        }
+
+        private void HandleBackbroundNameChanged(object sender, EventArgs e)
+        {
+            int itemIndex = listBoxBackgrounds.Items.IndexOf(sender);
+
+            if (itemIndex >= 0)
+                listBoxBackgrounds.Items[itemIndex] = sender;
         }
 
         private void buttonRemoveBackground_Click(object sender, EventArgs e)
@@ -93,6 +111,7 @@ namespace DustInTheWind.ClockNet.Demo
             if (listBoxBackgrounds.SelectedItem != null)
             {
                 IBackground backgroundToRemove = listBoxBackgrounds.SelectedItem as IBackground;
+                backgroundToRemove.NameChanged -= HandleBackbroundNameChanged;
                 AnalogClock.Backgrounds.Remove(backgroundToRemove);
             }
         }
@@ -103,6 +122,7 @@ namespace DustInTheWind.ClockNet.Demo
             if (index != ListBox.NoMatches)
             {
                 IBackground backgroundToRemove = (IBackground)listBoxBackgrounds.Items[index];
+                backgroundToRemove.NameChanged -= HandleBackbroundNameChanged;
                 AnalogClock.Backgrounds.Remove(backgroundToRemove);
             }
         }

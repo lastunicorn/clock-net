@@ -28,7 +28,7 @@ using DustInTheWind.ClockNet.Core.Shapes;
 namespace DustInTheWind.ClockNet
 {
     /// <summary>
-    /// Provides methods to serialize and deserialize a <see cref="ClockTemplate"/> to and from a stream.
+    /// Provides methods to serialize and deserialize a <see cref="TemplateBase"/> to and from a stream.
     /// Shape types are identified by the GUID specified in their <see cref="ShapeAttribute"/>.
     /// </summary>
     public class TemplateSerialization
@@ -80,12 +80,12 @@ namespace DustInTheWind.ClockNet
         }
 
         /// <summary>
-        /// Serializes the specified <see cref="ClockTemplate"/> to the given stream.
+        /// Serializes the specified <see cref="TemplateBase"/> to the given stream.
         /// </summary>
         /// <param name="template">The template to serialize.</param>
         /// <param name="stream">The stream to write the serialized data to.</param>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="template"/> or <paramref name="stream"/> is null.</exception>
-        public void Serialize(ClockTemplate template, Stream stream)
+        public void Serialize(TemplateBase template, Stream stream)
         {
             if (template == null)
                 throw new ArgumentNullException(nameof(template));
@@ -104,9 +104,9 @@ namespace DustInTheWind.ClockNet
                 writer.WriteStartDocument();
                 writer.WriteStartElement("ClockTemplate");
 
-                WriteShapeArray(writer, "BackgroundShapes", template.BackgroundShapes);
-                WriteShapeArray(writer, "AngularShapes", template.AngularShapes);
-                WriteShapeArray(writer, "HandShapes", template.HandShapes);
+                WriteShapeArray(writer, "BackgroundShapes", template.Backgrounds);
+                WriteShapeArray(writer, "AngularShapes", template.RimMarkers);
+                WriteShapeArray(writer, "HandShapes", template.Hands);
 
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
@@ -114,12 +114,12 @@ namespace DustInTheWind.ClockNet
         }
 
         /// <summary>
-        /// Serializes the specified <see cref="ClockTemplate"/> to an XML string.
+        /// Serializes the specified <see cref="TemplateBase"/> to an XML string.
         /// </summary>
         /// <param name="template">The template to serialize.</param>
         /// <returns>An XML string representation of the template.</returns>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="template"/> is null.</exception>
-        public string SerializeToString(ClockTemplate template)
+        public string SerializeToString(TemplateBase template)
         {
             using (MemoryStream stream = new MemoryStream())
             {
@@ -129,12 +129,12 @@ namespace DustInTheWind.ClockNet
         }
 
         /// <summary>
-        /// Deserializes a <see cref="ClockTemplate"/> from the given stream.
+        /// Deserializes a <see cref="TemplateBase"/> from the given stream.
         /// </summary>
         /// <param name="stream">The stream containing the serialized template data.</param>
-        /// <returns>The deserialized <see cref="ClockTemplate"/>.</returns>
+        /// <returns>The deserialized <see cref="TemplateBase"/>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="stream"/> is null.</exception>
-        public ClockTemplate Deserialize(Stream stream)
+        public TemplateBase Deserialize(Stream stream)
         {
             if (stream == null)
                 throw new ArgumentNullException(nameof(stream));
@@ -142,36 +142,39 @@ namespace DustInTheWind.ClockNet
             XmlDocument doc = new XmlDocument();
             doc.Load(stream);
 
-            ClockTemplate template = new ClockTemplate();
+            Template template = new Template();
 
             XmlNode backgroundNode = doc.SelectSingleNode("/ClockTemplate/BackgroundShapes");
             if (backgroundNode != null)
             {
-                template.BackgroundShapes = ReadShapes<IBackground>(backgroundNode);
+                IBackground[] backgrounds = ReadShapes<IBackground>(backgroundNode);
+                template.Backgrounds.AddRange(backgrounds);
             }
 
             XmlNode angularNode = doc.SelectSingleNode("/ClockTemplate/AngularShapes");
             if (angularNode != null)
             {
-                template.AngularShapes = ReadShapes<IRimMarker>(angularNode);
+                IRimMarker[] rimMarkers = ReadShapes<IRimMarker>(angularNode);
+                template.RimMarkers.AddRange(rimMarkers);
             }
 
             XmlNode handNode = doc.SelectSingleNode("/ClockTemplate/HandShapes");
             if (handNode != null)
             {
-                template.HandShapes = ReadShapes<IHand>(handNode);
+                IHand[] hands = ReadShapes<IHand>(handNode);
+                template.Hands.AddRange(hands);
             }
 
             return template;
         }
 
         /// <summary>
-        /// Deserializes a <see cref="ClockTemplate"/> from the given XML string.
+        /// Deserializes a <see cref="TemplateBase"/> from the given XML string.
         /// </summary>
         /// <param name="xml">The XML string containing the serialized template data.</param>
-        /// <returns>The deserialized <see cref="ClockTemplate"/>.</returns>
+        /// <returns>The deserialized <see cref="TemplateBase"/>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="xml"/> is null.</exception>
-        public ClockTemplate DeserializeFromString(string xml)
+        public TemplateBase DeserializeFromString(string xml)
         {
             if (xml == null)
                 throw new ArgumentNullException(nameof(xml));
@@ -182,7 +185,7 @@ namespace DustInTheWind.ClockNet
             }
         }
 
-        private void WriteShapeArray<T>(XmlWriter writer, string elementName, T[] shapes)
+        private void WriteShapeArray<T>(XmlWriter writer, string elementName, IReadOnlyList<T> shapes)
             where T : IShape
         {
             if (shapes == null)
@@ -421,24 +424,24 @@ namespace DustInTheWind.ClockNet
             {
                 if (int.TryParse(serializedValue, out int argb))
                     return Color.FromArgb(argb);
-                
+
                 return Color.FromName(serializedValue);
             }
 
             if (targetType == typeof(PointF))
             {
                 string[] parts = serializedValue.Split(',');
-                
+
                 float x = float.Parse(parts[0]);
                 float y = float.Parse(parts[1]);
-                
+
                 return new PointF(x, y);
             }
 
             if (targetType == typeof(SizeF))
             {
                 string[] parts = serializedValue.Split(',');
-                
+
                 float width = float.Parse(parts[0]);
                 float height = float.Parse(parts[1]);
 

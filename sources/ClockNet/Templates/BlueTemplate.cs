@@ -16,11 +16,10 @@
 
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Advanced;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
-using DustInTheWind.ClockNet.Shapes.Advanced;
+using DustInTheWind.ClockNet.Core.Shapes.Default;
 
 namespace DustInTheWind.ClockNet.Templates
 {
@@ -31,31 +30,19 @@ namespace DustInTheWind.ClockNet.Templates
     /// <remarks>Use this class to create a clock face with a standard set of shapes and colors suitable for
     /// blue-themed or modern clock displays. The template initializes its shape collections with default values
     /// representing a typical analog clock layout.</remarks>
-    public class BlueClockTemplate : ClockTemplate
+    public class BlueTemplate : TemplateBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BlueClockTemplate"/> class with default background, angular, and hand
-        /// shapes.
-        /// </summary>
-        /// <remarks>This constructor populates the BackgroundShapes, AngularShapes, and HandShapes
-        /// properties with their respective default values. Use this constructor to create a clock template with the
-        /// standard set of shapes.</remarks>
-        public BlueClockTemplate()
+        protected override IEnumerable<IBackground> EnumerateBackgrounds()
         {
-            BackgroundShapes = EnumerateBackgroundShapes().ToArray();
-            AngularShapes = EnumerateAngularShapes().ToArray();
-            HandShapes = EnumerateHandShapes().ToArray();
-        }
-
-        private static IEnumerable<IBackground> EnumerateBackgroundShapes()
-        {
-            yield return new ClockBackground
+            yield return new FlatBackground
             {
+                Name = "Background",
                 FillColor = Color.LightBlue
             };
 
             yield return new StringBackground
             {
+                Name = "Title",
                 Location = new PointF(0, 15),
                 Font = new Font("Arial", 2.5f, FontStyle.Regular, GraphicsUnit.Point),
                 FillColor = Color.DarkSlateGray,
@@ -63,14 +50,15 @@ namespace DustInTheWind.ClockNet.Templates
             };
         }
 
-        private static IEnumerable<IRimMarker> EnumerateAngularShapes()
+        protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
         {
             // Ticks for minutes
             yield return new Ticks
             {
+                Name = "Minute Ticks",
                 OutlineColor = Color.RoyalBlue,
                 OutlineWidth = 0.75f,
-                DistanceFromEdge = 5f,
+                DistanceFromEdge = 3f,
                 Length = 7.5f,
                 Angle = 6f,
                 SkipIndex = 5
@@ -79,29 +67,29 @@ namespace DustInTheWind.ClockNet.Templates
             // Ticks for hours
             yield return new Ticks
             {
+                Name = "Hour Ticks",
                 OutlineColor = Color.Navy,
                 OutlineWidth = 5f,
-                DistanceFromEdge = 5f,
+                DistanceFromEdge = 3f,
                 Length = 5f,
                 Angle = 30f
             };
 
             // Hour numbers
-            yield return new StringRimMarker
+            yield return new Hours
             {
+                Name = "Hours",
                 FillColor = Color.Navy,
-                Angle = 30f,
-                DistanceFromEdge = 20f,
-                Orientation = RimMarkerOrientation.Normal,
-                Repeat = true
+                DistanceFromEdge = 16f
             };
         }
 
-        private static IEnumerable<IHand> EnumerateHandShapes()
+        protected override IEnumerable<IHand> EnumerateHands()
         {
             // Hour hand
             yield return new DiamondHand
             {
+                Name = "Hour Hand",
                 FillColor = Color.Navy,
                 Length = 24f,
                 Width = 5f,
@@ -112,6 +100,7 @@ namespace DustInTheWind.ClockNet.Templates
             // Minute hand
             yield return new DiamondHand(Color.Empty, Color.LimeGreen, 37f, 4f, 4f)
             {
+                Name = "Minute Hand",
                 FillColor = Color.RoyalBlue,
                 Length = 37f,
                 Width = 4f,
@@ -122,6 +111,7 @@ namespace DustInTheWind.ClockNet.Templates
             // Second hand
             yield return new LineHand
             {
+                Name = "Second Hand",
                 OutlineColor = Color.DeepSkyBlue,
                 ComponentToDisplay = TimeComponent.Second
             };
@@ -129,6 +119,7 @@ namespace DustInTheWind.ClockNet.Templates
             // Center pin
             yield return new Pin
             {
+                Name = "Pin",
                 FillColor = Color.Navy
             };
         }

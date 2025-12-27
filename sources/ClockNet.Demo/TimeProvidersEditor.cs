@@ -35,7 +35,7 @@ namespace DustInTheWind.ClockNet.Demo
 
                     propertyGridTimeProvider.SelectedObject = analogClock.TimeProvider == null
                         ? null
-                        : analogClock.TimeProvider.GetType();
+                        : analogClock.TimeProvider;
                 }
             }
         }

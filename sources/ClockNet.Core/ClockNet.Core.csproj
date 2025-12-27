@@ -48,7 +48,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
-    <Compile Include="ClockTemplate.cs" />
+    <Compile Include="DefaultTemplate.cs" />
+    <Compile Include="Shapes\Default\FlatBackground.cs" />
+    <Compile Include="Template.cs" />
+    <Compile Include="TemplateBase.cs" />
     <Compile Include="ColorExtensions.cs" />
     <Compile Include="ShapeCollection.cs" />
     <Compile Include="HsbColor.cs" />

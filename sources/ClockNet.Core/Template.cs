@@ -15,28 +15,27 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+using System.Collections.Generic;
+using System.Linq;
 using DustInTheWind.ClockNet.Core.Shapes;
 
 namespace DustInTheWind.ClockNet
 {
-    /// <summary>
-    /// Keeps a collection of Shapes that can be applied to the <see cref="AnalogClock"/> all at once.
-    /// </summary>
-    public class ClockTemplate
+    public class Template : TemplateBase
     {
-        /// <summary>
-        /// Gets or sets the array of Shapes that are drawn on the background of the clock.
-        /// </summary>
-        public IBackground[] BackgroundShapes { get; set; }
+        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        {
+            return Enumerable.Empty<IBackground>();
+        }
 
-        /// <summary>
-        /// Gets or sets the array of Shapes that are drawn repetitively around the clock.
-        /// </summary>
-        public IRimMarker[] AngularShapes { get; set; }
+        protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
+        {
+            return Enumerable.Empty<IRimMarker>();
+        }
 
-        /// <summary>
-        /// Gets or sets the array of Shapes that represents hands on the clock.
-        /// </summary>
-        public IHand[] HandShapes { get; set; }
+        protected override IEnumerable<IHand> EnumerateHands()
+        {
+            return Enumerable.Empty<IHand>();
+        }
     }
 }

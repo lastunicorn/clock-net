@@ -39,6 +39,11 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         bool Visible { get; set; }
 
         /// <summary>
+        /// Occurs when the value of the Name property changes.
+        /// </summary>
+        event EventHandler NameChanged;
+
+        /// <summary>
         /// Event raised when the shape's parameters are changed and it should be rerendered.
         /// </summary>
         event EventHandler Changed;

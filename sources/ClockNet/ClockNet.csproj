@@ -48,20 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shapes\ClockBackground.cs" />
     <Compile Include="Shapes\DigitalHand.cs" />
     <Compile Include="Shapes\DotHand.cs" />
     <Compile Include="Shapes\FancyBackground.cs" />
     <Compile Include="Shapes\FancySweepHand.cs" />
     <Compile Include="Shapes\NibHand.cs" />
     <Compile Include="Shapes\SlotHand.cs" />
-    <Compile Include="Templates\BlackClockTemplate.cs" />
-    <Compile Include="Templates\BlueClockTemplate.cs" />
-    <Compile Include="Templates\DefaultClockTemplate.cs" />
+    <Compile Include="Templates\BlackTemplate.cs" />
+    <Compile Include="Templates\BlueTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\DotsClockTemplate.cs" />
-    <Compile Include="Templates\FancyClockTemplate.cs" />
-    <Compile Include="Templates\WhiteFancyClockTemplate.cs" />
+    <Compile Include="Templates\PandaTemplate.cs" />
+    <Compile Include="Templates\FancyTemplate.cs" />
+    <Compile Include="Templates\WhiteFancyTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\icon16.bmp" />

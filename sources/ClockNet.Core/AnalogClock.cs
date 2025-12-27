@@ -410,9 +410,9 @@ namespace DustInTheWind.ClockNet
         /// Initializes a new instance of the <see cref="AnalogClock"/> class with
         /// a set of shapes and a time provider.
         /// </summary>
-        /// <param name="clockTemplate">An <see cref="ClockTemplate"/> object containing the shapes that creats the interface.</param>
+        /// <param name="clockTemplate">An <see cref="TemplateBase"/> object containing the shapes that creats the interface.</param>
         /// <param name="timeProvider">An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed in the control.</param>
-        public AnalogClock(ClockTemplate clockTemplate, ITimeProvider timeProvider)
+        public AnalogClock(TemplateBase clockTemplate, ITimeProvider timeProvider)
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             //SetStyle(ControlStyles.Opaque, true);
@@ -752,29 +752,29 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// Sets a new set of shapes to be used by the clock.
         /// </summary>
-        /// <param name="clockTemplate">An instance of <see cref="ClockTemplate"/> class containing the <see cref="IShape"/> instances.</param>
-        public void ApplyTemplate(ClockTemplate clockTemplate)
+        /// <param name="clockTemplate">An instance of <see cref="TemplateBase"/> class containing the <see cref="IShape"/> instances.</param>
+        public void ApplyTemplate(TemplateBase clockTemplate)
         {
             if (clockTemplate is null) throw new ArgumentNullException(nameof(clockTemplate));
 
             backgroundShapes.Clear();
-            if (clockTemplate.BackgroundShapes != null)
+            if (clockTemplate.Backgrounds != null)
             {
-                foreach (IBackground shape in clockTemplate.BackgroundShapes)
+                foreach (IBackground shape in clockTemplate.Backgrounds)
                     backgroundShapes.Add(shape);
             }
 
             angularShapes.Clear();
-            if (clockTemplate.AngularShapes != null)
+            if (clockTemplate.RimMarkers != null)
             {
-                foreach (IRimMarker shape in clockTemplate.AngularShapes)
+                foreach (IRimMarker shape in clockTemplate.RimMarkers)
                     angularShapes.Add(shape);
             }
 
             hands.Clear();
-            if (clockTemplate.HandShapes != null)
+            if (clockTemplate.Hands != null)
             {
-                foreach (IHand shape in clockTemplate.HandShapes)
+                foreach (IHand shape in clockTemplate.Hands)
                     hands.Add(shape);
             }
         }

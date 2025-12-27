@@ -31,19 +31,16 @@ namespace DustInTheWind.ClockNet.Demo
             nullableDateTimePickerUtcOffset.DateTimePicker.Format = DateTimePickerFormat.Time;
             nullableDateTimePickerUtcOffset.DateTimePicker.ShowUpDown = true;
 
-            comboBoxClockTemplates.Items.Add(typeof(DefaultClockTemplate));
-            comboBoxClockTemplates.Items.Add(typeof(BlackClockTemplate));
-            comboBoxClockTemplates.Items.Add(typeof(BlueClockTemplate));
-            comboBoxClockTemplates.Items.Add(typeof(DotsClockTemplate));
-            comboBoxClockTemplates.Items.Add(typeof(FancyClockTemplate));
-            comboBoxClockTemplates.Items.Add(typeof(WhiteFancyClockTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(DefaultTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(BlackTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(BlueTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(PandaTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(FancyTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(WhiteFancyTemplate));
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Timer
-            numericUpDownTimerInterval.Value = timer1.Interval;
-
             // Time Value
             dateTimePickerTime.Value = DateTime.Now.Date.Add(analogClockDemo.Time);
             
@@ -175,13 +172,6 @@ namespace DustInTheWind.ClockNet.Demo
                 form.ShowDialog();
         }
 
-        private void numericUpDownTimerInterval_ValueChanged(object sender, EventArgs e)
-        {
-            timer1.Interval = (int)numericUpDownTimerInterval.Value;
-            if (analogClockDemo.TimeProvider != null)
-                analogClockDemo.TimeProvider.Interval = (int)numericUpDownTimerInterval.Value;
-        }
-
         private void dateTimePickerUtcOffset_ValueChanged(object sender, EventArgs e)
         {
             if (analogClockDemo.TimeProvider is UtcTimeProvider utcTimeProvider)
@@ -199,7 +189,7 @@ namespace DustInTheWind.ClockNet.Demo
                 Type type = (Type)comboBoxClockTemplates.SelectedItem;
 
                 ConstructorInfo constructorInfo = type.GetConstructor(new Type[0]);
-                ClockTemplate clockTemplate = (ClockTemplate)constructorInfo.Invoke(null);
+                TemplateBase clockTemplate = (TemplateBase)constructorInfo.Invoke(null);
 
                 if (clockTemplate != null)
                     analogClockDemo.ApplyTemplate(clockTemplate);

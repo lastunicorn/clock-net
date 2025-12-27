@@ -36,7 +36,17 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         public string Name
         {
             get => name;
-            set => name = value ?? throw new ArgumentNullException("value");
+            set
+            {
+                if (value == null)
+                    throw new ArgumentNullException("value");
+
+                if (name == value)
+                    return;
+
+                name = value;
+                OnNameChanged(EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -74,6 +84,24 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         protected virtual void OnChanged(EventArgs e)
         {
             Changed?.Invoke(this, e);
+        }
+
+        #endregion
+
+        #region Event NameChanged
+
+        /// <summary>
+        /// Event raised when the <see cref="Name"/> property is changed.
+        /// </summary>
+        public event EventHandler NameChanged;
+
+        /// <summary>
+        /// Raises the <see cref="NameChanged"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        protected virtual void OnNameChanged(EventArgs e)
+        {
+            NameChanged?.Invoke(this, e);
         }
 
         #endregion
