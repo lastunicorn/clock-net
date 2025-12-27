@@ -42,7 +42,7 @@ namespace DustInTheWind.ClockNet.Demo
         {
             // Time Value
             dateTimePickerTime.Value = DateTime.Now.Date.Add(analogClockDemo.Time);
-            
+
             // Miscellaneous
 
             labelBackgroundColor.BackColor = analogClockDemo.BackColor;
@@ -151,7 +151,21 @@ namespace DustInTheWind.ClockNet.Demo
 
         private void analogClockDemo_TimeProviderChanged(object sender, EventArgs e)
         {
-            checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
+            if (analogClockDemo.TimeProvider != null)
+            {
+                labelTimeProvider.Text = analogClockDemo.TimeProvider.GetType().Name;
+                analogClockDemo.TimeProvider.TimeChanged += (s, ev) =>
+                {
+                    BeginInvoke(new Action(() =>
+                    {
+                        dateTimePickerTime.Value = DateTime.Now.Date.Add(ev.Time);
+                    }));
+                };
+            }
+            else
+            {
+                labelTimeProvider.Text = "<none>";
+            }
         }
     }
 }
