@@ -42,7 +42,7 @@ namespace DustInTheWind.ClockNet.Templates
 
             yield return new StringBackground
             {
-                Name = "Copyright",
+                Name = "Title",
                 Location = new PointF(0f, 15f),
                 Font = new Font("Arial", 2.5f, FontStyle.Regular, GraphicsUnit.Point),
                 FillColor = Color.DarkSlateGray,

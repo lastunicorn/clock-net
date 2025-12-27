@@ -16,7 +16,7 @@
 
 using System;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Threading;
 
 namespace DustInTheWind.ClockNet.Core.TimeProviders
 {
@@ -27,6 +27,7 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
     {
         private readonly Timer timer;
         private int interval = 100;
+        private bool isRunning;
 
         [Browsable(false)]
         public ISite Site { get; set; }
@@ -43,7 +44,9 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
             set
             {
                 interval = value;
-                timer.Interval = value;
+
+                if (isRunning)
+                    timer.Change(interval, interval);
             }
         }
 
@@ -51,7 +54,7 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
         /// Gets a value indicating whether the time provider is currently running.
         /// </summary>
         [Browsable(false)]
-        public bool IsRunning => timer.Enabled;
+        public bool IsRunning => isRunning;
 
         /// <summary>
         /// Event raised when the time provider produces a new time value.
@@ -63,14 +66,10 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
         /// </summary>
         protected TimeProviderBase()
         {
-            timer = new Timer
-            {
-                Interval = interval
-            };
-            timer.Tick += HandleTimerTick;
+            timer = new Timer(HandleTimerCallback, null, Timeout.Infinite, Timeout.Infinite);
         }
 
-        private void HandleTimerTick(object sender, EventArgs e)
+        private void HandleTimerCallback(object state)
         {
             TimeSpan time = GetTime();
             OnTimeChanged(new TimeChangedEventArgs(time));
@@ -90,7 +89,8 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
             TimeSpan time = GetTime();
             OnTimeChanged(new TimeChangedEventArgs(time));
 
-            timer.Start();
+            timer.Change(interval, interval);
+            isRunning = true;
         }
 
         /// <summary>
@@ -98,7 +98,8 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
         /// </summary>
         public void Stop()
         {
-            timer.Stop();
+            timer.Change(Timeout.Infinite, Timeout.Infinite);
+            isRunning = false;
         }
 
         /// <summary>
@@ -157,9 +158,9 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
                 // If disposing equals true, dispose all managed resources.
                 if (disposing)
                 {
-                    timer.Stop();
-                    timer.Tick -= HandleTimerTick;
+                    timer.Change(Timeout.Infinite, Timeout.Infinite);
                     timer.Dispose();
+                    isRunning = false;
                 }
 
                 // Call the appropriate methods to clean up unmanaged resources here.

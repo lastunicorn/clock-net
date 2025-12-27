@@ -28,12 +28,8 @@ namespace DustInTheWind.ClockNet.Demo
         {
             InitializeComponent();
 
-            nullableDateTimePickerUtcOffset.DateTimePicker.Format = DateTimePickerFormat.Time;
-            nullableDateTimePickerUtcOffset.DateTimePicker.ShowUpDown = true;
-
             comboBoxClockTemplates.Items.Add(typeof(DefaultTemplate));
             comboBoxClockTemplates.Items.Add(typeof(BlackTemplate));
-            comboBoxClockTemplates.Items.Add(typeof(BlueTemplate));
             comboBoxClockTemplates.Items.Add(typeof(PandaTemplate));
             comboBoxClockTemplates.Items.Add(typeof(FancyTemplate));
             comboBoxClockTemplates.Items.Add(typeof(WhiteFancyTemplate));
@@ -44,12 +40,6 @@ namespace DustInTheWind.ClockNet.Demo
             // Time Value
             dateTimePickerTime.Value = DateTime.Now.Date.Add(analogClockDemo.Time);
             
-            TimeSpan? utcOffset = GetUtcOffsetFromTimeProvider();
-            nullableDateTimePickerUtcOffset.Value = utcOffset == null
-                ? (DateTime?)null
-                : DateTime.Now.Date.Add(utcOffset.Value);
-            checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
-
             // Miscellaneous
 
             labelBackgroundColor.BackColor = analogClockDemo.BackColor;
@@ -58,8 +48,6 @@ namespace DustInTheWind.ClockNet.Demo
             numericUpDownPaddingTop.Value = analogClockDemo.Padding.Top;
             numericUpDownPaddingRight.Value = analogClockDemo.Padding.Right;
             numericUpDownPaddingBottom.Value = analogClockDemo.Padding.Bottom;
-
-            textBoxTextFont.Text = analogClockDemo.Font.ToString();
 
             checkBoxKeepProportions.Checked = analogClockDemo.KeepProportions;
 
@@ -138,30 +126,10 @@ namespace DustInTheWind.ClockNet.Demo
             analogClockDemo.KeepProportions = checkBoxKeepProportions.Checked;
         }
 
-        private void buttonBrowseTextFont_Click(object sender, EventArgs e)
-        {
-            fontDialog1.Font = analogClockDemo.Font;
-            if (fontDialog1.ShowDialog() == DialogResult.OK)
-            {
-                textBoxTextFont.Text = fontDialog1.Font.ToString();
-                analogClockDemo.Font = fontDialog1.Font;
-            }
-        }
-
         private void buttonExamples_Click(object sender, EventArgs e)
         {
             using (FormExamples form = new FormExamples())
                 form.ShowDialog();
-        }
-
-        private void dateTimePickerUtcOffset_ValueChanged(object sender, EventArgs e)
-        {
-            if (analogClockDemo.TimeProvider is UtcTimeProvider utcTimeProvider)
-            {
-                utcTimeProvider.UtcOffset = nullableDateTimePickerUtcOffset.Value == null 
-                    ? TimeSpan.Zero 
-                    : nullableDateTimePickerUtcOffset.Value.Value.TimeOfDay;
-            }
         }
 
         private void comboBoxClockTemplates_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,7 +149,6 @@ namespace DustInTheWind.ClockNet.Demo
         private void analogClockDemo_TimeProviderChanged(object sender, EventArgs e)
         {
             checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
-            nullableDateTimePickerUtcOffset.Enabled = analogClockDemo.TimeProvider is UtcTimeProvider;
         }
     }
 }

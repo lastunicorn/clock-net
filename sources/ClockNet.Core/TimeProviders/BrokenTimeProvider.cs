@@ -29,8 +29,9 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
         /// </summary>
         public const float DefaultTimeMultiplier = 10;
 
-        private TimeSpan initialTime = TimeSpan.Zero;
+        private TimeSpan initialTime = DateTime.Now.TimeOfDay;
         private DateTime initialRealTime = DateTime.UtcNow;
+        private float timeMultiplier = DefaultTimeMultiplier;
 
         /// <summary>
         /// Gets or sets the last value of the time provided by the current instance.
@@ -44,8 +45,10 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
             get => initialTime;
             set
             {
+                Stop();
                 initialTime = value;
                 initialRealTime = DateTime.UtcNow;
+                Start();
             }
         }
 
@@ -55,7 +58,18 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
         /// </summary>
         [DefaultValue(DefaultTimeMultiplier)]
         [Description("Specifies how much faster is the provided time compared to the real one.")]
-        public float TimeMultiplier { get; set; } = DefaultTimeMultiplier;
+        public float TimeMultiplier
+        {
+            get => timeMultiplier;
+            set
+            {
+                Stop();
+                initialTime = GetTime();
+                initialRealTime = DateTime.UtcNow;
+                timeMultiplier = value;
+                Start();
+            }
+        }
 
         /// <summary>
         /// Returns a new time value.

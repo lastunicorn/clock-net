@@ -251,6 +251,7 @@ namespace DustInTheWind.ClockNet
 
         /// <summary>
         /// Gets or sets the time displayed by the clock.
+        /// If the <see cref="TimeProvider"/> property is set, this property is changed almost immetiately.
         /// </summary>
         [Category("Value")]
         [DefaultValue(typeof(TimeSpan), "0")]
@@ -313,12 +314,12 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region BackgroundShapes
+        #region Backgrounds
 
         /// <summary>
         /// The list of shapes that are drawn on the background of the clock.
         /// </summary>
-        private ShapeCollection<IBackground> backgroundShapes;
+        private ShapeCollection<IBackground> backgrounds;
 
         /// <summary>
         /// Gets the list of shapes that are drawn on the background of the clock.
@@ -327,16 +328,16 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn on the background of the clock.")]
-        public ShapeCollection<IBackground> Backgrounds => backgroundShapes;
+        public ShapeCollection<IBackground> Backgrounds => backgrounds;
 
         #endregion
 
-        #region AngularShapes
+        #region RimMarkers
 
         /// <summary>
         /// The list of shapes that are drawn repetitively on the edge of the clock.
         /// </summary>
-        private ShapeCollection<IRimMarker> angularShapes;
+        private ShapeCollection<IRimMarker> rimMarkers;
 
         /// <summary>
         /// Gets the list of shapes that are drawn repetitively on the edge of the clock.
@@ -345,11 +346,11 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn repetitively on the edge of the clock.")]
-        public ShapeCollection<IRimMarker> RimMarkers => angularShapes;
+        public ShapeCollection<IRimMarker> RimMarkers => rimMarkers;
 
         #endregion
 
-        #region HandShapes
+        #region Hands
 
         /// <summary>
         /// The list of shapes that display the time.
@@ -417,15 +418,15 @@ namespace DustInTheWind.ClockNet
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             //SetStyle(ControlStyles.Opaque, true);
 
-            backgroundShapes = new ShapeCollection<IBackground>();
-            backgroundShapes.ShapeAdded += HandleGroundShapeAdded;
-            backgroundShapes.ShapeRemoved += HandleGroundShapeRemoved;
-            backgroundShapes.Cleared += HandleGroundShapeCleared;
+            backgrounds = new ShapeCollection<IBackground>();
+            backgrounds.ShapeAdded += HandleGroundShapeAdded;
+            backgrounds.ShapeRemoved += HandleGroundShapeRemoved;
+            backgrounds.Cleared += HandleGroundShapeCleared;
 
-            angularShapes = new ShapeCollection<IRimMarker>();
-            angularShapes.ShapeAdded += HandleAngularShapeAdded;
-            angularShapes.ShapeRemoved += HandleAngularShapeRemoved;
-            angularShapes.Cleared += HandleAngularShapeCleared;
+            rimMarkers = new ShapeCollection<IRimMarker>();
+            rimMarkers.ShapeAdded += HandleAngularShapeAdded;
+            rimMarkers.ShapeRemoved += HandleAngularShapeRemoved;
+            rimMarkers.Cleared += HandleAngularShapeCleared;
 
             hands = new ShapeCollection<IHand>();
             hands.ShapeAdded += HandleHandShapeAdded;
@@ -692,7 +693,7 @@ namespace DustInTheWind.ClockNet
 
         private void DrawBackgroundShapes(Graphics g, Matrix initialMatrix)
         {
-            IEnumerable<IBackground> backgroundShapesNotNull = backgroundShapes
+            IEnumerable<IBackground> backgroundShapesNotNull = backgrounds
                 .Where(x => x != null);
 
             foreach (IBackground backgroundShape in backgroundShapesNotNull)
@@ -704,7 +705,7 @@ namespace DustInTheWind.ClockNet
 
         private void DrawRimMarkersShapes(Graphics g, Matrix initialMatrix)
         {
-            IEnumerable<IRimMarker> angularShapesNotNull = angularShapes
+            IEnumerable<IRimMarker> angularShapesNotNull = rimMarkers
                 .Where(x => x != null);
 
             foreach (IRimMarker angularShape in angularShapesNotNull)
@@ -757,18 +758,18 @@ namespace DustInTheWind.ClockNet
         {
             if (clockTemplate is null) throw new ArgumentNullException(nameof(clockTemplate));
 
-            backgroundShapes.Clear();
+            backgrounds.Clear();
             if (clockTemplate.Backgrounds != null)
             {
                 foreach (IBackground shape in clockTemplate.Backgrounds)
-                    backgroundShapes.Add(shape);
+                    backgrounds.Add(shape);
             }
 
-            angularShapes.Clear();
+            rimMarkers.Clear();
             if (clockTemplate.RimMarkers != null)
             {
                 foreach (IRimMarker shape in clockTemplate.RimMarkers)
-                    angularShapes.Add(shape);
+                    rimMarkers.Add(shape);
             }
 
             hands.Clear();
@@ -816,10 +817,10 @@ namespace DustInTheWind.ClockNet
                     timeProvider.TimeChanged -= HandleTimeProviderTimeChanged;
                 }
 
-                foreach (IBackground shape in backgroundShapes)
+                foreach (IBackground shape in backgrounds)
                     shape?.Dispose();
 
-                foreach (IRimMarker shape in angularShapes)
+                foreach (IRimMarker shape in rimMarkers)
                     shape?.Dispose();
 
                 foreach (IHand shape in hands)

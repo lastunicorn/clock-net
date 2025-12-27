@@ -55,7 +55,6 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks2 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours1 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.localTimeProvider1 = new DustInTheWind.ClockNet.Core.TimeProviders.LocalTimeProvider();
             this.analogClockDemo = new DustInTheWind.ClockNet.AnalogClock();
             this.tableLayoutPanelProperties = new System.Windows.Forms.TableLayoutPanel();
@@ -63,8 +62,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabPageMiscellaneous = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxMiscellaneous = new System.Windows.Forms.GroupBox();
-            this.buttonBrowseTextFont = new System.Windows.Forms.Button();
-            this.textBoxTextFont = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDownPaddingLeft = new System.Windows.Forms.NumericUpDown();
             this.checkBoxKeepProportions = new System.Windows.Forms.CheckBox();
@@ -76,26 +73,23 @@ namespace DustInTheWind.ClockNet.Demo
             this.label3 = new System.Windows.Forms.Label();
             this.labelBackgroundColor = new System.Windows.Forms.Label();
             this.numericUpDownPaddingRight = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
             this.numericUpDownPaddingBottom = new System.Windows.Forms.NumericUpDown();
             this.groupBoxValue = new System.Windows.Forms.GroupBox();
             this.checkBoxTimeProviderPresent = new System.Windows.Forms.CheckBox();
-            this.nullableDateTimePickerUtcOffset = new DustInTheWind.ClockNet.NullableDateTimePicker();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageBackgrounds = new System.Windows.Forms.TabPage();
-            this.backgroundsEditor1 = new DustInTheWind.ClockNet.Demo.BackgroundsEditor();
             this.tabPageRimMarkers = new System.Windows.Forms.TabPage();
-            this.rimMarkersEditor1 = new DustInTheWind.ClockNet.Demo.RimMarkersEditor();
             this.tabPageHands = new System.Windows.Forms.TabPage();
-            this.handsEditor1 = new DustInTheWind.ClockNet.Demo.HandsEditor();
             this.tabPageTimeProviders = new System.Windows.Forms.TabPage();
-            this.timeProvidersEditor1 = new DustInTheWind.ClockNet.Demo.TimeProvidersEditor();
             this.groupBoxTemplates = new System.Windows.Forms.GroupBox();
             this.comboBoxClockTemplates = new System.Windows.Forms.ComboBox();
             this.buttonExamples = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.backgroundsEditor1 = new DustInTheWind.ClockNet.Demo.BackgroundsEditor();
+            this.rimMarkersEditor1 = new DustInTheWind.ClockNet.Demo.RimMarkersEditor();
+            this.handsEditor1 = new DustInTheWind.ClockNet.Demo.HandsEditor();
+            this.timeProvidersEditor1 = new DustInTheWind.ClockNet.Demo.TimeProvidersEditor();
             this.tableLayoutPanelProperties.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageMiscellaneous.SuspendLayout();
@@ -132,25 +126,25 @@ namespace DustInTheWind.ClockNet.Demo
             diamondHand1.Length = 24F;
             diamondHand1.Name = "Hour Hand";
             diamondHand1.OutlineColor = System.Drawing.Color.Empty;
-            diamondHand1.Time = System.TimeSpan.Parse("02:47:53.8081747");
+            diamondHand1.Time = System.TimeSpan.Parse("03:40:33.3748877");
             diamondHand2.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Minute;
             diamondHand2.FillColor = System.Drawing.Color.LimeGreen;
             diamondHand2.Length = 37F;
             diamondHand2.Name = "Minute Hand";
             diamondHand2.OutlineColor = System.Drawing.Color.Empty;
             diamondHand2.TailLength = 4F;
-            diamondHand2.Time = System.TimeSpan.Parse("02:47:53.8081747");
+            diamondHand2.Time = System.TimeSpan.Parse("03:40:33.3748877");
             diamondHand2.Width = 4F;
             lineHand1.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Second;
             lineHand1.FillColor = System.Drawing.Color.Empty;
             lineHand1.Length = 42.5F;
             lineHand1.Name = "Second Hand";
             lineHand1.OutlineColor = System.Drawing.Color.Red;
-            lineHand1.Time = System.TimeSpan.Parse("02:47:53.8081747");
+            lineHand1.Time = System.TimeSpan.Parse("03:40:33.3748877");
             pin1.FillColor = System.Drawing.Color.Red;
             pin1.Name = "Pin";
             pin1.OutlineColor = System.Drawing.Color.Empty;
-            pin1.Time = System.TimeSpan.Parse("02:47:53.8081747");
+            pin1.Time = System.TimeSpan.Parse("03:40:33.3748877");
             this.analogClockDemo.Hands.Add(diamondHand1);
             this.analogClockDemo.Hands.Add(diamondHand2);
             this.analogClockDemo.Hands.Add(lineHand1);
@@ -192,7 +186,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDemo.Size = new System.Drawing.Size(640, 621);
             this.analogClockDemo.TabIndex = 0;
             this.analogClockDemo.Text = "analogClock1";
-            this.analogClockDemo.Time = System.TimeSpan.Parse("02:47:53.8081747");
+            this.analogClockDemo.Time = System.TimeSpan.Parse("03:40:33.3748877");
             this.analogClockDemo.TimeProvider = this.localTimeProvider1;
             // 
             // tableLayoutPanelProperties
@@ -258,8 +252,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.groupBoxMiscellaneous.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.groupBoxMiscellaneous, 2);
-            this.groupBoxMiscellaneous.Controls.Add(this.buttonBrowseTextFont);
-            this.groupBoxMiscellaneous.Controls.Add(this.textBoxTextFont);
             this.groupBoxMiscellaneous.Controls.Add(this.label9);
             this.groupBoxMiscellaneous.Controls.Add(this.numericUpDownPaddingLeft);
             this.groupBoxMiscellaneous.Controls.Add(this.checkBoxKeepProportions);
@@ -271,37 +263,13 @@ namespace DustInTheWind.ClockNet.Demo
             this.groupBoxMiscellaneous.Controls.Add(this.label3);
             this.groupBoxMiscellaneous.Controls.Add(this.labelBackgroundColor);
             this.groupBoxMiscellaneous.Controls.Add(this.numericUpDownPaddingRight);
-            this.groupBoxMiscellaneous.Controls.Add(this.label7);
             this.groupBoxMiscellaneous.Controls.Add(this.numericUpDownPaddingBottom);
             this.groupBoxMiscellaneous.Location = new System.Drawing.Point(3, 3);
             this.groupBoxMiscellaneous.Name = "groupBoxMiscellaneous";
-            this.groupBoxMiscellaneous.Size = new System.Drawing.Size(424, 210);
+            this.groupBoxMiscellaneous.Size = new System.Drawing.Size(424, 127);
             this.groupBoxMiscellaneous.TabIndex = 13;
             this.groupBoxMiscellaneous.TabStop = false;
             this.groupBoxMiscellaneous.Text = "Miscellaneous";
-            // 
-            // buttonBrowseTextFont
-            // 
-            this.buttonBrowseTextFont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseTextFont.Location = new System.Drawing.Point(374, 116);
-            this.buttonBrowseTextFont.Name = "buttonBrowseTextFont";
-            this.buttonBrowseTextFont.Size = new System.Drawing.Size(44, 44);
-            this.buttonBrowseTextFont.TabIndex = 3;
-            this.buttonBrowseTextFont.Text = "...";
-            this.buttonBrowseTextFont.UseVisualStyleBackColor = true;
-            this.buttonBrowseTextFont.Click += new System.EventHandler(this.buttonBrowseTextFont_Click);
-            // 
-            // textBoxTextFont
-            // 
-            this.textBoxTextFont.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTextFont.Location = new System.Drawing.Point(80, 116);
-            this.textBoxTextFont.Multiline = true;
-            this.textBoxTextFont.Name = "textBoxTextFont";
-            this.textBoxTextFont.ReadOnly = true;
-            this.textBoxTextFont.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxTextFont.Size = new System.Drawing.Size(418, 65);
-            this.textBoxTextFont.TabIndex = 2;
             // 
             // label9
             // 
@@ -323,7 +291,7 @@ namespace DustInTheWind.ClockNet.Demo
             // checkBoxKeepProportions
             // 
             this.checkBoxKeepProportions.AutoSize = true;
-            this.checkBoxKeepProportions.Location = new System.Drawing.Point(80, 187);
+            this.checkBoxKeepProportions.Location = new System.Drawing.Point(80, 90);
             this.checkBoxKeepProportions.Name = "checkBoxKeepProportions";
             this.checkBoxKeepProportions.Size = new System.Drawing.Size(107, 17);
             this.checkBoxKeepProportions.TabIndex = 0;
@@ -403,15 +371,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.numericUpDownPaddingRight.TabIndex = 1;
             this.numericUpDownPaddingRight.ValueChanged += new System.EventHandler(this.numericUpDownPaddingRight_ValueChanged);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 119);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Font:";
-            // 
             // numericUpDownPaddingBottom
             // 
             this.numericUpDownPaddingBottom.Location = new System.Drawing.Point(287, 64);
@@ -425,11 +384,9 @@ namespace DustInTheWind.ClockNet.Demo
             this.groupBoxValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxValue.Controls.Add(this.checkBoxTimeProviderPresent);
-            this.groupBoxValue.Controls.Add(this.nullableDateTimePickerUtcOffset);
             this.groupBoxValue.Controls.Add(this.dateTimePickerTime);
-            this.groupBoxValue.Controls.Add(this.label6);
             this.groupBoxValue.Controls.Add(this.label4);
-            this.groupBoxValue.Location = new System.Drawing.Point(3, 219);
+            this.groupBoxValue.Location = new System.Drawing.Point(3, 136);
             this.groupBoxValue.Name = "groupBoxValue";
             this.groupBoxValue.Size = new System.Drawing.Size(209, 115);
             this.groupBoxValue.TabIndex = 4;
@@ -440,21 +397,12 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             this.checkBoxTimeProviderPresent.AutoSize = true;
             this.checkBoxTimeProviderPresent.Enabled = false;
-            this.checkBoxTimeProviderPresent.Location = new System.Drawing.Point(20, 91);
+            this.checkBoxTimeProviderPresent.Location = new System.Drawing.Point(20, 45);
             this.checkBoxTimeProviderPresent.Name = "checkBoxTimeProviderPresent";
             this.checkBoxTimeProviderPresent.Size = new System.Drawing.Size(130, 17);
             this.checkBoxTimeProviderPresent.TabIndex = 2;
             this.checkBoxTimeProviderPresent.Text = "Time Provider Present";
             this.checkBoxTimeProviderPresent.UseVisualStyleBackColor = true;
-            // 
-            // nullableDateTimePickerUtcOffset
-            // 
-            this.nullableDateTimePickerUtcOffset.Location = new System.Drawing.Point(20, 65);
-            this.nullableDateTimePickerUtcOffset.Name = "nullableDateTimePickerUtcOffset";
-            this.nullableDateTimePickerUtcOffset.Size = new System.Drawing.Size(172, 20);
-            this.nullableDateTimePickerUtcOffset.TabIndex = 1;
-            this.nullableDateTimePickerUtcOffset.Value = null;
-            this.nullableDateTimePickerUtcOffset.ValueChanged += new System.EventHandler(this.dateTimePickerUtcOffset_ValueChanged);
             // 
             // dateTimePickerTime
             // 
@@ -466,15 +414,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.dateTimePickerTime.TabIndex = 0;
             this.dateTimePickerTime.Value = new System.DateTime(2010, 11, 30, 0, 0, 0, 0);
             this.dateTimePickerTime.ValueChanged += new System.EventHandler(this.dateTimePickerTime_ValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "UTC Offset:";
             // 
             // label4
             // 
@@ -496,15 +435,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabPageBackgrounds.Text = "Backgrounds";
             this.tabPageBackgrounds.UseVisualStyleBackColor = true;
             // 
-            // backgroundsEditor1
-            // 
-            this.backgroundsEditor1.AnalogClock = null;
-            this.backgroundsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backgroundsEditor1.Location = new System.Drawing.Point(3, 3);
-            this.backgroundsEditor1.Name = "backgroundsEditor1";
-            this.backgroundsEditor1.Size = new System.Drawing.Size(424, 522);
-            this.backgroundsEditor1.TabIndex = 0;
-            // 
             // tabPageRimMarkers
             // 
             this.tabPageRimMarkers.Controls.Add(this.rimMarkersEditor1);
@@ -515,15 +445,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabPageRimMarkers.TabIndex = 10;
             this.tabPageRimMarkers.Text = "Rim Markers";
             this.tabPageRimMarkers.UseVisualStyleBackColor = true;
-            // 
-            // rimMarkersEditor1
-            // 
-            this.rimMarkersEditor1.AnalogClock = null;
-            this.rimMarkersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rimMarkersEditor1.Location = new System.Drawing.Point(3, 3);
-            this.rimMarkersEditor1.Name = "rimMarkersEditor1";
-            this.rimMarkersEditor1.Size = new System.Drawing.Size(424, 522);
-            this.rimMarkersEditor1.TabIndex = 0;
             // 
             // tabPageHands
             // 
@@ -536,15 +457,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabPageHands.Text = "Hands";
             this.tabPageHands.UseVisualStyleBackColor = true;
             // 
-            // handsEditor1
-            // 
-            this.handsEditor1.AnalogClock = null;
-            this.handsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.handsEditor1.Location = new System.Drawing.Point(3, 3);
-            this.handsEditor1.Name = "handsEditor1";
-            this.handsEditor1.Size = new System.Drawing.Size(424, 522);
-            this.handsEditor1.TabIndex = 0;
-            // 
             // tabPageTimeProviders
             // 
             this.tabPageTimeProviders.Controls.Add(this.timeProvidersEditor1);
@@ -554,15 +466,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabPageTimeProviders.TabIndex = 8;
             this.tabPageTimeProviders.Text = "Time Providers";
             this.tabPageTimeProviders.UseVisualStyleBackColor = true;
-            // 
-            // timeProvidersEditor1
-            // 
-            this.timeProvidersEditor1.AnalogClock = null;
-            this.timeProvidersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timeProvidersEditor1.Location = new System.Drawing.Point(0, 0);
-            this.timeProvidersEditor1.Name = "timeProvidersEditor1";
-            this.timeProvidersEditor1.Size = new System.Drawing.Size(430, 528);
-            this.timeProvidersEditor1.TabIndex = 0;
             // 
             // groupBoxTemplates
             // 
@@ -615,6 +518,42 @@ namespace DustInTheWind.ClockNet.Demo
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1096, 656);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
+            // backgroundsEditor1
+            // 
+            this.backgroundsEditor1.AnalogClock = null;
+            this.backgroundsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backgroundsEditor1.Location = new System.Drawing.Point(3, 3);
+            this.backgroundsEditor1.Name = "backgroundsEditor1";
+            this.backgroundsEditor1.Size = new System.Drawing.Size(424, 522);
+            this.backgroundsEditor1.TabIndex = 0;
+            // 
+            // rimMarkersEditor1
+            // 
+            this.rimMarkersEditor1.AnalogClock = null;
+            this.rimMarkersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rimMarkersEditor1.Location = new System.Drawing.Point(3, 3);
+            this.rimMarkersEditor1.Name = "rimMarkersEditor1";
+            this.rimMarkersEditor1.Size = new System.Drawing.Size(424, 522);
+            this.rimMarkersEditor1.TabIndex = 0;
+            // 
+            // handsEditor1
+            // 
+            this.handsEditor1.AnalogClock = null;
+            this.handsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.handsEditor1.Location = new System.Drawing.Point(3, 3);
+            this.handsEditor1.Name = "handsEditor1";
+            this.handsEditor1.Size = new System.Drawing.Size(424, 522);
+            this.handsEditor1.TabIndex = 0;
+            // 
+            // timeProvidersEditor1
+            // 
+            this.timeProvidersEditor1.AnalogClock = null;
+            this.timeProvidersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeProvidersEditor1.Location = new System.Drawing.Point(0, 0);
+            this.timeProvidersEditor1.Name = "timeProvidersEditor1";
+            this.timeProvidersEditor1.Size = new System.Drawing.Size(430, 528);
+            this.timeProvidersEditor1.TabIndex = 0;
+            // 
             // FormDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,7 +592,6 @@ namespace DustInTheWind.ClockNet.Demo
         #endregion
 
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.FontDialog fontDialog1;
         private DustInTheWind.ClockNet.Core.TimeProviders.LocalTimeProvider localTimeProvider1;
         private AnalogClock analogClockDemo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelProperties;
@@ -661,8 +599,6 @@ namespace DustInTheWind.ClockNet.Demo
         private System.Windows.Forms.TabPage tabPageMiscellaneous;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBoxMiscellaneous;
-        private System.Windows.Forms.Button buttonBrowseTextFont;
-        private System.Windows.Forms.TextBox textBoxTextFont;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDownPaddingLeft;
         private System.Windows.Forms.CheckBox checkBoxKeepProportions;
@@ -674,13 +610,10 @@ namespace DustInTheWind.ClockNet.Demo
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelBackgroundColor;
         private System.Windows.Forms.NumericUpDown numericUpDownPaddingRight;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numericUpDownPaddingBottom;
         private System.Windows.Forms.GroupBox groupBoxValue;
         private System.Windows.Forms.CheckBox checkBoxTimeProviderPresent;
-        private NullableDateTimePicker nullableDateTimePickerUtcOffset;
         private System.Windows.Forms.DateTimePicker dateTimePickerTime;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPageBackgrounds;
         private BackgroundsEditor backgroundsEditor1;
