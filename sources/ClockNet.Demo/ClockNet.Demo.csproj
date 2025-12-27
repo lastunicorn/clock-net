@@ -139,13 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Resources\dial.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hour_hand.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minute_hand.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
