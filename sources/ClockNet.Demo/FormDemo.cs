@@ -33,6 +33,7 @@ namespace DustInTheWind.ClockNet.Demo
             comboBoxClockTemplates.Items.Add(typeof(PandaTemplate));
             comboBoxClockTemplates.Items.Add(typeof(FancyTemplate));
             comboBoxClockTemplates.Items.Add(typeof(WhiteFancyTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(SunTemplate));
         }
 
         private void Form1_Load(object sender, EventArgs e)

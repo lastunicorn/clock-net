@@ -27,8 +27,8 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new StringBackground
             {
                 Name = "Title",
-                FillColor = Color.White,
-                Font = new Font("Arial", 2.5F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                FillColor = Color.LightGray,
+                Font = new Font("Arial", 2.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
                 Location = new PointF(0F, 15F)
             };
         }

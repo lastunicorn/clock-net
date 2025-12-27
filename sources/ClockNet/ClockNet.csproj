@@ -59,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\PandaTemplate.cs" />
     <Compile Include="Templates\FancyTemplate.cs" />
+    <Compile Include="Templates\SunTemplate.cs" />
     <Compile Include="Templates\WhiteFancyTemplate.cs" />
   </ItemGroup>
   <ItemGroup>

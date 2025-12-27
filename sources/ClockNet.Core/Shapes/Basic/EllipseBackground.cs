@@ -15,7 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
+using DustInTheWind.ClockNet.Core.Design;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
@@ -35,7 +37,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <summary>
         /// Get or sets the rectangle defining the ellipse that is drawn.
         /// </summary>
-        protected RectangleF Rectangle
+        [Category("Appearance")]
+        [Description("The rectangle that determines the size and location of the ellipse.")]
+        [TypeConverter(typeof(RectangleFConverter))]
+        public RectangleF Rectangle
         {
             get => rectangle;
             set
@@ -51,22 +56,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// default values.
         /// </summary>
         public EllipseBackground()
-            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EllipseBackground"/> class.
-        /// </summary>
-        /// <param name="rectangle">The rectangle defining the ellipse that will be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the ellipse.</param>
-        /// <param name="fillColor">The color used to fill the ellipse's interior.</param>
-        /// <param name="lineWidth">The width of the outline.</param>
-        public EllipseBackground(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth)
+            : base()
         {
             Name = DefaultName;
-            Rectangle = rectangle;
+            Rectangle = new RectangleF(0f, 0f, 15f, 10f);
         }
 
         /// <summary>

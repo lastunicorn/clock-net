@@ -369,7 +369,7 @@ namespace DustInTheWind.ClockNet
         #endregion
 
 
-        #region Layout
+        #region KeepProportions
 
         /// <summary>
         /// A value that specifies if the drawn clock should alwais keep its proportions inside the control's area.
@@ -403,48 +403,25 @@ namespace DustInTheWind.ClockNet
         /// default aspect of the interface.
         /// </summary>
         public AnalogClock()
-            : this(null, null)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AnalogClock"/> class with
-        /// a set of shapes and a time provider.
-        /// </summary>
-        /// <param name="clockTemplate">An <see cref="TemplateBase"/> object containing the shapes that creats the interface.</param>
-        /// <param name="timeProvider">An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed in the control.</param>
-        public AnalogClock(TemplateBase clockTemplate, ITimeProvider timeProvider)
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            //SetStyle(ControlStyles.Opaque, true);
 
             backgrounds = new ShapeCollection<IBackground>();
-            backgrounds.ShapeAdded += HandleGroundShapeAdded;
-            backgrounds.ShapeRemoved += HandleGroundShapeRemoved;
-            backgrounds.Cleared += HandleGroundShapeCleared;
+            backgrounds.ShapeAdded += HandleBackgroundAdded;
+            backgrounds.ShapeRemoved += HandleBackgroundRemoved;
+            backgrounds.Cleared += HandleBackgroundsCleared;
 
             rimMarkers = new ShapeCollection<IRimMarker>();
-            rimMarkers.ShapeAdded += HandleAngularShapeAdded;
-            rimMarkers.ShapeRemoved += HandleAngularShapeRemoved;
-            rimMarkers.Cleared += HandleAngularShapeCleared;
+            rimMarkers.ShapeAdded += HandleRimMarkerAdded;
+            rimMarkers.ShapeRemoved += HandleRimMarkerRemoved;
+            rimMarkers.Cleared += HandleRimMarkersCleared;
 
             hands = new ShapeCollection<IHand>();
-            hands.ShapeAdded += HandleHandShapeAdded;
-            hands.ShapeRemoved += HandleHandShapeRemoved;
-            hands.Cleared += HandleHandShapeCleared;
-
-            if (clockTemplate != null)
-                ApplyTemplate(clockTemplate);
-
-            if (timeProvider != null)
-            {
-                this.timeProvider = timeProvider;
-                this.timeProvider.TimeChanged += HandleTimeProviderTimeChanged;
-                this.timeProvider.Start();
-            }
+            hands.ShapeAdded += HandleHandAdded;
+            hands.ShapeRemoved += HandleHandRemoved;
+            hands.Cleared += HandleHandsCleared;
 
             DoubleBuffered = true;
-            Text = "Dust in the Wind";
             Size = new Size((int)diameter, (int)diameter);
 
             CalculateDimmensions();
@@ -452,7 +429,7 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        private void HandleGroundShapeAdded(object sender, ShapeAddedEventArgs e)
+        private void HandleBackgroundAdded(object sender, ShapeAddedEventArgs e)
         {
             OnBackgroundAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
 
@@ -460,7 +437,7 @@ namespace DustInTheWind.ClockNet
             Invalidate();
         }
 
-        private void HandleGroundShapeRemoved(object sender, ShapeRemovedEventArgs e)
+        private void HandleBackgroundRemoved(object sender, ShapeRemovedEventArgs e)
         {
             OnBackgroundRemoved(new ShapeRemovedEventArgs(e.Shape));
 
@@ -468,13 +445,13 @@ namespace DustInTheWind.ClockNet
             Invalidate();
         }
 
-        private void HandleGroundShapeCleared(object sender, EventArgs e)
+        private void HandleBackgroundsCleared(object sender, EventArgs e)
         {
             OnBackgroundsCleared(EventArgs.Empty);
             Invalidate();
         }
 
-        private void HandleAngularShapeAdded(object sender, ShapeAddedEventArgs e)
+        private void HandleRimMarkerAdded(object sender, ShapeAddedEventArgs e)
         {
             OnRimMarkerAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
 
@@ -482,7 +459,7 @@ namespace DustInTheWind.ClockNet
             Invalidate();
         }
 
-        private void HandleAngularShapeRemoved(object sender, ShapeRemovedEventArgs e)
+        private void HandleRimMarkerRemoved(object sender, ShapeRemovedEventArgs e)
         {
             OnRimMarkerRemoved(new ShapeRemovedEventArgs(e.Shape));
 
@@ -490,13 +467,13 @@ namespace DustInTheWind.ClockNet
             Invalidate();
         }
 
-        private void HandleAngularShapeCleared(object sender, EventArgs e)
+        private void HandleRimMarkersCleared(object sender, EventArgs e)
         {
             OnRimMarkersCleared(EventArgs.Empty);
             Invalidate();
         }
 
-        private void HandleHandShapeAdded(object sender, ShapeAddedEventArgs e)
+        private void HandleHandAdded(object sender, ShapeAddedEventArgs e)
         {
             OnHandShapeAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
 
@@ -504,7 +481,7 @@ namespace DustInTheWind.ClockNet
             Invalidate();
         }
 
-        private void HandleHandShapeRemoved(object sender, ShapeRemovedEventArgs e)
+        private void HandleHandRemoved(object sender, ShapeRemovedEventArgs e)
         {
             OnHandShapeRemoved(new ShapeRemovedEventArgs(e.Shape));
 
@@ -512,7 +489,7 @@ namespace DustInTheWind.ClockNet
             Invalidate();
         }
 
-        private void HandleHandShapeCleared(object sender, EventArgs e)
+        private void HandleHandsCleared(object sender, EventArgs e)
         {
             OnHandShapeCleared(EventArgs.Empty);
             Invalidate();
