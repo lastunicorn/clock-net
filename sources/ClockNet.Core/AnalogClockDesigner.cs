@@ -18,10 +18,6 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms.Design;
-using DustInTheWind.ClockNet.Core.Shapes;
-using DustInTheWind.ClockNet.Core.Shapes.Advanced;
-using DustInTheWind.ClockNet.Core.Shapes.Basic;
-using DustInTheWind.ClockNet.Core.Shapes.Default;
 using DustInTheWind.ClockNet.Templates;
 
 namespace DustInTheWind.ClockNet
@@ -44,9 +40,6 @@ namespace DustInTheWind.ClockNet
 
             DefaultTemplate defaultTemplate = new DefaultTemplate();
             (Component as AnalogClock).ApplyTemplate(defaultTemplate);
-            //DescribeBackgroundsProperty();
-            //DescribeRimMarkersProperty();
-            //DescribeHandsProperty();
         }
 
         private void DescribeSizeProperty()
@@ -55,7 +48,7 @@ namespace DustInTheWind.ClockNet
 
             if (sizeDescriptor != null && sizeDescriptor.PropertyType == typeof(Size) && !sizeDescriptor.IsReadOnly && sizeDescriptor.IsBrowsable)
             {
-                sizeDescriptor.SetValue(Component, new Size(200, 200));
+                sizeDescriptor.SetValue(Component, new Size(250, 250));
             }
         }
 
@@ -66,107 +59,6 @@ namespace DustInTheWind.ClockNet
             if (timeDescriptor != null && timeDescriptor.PropertyType == typeof(TimeSpan) && !timeDescriptor.IsReadOnly && timeDescriptor.IsBrowsable)
             {
                 timeDescriptor.SetValue(Component, TimeSpan.Zero);
-            }
-        }
-
-        private void DescribeBackgroundsProperty()
-        {
-            PropertyDescriptor backgroundDescriptor = TypeDescriptor.GetProperties(Component)[nameof(AnalogClock.Backgrounds)];
-
-            if (backgroundDescriptor != null && backgroundDescriptor.PropertyType == typeof(ShapeCollection<IBackground>) && backgroundDescriptor.IsBrowsable)
-            {
-                if (backgroundDescriptor.GetValue(Component) is ShapeCollection<IBackground> backgrounds)
-                {
-                    StringBackground textShape = new StringBackground
-                    {
-                        Text = "Dust in the Wind",
-                        FillColor = Color.Black,
-                        Location = new PointF(0f, 20f)
-                    };
-                    backgrounds.Add(textShape);
-                }
-            }
-        }
-
-        private void DescribeRimMarkersProperty()
-        {
-            PropertyDescriptor rimMarkerDescriptor = TypeDescriptor.GetProperties(Component)[nameof(AnalogClock.RimMarkers)];
-
-            if (rimMarkerDescriptor != null && rimMarkerDescriptor.PropertyType == typeof(ShapeCollection<IRimMarker>) && rimMarkerDescriptor.IsBrowsable)
-            {
-                if (rimMarkerDescriptor.GetValue(Component) is ShapeCollection<IRimMarker> rimMarkers)
-                {
-                    Ticks swipeTicks = new Ticks
-                    {
-                        Name = "Minute Ticks",
-                        SkipIndex = 5
-                    };
-                    rimMarkers.Add(swipeTicks);
-
-                    Ticks hourTicks = new Ticks
-                    {
-                        Name = "Hour Ticks",
-                        OutlineWidth = 1f,
-                        Angle = 30f
-                    };
-                    rimMarkers.Add(hourTicks);
-
-                    Hours hours = new Hours();
-                    rimMarkers.Add(hours);
-                }
-            }
-        }
-
-        private void DescribeHandsProperty()
-        {
-            PropertyDescriptor handDescriptor = TypeDescriptor.GetProperties(Component)[nameof(AnalogClock.Hands)];
-
-            if (handDescriptor != null && handDescriptor.PropertyType == typeof(ShapeCollection<IHand>) && handDescriptor.IsBrowsable)
-            {
-                if (handDescriptor.GetValue(Component) is ShapeCollection<IHand> hands)
-                {
-                    DiamondHand hourHandShape = new DiamondHand
-                    {
-                        Name = "Hour Hand",
-                        ComponentToDisplay = TimeComponent.Hour,
-                        OutlineColor = Color.Empty,
-                        FillColor = Color.RoyalBlue,
-                        Length = 24f,
-                        Width = 5f,
-                        TailLength = 6f
-                    };
-                    hands.Add(hourHandShape);
-
-                    DiamondHand minuteHandShape = new DiamondHand
-                    {
-                        Name = "Minute Hand",
-                        ComponentToDisplay = TimeComponent.Minute,
-                        OutlineColor = Color.Empty,
-                        FillColor = Color.LimeGreen,
-                        Length = 37f,
-                        Width = 4f,
-                        TailLength = 4f
-
-                    };
-                    hands.Add(minuteHandShape);
-
-                    LineHand sweepHandShape = new LineHand
-                    {
-                        Name = "Second Hand",
-                        ComponentToDisplay = TimeComponent.Second,
-                        OutlineColor = Color.Red,
-                        Length = 42.5f
-                    };
-                    hands.Add(sweepHandShape);
-
-                    Pin pinShape = new Pin
-                    {
-                        FillColor = Color.Red,
-                        Diameter = Pin.DefaultDiameter,
-                        Name = "Pin Shape"
-                    };
-                    hands.Add(pinShape);
-                }
             }
         }
     }

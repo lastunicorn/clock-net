@@ -50,9 +50,6 @@ namespace DustInTheWind.ClockNet.Demo
                 : DateTime.Now.Date.Add(utcOffset.Value);
             checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
 
-            // Timer
-            checkBoxUseExternalTimer.Checked = analogClockDemo.TimeProvider != null && analogClockDemo.TimeProvider.IsRunning;
-
             // Miscellaneous
 
             labelBackgroundColor.BackColor = analogClockDemo.BackColor;
@@ -98,21 +95,6 @@ namespace DustInTheWind.ClockNet.Demo
         private void dateTimePickerTime_ValueChanged(object sender, EventArgs e)
         {
             analogClockDemo.Time = dateTimePickerTime.Value.TimeOfDay;
-        }
-
-        private void checkBoxUseExternalTimer_CheckedChanged(object sender, EventArgs e)
-        {
-            if (analogClockDemo.TimeProvider == null)
-                return;
-
-            if (checkBoxUseExternalTimer.Checked)
-            {
-                analogClockDemo.TimeProvider.Start();
-            }
-            else
-            {
-                analogClockDemo.TimeProvider.Stop();
-            }
         }
 
         private void numericUpDownPaddingLeft_ValueChanged(object sender, EventArgs e)
@@ -200,7 +182,6 @@ namespace DustInTheWind.ClockNet.Demo
         {
             checkBoxTimeProviderPresent.Checked = analogClockDemo.TimeProvider != null;
             nullableDateTimePickerUtcOffset.Enabled = analogClockDemo.TimeProvider is UtcTimeProvider;
-            checkBoxUseExternalTimer.Checked = analogClockDemo.TimeProvider != null && analogClockDemo.TimeProvider.IsRunning;
         }
     }
 }

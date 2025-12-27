@@ -59,61 +59,58 @@ namespace DustInTheWind.ClockNet.Demo
             this.localTimeProvider1 = new DustInTheWind.ClockNet.Core.TimeProviders.LocalTimeProvider();
             this.analogClockDemo = new DustInTheWind.ClockNet.AnalogClock();
             this.tableLayoutPanelProperties = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBoxTemplates = new System.Windows.Forms.GroupBox();
-            this.comboBoxClockTemplates = new System.Windows.Forms.ComboBox();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPageTimeProviders = new System.Windows.Forms.TabPage();
-            this.timeProvidersEditor1 = new DustInTheWind.ClockNet.Demo.TimeProvidersEditor();
-            this.tabPageHands = new System.Windows.Forms.TabPage();
-            this.handsEditor1 = new DustInTheWind.ClockNet.Demo.HandsEditor();
-            this.tabPageRimMarkers = new System.Windows.Forms.TabPage();
-            this.rimMarkersEditor1 = new DustInTheWind.ClockNet.Demo.RimMarkersEditor();
-            this.tabPageBackgrounds = new System.Windows.Forms.TabPage();
-            this.backgroundsEditor1 = new DustInTheWind.ClockNet.Demo.BackgroundsEditor();
             this.tabPageMiscellaneous = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBoxValue = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
-            this.nullableDateTimePickerUtcOffset = new DustInTheWind.ClockNet.NullableDateTimePicker();
-            this.checkBoxTimeProviderPresent = new System.Windows.Forms.CheckBox();
             this.groupBoxMiscellaneous = new System.Windows.Forms.GroupBox();
-            this.numericUpDownPaddingBottom = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDownPaddingRight = new System.Windows.Forms.NumericUpDown();
-            this.labelBackgroundColor = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.numericUpDownPaddingTop = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxKeepProportions = new System.Windows.Forms.CheckBox();
-            this.numericUpDownPaddingLeft = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBoxTextFont = new System.Windows.Forms.TextBox();
             this.buttonBrowseTextFont = new System.Windows.Forms.Button();
-            this.groupBoxTimer = new System.Windows.Forms.GroupBox();
-            this.checkBoxUseExternalTimer = new System.Windows.Forms.CheckBox();
+            this.textBoxTextFont = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.numericUpDownPaddingLeft = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxKeepProportions = new System.Windows.Forms.CheckBox();
+            this.numericUpDownPaddingTop = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelBackgroundColor = new System.Windows.Forms.Label();
+            this.numericUpDownPaddingRight = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDownPaddingBottom = new System.Windows.Forms.NumericUpDown();
+            this.groupBoxValue = new System.Windows.Forms.GroupBox();
+            this.checkBoxTimeProviderPresent = new System.Windows.Forms.CheckBox();
+            this.nullableDateTimePickerUtcOffset = new DustInTheWind.ClockNet.NullableDateTimePicker();
+            this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabPageBackgrounds = new System.Windows.Forms.TabPage();
+            this.backgroundsEditor1 = new DustInTheWind.ClockNet.Demo.BackgroundsEditor();
+            this.tabPageRimMarkers = new System.Windows.Forms.TabPage();
+            this.rimMarkersEditor1 = new DustInTheWind.ClockNet.Demo.RimMarkersEditor();
+            this.tabPageHands = new System.Windows.Forms.TabPage();
+            this.handsEditor1 = new DustInTheWind.ClockNet.Demo.HandsEditor();
+            this.tabPageTimeProviders = new System.Windows.Forms.TabPage();
+            this.timeProvidersEditor1 = new DustInTheWind.ClockNet.Demo.TimeProvidersEditor();
+            this.groupBoxTemplates = new System.Windows.Forms.GroupBox();
+            this.comboBoxClockTemplates = new System.Windows.Forms.ComboBox();
             this.buttonExamples = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelProperties.SuspendLayout();
-            this.groupBoxTemplates.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.tabPageTimeProviders.SuspendLayout();
-            this.tabPageHands.SuspendLayout();
-            this.tabPageRimMarkers.SuspendLayout();
-            this.tabPageBackgrounds.SuspendLayout();
             this.tabPageMiscellaneous.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBoxValue.SuspendLayout();
             this.groupBoxMiscellaneous.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingLeft)).BeginInit();
-            this.groupBoxTimer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).BeginInit();
+            this.groupBoxValue.SuspendLayout();
+            this.tabPageBackgrounds.SuspendLayout();
+            this.tabPageRimMarkers.SuspendLayout();
+            this.tabPageHands.SuspendLayout();
+            this.tabPageTimeProviders.SuspendLayout();
+            this.groupBoxTemplates.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,25 +132,25 @@ namespace DustInTheWind.ClockNet.Demo
             diamondHand1.Length = 24F;
             diamondHand1.Name = "Hour Hand";
             diamondHand1.OutlineColor = System.Drawing.Color.Empty;
-            diamondHand1.Time = System.TimeSpan.Parse("02:27:37.7794054");
+            diamondHand1.Time = System.TimeSpan.Parse("02:47:53.8081747");
             diamondHand2.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Minute;
             diamondHand2.FillColor = System.Drawing.Color.LimeGreen;
             diamondHand2.Length = 37F;
             diamondHand2.Name = "Minute Hand";
             diamondHand2.OutlineColor = System.Drawing.Color.Empty;
             diamondHand2.TailLength = 4F;
-            diamondHand2.Time = System.TimeSpan.Parse("02:27:37.7794054");
+            diamondHand2.Time = System.TimeSpan.Parse("02:47:53.8081747");
             diamondHand2.Width = 4F;
             lineHand1.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Second;
             lineHand1.FillColor = System.Drawing.Color.Empty;
             lineHand1.Length = 42.5F;
             lineHand1.Name = "Second Hand";
             lineHand1.OutlineColor = System.Drawing.Color.Red;
-            lineHand1.Time = System.TimeSpan.Parse("02:27:37.7794054");
+            lineHand1.Time = System.TimeSpan.Parse("02:47:53.8081747");
             pin1.FillColor = System.Drawing.Color.Red;
             pin1.Name = "Pin";
             pin1.OutlineColor = System.Drawing.Color.Empty;
-            pin1.Time = System.TimeSpan.Parse("02:27:37.7794054");
+            pin1.Time = System.TimeSpan.Parse("02:47:53.8081747");
             this.analogClockDemo.Hands.Add(diamondHand1);
             this.analogClockDemo.Hands.Add(diamondHand2);
             this.analogClockDemo.Hands.Add(lineHand1);
@@ -195,7 +192,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDemo.Size = new System.Drawing.Size(640, 621);
             this.analogClockDemo.TabIndex = 0;
             this.analogClockDemo.Text = "analogClock1";
-            this.analogClockDemo.Time = System.TimeSpan.Parse("02:27:37.7794054");
+            this.analogClockDemo.Time = System.TimeSpan.Parse("02:47:53.8081747");
             this.analogClockDemo.TimeProvider = this.localTimeProvider1;
             // 
             // tableLayoutPanelProperties
@@ -213,30 +210,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tableLayoutPanelProperties.Size = new System.Drawing.Size(444, 621);
             this.tableLayoutPanelProperties.TabIndex = 13;
             // 
-            // groupBoxTemplates
-            // 
-            this.groupBoxTemplates.Controls.Add(this.comboBoxClockTemplates);
-            this.groupBoxTemplates.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxTemplates.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxTemplates.Name = "groupBoxTemplates";
-            this.groupBoxTemplates.Size = new System.Drawing.Size(438, 55);
-            this.groupBoxTemplates.TabIndex = 14;
-            this.groupBoxTemplates.TabStop = false;
-            this.groupBoxTemplates.Text = "Templates";
-            // 
-            // comboBoxClockTemplates
-            // 
-            this.comboBoxClockTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxClockTemplates.DisplayMember = "Name";
-            this.comboBoxClockTemplates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxClockTemplates.FormattingEnabled = true;
-            this.comboBoxClockTemplates.Location = new System.Drawing.Point(7, 19);
-            this.comboBoxClockTemplates.Name = "comboBoxClockTemplates";
-            this.comboBoxClockTemplates.Size = new System.Drawing.Size(425, 21);
-            this.comboBoxClockTemplates.TabIndex = 13;
-            this.comboBoxClockTemplates.SelectedIndexChanged += new System.EventHandler(this.comboBoxClockTemplates_SelectedIndexChanged);
-            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPageMiscellaneous);
@@ -251,85 +224,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(438, 554);
             this.tabControl.TabIndex = 12;
-            // 
-            // tabPageTimeProviders
-            // 
-            this.tabPageTimeProviders.Controls.Add(this.timeProvidersEditor1);
-            this.tabPageTimeProviders.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTimeProviders.Name = "tabPageTimeProviders";
-            this.tabPageTimeProviders.Size = new System.Drawing.Size(528, 301);
-            this.tabPageTimeProviders.TabIndex = 8;
-            this.tabPageTimeProviders.Text = "Time Providers";
-            this.tabPageTimeProviders.UseVisualStyleBackColor = true;
-            // 
-            // timeProvidersEditor1
-            // 
-            this.timeProvidersEditor1.AnalogClock = null;
-            this.timeProvidersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timeProvidersEditor1.Location = new System.Drawing.Point(0, 0);
-            this.timeProvidersEditor1.Name = "timeProvidersEditor1";
-            this.timeProvidersEditor1.Size = new System.Drawing.Size(528, 301);
-            this.timeProvidersEditor1.TabIndex = 0;
-            // 
-            // tabPageHands
-            // 
-            this.tabPageHands.Controls.Add(this.handsEditor1);
-            this.tabPageHands.Location = new System.Drawing.Point(4, 22);
-            this.tabPageHands.Name = "tabPageHands";
-            this.tabPageHands.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHands.Size = new System.Drawing.Size(528, 301);
-            this.tabPageHands.TabIndex = 11;
-            this.tabPageHands.Text = "Hands";
-            this.tabPageHands.UseVisualStyleBackColor = true;
-            // 
-            // handsEditor1
-            // 
-            this.handsEditor1.AnalogClock = null;
-            this.handsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.handsEditor1.Location = new System.Drawing.Point(3, 3);
-            this.handsEditor1.Name = "handsEditor1";
-            this.handsEditor1.Size = new System.Drawing.Size(522, 295);
-            this.handsEditor1.TabIndex = 0;
-            // 
-            // tabPageRimMarkers
-            // 
-            this.tabPageRimMarkers.Controls.Add(this.rimMarkersEditor1);
-            this.tabPageRimMarkers.Location = new System.Drawing.Point(4, 22);
-            this.tabPageRimMarkers.Name = "tabPageRimMarkers";
-            this.tabPageRimMarkers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRimMarkers.Size = new System.Drawing.Size(528, 301);
-            this.tabPageRimMarkers.TabIndex = 10;
-            this.tabPageRimMarkers.Text = "Rim Markers";
-            this.tabPageRimMarkers.UseVisualStyleBackColor = true;
-            // 
-            // rimMarkersEditor1
-            // 
-            this.rimMarkersEditor1.AnalogClock = null;
-            this.rimMarkersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rimMarkersEditor1.Location = new System.Drawing.Point(3, 3);
-            this.rimMarkersEditor1.Name = "rimMarkersEditor1";
-            this.rimMarkersEditor1.Size = new System.Drawing.Size(522, 295);
-            this.rimMarkersEditor1.TabIndex = 0;
-            // 
-            // tabPageBackgrounds
-            // 
-            this.tabPageBackgrounds.Controls.Add(this.backgroundsEditor1);
-            this.tabPageBackgrounds.Location = new System.Drawing.Point(4, 22);
-            this.tabPageBackgrounds.Name = "tabPageBackgrounds";
-            this.tabPageBackgrounds.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBackgrounds.Size = new System.Drawing.Size(528, 301);
-            this.tabPageBackgrounds.TabIndex = 9;
-            this.tabPageBackgrounds.Text = "Backgrounds";
-            this.tabPageBackgrounds.UseVisualStyleBackColor = true;
-            // 
-            // backgroundsEditor1
-            // 
-            this.backgroundsEditor1.AnalogClock = null;
-            this.backgroundsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backgroundsEditor1.Location = new System.Drawing.Point(3, 3);
-            this.backgroundsEditor1.Name = "backgroundsEditor1";
-            this.backgroundsEditor1.Size = new System.Drawing.Size(522, 295);
-            this.backgroundsEditor1.TabIndex = 0;
             // 
             // tabPageMiscellaneous
             // 
@@ -348,7 +242,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBoxTimer, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBoxMiscellaneous, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBoxValue, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -359,71 +252,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(430, 528);
             this.tableLayoutPanel1.TabIndex = 8;
-            // 
-            // groupBoxValue
-            // 
-            this.groupBoxValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxValue.Controls.Add(this.checkBoxTimeProviderPresent);
-            this.groupBoxValue.Controls.Add(this.nullableDateTimePickerUtcOffset);
-            this.groupBoxValue.Controls.Add(this.dateTimePickerTime);
-            this.groupBoxValue.Controls.Add(this.label6);
-            this.groupBoxValue.Controls.Add(this.label4);
-            this.groupBoxValue.Location = new System.Drawing.Point(3, 219);
-            this.groupBoxValue.Name = "groupBoxValue";
-            this.groupBoxValue.Size = new System.Drawing.Size(209, 115);
-            this.groupBoxValue.TabIndex = 4;
-            this.groupBoxValue.TabStop = false;
-            this.groupBoxValue.Text = "Value";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Time:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "UTC Offset:";
-            // 
-            // dateTimePickerTime
-            // 
-            this.dateTimePickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerTime.Location = new System.Drawing.Point(86, 19);
-            this.dateTimePickerTime.Name = "dateTimePickerTime";
-            this.dateTimePickerTime.ShowUpDown = true;
-            this.dateTimePickerTime.Size = new System.Drawing.Size(104, 20);
-            this.dateTimePickerTime.TabIndex = 0;
-            this.dateTimePickerTime.Value = new System.DateTime(2010, 11, 30, 0, 0, 0, 0);
-            this.dateTimePickerTime.ValueChanged += new System.EventHandler(this.dateTimePickerTime_ValueChanged);
-            // 
-            // nullableDateTimePickerUtcOffset
-            // 
-            this.nullableDateTimePickerUtcOffset.Location = new System.Drawing.Point(20, 65);
-            this.nullableDateTimePickerUtcOffset.Name = "nullableDateTimePickerUtcOffset";
-            this.nullableDateTimePickerUtcOffset.Size = new System.Drawing.Size(172, 20);
-            this.nullableDateTimePickerUtcOffset.TabIndex = 1;
-            this.nullableDateTimePickerUtcOffset.Value = null;
-            this.nullableDateTimePickerUtcOffset.ValueChanged += new System.EventHandler(this.dateTimePickerUtcOffset_ValueChanged);
-            // 
-            // checkBoxTimeProviderPresent
-            // 
-            this.checkBoxTimeProviderPresent.AutoSize = true;
-            this.checkBoxTimeProviderPresent.Enabled = false;
-            this.checkBoxTimeProviderPresent.Location = new System.Drawing.Point(20, 91);
-            this.checkBoxTimeProviderPresent.Name = "checkBoxTimeProviderPresent";
-            this.checkBoxTimeProviderPresent.Size = new System.Drawing.Size(130, 17);
-            this.checkBoxTimeProviderPresent.TabIndex = 2;
-            this.checkBoxTimeProviderPresent.Text = "Time Provider Present";
-            this.checkBoxTimeProviderPresent.UseVisualStyleBackColor = true;
             // 
             // groupBoxMiscellaneous
             // 
@@ -452,122 +280,16 @@ namespace DustInTheWind.ClockNet.Demo
             this.groupBoxMiscellaneous.TabStop = false;
             this.groupBoxMiscellaneous.Text = "Miscellaneous";
             // 
-            // numericUpDownPaddingBottom
+            // buttonBrowseTextFont
             // 
-            this.numericUpDownPaddingBottom.Location = new System.Drawing.Point(287, 64);
-            this.numericUpDownPaddingBottom.Name = "numericUpDownPaddingBottom";
-            this.numericUpDownPaddingBottom.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDownPaddingBottom.TabIndex = 1;
-            this.numericUpDownPaddingBottom.ValueChanged += new System.EventHandler(this.numericUpDownPaddingBottom_ValueChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 119);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Font:";
-            // 
-            // numericUpDownPaddingRight
-            // 
-            this.numericUpDownPaddingRight.Location = new System.Drawing.Point(218, 64);
-            this.numericUpDownPaddingRight.Name = "numericUpDownPaddingRight";
-            this.numericUpDownPaddingRight.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDownPaddingRight.TabIndex = 1;
-            this.numericUpDownPaddingRight.ValueChanged += new System.EventHandler(this.numericUpDownPaddingRight_ValueChanged);
-            // 
-            // labelBackgroundColor
-            // 
-            this.labelBackgroundColor.BackColor = System.Drawing.Color.White;
-            this.labelBackgroundColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelBackgroundColor.Location = new System.Drawing.Point(80, 23);
-            this.labelBackgroundColor.Margin = new System.Windows.Forms.Padding(3);
-            this.labelBackgroundColor.Name = "labelBackgroundColor";
-            this.labelBackgroundColor.Size = new System.Drawing.Size(16, 16);
-            this.labelBackgroundColor.TabIndex = 0;
-            this.labelBackgroundColor.Click += new System.EventHandler(this.labelBackgroundColor_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Padding:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(80, 48);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Left";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(146, 48);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(26, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Top";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(215, 48);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Right";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(284, 48);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Bottom";
-            // 
-            // numericUpDownPaddingTop
-            // 
-            this.numericUpDownPaddingTop.Location = new System.Drawing.Point(149, 64);
-            this.numericUpDownPaddingTop.Name = "numericUpDownPaddingTop";
-            this.numericUpDownPaddingTop.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDownPaddingTop.TabIndex = 1;
-            this.numericUpDownPaddingTop.ValueChanged += new System.EventHandler(this.numericUpDownPaddingTop_ValueChanged);
-            // 
-            // checkBoxKeepProportions
-            // 
-            this.checkBoxKeepProportions.AutoSize = true;
-            this.checkBoxKeepProportions.Location = new System.Drawing.Point(80, 187);
-            this.checkBoxKeepProportions.Name = "checkBoxKeepProportions";
-            this.checkBoxKeepProportions.Size = new System.Drawing.Size(107, 17);
-            this.checkBoxKeepProportions.TabIndex = 0;
-            this.checkBoxKeepProportions.Text = "Keep Proportions";
-            this.checkBoxKeepProportions.UseVisualStyleBackColor = true;
-            this.checkBoxKeepProportions.CheckedChanged += new System.EventHandler(this.checkBoxKeepProportions_CheckedChanged);
-            // 
-            // numericUpDownPaddingLeft
-            // 
-            this.numericUpDownPaddingLeft.Location = new System.Drawing.Point(80, 64);
-            this.numericUpDownPaddingLeft.Name = "numericUpDownPaddingLeft";
-            this.numericUpDownPaddingLeft.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDownPaddingLeft.TabIndex = 1;
-            this.numericUpDownPaddingLeft.ValueChanged += new System.EventHandler(this.numericUpDownPaddingLeft_ValueChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 24);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Background:";
+            this.buttonBrowseTextFont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBrowseTextFont.Location = new System.Drawing.Point(374, 116);
+            this.buttonBrowseTextFont.Name = "buttonBrowseTextFont";
+            this.buttonBrowseTextFont.Size = new System.Drawing.Size(44, 44);
+            this.buttonBrowseTextFont.TabIndex = 3;
+            this.buttonBrowseTextFont.Text = "...";
+            this.buttonBrowseTextFont.UseVisualStyleBackColor = true;
+            this.buttonBrowseTextFont.Click += new System.EventHandler(this.buttonBrowseTextFont_Click);
             // 
             // textBoxTextFont
             // 
@@ -581,39 +303,290 @@ namespace DustInTheWind.ClockNet.Demo
             this.textBoxTextFont.Size = new System.Drawing.Size(418, 65);
             this.textBoxTextFont.TabIndex = 2;
             // 
-            // buttonBrowseTextFont
+            // label9
             // 
-            this.buttonBrowseTextFont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseTextFont.Location = new System.Drawing.Point(374, 116);
-            this.buttonBrowseTextFont.Name = "buttonBrowseTextFont";
-            this.buttonBrowseTextFont.Size = new System.Drawing.Size(44, 44);
-            this.buttonBrowseTextFont.TabIndex = 3;
-            this.buttonBrowseTextFont.Text = "...";
-            this.buttonBrowseTextFont.UseVisualStyleBackColor = true;
-            this.buttonBrowseTextFont.Click += new System.EventHandler(this.buttonBrowseTextFont_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Background:";
             // 
-            // groupBoxTimer
+            // numericUpDownPaddingLeft
             // 
-            this.groupBoxTimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.numericUpDownPaddingLeft.Location = new System.Drawing.Point(80, 64);
+            this.numericUpDownPaddingLeft.Name = "numericUpDownPaddingLeft";
+            this.numericUpDownPaddingLeft.Size = new System.Drawing.Size(63, 20);
+            this.numericUpDownPaddingLeft.TabIndex = 1;
+            this.numericUpDownPaddingLeft.ValueChanged += new System.EventHandler(this.numericUpDownPaddingLeft_ValueChanged);
+            // 
+            // checkBoxKeepProportions
+            // 
+            this.checkBoxKeepProportions.AutoSize = true;
+            this.checkBoxKeepProportions.Location = new System.Drawing.Point(80, 187);
+            this.checkBoxKeepProportions.Name = "checkBoxKeepProportions";
+            this.checkBoxKeepProportions.Size = new System.Drawing.Size(107, 17);
+            this.checkBoxKeepProportions.TabIndex = 0;
+            this.checkBoxKeepProportions.Text = "Keep Proportions";
+            this.checkBoxKeepProportions.UseVisualStyleBackColor = true;
+            this.checkBoxKeepProportions.CheckedChanged += new System.EventHandler(this.checkBoxKeepProportions_CheckedChanged);
+            // 
+            // numericUpDownPaddingTop
+            // 
+            this.numericUpDownPaddingTop.Location = new System.Drawing.Point(149, 64);
+            this.numericUpDownPaddingTop.Name = "numericUpDownPaddingTop";
+            this.numericUpDownPaddingTop.Size = new System.Drawing.Size(63, 20);
+            this.numericUpDownPaddingTop.TabIndex = 1;
+            this.numericUpDownPaddingTop.ValueChanged += new System.EventHandler(this.numericUpDownPaddingTop_ValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(284, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Bottom";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(215, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(32, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Right";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(146, 48);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(26, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Top";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(80, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(25, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Left";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Padding:";
+            // 
+            // labelBackgroundColor
+            // 
+            this.labelBackgroundColor.BackColor = System.Drawing.Color.White;
+            this.labelBackgroundColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelBackgroundColor.Location = new System.Drawing.Point(80, 23);
+            this.labelBackgroundColor.Margin = new System.Windows.Forms.Padding(3);
+            this.labelBackgroundColor.Name = "labelBackgroundColor";
+            this.labelBackgroundColor.Size = new System.Drawing.Size(16, 16);
+            this.labelBackgroundColor.TabIndex = 0;
+            this.labelBackgroundColor.Click += new System.EventHandler(this.labelBackgroundColor_Click);
+            // 
+            // numericUpDownPaddingRight
+            // 
+            this.numericUpDownPaddingRight.Location = new System.Drawing.Point(218, 64);
+            this.numericUpDownPaddingRight.Name = "numericUpDownPaddingRight";
+            this.numericUpDownPaddingRight.Size = new System.Drawing.Size(63, 20);
+            this.numericUpDownPaddingRight.TabIndex = 1;
+            this.numericUpDownPaddingRight.ValueChanged += new System.EventHandler(this.numericUpDownPaddingRight_ValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 119);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Font:";
+            // 
+            // numericUpDownPaddingBottom
+            // 
+            this.numericUpDownPaddingBottom.Location = new System.Drawing.Point(287, 64);
+            this.numericUpDownPaddingBottom.Name = "numericUpDownPaddingBottom";
+            this.numericUpDownPaddingBottom.Size = new System.Drawing.Size(63, 20);
+            this.numericUpDownPaddingBottom.TabIndex = 1;
+            this.numericUpDownPaddingBottom.ValueChanged += new System.EventHandler(this.numericUpDownPaddingBottom_ValueChanged);
+            // 
+            // groupBoxValue
+            // 
+            this.groupBoxValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxTimer.Controls.Add(this.checkBoxUseExternalTimer);
-            this.groupBoxTimer.Location = new System.Drawing.Point(218, 219);
-            this.groupBoxTimer.Name = "groupBoxTimer";
-            this.groupBoxTimer.Size = new System.Drawing.Size(209, 115);
-            this.groupBoxTimer.TabIndex = 7;
-            this.groupBoxTimer.TabStop = false;
-            this.groupBoxTimer.Text = "Timer";
+            this.groupBoxValue.Controls.Add(this.checkBoxTimeProviderPresent);
+            this.groupBoxValue.Controls.Add(this.nullableDateTimePickerUtcOffset);
+            this.groupBoxValue.Controls.Add(this.dateTimePickerTime);
+            this.groupBoxValue.Controls.Add(this.label6);
+            this.groupBoxValue.Controls.Add(this.label4);
+            this.groupBoxValue.Location = new System.Drawing.Point(3, 219);
+            this.groupBoxValue.Name = "groupBoxValue";
+            this.groupBoxValue.Size = new System.Drawing.Size(209, 115);
+            this.groupBoxValue.TabIndex = 4;
+            this.groupBoxValue.TabStop = false;
+            this.groupBoxValue.Text = "Value";
             // 
-            // checkBoxUseExternalTimer
+            // checkBoxTimeProviderPresent
             // 
-            this.checkBoxUseExternalTimer.AutoSize = true;
-            this.checkBoxUseExternalTimer.Location = new System.Drawing.Point(20, 19);
-            this.checkBoxUseExternalTimer.Name = "checkBoxUseExternalTimer";
-            this.checkBoxUseExternalTimer.Size = new System.Drawing.Size(127, 17);
-            this.checkBoxUseExternalTimer.TabIndex = 0;
-            this.checkBoxUseExternalTimer.Text = "Attach External Timer";
-            this.checkBoxUseExternalTimer.UseVisualStyleBackColor = true;
-            this.checkBoxUseExternalTimer.CheckedChanged += new System.EventHandler(this.checkBoxUseExternalTimer_CheckedChanged);
+            this.checkBoxTimeProviderPresent.AutoSize = true;
+            this.checkBoxTimeProviderPresent.Enabled = false;
+            this.checkBoxTimeProviderPresent.Location = new System.Drawing.Point(20, 91);
+            this.checkBoxTimeProviderPresent.Name = "checkBoxTimeProviderPresent";
+            this.checkBoxTimeProviderPresent.Size = new System.Drawing.Size(130, 17);
+            this.checkBoxTimeProviderPresent.TabIndex = 2;
+            this.checkBoxTimeProviderPresent.Text = "Time Provider Present";
+            this.checkBoxTimeProviderPresent.UseVisualStyleBackColor = true;
+            // 
+            // nullableDateTimePickerUtcOffset
+            // 
+            this.nullableDateTimePickerUtcOffset.Location = new System.Drawing.Point(20, 65);
+            this.nullableDateTimePickerUtcOffset.Name = "nullableDateTimePickerUtcOffset";
+            this.nullableDateTimePickerUtcOffset.Size = new System.Drawing.Size(172, 20);
+            this.nullableDateTimePickerUtcOffset.TabIndex = 1;
+            this.nullableDateTimePickerUtcOffset.Value = null;
+            this.nullableDateTimePickerUtcOffset.ValueChanged += new System.EventHandler(this.dateTimePickerUtcOffset_ValueChanged);
+            // 
+            // dateTimePickerTime
+            // 
+            this.dateTimePickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerTime.Location = new System.Drawing.Point(86, 19);
+            this.dateTimePickerTime.Name = "dateTimePickerTime";
+            this.dateTimePickerTime.ShowUpDown = true;
+            this.dateTimePickerTime.Size = new System.Drawing.Size(104, 20);
+            this.dateTimePickerTime.TabIndex = 0;
+            this.dateTimePickerTime.Value = new System.DateTime(2010, 11, 30, 0, 0, 0, 0);
+            this.dateTimePickerTime.ValueChanged += new System.EventHandler(this.dateTimePickerTime_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "UTC Offset:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Time:";
+            // 
+            // tabPageBackgrounds
+            // 
+            this.tabPageBackgrounds.Controls.Add(this.backgroundsEditor1);
+            this.tabPageBackgrounds.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBackgrounds.Name = "tabPageBackgrounds";
+            this.tabPageBackgrounds.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBackgrounds.Size = new System.Drawing.Size(430, 528);
+            this.tabPageBackgrounds.TabIndex = 9;
+            this.tabPageBackgrounds.Text = "Backgrounds";
+            this.tabPageBackgrounds.UseVisualStyleBackColor = true;
+            // 
+            // backgroundsEditor1
+            // 
+            this.backgroundsEditor1.AnalogClock = null;
+            this.backgroundsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backgroundsEditor1.Location = new System.Drawing.Point(3, 3);
+            this.backgroundsEditor1.Name = "backgroundsEditor1";
+            this.backgroundsEditor1.Size = new System.Drawing.Size(424, 522);
+            this.backgroundsEditor1.TabIndex = 0;
+            // 
+            // tabPageRimMarkers
+            // 
+            this.tabPageRimMarkers.Controls.Add(this.rimMarkersEditor1);
+            this.tabPageRimMarkers.Location = new System.Drawing.Point(4, 22);
+            this.tabPageRimMarkers.Name = "tabPageRimMarkers";
+            this.tabPageRimMarkers.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageRimMarkers.Size = new System.Drawing.Size(430, 528);
+            this.tabPageRimMarkers.TabIndex = 10;
+            this.tabPageRimMarkers.Text = "Rim Markers";
+            this.tabPageRimMarkers.UseVisualStyleBackColor = true;
+            // 
+            // rimMarkersEditor1
+            // 
+            this.rimMarkersEditor1.AnalogClock = null;
+            this.rimMarkersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rimMarkersEditor1.Location = new System.Drawing.Point(3, 3);
+            this.rimMarkersEditor1.Name = "rimMarkersEditor1";
+            this.rimMarkersEditor1.Size = new System.Drawing.Size(424, 522);
+            this.rimMarkersEditor1.TabIndex = 0;
+            // 
+            // tabPageHands
+            // 
+            this.tabPageHands.Controls.Add(this.handsEditor1);
+            this.tabPageHands.Location = new System.Drawing.Point(4, 22);
+            this.tabPageHands.Name = "tabPageHands";
+            this.tabPageHands.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageHands.Size = new System.Drawing.Size(430, 528);
+            this.tabPageHands.TabIndex = 11;
+            this.tabPageHands.Text = "Hands";
+            this.tabPageHands.UseVisualStyleBackColor = true;
+            // 
+            // handsEditor1
+            // 
+            this.handsEditor1.AnalogClock = null;
+            this.handsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.handsEditor1.Location = new System.Drawing.Point(3, 3);
+            this.handsEditor1.Name = "handsEditor1";
+            this.handsEditor1.Size = new System.Drawing.Size(424, 522);
+            this.handsEditor1.TabIndex = 0;
+            // 
+            // tabPageTimeProviders
+            // 
+            this.tabPageTimeProviders.Controls.Add(this.timeProvidersEditor1);
+            this.tabPageTimeProviders.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTimeProviders.Name = "tabPageTimeProviders";
+            this.tabPageTimeProviders.Size = new System.Drawing.Size(430, 528);
+            this.tabPageTimeProviders.TabIndex = 8;
+            this.tabPageTimeProviders.Text = "Time Providers";
+            this.tabPageTimeProviders.UseVisualStyleBackColor = true;
+            // 
+            // timeProvidersEditor1
+            // 
+            this.timeProvidersEditor1.AnalogClock = null;
+            this.timeProvidersEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeProvidersEditor1.Location = new System.Drawing.Point(0, 0);
+            this.timeProvidersEditor1.Name = "timeProvidersEditor1";
+            this.timeProvidersEditor1.Size = new System.Drawing.Size(430, 528);
+            this.timeProvidersEditor1.TabIndex = 0;
+            // 
+            // groupBoxTemplates
+            // 
+            this.groupBoxTemplates.Controls.Add(this.comboBoxClockTemplates);
+            this.groupBoxTemplates.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxTemplates.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxTemplates.Name = "groupBoxTemplates";
+            this.groupBoxTemplates.Size = new System.Drawing.Size(438, 55);
+            this.groupBoxTemplates.TabIndex = 14;
+            this.groupBoxTemplates.TabStop = false;
+            this.groupBoxTemplates.Text = "Templates";
+            // 
+            // comboBoxClockTemplates
+            // 
+            this.comboBoxClockTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxClockTemplates.DisplayMember = "Name";
+            this.comboBoxClockTemplates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClockTemplates.FormattingEnabled = true;
+            this.comboBoxClockTemplates.Location = new System.Drawing.Point(7, 19);
+            this.comboBoxClockTemplates.Name = "comboBoxClockTemplates";
+            this.comboBoxClockTemplates.Size = new System.Drawing.Size(425, 21);
+            this.comboBoxClockTemplates.TabIndex = 13;
+            this.comboBoxClockTemplates.SelectedIndexChanged += new System.EventHandler(this.comboBoxClockTemplates_SelectedIndexChanged);
             // 
             // buttonExamples
             // 
@@ -655,25 +628,23 @@ namespace DustInTheWind.ClockNet.Demo
             this.Text = "Clock Demo";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanelProperties.ResumeLayout(false);
-            this.groupBoxTemplates.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
-            this.tabPageTimeProviders.ResumeLayout(false);
-            this.tabPageHands.ResumeLayout(false);
-            this.tabPageRimMarkers.ResumeLayout(false);
-            this.tabPageBackgrounds.ResumeLayout(false);
             this.tabPageMiscellaneous.ResumeLayout(false);
             this.tabPageMiscellaneous.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBoxValue.ResumeLayout(false);
-            this.groupBoxValue.PerformLayout();
             this.groupBoxMiscellaneous.ResumeLayout(false);
             this.groupBoxMiscellaneous.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingLeft)).EndInit();
-            this.groupBoxTimer.ResumeLayout(false);
-            this.groupBoxTimer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingTop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).EndInit();
+            this.groupBoxValue.ResumeLayout(false);
+            this.groupBoxValue.PerformLayout();
+            this.tabPageBackgrounds.ResumeLayout(false);
+            this.tabPageRimMarkers.ResumeLayout(false);
+            this.tabPageHands.ResumeLayout(false);
+            this.tabPageTimeProviders.ResumeLayout(false);
+            this.groupBoxTemplates.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -689,8 +660,6 @@ namespace DustInTheWind.ClockNet.Demo
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageMiscellaneous;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBoxTimer;
-        private System.Windows.Forms.CheckBox checkBoxUseExternalTimer;
         private System.Windows.Forms.GroupBox groupBoxMiscellaneous;
         private System.Windows.Forms.Button buttonBrowseTextFont;
         private System.Windows.Forms.TextBox textBoxTextFont;
