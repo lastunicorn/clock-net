@@ -16,6 +16,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
 
@@ -26,14 +27,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     {
         public new const string DefaultName = "Capsule Hand";
 
-        public const float DefaultWidth = 8f;
+        public const float DefaultWidth = 4f;
 
-        public const float DefaultTailLength = 4f;
+        public const float DefaultTailLength = 2f;
 
         public const float DefaultLength = 43;
 
-        private float width;
-        private float tailLength;
+        private float width = DefaultWidth;
+        private float tailLength = DefaultTailLength;
 
         [Category("Appearance")]
         [DefaultValue(DefaultWidth)]
@@ -66,9 +67,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public CapsuleHand()
         {
             Name = DefaultName;
-            width = DefaultWidth;
-            tailLength = DefaultTailLength;
             Length = DefaultLength;
+            FillColor = Color.DimGray;
+            OutlineColor = Color.FromArgb(224, 224, 224);
         }
 
         protected override void CalculateLayout()
