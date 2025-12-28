@@ -96,13 +96,15 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Minute Hand",
                 ComponentToDisplay = TimeComponent.Minute,
                 OutlineColor = Color.FromArgb(0x60, 0x60, 0x60),
-                OutlineWidth = 1.5f
+                OutlineWidth = 1.5f,
+                Length = 43f
             };
 
             yield return new FancySweepHand
             {
                 Name = "Second Hand",
-                ComponentToDisplay = TimeComponent.Second
+                ComponentToDisplay = TimeComponent.Second,
+                Length = 43f
             };
 
             yield return new Pin
