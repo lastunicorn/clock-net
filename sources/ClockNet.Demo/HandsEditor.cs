@@ -46,36 +46,10 @@ namespace DustInTheWind.ClockNet.Demo
         {
             InitializeComponent();
 
-            Type[] hands = GetAllHands();
+            Type[] hands = AppDomain.CurrentDomain.GetTypesImplementing<IHand>()
+                .ToArray();
+
             listBoxHandsAvailable.Items.AddRange(hands);
-        }
-
-        private static Type[] GetAllHands()
-        {
-            Type handInterface = typeof(IHand);
-
-            List<Type> handTypes = new List<Type>();
-
-            Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-            foreach (Assembly assembly in assemblies)
-            {
-                try
-                {
-                    Type[] types = assembly.GetTypes();
-
-                    IEnumerable<Type> hands = types
-                        .Where(x => handInterface.IsAssignableFrom(x) && x.IsClass && !x.IsAbstract);
-
-                    handTypes.AddRange(hands);
-                }
-                catch (ReflectionTypeLoadException)
-                {
-                    // Skip assemblies that cannot be loaded
-                }
-            }
-
-            return handTypes.ToArray();
         }
 
         private void listBoxHands_SelectedIndexChanged(object sender, EventArgs e)

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>ClockNet</name>
+        <name>DustInTheWind.ClockNet</name>
     </assembly>
     <members>
         <member name="T:DustInTheWind.ClockNet.Properties.Resources">

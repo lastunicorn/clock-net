@@ -1,10 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Core.Shapes;
-using DustInTheWind.ClockNet.Core.Shapes.Basic;
-using DustInTheWind.ClockNet.Core.Shapes.Default;
-using DustInTheWind.ClockNet.Shapes.Advanced;
 
 namespace DustInTheWind.ClockNet.Demo
 {
@@ -52,17 +51,10 @@ namespace DustInTheWind.ClockNet.Demo
         {
             InitializeComponent();
 
-            listBoxBackgroundsAvailable.Items.AddRange(new Type[] {
-                typeof(LineBackground),
-                typeof(PolygonBackground),
-                typeof(RectangleBackground),
-                typeof(EllipseBackground),
-                typeof(PathBackground),
-                typeof(StringBackground),
-                typeof(ImageBackground),
-                typeof(FlatBackground),
-                typeof(FancyBackground)
-            });
+            Type[] backgroundTypes = AppDomain.CurrentDomain.GetTypesImplementing<IBackground>()
+                .ToArray();
+
+            listBoxBackgroundsAvailable.Items.AddRange(backgroundTypes);
         }
 
         private void listBoxBackgrounds_SelectedIndexChanged(object sender, EventArgs e)

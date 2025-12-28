@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Core.Shapes;
@@ -43,15 +44,10 @@ namespace DustInTheWind.ClockNet.Demo
         {
             InitializeComponent();
 
-            listBoxRimMarkersAvailable.Items.AddRange(new Type[] {
-                typeof(LineRimMarker),
-                typeof(PolygonRimMarker),
-                typeof(RectangleRimMarker),
-                typeof(EllipseRimMarker),
-                typeof(PathRimMarker),
-                typeof(ImageRimMarker),
-                typeof(Ticks)
-            });
+            Type[] hands = AppDomain.CurrentDomain.GetTypesImplementing<IRimMarker>()
+                .ToArray();
+
+            listBoxRimMarkersAvailable.Items.AddRange(hands);
         }
 
         private void listBoxRimMarkers_SelectedIndexChanged(object sender, EventArgs e)

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.TimeProviders;
 
 namespace DustInTheWind.ClockNet.Demo
@@ -45,10 +47,12 @@ namespace DustInTheWind.ClockNet.Demo
             InitializeComponent();
 
             comboBoxTimeProviders.Items.Add("(none)");
-            comboBoxTimeProviders.Items.Add(typeof(LocalTimeProvider));
-            comboBoxTimeProviders.Items.Add(typeof(UtcTimeProvider));
-            comboBoxTimeProviders.Items.Add(typeof(BrokenTimeProvider));
-            comboBoxTimeProviders.Items.Add(typeof(RandomTimeProvider));
+
+
+            Type[] timeProviderTypes = AppDomain.CurrentDomain.GetTypesImplementing<ITimeProvider>()
+                .ToArray();
+
+            comboBoxTimeProviders.Items.AddRange(timeProviderTypes);
         }
 
         private void comboBoxTimeProviders_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,6 +73,7 @@ namespace DustInTheWind.ClockNet.Demo
 
         private void analogClock_TimeProviderChanged(object sender, EventArgs e)
         {
+            comboBoxTimeProviders.SelectedItem = analogClock.TimeProvider.GetType();
             propertyGridTimeProvider.SelectedObject = analogClock.TimeProvider;
         }
     }
