@@ -22,7 +22,8 @@ namespace DustInTheWind.ClockNet.Templates
         {
             yield return new FancyBackground
             {
-                Name = "Fancy Background"
+                Name = "Fancy Background",
+                FillColor = Color.Black
             };
 
             yield return new StringBackground

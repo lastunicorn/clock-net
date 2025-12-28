@@ -16,7 +16,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Image Background",
                 Image = Resources.dial,
-                Location = new PointF(242.5f, 242.5f)
+                PinLocation = new PointF(242.5f, 242.5f)
             };
         }
 

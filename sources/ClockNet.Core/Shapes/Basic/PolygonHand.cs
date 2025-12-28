@@ -69,6 +69,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
+            if (points == null || points.Length < 2)
+                return;
+
             if (!FillColor.IsEmpty)
                 g.FillPolygon(Brush, points);
 

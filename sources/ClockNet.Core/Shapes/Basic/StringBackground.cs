@@ -41,7 +41,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <summary>
         /// The default font used to draw the text.
         /// </summary>
-        public static Font DefaultFont = new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point);
+        public static Font DefaultFont = new Font("Arial", 2.25f, FontStyle.Regular, GraphicsUnit.Point);
 
         /// <summary>
         /// The default vertical location of the text.

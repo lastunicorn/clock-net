@@ -33,15 +33,15 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <summary>
         /// The default value of the <see cref="FillColor"/>.
         /// </summary>
-        public static Color DefaultFillColor = Color.Black;
+        public static Color DefaultFillColor = Color.RoyalBlue;
 
         /// <summary>
         /// The default value of the <see cref="OutlineColor"/>.
         /// </summary>
         public static Color DefaultOutlineColor = Color.Empty;
 
-        private Color outlineColor;
-        private Color fillColor;
+        private Color outlineColor = DefaultOutlineColor;
+        private Color fillColor = DefaultFillColor;
         private float outlineWidth = DefaultOutlineWidth;
 
         private Brush brush;
@@ -51,13 +51,16 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// Gets or sets the color used to draw the outline of the shape.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(typeof(Color), "Black")]
+        [DefaultValue(typeof(Color), "Empty")]
         [Description("Gets or sets the color used to draw the outline of the shape.")]
         public Color OutlineColor
         {
             get => outlineColor;
             set
             {
+                if (outlineColor == value)
+                    return;
+
                 outlineColor = value;
                 DisposeDrawingTools();
                 OnChanged(EventArgs.Empty);
@@ -68,13 +71,16 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// Gets or sets the color used to draw the background of the shape.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue(typeof(Color), "Black")]
+        [DefaultValue(typeof(Color), "RoyalBlue")]
         [Description("Gets or sets the color used to draw the background of the shape.")]
         public Color FillColor
         {
             get => fillColor;
             set
             {
+                if (fillColor == value)
+                    return;
+
                 fillColor = value;
                 DisposeDrawingTools();
                 OnChanged(EventArgs.Empty);
@@ -92,6 +98,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             get => outlineWidth;
             set
             {
+                if (outlineWidth == value)
+                    return;
+
                 outlineWidth = value;
 
                 if (pen != null)
@@ -141,9 +150,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         public VectorialBackgroundBase()
         {
-            outlineColor = DefaultOutlineColor;
-            fillColor = DefaultFillColor;
-            outlineWidth = DefaultOutlineWidth;
         }
 
         /// <summary>
@@ -195,7 +201,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             base.DisposeDrawingTools();
         }
 
-        #region Dispose
+        #region IDisposable
 
         /// <summary>
         /// Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
@@ -206,10 +212,16 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             if (disposing)
             {
                 if (pen != null)
+                {
                     pen.Dispose();
+                    pen = null;
+                }
 
                 if (brush != null)
+                {
                     brush.Dispose();
+                    brush = null;
+                }
             }
 
             base.Dispose(disposing);

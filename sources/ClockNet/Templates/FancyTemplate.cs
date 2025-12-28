@@ -18,7 +18,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Advanced;
-using DustInTheWind.ClockNet.Core.Shapes.Basic;
 using DustInTheWind.ClockNet.Core.Shapes.Default;
 using DustInTheWind.ClockNet.Shapes.Advanced;
 
@@ -37,15 +36,6 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Background",
                 FillColor = Color.White
-            };
-
-            yield return new StringBackground
-            {
-                Name = "Title",
-                Location = new PointF(0, 15),
-                Font = new Font("Arial", 2.5f, FontStyle.Regular, GraphicsUnit.Point),
-                FillColor = Color.FromArgb(0x60, 0x60, 0x60),
-                Text = "Fancy",
             };
         }
 

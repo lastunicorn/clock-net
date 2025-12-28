@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
+using System.ComponentModel;
 using System.Drawing;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Basic
@@ -29,48 +31,57 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// </summary>
         public const string DefaultName = "Line Background";
 
-        /// <summary>
-        /// The location of the tail tip.
-        /// </summary>
-        protected PointF startPoint;
+        private PointF startPoint;
+        private PointF endPoint;
 
         /// <summary>
-        /// The lcation of the hand top.
+        /// Gets or sets the starting point of the line, in client coordinates.
         /// </summary>
-        protected PointF endPoint;
+        [Category("Appearance")]
+        [TypeConverter(typeof(PointFConverter))]
+        public PointF StartPoint
+        {
+            get => startPoint;
+            set
+            {
+                if (startPoint == value)
+                    return;
+
+                startPoint = value;
+                InvalidateLayout();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the ending point of the line, in client coordinates.
+        /// </summary>
+        [Category("Appearance")]
+        [TypeConverter(typeof(PointFConverter))]
+        public PointF EndPoint
+        {
+            get => endPoint;
+            set
+            {
+                if (endPoint == value)
+                    return;
+
+                endPoint = value;
+                InvalidateLayout();
+                OnChanged(EventArgs.Empty);
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LineBackground"/> class with
         /// default values.
         /// </summary>
         public LineBackground()
-            : this(PointF.Empty, PointF.Empty, Color.Black, DefaultOutlineWidth)
+            : base(Color.Black, Color.Empty, DefaultOutlineWidth)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LineBackground"/> class.
-        /// </summary>
-        /// <param name="color">The color that will be used to draw the line.</param>
-        /// <param name="lineWidth">The width of the line.</param>
-        public LineBackground(Color color, float lineWidth)
-            : this(PointF.Empty, PointF.Empty, color, lineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LineBackground"/> class.
-        /// </summary>
-        /// <param name="startPoint">The point from where the line starts.</param>
-        /// <param name="endPoint">The point where the line ends.</param>
-        /// <param name="color">The color that will be used to draw the line.</param>
-        /// <param name="lineWidth">The width of the line.</param>
-        public LineBackground(PointF startPoint, PointF endPoint, Color color, float lineWidth)
-            : base(color, Color.Empty, lineWidth)
-        {
-            this.Name = DefaultName;
-            this.startPoint = startPoint;
-            this.endPoint = endPoint;
+            Name = DefaultName;
+            startPoint = new PointF(-15f, 0);
+            endPoint = new PointF(15f, 0);
         }
 
         /// <summary>
@@ -81,20 +92,22 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && !OutlineColor.IsEmpty;
+            return base.AllowToDraw() &&
+                !OutlineColor.IsEmpty &&
+                StartPoint != PointF.Empty &&
+                EndPoint != PointF.Empty &&
+                StartPoint != EndPoint;
         }
 
         /// <summary>
-        /// Internal method that draws the Shape unconditioned. 
+        /// Draws the line onto the specified graphics surface using the configured pen and endpoints.
         /// </summary>
-        /// <remarks>
-        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
-        /// </remarks>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
+        /// <remarks>This method is typically called by the rendering system and should not be invoked
+        /// directly. The line is drawn from <see cref="StartPoint"/> to <see cref="EndPoint"/> using <see cref="Pen"/>.</remarks>
+        /// <param name="g">The <see cref="Graphics"/> object on which the line will be rendered. Must not be null.</param>
         protected override void OnDraw(Graphics g)
         {
-            g.DrawLine(Pen, startPoint, endPoint);
+            g.DrawLine(Pen, StartPoint, EndPoint);
         }
     }
 }

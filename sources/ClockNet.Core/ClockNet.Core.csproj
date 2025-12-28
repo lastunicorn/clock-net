@@ -49,6 +49,7 @@
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
     <Compile Include="DefaultTemplate.cs" />
+    <Compile Include="Design\PointFConverter.cs" />
     <Compile Include="Design\RectangleFConverter.cs" />
     <Compile Include="Shapes\Default\FlatBackground.cs" />
     <Compile Include="Template.cs" />

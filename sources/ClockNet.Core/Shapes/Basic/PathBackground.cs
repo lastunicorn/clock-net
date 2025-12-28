@@ -30,44 +30,15 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// </summary>
         public const string DefaultName = "Path Background";
 
-        /// <summary>
-        /// The path that is drawn.
-        /// </summary>
-        protected GraphicsPath path;
+        private GraphicsPath path;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PathBackground"/> class with
         /// default values.
         /// </summary>
         public PathBackground()
-            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth)
         {
-
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PathBackground"/> class.
-        /// </summary>
-        /// <param name="path">The path that should be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
-        /// <param name="fillColor">The color used to fill the path's interior.</param>
-        public PathBackground(GraphicsPath path, Color outlineColor, Color fillColor)
-            : this(path, outlineColor, fillColor, DefaultOutlineWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PathBackground"/> class.
-        /// </summary>
-        /// <param name="path">The path that should be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
-        /// <param name="fillColor">The color used to fill the path's interior.</param>
-        /// <param name="lineWidth">The width of the outline.</param>
-        public PathBackground(GraphicsPath path, Color outlineColor, Color fillColor, float lineWidth)
-            : base(outlineColor, fillColor, lineWidth)
-        {
-            this.Name = DefaultName;
-            this.path = path;
+            Name = DefaultName;
         }
 
         /// <summary>
@@ -107,7 +78,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
             if (disposing)
             {
                 if (path != null)
+                {
                     path.Dispose();
+                    path = null;
+                }
             }
 
             base.Dispose(disposing);

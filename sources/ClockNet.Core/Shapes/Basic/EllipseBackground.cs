@@ -33,19 +33,43 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         public const string DefaultName = "Ellipse Background";
 
         private RectangleF rectangle;
+        private PointF location;
+        private SizeF size;
 
         /// <summary>
-        /// Get or sets the rectangle defining the ellipse that is drawn.
+        /// Gets or sets the center location of the ellipse.
         /// </summary>
         [Category("Appearance")]
-        [Description("The rectangle that determines the size and location of the ellipse.")]
-        [TypeConverter(typeof(RectangleFConverter))]
-        public RectangleF Rectangle
+        [Description("The center location of the ellipse.")]
+        [TypeConverter(typeof(PointFConverter))]
+        public PointF Location
         {
-            get => rectangle;
+            get => location;
             set
             {
-                rectangle = value;
+                if (location == value)
+                    return;
+
+                location = value;
+                InvalidateLayout();
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the size (width and height) of the ellipse.
+        /// </summary>
+        [Category("Appearance")]
+        [Description("The size (width and height) of the ellipse.")]
+        public SizeF Size
+        {
+            get => size;
+            set
+            {
+                if (size == value)
+                    return;
+
+                size = value;
                 InvalidateLayout();
                 OnChanged(EventArgs.Empty);
             }
@@ -59,7 +83,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
             : base()
         {
             Name = DefaultName;
-            Rectangle = new RectangleF(0f, 0f, 15f, 10f);
+            Location = new PointF(0f, 0f);
+            Size = new SizeF(15f, 10f);
         }
 
         /// <summary>
@@ -69,6 +94,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// </summary>
         protected override void CalculateLayout()
         {
+            float x = location.X - size.Width / 2;
+            float y = location.Y - size.Height / 2;
+
+            rectangle = new RectangleF(x, y, size.Width, size.Height);
         }
 
         /// <summary>
@@ -79,24 +108,20 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && !Rectangle.IsEmpty;
+            return base.AllowToDraw() && !size.IsEmpty;
         }
 
         /// <summary>
-        /// Internal method that draws the Shape unconditioned. 
+        /// Renders the shape onto the specified graphics surface, filling and outlining the ellipse as configured.
         /// </summary>
-        /// <remarks>
-        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
-        /// </remarks>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
+        /// <param name="g">The graphics surface on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
             if (!FillColor.IsEmpty)
-                g.FillEllipse(Brush, Rectangle);
+                g.FillEllipse(Brush, rectangle);
 
             if (!OutlineColor.IsEmpty)
-                g.DrawEllipse(Pen, Rectangle);
+                g.DrawEllipse(Pen, rectangle);
         }
     }
 }

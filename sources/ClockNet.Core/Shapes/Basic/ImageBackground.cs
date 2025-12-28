@@ -32,7 +32,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         public const string DefaultName = "Image Background";
 
         private Image image;
-        private PointF location;
+        private PointF pinLocation;
 
         /// <summary>
         /// Gets or sets the image to be drawn.
@@ -45,6 +45,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
             get => image;
             set
             {
+                if (image == value)
+                    return;
+
                 image = value;
                 OnChanged(EventArgs.Empty);
             }
@@ -56,12 +59,15 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         [Category("Behaviour")]
         [TypeConverter(typeof(PointFConverter))]
         [Description("The location of the pin relative to the upper left corner of the image.")]
-        public virtual PointF Location
+        public virtual PointF PinLocation
         {
-            get => location;
+            get => pinLocation;
             set
             {
-                location = value;
+                if (pinLocation == value)
+                    return;
+
+                pinLocation = value;
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -79,22 +85,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// Initializes a new instance of the <see cref="ImageBackground"/> class.
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
-        public ImageBackground(Image image)
-            : this(image, PointF.Empty)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageBackground"/> class.
-        /// </summary>
-        /// <param name="image">The image to be drawn.</param>
-        /// <param name="location">The location of the pin relative to the upper left corner of the image.</param>
-        public ImageBackground(Image image, PointF location)
+        /// <param name="pinLocation">The location of the pin relative to the upper left corner of the image.</param>
+        public ImageBackground(Image image, PointF pinLocation)
             : base()
         {
             Name = DefaultName;
             this.image = image;
-            this.location = location;
+            this.pinLocation = pinLocation;
         }
 
         /// <summary>
@@ -120,13 +117,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         {
             float height = 50f;
 
-            if (location.Y != 0 && height > 0)
+            if (PinLocation.Y != 0 && height > 0)
             {
-                float scaleFactor = height / location.Y;
+                float scaleFactor = height / PinLocation.Y;
                 g.ScaleTransform(scaleFactor, scaleFactor);
             }
 
-            g.DrawImage(image, -location.X, -location.Y, image.Width, image.Height);
+            g.DrawImage(Image, -PinLocation.X, -PinLocation.Y, Image.Width, Image.Height);
         }
     }
 }
