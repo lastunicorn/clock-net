@@ -190,8 +190,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             }
             else
             {
-                float scaleFactorY = Length > 0 ? Length / 280f : 1f;
-                float scaleFactorX = width > 0 ? width / 30f : 1f;
+                float scaleFactorY = Length > 0
+                    ? Length / 280f
+                    : 1f;
+
+                float scaleFactorX = width > 0
+                    ? width / 30f 
+                    : 1f;
+
                 g.ScaleTransform(scaleFactorX, scaleFactorY);
             }
 
@@ -202,22 +208,28 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             PointF clickLocation;
 
-            using (Matrix m = new Matrix())
+            using (Matrix matrix = new Matrix())
             {
                 if (keepProportions && Length > 0)
                 {
                     float scaleFactorY = Length / 280f;
-                    m.Scale(1 / scaleFactorY, 1 / scaleFactorY);
+                    matrix.Scale(1 / scaleFactorY, 1 / scaleFactorY);
                 }
                 else
                 {
-                    float scaleFactorY = Length > 0 ? Length / 280f : 1f;
-                    float scaleFactorX = width > 0 ? width / 30f : 1f;
-                    m.Scale(1 / scaleFactorX, 1 / scaleFactorY);
+                    float scaleFactorY = Length > 0
+                        ? Length / 280f
+                        : 1f;
+
+                    float scaleFactorX = width > 0
+                        ? width / 30f
+                        : 1f;
+
+                    matrix.Scale(1 / scaleFactorX, 1 / scaleFactorY);
                 }
 
                 PointF[] points = new PointF[] { point };
-                m.TransformPoints(points);
+                matrix.TransformPoints(points);
                 clickLocation = points[0];
             }
 

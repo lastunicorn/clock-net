@@ -42,7 +42,7 @@ namespace DustInTheWind.ClockNet.Templates
 
             yield return new LineHand
             {
-                Name = "Sweep Hand",
+                Name = "Second Hand",
                 ComponentToDisplay = TimeComponent.Second,
                 Length = 45.5f,
                 OutlineColor = Color.Red,

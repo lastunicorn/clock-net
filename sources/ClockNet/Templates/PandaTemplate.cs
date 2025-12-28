@@ -9,7 +9,7 @@ using DustInTheWind.ClockNet.Shapes.Advanced;
 namespace DustInTheWind.ClockNet.Templates
 {
     /// <summary>
-    /// 
+    /// Defines a watch face template with a white background and black disks as hands.
     /// </summary>
     public class PandaTemplate : TemplateBase
     {
@@ -17,11 +17,13 @@ namespace DustInTheWind.ClockNet.Templates
         {
             yield return new FlatBackground
             {
+                Name = "Black Margin",
                 FillColor = Color.Black
             };
 
             yield return new FlatBackground
             {
+                Name = "White Background",
                 FillColor = Color.White,
                 Radius = 48f
             };
@@ -34,7 +36,6 @@ namespace DustInTheWind.ClockNet.Templates
 
         protected override IEnumerable<IHand> EnumerateHands()
         {
-            // Hour hand
             yield return new DotHand
             {
                 Name = "Hour Hand",
@@ -45,7 +46,6 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineColor = Color.FromArgb(0x64, 0x64, 0x64)
             };
 
-            // Minute hand
             yield return new DotHand
             {
                 Name = "Minute Hand",
@@ -56,7 +56,6 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineColor = Color.FromArgb(0x64, 0x64, 0x64)
             };
 
-            // Center pin
             yield return new Pin
             {
                 Name = "Pin",

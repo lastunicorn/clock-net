@@ -51,7 +51,6 @@ namespace DustInTheWind.ClockNet.Templates
 
         protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
         {
-            // Ticks for minutes (every 6 degrees, skip every 5th)
             yield return new Ticks
             {
                 Name = "Minute Ticks",
@@ -63,7 +62,6 @@ namespace DustInTheWind.ClockNet.Templates
                 SkipIndex = 5
             };
 
-            // Ticks for hours (every 30 degrees)
             yield return new Ticks
             {
                 Name = "Hour Ticks",
@@ -73,7 +71,6 @@ namespace DustInTheWind.ClockNet.Templates
                 Angle = 30f
             };
 
-            // Hour numbers
             yield return new Hours
             {
                 Name = "Hours",
@@ -83,7 +80,6 @@ namespace DustInTheWind.ClockNet.Templates
 
         protected override IEnumerable<IHand> EnumerateHands()
         {
-            // Hour hand - Nib style
             yield return new NibHand
             {
                 Name = "Hour Hand",
@@ -95,7 +91,6 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineWidth = 1.5f
             };
 
-            // Minute hand - Nib style
             yield return new NibHand
             {
                 Name = "Minute Hand",
@@ -104,14 +99,12 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineWidth = 1.5f
             };
 
-            // Second hand - Fancy sweep style
             yield return new FancySweepHand
             {
-                Name = "Shweep Hand",
+                Name = "Second Hand",
                 ComponentToDisplay = TimeComponent.Second
             };
 
-            // Center pin
             yield return new Pin
             {
                 Name = "Pin",

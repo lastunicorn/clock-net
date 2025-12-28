@@ -43,11 +43,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public const float DefaultInnerRimWidth = 1f;
 
-
-        /// <summary>
-        /// The width of the outer-most rim.
-        /// </summary>
-        private float outerRimWidth;
+        private float outerRimWidth = DefaultOuterRimWidth;
+        private float innerRimWidth = DefaultInnerRimWidth;
 
         /// <summary>
         /// Gets or sets the width of the outer-most rim.
@@ -57,7 +54,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Description("The width of the outer-most rim.")]
         public float OuterRimWidth
         {
-            get { return outerRimWidth; }
+            get => outerRimWidth;
             set
             {
                 outerRimWidth = value;
@@ -65,12 +62,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-        /// <summary>
-        /// The width of the second rim.
-        /// </summary>
-        private float innerRimWidth;
 
         /// <summary>
         /// Gets or sets the width of the second rim.
@@ -80,7 +71,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Description("The width of the second rim.")]
         public float InnerRimWidth
         {
-            get { return innerRimWidth; }
+            get => innerRimWidth;
             set
             {
                 innerRimWidth = value;
@@ -94,31 +85,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public FancyBackground()
-            : this(DefaultFillColor, DefaultOuterRimWidth, DefaultInnerRimWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FancyBackground"/> class.
-        /// </summary>
-        /// <param name="fillColor">The color used to draw the dial's background.</param>
-        public FancyBackground(Color fillColor)
-            : this(fillColor, DefaultOuterRimWidth, DefaultInnerRimWidth)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FancyBackground"/> class.
-        /// </summary>
-        /// <param name="fillColor">The color used to draw the dial's background.</param>
-        /// <param name="innerRimWidth">The width of the outer-most rim.</param>
-        /// <param name="outerRimWidth">The width of the second rim.</param>
-        public FancyBackground(Color fillColor, float outerRimWidth, float innerRimWidth)
-            : base(DefaultOutlineColor, fillColor, DefaultOutlineWidth)
+            : base(DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth)
         {
             Name = DefaultName;
-            this.outerRimWidth = outerRimWidth;
-            this.innerRimWidth = innerRimWidth;
         }
 
         /// <summary>

@@ -53,7 +53,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "Black")]
         [Description("Gets or sets the color used to draw the outline of the shape.")]
-        public virtual Color OutlineColor
+        public Color OutlineColor
         {
             get => outlineColor;
             set
@@ -70,7 +70,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "Black")]
         [Description("Gets or sets the color used to draw the background of the shape.")]
-        public virtual Color FillColor
+        public Color FillColor
         {
             get => fillColor;
             set
@@ -87,7 +87,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         [Category("Appearance")]
         [DefaultValue(DefaultOutlineWidth)]
         [Description("The width of the outline.")]
-        public virtual float OutlineWidth
+        public float OutlineWidth
         {
             get => outlineWidth;
             set

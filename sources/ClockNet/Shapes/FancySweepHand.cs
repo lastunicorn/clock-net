@@ -49,11 +49,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public const float DefaultTailLength = 7f;
 
-
-        /// <summary>
-        /// The radius of the circle from the middle (or not so middle) of the hand.
-        /// </summary>
-        protected float circleRadius = DefaultCircleRadius;
+        private float circleRadius = DefaultCircleRadius;
+        private float circleOffset = DefaultCircleOffset;
+        private float tailLength = DefaultTailLength;
 
         /// <summary>
         /// Gets or sets the radius of the circle from the middle (or not so middle) of the hand.
@@ -73,11 +71,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         }
 
         /// <summary>
-        /// The offset position of the center of the circle from the top of the hand.
-        /// </summary>
-        protected float circleOffset = DefaultCircleOffset;
-
-        /// <summary>
         /// Gets or sets the offset position of the center of the circle from the top of the hand.
         /// </summary>
         [Category("Appearance")]
@@ -92,12 +85,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
-
-
-        /// <summary>
-        /// The length of the the hand's tail.
-        /// </summary>
-        protected float tailLength;
 
         /// <summary>
         /// Gets or sets the length of the tail of the hand.
@@ -121,10 +108,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// default values.
         /// </summary>
         public FancySweepHand()
-            : base(new GraphicsPath(), Color.Red, Color.Empty, DefaultLength, DefaultOutlineWidth)
         {
             Name = DefaultName;
             tailLength = DefaultTailLength;
+            OutlineColor = Color.Red;
+            FillColor = Color.Empty;
         }
 
         /// <summary>
@@ -137,9 +125,24 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
 
             float circleCenterX = -Length + circleOffset;
 
-            path.AddLine(new PointF(0f, tailLength), new PointF(0f, circleCenterX + circleRadius));
-            path.AddEllipse(-circleRadius, circleCenterX - circleRadius, circleRadius * 2f, circleRadius * 2f);
-            path.AddLine(new PointF(0f, circleCenterX - circleRadius), new PointF(0f, -Length));
+            // Base Line
+
+            PointF baseLineStartPoint = new PointF(0f, tailLength);
+            PointF baseLineEndPoint = new PointF(0f, circleCenterX + circleRadius);
+            path.AddLine(baseLineStartPoint, baseLineEndPoint);
+
+            // Circle
+
+            float circleX = -circleRadius;
+            float circleY = circleCenterX - circleRadius;
+            float circleDiameter = circleRadius * 2f;
+            path.AddEllipse(circleX, circleY, circleDiameter, circleDiameter);
+
+            // Tip Line
+
+            PointF tipLineStartPoint = new PointF(0f, circleCenterX - circleRadius);
+            PointF tipLineEndPoint = new PointF(0f, -Length);
+            path.AddLine(tipLineStartPoint, tipLineEndPoint);
         }
     }
 }

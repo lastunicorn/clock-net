@@ -22,37 +22,40 @@ using DustInTheWind.ClockNet.Core.Shapes;
 namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
     /// <summary>
-    /// A Hand Shape that draws the time as a text in a fixed position on the dial.
+    /// Represents a digital clock hand that displays the current time as text.
     /// </summary>
+    /// <remarks>The <see cref="DigitalHand"/> class provides properties to customize the appearance and
+    /// layout of the time display, including font, color, vertical position, and time format. It is typically used in
+    /// graphical clock controls or vector drawing environments to render a digital time readout. The class inherits
+    /// from <see cref="VectorialHandBase"/>, and supports resource management via <see cref="IDisposable"/>. Thread
+    /// safety is not guaranteed; access from multiple threads should be synchronized by the caller.</remarks>
     [Shape("4b95231b-9675-4851-b0b9-1ec9c029d46c")]
     public class DigitalHand : VectorialHandBase
     {
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string NAME = "Digital Hand";
+        public const string DefaultName = "Digital Hand";
 
         /// <summary>
         /// The default font used to draw the time.
         /// </summary>
-        public static Font FONT = new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point);
+        public static Font DefaultFont = new Font("Arial", 3, FontStyle.Regular, GraphicsUnit.Point);
 
         /// <summary>
         /// The default vertical location of the text.
         /// </summary>
-        public const float VERTICAL_LOCATION = 12f;
+        public const float DefaultVerticalLocation = 12f;
 
         /// <summary>
         /// The default value of the time format.
         /// </summary>
-        public const string FORMAT = "HH:mm:ss";
+        public const string DefaultFormat = "HH:mm:ss";
 
-
-        /// <summary>
-        /// Formats the text displayed by the current instance.
-        /// </summary>
-        protected StringFormat stringFormat;
-
+        private StringFormat stringFormat;
+        private Font font;
+        private float verticalLocation;
+        private string format;
 
         /// <summary>
         /// Gets or sets the color used to draw the text.
@@ -61,15 +64,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Description("The color used to draw the text.")]
         public override Color FillColor
         {
-            get { return base.FillColor; }
-            set { base.FillColor = value; }
+            get => base.FillColor;
+            set => base.FillColor = value;
         }
-
-
-        /// <summary>
-        /// The font used to draw the text.
-        /// </summary>
-        protected Font font;
 
         /// <summary>
         /// Gets or sets the font used to draw the text.
@@ -78,48 +75,42 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Description("The font used to draw the text.")]
         public virtual Font Font
         {
-            get { return font; }
+            get => font;
             set
             {
+                if (font == value)
+                    return;
+
                 font = value;
                 OnChanged(EventArgs.Empty);
             }
         }
 
-
-        /// <summary>
-        /// The vertical location where the text is drawn.
-        /// </summary>
-        private float verticalLocation;
-
         /// <summary>
         /// Gets or sets the vertical location where the text is drawn.
         /// </summary>
         [Category("Layout")]
-        [DefaultValue(VERTICAL_LOCATION)]
+        [DefaultValue(DefaultVerticalLocation)]
         [Description("The vertical location where the text is drawn.")]
         public float VerticalLocation
         {
-            get { return verticalLocation; }
+            get => verticalLocation;
             set
             {
+                if (verticalLocation == value)
+                    return;
+
                 verticalLocation = value;
                 OnChanged(EventArgs.Empty);
             }
 
         }
 
-
-        /// <summary>
-        /// The format in which the time is displayed.
-        /// </summary>
-        private string format;
-
         /// <summary>
         /// Gets or sets the format in which the time is displayed.
         /// </summary>
         [Category("Layout")]
-        [DefaultValue(FORMAT)]
+        [DefaultValue(DefaultFormat)]
         [Description("The format in which the time is displayed.")]
         public string Format
         {
@@ -132,24 +123,12 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
 
         }
 
-
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="DigitalHand"/> class with
         /// default values.
         /// </summary>
         public DigitalHand()
-            : this(DefaultFillColor, FONT)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DigitalHand"/> class.
-        /// </summary>
-        /// <param name="color">The color used to draw the text.</param>
-        public DigitalHand(Color color)
-            : this(color, FONT)
+            : this(DefaultFillColor, DefaultFont)
         {
         }
 
@@ -161,19 +140,16 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         public DigitalHand(Color color, Font font)
             : base(DefaultOutlineColor, color)
         {
-            this.Name = NAME;
+            this.Name = DefaultName;
             this.font = font;
-            this.verticalLocation = VERTICAL_LOCATION;
-            this.format = FORMAT;
+            //this.verticalLocation = DefaultVerticalLocation;
+            this.format = DefaultFormat;
 
             stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
             stringFormat.Trimming = StringTrimming.None;
         }
-
-        #endregion
-
 
         /// <summary>
         /// Decides if the Shape should be drawn.
@@ -205,7 +181,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             if (text.Length > 0)
             {
                 SizeF textSize = g.MeasureString(text, font);
-                PointF textLocation = new PointF(-textSize.Width / 2F, verticalLocation);
+                PointF textLocation = new PointF(-textSize.Width / 2F, VerticalLocation);
                 RectangleF textRectangle = new RectangleF(textLocation, textSize);
 
                 g.DrawString(text, font, Brush, textRectangle, stringFormat);
@@ -221,8 +197,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             return false;
         }
-
-
 
         #region Dispose
 

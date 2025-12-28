@@ -35,13 +35,13 @@ namespace DustInTheWind.ClockNet.Templates
         {
             yield return new FlatBackground
             {
+                Name = "Background",
                 FillColor = Color.Black
             };
         }
 
         protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
         {
-            // Hour numbers
             yield return new Hours
             {
                 Name = "Hours",
@@ -53,7 +53,6 @@ namespace DustInTheWind.ClockNet.Templates
 
         protected override IEnumerable<IHand> EnumerateHands()
         {
-            // Hour hand - Slot style
             yield return new SlotHand
             {
                 Name = "Hour Hand",
@@ -64,7 +63,6 @@ namespace DustInTheWind.ClockNet.Templates
                 ComponentToDisplay = TimeComponent.Hour
             };
 
-            // Minute hand - Line style
             yield return new LineHand
             {
                 Name = "Minute Hand",
@@ -75,7 +73,6 @@ namespace DustInTheWind.ClockNet.Templates
                 ComponentToDisplay = TimeComponent.Minute
             };
 
-            // Second hand - Line style
             yield return new LineHand
             {
                 Name = "Second Hand",
@@ -86,7 +83,6 @@ namespace DustInTheWind.ClockNet.Templates
                 ComponentToDisplay = TimeComponent.Second
             };
 
-            // Center pin
             yield return new Pin
             {
                 Name = "Pin",

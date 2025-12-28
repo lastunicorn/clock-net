@@ -23,7 +23,7 @@ using DustInTheWind.ClockNet.Core.Shapes;
 namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
     /// <summary>
-    /// A Hand Shape that draws a dot at the specified distance from the pin.
+    /// This hand is rendered as a disk.
     /// </summary>
     [Shape("3950244f-9e48-4484-bdc9-1d0a39c4a8f6")]
     public class DotHand : VectorialHandBase
@@ -38,11 +38,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public const float DefaultRadius = 5f;
 
+        private float radius;
 
-        /// <summary>
-        /// The radius of the dot.
-        /// </summary>
-        protected float radius;
+        private RectangleF dotRectangle;
 
         /// <summary>
         /// Gets or sets the radius of the dot.
@@ -53,7 +51,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         [Description("The radius of the dot.")]
         public virtual float Radius
         {
-            get { return radius; }
+            get => radius;
             set
             {
                 if (value < 0)
@@ -77,10 +75,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         }
 
         /// <summary>
-        /// The rectangle defining the ellipse that is drawn.
+        /// Determines whether the current object meets the conditions required to perform drawing operations.
         /// </summary>
-        private RectangleF dotRectangle;
-
+        /// <remarks>Drawing is permitted only when both the radius and length are greater than zero, and
+        /// the base class also allows drawing.</remarks>
+        /// <returns>true if drawing is allowed based on the object's state and base class conditions; otherwise, false.</returns>
         protected override bool AllowToDraw()
         {
             return base.AllowToDraw() &&
