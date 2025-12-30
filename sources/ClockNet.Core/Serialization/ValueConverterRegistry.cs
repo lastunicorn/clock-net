@@ -16,9 +16,9 @@
 
 using System;
 using System.Collections.Generic;
-using DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters;
+using DustInTheWind.ClockNet.Core.Serialization.Converters;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization
+namespace DustInTheWind.ClockNet.Core.Serialization
 {
     /// <summary>
     /// Manages a collection of value converters and provides methods to convert values to and from strings.
@@ -56,6 +56,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Serialization
             registry.Register(new RectangleFValueConverter());
             registry.Register(new FontValueConverter());
             registry.Register(new PointFArrayValueConverter());
+            registry.Register(new StringArrayValueConverter());
 
             return registry;
         }

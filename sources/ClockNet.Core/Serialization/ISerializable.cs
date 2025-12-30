@@ -16,7 +16,7 @@
 
 using System.Collections.Generic;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization
+namespace DustInTheWind.ClockNet.Core.Serialization
 {
     /// <summary>
     /// Defines methods for serializing and deserializing the properties of a shape.

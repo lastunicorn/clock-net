@@ -16,37 +16,37 @@
 
 using System.Drawing;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
+namespace DustInTheWind.ClockNet.Core.Serialization.Converters
 {
     /// <summary>
-    /// Converts <see cref="SizeF"/> values to and from their string representation.
+    /// Converts <see cref="Color"/> values to and from their string representation.
     /// </summary>
-    public class SizeFValueConverter : ValueConverterBase<SizeF>
+    public class ColorValueConverter : ValueConverterBase<Color>
     {
         /// <summary>
-        /// Serializes a <see cref="SizeF"/> to its string representation.
-        /// Format: "Width,Height"
+        /// Serializes a <see cref="Color"/> to its string representation.
+        /// Named colors are serialized by name; others are serialized as ARGB integer.
         /// </summary>
-        /// <param name="value">The SizeF to serialize.</param>
+        /// <param name="value">The Color to serialize.</param>
         /// <returns>The string representation.</returns>
-        protected override string Serialize(SizeF value)
+        protected override string Serialize(Color value)
         {
-            return string.Format("{0},{1}", value.Width, value.Height);
+            return value.IsNamedColor
+                ? value.Name
+                : value.ToArgb().ToString();
         }
 
         /// <summary>
-        /// Deserializes a string to a <see cref="SizeF"/>.
+        /// Deserializes a string to a <see cref="Color"/>.
         /// </summary>
         /// <param name="serializedValue">The string to deserialize.</param>
-        /// <returns>The deserialized SizeF.</returns>
-        protected override SizeF Deserialize(string serializedValue)
+        /// <returns>The deserialized Color.</returns>
+        protected override Color Deserialize(string serializedValue)
         {
-            string[] parts = serializedValue.Split(',');
+            if (int.TryParse(serializedValue, out int argb))
+                return Color.FromArgb(argb);
 
-            float width = float.Parse(parts[0]);
-            float height = float.Parse(parts[1]);
-
-            return new SizeF(width, height);
+            return Color.FromName(serializedValue);
         }
     }
 }

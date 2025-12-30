@@ -18,7 +18,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-using DustInTheWind.ClockNet.Core.Shapes;
+using DustInTheWind.ClockNet.Core.Serialization;
 using DustInTheWind.ClockNet.Core.TimeProviders;
 using DustInTheWind.ClockNet.Templates;
 
@@ -158,10 +158,13 @@ namespace DustInTheWind.ClockNet.Demo
                 labelTimeProvider.Text = analogClockDemo.TimeProvider.GetType().Name;
                 analogClockDemo.TimeProvider.TimeChanged += (s, ev) =>
                 {
-                    BeginInvoke(new Action(() =>
+                    if (!IsDisposed && IsHandleCreated)
                     {
-                        dateTimePickerTime.Value = DateTime.Now.Date.Add(ev.Time);
-                    }));
+                        BeginInvoke(new Action(() =>
+                        {
+                            dateTimePickerTime.Value = DateTime.Now.Date.Add(ev.Time);
+                        }));
+                    }
                 };
             }
             else
@@ -183,6 +186,28 @@ namespace DustInTheWind.ClockNet.Demo
             }
 
             MessageBox.Show("Clock template saved successfully.", "Save Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+
+            try
+            {
+                using (FileStream fileStream = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read))
+                {
+                    TemplateSerialization serialization = new TemplateSerialization();
+                    TemplateBase template = serialization.Deserialize(fileStream);
+                    analogClockDemo.ApplyTemplate(template);
+                }
+
+                MessageBox.Show("Clock template loaded successfully.", "Load Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load clock template: {ex.Message}", "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -16,7 +16,7 @@
 
 using System;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization
+namespace DustInTheWind.ClockNet.Core.Serialization
 {
     /// <summary>
     /// Defines methods for converting values to and from their serialized string representation.

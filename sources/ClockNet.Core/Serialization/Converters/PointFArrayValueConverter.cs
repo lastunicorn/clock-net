@@ -14,10 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
+namespace DustInTheWind.ClockNet.Core.Serialization.Converters
 {
     /// <summary>
     /// Converts <see cref="PointF"/> array values to and from their string representation.
@@ -35,7 +37,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
             if (value == null || value.Length == 0)
                 return string.Empty;
 
-            return string.Join(";", value.Select(x => string.Format("{0},{1}", x.X, x.Y)));
+            IEnumerable<string> parts = value
+                .Select(x => string.Format(CultureInfo.InvariantCulture, "{0},{1}", x.X, x.Y));
+
+            return string.Join(";", parts);
         }
 
         /// <summary>
@@ -54,7 +59,11 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
                 .Select(x =>
                 {
                     string[] parts = x.Split(',');
-                    return new PointF(float.Parse(parts[0]), float.Parse(parts[1]));
+
+                    float pointX = float.Parse(parts[0], CultureInfo.InvariantCulture);
+                    float pointY = float.Parse(parts[1], CultureInfo.InvariantCulture);
+
+                    return new PointF(pointX, pointY);
                 })
                 .ToArray();
         }

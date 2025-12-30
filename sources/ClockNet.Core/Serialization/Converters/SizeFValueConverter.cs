@@ -14,41 +14,40 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
 using System.Drawing;
+using System.Globalization;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
+namespace DustInTheWind.ClockNet.Core.Serialization.Converters
 {
     /// <summary>
-    /// Converts <see cref="Font"/> values to and from their string representation.
+    /// Converts <see cref="SizeF"/> values to and from their string representation.
     /// </summary>
-    public class FontValueConverter : ValueConverterBase<Font>
+    public class SizeFValueConverter : ValueConverterBase<SizeF>
     {
         /// <summary>
-        /// Serializes a <see cref="Font"/> to its string representation.
-        /// Format: "FontFamily,Size,Style"
+        /// Serializes a <see cref="SizeF"/> to its string representation.
+        /// Format: "Width,Height"
         /// </summary>
-        /// <param name="value">The Font to serialize.</param>
+        /// <param name="value">The SizeF to serialize.</param>
         /// <returns>The string representation.</returns>
-        protected override string Serialize(Font value)
+        protected override string Serialize(SizeF value)
         {
-            return string.Format("{0},{1},{2}", value.FontFamily.Name, value.Size, value.Style);
+            return string.Format(CultureInfo.InvariantCulture, "{0},{1}", value.Width, value.Height);
         }
 
         /// <summary>
-        /// Deserializes a string to a <see cref="Font"/>.
+        /// Deserializes a string to a <see cref="SizeF"/>.
         /// </summary>
         /// <param name="serializedValue">The string to deserialize.</param>
-        /// <returns>The deserialized Font.</returns>
-        protected override Font Deserialize(string serializedValue)
+        /// <returns>The deserialized SizeF.</returns>
+        protected override SizeF Deserialize(string serializedValue)
         {
             string[] parts = serializedValue.Split(',');
 
-            string fontFamily = parts[0];
-            float size = float.Parse(parts[1]);
-            FontStyle style = (FontStyle)Enum.Parse(typeof(FontStyle), parts[2]);
+            float width = float.Parse(parts[0], CultureInfo.InvariantCulture);
+            float height = float.Parse(parts[1], CultureInfo.InvariantCulture);
 
-            return new Font(fontFamily, size, style);
+            return new SizeF(width, height);
         }
     }
 }

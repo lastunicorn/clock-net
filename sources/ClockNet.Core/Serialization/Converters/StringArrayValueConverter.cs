@@ -14,33 +14,40 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
+using System.Linq;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
+namespace DustInTheWind.ClockNet.Core.Serialization.Converters
 {
     /// <summary>
-    /// Converts <see cref="TimeSpan"/> values to and from their string representation.
+    /// Converts string array values to and from their string representation.
     /// </summary>
-    public class TimeSpanValueConverter : ValueConverterBase<TimeSpan>
+    public class StringArrayValueConverter : ValueConverterBase<string[]>
     {
         /// <summary>
-        /// Serializes a <see cref="TimeSpan"/> to its string representation.
+        /// Serializes a string array to its string representation.
+        /// Format: "value1;value2;..."
         /// </summary>
-        /// <param name="value">The TimeSpan to serialize.</param>
+        /// <param name="value">The string array to serialize.</param>
         /// <returns>The string representation.</returns>
-        protected override string Serialize(TimeSpan value)
+        protected override string Serialize(string[] value)
         {
-            return value.ToString();
+            if (value == null || value.Length == 0)
+                return string.Empty;
+
+            return string.Join(";", value);
         }
 
         /// <summary>
-        /// Deserializes a string to a <see cref="TimeSpan"/>.
+        /// Deserializes a string to a string array.
         /// </summary>
         /// <param name="serializedValue">The string to deserialize.</param>
-        /// <returns>The deserialized TimeSpan.</returns>
-        protected override TimeSpan Deserialize(string serializedValue)
+        /// <returns>The deserialized string array.</returns>
+        protected override string[] Deserialize(string serializedValue)
         {
-            return TimeSpan.Parse(serializedValue);
+            if (string.IsNullOrEmpty(serializedValue))
+                return new string[0];
+
+            return serializedValue.Split(';');
         }
     }
 }

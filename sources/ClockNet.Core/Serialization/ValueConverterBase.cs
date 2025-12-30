@@ -16,26 +16,27 @@
 
 using System;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
+namespace DustInTheWind.ClockNet.Core.Serialization
 {
     /// <summary>
-    /// Converts primitive types and strings to and from their string representation.
+    /// Base class for value converters that handle a specific type.
     /// </summary>
-    public class PrimitiveValueConverter : IValueConverter
+    /// <typeparam name="T">The type this converter handles.</typeparam>
+    public abstract class ValueConverterBase<T> : IValueConverter
     {
         /// <summary>
-        /// Gets the type that this converter handles. Returns null as this converter handles multiple types.
+        /// Gets the type that this converter handles.
         /// </summary>
-        public Type TargetType => null;
+        public Type TargetType => typeof(T);
 
         /// <summary>
         /// Determines whether this converter can handle the specified type.
         /// </summary>
         /// <param name="type">The type to check.</param>
         /// <returns><c>true</c> if this converter can handle the type; otherwise, <c>false</c>.</returns>
-        public bool CanConvert(Type type)
+        public virtual bool CanConvert(Type type)
         {
-            return type.IsPrimitive || type == typeof(string) || type == typeof(decimal);
+            return type == typeof(T);
         }
 
         /// <summary>
@@ -45,7 +46,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
         /// <returns>The string representation of the value.</returns>
         public string ConvertToString(object value)
         {
-            return value?.ToString();
+            if (value == null)
+                return null;
+
+            return Serialize((T)value);
         }
 
         /// <summary>
@@ -57,27 +61,23 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
         public object ConvertFromString(string serializedValue, Type targetType)
         {
             if (serializedValue == null)
-                return null;
+                return default(T);
 
-            if (targetType == typeof(bool))
-                return bool.Parse(serializedValue);
-
-            if (targetType == typeof(int))
-                return int.Parse(serializedValue);
-
-            if (targetType == typeof(float))
-                return float.Parse(serializedValue);
-
-            if (targetType == typeof(double))
-                return double.Parse(serializedValue);
-
-            if (targetType == typeof(decimal))
-                return decimal.Parse(serializedValue);
-
-            if (targetType == typeof(string))
-                return serializedValue;
-
-            return Convert.ChangeType(serializedValue, targetType);
+            return Deserialize(serializedValue);
         }
+
+        /// <summary>
+        /// Serializes the strongly-typed value to a string.
+        /// </summary>
+        /// <param name="value">The value to serialize.</param>
+        /// <returns>The string representation.</returns>
+        protected abstract string Serialize(T value);
+
+        /// <summary>
+        /// Deserializes a string to the strongly-typed value.
+        /// </summary>
+        /// <param name="serializedValue">The string to deserialize.</param>
+        /// <returns>The deserialized value.</returns>
+        protected abstract T Deserialize(string serializedValue);
     }
 }

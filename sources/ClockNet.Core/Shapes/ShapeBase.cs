@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using DustInTheWind.ClockNet.Core.Shapes.Serialization;
+using DustInTheWind.ClockNet.Core.Serialization;
 
 namespace DustInTheWind.ClockNet.Core.Shapes
 {

@@ -20,11 +20,9 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Xml;
-using DustInTheWind.ClockNet.Core;
 using DustInTheWind.ClockNet.Core.Shapes;
-using DustInTheWind.ClockNet.Core.Shapes.Serialization;
 
-namespace DustInTheWind.ClockNet
+namespace DustInTheWind.ClockNet.Core.Serialization
 {
     /// <summary>
     /// Provides methods to serialize and deserialize a <see cref="TemplateBase"/> to and from a stream.

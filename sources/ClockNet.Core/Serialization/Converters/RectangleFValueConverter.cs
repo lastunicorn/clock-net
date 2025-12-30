@@ -15,8 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Drawing;
+using System.Globalization;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
+namespace DustInTheWind.ClockNet.Core.Serialization.Converters
 {
     /// <summary>
     /// Converts <see cref="RectangleF"/> values to and from their string representation.
@@ -31,7 +32,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
         /// <returns>The string representation.</returns>
         protected override string Serialize(RectangleF value)
         {
-            return string.Format("{0},{1},{2},{3}", value.X, value.Y, value.Width, value.Height);
+            return string.Format(CultureInfo.InvariantCulture, "{0},{1},{2},{3}", value.X, value.Y, value.Width, value.Height);
         }
 
         /// <summary>
@@ -43,10 +44,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
         {
             string[] parts = serializedValue.Split(',');
 
-            float x = float.Parse(parts[0]);
-            float y = float.Parse(parts[1]);
-            float width = float.Parse(parts[2]);
-            float height = float.Parse(parts[3]);
+            float x = float.Parse(parts[0], CultureInfo.InvariantCulture);
+            float y = float.Parse(parts[1], CultureInfo.InvariantCulture);
+            float width = float.Parse(parts[2], CultureInfo.InvariantCulture);
+            float height = float.Parse(parts[3], CultureInfo.InvariantCulture);
 
             return new RectangleF(x, y, width, height);
         }

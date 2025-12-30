@@ -14,37 +14,34 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System.Drawing;
+using System;
+using System.Globalization;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
+namespace DustInTheWind.ClockNet.Core.Serialization.Converters
 {
     /// <summary>
-    /// Converts <see cref="Color"/> values to and from their string representation.
+    /// Converts <see cref="TimeSpan"/> values to and from their string representation.
     /// </summary>
-    public class ColorValueConverter : ValueConverterBase<Color>
+    public class TimeSpanValueConverter : ValueConverterBase<TimeSpan>
     {
         /// <summary>
-        /// Serializes a <see cref="Color"/> to its string representation.
-        /// Named colors are serialized by name; others are serialized as ARGB integer.
+        /// Serializes a <see cref="TimeSpan"/> to its string representation.
         /// </summary>
-        /// <param name="value">The Color to serialize.</param>
+        /// <param name="value">The TimeSpan to serialize.</param>
         /// <returns>The string representation.</returns>
-        protected override string Serialize(Color value)
+        protected override string Serialize(TimeSpan value)
         {
-            return value.IsNamedColor ? value.Name : value.ToArgb().ToString();
+            return value.ToString("c", CultureInfo.InvariantCulture);
         }
 
         /// <summary>
-        /// Deserializes a string to a <see cref="Color"/>.
+        /// Deserializes a string to a <see cref="TimeSpan"/>.
         /// </summary>
         /// <param name="serializedValue">The string to deserialize.</param>
-        /// <returns>The deserialized Color.</returns>
-        protected override Color Deserialize(string serializedValue)
+        /// <returns>The deserialized TimeSpan.</returns>
+        protected override TimeSpan Deserialize(string serializedValue)
         {
-            if (int.TryParse(serializedValue, out int argb))
-                return Color.FromArgb(argb);
-
-            return Color.FromName(serializedValue);
+            return TimeSpan.Parse(serializedValue, CultureInfo.InvariantCulture);
         }
     }
 }

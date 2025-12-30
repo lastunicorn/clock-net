@@ -16,7 +16,7 @@
 
 using System;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization.Converters
+namespace DustInTheWind.ClockNet.Core.Serialization.Converters
 {
     /// <summary>
     /// Converts enum types to and from their string representation.

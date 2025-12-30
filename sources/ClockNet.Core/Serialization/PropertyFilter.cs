@@ -20,7 +20,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Reflection;
 
-namespace DustInTheWind.ClockNet.Core.Shapes.Serialization
+namespace DustInTheWind.ClockNet.Core.Serialization
 {
     /// <summary>
     /// Determines which properties should be included or excluded during serialization.
