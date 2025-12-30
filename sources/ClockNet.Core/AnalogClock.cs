@@ -781,6 +781,17 @@ namespace DustInTheWind.ClockNet
             }
         }
 
+        public TemplateBase ExportTemplate()
+        {
+            Template template = new Template();
+            
+            template.Backgrounds.AddRange(Backgrounds);
+            template.RimMarkers.AddRange(RimMarkers);
+            template.Hands.AddRange(Hands);
+
+            return template;
+        }
+
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>

@@ -15,8 +15,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.TimeProviders;
 using DustInTheWind.ClockNet.Templates;
 
@@ -166,6 +168,21 @@ namespace DustInTheWind.ClockNet.Demo
             {
                 labelTimeProvider.Text = "<none>";
             }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+
+            TemplateBase template = analogClockDemo.ExportTemplate();
+            using (FileStream fileStream = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.Write))
+            {
+                TemplateSerialization serialization = new TemplateSerialization();
+                serialization.Serialize(template, fileStream);
+            }
+
+            MessageBox.Show("Clock template saved successfully.", "Save Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

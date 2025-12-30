@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using DustInTheWind.ClockNet.Core;
 using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Advanced;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;

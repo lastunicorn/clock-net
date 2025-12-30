@@ -91,6 +91,8 @@ namespace DustInTheWind.ClockNet.Demo
             this.rimMarkersEditor1 = new DustInTheWind.ClockNet.Demo.RimMarkersEditor();
             this.handsEditor1 = new DustInTheWind.ClockNet.Demo.HandsEditor();
             this.timeProvidersEditor1 = new DustInTheWind.ClockNet.Demo.TimeProvidersEditor();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanelProperties.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageMiscellaneous.SuspendLayout();
@@ -493,14 +495,36 @@ namespace DustInTheWind.ClockNet.Demo
             this.buttonExamples.UseVisualStyleBackColor = true;
             this.buttonExamples.Click += new System.EventHandler(this.buttonExamples_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.AutoSize = true;
+            this.buttonSave.Location = new System.Drawing.Point(109, 630);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 15;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "xml";
+            this.saveFileDialog1.Filter = "Clock Template Files (*.xml)|*.xml|All Files (*.*)|*.*";
+            this.saveFileDialog1.Title = "Save Clock Template";
+            // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 450F));
             this.tableLayoutPanel2.Controls.Add(this.buttonExamples, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanelProperties, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonSave, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanelProperties, 2, 0);
+            this.tableLayoutPanel2.SetRowSpan(this.tableLayoutPanelProperties, 2);
             this.tableLayoutPanel2.Controls.Add(this.analogClockDemo, 0, 0);
+            this.tableLayoutPanel2.SetColumnSpan(this.analogClockDemo, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 8);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -639,6 +663,8 @@ namespace DustInTheWind.ClockNet.Demo
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label labelTimeProvider;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

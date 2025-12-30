@@ -23,6 +23,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml;
+using DustInTheWind.ClockNet.Core;
 using DustInTheWind.ClockNet.Core.Shapes;
 
 namespace DustInTheWind.ClockNet
@@ -33,39 +34,20 @@ namespace DustInTheWind.ClockNet
     /// </summary>
     public class TemplateSerialization
     {
-        private readonly Dictionary<Guid, Type> shapeTypesByGuid;
-        private readonly Dictionary<Type, Guid> guidsByShapeType;
+        private const string BackgroundsElementName = "Backgrounds";
+        private const string RimMarkersElementName = "RimMarkers";
+        private const string HandsElementName = "Hands";
+
+        private readonly Dictionary<Guid, Type> shapeTypesByGuid = new Dictionary<Guid, Type>();
+        private readonly Dictionary<Type, Guid> guidsByShapeType = new Dictionary<Type, Guid>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateSerialization"/> class.
         /// Discovers all shape types with <see cref="ShapeAttribute"/> in the current assembly.
         /// </summary>
         public TemplateSerialization()
-            : this(typeof(IShape).Assembly)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TemplateSerialization"/> class.
-        /// Discovers all shape types with <see cref="ShapeAttribute"/> in the specified assemblies.
-        /// </summary>
-        /// <param name="assemblies">The assemblies to scan for shape types.</param>
-        public TemplateSerialization(params Assembly[] assemblies)
-        {
-            if (assemblies == null)
-                throw new ArgumentNullException(nameof(assemblies));
-
-            shapeTypesByGuid = new Dictionary<Guid, Type>();
-            guidsByShapeType = new Dictionary<Type, Guid>();
-
-            foreach (Assembly assembly in assemblies)
-                DiscoverShapeTypes(assembly);
-        }
-
-        private void DiscoverShapeTypes(Assembly assembly)
-        {
-            IEnumerable<Type> shapeTypes = assembly.GetTypes()
-                .Where(x => !x.IsAbstract && typeof(IShape).IsAssignableFrom(x));
+            IEnumerable<Type> shapeTypes = AppDomain.CurrentDomain.GetTypesImplementing<IShape>();
 
             foreach (Type type in shapeTypes)
             {
@@ -104,9 +86,9 @@ namespace DustInTheWind.ClockNet
                 writer.WriteStartDocument();
                 writer.WriteStartElement("ClockTemplate");
 
-                WriteShapeArray(writer, "BackgroundShapes", template.Backgrounds);
-                WriteShapeArray(writer, "AngularShapes", template.RimMarkers);
-                WriteShapeArray(writer, "HandShapes", template.Hands);
+                WriteShapeArray(writer, BackgroundsElementName, template.Backgrounds);
+                WriteShapeArray(writer, RimMarkersElementName, template.RimMarkers);
+                WriteShapeArray(writer, HandsElementName, template.Hands);
 
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
@@ -144,21 +126,21 @@ namespace DustInTheWind.ClockNet
 
             Template template = new Template();
 
-            XmlNode backgroundNode = doc.SelectSingleNode("/ClockTemplate/BackgroundShapes");
+            XmlNode backgroundNode = doc.SelectSingleNode("/ClockTemplate/" + BackgroundsElementName);
             if (backgroundNode != null)
             {
                 IBackground[] backgrounds = ReadShapes<IBackground>(backgroundNode);
                 template.Backgrounds.AddRange(backgrounds);
             }
 
-            XmlNode angularNode = doc.SelectSingleNode("/ClockTemplate/AngularShapes");
-            if (angularNode != null)
+            XmlNode rimMarkerNode = doc.SelectSingleNode("/ClockTemplate/" + RimMarkersElementName);
+            if (rimMarkerNode != null)
             {
-                IRimMarker[] rimMarkers = ReadShapes<IRimMarker>(angularNode);
+                IRimMarker[] rimMarkers = ReadShapes<IRimMarker>(rimMarkerNode);
                 template.RimMarkers.AddRange(rimMarkers);
             }
 
-            XmlNode handNode = doc.SelectSingleNode("/ClockTemplate/HandShapes");
+            XmlNode handNode = doc.SelectSingleNode("/ClockTemplate/" + HandsElementName);
             if (handNode != null)
             {
                 IHand[] hands = ReadShapes<IHand>(handNode);
@@ -241,7 +223,6 @@ namespace DustInTheWind.ClockNet
                     {
                         writer.WriteStartElement("Property");
                         writer.WriteAttributeString("Name", propertyInfo.Name);
-                        writer.WriteAttributeString("Type", propertyInfo.PropertyType.FullName);
                         writer.WriteString(serializedValue);
                         writer.WriteEndElement();
                     }
@@ -254,11 +235,17 @@ namespace DustInTheWind.ClockNet
             if (propertyInfo.PropertyType == typeof(EventHandler))
                 return true;
 
-            string[] skipPropertyNames = { "Changed", "Disposed" };
+            string[] skipPropertyNames =
+            {
+                "Changed",
+                "Disposed"
+            };
+
             if (skipPropertyNames.Contains(propertyInfo.Name))
                 return true;
 
             Type propertyType = propertyInfo.PropertyType;
+
             if (propertyType == typeof(Brush) ||
                 propertyType == typeof(Pen) ||
                 propertyType == typeof(Graphics) ||

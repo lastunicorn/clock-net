@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
-using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Default
 {
+    [Shape("6fd89cdf-88f0-4417-960c-c1c78c782d26")]
     public class Hours : StringRimMarker
     {
         public Hours()

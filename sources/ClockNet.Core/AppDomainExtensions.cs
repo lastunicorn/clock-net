@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace DustInTheWind.ClockNet.Demo
+namespace DustInTheWind.ClockNet.Core
 {
-    internal static class AssemblyExtensions
+    public static class AppDomainExtensions
     {
         public static IEnumerable<Type> GetTypesImplementing<T>(this AppDomain appDomain)
         {

@@ -48,6 +48,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AnalogClockDesigner.cs" />
+    <Compile Include="AppDomainExtensions.cs" />
     <Compile Include="DefaultTemplate.cs" />
     <Compile Include="Design\PointFConverter.cs" />
     <Compile Include="Design\RectangleFConverter.cs" />
