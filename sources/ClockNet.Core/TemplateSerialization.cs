@@ -16,15 +16,13 @@
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml;
 using DustInTheWind.ClockNet.Core;
 using DustInTheWind.ClockNet.Core.Shapes;
+using DustInTheWind.ClockNet.Core.Shapes.Serialization;
 
 namespace DustInTheWind.ClockNet
 {
@@ -196,118 +194,25 @@ namespace DustInTheWind.ClockNet
             writer.WriteStartElement("Shape");
             writer.WriteAttributeString("TypeId", shapeGuid.ToString());
 
-            WriteShapeProperties(writer, shape);
+            if (shape is ISerializable serializableShape)
+            {
+                WriteShapePropertiesFromSerializable(writer, serializableShape);
+            }
 
             writer.WriteEndElement();
         }
 
-        private void WriteShapeProperties(XmlWriter writer, IShape shape)
+        private void WriteShapePropertiesFromSerializable(XmlWriter writer, ISerializable serializableShape)
         {
-            Type shapeType = shape.GetType();
-            PropertyInfo[] propertyInfos = shapeType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            Dictionary<string, string> properties = serializableShape.Serialize();
 
-            foreach (PropertyInfo propertyInfo in propertyInfos)
+            foreach (KeyValuePair<string, string> kvp in properties)
             {
-                if (!propertyInfo.CanRead || !propertyInfo.CanWrite)
-                    continue;
-
-                if (ShouldSkipProperty(propertyInfo))
-                    continue;
-
-                object value = propertyInfo.GetValue(shape);
-
-                if (value != null)
-                {
-                    string serializedValue = ConvertToSerializableValue(value);
-                    if (serializedValue != null)
-                    {
-                        writer.WriteStartElement("Property");
-                        writer.WriteAttributeString("Name", propertyInfo.Name);
-                        writer.WriteString(serializedValue);
-                        writer.WriteEndElement();
-                    }
-                }
+                writer.WriteStartElement("Property");
+                writer.WriteAttributeString("Name", kvp.Key);
+                writer.WriteAttributeString("Value", kvp.Value);
+                writer.WriteEndElement();
             }
-        }
-
-        private bool ShouldSkipProperty(PropertyInfo propertyInfo)
-        {
-            if (propertyInfo.PropertyType == typeof(EventHandler))
-                return true;
-
-            string[] skipPropertyNames =
-            {
-                "Changed",
-                "Disposed"
-            };
-
-            if (skipPropertyNames.Contains(propertyInfo.Name))
-                return true;
-
-            Type propertyType = propertyInfo.PropertyType;
-
-            if (propertyType == typeof(Brush) ||
-                propertyType == typeof(Pen) ||
-                propertyType == typeof(Graphics) ||
-                propertyType == typeof(GraphicsPath))
-                return true;
-
-            return false;
-        }
-
-        private string ConvertToSerializableValue(object value)
-        {
-            if (value == null)
-                return null;
-
-            Type valueType = value.GetType();
-
-            if (valueType.IsPrimitive || valueType == typeof(string) || valueType == typeof(decimal))
-                return value.ToString();
-
-            if (valueType.IsEnum)
-                return value.ToString();
-
-            if (valueType == typeof(TimeSpan))
-                return ((TimeSpan)value).ToString();
-
-            if (valueType == typeof(Color))
-            {
-                Color color = (Color)value;
-                return color.IsNamedColor ? color.Name : color.ToArgb().ToString();
-            }
-
-            if (valueType == typeof(PointF))
-            {
-                PointF point = (PointF)value;
-                return string.Format("{0},{1}", point.X, point.Y);
-            }
-
-            if (valueType == typeof(SizeF))
-            {
-                SizeF size = (SizeF)value;
-                return string.Format("{0},{1}", size.Width, size.Height);
-            }
-
-            if (valueType == typeof(RectangleF))
-            {
-                RectangleF rect = (RectangleF)value;
-                return string.Format("{0},{1},{2},{3}", rect.X, rect.Y, rect.Width, rect.Height);
-            }
-
-            if (valueType == typeof(Font))
-            {
-                Font font = (Font)value;
-                return string.Format("{0},{1},{2}", font.FontFamily.Name, font.Size, font.Style);
-            }
-
-            if (valueType == typeof(PointF[]))
-            {
-                PointF[] points = (PointF[])value;
-                return string.Join(";", points.Select(p => string.Format("{0},{1}", p.X, p.Y)));
-            }
-
-            return value.ToString();
         }
 
         private T[] ReadShapes<T>(XmlNode parentNode) where T : IShape
@@ -344,14 +249,19 @@ namespace DustInTheWind.ClockNet
             }
 
             IShape shape = (IShape)Activator.CreateInstance(shapeType);
-            ReadShapeProperties(shape, shapeNode);
+
+            if (shape is ISerializable serializableShape)
+            {
+                Dictionary<string, string> properties = ReadPropertiesFromNode(shapeNode);
+                serializableShape.Deserialize(properties);
+            }
 
             return (T)shape;
         }
 
-        private void ReadShapeProperties(IShape shape, XmlNode shapeNode)
+        private Dictionary<string, string> ReadPropertiesFromNode(XmlNode shapeNode)
         {
-            Type shapeType = shape.GetType();
+            Dictionary<string, string> properties = new Dictionary<string, string>();
 
             foreach (XmlNode propertyNode in shapeNode.SelectNodes("Property"))
             {
@@ -359,117 +269,17 @@ namespace DustInTheWind.ClockNet
                 if (nameAttr == null)
                     continue;
 
-                string propertyName = nameAttr.Value;
-                string serializedValue = propertyNode.InnerText;
-
-                PropertyInfo propertyInfo = shapeType.GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
-                if (propertyInfo == null || !propertyInfo.CanWrite)
+                XmlAttribute valueAttr = propertyNode.Attributes["Value"];
+                if (valueAttr == null)
                     continue;
 
-                try
-                {
-                    object value = ConvertFromSerializedValue(serializedValue, propertyInfo.PropertyType);
-                    propertyInfo.SetValue(shape, value);
-                }
-                catch
-                {
-                    // Skip properties that fail to deserialize
-                }
-            }
-        }
+                string propertyName = nameAttr.Value;
+                string serializedValue = valueAttr.Value;
 
-        private object ConvertFromSerializedValue(string serializedValue, Type targetType)
-        {
-            if (serializedValue == null)
-                return null;
-
-            if (targetType == typeof(bool))
-                return bool.Parse(serializedValue);
-
-            if (targetType == typeof(int))
-                return int.Parse(serializedValue);
-
-            if (targetType == typeof(float))
-                return float.Parse(serializedValue);
-
-            if (targetType == typeof(double))
-                return double.Parse(serializedValue);
-
-            if (targetType == typeof(decimal))
-                return decimal.Parse(serializedValue);
-
-            if (targetType == typeof(string))
-                return serializedValue;
-
-            if (targetType.IsEnum)
-                return Enum.Parse(targetType, serializedValue);
-
-            if (targetType == typeof(TimeSpan))
-                return TimeSpan.Parse(serializedValue);
-
-            if (targetType == typeof(Color))
-            {
-                if (int.TryParse(serializedValue, out int argb))
-                    return Color.FromArgb(argb);
-
-                return Color.FromName(serializedValue);
+                properties[propertyName] = serializedValue;
             }
 
-            if (targetType == typeof(PointF))
-            {
-                string[] parts = serializedValue.Split(',');
-
-                float x = float.Parse(parts[0]);
-                float y = float.Parse(parts[1]);
-
-                return new PointF(x, y);
-            }
-
-            if (targetType == typeof(SizeF))
-            {
-                string[] parts = serializedValue.Split(',');
-
-                float width = float.Parse(parts[0]);
-                float height = float.Parse(parts[1]);
-
-                return new SizeF(width, height);
-            }
-
-            if (targetType == typeof(RectangleF))
-            {
-                string[] parts = serializedValue.Split(',');
-                return new RectangleF(
-                    float.Parse(parts[0]),
-                    float.Parse(parts[1]),
-                    float.Parse(parts[2]),
-                    float.Parse(parts[3]));
-            }
-
-            if (targetType == typeof(Font))
-            {
-                string[] parts = serializedValue.Split(',');
-                string fontFamily = parts[0];
-                float size = float.Parse(parts[1]);
-                FontStyle style = (FontStyle)Enum.Parse(typeof(FontStyle), parts[2]);
-                return new Font(fontFamily, size, style);
-            }
-
-            if (targetType == typeof(PointF[]))
-            {
-                if (string.IsNullOrEmpty(serializedValue))
-                    return new PointF[0];
-
-                string[] pointStrings = serializedValue.Split(';');
-                return pointStrings
-                    .Select(x =>
-                    {
-                        string[] parts = x.Split(',');
-                        return new PointF(float.Parse(parts[0]), float.Parse(parts[1]));
-                    })
-                    .ToArray();
-            }
-
-            return serializedValue;
+            return properties;
         }
     }
 }

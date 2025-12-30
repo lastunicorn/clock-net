@@ -15,15 +15,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using DustInTheWind.ClockNet.Core.Shapes.Serialization;
 
 namespace DustInTheWind.ClockNet.Core.Shapes
 {
     /// <summary>
     /// Provides common functionality for all the shapes.
     /// </summary>
-    public abstract class ShapeBase : IShape
+    public abstract class ShapeBase : IShape, ISerializable
     {
         private string name;
         private bool isLayoutValid;
@@ -203,6 +205,23 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         {
         }
 
+        /// <summary>
+        /// Serializes the properties of the shape into a dictionary of string key-value pairs.
+        /// </summary>
+        /// <returns>A dictionary containing the serialized property names and their values.</returns>
+        public virtual Dictionary<string, string> Serialize()
+        {
+            return ShapeSerializer.Default.SerializeProperties(this);
+        }
+
+        /// <summary>
+        /// Deserializes the shape properties from a dictionary of string key-value pairs.
+        /// </summary>
+        /// <param name="properties">A dictionary containing the property names and their serialized values.</param>
+        public virtual void Deserialize(Dictionary<string, string> properties)
+        {
+            ShapeSerializer.Default.DeserializeProperties(this, properties);
+        }
 
         #region IDisposable Members
 
@@ -222,8 +241,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected virtual void OnDisposed(EventArgs e)
         {
-            if (Disposed != null)
-                Disposed(this, e);
+            Disposed?.Invoke(this, e);
         }
 
         /// <summary>
@@ -247,7 +265,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         protected virtual void Dispose(bool disposing)
         {
             // Check to see if Dispose has already been called.
-            if (!this.disposed)
+            if (!disposed)
             {
                 // If disposing equals true, dispose all managed resources.
                 if (disposing)
