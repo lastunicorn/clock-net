@@ -74,7 +74,11 @@ namespace DustInTheWind.ClockNet.Demo
 
         private void analogClock_TimeProviderChanged(object sender, EventArgs e)
         {
-            comboBoxTimeProviders.SelectedItem = analogClock.TimeProvider.GetType();
+            if (analogClock.TimeProvider == null)
+                comboBoxTimeProviders.SelectedIndex = 0;
+            else
+                comboBoxTimeProviders.SelectedItem = analogClock.TimeProvider.GetType();
+
             propertyGridTimeProvider.SelectedObject = analogClock.TimeProvider;
         }
     }
