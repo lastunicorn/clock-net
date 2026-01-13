@@ -40,7 +40,7 @@ public abstract class HandBase : Shape, IHand
         set => SetValue(ComponentToDisplayProperty, value);
     }
 
-    protected double CalculateAngle()
+    protected double CalculateHandAngle()
     {
         double value = ComponentToDisplay switch
         {

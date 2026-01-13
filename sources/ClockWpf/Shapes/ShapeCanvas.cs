@@ -83,8 +83,8 @@ public class ShapeCanvas : Canvas
             return;
 
         double diameter = Math.Min(ActualWidth, ActualHeight);
-        double offsetX = (ActualWidth - diameter) / 2;
-        double offsetY = (ActualHeight - diameter) / 2;
+        double offsetX = ActualWidth / 2;
+        double offsetY = ActualHeight / 2;
 
         TranslateTransform translateTransform = new(offsetX, offsetY);
         drawingContext.WithTransform(translateTransform, () =>

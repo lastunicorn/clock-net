@@ -17,7 +17,7 @@ public class FlatBackground : Shape
             ? new(Stroke, StrokeThickness)
             : null;
 
-        Point center = new(diameter / 2, diameter / 2);
+        Point center = new(0, 0);
         double radiusX = diameter / 2 - StrokeThickness / 2;
         double radiusY = diameter / 2 - StrokeThickness / 2;
 

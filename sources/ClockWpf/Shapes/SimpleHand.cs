@@ -31,40 +31,36 @@ public class SimpleHand : HandBase
 
     public override void Render(DrawingContext drawingContext, double diameter)
     {
-        double angleDegrees = CalculateAngle();
+        double angleDegrees = CalculateHandAngle();
 
-        Point center = new(diameter / 2, diameter / 2);
-        RotateTransform rotateTransform = new(angleDegrees, center.X, center.Y);
-        drawingContext.PushTransform(rotateTransform);
+        RotateTransform rotateTransform = new(angleDegrees, 0, 0);
+        drawingContext.WithTransform(rotateTransform, () =>
+        {
+            double radius = diameter / 2;
 
-        DrawHandLine(drawingContext, diameter, angleDegrees, center);
-        DrawPin(drawingContext, diameter, center);
-
-        drawingContext.Pop();
+            DrawHandLine(drawingContext, radius);
+            DrawPin(drawingContext, radius);
+        });
     }
 
-    private void DrawHandLine(DrawingContext drawingContext, double diameter, double angleDegrees, Point center)
+    private void DrawHandLine(DrawingContext drawingContext, double radius)
     {
         Pen pen = new(Stroke, StrokeThickness);
 
-        double radius = diameter / 2;
         double handLength = radius * (Length / 100.0);
         double tailLength = radius * (TailLength / 100.0);
 
-        Point startPoint = new(center.X, center.Y + tailLength);
-        Point endPoint = new(center.X, center.Y - handLength);
+        Point startPoint = new(0, tailLength);
+        Point endPoint = new(0, -handLength);
 
         drawingContext.DrawLine(pen, startPoint, endPoint);
     }
 
-    private void DrawPin(DrawingContext drawingContext, double diameter, Point center)
+    private void DrawPin(DrawingContext drawingContext, double radius)
     {
-        double radiusX = diameter / 2;
-        double radiusY = diameter / 2;
+        double pinRadius = radius * (PinDiameter / 100.0) / 2;
 
-        double pinRadiusX = radiusX * (PinDiameter / 100.0) / 2;
-        double pinRadiusY = radiusY * (PinDiameter / 100.0) / 2;
-
-        drawingContext.DrawEllipse(Stroke, null, center, pinRadiusX, pinRadiusY);
+        Point center = new(0, 0);
+        drawingContext.DrawEllipse(Stroke, null, center, pinRadius, pinRadius);
     }
 }
