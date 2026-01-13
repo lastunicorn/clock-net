@@ -14,7 +14,7 @@ public class ShapeCanvas : Canvas
 #if PERFORMANCE_INFO
 
     // >> Needed to display performance info.
-    private PerformanceInfo performanceInfo = new PerformanceInfo();
+    private readonly PerformanceInfo performanceInfo = new();
 
 #endif
 
@@ -93,11 +93,11 @@ public class ShapeCanvas : Canvas
             {
                 ScaleTransform scaleTransform = CreateScaleTransform(diameter);
                 drawingContext.WithTransform(scaleTransform,
-                    () => DisplayShapes(drawingContext, diameter));
+                    () => RenderShapes(drawingContext, diameter));
             }
             else
             {
-                DisplayShapes(drawingContext, diameter);
+                RenderShapes(drawingContext, diameter);
             }
         });
 
@@ -131,9 +131,10 @@ public class ShapeCanvas : Canvas
         return scaleTransform;
     }
 
-    private void DisplayShapes(DrawingContext drawingContext, double diameter)
+    private void RenderShapes(DrawingContext drawingContext, double diameter)
     {
-        IEnumerable<Shape> visibleShapes = Shapes.Where(x => x.IsVisible);
+        IEnumerable<Shape> visibleShapes = Shapes
+            .Where(x => x != null && x.IsVisible);
 
         foreach (Shape shape in visibleShapes)
             shape.Render(drawingContext, diameter);

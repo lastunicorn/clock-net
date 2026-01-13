@@ -99,11 +99,10 @@ public class AnalogClock : Control
         if (Shapes == null)
             return;
 
-        foreach (Shape shape in Shapes)
-        {
-            if (shape is IHand hand)
-                hand.Time = time;
-        }
+        IEnumerable<IHand> hands = Shapes.OfType<IHand>();
+
+        foreach (IHand hand in hands)
+            hand.Time = time;
 
         shapeCanvas?.InvalidateVisual();
     }
