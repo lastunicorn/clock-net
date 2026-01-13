@@ -29,7 +29,7 @@ public class SimpleHand : HandBase
         set => SetValue(PinDiameterProperty, value);
     }
 
-    public override void Render(DrawingContext drawingContext, double diameter)
+    public override void DoRender(DrawingContext drawingContext, double diameter)
     {
         double angleDegrees = CalculateHandAngle();
 

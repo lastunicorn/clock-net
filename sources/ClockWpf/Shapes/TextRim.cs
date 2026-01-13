@@ -1,0 +1,104 @@
+﻿using System.Globalization;
+using System.Windows;
+using System.Windows.Media;
+
+namespace DustInTheWind.ClockWpf.Shapes;
+
+public class TextRim : RimBase
+{
+    public static readonly DependencyProperty TextsProperty = DependencyProperty.Register(
+        nameof(Texts),
+        typeof(string[]),
+        typeof(TextRim),
+        new FrameworkPropertyMetadata(null));
+
+    public string[] Texts
+    {
+        get => (string[])GetValue(TextsProperty);
+        set => SetValue(TextsProperty, value);
+    }
+
+    public static readonly DependencyProperty FontFamilyProperty = DependencyProperty.Register(
+        nameof(FontFamily),
+        typeof(FontFamily),
+        typeof(TextRim),
+        new FrameworkPropertyMetadata(new FontFamily("Arial")));
+
+    public FontFamily FontFamily
+    {
+        get => (FontFamily)GetValue(FontFamilyProperty);
+        set => SetValue(FontFamilyProperty, value);
+    }
+
+    public static readonly DependencyProperty FontSizeProperty = DependencyProperty.Register(
+        nameof(FontSize),
+        typeof(double),
+        typeof(TextRim),
+        new FrameworkPropertyMetadata(12.0));
+
+    public double FontSize
+    {
+        get => (double)GetValue(FontSizeProperty);
+        set => SetValue(FontSizeProperty, value);
+    }
+
+    public static readonly DependencyProperty FontWeightProperty = DependencyProperty.Register(
+        nameof(FontWeight),
+        typeof(FontWeight),
+        typeof(TextRim),
+        new FrameworkPropertyMetadata(FontWeights.Normal));
+
+    public FontWeight FontWeight
+    {
+        get => (FontWeight)GetValue(FontWeightProperty);
+        set => SetValue(FontWeightProperty, value);
+    }
+
+    private double textRadius;
+    private Typeface typeface;
+
+    protected override bool OnRendering(double diameter)
+    {
+        string[] texts = Texts;
+
+        if (texts == null || texts.Length == 0)
+            return false;
+
+        double radius = diameter / 2;
+        textRadius = radius - DistanceFromEdge;
+        typeface = new(FontFamily, FontStyles.Normal, FontWeight, FontStretches.Normal);
+
+        return base.OnRendering(diameter);
+    }
+
+    protected override void RenderItem(DrawingContext drawingContext, int index)
+    {
+        string[] texts = Texts;
+
+        if (texts == null)
+            return;
+
+        if (index >= texts.Length)
+            return;
+
+        string text = texts[index];
+
+        if (string.IsNullOrEmpty(text))
+            return;
+
+        FormattedText formattedText = new(
+            text,
+            CultureInfo.CurrentCulture,
+            FlowDirection.LeftToRight,
+            typeface,
+            FontSize,
+            Fill,
+            1.0);
+
+        double textX = -formattedText.Width / 2;
+        double textY = -textRadius + (formattedText.Height / 2);
+
+        Point textPosition = new(textX, textY);
+        drawingContext.DrawText(formattedText, textPosition);
+    }
+}
