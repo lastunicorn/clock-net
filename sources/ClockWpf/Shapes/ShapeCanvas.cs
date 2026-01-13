@@ -24,22 +24,10 @@ public class ShapeCanvas : Canvas
         typeof(ShapeCanvas),
         new PropertyMetadata(null, OnShapesChanged));
 
-    public static readonly DependencyProperty KeepProportionsProperty = DependencyProperty.Register(
-        nameof(KeepProportions),
-        typeof(bool),
-        typeof(ShapeCanvas),
-        new PropertyMetadata(false, OnKeepProportionsChanged));
-
     public ObservableCollection<Shape> Shapes
     {
         get => (ObservableCollection<Shape>)GetValue(ShapesProperty);
         set => SetValue(ShapesProperty, value);
-    }
-
-    public bool KeepProportions
-    {
-        get => (bool)GetValue(KeepProportionsProperty);
-        set => SetValue(KeepProportionsProperty, value);
     }
 
     private static void OnShapesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -62,6 +50,18 @@ public class ShapeCanvas : Canvas
 
             canvas.InvalidateVisual();
         }
+    }
+
+    public static readonly DependencyProperty KeepProportionsProperty = DependencyProperty.Register(
+        nameof(KeepProportions),
+        typeof(bool),
+        typeof(ShapeCanvas),
+        new PropertyMetadata(false, OnKeepProportionsChanged));
+
+    public bool KeepProportions
+    {
+        get => (bool)GetValue(KeepProportionsProperty);
+        set => SetValue(KeepProportionsProperty, value);
     }
 
     private static void OnKeepProportionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

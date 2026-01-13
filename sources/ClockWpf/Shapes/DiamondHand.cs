@@ -3,27 +3,15 @@ using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
 
-public class DiamondHand : Shape
+public class DiamondHand : HandBase
 {
-    public static readonly DependencyProperty LengthProperty = DependencyProperty.Register(
-        nameof(Length),
-        typeof(double),
-        typeof(DiamondHand),
-        new FrameworkPropertyMetadata(95.0));
-
-    public double Length
-    {
-        get => (double)GetValue(LengthProperty);
-        set => SetValue(LengthProperty, value);
-    }
-
     public static readonly DependencyProperty WidthProperty = DependencyProperty.Register(
         nameof(Width),
         typeof(double),
         typeof(DiamondHand),
         new FrameworkPropertyMetadata(5.0));
 
-    public double Width
+    public new double Width
     {
         get => (double)GetValue(WidthProperty);
         set => SetValue(WidthProperty, value);
@@ -41,59 +29,9 @@ public class DiamondHand : Shape
         set => SetValue(TailLengthProperty, value);
     }
 
-    public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(
-        nameof(Time),
-        typeof(TimeSpan),
-        typeof(DiamondHand),
-        new FrameworkPropertyMetadata(TimeSpan.Zero));
-
-    public TimeSpan Time
-    {
-        get => (TimeSpan)GetValue(TimeProperty);
-        set => SetValue(TimeProperty, value);
-    }
-
-    public static readonly DependencyProperty FillProperty = DependencyProperty.Register(
-        nameof(Fill),
-        typeof(Brush),
-        typeof(DiamondHand),
-        new FrameworkPropertyMetadata(Brushes.Black));
-
-    public Brush Fill
-    {
-        get => (Brush)GetValue(FillProperty);
-        set => SetValue(FillProperty, value);
-    }
-
-    public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register(
-        nameof(Stroke),
-        typeof(Brush),
-        typeof(DiamondHand),
-        new FrameworkPropertyMetadata(Brushes.Black));
-
-    public Brush Stroke
-    {
-        get => (Brush)GetValue(StrokeProperty);
-        set => SetValue(StrokeProperty, value);
-    }
-
-    public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register(
-        nameof(StrokeThickness),
-        typeof(double),
-        typeof(DiamondHand),
-        new FrameworkPropertyMetadata(1.0));
-
-    public double StrokeThickness
-    {
-        get => (double)GetValue(StrokeThicknessProperty);
-        set => SetValue(StrokeThicknessProperty, value);
-    }
-
     public override void Render(DrawingContext drawingContext, Rect bounds)
     {
-        double totalSeconds = Time.Seconds;
-
-        double angleDegrees = (totalSeconds / 60.0) * 360.0;
+        double angleDegrees = CalculateAngle();
         double radiusAtAngle = MathUtils.CalculateRadius(bounds, angleDegrees - 90.0);
         double handLength = radiusAtAngle * (Length / 100.0);
         double tailLength = radiusAtAngle * (TailLength / 100.0);
