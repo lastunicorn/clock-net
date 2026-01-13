@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockNet.Compass", "ClockNe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockNet.Core", "ClockNet.Core\ClockNet.Core.csproj", "{63682B7F-4E6A-4C57-AB59-FDB55654270B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockWpf", "ClockWpf\ClockWpf.csproj", "{88BE96DF-E610-44B4-90DA-A8875B51F53C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockWpf.Demo", "ClockWpf.Demo\ClockWpf.Demo.csproj", "{146A6ACB-FEDB-4CDE-932B-9932F11820BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{63682B7F-4E6A-4C57-AB59-FDB55654270B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63682B7F-4E6A-4C57-AB59-FDB55654270B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63682B7F-4E6A-4C57-AB59-FDB55654270B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88BE96DF-E610-44B4-90DA-A8875B51F53C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BE96DF-E610-44B4-90DA-A8875B51F53C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BE96DF-E610-44B4-90DA-A8875B51F53C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BE96DF-E610-44B4-90DA-A8875B51F53C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{146A6ACB-FEDB-4CDE-932B-9932F11820BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{146A6ACB-FEDB-4CDE-932B-9932F11820BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{146A6ACB-FEDB-4CDE-932B-9932F11820BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{146A6ACB-FEDB-4CDE-932B-9932F11820BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
