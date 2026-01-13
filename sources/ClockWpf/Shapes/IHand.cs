@@ -2,7 +2,9 @@ namespace DustInTheWind.ClockWpf.Shapes;
 
 public interface IHand
 {
-    TimeSpan Time { get; set; }
+    double Length { get; set; }
 
     TimeComponent ComponentToDisplay { get; set; }
+
+    TimeSpan Time { get; set; }
 }

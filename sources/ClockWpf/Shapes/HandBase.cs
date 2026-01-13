@@ -1,5 +1,4 @@
 using System.Windows;
-using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
 
@@ -27,42 +26,6 @@ public abstract class HandBase : Shape, IHand
     {
         get => (TimeSpan)GetValue(TimeProperty);
         set => SetValue(TimeProperty, value);
-    }
-
-    public static readonly DependencyProperty FillProperty = DependencyProperty.Register(
-        nameof(Fill),
-        typeof(Brush),
-        typeof(HandBase),
-        new FrameworkPropertyMetadata(Brushes.Black));
-
-    public Brush Fill
-    {
-        get => (Brush)GetValue(FillProperty);
-        set => SetValue(FillProperty, value);
-    }
-
-    public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register(
-        nameof(Stroke),
-        typeof(Brush),
-        typeof(HandBase),
-        new FrameworkPropertyMetadata(Brushes.Black));
-
-    public Brush Stroke
-    {
-        get => (Brush)GetValue(StrokeProperty);
-        set => SetValue(StrokeProperty, value);
-    }
-
-    public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register(
-        nameof(StrokeThickness),
-        typeof(double),
-        typeof(HandBase),
-        new FrameworkPropertyMetadata(1.0));
-
-    public double StrokeThickness
-    {
-        get => (double)GetValue(StrokeThicknessProperty);
-        set => SetValue(StrokeThicknessProperty, value);
     }
 
     public static readonly DependencyProperty ComponentToDisplayProperty = DependencyProperty.Register(

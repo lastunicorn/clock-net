@@ -14,6 +14,8 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
+        analogClock1.KeepProportions = false;
+
         analogClock1.Shapes.Add(new SimpleBackground());
 
         analogClock1.Shapes.Add(new DiamondHand
@@ -34,7 +36,6 @@ public partial class MainWindow : Window
             TailLength = 8,
             StrokeThickness = 0,
             Fill = Brushes.LimeGreen
-
         });
 
         analogClock1.Shapes.Add(new SimpleHand

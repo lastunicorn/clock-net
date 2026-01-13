@@ -5,40 +5,10 @@ namespace DustInTheWind.ClockWpf.Shapes;
 
 public class SimpleBackground : Shape
 {
-    public static readonly DependencyProperty FillProperty = DependencyProperty.Register(
-        nameof(Fill),
-        typeof(Brush),
-        typeof(SimpleBackground),
-        new FrameworkPropertyMetadata(Brushes.WhiteSmoke));
-
-    public Brush Fill
+    static SimpleBackground()
     {
-        get => (Brush)GetValue(FillProperty);
-        set => SetValue(FillProperty, value);
-    }
-
-    public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register(
-        nameof(Stroke),
-        typeof(Brush),
-        typeof(SimpleBackground),
-        new FrameworkPropertyMetadata(Brushes.Black));
-
-    public Brush Stroke
-    {
-        get => (Brush)GetValue(StrokeProperty);
-        set => SetValue(StrokeProperty, value);
-    }
-
-    public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register(
-        nameof(StrokeThickness),
-        typeof(double),
-        typeof(SimpleBackground),
-        new FrameworkPropertyMetadata(0.0));
-
-    public double StrokeThickness
-    {
-        get => (double)GetValue(StrokeThicknessProperty);
-        set => SetValue(StrokeThicknessProperty, value);
+        FillProperty.OverrideMetadata(typeof(SimpleBackground), new FrameworkPropertyMetadata(Brushes.WhiteSmoke));
+        StrokeThicknessProperty.OverrideMetadata(typeof(SimpleBackground), new FrameworkPropertyMetadata(0.0));
     }
 
     public override void Render(DrawingContext drawingContext, Rect bounds)
