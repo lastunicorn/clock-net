@@ -7,7 +7,12 @@
 		<UseWPF>true</UseWPF>
 		<AssemblyName>DustInTheWind.$(MSBuildProjectName)</AssemblyName>
 		<RootNamespace>DustInTheWind.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+		<ApplicationIcon>icon.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="icon.ico" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\ClockWpf\ClockWpf.csproj" />
