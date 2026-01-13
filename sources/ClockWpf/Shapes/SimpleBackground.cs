@@ -9,7 +9,7 @@ public class SimpleBackground : Shape
         nameof(Fill),
         typeof(Brush),
         typeof(SimpleBackground),
-        new FrameworkPropertyMetadata(Brushes.White));
+        new FrameworkPropertyMetadata(Brushes.WhiteSmoke));
 
     public Brush Fill
     {
@@ -33,7 +33,7 @@ public class SimpleBackground : Shape
         nameof(StrokeThickness),
         typeof(double),
         typeof(SimpleBackground),
-        new FrameworkPropertyMetadata(1.0));
+        new FrameworkPropertyMetadata(0.0));
 
     public double StrokeThickness
     {
@@ -43,11 +43,13 @@ public class SimpleBackground : Shape
 
     public override void Render(DrawingContext drawingContext, Rect bounds)
     {
-        Pen pen = new(Stroke, StrokeThickness);
+        Pen pen = StrokeThickness > 0
+            ? new(Stroke, StrokeThickness)
+            : null;
 
         Point center = new(bounds.Width / 2, bounds.Height / 2);
-        double radiusX = bounds.Width / 2;
-        double radiusY = bounds.Height / 2;
+        double radiusX = bounds.Width / 2 - StrokeThickness / 2;
+        double radiusY = bounds.Height / 2 - StrokeThickness / 2;
 
         drawingContext.DrawEllipse(Fill, pen, center, radiusX, radiusY);
     }

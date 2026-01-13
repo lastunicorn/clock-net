@@ -6,23 +6,19 @@
 
     <Style TargetType="{x:Type local:AnalogClock}">
         <Setter Property="Background" Value="Transparent"/>
-        
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:AnalogClock}">
-                    <Grid Background="{TemplateBinding Background}">
-                        
-                        <Ellipse
-                            Stroke="Black"
-                            Fill="White"
-                            StrokeThickness="2" />
-                        
+                    <Border Background="{TemplateBinding Background}">
+
                         <shapes:ShapeCanvas
                             Shapes="{TemplateBinding Shapes}"
+                            KeepProportions="{TemplateBinding KeepProportions}"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"/>
-                        
-                    </Grid>
+
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -16,10 +16,22 @@ public class ShapeCanvas : Canvas
         typeof(ShapeCanvas),
         new PropertyMetadata(null, OnShapesChanged));
 
+    public static readonly DependencyProperty KeepProportionsProperty = DependencyProperty.Register(
+        nameof(KeepProportions),
+        typeof(bool),
+        typeof(ShapeCanvas),
+        new PropertyMetadata(false, OnKeepProportionsChanged));
+
     public ObservableCollection<Shape> Shapes
     {
         get => (ObservableCollection<Shape>)GetValue(ShapesProperty);
         set => SetValue(ShapesProperty, value);
+    }
+
+    public bool KeepProportions
+    {
+        get => (bool)GetValue(KeepProportionsProperty);
+        set => SetValue(KeepProportionsProperty, value);
     }
 
     private static void OnShapesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -44,6 +56,12 @@ public class ShapeCanvas : Canvas
         }
     }
 
+    private static void OnKeepProportionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is ShapeCanvas canvas)
+            canvas.InvalidateVisual();
+    }
+
     protected override void OnRender(DrawingContext drawingContext)
     {
         base.OnRender(drawingContext);
@@ -51,7 +69,27 @@ public class ShapeCanvas : Canvas
         if (Shapes == null)
             return;
 
-        Rect bounds = new(0, 0, ActualWidth, ActualHeight);
+        if (KeepProportions)
+        {
+            double squareSize = Math.Min(ActualWidth, ActualHeight);
+            double offsetX = (ActualWidth - squareSize) / 2;
+            double offsetY = (ActualHeight - squareSize) / 2;
+
+            Rect squareBounds = new(0, 0, squareSize, squareSize);
+
+            drawingContext.PushTransform(new TranslateTransform(offsetX, offsetY));
+            DisplayShapes(drawingContext, squareBounds);
+            drawingContext.Pop();
+        }
+        else
+        {
+            Rect bounds = new(0, 0, ActualWidth, ActualHeight);
+            DisplayShapes(drawingContext, bounds);
+        }
+    }
+
+    private void DisplayShapes(DrawingContext drawingContext, Rect bounds)
+    {
         IEnumerable<Shape> visibleShapes = Shapes.Where(x => x.IsVisible);
 
         foreach (Shape shape in visibleShapes)

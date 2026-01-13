@@ -13,9 +13,9 @@
     Width="800">
 
     <Grid>
-        <clockWpf:AnalogClock x:Name="analogClock1">
-            
-        </clockWpf:AnalogClock>
+        <clockWpf:AnalogClock
+            x:Name="analogClock1"
+            Background="CornflowerBlue" />
     </Grid>
 
 </Window>
