@@ -53,5 +53,5 @@ public abstract class Shape : Visual
         set => SetValue(StrokeThicknessProperty, value);
     }
 
-    public abstract void Render(DrawingContext drawingContext, Rect bounds);
+    public abstract void Render(DrawingContext drawingContext, double diameter);
 }

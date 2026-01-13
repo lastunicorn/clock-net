@@ -14,7 +14,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        analogClock1.KeepProportions = false;
+        analogClock1.KeepProportions = true;
 
         analogClock1.Shapes.Add(new SimpleBackground());
 

@@ -10,6 +10,8 @@ public class AnalogClock : Control
 {
     private ShapeCanvas shapeCanvas;
 
+    #region Shapes DependencyProperty
+
     public static readonly DependencyProperty ShapesProperty = DependencyProperty.Register(
         nameof(Shapes),
         typeof(ObservableCollection<Shape>),
@@ -22,17 +24,33 @@ public class AnalogClock : Control
         set => SetValue(ShapesProperty, value);
     }
 
+    #endregion
+
+    #region KeepProportions DependencyProperty
+
     public static readonly DependencyProperty KeepProportionsProperty = DependencyProperty.Register(
         nameof(KeepProportions),
         typeof(bool),
         typeof(AnalogClock),
-        new PropertyMetadata(true));
+        new PropertyMetadata(true, OnKeepProportionsChanged));
 
     public bool KeepProportions
     {
         get => (bool)GetValue(KeepProportionsProperty);
         set => SetValue(KeepProportionsProperty, value);
     }
+
+    private static void OnKeepProportionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not AnalogClock analogClock)
+            return;
+
+        analogClock.shapeCanvas?.InvalidateVisual();
+    }
+
+    #endregion
+
+    #region TimeProvider DependencyProperty
 
     public static readonly DependencyProperty TimeProviderProperty = DependencyProperty.Register(
         nameof(TimeProvider),
@@ -44,11 +62,6 @@ public class AnalogClock : Control
     {
         get => (ITimeProvider)GetValue(TimeProviderProperty);
         set => SetValue(TimeProviderProperty, value);
-    }
-
-    static AnalogClock()
-    {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(AnalogClock), new FrameworkPropertyMetadata(typeof(AnalogClock)));
     }
 
     private static void OnTimeProviderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -72,6 +85,13 @@ public class AnalogClock : Control
         {
             UpdateHandsTime(e.Time);
         });
+    }
+
+    #endregion
+
+    static AnalogClock()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(AnalogClock), new FrameworkPropertyMetadata(typeof(AnalogClock)));
     }
 
     private void UpdateHandsTime(TimeSpan time)

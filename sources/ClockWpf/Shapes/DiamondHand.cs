@@ -29,21 +29,22 @@ public class DiamondHand : HandBase
         set => SetValue(TailLengthProperty, value);
     }
 
-    public override void Render(DrawingContext drawingContext, Rect bounds)
+    public override void Render(DrawingContext drawingContext, double diameter)
     {
         double angleDegrees = CalculateAngle();
-        double radiusAtAngle = MathUtils.CalculateRadius(bounds, angleDegrees - 90.0);
-        double handLength = radiusAtAngle * (Length / 100.0);
-        double tailLength = radiusAtAngle * (TailLength / 100.0);
-        double halfWidth = radiusAtAngle * (Width / 100.0) / 2.0;
+        Point center = new(diameter / 2, diameter / 2);
 
-        Point center = new(bounds.Width / 2, bounds.Height / 2);
         RotateTransform rotateTransform = new(angleDegrees, center.X, center.Y);
         drawingContext.PushTransform(rotateTransform);
 
         Pen pen = StrokeThickness > 0 && Stroke != null
             ? new Pen(Stroke, StrokeThickness)
             : null;
+
+        double radius = diameter / 2;
+        double handLength = radius * (Length / 100.0);
+        double tailLength = radius * (TailLength / 100.0);
+        double halfWidth = radius * (Width / 100.0) / 2.0;
 
         PathFigure diamondFigure = new()
         {

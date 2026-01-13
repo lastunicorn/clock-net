@@ -29,27 +29,27 @@ public class SimpleHand : HandBase
         set => SetValue(PinDiameterProperty, value);
     }
 
-    public override void Render(DrawingContext drawingContext, Rect bounds)
+    public override void Render(DrawingContext drawingContext, double diameter)
     {
         double angleDegrees = CalculateAngle();
 
-        Point center = new(bounds.Width / 2, bounds.Height / 2);
+        Point center = new(diameter / 2, diameter / 2);
         RotateTransform rotateTransform = new(angleDegrees, center.X, center.Y);
         drawingContext.PushTransform(rotateTransform);
 
-        DrawHandLine(drawingContext, bounds, angleDegrees, center);
-        DrawPin(drawingContext, bounds, center);
+        DrawHandLine(drawingContext, diameter, angleDegrees, center);
+        DrawPin(drawingContext, diameter, center);
 
         drawingContext.Pop();
     }
 
-    private void DrawHandLine(DrawingContext drawingContext, Rect bounds, double angleDegrees, Point center)
+    private void DrawHandLine(DrawingContext drawingContext, double diameter, double angleDegrees, Point center)
     {
         Pen pen = new(Stroke, StrokeThickness);
 
-        double radiusAtAngle = MathUtils.CalculateRadius(bounds, angleDegrees - 90.0);
-        double handLength = radiusAtAngle * (Length / 100.0);
-        double tailLength = radiusAtAngle * (TailLength / 100.0);
+        double radius = diameter / 2;
+        double handLength = radius * (Length / 100.0);
+        double tailLength = radius * (TailLength / 100.0);
 
         Point startPoint = new(center.X, center.Y + tailLength);
         Point endPoint = new(center.X, center.Y - handLength);
@@ -57,10 +57,10 @@ public class SimpleHand : HandBase
         drawingContext.DrawLine(pen, startPoint, endPoint);
     }
 
-    private void DrawPin(DrawingContext drawingContext, Rect bounds, Point center)
+    private void DrawPin(DrawingContext drawingContext, double diameter, Point center)
     {
-        double radiusX = bounds.Width / 2;
-        double radiusY = bounds.Height / 2;
+        double radiusX = diameter / 2;
+        double radiusY = diameter / 2;
 
         double pinRadiusX = radiusX * (PinDiameter / 100.0) / 2;
         double pinRadiusY = radiusY * (PinDiameter / 100.0) / 2;

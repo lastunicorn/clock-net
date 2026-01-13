@@ -13,8 +13,8 @@ public class ShapeCanvas : Canvas
 
 #if PERFORMANCE_INFO
 
-        // >> Needed to display performance info.
-        private PerformanceInfo performanceInfo = new PerformanceInfo();
+    // >> Needed to display performance info.
+    private PerformanceInfo performanceInfo = new PerformanceInfo();
 
 #endif
 
@@ -74,7 +74,7 @@ public class ShapeCanvas : Canvas
     {
 #if PERFORMANCE_INFO
 
-            performanceInfo.Start();
+        performanceInfo.Start();
 #endif
 
         base.OnRender(drawingContext);
@@ -82,48 +82,60 @@ public class ShapeCanvas : Canvas
         if (Shapes == null)
             return;
 
-        if (KeepProportions)
-        {
-            double squareSize = Math.Min(ActualWidth, ActualHeight);
-            double offsetX = (ActualWidth - squareSize) / 2;
-            double offsetY = (ActualHeight - squareSize) / 2;
+        double diameter = Math.Min(ActualWidth, ActualHeight);
+        double offsetX = (ActualWidth - diameter) / 2;
+        double offsetY = (ActualHeight - diameter) / 2;
 
-            Rect squareBounds = new(0, 0, squareSize, squareSize);
-
-            drawingContext.PushTransform(new TranslateTransform(offsetX, offsetY));
-            DisplayShapes(drawingContext, squareBounds);
-            drawingContext.Pop();
-        }
-        else
+        TranslateTransform translateTransform = new(offsetX, offsetY);
+        drawingContext.WithTransform(translateTransform, () =>
         {
-            Rect bounds = new(0, 0, ActualWidth, ActualHeight);
-            DisplayShapes(drawingContext, bounds);
-        }
+            if (!KeepProportions)
+            {
+                ScaleTransform scaleTransform = CreateScaleTransform(diameter);
+                drawingContext.WithTransform(scaleTransform,
+                    () => DisplayShapes(drawingContext, diameter));
+            }
+            else
+            {
+                DisplayShapes(drawingContext, diameter);
+            }
+        });
 
 #if PERFORMANCE_INFO
 
-            performanceInfo.Stop();
+        performanceInfo.Stop();
 
-            string performanceText = performanceInfo.ToString();
-            FormattedText formattedText = new(
-                performanceText,
-                CultureInfo.CurrentCulture,
-                FlowDirection.LeftToRight,
-                new Typeface("Arial"),
-                12,
-                Brushes.Black,
-                1.0);
+        string performanceText = performanceInfo.ToString();
+        FormattedText formattedText = new(
+            performanceText,
+            CultureInfo.CurrentCulture,
+            FlowDirection.LeftToRight,
+            new Typeface("Arial"),
+            12,
+            Brushes.Black,
+            1.0);
 
-            drawingContext.DrawText(formattedText, new Point(5, 5));
+        drawingContext.DrawText(formattedText, new Point(5, 5));
 
 #endif
     }
 
-    private void DisplayShapes(DrawingContext drawingContext, Rect bounds)
+    private ScaleTransform CreateScaleTransform(double diameter)
+    {
+        double scaleX = ActualWidth / diameter;
+        double scaleY = ActualHeight / diameter;
+        double centerX = diameter / 2;
+        double centerY = diameter / 2;
+
+        ScaleTransform scaleTransform = new(scaleX, scaleY, centerX, centerY);
+        return scaleTransform;
+    }
+
+    private void DisplayShapes(DrawingContext drawingContext, double diameter)
     {
         IEnumerable<Shape> visibleShapes = Shapes.Where(x => x.IsVisible);
 
         foreach (Shape shape in visibleShapes)
-            shape.Render(drawingContext, bounds);
+            shape.Render(drawingContext, diameter);
     }
 }
