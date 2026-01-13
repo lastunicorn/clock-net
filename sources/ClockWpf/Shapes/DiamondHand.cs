@@ -11,7 +11,7 @@ public class DiamondHand : HandBase
         typeof(DiamondHand),
         new FrameworkPropertyMetadata(5.0));
 
-    public new double Width
+    public double Width
     {
         get => (double)GetValue(WidthProperty);
         set => SetValue(WidthProperty, value);
@@ -35,32 +35,31 @@ public class DiamondHand : HandBase
         Point center = new(diameter / 2, diameter / 2);
 
         RotateTransform rotateTransform = new(angleDegrees, center.X, center.Y);
-        drawingContext.PushTransform(rotateTransform);
-
-        Pen pen = StrokeThickness > 0 && Stroke != null
-            ? new Pen(Stroke, StrokeThickness)
-            : null;
-
-        double radius = diameter / 2;
-        double handLength = radius * (Length / 100.0);
-        double tailLength = radius * (TailLength / 100.0);
-        double halfWidth = radius * (Width / 100.0) / 2.0;
-
-        PathFigure diamondFigure = new()
+        drawingContext.WithTransform(rotateTransform, () =>
         {
-            StartPoint = new Point(center.X, center.Y + tailLength),
-            IsClosed = true
-        };
+            Pen pen = StrokeThickness > 0 && Stroke != null
+                ? new Pen(Stroke, StrokeThickness)
+                : null;
 
-        diamondFigure.Segments.Add(new LineSegment(new Point(center.X - halfWidth, center.Y), true));
-        diamondFigure.Segments.Add(new LineSegment(new Point(center.X, center.Y - handLength), true));
-        diamondFigure.Segments.Add(new LineSegment(new Point(center.X + halfWidth, center.Y), true));
+            double radius = diameter / 2;
+            double handLength = radius * (Length / 100.0);
+            double tailLength = radius * (TailLength / 100.0);
+            double halfWidth = radius * (Width / 100.0) / 2.0;
 
-        PathGeometry diamondGeometry = new();
-        diamondGeometry.Figures.Add(diamondFigure);
+            PathFigure diamondFigure = new()
+            {
+                StartPoint = new Point(center.X, center.Y + tailLength),
+                IsClosed = true
+            };
 
-        drawingContext.DrawGeometry(Fill, pen, diamondGeometry);
+            diamondFigure.Segments.Add(new LineSegment(new Point(center.X - halfWidth, center.Y), true));
+            diamondFigure.Segments.Add(new LineSegment(new Point(center.X, center.Y - handLength), true));
+            diamondFigure.Segments.Add(new LineSegment(new Point(center.X + halfWidth, center.Y), true));
 
-        drawingContext.Pop();
+            PathGeometry diamondGeometry = new();
+            diamondGeometry.Figures.Add(diamondFigure);
+
+            drawingContext.DrawGeometry(Fill, pen, diamondGeometry);
+        });
     }
 }

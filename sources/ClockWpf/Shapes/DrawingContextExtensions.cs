@@ -7,7 +7,7 @@ internal static class DrawingContextExtensions
     public static void WithTransform(this DrawingContext drawingContext, Transform transform, Action action)
     {
         drawingContext.PushTransform(transform);
-        action();
+        action?.Invoke();
         drawingContext.Pop();
     }
 }

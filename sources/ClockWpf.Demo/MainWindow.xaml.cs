@@ -16,7 +16,7 @@ public partial class MainWindow : Window
 
         analogClock1.KeepProportions = true;
 
-        analogClock1.Shapes.Add(new SimpleBackground());
+        analogClock1.Shapes.Add(new FlatBackground());
 
         analogClock1.Shapes.Add(new DiamondHand
         {

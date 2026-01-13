@@ -3,12 +3,12 @@ using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
 
-public class SimpleBackground : Shape
+public class FlatBackground : Shape
 {
-    static SimpleBackground()
+    static FlatBackground()
     {
-        FillProperty.OverrideMetadata(typeof(SimpleBackground), new FrameworkPropertyMetadata(Brushes.WhiteSmoke));
-        StrokeThicknessProperty.OverrideMetadata(typeof(SimpleBackground), new FrameworkPropertyMetadata(0.0));
+        FillProperty.OverrideMetadata(typeof(FlatBackground), new FrameworkPropertyMetadata(Brushes.WhiteSmoke));
+        StrokeThicknessProperty.OverrideMetadata(typeof(FlatBackground), new FrameworkPropertyMetadata(0.0));
     }
 
     public override void Render(DrawingContext drawingContext, double diameter)
