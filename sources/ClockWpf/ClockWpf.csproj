@@ -8,6 +8,10 @@
 		<RootNamespace>DustInTheWind.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+		<DefineConstants>$(DefineConstants);PERFORMANCE_INFO</DefineConstants>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\ClockNet.Core\ClockNet.Core.csproj" PrivateAssets="All" />
 	</ItemGroup>

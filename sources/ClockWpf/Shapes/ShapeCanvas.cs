@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -9,6 +10,13 @@ namespace DustInTheWind.ClockWpf.Shapes;
 public class ShapeCanvas : Canvas
 {
     private NotifyCollectionChangedEventHandler collectionChangedHandler;
+
+#if PERFORMANCE_INFO
+
+        // >> Needed to display performance info.
+        private PerformanceInfo performanceInfo = new PerformanceInfo();
+
+#endif
 
     public static readonly DependencyProperty ShapesProperty = DependencyProperty.Register(
         nameof(Shapes),
@@ -64,6 +72,11 @@ public class ShapeCanvas : Canvas
 
     protected override void OnRender(DrawingContext drawingContext)
     {
+#if PERFORMANCE_INFO
+
+            performanceInfo.Start();
+#endif
+
         base.OnRender(drawingContext);
 
         if (Shapes == null)
@@ -86,6 +99,24 @@ public class ShapeCanvas : Canvas
             Rect bounds = new(0, 0, ActualWidth, ActualHeight);
             DisplayShapes(drawingContext, bounds);
         }
+
+#if PERFORMANCE_INFO
+
+            performanceInfo.Stop();
+
+            string performanceText = performanceInfo.ToString();
+            FormattedText formattedText = new(
+                performanceText,
+                CultureInfo.CurrentCulture,
+                FlowDirection.LeftToRight,
+                new Typeface("Arial"),
+                12,
+                Brushes.Black,
+                1.0);
+
+            drawingContext.DrawText(formattedText, new Point(5, 5));
+
+#endif
     }
 
     private void DisplayShapes(DrawingContext drawingContext, Rect bounds)
