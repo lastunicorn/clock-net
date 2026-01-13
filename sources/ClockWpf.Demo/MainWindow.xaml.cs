@@ -18,18 +18,7 @@ public partial class MainWindow : Window
 
         analogClock1.Shapes.Add(new FlatBackground());
 
-        analogClock1.Shapes.Add(new TextRim
-        {
-            DistanceFromEdge = 15,
-            FontFamily = new FontFamily("Arial"),
-            FontSize = 26,
-            FontWeight = FontWeights.Normal,
-            Texts = Enumerable.Range(1, 12)
-                .Select(x => x.ToString())
-                .ToArray(),
-            Angle = 30,
-            OffsetAngle = 30
-        });
+        analogClock1.Shapes.Add(new Hours());
 
         analogClock1.Shapes.Add(new DiamondHand
         {
