@@ -54,7 +54,6 @@ public class TextRim : RimBase
         set => SetValue(FontWeightProperty, value);
     }
 
-    private double textRadius;
     private Typeface typeface;
 
     protected override bool OnRendering(double diameter)
@@ -64,8 +63,6 @@ public class TextRim : RimBase
         if (texts == null || texts.Length == 0)
             return false;
 
-        double radius = diameter / 2;
-        textRadius = radius - DistanceFromEdge;
         typeface = new(FontFamily, FontStyles.Normal, FontWeight, FontStretches.Normal);
 
         return base.OnRendering(diameter);
@@ -96,7 +93,7 @@ public class TextRim : RimBase
             1.0);
 
         double textX = -formattedText.Width / 2;
-        double textY = -textRadius + (formattedText.Height / 2);
+        double textY = -formattedText.Height / 2;
 
         Point textPosition = new(textX, textY);
         drawingContext.DrawText(formattedText, textPosition);

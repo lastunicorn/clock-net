@@ -18,8 +18,14 @@ public partial class MainWindow : Window
 
         analogClock1.Shapes.Add(new FlatBackground());
 
-        analogClock1.Shapes.Add(new Hours());
-        analogClock1.Shapes.Add(new Ticks());
+        analogClock1.Shapes.Add(new Hours
+        {
+            Orientation = RimItemOrientation.Normal
+        });
+        analogClock1.Shapes.Add(new Ticks
+        {
+            Orientation = RimItemOrientation.FaceCenter
+        });
 
         analogClock1.Shapes.Add(new DiamondHand
         {

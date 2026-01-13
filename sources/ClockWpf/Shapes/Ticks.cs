@@ -10,6 +10,7 @@ public class Ticks : RimBase
         AngleProperty.OverrideMetadata(typeof(Ticks), new FrameworkPropertyMetadata(6.0));
         OffsetAngleProperty.OverrideMetadata(typeof(Ticks), new FrameworkPropertyMetadata(6.0));
         DistanceFromEdgeProperty.OverrideMetadata(typeof(Ticks), new FrameworkPropertyMetadata(6.0));
+        OrientationProperty.OverrideMetadata(typeof(Ticks), new FrameworkPropertyMetadata(RimItemOrientation.FaceCenter));
     }
 
     public static readonly DependencyProperty LengthProperty = DependencyProperty.Register(
@@ -34,11 +35,10 @@ public class Ticks : RimBase
 
     protected override void RenderItem(DrawingContext drawingContext, int index)
     {
-        double startY = -(radius - DistanceFromEdge);
-        double endY = startY + Length;
+        double actualLength = radius * Length / 100.0;
 
-        Point startPoint = new(0, startY);
-        Point endPoint = new(0, endY);
+        Point startPoint = new(0, -actualLength / 2);
+        Point endPoint = new(0, actualLength / 2);
 
         Pen pen = new(Stroke, StrokeThickness);
         drawingContext.DrawLine(pen, startPoint, endPoint);

@@ -69,7 +69,7 @@ public abstract class RimBase : Shape
         nameof(Orientation),
         typeof(RimItemOrientation),
         typeof(RimBase),
-        new FrameworkPropertyMetadata(RimItemOrientation.Normal));
+        new FrameworkPropertyMetadata(RimItemOrientation.FaceCenter));
 
     public RimItemOrientation Orientation
     {
@@ -79,10 +79,14 @@ public abstract class RimBase : Shape
 
     public override void DoRender(DrawingContext drawingContext, double diameter)
     {
+        double radius = diameter / 2;
+        double actualDistanceFromEdge = radius * DistanceFromEdge / 100.0;
+        double itemRadius = radius - actualDistanceFromEdge;
+
         int index = 0;
         double angleDegrees = OffsetAngle + (index * Angle);
 
-        while (angleDegrees > 0)
+        while (angleDegrees >= 0)
         {
             if (MaxCoverageCount > 0 && index >= MaxCoverageCount)
                 break;
@@ -93,11 +97,50 @@ public abstract class RimBase : Shape
             RotateTransform rotateTransform = new(angleDegrees, 0, 0);
             drawingContext.WithTransform(rotateTransform, () =>
             {
-                RenderItem(drawingContext, index);
+                TranslateTransform translateTransform = new(0, -itemRadius);
+                drawingContext.WithTransform(translateTransform, () =>
+                {
+                    Transform orientationTransform = CreateOrientationTransform(index);
+
+                    if (orientationTransform != null)
+                    {
+                        drawingContext.WithTransform(orientationTransform, () =>
+                        {
+                            RenderItem(drawingContext, index);
+                        });
+                    }
+                    else
+                    {
+                        RenderItem(drawingContext, index);
+                    }
+                });
             });
 
             index++;
             angleDegrees = OffsetAngle + (index * Angle);
+        }
+    }
+
+    private Transform CreateOrientationTransform(int index)
+    {
+        switch (Orientation)
+        {
+            case RimItemOrientation.Normal:
+                {
+                    double totalAngle = -(OffsetAngle + Angle * index);
+                    RotateTransform rotateTransform = new(totalAngle, 0, 0);
+                    return rotateTransform;
+                }
+
+            case RimItemOrientation.FaceOut:
+                {
+                    RotateTransform rotateTransform = new(180, 0, 0);
+                    return rotateTransform;
+                }
+
+            case RimItemOrientation.FaceCenter:
+            default:
+                return null;
         }
     }
 

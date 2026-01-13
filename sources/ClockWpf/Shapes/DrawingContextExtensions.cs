@@ -6,8 +6,15 @@ internal static class DrawingContextExtensions
 {
     public static void WithTransform(this DrawingContext drawingContext, Transform transform, Action action)
     {
-        drawingContext.PushTransform(transform);
+        if (drawingContext == null)
+            return;
+
+        if (transform != null)
+            drawingContext.PushTransform(transform);
+
         action?.Invoke();
-        drawingContext.Pop();
+
+        if (transform != null)
+            drawingContext.Pop();
     }
 }
