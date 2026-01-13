@@ -19,6 +19,7 @@ public partial class MainWindow : Window
         analogClock1.Shapes.Add(new FlatBackground());
 
         analogClock1.Shapes.Add(new Hours());
+        analogClock1.Shapes.Add(new Ticks());
 
         analogClock1.Shapes.Add(new DiamondHand
         {

@@ -41,13 +41,55 @@ public abstract class RimBase : Shape
         set => SetValue(OffsetAngleProperty, value);
     }
 
+    public static readonly DependencyProperty MaxCoverageCountProperty = DependencyProperty.Register(
+        nameof(MaxCoverageCount),
+        typeof(uint),
+        typeof(RimBase),
+        new FrameworkPropertyMetadata(uint.MaxValue));
+
+    public uint MaxCoverageCount
+    {
+        get => (uint)GetValue(MaxCoverageCountProperty);
+        set => SetValue(MaxCoverageCountProperty, value);
+    }
+
+    public static readonly DependencyProperty MaxCoverageAngleProperty = DependencyProperty.Register(
+        nameof(MaxCoverageAngle),
+        typeof(uint),
+        typeof(RimBase),
+        new FrameworkPropertyMetadata((uint)360));
+
+    public uint MaxCoverageAngle
+    {
+        get => (uint)GetValue(MaxCoverageAngleProperty);
+        set => SetValue(MaxCoverageAngleProperty, value);
+    }
+
+    public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
+        nameof(Orientation),
+        typeof(RimItemOrientation),
+        typeof(RimBase),
+        new FrameworkPropertyMetadata(RimItemOrientation.Normal));
+
+    public RimItemOrientation Orientation
+    {
+        get => (RimItemOrientation)GetValue(OrientationProperty);
+        set => SetValue(OrientationProperty, value);
+    }
+
     public override void DoRender(DrawingContext drawingContext, double diameter)
     {
         int index = 0;
         double angleDegrees = OffsetAngle + (index * Angle);
 
-        while (angleDegrees >= 0 && angleDegrees <= 360)
+        while (angleDegrees > 0)
         {
+            if (MaxCoverageCount > 0 && index >= MaxCoverageCount)
+                break;
+
+            if (MaxCoverageAngle > 0 && angleDegrees - OffsetAngle >= MaxCoverageAngle)
+                break;
+
             RotateTransform rotateTransform = new(angleDegrees, 0, 0);
             drawingContext.WithTransform(rotateTransform, () =>
             {
