@@ -3,8 +3,14 @@ using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
 
+/// <summary>
+/// A simple line clock hand. It is ususally used for displaying seconds.
+/// It has a customizable tail length and pin diameter.
+/// </summary>
 public class SimpleHand : HandBase
 {
+    #region TailLength DependencyProperty
+
     public static readonly DependencyProperty TailLengthProperty = DependencyProperty.Register(
         nameof(TailLength),
         typeof(double),
@@ -17,6 +23,10 @@ public class SimpleHand : HandBase
         set => SetValue(TailLengthProperty, value);
     }
 
+    #endregion
+
+    #region PinDiameter DependencyProperty
+
     public static readonly DependencyProperty PinDiameterProperty = DependencyProperty.Register(
         nameof(PinDiameter),
         typeof(double),
@@ -28,6 +38,8 @@ public class SimpleHand : HandBase
         get => (double)GetValue(PinDiameterProperty);
         set => SetValue(PinDiameterProperty, value);
     }
+
+    #endregion
 
     public override void DoRender(DrawingContext drawingContext, double diameter)
     {

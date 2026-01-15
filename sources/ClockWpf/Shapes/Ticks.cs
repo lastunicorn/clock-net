@@ -13,6 +13,8 @@ public class Ticks : RimBase
         OrientationProperty.OverrideMetadata(typeof(Ticks), new FrameworkPropertyMetadata(RimItemOrientation.FaceCenter));
     }
 
+    #region Length DependencyProperty
+
     public static readonly DependencyProperty LengthProperty = DependencyProperty.Register(
         nameof(Length),
         typeof(double),
@@ -24,6 +26,8 @@ public class Ticks : RimBase
         get => (double)GetValue(LengthProperty);
         set => SetValue(LengthProperty, value);
     }
+
+    #endregion
 
     private double radius;
 

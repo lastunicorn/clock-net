@@ -9,6 +9,8 @@ namespace DustInTheWind.ClockWpf.Shapes;
 /// </summary>
 public class TextRim : RimBase
 {
+    #region Texts DependencyProperty
+
     public static readonly DependencyProperty TextsProperty = DependencyProperty.Register(
         nameof(Texts),
         typeof(string[]),
@@ -20,6 +22,10 @@ public class TextRim : RimBase
         get => (string[])GetValue(TextsProperty);
         set => SetValue(TextsProperty, value);
     }
+
+    #endregion
+
+    #region FontFamily DependencyProperty
 
     public static readonly DependencyProperty FontFamilyProperty = DependencyProperty.Register(
         nameof(FontFamily),
@@ -33,6 +39,10 @@ public class TextRim : RimBase
         set => SetValue(FontFamilyProperty, value);
     }
 
+    #endregion
+
+    #region FontSize DependencyProperty
+
     public static readonly DependencyProperty FontSizeProperty = DependencyProperty.Register(
         nameof(FontSize),
         typeof(double),
@@ -45,6 +55,10 @@ public class TextRim : RimBase
         set => SetValue(FontSizeProperty, value);
     }
 
+    #endregion
+
+    #region FontWeight DependencyProperty
+
     public static readonly DependencyProperty FontWeightProperty = DependencyProperty.Register(
         nameof(FontWeight),
         typeof(FontWeight),
@@ -56,6 +70,8 @@ public class TextRim : RimBase
         get => (FontWeight)GetValue(FontWeightProperty);
         set => SetValue(FontWeightProperty, value);
     }
+
+    #endregion
 
     private Typeface typeface;
 

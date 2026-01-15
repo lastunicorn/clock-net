@@ -3,8 +3,13 @@ using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
 
+/// <summary>
+/// A diamond shaped clock hand, with customizable width and tail length.
+/// </summary>
 public class DiamondHand : HandBase
 {
+    #region Width DependencyProperty
+
     public static readonly DependencyProperty WidthProperty = DependencyProperty.Register(
         nameof(Width),
         typeof(double),
@@ -17,6 +22,10 @@ public class DiamondHand : HandBase
         set => SetValue(WidthProperty, value);
     }
 
+    #endregion
+
+    #region TailLength DependencyProperty
+
     public static readonly DependencyProperty TailLengthProperty = DependencyProperty.Register(
         nameof(TailLength),
         typeof(double),
@@ -28,6 +37,8 @@ public class DiamondHand : HandBase
         get => (double)GetValue(TailLengthProperty);
         set => SetValue(TailLengthProperty, value);
     }
+
+    #endregion
 
     public override void DoRender(DrawingContext drawingContext, double diameter)
     {

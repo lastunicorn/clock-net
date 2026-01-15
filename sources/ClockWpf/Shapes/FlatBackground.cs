@@ -17,9 +17,8 @@ public class FlatBackground : BackgroundBase
             return;
 
         Point center = new(0, 0);
-        double radiusX = diameter / 2 - StrokeThickness / 2;
-        double radiusY = diameter / 2 - StrokeThickness / 2;
+        double radius = (diameter - StrokeThickness) / 2;
 
-        drawingContext.DrawEllipse(Fill, StrokePen, center, radiusX, radiusY);
+        drawingContext.DrawEllipse(Fill, StrokePen, center, radius, radius);
     }
 }
