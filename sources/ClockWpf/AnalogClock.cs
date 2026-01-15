@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using DustInTheWind.ClockWpf.Shapes;
+using DustInTheWind.ClockWpf.Templates;
 using DustInTheWind.ClockWpf.TimeProviders;
 
 namespace DustInTheWind.ClockWpf;
@@ -171,5 +172,15 @@ public class AnalogClock : Control
         if (shapeCanvas != null)
             PerformanceInfo = shapeCanvas.PerformanceInfo;
 #endif
+    }
+
+    public void ApplyClockTemplate(ClockTemplate clockTemplate)
+    {
+        ArgumentNullException.ThrowIfNull(clockTemplate);
+
+        Shapes.Clear();
+
+        foreach (Shape shape in clockTemplate)
+            Shapes.Add(shape);
     }
 }

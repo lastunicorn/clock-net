@@ -2,6 +2,7 @@
 using System.Windows.Media;
 using DustInTheWind.ClockWpf;
 using DustInTheWind.ClockWpf.Shapes;
+using DustInTheWind.ClockWpf.Templates;
 using DustInTheWind.ClockWpf.TimeProviders;
 
 namespace ClockWpf.Demo;
@@ -17,11 +18,14 @@ public partial class MainWindow : Window
 
         CreateShapesFor(analogClock1);
 
+        analogClock3.ApplyClockTemplate(new DefaultClockTemplate());
+
         LocalTimeProvider localTimeProvider = new();
         localTimeProvider.Start();
 
         analogClock1.TimeProvider = localTimeProvider;
         analogClock2.TimeProvider = localTimeProvider;
+        analogClock3.TimeProvider = localTimeProvider;
     }
 
     private void CreateShapesFor(AnalogClock analogClock)

@@ -16,8 +16,4 @@
 		<ProjectReference Include="..\ClockNet.Core\ClockNet.Core.csproj" PrivateAssets="All" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Templates\" />
-	</ItemGroup>
-
 </Project>

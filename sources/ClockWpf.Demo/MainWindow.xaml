@@ -10,17 +10,34 @@
     xmlns:timeProviders="clr-namespace:DustInTheWind.ClockWpf.TimeProviders;assembly=DustInTheWind.ClockWpf"
     
     mc:Ignorable="d"
-    Title="MainWindow"
+    Title="Analog Clock Demo"
     Height="450"
-    Width="800">
+    Width="1000">
 
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <!-- Shapes added from code behind -->
+
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="0"
+            Text="Shapes added from code behind"
+            Margin="0 10"
+            FontSize="16"/>
+
         <Viewbox
+            Grid.Row="1"
             Grid.Column="0">
 
             <clockWpf:AnalogClock
@@ -28,10 +45,21 @@
         </Viewbox>
 
         <clockWpf:PerformaceView
+            Grid.Row="1"
             Grid.Column="0"
             DataContext="{Binding ElementName=analogClock1}" />
 
+        <!-- Shapes added from xaml -->
+
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="Shapes added from xaml"
+            Margin="0 10"
+            FontSize="16"/>
+
         <clockWpf:AnalogClock
+            Grid.Row="1"
             Grid.Column="1"
             x:Name="analogClock2">
 
@@ -67,13 +95,32 @@
                     StrokeThickness="1" />
 
             </clockWpf:AnalogClock.Shapes>
-            
+
         </clockWpf:AnalogClock>
 
         <clockWpf:PerformaceView
+            Grid.Row="1"
             Grid.Column="1"
             DataContext="{Binding ElementName=analogClock2}"/>
 
+        <!-- Shapes added from template -->
+
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="2"
+            Text="Shapes added from template"
+            Margin="0 10"
+            FontSize="16"/>
+
+        <clockWpf:AnalogClock
+            Grid.Row="1"
+            Grid.Column="2"
+            x:Name="analogClock3"/>
+
+        <clockWpf:PerformaceView
+            Grid.Row="1"
+            Grid.Column="2"
+            DataContext="{Binding ElementName=analogClock3}"/>
     </Grid>
 
 </Window>
