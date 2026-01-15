@@ -31,7 +31,7 @@ public class SimpleHand : HandBase
         nameof(PinDiameter),
         typeof(double),
         typeof(SimpleHand),
-        new FrameworkPropertyMetadata(2.66));
+        new FrameworkPropertyMetadata(4.0));
 
     public double PinDiameter
     {

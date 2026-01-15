@@ -19,6 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -121,6 +122,14 @@
             Grid.Row="1"
             Grid.Column="2"
             DataContext="{Binding ElementName=analogClock3}"/>
+
+        <ComboBox
+            Grid.Row="2"
+            Grid.Column="2"
+            x:Name="templateComboBox"
+            Margin="10"
+            SelectionChanged="TemplateComboBox_SelectionChanged"
+            DisplayMemberPath="Name"/>
     </Grid>
 
 </Window>
