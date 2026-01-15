@@ -18,7 +18,7 @@ public partial class MainWindow : Window
 
         CreateShapesFor(analogClock1);
 
-        analogClock3.ApplyClockTemplate(new DefaultClockTemplate());
+        analogClock3.ApplyClockTemplate(new CapsuleClockTemplate());
 
         LocalTimeProvider localTimeProvider = new();
         localTimeProvider.Start();

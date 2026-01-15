@@ -3,22 +3,15 @@ using DustInTheWind.ClockWpf.Shapes;
 
 namespace DustInTheWind.ClockWpf.Templates;
 
-public class DefaultClockTemplate : ClockTemplate
+public class CapsuleClockTemplate : ClockTemplate
 {
-    public DefaultClockTemplate()
+    protected override IEnumerable<Shape> CreateShapes()
     {
-        Items.Add(new FlatBackground());
-
-        Items.Add(new Hours
-        {
-            Orientation = RimItemOrientation.Normal
-        });
-        Items.Add(new Ticks
-        {
-            Orientation = RimItemOrientation.FaceCenter
-        });
-
-        Items.Add(new DiamondHand
+        yield return new FlatBackground();
+        yield return new Hours();
+        yield return new Ticks();
+        
+        yield return new CapsuleHand
         {
             ComponentToDisplay = TimeComponent.Hour,
             Length = 48,
@@ -26,9 +19,9 @@ public class DefaultClockTemplate : ClockTemplate
             TailLength = 12,
             StrokeThickness = 0,
             Fill = Brushes.RoyalBlue
-        });
+        };
 
-        Items.Add(new DiamondHand
+        yield return new CapsuleHand
         {
             ComponentToDisplay = TimeComponent.Minute,
             Length = 74,
@@ -36,15 +29,56 @@ public class DefaultClockTemplate : ClockTemplate
             TailLength = 8,
             StrokeThickness = 0,
             Fill = Brushes.LimeGreen
-        });
+        };
 
-        Items.Add(new SimpleHand
+        yield return new SimpleHand
         {
             ComponentToDisplay = TimeComponent.Second,
             Length = 85,
             TailLength = 14,
             Stroke = Brushes.Red,
             StrokeThickness = 1
-        });
+        };
+    }
+}
+
+public class DefaultClockTemplate : ClockTemplate
+{
+    protected override IEnumerable<Shape> CreateShapes()
+    {
+        yield return new FlatBackground();
+
+        yield return new Hours();
+
+        yield return new Ticks();
+
+        yield return new DiamondHand
+        {
+            ComponentToDisplay = TimeComponent.Hour,
+            Length = 48,
+            Width = 10,
+            TailLength = 12,
+            StrokeThickness = 0,
+            Fill = Brushes.RoyalBlue
+        };
+
+        yield return new DiamondHand
+        {
+            ComponentToDisplay = TimeComponent.Minute,
+            Length = 74,
+            Width = 8,
+            TailLength = 8,
+            StrokeThickness = 0,
+            Fill = Brushes.LimeGreen
+        };
+
+        yield return new SimpleHand
+        {
+            ComponentToDisplay = TimeComponent.Second,
+            Length = 85,
+            TailLength = 14,
+            Stroke = Brushes.Red,
+            StrokeThickness = 1
+        };
     }
 }
