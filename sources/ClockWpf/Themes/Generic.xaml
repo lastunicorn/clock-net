@@ -4,6 +4,8 @@
     xmlns:local="clr-namespace:DustInTheWind.ClockWpf"
     xmlns:shapes="clr-namespace:DustInTheWind.ClockWpf.Shapes">
 
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
     <Style TargetType="{x:Type local:AnalogClock}">
         <Setter Property="Template">
             <Setter.Value>
@@ -12,12 +14,40 @@
                         <Border
                             Background="{TemplateBinding Background}">
 
-                            <shapes:ShapeCanvas
-                                x:Name="PART_ShapeCanvas"
-                                Width="200"
-                                Height="200"
-                                Shapes="{TemplateBinding Shapes}"
-                                KeepProportions="{TemplateBinding KeepProportions}"/>
+                            <Grid>
+                                <shapes:ShapeCanvas
+                                    x:Name="PART_ShapeCanvas"
+                                    Width="200"
+                                    Height="200"
+                                    Shapes="{TemplateBinding Shapes}"
+                                    KeepProportions="{TemplateBinding KeepProportions}"/>
+
+                                <Grid
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Visibility="{TemplateBinding IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Text="No shapes"
+                                        FontSize="12"
+                                        Foreground="Gray"
+                                        HorizontalAlignment="Center"/>
+
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Text="Add shapes to the clock or apply a template"
+                                        FontSize="8"
+                                        Foreground="Gray"
+                                        HorizontalAlignment="Center"
+                                        Margin="0 5 0 0"/>
+                                </Grid>
+                            </Grid>
 
                         </Border>
                     </Viewbox>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using DustInTheWind.ClockWpf.Shapes;
@@ -36,12 +37,48 @@ public class AnalogClock : Control
         nameof(Shapes),
         typeof(ObservableCollection<Shape>),
         typeof(AnalogClock),
-        new PropertyMetadata(null));
+        new PropertyMetadata(null, OnShapesChanged));
+
+    private static void OnShapesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not AnalogClock analogClock)
+            return;
+
+        if (e.OldValue is ObservableCollection<Shape> oldShapes)
+            oldShapes.CollectionChanged -= analogClock.HandleShapesCollectionChanged;
+
+        if (e.NewValue is ObservableCollection<Shape> newShapes)
+        {
+            newShapes.CollectionChanged += analogClock.HandleShapesCollectionChanged;
+            analogClock.UpdateIsEmpty();
+        }
+    }
+
+    private void HandleShapesCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    {
+        UpdateIsEmpty();
+    }
 
     public ObservableCollection<Shape> Shapes
     {
         get => (ObservableCollection<Shape>)GetValue(ShapesProperty);
         set => SetValue(ShapesProperty, value);
+    }
+
+    #endregion
+
+    #region IsEmpty DependencyProperty
+
+    public static readonly DependencyProperty IsEmptyProperty = DependencyProperty.Register(
+        nameof(IsEmpty),
+        typeof(bool),
+        typeof(AnalogClock),
+        new PropertyMetadata(true));
+
+    public bool IsEmpty
+    {
+        get => (bool)GetValue(IsEmptyProperty);
+        private set => SetValue(IsEmptyProperty, value);
     }
 
     #endregion
@@ -117,6 +154,11 @@ public class AnalogClock : Control
     public AnalogClock()
     {
         Shapes = [];
+    }
+
+    private void UpdateIsEmpty()
+    {
+        IsEmpty = Shapes == null || Shapes.Count == 0;
     }
 
     public override void OnApplyTemplate()

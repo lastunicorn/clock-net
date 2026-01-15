@@ -67,6 +67,7 @@
                     StrokeThickness="1" />
 
             </clockWpf:AnalogClock.Shapes>
+            
         </clockWpf:AnalogClock>
 
         <clockWpf:PerformaceView
