@@ -10,9 +10,9 @@ public class AnalogClock : Control
 {
     private ShapeCanvas shapeCanvas;
 
-#if PERFORMANCE_INFO
-
     #region PerformanceInfo DependencyProperty
+
+#if PERFORMANCE_INFO
 
     public static readonly DependencyProperty PerformanceInfoProperty = DependencyProperty.Register(
         nameof(PerformanceInfo),
@@ -26,9 +26,9 @@ public class AnalogClock : Control
         private set => SetValue(PerformanceInfoProperty, value);
     }
 
-    #endregion
-
 #endif
+
+    #endregion
 
     #region Shapes DependencyProperty
 
@@ -97,21 +97,8 @@ public class AnalogClock : Control
 
         Dispatcher.Invoke(() =>
         {
-            UpdateHandsTime(e.Time);
+            shapeCanvas?.SetTime(e.Time);
         });
-    }
-
-    private void UpdateHandsTime(TimeSpan time)
-    {
-        if (Shapes == null)
-            return;
-
-        IEnumerable<IHand> hands = Shapes.OfType<IHand>();
-
-        foreach (IHand hand in hands)
-            hand.Time = time;
-
-        shapeCanvas?.InvalidateVisual();
     }
 
     public ITimeProvider TimeProvider

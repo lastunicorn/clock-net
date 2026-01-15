@@ -67,42 +67,92 @@ public class ShapeCanvas : Canvas
         if (d is ShapeCanvas canvas)
             canvas.InvalidateVisual();
     }
+    public void SetTime(TimeSpan time)
+    {
+        if (Shapes == null)
+            return;
+
+        IEnumerable<IHand> hands = Shapes.OfType<IHand>();
+
+        foreach (IHand hand in hands)
+            hand.Time = time;
+
+        InvalidateVisual();
+    }
 
     protected override void OnRender(DrawingContext drawingContext)
     {
 #if PERFORMANCE_INFO
-
         PerformanceInfo.Start();
 #endif
+        try
+        {
+            base.OnRender(drawingContext);
 
-        base.OnRender(drawingContext);
-
-        if (Shapes == null)
-            return;
-
-        double diameter = Math.Min(ActualWidth, ActualHeight);
-
-        drawingContext.CreateDrawingPlan()
-            .WithTransform(() =>
+            if (Shapes != null && Shapes.Count != 0)
             {
-                double offsetX = ActualWidth / 2;
-                double offsetY = ActualHeight / 2;
+                double diameter = Math.Min(ActualWidth, ActualHeight);
 
-                return new TranslateTransform(offsetX, offsetY);
-            })
-            .WithTransform(() =>
+                drawingContext.CreateDrawingPlan()
+                    .WithTransform(() =>
+                    {
+                        double offsetX = ActualWidth / 2;
+                        double offsetY = ActualHeight / 2;
+
+                        return new TranslateTransform(offsetX, offsetY);
+                    })
+                    .WithTransform(() =>
+                    {
+                        return KeepProportions
+                            ? null
+                            : CreateScaleTransform(diameter);
+                    })
+                    .Draw(dc => RenderShapes(dc, diameter));
+
+            }
+            else
             {
-                return KeepProportions
-                ? null
-                : CreateScaleTransform(diameter);
-            })
-            .Draw(dc => RenderShapes(dc, diameter));
-
+                RenderNoShapesMessage(drawingContext);
+            }
+        }
+        finally
+        {
 #if PERFORMANCE_INFO
-
-        PerformanceInfo.Stop();
-
+            PerformanceInfo.Stop();
 #endif
+        }
+    }
+
+    private void RenderNoShapesMessage(DrawingContext drawingContext)
+    {
+        Typeface typeface = new(new FontFamily("Segoe UI"), FontStyles.Normal, FontWeights.Normal, FontStretches.Normal);
+
+        FormattedText mainText = new(
+            "[ No shapes ]",
+            System.Globalization.CultureInfo.CurrentCulture,
+            FlowDirection.LeftToRight,
+            typeface,
+            10,
+            Brushes.Gray,
+            VisualTreeHelper.GetDpi(this).PixelsPerDip);
+
+        FormattedText explanationText = new(
+            "Add shapes to the clock or apply a template.",
+            System.Globalization.CultureInfo.CurrentCulture,
+            FlowDirection.LeftToRight,
+            typeface,
+            8,
+            Brushes.SlateGray,
+            VisualTreeHelper.GetDpi(this).PixelsPerDip);
+
+        double centerX = ActualWidth / 2;
+        double centerY = ActualHeight / 2;
+
+        Point mainTextPosition = new(centerX - mainText.Width / 2, centerY - mainText.Height - 5);
+        Point explanationTextPosition = new(centerX - explanationText.Width / 2, centerY + 4);
+
+        drawingContext.DrawText(mainText, mainTextPosition);
+        drawingContext.DrawText(explanationText, explanationTextPosition);
     }
 
     private ScaleTransform CreateScaleTransform(double diameter)

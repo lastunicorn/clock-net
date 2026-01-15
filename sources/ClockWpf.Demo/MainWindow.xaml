@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:clockWpf="clr-namespace:DustInTheWind.ClockWpf;assembly=DustInTheWind.ClockWpf"
     xmlns:shapes="clr-namespace:DustInTheWind.ClockWpf.Shapes;assembly=DustInTheWind.ClockWpf"
+    xmlns:timeProviders="clr-namespace:DustInTheWind.ClockWpf.TimeProviders;assembly=DustInTheWind.ClockWpf"
     
     mc:Ignorable="d"
     Title="MainWindow"
@@ -21,7 +22,7 @@
 
         <Viewbox
             Grid.Column="0">
-            
+
             <clockWpf:AnalogClock
                 x:Name="analogClock1" />
         </Viewbox>
@@ -35,13 +36,13 @@
             x:Name="analogClock2">
 
             <clockWpf:AnalogClock.Shapes>
-                
+
                 <shapes:FlatBackground />
-                
+
                 <shapes:Hours/>
-                
+
                 <shapes:Ticks/>
-                
+
                 <shapes:DiamondHand
                     ComponentToDisplay="Hour"
                     Length="48"
@@ -49,7 +50,7 @@
                     TailLength="12"
                     StrokeThickness="0"
                     Fill="RoyalBlue" />
-                
+
                 <shapes:DiamondHand
                     ComponentToDisplay="Minute"
                     Length="74"
@@ -67,11 +68,11 @@
 
             </clockWpf:AnalogClock.Shapes>
         </clockWpf:AnalogClock>
-        
+
         <clockWpf:PerformaceView
             Grid.Column="1"
-            DataContext="{Binding ElementName=analogClock2}" />
-        
+            DataContext="{Binding ElementName=analogClock2}"/>
+
     </Grid>
 
 </Window>

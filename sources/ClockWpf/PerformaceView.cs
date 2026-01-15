@@ -82,7 +82,7 @@ public class PerformaceView : Control
             currentPerformanceInfo = performanceInfoProperty.GetValue(currentAnalogClock) as PerformanceInfo;
 
             if (currentPerformanceInfo != null)
-                currentPerformanceInfo.PropertyChanged += OnPerformanceInfoChanged;
+                currentPerformanceInfo.Changed += OnPerformanceInfoChanged;
         }
 
         InvalidateVisual();
@@ -91,10 +91,10 @@ public class PerformaceView : Control
     private void UnsubscribeFromCurrentPerformanceInfo()
     {
         if (currentPerformanceInfo != null)
-            currentPerformanceInfo.PropertyChanged -= OnPerformanceInfoChanged;
+            currentPerformanceInfo.Changed -= OnPerformanceInfoChanged;
     }
 
-    private void OnPerformanceInfoChanged(object sender, PropertyChangedEventArgs e)
+    private void OnPerformanceInfoChanged(object sender, EventArgs e)
     {
         InvalidateVisual();
     }
