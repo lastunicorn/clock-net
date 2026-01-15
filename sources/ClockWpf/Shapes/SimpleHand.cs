@@ -31,21 +31,28 @@ public class SimpleHand : HandBase
 
     public override void DoRender(DrawingContext drawingContext, double diameter)
     {
-        double angleDegrees = CalculateHandAngle();
+        drawingContext.CreateDrawingPlan()
+            .WithTransform(() =>
+            {
+                double angleDegrees = CalculateHandAngle();
+                return new RotateTransform(angleDegrees, 0, 0);
+            })
+            .Draw(dc =>
+            {
+                double radius = diameter / 2;
 
-        RotateTransform rotateTransform = new(angleDegrees, 0, 0);
-        drawingContext.WithTransform(rotateTransform, () =>
-        {
-            double radius = diameter / 2;
-
-            DrawHandLine(drawingContext, radius);
-            DrawPin(drawingContext, radius);
-        });
+                DrawHandLine(dc, radius);
+                DrawPin(dc, radius);
+            });
     }
 
     private void DrawHandLine(DrawingContext drawingContext, double radius)
     {
-        Pen pen = new(Stroke, StrokeThickness);
+        if (StrokePen == null)
+            return;
+
+        if (Length <= 0 && TailLength <= 0)
+            return;
 
         double handLength = radius * (Length / 100.0);
         double tailLength = radius * (TailLength / 100.0);
@@ -53,11 +60,17 @@ public class SimpleHand : HandBase
         Point startPoint = new(0, tailLength);
         Point endPoint = new(0, -handLength);
 
-        drawingContext.DrawLine(pen, startPoint, endPoint);
+        drawingContext.DrawLine(StrokePen, startPoint, endPoint);
     }
 
     private void DrawPin(DrawingContext drawingContext, double radius)
     {
+        if (Stroke == null)
+            return;
+
+        if (PinDiameter <= 0)
+            return;
+
         double pinRadius = radius * (PinDiameter / 100.0) / 2;
 
         Point center = new(0, 0);

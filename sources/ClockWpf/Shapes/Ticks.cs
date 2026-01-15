@@ -35,12 +35,14 @@ public class Ticks : RimBase
 
     protected override void RenderItem(DrawingContext drawingContext, int index)
     {
+        if (StrokePen == null)
+            return;
+
         double actualLength = radius * Length / 100.0;
 
         Point startPoint = new(0, -actualLength / 2);
         Point endPoint = new(0, actualLength / 2);
 
-        Pen pen = new(Stroke, StrokeThickness);
-        drawingContext.DrawLine(pen, startPoint, endPoint);
+        drawingContext.DrawLine(StrokePen, startPoint, endPoint);
     }
 }

@@ -4,17 +4,10 @@ namespace DustInTheWind.ClockWpf.Shapes;
 
 internal static class DrawingContextExtensions
 {
-    public static void WithTransform(this DrawingContext drawingContext, Transform transform, Action action)
+    public static DrawingPlan CreateDrawingPlan(this DrawingContext drawingContext)
     {
-        if (drawingContext == null)
-            return;
+        ArgumentNullException.ThrowIfNull(drawingContext);
 
-        if (transform != null)
-            drawingContext.PushTransform(transform);
-
-        action?.Invoke();
-
-        if (transform != null)
-            drawingContext.Pop();
+        return new DrawingPlan(drawingContext);
     }
 }

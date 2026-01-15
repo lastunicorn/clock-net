@@ -3,8 +3,19 @@ using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
 
+/// <summary>
+/// The base class for rim shape that display items around the clock face.
+/// </summary>
+/// <remarks>
+/// When inherinting this class, overwrite the <see cref="RenderItem"/> method to draw an item.
+/// This method is called for each item that must be drawn around the clock face.
+/// The position and orientation of the item is already set when this method is called.
+/// The item should be drawn centered at the point (0,0).
+/// </remarks>
 public abstract class RimBase : Shape
 {
+    #region DistanceFromEdge DependencyProperty
+
     public static readonly DependencyProperty DistanceFromEdgeProperty = DependencyProperty.Register(
         nameof(DistanceFromEdge),
         typeof(double),
@@ -16,6 +27,10 @@ public abstract class RimBase : Shape
         get => (double)GetValue(DistanceFromEdgeProperty);
         set => SetValue(DistanceFromEdgeProperty, value);
     }
+
+    #endregion
+
+    #region Angle DependencyProperty
 
     public static readonly DependencyProperty AngleProperty = DependencyProperty.Register(
         nameof(Angle),
@@ -29,6 +44,10 @@ public abstract class RimBase : Shape
         set => SetValue(AngleProperty, value);
     }
 
+    #endregion
+
+    #region OffsetAngle DependencyProperty
+
     public static readonly DependencyProperty OffsetAngleProperty = DependencyProperty.Register(
         nameof(OffsetAngle),
         typeof(double),
@@ -40,6 +59,10 @@ public abstract class RimBase : Shape
         get => (double)GetValue(OffsetAngleProperty);
         set => SetValue(OffsetAngleProperty, value);
     }
+
+    #endregion
+
+    #region MaxCoverageCount DependencyProperty
 
     public static readonly DependencyProperty MaxCoverageCountProperty = DependencyProperty.Register(
         nameof(MaxCoverageCount),
@@ -53,6 +76,10 @@ public abstract class RimBase : Shape
         set => SetValue(MaxCoverageCountProperty, value);
     }
 
+    #endregion
+
+    #region MaxCoverageAngle DependencyProperty
+
     public static readonly DependencyProperty MaxCoverageAngleProperty = DependencyProperty.Register(
         nameof(MaxCoverageAngle),
         typeof(uint),
@@ -65,6 +92,10 @@ public abstract class RimBase : Shape
         set => SetValue(MaxCoverageAngleProperty, value);
     }
 
+    #endregion
+
+    #region Orientation DependencyProperty
+
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
         nameof(Orientation),
         typeof(RimItemOrientation),
@@ -76,6 +107,8 @@ public abstract class RimBase : Shape
         get => (RimItemOrientation)GetValue(OrientationProperty);
         set => SetValue(OrientationProperty, value);
     }
+
+    #endregion
 
     public override void DoRender(DrawingContext drawingContext, double diameter)
     {
@@ -94,34 +127,18 @@ public abstract class RimBase : Shape
             if (MaxCoverageAngle > 0 && angleDegrees - OffsetAngle >= MaxCoverageAngle)
                 break;
 
-            RotateTransform rotateTransform = new(angleDegrees, 0, 0);
-            drawingContext.WithTransform(rotateTransform, () =>
-            {
-                TranslateTransform translateTransform = new(0, -itemRadius);
-                drawingContext.WithTransform(translateTransform, () =>
-                {
-                    Transform orientationTransform = CreateOrientationTransform(index);
-
-                    if (orientationTransform != null)
-                    {
-                        drawingContext.WithTransform(orientationTransform, () =>
-                        {
-                            RenderItem(drawingContext, index);
-                        });
-                    }
-                    else
-                    {
-                        RenderItem(drawingContext, index);
-                    }
-                });
-            });
+            drawingContext.CreateDrawingPlan()
+                .WithTransform(() => new RotateTransform(angleDegrees, 0, 0))
+                .WithTransform(() => new TranslateTransform(0, -itemRadius))
+                .WithTransform(() => CreateOrientationTransform(index))
+                .Draw(cd => RenderItem(cd, index));
 
             index++;
             angleDegrees = OffsetAngle + (index * Angle);
         }
     }
 
-    private Transform CreateOrientationTransform(int index)
+    private RotateTransform CreateOrientationTransform(int index)
     {
         switch (Orientation)
         {
@@ -144,5 +161,15 @@ public abstract class RimBase : Shape
         }
     }
 
+    /// <summary>
+    /// Draws the item at the specified index using the provided drawing context.
+    /// </summary>
+    /// <remarks>
+    /// This method is called once for each item that must be drawn around the clock face.
+    /// The position and orientation of the item is already set when this method is called.
+    /// The item should be drawn centered at the point (0,0).
+    /// </remarks>
+    /// <param name="drawingContext">The drawing context to use for rendering the item.</param>
+    /// <param name="index">The zero-based index of the item to render.</param>
     protected abstract void RenderItem(DrawingContext drawingContext, int index);
 }

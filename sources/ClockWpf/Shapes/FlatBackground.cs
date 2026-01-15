@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
 
-public class FlatBackground : Shape
+public class FlatBackground : BackgroundBase
 {
     static FlatBackground()
     {
@@ -13,14 +13,13 @@ public class FlatBackground : Shape
 
     public override void DoRender(DrawingContext drawingContext, double diameter)
     {
-        Pen pen = StrokeThickness > 0
-            ? new(Stroke, StrokeThickness)
-            : null;
+        if (Fill == null && StrokePen == null)
+            return;
 
         Point center = new(0, 0);
         double radiusX = diameter / 2 - StrokeThickness / 2;
         double radiusY = diameter / 2 - StrokeThickness / 2;
 
-        drawingContext.DrawEllipse(Fill, pen, center, radiusX, radiusY);
+        drawingContext.DrawEllipse(Fill, StrokePen, center, radiusX, radiusY);
     }
 }

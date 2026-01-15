@@ -31,19 +31,21 @@ public class DiamondHand : HandBase
 
     public override void DoRender(DrawingContext drawingContext, double diameter)
     {
-        double angleDegrees = CalculateHandAngle();
+        drawingContext.CreateDrawingPlan()
+            .WithTransform(() =>
+            {
+                double angleDegrees = CalculateHandAngle();
+                return new RotateTransform(angleDegrees, 0, 0);
+            })
+            .Draw(dc =>
+            {
+                if (Fill == null && StrokePen == null)
+                    return;
 
-        RotateTransform rotateTransform = new(angleDegrees, 0, 0);
-        drawingContext.WithTransform(rotateTransform, () =>
-        {
-            Pen pen = StrokeThickness > 0 && Stroke != null
-                ? new Pen(Stroke, StrokeThickness)
-                : null;
+                PathGeometry diamondGeometry = CreateDiamondGeometry(diameter);
 
-            PathGeometry diamondGeometry = CreateDiamondGeometry(diameter);
-
-            drawingContext.DrawGeometry(Fill, pen, diamondGeometry);
-        });
+                drawingContext.DrawGeometry(Fill, StrokePen, diamondGeometry);
+            });
     }
 
     private PathGeometry CreateDiamondGeometry(double diameter)

@@ -1,6 +1,5 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -13,8 +12,7 @@ public class ShapeCanvas : Canvas
 
 #if PERFORMANCE_INFO
 
-    // >> Needed to display performance info.
-    private readonly PerformanceInfo performanceInfo = new();
+    public PerformanceInfo PerformanceInfo { get; } = new();
 
 #endif
 
@@ -74,7 +72,7 @@ public class ShapeCanvas : Canvas
     {
 #if PERFORMANCE_INFO
 
-        performanceInfo.Start();
+        PerformanceInfo.Start();
 #endif
 
         base.OnRender(drawingContext);
@@ -83,39 +81,26 @@ public class ShapeCanvas : Canvas
             return;
 
         double diameter = Math.Min(ActualWidth, ActualHeight);
-        double offsetX = ActualWidth / 2;
-        double offsetY = ActualHeight / 2;
 
-        TranslateTransform translateTransform = new(offsetX, offsetY);
-        drawingContext.WithTransform(translateTransform, () =>
-        {
-            if (!KeepProportions)
+        drawingContext.CreateDrawingPlan()
+            .WithTransform(() =>
             {
-                ScaleTransform scaleTransform = CreateScaleTransform(diameter);
-                drawingContext.WithTransform(scaleTransform,
-                    () => RenderShapes(drawingContext, diameter));
-            }
-            else
+                double offsetX = ActualWidth / 2;
+                double offsetY = ActualHeight / 2;
+
+                return new TranslateTransform(offsetX, offsetY);
+            })
+            .WithTransform(() =>
             {
-                RenderShapes(drawingContext, diameter);
-            }
-        });
+                return KeepProportions
+                ? null
+                : CreateScaleTransform(diameter);
+            })
+            .Draw(dc => RenderShapes(dc, diameter));
 
 #if PERFORMANCE_INFO
 
-        performanceInfo.Stop();
-
-        string performanceText = performanceInfo.ToString();
-        FormattedText formattedText = new(
-            performanceText,
-            CultureInfo.CurrentCulture,
-            FlowDirection.LeftToRight,
-            new Typeface("Arial"),
-            12,
-            Brushes.Black,
-            1.0);
-
-        drawingContext.DrawText(formattedText, new Point(5, 5));
+        PerformanceInfo.Stop();
 
 #endif
     }

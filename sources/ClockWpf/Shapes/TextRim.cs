@@ -4,6 +4,9 @@ using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
 
+/// <summary>
+/// A rim shape that displays texts around the clock face.
+/// </summary>
 public class TextRim : RimBase
 {
     public static readonly DependencyProperty TextsProperty = DependencyProperty.Register(

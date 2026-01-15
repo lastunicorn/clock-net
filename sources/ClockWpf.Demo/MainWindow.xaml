@@ -6,6 +6,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:clockWpf="clr-namespace:DustInTheWind.ClockWpf;assembly=DustInTheWind.ClockWpf"
+    xmlns:shapes="clr-namespace:DustInTheWind.ClockWpf.Shapes;assembly=DustInTheWind.ClockWpf"
     
     mc:Ignorable="d"
     Title="MainWindow"
@@ -13,9 +14,64 @@
     Width="800">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Viewbox
+            Grid.Column="0">
+            
+            <clockWpf:AnalogClock
+                x:Name="analogClock1" />
+        </Viewbox>
+
+        <clockWpf:PerformaceView
+            Grid.Column="0"
+            DataContext="{Binding ElementName=analogClock1, Path=PerformanceInfo}" />
+
         <clockWpf:AnalogClock
-            x:Name="analogClock1"
-            Background="CornflowerBlue" />
+            Grid.Column="1"
+            x:Name="analogClock2">
+
+            <clockWpf:AnalogClock.Shapes>
+                
+                <shapes:FlatBackground />
+                
+                <shapes:Hours/>
+                
+                <shapes:Ticks/>
+                
+                <shapes:DiamondHand
+                    ComponentToDisplay="Hour"
+                    Length="48"
+                    Width="10"
+                    TailLength="12"
+                    StrokeThickness="0"
+                    Fill="RoyalBlue" />
+                
+                <shapes:DiamondHand
+                    ComponentToDisplay="Minute"
+                    Length="74"
+                    Width="8"
+                    TailLength="8"
+                    StrokeThickness="0"
+                    Fill="LimeGreen" />
+
+                <shapes:SimpleHand
+                    ComponentToDisplay="Second"
+                    Length="85"
+                    TailLength="14"
+                    Stroke="Red"
+                    StrokeThickness="1" />
+
+            </clockWpf:AnalogClock.Shapes>
+        </clockWpf:AnalogClock>
+        
+        <clockWpf:PerformaceView
+            Grid.Column="1"
+            DataContext="{Binding ElementName=analogClock2, Path=PerformanceInfo}" />
+        
     </Grid>
 
 </Window>

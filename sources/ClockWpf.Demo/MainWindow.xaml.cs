@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Media;
+using DustInTheWind.ClockWpf;
 using DustInTheWind.ClockWpf.Shapes;
 using DustInTheWind.ClockWpf.TimeProviders;
 
@@ -14,20 +15,29 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        analogClock1.KeepProportions = true;
+        CreateShapesFor(analogClock1);
 
-        analogClock1.Shapes.Add(new FlatBackground());
+        LocalTimeProvider localTimeProvider = new();
+        localTimeProvider.Start();
 
-        analogClock1.Shapes.Add(new Hours
+        analogClock1.TimeProvider = localTimeProvider;
+        analogClock2.TimeProvider = localTimeProvider;
+    }
+
+    private void CreateShapesFor(AnalogClock analogClock)
+    {
+        analogClock.Shapes.Add(new FlatBackground());
+
+        analogClock.Shapes.Add(new Hours
         {
             Orientation = RimItemOrientation.Normal
         });
-        analogClock1.Shapes.Add(new Ticks
+        analogClock.Shapes.Add(new Ticks
         {
             Orientation = RimItemOrientation.FaceCenter
         });
 
-        analogClock1.Shapes.Add(new DiamondHand
+        analogClock.Shapes.Add(new DiamondHand
         {
             ComponentToDisplay = TimeComponent.Hour,
             Length = 48,
@@ -37,7 +47,7 @@ public partial class MainWindow : Window
             Fill = Brushes.RoyalBlue
         });
 
-        analogClock1.Shapes.Add(new DiamondHand
+        analogClock.Shapes.Add(new DiamondHand
         {
             ComponentToDisplay = TimeComponent.Minute,
             Length = 74,
@@ -47,7 +57,7 @@ public partial class MainWindow : Window
             Fill = Brushes.LimeGreen
         });
 
-        analogClock1.Shapes.Add(new SimpleHand
+        analogClock.Shapes.Add(new SimpleHand
         {
             ComponentToDisplay = TimeComponent.Second,
             Length = 85,
@@ -55,10 +65,5 @@ public partial class MainWindow : Window
             Stroke = Brushes.Red,
             StrokeThickness = 1
         });
-
-        LocalTimeProvider localTimeProvider = new();
-        localTimeProvider.Start();
-
-        analogClock1.TimeProvider = localTimeProvider;
     }
 }

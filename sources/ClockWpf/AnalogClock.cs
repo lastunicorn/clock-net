@@ -10,13 +10,33 @@ public class AnalogClock : Control
 {
     private ShapeCanvas shapeCanvas;
 
+#if PERFORMANCE_INFO
+
+    #region PerformanceInfo DependencyProperty
+
+    public static readonly DependencyProperty PerformanceInfoProperty = DependencyProperty.Register(
+        nameof(PerformanceInfo),
+        typeof(PerformanceInfo),
+        typeof(AnalogClock),
+        new PropertyMetadata(null));
+
+    public PerformanceInfo PerformanceInfo
+    {
+        get => (PerformanceInfo)GetValue(PerformanceInfoProperty);
+        private set => SetValue(PerformanceInfoProperty, value);
+    }
+
+    #endregion
+
+#endif
+
     #region Shapes DependencyProperty
 
     public static readonly DependencyProperty ShapesProperty = DependencyProperty.Register(
         nameof(Shapes),
         typeof(ObservableCollection<Shape>),
         typeof(AnalogClock),
-        new PropertyMetadata(new ObservableCollection<Shape>()));
+        new PropertyMetadata(null));
 
     public ObservableCollection<Shape> Shapes
     {
@@ -34,18 +54,18 @@ public class AnalogClock : Control
         typeof(AnalogClock),
         new PropertyMetadata(true, OnKeepProportionsChanged));
 
-    public bool KeepProportions
-    {
-        get => (bool)GetValue(KeepProportionsProperty);
-        set => SetValue(KeepProportionsProperty, value);
-    }
-
     private static void OnKeepProportionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is not AnalogClock analogClock)
             return;
 
         analogClock.shapeCanvas?.InvalidateVisual();
+    }
+
+    public bool KeepProportions
+    {
+        get => (bool)GetValue(KeepProportionsProperty);
+        set => SetValue(KeepProportionsProperty, value);
     }
 
     #endregion
@@ -57,12 +77,6 @@ public class AnalogClock : Control
         typeof(ITimeProvider),
         typeof(AnalogClock),
         new PropertyMetadata(null, OnTimeProviderChanged));
-
-    public ITimeProvider TimeProvider
-    {
-        get => (ITimeProvider)GetValue(TimeProviderProperty);
-        set => SetValue(TimeProviderProperty, value);
-    }
 
     private static void OnTimeProviderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -87,13 +101,6 @@ public class AnalogClock : Control
         });
     }
 
-    #endregion
-
-    static AnalogClock()
-    {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(AnalogClock), new FrameworkPropertyMetadata(typeof(AnalogClock)));
-    }
-
     private void UpdateHandsTime(TimeSpan time)
     {
         if (Shapes == null)
@@ -107,10 +114,33 @@ public class AnalogClock : Control
         shapeCanvas?.InvalidateVisual();
     }
 
+    public ITimeProvider TimeProvider
+    {
+        get => (ITimeProvider)GetValue(TimeProviderProperty);
+        set => SetValue(TimeProviderProperty, value);
+    }
+
+    #endregion
+
+    static AnalogClock()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(AnalogClock), new FrameworkPropertyMetadata(typeof(AnalogClock)));
+    }
+
+    public AnalogClock()
+    {
+        Shapes = [];
+    }
+
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
 
         shapeCanvas = GetTemplateChild("PART_ShapeCanvas") as ShapeCanvas;
+
+#if PERFORMANCE_INFO
+        if (shapeCanvas != null)
+            PerformanceInfo = shapeCanvas.PerformanceInfo;
+#endif
     }
 }

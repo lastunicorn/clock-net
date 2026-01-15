@@ -14,18 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 
 namespace DustInTheWind.ClockWpf;
 
-internal class PerformanceInfo
+public class PerformanceInfo : INotifyPropertyChanged
 {
     private readonly Stopwatch stopwatch = new();
 
     private long sessionCount;
     private long totalTicks;
     private long lastSessionTicks;
+
+    public event PropertyChangedEventHandler PropertyChanged;
 
     public void Start()
     {
@@ -39,6 +42,13 @@ internal class PerformanceInfo
         sessionCount++;
         lastSessionTicks = stopwatch.ElapsedTicks;
         totalTicks += lastSessionTicks;
+
+        OnPropertyChanged(nameof(PerformanceInfo));
+    }
+
+    protected virtual void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
     public override string ToString()
