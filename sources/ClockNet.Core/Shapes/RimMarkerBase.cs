@@ -128,12 +128,12 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         private int skipIndex;
 
         /// <summary>
-        /// Gets or sets the index of the instance that hould not be drawn. Also, the multiples of this index are skipped.
+        /// Gets or sets the index of the instance that should not be drawn. Also, the multiples of this index are skipped.
         /// Default value: <see cref="DefaultSkipIndex"/>.
         /// </summary>
         [Category("Behavior")]
         [DefaultValue(DefaultSkipIndex)]
-        [Description("The index of the instance that hould not be drawn. Also, the multiples of this index are skipped.")]
+        [Description("The index of the instance that should not be drawn. Also, the multiples of this index are skipped.")]
         public virtual int SkipIndex
         {
             get => skipIndex;
@@ -179,12 +179,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         }
 
         /// <summary>
-        /// Gets or sets the index that should be drawn next time the  <see cref="IShape.Draw"/> method is called.
-        /// </summary>
-        [Browsable(false)]
-        public int Index { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="RimMarkerBase"/> class with
         /// default values.
         /// </summary>
@@ -211,67 +205,35 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             this.distanceFromEdge = distanceFromEdge;
         }
 
-        /// <summary>
-        /// Performs pre-draw transformations and determines whether the drawing operation should proceed.
-        /// It is expected that the necessary rotation and translation transformations are already applied
-        /// to position the shape correctly on the clock's dial.
-        /// This method applies additional translation and rotation transformations based on the current orientation
-        /// and position settings, changing the marker position relative to its default location.
-        /// Drawing is skipped if certain conditions are met, such as when the current index matches the skip interval.
-        /// </summary>
-        /// <param name="g">The graphics context to apply transformations to before drawing.</param>
-        /// <returns><c>true</c> if drawing should continue; otherwise, <c>false</c>.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        private uint MaxCoverageCount = 0;
+        private uint MaxCoverageAngle = 360;
+
+        protected override void OnDraw(Graphics g)
         {
-            bool allowToDraw = base.OnBeforeDraw(g);
-
-            if (!allowToDraw)
-                return false;
-
-            bool shouldSkip = skipIndex > 0 && Index % skipIndex == 0;
-
-            if (shouldSkip)
-                return false;
-
-            if (distanceFromEdge != 0)
-                g.TranslateTransform(0, distanceFromEdge);
-
-            switch (orientation)
+            RimDrawingCoordinator rimDrawingCoordinator = new RimDrawingCoordinator(g)
             {
-                case RimMarkerOrientation.FaceCenter:
-                    break;
+                Diameter = 100,
+                Angle = Angle,
+                OffsetAngle = OffsetAngle,
+                MaxCoverageCount = MaxCoverageCount,
+                MaxCoverageAngle = MaxCoverageAngle,
+                Repeat = Repeat,
+                SkipIndex = SkipIndex,
+                DistanceFromEdge = DistanceFromEdge,
+                Orientation = Orientation
+            };
 
-                case RimMarkerOrientation.FaceOut:
-                    g.RotateTransform(180);
-                    break;
-
-                default:
-                case RimMarkerOrientation.Normal:
-                    float totalAngle = -(angle * Index);
-                    g.RotateTransform(totalAngle);
-                    break;
+            while (rimDrawingCoordinator.MoveNext())
+            {
+                DrawItem(rimDrawingCoordinator.Graphics, rimDrawingCoordinator.Index);
             }
-
-            return true;
         }
 
         /// <summary>
-        /// Performs additional processing after the control has completed its drawing operations.
+        /// Draws the item at the specified index onto the provided graphics surface.
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> object used to draw the control's content.</param>
-        protected override void OnAfterDraw(Graphics g)
-        {
-            Index++;
-            base.OnAfterDraw(g);
-        }
-
-        /// <summary>
-        /// Resets the index of the shape that will be drawn next.
-        /// This method is called by the clock before every paint.
-        /// </summary>
-        public void Reset()
-        {
-            Index = 0;
-        }
+        /// <param name="g">The graphics surface on which to draw the item.</param>
+        /// <param name="index">The zero-based index of the item to be drawn.</param>
+        protected abstract void DrawItem(Graphics g, int index);
     }
 }

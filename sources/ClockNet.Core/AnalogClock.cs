@@ -368,7 +368,6 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-
         #region KeepProportions
 
         /// <summary>
@@ -394,9 +393,6 @@ namespace DustInTheWind.ClockNet
         }
 
         #endregion
-
-
-        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalogClock"/> class with
@@ -426,8 +422,6 @@ namespace DustInTheWind.ClockNet
 
             CalculateDimmensions();
         }
-
-        #endregion
 
         private void HandleBackgroundAdded(object sender, ShapeAddedEventArgs e)
         {
@@ -687,27 +681,8 @@ namespace DustInTheWind.ClockNet
 
             foreach (IRimMarker angularShape in angularShapesNotNull)
             {
-                angularShape.Reset();
-
-                if (angularShape.Repeat)
-                {
-                    for (float i = 0; i <= 360; i += angularShape.Angle)
-                    {
-                        g.Transform = initialMatrix;
-                        g.RotateTransform(i);
-                        g.TranslateTransform(0f, -radius);
-
-                        angularShape.Draw(g);
-                    }
-                }
-                else if (angularShape.Index == 0)
-                {
-                    g.Transform = initialMatrix;
-                    g.RotateTransform(angularShape.Angle);
-                    g.TranslateTransform(0f, -radius);
-
-                    angularShape.Draw(g);
-                }
+                g.Transform = initialMatrix;
+                angularShape.Draw(g);
             }
         }
 
@@ -784,7 +759,7 @@ namespace DustInTheWind.ClockNet
         public TemplateBase ExportTemplate()
         {
             Template template = new Template();
-            
+
             template.Backgrounds.AddRange(Backgrounds);
             template.RimMarkers.AddRange(RimMarkers);
             template.Hands.AddRange(Hands);

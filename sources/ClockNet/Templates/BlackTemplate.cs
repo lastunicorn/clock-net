@@ -40,23 +40,26 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new Ticks
             {
                 Name = "Minute Ticks",
-                DistanceFromEdge = 7F,
+                DistanceFromEdge = 8f,
+                Angle = 6f,
+                OffsetAngle = 6f,
                 SkipIndex = 5
             };
 
             yield return new Ticks
             {
                 Name = "Hour Ticks",
-                Angle = 30F,
-                DistanceFromEdge = 7F,
+                Angle = 30f,
+                OffsetAngle = 30f,
+                DistanceFromEdge = 8f,
                 OutlineColor = Color.White,
-                OutlineWidth = 1F
+                OutlineWidth = 1f
             };
 
             yield return new Hours
             {
                 Name = "Hours",
-                DistanceFromEdge = 15F,
+                DistanceFromEdge = 16f,
                 FillColor = Color.LightGray,
                 Font = new Font("Vivaldi", 6.25F, FontStyle.Italic)
             };
@@ -64,7 +67,8 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new StringRimMarker
             {
                 Name = "Minutes",
-                Angle = 30F,
+                Angle = 30f,
+                OffsetAngle = 30f,
                 DistanceFromEdge = 2.7F,
                 FillColor = Color.DarkGray,
                 Font = new Font("Arial", 2.2F),

@@ -69,6 +69,7 @@
     <Compile Include="Serialization\ShapeSerializer.cs" />
     <Compile Include="Serialization\ValueConverterBase.cs" />
     <Compile Include="Serialization\ValueConverterRegistry.cs" />
+    <Compile Include="Shapes\RimDrawingCoordinator.cs" />
     <Compile Include="Template.cs" />
     <Compile Include="TemplateBase.cs" />
     <Compile Include="ColorExtensions.cs" />

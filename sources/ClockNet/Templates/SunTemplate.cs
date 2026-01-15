@@ -63,6 +63,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Hours",
                 Angle = 30f,
+                OffsetAngle = 30f,
                 DistanceFromEdge = 20f,
                 Font = new Font("Arial", 6.25f),
                 Orientation = RimMarkerOrientation.Normal,

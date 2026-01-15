@@ -128,7 +128,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes
 
                 return pen;
             }
-
             private set => pen = value;
         }
 

@@ -133,10 +133,17 @@ public class AnalogClock : Control
         if (Dispatcher.HasShutdownStarted || Dispatcher.HasShutdownFinished)
             return;
 
-        Dispatcher.Invoke(() =>
+        try
         {
-            shapeCanvas?.SetTime(e.Time);
-        });
+            Dispatcher.Invoke(() =>
+            {
+                shapeCanvas?.SetTime(e.Time);
+            });
+        }
+        catch (TaskCanceledException)
+        {
+            // Ignore
+        }
     }
 
     public ITimeProvider TimeProvider

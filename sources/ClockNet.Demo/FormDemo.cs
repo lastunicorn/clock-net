@@ -67,6 +67,9 @@ namespace DustInTheWind.ClockNet.Demo
 
             // Time Provider
             timeProvidersEditor1.AnalogClock = analogClockDemo;
+
+            //
+            analogClockDemo.ApplyTemplate(new DefaultTemplate());
         }
 
         private TimeSpan? GetUtcOffsetFromTimeProvider()

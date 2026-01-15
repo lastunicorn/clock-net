@@ -35,7 +35,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// <summary>
         /// The default value of the position offset.
         /// </summary>
-        public new const float DefaultDistanceFromEdge = 3f;
+        public new const float DefaultDistanceFromEdge = 4f;
 
         /// <summary>
         /// The default value of the length.
@@ -80,8 +80,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// </summary>
         protected override void CalculateLayout()
         {
-            StartPoint = new PointF(0, 0);
-            EndPoint = new PointF(0, length);
+            StartPoint = new PointF(0, -length / 2);
+            EndPoint = new PointF(0, length / 2);
         }
     }
 }

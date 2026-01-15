@@ -59,6 +59,7 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineWidth = 0.3f,
                 DistanceFromEdge = 3f,
                 Angle = 6f,
+                OffsetAngle = 6f,
                 SkipIndex = 5
             };
 
@@ -68,7 +69,8 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hour Ticks",
                 OutlineWidth = 1f,
                 DistanceFromEdge = 3f,
-                Angle = 30f
+                Angle = 30f,
+                OffsetAngle = 30f
             };
 
             // Hour numbers

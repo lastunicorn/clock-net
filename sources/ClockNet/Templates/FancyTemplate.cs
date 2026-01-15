@@ -47,8 +47,9 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineColor = Color.Black,
                 Length = 3f,
                 OutlineWidth = 0.3f,
-                DistanceFromEdge = 3f,
+                DistanceFromEdge = 4f,
                 Angle = 6f,
+                OffsetAngle = 6f,
                 SkipIndex = 5
             };
 
@@ -58,7 +59,8 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineColor = Color.Black,
                 Length = 3f,
                 OutlineWidth = 1f,
-                Angle = 30f
+                Angle = 30f,
+                OffsetAngle = 30f
             };
 
             yield return new Hours

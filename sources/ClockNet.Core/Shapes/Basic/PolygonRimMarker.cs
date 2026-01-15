@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Drawing;
+using System.Net;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
@@ -72,14 +73,11 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         }
 
         /// <summary>
-        /// Internal method that draws the Shape unconditioned. 
+        /// Draws the item at the specified index onto the provided graphics surface.
         /// </summary>
-        /// <remarks>
-        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
-        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
-        /// </remarks>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void OnDraw(Graphics g)
+        /// <param name="g">The graphics surface on which to draw the item.</param>
+        /// <param name="index">The zero-based index of the item to be drawn.</param>
+        protected override void DrawItem(Graphics g, int index)
         {
             if (!FillColor.IsEmpty)
                 g.FillPolygon(Brush, points);

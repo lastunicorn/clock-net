@@ -34,17 +34,5 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// Gets or sets a value specifying if the shape should be repeated or it is drawn a single time.
         /// </summary>
         bool Repeat { get; set; }
-
-        /// <summary>
-        /// Gets or sets the index of the shape that will be drawn next.
-        /// This value is automatically incremented after a call of the <see cref="IShape.Draw(Graphics)"/> method.
-        /// </summary>
-        int Index { get; set; }
-
-        /// <summary>
-        /// Resets the rendering series. The <see cref="Index"/> is set ot sero.
-        /// This method is called by the clock before the paint starts.
-        /// </summary>
-        void Reset();
     }
 }
