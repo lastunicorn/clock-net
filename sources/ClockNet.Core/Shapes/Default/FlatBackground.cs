@@ -127,6 +127,22 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
         }
 
         /// <summary>
+        /// Determines whether drawing should proceed by performing pre-draw validation using the specified graphics
+        /// context.
+        /// </summary>
+        /// <remarks>This method is typically called before rendering to ensure that all preconditions for
+        /// drawing are met. Overrides should return false to cancel the draw operation if necessary.</remarks>
+        /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <returns>true if drawing should continue; otherwise, false.</returns>
+        protected override bool OnBeforeDraw(Graphics g)
+        {
+            if (radius <= 0)
+                return false;
+
+            return base.OnBeforeDraw(g);
+        }
+
+        /// <summary>
         /// Internal method that draws the Shape unconditioned. 
         /// </summary>
         /// <remarks>

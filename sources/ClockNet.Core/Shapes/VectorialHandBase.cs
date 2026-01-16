@@ -163,11 +163,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// Determines whether the object is eligible to be drawn based on its fill and outline color states.
         /// </summary>
         /// <remarks>Drawing is permitted only if at least one of the colors (fill or outline) is set.</remarks>
+        /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
         /// <returns>true if drawing is allowed; otherwise, false.</returns>
-        protected override bool AllowToDraw()
+        protected override bool OnBeforeDraw(Graphics g)
         {
-            return base.AllowToDraw() &&
-                (!fillColor.IsEmpty || !outlineColor.IsEmpty);
+            if (fillColor.IsEmpty && outlineColor.IsEmpty)
+                return false;
+
+            return base.OnBeforeDraw(g);
         }
 
         protected virtual SolidBrush CreateBrush()

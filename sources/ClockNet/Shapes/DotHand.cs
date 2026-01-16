@@ -75,15 +75,18 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         }
 
         /// <summary>
-        /// Determines whether the current object meets the conditions required to perform drawing operations.
+        /// Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
         /// </summary>
         /// <remarks>Drawing is permitted only when both the radius and length are greater than zero, and
         /// the base class also allows drawing.</remarks>
+        /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
         /// <returns>true if drawing is allowed based on the object's state and base class conditions; otherwise, false.</returns>
-        protected override bool AllowToDraw()
+        protected override bool OnBeforeDraw(Graphics g)
         {
-            return base.AllowToDraw() &&
-                radius > 0 && Length > 0;
+            if (radius <= 0 || Length <= 0)
+                return false;
+
+            return base.OnBeforeDraw(g);
         }
 
         /// <summary>

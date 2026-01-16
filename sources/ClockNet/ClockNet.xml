@@ -98,13 +98,12 @@
             <param name="color">The color used to draw the text.</param>
             <param name="font">The font used to draw the text.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.AllowToDraw">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnBeforeDraw(System.Drawing.Graphics)">
             <summary>
-            Decides if the Shape should be drawn.
-            If this method returns false, the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method returns immediatelly,
-            without doing anythig.
+            Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
             </summary>
-            <returns>true if the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
+            <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+            <returns>true if drawing should continue; otherwise, false.</returns>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnDraw(System.Drawing.Graphics)">
             <summary>
@@ -156,12 +155,13 @@
             default values.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.AllowToDraw">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.OnBeforeDraw(System.Drawing.Graphics)">
             <summary>
-            Determines whether the current object meets the conditions required to perform drawing operations.
+            Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
             </summary>
             <remarks>Drawing is permitted only when both the radius and length are greater than zero, and
             the base class also allows drawing.</remarks>
+            <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
             <returns>true if drawing is allowed based on the object's state and base class conditions; otherwise, false.</returns>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.CalculateLayout">
@@ -257,13 +257,12 @@
             This method should be called every time when is set a property that changes the physical dimensions.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.AllowToDraw">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OnBeforeDraw(System.Drawing.Graphics)">
             <summary>
-            Decides if the Shape should be drawn.
-            If this method returns false, the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method returns immediatelly,
-            without doing anythig.
+            Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
             </summary>
-            <returns>true if the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics)"/> method is allowed to be executed; false otherwise.</returns>
+            <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+            <returns>true if drawing should continue; otherwise, false.</returns>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OnDraw(System.Drawing.Graphics)">
             <summary>

@@ -61,14 +61,16 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         }
 
         /// <summary>
-        /// Decides if the Shape should be drawn.
-        /// If this method returns false, the <see cref="IShape.Draw"/> method returns immediatelly,
-        /// without doing anythig. Not even incrementing the index.
+        /// Determines whether drawing should proceed based on the current rectangle state.
         /// </summary>
-        /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
-        protected override bool AllowToDraw()
+        /// <param name="g">The graphics context to use for drawing operations.</param>
+        /// <returns>true if the rectangle is not empty and drawing should continue; otherwise, false.</returns>
+        protected override bool OnBeforeDraw(Graphics g)
         {
-            return base.AllowToDraw() && !rectangle.IsEmpty;
+            if (rectangle.IsEmpty)
+                return false;
+
+            return base.OnBeforeDraw(g);
         }
 
         /// <summary>

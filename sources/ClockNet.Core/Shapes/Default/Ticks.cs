@@ -74,6 +74,19 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         }
 
         /// <summary>
+        /// Determines whether drawing should proceed by performing pre-draw validation.
+        /// </summary>
+        /// <param name="g">The graphics context to use for drawing operations.</param>
+        /// <returns>true if drawing should continue; otherwise, false.</returns>
+        protected override bool OnBeforeDraw(Graphics g)
+        {
+            if (Length <= 0)
+                return false;
+
+            return base.OnBeforeDraw(g);
+        }
+
+        /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
@@ -83,6 +96,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
             float diameter = 200;
             float radius = diameter / 2;
             float actualLength = radius * (Length / 100f);
+
             StartPoint = new PointF(0, -actualLength / 2);
             EndPoint = new PointF(0, actualLength / 2);
         }

@@ -85,18 +85,25 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         }
 
         /// <summary>
-        /// Decides if the Shape should be drawn.
-        /// If this method returns false, the <see cref="IShape.Draw"/> method returns immediatelly,
-        /// without doing anythig.
+        /// Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
         /// </summary>
-        /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
-        protected override bool AllowToDraw()
+        /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <returns>true if drawing should continue; otherwise, false.</returns>
+        protected override bool OnBeforeDraw(Graphics g)
         {
-            return base.AllowToDraw() &&
-                !OutlineColor.IsEmpty &&
-                StartPoint != PointF.Empty &&
-                EndPoint != PointF.Empty &&
-                StartPoint != EndPoint;
+            if (OutlineColor.IsEmpty)
+                return false;
+
+            if (StartPoint == PointF.Empty)
+                return false;
+
+            if (EndPoint == PointF.Empty)
+                return false;
+
+            if (StartPoint == EndPoint)
+                return false;
+
+            return base.OnBeforeDraw(g);
         }
 
         /// <summary>

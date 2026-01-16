@@ -88,13 +88,16 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         }
 
         /// <summary>
-        /// Determines whether the object is eligible to be drawn based on its fill and outline color states.
+        /// Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
         /// </summary>
-        /// <remarks>Drawing is permitted only if at least one of the colors (fill or outline) is set.</remarks>
-        /// <returns>true if drawing is allowed; otherwise, false.</returns>
-        protected override bool AllowToDraw()
+        /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <returns>true if drawing should continue; otherwise, false.</returns>
+        protected override bool OnBeforeDraw(Graphics g)
         {
-            return base.AllowToDraw() && diameter > 0;
+            if (diameter <= 0)
+                return false;
+
+            return base.OnBeforeDraw(g);
         }
 
         /// <summary>

@@ -118,18 +118,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         }
 
         /// <summary>
-        /// Decides if the shape should be rendered.
-        /// This method is used by the <see cref="Draw(Graphics)"/> method.
-        /// If this method returns <c>false</c>, the <see cref="Draw(Graphics)"/> method returns immediatelly,
-        /// without doing anythig.
-        /// </summary>
-        /// <returns><c>true</c> if the <see cref="Draw"/> method is allowed to be executed; <c>false</c> otherwise.</returns>
-        protected virtual bool AllowToDraw()
-        {
-            return visible;
-        }
-
-        /// <summary>
         /// Marks the current layout as invalid, indicating that a layout update is required.
         /// </summary>
         /// <remarks>Call this method when changes occur that affect the layout, so that the layout system
@@ -146,21 +134,22 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         public void Draw(Graphics g)
         {
-            if (AllowToDraw())
+            if (!Visible)
+                return;
+
+            bool allowToDraw = OnBeforeDraw(g);
+            if (!allowToDraw)
+                return;
+
+            if (!isLayoutValid)
             {
-                if (!isLayoutValid)
-                {
-                    CalculateLayout();
-                    isLayoutValid = true;
-                }
-
-                bool allowToDraw = OnBeforeDraw(g);
-
-                if (allowToDraw)
-                    OnDraw(g);
-
-                OnAfterDraw(g);
+                CalculateLayout();
+                isLayoutValid = true;
             }
+
+            OnDraw(g);
+
+            OnAfterDraw(g);
         }
 
         /// <summary>
