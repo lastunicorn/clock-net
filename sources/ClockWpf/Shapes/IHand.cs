@@ -5,6 +5,4 @@ public interface IHand
     double Length { get; set; }
 
     TimeComponent ComponentToDisplay { get; set; }
-
-    TimeSpan Time { get; set; }
 }

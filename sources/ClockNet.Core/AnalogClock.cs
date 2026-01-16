@@ -491,7 +491,6 @@ namespace DustInTheWind.ClockNet
 
         private void HandleShapeChanged(object sender, EventArgs e)
         {
-            Debug.WriteLine(sender.GetType().ToString());
             Invalidate();
         }
 

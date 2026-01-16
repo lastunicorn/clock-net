@@ -16,17 +16,13 @@ public class ShapeCanvas : Canvas
 
 #endif
 
+    #region Shapes DependencyProperty
+
     public static readonly DependencyProperty ShapesProperty = DependencyProperty.Register(
         nameof(Shapes),
         typeof(ObservableCollection<Shape>),
         typeof(ShapeCanvas),
         new PropertyMetadata(null, OnShapesChanged));
-
-    public ObservableCollection<Shape> Shapes
-    {
-        get => (ObservableCollection<Shape>)GetValue(ShapesProperty);
-        set => SetValue(ShapesProperty, value);
-    }
 
     private static void OnShapesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -50,11 +46,27 @@ public class ShapeCanvas : Canvas
         }
     }
 
+    public ObservableCollection<Shape> Shapes
+    {
+        get => (ObservableCollection<Shape>)GetValue(ShapesProperty);
+        set => SetValue(ShapesProperty, value);
+    }
+
+    #endregion
+
+    #region KeepProportions DependencyProperty
+
     public static readonly DependencyProperty KeepProportionsProperty = DependencyProperty.Register(
         nameof(KeepProportions),
         typeof(bool),
         typeof(ShapeCanvas),
         new PropertyMetadata(false, OnKeepProportionsChanged));
+
+    private static void OnKeepProportionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is ShapeCanvas canvas)
+            canvas.InvalidateVisual();
+    }
 
     public bool KeepProportions
     {
@@ -62,23 +74,29 @@ public class ShapeCanvas : Canvas
         set => SetValue(KeepProportionsProperty, value);
     }
 
-    private static void OnKeepProportionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    #endregion
+
+    #region Time DependencyProperty
+
+    public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(
+        nameof(Time),
+        typeof(TimeSpan),
+        typeof(ShapeCanvas),
+        new FrameworkPropertyMetadata(TimeSpan.Zero, OnTimeChanged));
+
+    private static void OnTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is ShapeCanvas canvas)
             canvas.InvalidateVisual();
     }
-    public void SetTime(TimeSpan time)
+
+    public TimeSpan Time
     {
-        if (Shapes == null)
-            return;
-
-        IEnumerable<IHand> hands = Shapes.OfType<IHand>();
-
-        foreach (IHand hand in hands)
-            hand.Time = time;
-
-        InvalidateVisual();
+        get => (TimeSpan)GetValue(TimeProperty);
+        set => SetValue(TimeProperty, value);
     }
+
+    #endregion
 
     protected override void OnRender(DrawingContext drawingContext)
     {
@@ -134,7 +152,9 @@ public class ShapeCanvas : Canvas
         IEnumerable<Shape> visibleShapes = Shapes
             .Where(x => x != null && x.IsVisible);
 
+        TimeSpan time = Time;
+
         foreach (Shape shape in visibleShapes)
-            shape.Render(drawingContext, diameter);
+            shape.Render(drawingContext, diameter, time);
     }
 }

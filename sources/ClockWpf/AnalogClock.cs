@@ -135,10 +135,13 @@ public class AnalogClock : Control
 
         try
         {
-            Dispatcher.Invoke(() =>
+            if (shapeCanvas != null)
             {
-                shapeCanvas?.SetTime(e.Time);
-            });
+                Dispatcher.Invoke(() =>
+                {
+                    shapeCanvas.Time = e.Time;
+                });
+            }
         }
         catch (TaskCanceledException)
         {

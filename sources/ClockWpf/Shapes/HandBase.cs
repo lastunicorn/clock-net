@@ -29,22 +29,6 @@ public abstract class HandBase : Shape, IHand
 
     #endregion
 
-    #region Time DependencyProperty
-
-    public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(
-        nameof(Time),
-        typeof(TimeSpan),
-        typeof(HandBase),
-        new FrameworkPropertyMetadata(TimeSpan.Zero));
-
-    public TimeSpan Time
-    {
-        get => (TimeSpan)GetValue(TimeProperty);
-        set => SetValue(TimeProperty, value);
-    }
-
-    #endregion
-
     #region ComponentToDisplay DependencyProperty
 
     public static readonly DependencyProperty ComponentToDisplayProperty = DependencyProperty.Register(
@@ -61,14 +45,14 @@ public abstract class HandBase : Shape, IHand
 
     #endregion
 
-    protected double CalculateHandAngle()
+    protected double CalculateHandAngle(TimeSpan time)
     {
         double value = ComponentToDisplay switch
         {
-            TimeComponent.Hour => Time.TotalHours % 12,
-            TimeComponent.Minute => Time.TotalMinutes % 60,
-            TimeComponent.Second => Time.TotalSeconds % 60,
-            _ => Time.TotalSeconds % 60
+            TimeComponent.Hour => time.TotalHours % 12,
+            TimeComponent.Minute => time.TotalMinutes % 60,
+            TimeComponent.Second => time.TotalSeconds % 60,
+            _ => time.TotalSeconds % 60
         };
 
         double divisor = ComponentToDisplay switch

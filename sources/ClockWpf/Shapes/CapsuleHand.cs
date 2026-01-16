@@ -40,12 +40,12 @@ public class CapsuleHand : HandBase
 
     #endregion
 
-    public override void DoRender(DrawingContext drawingContext, double diameter)
+    public override void DoRender(DrawingContext drawingContext, double diameter, TimeSpan time)
     {
         drawingContext.CreateDrawingPlan()
             .WithTransform(() =>
             {
-                double angleDegrees = CalculateHandAngle();
+                double angleDegrees = CalculateHandAngle(time);
                 return new RotateTransform(angleDegrees, 0, 0);
             })
             .Draw(dc =>

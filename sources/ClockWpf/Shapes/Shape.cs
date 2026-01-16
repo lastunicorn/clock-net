@@ -92,14 +92,14 @@ public abstract class Shape : DependencyObject
         }
     }
 
-    public void Render(DrawingContext drawingContext, double diameter)
+    public void Render(DrawingContext drawingContext, double diameter, TimeSpan time)
     {
         bool allowToRender = OnRendering(diameter);
 
         if (!allowToRender)
             return;
 
-        DoRender(drawingContext, diameter);
+        DoRender(drawingContext, diameter, time);
 
         OnRendered();
     }
@@ -109,7 +109,7 @@ public abstract class Shape : DependencyObject
         return true;
     }
 
-    public abstract void DoRender(DrawingContext drawingContext, double diameter);
+    public abstract void DoRender(DrawingContext drawingContext, double diameter, TimeSpan time);
 
     protected virtual void OnRendered()
     {

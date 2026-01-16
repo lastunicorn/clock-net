@@ -11,7 +11,7 @@ public class FlatBackground : BackgroundBase
         StrokeThicknessProperty.OverrideMetadata(typeof(FlatBackground), new FrameworkPropertyMetadata(0.0));
     }
 
-    public override void DoRender(DrawingContext drawingContext, double diameter)
+    public override void DoRender(DrawingContext drawingContext, double diameter, TimeSpan time)
     {
         if (Fill == null && StrokePen == null)
             return;

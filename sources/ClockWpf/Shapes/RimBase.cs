@@ -110,7 +110,7 @@ public abstract class RimBase : Shape
 
     #endregion
 
-    public override void DoRender(DrawingContext drawingContext, double diameter)
+    public override void DoRender(DrawingContext drawingContext, double diameter, TimeSpan time)
     {
         double radius = diameter / 2;
         double actualDistanceFromEdge = radius * DistanceFromEdge / 100.0;
