@@ -31,13 +31,15 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// </summary>
         public const string DefaultName = "Pin";
 
+        private float centerX;
+        private float centerY;
+
+        #region Diameter Property
+
         /// <summary>
         /// The default value of the diameter.
         /// </summary>
         public const float DefaultDiameter = 1.33f;
-
-        private float centerX;
-        private float centerY;
 
         /// <summary>
         /// The diameter of the pin.
@@ -65,6 +67,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
             }
         }
 
+        #endregion
+
+        #region Length Property (protected)
 
         /// <summary>
         /// Not used.
@@ -75,6 +80,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
             get => base.Length;
             set => base.Length = value;
         }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Pin"/> class with

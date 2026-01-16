@@ -26,19 +26,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     /// </summary>
     public abstract class HandBase : ShapeBase, IHand
     {
+        #region Length Property
+
         /// <summary>
         /// The default value of the length of the clock's hand..
         /// </summary>
         public const float DefaultLength = 90f;
 
-        /// <summary>
-        /// The default value of the <see cref="IntegralValue"/>.
-        /// </summary>
-        public const bool DefaultIntegralValue = false;
-
         private float length;
-        private TimeComponent componentToDisplay;
-        private bool integralValue;
 
         /// <summary>
         /// Gets or sets the length of the hand from the pin to the its top. For a clock with the diameter of 100px.
@@ -60,11 +55,21 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
         }
 
+        #endregion
+
+        #region Time Property
+
         /// <summary>
         /// Gets or sets the time that the current instance should display.
         /// </summary>
         [Browsable(false)]
         public TimeSpan Time { get; set; }
+
+        #endregion
+
+        #region ComponentToDisplay Property
+
+        private TimeComponent componentToDisplay;
 
         /// <summary>
         /// Gets or sets a value that specifies the component that is displayed from the time value.
@@ -85,6 +90,17 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
         }
 
+        #endregion
+
+        #region IntegralValue Property
+
+        /// <summary>
+        /// The default value of the <see cref="IntegralValue"/>.
+        /// </summary>
+        public const bool DefaultIntegralValue = false;
+
+        private bool integralValue;
+
         /// <summary>
         /// Gets or set a value that specifies if the hand will hide the fractional part of the value that it displayes.
         /// </summary>
@@ -103,6 +119,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HandBase"/> class with

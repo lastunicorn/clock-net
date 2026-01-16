@@ -37,6 +37,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// </summary>
         public new const float DefaultDistanceFromEdge = 8f;
 
+        #region Length Property
+
         /// <summary>
         /// The default value of the length.
         /// </summary>
@@ -60,6 +62,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Ticks"/> class with

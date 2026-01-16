@@ -28,10 +28,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
     [Shape("ac17028b-424c-4b91-b961-72b9f0b4733a")]
     public class FlatBackground : VectorialBackgroundBase
     {
+        private RectangleF rect;
+
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
         public const string DefaultName = "Background Shape";
+
+        #region Radius Property
 
         /// <summary>
         /// The default radius of the Dial Shape.
@@ -39,7 +43,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
         public const float DefaultRadius = 100f;
 
         private float radius;
-        private RectangleF rect;
 
         /// <summary>
         /// Gets or sets the radius of the dial.
@@ -61,6 +64,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FlatBackground"/> class with

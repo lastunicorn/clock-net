@@ -25,15 +25,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     /// </summary>
     public abstract class VectorialRimBase : RimBase
     {
-        /// <summary>
-        /// The default width of the line used to draw the shape.
-        /// </summary>
-        public const float DefaultOutlineWidth = 0.3f;
-
-        /// <summary>
-        /// The default value of the <see cref="FillColor"/>.
-        /// </summary>
-        public static Color DefaultFillColor = Color.Black;
+        #region OutlineColor Property
 
         /// <summary>
         /// The default value of the <see cref="OutlineColor"/>.
@@ -41,11 +33,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         public static Color DefaultOutlineColor = Color.Empty;
 
         private Color outlineColor = DefaultOutlineColor;
-        private Color fillColor = DefaultFillColor;
-        private float outlineWidth = DefaultOutlineWidth;
-
-        private Brush brush;
-        private Pen pen;
 
         /// <summary>
         /// Gets or sets the color used to draw the outline of the shape.
@@ -64,6 +51,17 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
         }
 
+        #endregion
+
+        #region FillColor Property
+
+        /// <summary>
+        /// The default value of the <see cref="FillColor"/>.
+        /// </summary>
+        public static Color DefaultFillColor = Color.Black;
+
+        private Color fillColor = DefaultFillColor;
+
         /// <summary>
         /// Gets or sets the color used to draw the background of the shape.
         /// </summary>
@@ -80,6 +78,17 @@ namespace DustInTheWind.ClockNet.Core.Shapes
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
+
+        #region OutlineWidth Property
+
+        /// <summary>
+        /// The default width of the line used to draw the shape.
+        /// </summary>
+        public const float DefaultOutlineWidth = 0.3f;
+
+        private float outlineWidth = DefaultOutlineWidth;
 
         /// <summary>
         /// Gets or sets the width of the outline.
@@ -101,6 +110,12 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
         }
 
+        #endregion
+
+        #region Brush Property (protected)
+
+        private Brush brush;
+
         /// <summary>
         /// Gets the <see cref="Brush"/> instance used to fill the shape.
         /// </summary>
@@ -116,6 +131,23 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             private set => brush = value;
         }
 
+        protected virtual SolidBrush CreateBrush()
+        {
+            return new SolidBrush(fillColor);
+
+            //System.Drawing.Drawing2D..::.HatchBrush
+            //System.Drawing.Drawing2D..::.LinearGradientBrush
+            //System.Drawing.Drawing2D..::.PathGradientBrush
+            //System.Drawing..::.SolidBrush
+            //System.Drawing..::.TextureBrush
+        }
+
+        #endregion
+
+        #region Pen Property (protected)
+
+        private Pen pen;
+
         /// <summary>
         /// Gets the <see cref="Pen"/> instance used to draw the outline of the shape.
         /// </summary>
@@ -130,6 +162,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
             private set => pen = value;
         }
+
+        protected virtual Pen CreatePen()
+        {
+            return new Pen(outlineColor, outlineWidth);
+        }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorialRimBase"/> class.
@@ -154,22 +193,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             this.outlineColor = outlineColor;
             this.fillColor = fillColor;
             this.outlineWidth = outlineWidth;
-        }
-
-        protected virtual SolidBrush CreateBrush()
-        {
-            return new SolidBrush(fillColor);
-
-            //System.Drawing.Drawing2D..::.HatchBrush
-            //System.Drawing.Drawing2D..::.LinearGradientBrush
-            //System.Drawing.Drawing2D..::.PathGradientBrush
-            //System.Drawing..::.SolidBrush
-            //System.Drawing..::.TextureBrush
-        }
-
-        protected virtual Pen CreatePen()
-        {
-            return new Pen(outlineColor, outlineWidth);
         }
 
         /// <summary>

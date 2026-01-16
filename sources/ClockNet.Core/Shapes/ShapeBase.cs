@@ -27,8 +27,11 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     /// </summary>
     public abstract class ShapeBase : IShape, ISerializable
     {
-        private string name;
         private bool isLayoutValid;
+
+        #region Name Property
+
+        private string name;
 
         /// <summary>
         /// An user friendly name. Used only to be displayed to the user. Does not influence the
@@ -51,6 +54,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
         }
 
+        #endregion
+
+        #region Visible Property
+
         /// <summary>
         /// A value specifying if the shape should be drawn or not.
         /// </summary>
@@ -71,6 +78,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
 
         #region Event Changed
 

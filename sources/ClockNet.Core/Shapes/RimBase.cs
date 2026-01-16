@@ -28,41 +28,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     /// </summary>
     public abstract class RimBase : ShapeBase, IRim
     {
+        #region DistanceFromEdge Property
+
         /// <summary>
         /// The default value of the position offset.
         /// </summary>
         public const float DefaultDistanceFromEdge = 0f;
 
-        /// <summary>
-        /// The default value of the angle.
-        /// </summary>
-        public const float DefaultAngle = 6f;
-
-        /// <summary>
-        /// The default value of the offset angle.
-        /// </summary>
-        public const float DefaultOffsetAngle = 6f;
-
-        /// <summary>
-        /// The default value of the skip index.
-        /// </summary>
-        public const int DefaultSkipIndex = 0;
-
-        /// <summary>
-        /// The default value of the repeat.
-        /// </summary>
-        public const bool DefaultRepeat = true;
-
-        /// <summary>
-        /// The default value of the shape's orientation.
-        /// </summary>
-        public const RimItemOrientation DefaultOrientation = RimItemOrientation.FaceCenter;
-
         private float distanceFromEdge = DefaultDistanceFromEdge;
-        private float offsetAngle = DefaultOffsetAngle;
-        private float angle = DefaultAngle;
-        private bool repeat = DefaultRepeat;
-        private RimItemOrientation orientation = DefaultOrientation;
 
         /// <summary>
         /// Gets or sets the distance between the edge of the dial and the items.
@@ -82,26 +55,16 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
         }
 
-        /// <summary>
-        /// Gets or sets the angle, in degrees, between north and the first item that is displayed.
-        /// Default value: <see cref="DefaultOffsetAngle"/>
-        /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
-        [Category("Layout")]
-        [DefaultValue(DefaultOffsetAngle)]
-        [Description("The angle, in degrees, between north and the first item that is displayed.")]
-        public virtual float OffsetAngle
-        {
-            get => offsetAngle;
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException(nameof(value), "The offset angle should be a number greater or equal with zero.");
+        #endregion
 
-                offsetAngle = value;
-                OnChanged(EventArgs.Empty);
-            }
-        }
+        #region Angle Property
+
+        /// <summary>
+        /// The default value of the angle.
+        /// </summary>
+        public const float DefaultAngle = 6f;
+
+        private float angle = DefaultAngle;
 
         /// <summary>
         /// Gets or sets the angle, in degrees, between two consecutive instances of the shape.
@@ -124,6 +87,47 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
         }
 
+        #endregion
+
+        #region OffsetAngle Property
+
+        /// <summary>
+        /// The default value of the offset angle.
+        /// </summary>
+        public const float DefaultOffsetAngle = 6f;
+
+        private float offsetAngle = DefaultOffsetAngle;
+
+        /// <summary>
+        /// Gets or sets the angle, in degrees, between north and the first item that is displayed.
+        /// Default value: <see cref="DefaultOffsetAngle"/>
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
+        [Category("Layout")]
+        [DefaultValue(DefaultOffsetAngle)]
+        [Description("The angle, in degrees, between north and the first item that is displayed.")]
+        public virtual float OffsetAngle
+        {
+            get => offsetAngle;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(nameof(value), "The offset angle should be a number greater or equal with zero.");
+
+                offsetAngle = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        #endregion
+
+        #region SkipIndex Property
+
+        /// <summary>
+        /// The default value of the skip index.
+        /// </summary>
+        public const int DefaultSkipIndex = 0;
+
         private int skipIndex;
 
         /// <summary>
@@ -143,6 +147,17 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
         }
 
+        #endregion
+
+        #region Repeat Property
+
+        /// <summary>
+        /// The default value of the repeat.
+        /// </summary>
+        public const bool DefaultRepeat = true;
+
+        private bool repeat = DefaultRepeat;
+
         /// <summary>
         /// Gets or sets a value specifying if the shape should be repeated all around the clock's dial.
         /// Default value: <see cref="DefaultRepeat"/>
@@ -160,13 +175,24 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             }
         }
 
+        #endregion
+
+        #region Orientation Property
+
         /// <summary>
-        /// Geta or sets the orientation of each instance of the shape.
+        /// The default value of one item's orientation.
+        /// </summary>
+        public const RimItemOrientation DefaultOrientation = RimItemOrientation.FaceCenter;
+
+        private RimItemOrientation orientation = DefaultOrientation;
+
+        /// <summary>
+        /// Gets or sets the orientation of each item orientation.
         /// Default value: <see cref="DefaultOrientation"/>
         /// </summary>
         [Category("Layout")]
         [DefaultValue(DefaultOrientation)]
-        [Description("Specifies the orientation of the shape.")]
+        [Description("Specifies the orientation of an item.")]
         public virtual RimItemOrientation Orientation
         {
             get => orientation;
@@ -176,6 +202,64 @@ namespace DustInTheWind.ClockNet.Core.Shapes
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
+
+        #region MaxCoverageCount Property
+
+        /// <summary>
+        /// The default value of the maximum coverage count.
+        /// </summary>
+        public const uint DefaultMaxCoverageCount = 0;
+
+        private uint maxCoverageCount = DefaultMaxCoverageCount;
+
+        /// <summary>
+        /// Gets or sets the maximum number of items to be drawn around the dial.
+        /// Default value: <see cref="DefaultMaxCoverageCount"/>
+        /// </summary>
+        [Category("Behavior")]
+        [DefaultValue(DefaultMaxCoverageCount)]
+        [Description("The maximum number of items to be drawn around the dial.")]
+        public virtual uint MaxCoverageCount
+        {
+            get => maxCoverageCount;
+            set
+            {
+                maxCoverageCount = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        #endregion
+
+        #region MaxCoverageAngle Property
+
+        /// <summary>
+        /// The default value of the maximum coverage angle.
+        /// </summary>
+        public const uint DefaultMaxCoverageAngle = 360;
+
+        private uint maxCoverageAngle = DefaultMaxCoverageAngle;
+
+        /// <summary>
+        /// Gets or sets the maximum angle, in degrees, that items should cover around the dial.
+        /// Default value: <see cref="DefaultMaxCoverageAngle"/>
+        /// </summary>
+        [Category("Layout")]
+        [DefaultValue(DefaultMaxCoverageAngle)]
+        [Description("The maximum angle, in degrees, that items should cover around the dial.")]
+        public virtual uint MaxCoverageAngle
+        {
+            get => maxCoverageAngle;
+            set
+            {
+                maxCoverageAngle = value;
+                OnChanged(EventArgs.Empty);
+            }
+        }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RimBase"/> class with
@@ -203,9 +287,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             this.repeat = repeat;
             this.distanceFromEdge = distanceFromEdge;
         }
-
-        private uint MaxCoverageCount = 0;
-        private uint MaxCoverageAngle = 360;
 
         protected override void OnDraw(Graphics g)
         {

@@ -32,10 +32,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// </summary>
         public new const string DefaultName = "Diamond Hand";
 
-        /// <summary>
-        /// The default value of the <see cref="Width"/>.
-        /// </summary>
-        public const float DefaultWidth = 10f;
+        #region TailLength Property
 
         /// <summary>
         /// The default value of the <see cref="TailLength"/>.
@@ -43,7 +40,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         public const float DefaultTailLength = 12f;
 
         private float tailLength;
-        private float width;
 
         /// <summary>
         /// Gets or sets the length of the tail of the hand.
@@ -62,6 +58,17 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
             }
         }
 
+        #endregion
+
+        #region Width Property
+
+        /// <summary>
+        /// The default value of the <see cref="Width"/>.
+        /// </summary>
+        public const float DefaultWidth = 10f;
+
+        private float width;
+
         /// <summary>
         /// Gets or sets the width of the hand.
         /// </summary>
@@ -78,6 +85,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DiamondHand"/> class with
