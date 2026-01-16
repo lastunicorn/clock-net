@@ -17,7 +17,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
@@ -42,6 +41,17 @@ namespace DustInTheWind.ClockNet
     //[ToolboxBitmap(typeof(AnalogClock), "icon16.bmp")]
     public class AnalogClock : Control
     {
+        #region Performance Info
+
+#if PERFORMANCE_INFO
+
+        // >> Needed to display performance info.
+        private PerformanceInfo performanceInfo = new PerformanceInfo();
+
+#endif
+
+        #endregion
+
         #region Event TimeProviderChanged
 
         /// <summary>
@@ -242,7 +252,7 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Time
+        #region Time Property
 
         /// <summary>
         /// The time displayed by the clock.
@@ -268,7 +278,7 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Time Provider
+        #region Time Provider Property
 
         /// <summary>
         /// An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed by the timer.
@@ -314,7 +324,7 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Backgrounds
+        #region Backgrounds Property
 
         /// <summary>
         /// The list of shapes that are drawn on the background of the clock.
@@ -332,7 +342,7 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Rims
+        #region Rims Property
 
         /// <summary>
         /// The list of shapes that are drawn repetitively on the edge of the clock.
@@ -350,7 +360,7 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Hands
+        #region Hands Property
 
         /// <summary>
         /// The list of shapes that display the time.
@@ -368,7 +378,7 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region KeepProportions
+        #region KeepProportions Property
 
         /// <summary>
         /// A value that specifies if the drawn clock should alwais keep its proportions inside the control's area.
@@ -599,19 +609,6 @@ namespace DustInTheWind.ClockNet
             Invalidate();
         }
 
-        #region Performance Info
-
-#if PERFORMANCE_INFO
-
-        // >> Needed to display performance info.
-        private PerformanceInfo performanceInfo = new PerformanceInfo();
-
-#endif
-
-        #endregion
-
-        #region OnPaint
-
         /// <summary>
         /// Raises the <see cref="System.Windows.Forms.Control.Paint"/> event and paints the clock.
         /// </summary>
@@ -625,7 +622,6 @@ namespace DustInTheWind.ClockNet
 #endif
 
             base.OnPaint(e);
-
 
             if (radius <= 0)
                 return;
@@ -698,8 +694,6 @@ namespace DustInTheWind.ClockNet
                 handShape.Draw(g);
             }
         }
-
-        #endregion
 
         /// <summary>
         /// Sets a new set of shapes to be used by the clock.
