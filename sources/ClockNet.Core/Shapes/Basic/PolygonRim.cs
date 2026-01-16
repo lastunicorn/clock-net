@@ -14,8 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.Drawing;
-using System.Net;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
@@ -65,13 +65,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
         /// </summary>
         /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             if (points == null || points.Length < 2)
                 return false;
 
-            return base.OnBeforeDraw(g);
+            return base.OnBeforeDraw(g, time);
         }
 
         /// <summary>

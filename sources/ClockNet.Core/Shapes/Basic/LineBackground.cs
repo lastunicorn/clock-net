@@ -88,8 +88,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
         /// </summary>
         /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             if (OutlineColor.IsEmpty)
                 return false;
@@ -103,7 +104,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
             if (StartPoint == EndPoint)
                 return false;
 
-            return base.OnBeforeDraw(g);
+            return base.OnBeforeDraw(g, time);
         }
 
         /// <summary>
@@ -112,7 +113,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <remarks>This method is typically called by the rendering system and should not be invoked
         /// directly. The line is drawn from <see cref="StartPoint"/> to <see cref="EndPoint"/> using <see cref="Pen"/>.</remarks>
         /// <param name="g">The <see cref="Graphics"/> object on which the line will be rendered. Must not be null.</param>
-        protected override void OnDraw(Graphics g)
+        /// <param name="time">The time to be displayed by the shape.</param>
+        protected override void OnDraw(Graphics g, TimeSpan time)
         {
             g.DrawLine(Pen, StartPoint, EndPoint);
         }

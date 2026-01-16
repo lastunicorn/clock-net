@@ -203,13 +203,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// </summary>
         /// <remarks>Drawing is permitted only if at least one of the colors (fill or outline) is set.</remarks>
         /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns>true if drawing is allowed; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             if (fillColor.IsEmpty && outlineColor.IsEmpty)
                 return false;
 
-            return base.OnBeforeDraw(g);
+            return base.OnBeforeDraw(g, time);
         }
 
         /// <summary>

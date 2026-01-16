@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
@@ -63,13 +64,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
         /// </summary>
         /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             if (path == null)
                 return false;
 
-            return base.OnBeforeDraw(g);
+            return base.OnBeforeDraw(g, time);
         }
 
         /// <summary>
@@ -80,7 +82,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void OnDraw(Graphics g)
+        /// <param name="time">The time to be displayed by the shape.</param>
+        protected override void OnDraw(Graphics g, TimeSpan time)
         {
             if (!FillColor.IsEmpty)
                 g.FillPath(Brush, path);
@@ -107,12 +110,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// Tests if the specified point is contained by the Shape.
         /// </summary>
         /// <param name="point">The point to be ferified.</param>
+        /// <param name="time">The time displayed by the hand.</param>
         /// <returns>true if the specified point is contained by the Shape; false otherwise.</returns>
-        public override bool HitTest(PointF point)
+        public override bool HitTest(PointF point, TimeSpan time)
         {
             using (Matrix matrix = new Matrix())
             {
-                float angle = GetRotationDegrees();
+                float angle = GetRotationDegrees(time);
                 matrix.Rotate(-angle);
 
                 PointF[] points = new PointF[] { point };

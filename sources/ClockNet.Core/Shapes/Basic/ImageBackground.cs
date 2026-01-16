@@ -102,13 +102,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// the base implementation. Override this method to customize pre-draw validation logic in derived
         /// classes.</remarks>
         /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             if (image == null)
                 return false;
 
-            return base.OnBeforeDraw(g);
+            return base.OnBeforeDraw(g, time);
         }
 
         /// <summary>
@@ -119,7 +120,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void OnDraw(Graphics g)
+        /// <param name="time">The time to be displayed by the shape.</param>
+        protected override void OnDraw(Graphics g, TimeSpan time)
         {
             float height = 100f;
 

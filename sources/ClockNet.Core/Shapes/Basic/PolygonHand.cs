@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
@@ -67,7 +68,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void OnDraw(Graphics g)
+        /// <param name="time">The time to be displayed by the shape.</param>
+        protected override void OnDraw(Graphics g, TimeSpan time)
         {
             if (points == null || points.Length < 2)
                 return;
@@ -79,13 +81,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
                 g.DrawPolygon(Pen, points);
         }
 
-        public override bool HitTest(PointF point)
+        public override bool HitTest(PointF point, TimeSpan time)
         {
             PointF clickLocation;
 
             using (Matrix matrix = new Matrix())
             {
-                float angle = GetRotationDegrees();
+                float angle = GetRotationDegrees(time);
                 matrix.Rotate(-angle);
 
                 PointF[] points = new PointF[] { point };

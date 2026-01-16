@@ -138,13 +138,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
         /// <remarks>This method is typically called before rendering to ensure that all preconditions for
         /// drawing are met. Overrides should return false to cancel the draw operation if necessary.</remarks>
         /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             if (radius <= 0)
                 return false;
 
-            return base.OnBeforeDraw(g);
+            return base.OnBeforeDraw(g, time);
         }
 
         /// <summary>
@@ -155,7 +156,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
         /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void OnDraw(Graphics g)
+        /// <param name="time">The time to be displayed by the shape.</param>
+        protected override void OnDraw(Graphics g, TimeSpan time)
         {
             if (!FillColor.IsEmpty)
                 g.FillEllipse(Brush, rect);

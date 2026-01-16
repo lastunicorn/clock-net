@@ -57,16 +57,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes
 
         #endregion
 
-        #region Time Property
-
-        /// <summary>
-        /// Gets or sets the time that the current instance should display.
-        /// </summary>
-        [Browsable(false)]
-        public TimeSpan Time { get; set; }
-
-        #endregion
-
         #region ComponentToDisplay Property
 
         private TimeComponent componentToDisplay;
@@ -135,33 +125,34 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <summary>
         /// Returns the degrees by which the hand should be rotated from the vertical position (12 o'clock hour).
         /// </summary>
+        /// <param name="time">The time value to calculate rotation from.</param>
         /// <returns>The degrees by which the hand should be rotated from the vertical position (12 o'clock hour).</returns>
-        protected float GetRotationDegrees()
+        protected float GetRotationDegrees(TimeSpan time)
         {
             switch (componentToDisplay)
             {
                 case TimeComponent.Hour:
                     {
                         if (integralValue)
-                            return (float)((Time.Hours % 12) * 30);
+                            return (float)((time.Hours % 12) * 30);
                         else
-                            return (float)((Time.Hours % 12 + Time.Minutes / 60F) * 30);
+                            return (float)((time.Hours % 12 + time.Minutes / 60F) * 30);
                     }
 
                 case TimeComponent.Minute:
                     {
                         if (integralValue)
-                            return (float)(Time.Minutes * 6);
+                            return (float)(time.Minutes * 6);
                         else
-                            return (float)((Time.Minutes + Time.Seconds / 60F) * 6);
+                            return (float)((time.Minutes + time.Seconds / 60F) * 6);
                     }
 
                 case TimeComponent.Second:
                     {
                         if (integralValue)
-                            return (float)(Time.Seconds * 6);
+                            return (float)(time.Seconds * 6);
                         else
-                            return (float)((Time.Seconds + Time.Milliseconds / 1000F) * 6);
+                            return (float)((time.Seconds + time.Milliseconds / 1000F) * 6);
                     }
 
                 default:
@@ -173,14 +164,15 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// Draws the shape using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override bool OnBeforeDraw(Graphics g)
+        /// <param name="time">The time to be displayed by the hand.</param>
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
-            bool allowToDraw = base.OnBeforeDraw(g);
+            bool allowToDraw = base.OnBeforeDraw(g, time);
 
             if (!allowToDraw)
                 return false;
 
-            float degrees = GetRotationDegrees();
+            float degrees = GetRotationDegrees(time);
 
             if (degrees != 0)
                 g.RotateTransform(degrees);
@@ -192,7 +184,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// Tests if the specified point is contained by the Shape.
         /// </summary>
         /// <param name="point">The point to be ferified.</param>
+        /// <param name="time">The time displayed by the hand.</param>
         /// <returns>true if the specified point is contained by the Shape; false otherwise.</returns>
-        public abstract bool HitTest(PointF point);
+        public abstract bool HitTest(PointF point, TimeSpan time);
     }
 }

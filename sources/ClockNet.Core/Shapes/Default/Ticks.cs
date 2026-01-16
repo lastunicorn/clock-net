@@ -81,13 +81,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// Determines whether drawing should proceed by performing pre-draw validation.
         /// </summary>
         /// <param name="g">The graphics context to use for drawing operations.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             if (Length <= 0)
                 return false;
 
-            return base.OnBeforeDraw(g);
+            return base.OnBeforeDraw(g, time);
         }
 
         /// <summary>

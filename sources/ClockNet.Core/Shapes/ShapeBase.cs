@@ -141,12 +141,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// Draws the shape using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        public void Draw(Graphics g)
+        /// <param name="time">The time to be displayed by the shape.</param>
+        public void Draw(Graphics g, TimeSpan time)
         {
             if (!Visible)
                 return;
 
-            bool allowToDraw = OnBeforeDraw(g);
+            bool allowToDraw = OnBeforeDraw(g, time);
             if (!allowToDraw)
                 return;
 
@@ -156,7 +157,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
                 isLayoutValid = true;
             }
 
-            OnDraw(g);
+            OnDraw(g, time);
 
             OnAfterDraw(g);
         }
@@ -177,8 +178,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// whether the drawing operation should continue. Returning <c>false</c> will prevent the drawing from
         /// occurring.</remarks>
         /// <param name="g">The <see cref="Graphics"/> context used for drawing. Cannot be <c>null</c>.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns><c>true</c> if drawing should proceed; otherwise, <c>false</c>.</returns>
-        protected virtual bool OnBeforeDraw(Graphics g)
+        protected virtual bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             return true;
         }
@@ -190,7 +192,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// provided <paramref name="g"/> parameter represents the drawing surface for the current paint
         /// operation.</remarks>
         /// <param name="g">The <see cref="Graphics"/> object used to render drawing commands. Cannot be <c>null</c>.</param>
-        protected abstract void OnDraw(Graphics g);
+        /// <param name="time">The time to be displayed by the shape.</param>
+        protected abstract void OnDraw(Graphics g, TimeSpan time);
 
         /// <summary>
         /// Called after the drawing operation is completed, allowing for custom post-draw logic.

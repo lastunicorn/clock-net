@@ -103,13 +103,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <remarks>This method is called before the drawing operation begins. Override to implement
         /// custom pre-draw logic. If the image is not set, drawing is skipped.</remarks>
         /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             if (image == null)
                 return false;
 
-            return base.OnBeforeDraw(g);
+            return base.OnBeforeDraw(g, time);
         }
 
         /// <summary>
@@ -120,7 +121,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        protected override void OnDraw(Graphics g)
+        /// <param name="time">The time to be displayed by the shape.</param>
+        protected override void OnDraw(Graphics g, TimeSpan time)
         {
             if (origin.Y != 0 && Length > 0)
             {
@@ -131,7 +133,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
             g.DrawImage(image, -origin.X, -origin.Y, image.Width, image.Height);
         }
 
-        public override bool HitTest(PointF point)
+        public override bool HitTest(PointF point, TimeSpan time)
         {
             return false;
         }

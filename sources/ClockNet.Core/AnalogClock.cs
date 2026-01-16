@@ -665,7 +665,7 @@ namespace DustInTheWind.ClockNet
             foreach (IBackground backgroundShape in backgroundShapesNotNull)
             {
                 g.Transform = initialMatrix;
-                backgroundShape.Draw(g);
+                backgroundShape.Draw(g, TimeSpan.Zero);
             }
         }
 
@@ -677,7 +677,7 @@ namespace DustInTheWind.ClockNet
             foreach (IRim angularShape in angularShapesNotNull)
             {
                 g.Transform = initialMatrix;
-                angularShape.Draw(g);
+                angularShape.Draw(g, TimeSpan.Zero);
             }
         }
 
@@ -690,8 +690,7 @@ namespace DustInTheWind.ClockNet
             {
                 g.Transform = initialMatrix;
 
-                handShape.Time = time;
-                handShape.Draw(g);
+                handShape.Draw(g, time);
             }
         }
 
@@ -738,7 +737,7 @@ namespace DustInTheWind.ClockNet
 
                 for (int i = hands.Count - 1; i >= 0; i--)
                 {
-                    if (hands[i].HitTest(points[0]))
+                    if (hands[i].HitTest(points[0], time))
                     {
                         Console.WriteLine("click: [{0} x {1}]; Shape: {2}", points[0].X, points[0].Y, hands[i].Name);
                         break;

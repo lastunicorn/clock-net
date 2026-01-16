@@ -52,6 +52,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// Draws the shape using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        void Draw(Graphics g);
+        /// <param name="time">The time to be displayed by the shape.</param>
+        void Draw(Graphics g, TimeSpan time);
     }
 }

@@ -1,4 +1,4 @@
-﻿// ClockNet
+// ClockNet
 // Copyright (C) 2010 Dust in the Wind
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -132,25 +132,21 @@ namespace DustInTheWind.ClockNet.Demo
             diamondHand1.Length = 24F;
             diamondHand1.Name = "Hour Hand";
             diamondHand1.OutlineColor = System.Drawing.Color.Empty;
-            diamondHand1.Time = System.TimeSpan.Parse("12:14:29.5536009");
             diamondHand2.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Minute;
             diamondHand2.FillColor = System.Drawing.Color.LimeGreen;
             diamondHand2.Length = 37F;
             diamondHand2.Name = "Minute Hand";
             diamondHand2.OutlineColor = System.Drawing.Color.Empty;
             diamondHand2.TailLength = 4F;
-            diamondHand2.Time = System.TimeSpan.Parse("12:14:29.5536009");
             diamondHand2.Width = 4F;
             lineHand1.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Second;
             lineHand1.FillColor = System.Drawing.Color.Empty;
             lineHand1.Length = 42.5F;
             lineHand1.Name = "Second Hand";
             lineHand1.OutlineColor = System.Drawing.Color.Red;
-            lineHand1.Time = System.TimeSpan.Parse("12:14:29.5536009");
             pin1.FillColor = System.Drawing.Color.Red;
             pin1.Name = "Pin";
             pin1.OutlineColor = System.Drawing.Color.Empty;
-            pin1.Time = System.TimeSpan.Parse("12:14:29.5536009");
             this.analogClockDemo.Hands.Add(diamondHand1);
             this.analogClockDemo.Hands.Add(diamondHand2);
             this.analogClockDemo.Hands.Add(lineHand1);

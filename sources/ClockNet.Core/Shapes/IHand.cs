@@ -30,15 +30,11 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         float Length { get; set; }
 
         /// <summary>
-        /// Gets or sets the time that the current instance is representing.
-        /// </summary>
-        TimeSpan Time { get; set; }
-
-        /// <summary>
         /// Tests if the specified coordinates from the client display area represent a point contained by the hand.
         /// </summary>
         /// <param name="point">The point to be verified.</param>
+        /// <param name="time">The time displayed by the hand.</param>
         /// <returns><c>true</c> if the specified point is contained by the hand; <c>false </c> otherwise.</returns>
-        bool HitTest(PointF point);
+        bool HitTest(PointF point, TimeSpan time);
     }
 }

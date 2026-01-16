@@ -80,13 +80,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <remarks>Drawing is permitted only when both the radius and length are greater than zero, and
         /// the base class also allows drawing.</remarks>
         /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <returns>true if drawing is allowed based on the object's state and base class conditions; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g)
+        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
         {
             if (radius <= 0 || Length <= 0)
                 return false;
 
-            return base.OnBeforeDraw(g);
+            return base.OnBeforeDraw(g, time);
         }
 
         /// <summary>
@@ -110,11 +111,12 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Draws the hour hand using the provided <see cref="Graphics"/> object.
         /// </summary>
         /// <param name="g">The <see cref="Graphics"/> on which to draw the dot.</param>
+        /// <param name="time">The time to be displayed by the shape.</param>
         /// <remarks>
         /// The hand is drawn in vertical position from the origin of the coordinate system.
         /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
         /// </remarks>
-        protected override void OnDraw(Graphics g)
+        protected override void OnDraw(Graphics g, TimeSpan time)
         {
             if (!FillColor.IsEmpty)
                 g.FillEllipse(Brush, dotRectangle);
@@ -123,13 +125,13 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 g.DrawEllipse(Pen, dotRectangle);
         }
 
-        public override bool HitTest(PointF point)
+        public override bool HitTest(PointF point, TimeSpan time)
         {
             Point dotCenter = new Point((int)(dotRectangle.X + radius), (int)(dotRectangle.Y + radius));
 
             using (Matrix m = new Matrix())
             {
-                float angle = GetRotationDegrees();
+                float angle = GetRotationDegrees(time);
                 m.Rotate(angle);
 
                 Point[] points = new Point[] { dotCenter };
