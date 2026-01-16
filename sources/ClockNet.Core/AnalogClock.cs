@@ -122,62 +122,62 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Event RimMarkerAdded
+        #region Event RimAdded
 
         /// <summary>
-        /// Event raised when a Shape is added to the <see cref="RimMarkers"/> collection.
+        /// Event raised when a Shape is added to the <see cref="Rims"/> collection.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when a Shape is added to the RimMarkers collection.")]
-        public event EventHandler<ShapeAddedEventArgs> RimMarkerAdded;
+        [Description("Event raised when a Shape is added to the Rims collection.")]
+        public event EventHandler<ShapeAddedEventArgs> RimAdded;
 
         /// <summary>
-        /// Raises the <see cref="RimMarkerAdded"/> event.
+        /// Raises the <see cref="RimAdded"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnRimMarkerAdded(ShapeAddedEventArgs e)
+        protected virtual void OnRimAdded(ShapeAddedEventArgs e)
         {
-            RimMarkerAdded?.Invoke(this, e);
+            RimAdded?.Invoke(this, e);
         }
 
         #endregion
 
-        #region Event RimMarkerRemoved
+        #region Event RimRemoved
 
         /// <summary>
-        /// Event raised when a Shape is removed from the <see cref="RimMarkers"/> collection.
+        /// Event raised when a Shape is removed from the <see cref="Rims"/> collection.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when a Shape is removed from the RimMarkers collection.")]
-        public event EventHandler<ShapeRemovedEventArgs> RimMarkerRemoved;
+        [Description("Event raised when a Shape is removed from the Rims collection.")]
+        public event EventHandler<ShapeRemovedEventArgs> RimRemoved;
 
         /// <summary>
-        /// Raises the <see cref="RimMarkerRemoved"/> event.
+        /// Raises the <see cref="RimRemoved"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnRimMarkerRemoved(ShapeRemovedEventArgs e)
+        protected virtual void OnRimRemoved(ShapeRemovedEventArgs e)
         {
-            RimMarkerRemoved?.Invoke(this, e);
+            RimRemoved?.Invoke(this, e);
         }
 
         #endregion
 
-        #region Event RimMarkersCleared
+        #region Event RimsCleared
 
         /// <summary>
         /// Event raised when the AngularShapes collection is cleared.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when the RimMarkers collection is cleared (all the shapes are removed).")]
-        public event EventHandler RimMarkersCleared;
+        [Description("Event raised when the Rims collection is cleared (all the shapes are removed).")]
+        public event EventHandler RimsCleared;
 
         /// <summary>
-        /// Raises the <see cref="RimMarkersCleared"/> event.
+        /// Raises the <see cref="RimsCleared"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnRimMarkersCleared(EventArgs e)
+        protected virtual void OnRimsCleared(EventArgs e)
         {
-            RimMarkersCleared?.Invoke(this, e);
+            RimsCleared?.Invoke(this, e);
         }
 
         #endregion
@@ -332,12 +332,12 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region RimMarkers
+        #region Rims
 
         /// <summary>
         /// The list of shapes that are drawn repetitively on the edge of the clock.
         /// </summary>
-        private ShapeCollection<IRimMarker> rimMarkers;
+        private ShapeCollection<IRim> rims;
 
         /// <summary>
         /// Gets the list of shapes that are drawn repetitively on the edge of the clock.
@@ -346,7 +346,7 @@ namespace DustInTheWind.ClockNet
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(ShapeCollectionEditor), typeof(UITypeEditor))]
         [Description("The list of shapes that are drawn repetitively on the edge of the clock.")]
-        public ShapeCollection<IRimMarker> RimMarkers => rimMarkers;
+        public ShapeCollection<IRim> Rims => rims;
 
         #endregion
 
@@ -407,10 +407,10 @@ namespace DustInTheWind.ClockNet
             backgrounds.ShapeRemoved += HandleBackgroundRemoved;
             backgrounds.Cleared += HandleBackgroundsCleared;
 
-            rimMarkers = new ShapeCollection<IRimMarker>();
-            rimMarkers.ShapeAdded += HandleRimMarkerAdded;
-            rimMarkers.ShapeRemoved += HandleRimMarkerRemoved;
-            rimMarkers.Cleared += HandleRimMarkersCleared;
+            rims = new ShapeCollection<IRim>();
+            rims.ShapeAdded += HandleRimAdded;
+            rims.ShapeRemoved += HandleRimRemoved;
+            rims.Cleared += HandleRimsCleared;
 
             hands = new ShapeCollection<IHand>();
             hands.ShapeAdded += HandleHandAdded;
@@ -445,25 +445,25 @@ namespace DustInTheWind.ClockNet
             Invalidate();
         }
 
-        private void HandleRimMarkerAdded(object sender, ShapeAddedEventArgs e)
+        private void HandleRimAdded(object sender, ShapeAddedEventArgs e)
         {
-            OnRimMarkerAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
+            OnRimAdded(new ShapeAddedEventArgs(e.Index, e.Shape));
 
             e.Shape.Changed += new EventHandler(HandleShapeChanged);
             Invalidate();
         }
 
-        private void HandleRimMarkerRemoved(object sender, ShapeRemovedEventArgs e)
+        private void HandleRimRemoved(object sender, ShapeRemovedEventArgs e)
         {
-            OnRimMarkerRemoved(new ShapeRemovedEventArgs(e.Shape));
+            OnRimRemoved(new ShapeRemovedEventArgs(e.Shape));
 
             e.Shape.Changed -= new EventHandler(HandleShapeChanged);
             Invalidate();
         }
 
-        private void HandleRimMarkersCleared(object sender, EventArgs e)
+        private void HandleRimsCleared(object sender, EventArgs e)
         {
-            OnRimMarkersCleared(EventArgs.Empty);
+            OnRimsCleared(EventArgs.Empty);
             Invalidate();
         }
 
@@ -644,7 +644,7 @@ namespace DustInTheWind.ClockNet
             Matrix centerMatrix = e.Graphics.Transform;
 
             DrawBackgroundShapes(g, centerMatrix);
-            DrawRimMarkersShapes(g, centerMatrix);
+            DrawRimShapes(g, centerMatrix);
             DrawHandShapes(g, centerMatrix);
 
 #if PERFORMANCE_INFO
@@ -674,12 +674,12 @@ namespace DustInTheWind.ClockNet
             }
         }
 
-        private void DrawRimMarkersShapes(Graphics g, Matrix initialMatrix)
+        private void DrawRimShapes(Graphics g, Matrix initialMatrix)
         {
-            IEnumerable<IRimMarker> angularShapesNotNull = rimMarkers
+            IEnumerable<IRim> angularShapesNotNull = rims
                 .Where(x => x != null);
 
-            foreach (IRimMarker angularShape in angularShapesNotNull)
+            foreach (IRim angularShape in angularShapesNotNull)
             {
                 g.Transform = initialMatrix;
                 angularShape.Draw(g);
@@ -717,11 +717,11 @@ namespace DustInTheWind.ClockNet
                     backgrounds.Add(shape);
             }
 
-            rimMarkers.Clear();
-            if (clockTemplate.RimMarkers != null)
+            rims.Clear();
+            if (clockTemplate.Rims != null)
             {
-                foreach (IRimMarker shape in clockTemplate.RimMarkers)
-                    rimMarkers.Add(shape);
+                foreach (IRim shape in clockTemplate.Rims)
+                    rims.Add(shape);
             }
 
             hands.Clear();
@@ -761,7 +761,7 @@ namespace DustInTheWind.ClockNet
             Template template = new Template();
 
             template.Backgrounds.AddRange(Backgrounds);
-            template.RimMarkers.AddRange(RimMarkers);
+            template.Rims.AddRange(Rims);
             template.Hands.AddRange(Hands);
 
             return template;
@@ -783,7 +783,7 @@ namespace DustInTheWind.ClockNet
                 foreach (IBackground shape in backgrounds)
                     shape?.Dispose();
 
-                foreach (IRimMarker shape in rimMarkers)
+                foreach (IRim shape in rims)
                     shape?.Dispose();
 
                 foreach (IHand shape in hands)

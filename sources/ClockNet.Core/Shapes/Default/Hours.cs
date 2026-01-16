@@ -5,7 +5,7 @@ using DustInTheWind.ClockNet.Core.Shapes.Basic;
 namespace DustInTheWind.ClockNet.Core.Shapes.Default
 {
     [Shape("6fd89cdf-88f0-4417-960c-c1c78c782d26")]
-    public class Hours : StringRimMarker
+    public class Hours : StringRim
     {
         public Hours()
         {
@@ -17,7 +17,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
             DistanceFromEdge = 15f;
             Angle = 30f;
             OffsetAngle = 30f;
-            Orientation = RimMarkerOrientation.Normal;
+            Orientation = RimItemOrientation.Normal;
         }
     }
 }

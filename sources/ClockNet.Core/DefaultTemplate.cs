@@ -50,7 +50,7 @@ namespace DustInTheWind.ClockNet.Templates
             };
         }
 
-        protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
+        protected override IEnumerable<IRim> EnumerateRims()
         {
             // Ticks for minutes
             yield return new Ticks

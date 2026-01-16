@@ -34,7 +34,7 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// Gets or sets the array of Shapes that are drawn repetitively around the clock.
         /// </summary>
-        public List<IRimMarker> RimMarkers { get; }
+        public List<IRim> Rims { get; }
 
         /// <summary>
         /// Gets or sets the array of Shapes that represents hands on the clock.
@@ -44,7 +44,7 @@ namespace DustInTheWind.ClockNet
         protected TemplateBase()
         {
             Backgrounds = EnumerateBackgrounds().ToList();
-            RimMarkers = EnumerateRimMarkers().ToList();
+            Rims = EnumerateRims().ToList();
             Hands = EnumerateHands().ToList();
         }
 
@@ -56,12 +56,12 @@ namespace DustInTheWind.ClockNet
         protected abstract IEnumerable<IBackground> EnumerateBackgrounds();
 
         /// <summary>
-        /// When implemented in a derived class, returns an enumerable collection of rim markers to initialize the
+        /// When implemented in a derived class, returns an enumerable collection of rims to initialize the
         /// current template.
         /// </summary>
-        /// <returns>An <see cref="IEnumerable{IRimMarker}"/> containing the rim markers. The collection may be empty if no rim
-        /// markers are defined.</returns>
-        protected abstract IEnumerable<IRimMarker> EnumerateRimMarkers();
+        /// <returns>An <see cref="IEnumerable{IRim}"/> containing the rims. The collection may be empty if no rims
+        /// are defined.</returns>
+        protected abstract IEnumerable<IRim> EnumerateRims();
 
         /// <summary>
         /// When implemented in a derived class, returns an enumerable collection of hands to initialize the

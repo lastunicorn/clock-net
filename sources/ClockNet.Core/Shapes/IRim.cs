@@ -23,7 +23,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     /// The angles are measured from the 12 o'clock hour. The clock decides the angle and then asks the <see cref="IShape"/> to draw itself.
     /// The first shape is drawn in the first position after the 12 o'clock hour. The 12 o'clock hour position is drawn last.
     /// </summary>
-    public interface IRimMarker : IShape
+    public interface IRim : IShape
     {
         /// <summary>
         /// Gets or sets the angle at which the shape should be drawn.

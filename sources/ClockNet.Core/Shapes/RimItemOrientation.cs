@@ -19,7 +19,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     /// <summary>
     /// Specifies the orientation of the numbers that marks the hours.
     /// </summary>
-    public enum RimMarkerOrientation
+    public enum RimItemOrientation
     {
         /// <summary>
         /// The numbers are displayed as normal text, oriented up-down.

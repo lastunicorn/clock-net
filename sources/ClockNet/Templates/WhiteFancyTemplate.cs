@@ -40,7 +40,7 @@ namespace DustInTheWind.ClockNet.Templates
             };
         }
 
-        protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
+        protected override IEnumerable<IRim> EnumerateRims()
         {
             yield return new Hours
             {

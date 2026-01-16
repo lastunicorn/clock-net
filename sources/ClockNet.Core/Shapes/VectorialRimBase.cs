@@ -23,7 +23,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     /// <summary>
     /// Provides common functionality for a vectorial shape.
     /// </summary>
-    public abstract class VectorialRimMarkerBase : RimMarkerBase
+    public abstract class VectorialRimBase : RimBase
     {
         /// <summary>
         /// The default width of the line used to draw the shape.
@@ -132,15 +132,15 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialRimMarkerBase"/> class.
+        /// Initializes a new instance of the <see cref="VectorialRimBase"/> class.
         /// </summary>
-        public VectorialRimMarkerBase()
+        public VectorialRimBase()
             : this(DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialRimMarkerBase"/> class.
+        /// Initializes a new instance of the <see cref="VectorialRimBase"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
@@ -148,7 +148,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
         /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
         /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
-        public VectorialRimMarkerBase(Color outlineColor, Color fillColor, float outlineWidth, float angle, bool repeat, float positionOffset)
+        public VectorialRimBase(Color outlineColor, Color fillColor, float outlineWidth, float angle, bool repeat, float positionOffset)
             : base(angle, repeat, positionOffset)
         {
             this.outlineColor = outlineColor;

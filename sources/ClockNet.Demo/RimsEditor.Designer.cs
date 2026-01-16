@@ -1,6 +1,6 @@
 ﻿namespace DustInTheWind.ClockNet.Demo
 {
-    partial class RimMarkersEditor
+    partial class RimsEditor
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.propertyGridAngularShapes = new System.Windows.Forms.PropertyGrid();
+            this.propertyGridRims = new System.Windows.Forms.PropertyGrid();
             this.groupBoxAngularShapes = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanelAngularShapes = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.listBoxRimMarkers = new System.Windows.Forms.ListBox();
+            this.listBoxRims = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonAngularUp = new System.Windows.Forms.Button();
             this.buttonAngularDown = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonAddRimMarker = new System.Windows.Forms.Button();
-            this.buttonRemoveRimMarker = new System.Windows.Forms.Button();
-            this.listBoxRimMarkersAvailable = new System.Windows.Forms.ListBox();
+            this.buttonAddRim = new System.Windows.Forms.Button();
+            this.buttonRemoveRim = new System.Windows.Forms.Button();
+            this.listBoxRimsAvailable = new System.Windows.Forms.ListBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -58,7 +58,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.propertyGridAngularShapes, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.propertyGridRims, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBoxAngularShapes, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -69,16 +69,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 600);
             this.tableLayoutPanel1.TabIndex = 16;
             // 
-            // propertyGridAngularShapes
+            // propertyGridRims
             // 
-            this.propertyGridAngularShapes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.propertyGridRims.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.propertyGridAngularShapes, 2);
-            this.propertyGridAngularShapes.Location = new System.Drawing.Point(3, 203);
-            this.propertyGridAngularShapes.Name = "propertyGridAngularShapes";
-            this.propertyGridAngularShapes.Size = new System.Drawing.Size(394, 394);
-            this.propertyGridAngularShapes.TabIndex = 12;
+            this.tableLayoutPanel1.SetColumnSpan(this.propertyGridRims, 2);
+            this.propertyGridRims.Location = new System.Drawing.Point(3, 203);
+            this.propertyGridRims.Name = "propertyGridRims";
+            this.propertyGridRims.Size = new System.Drawing.Size(394, 394);
+            this.propertyGridRims.TabIndex = 12;
             // 
             // groupBoxAngularShapes
             // 
@@ -91,7 +91,7 @@
             this.groupBoxAngularShapes.Size = new System.Drawing.Size(394, 194);
             this.groupBoxAngularShapes.TabIndex = 2;
             this.groupBoxAngularShapes.TabStop = false;
-            this.groupBoxAngularShapes.Text = "Rim Markers";
+            this.groupBoxAngularShapes.Text = "Rims";
             // 
             // tableLayoutPanelAngularShapes
             // 
@@ -101,7 +101,7 @@
             this.tableLayoutPanelAngularShapes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelAngularShapes.Controls.Add(this.tableLayoutPanel9, 0, 1);
             this.tableLayoutPanelAngularShapes.Controls.Add(this.flowLayoutPanel2, 1, 1);
-            this.tableLayoutPanelAngularShapes.Controls.Add(this.listBoxRimMarkersAvailable, 2, 1);
+            this.tableLayoutPanelAngularShapes.Controls.Add(this.listBoxRimsAvailable, 2, 1);
             this.tableLayoutPanelAngularShapes.Controls.Add(this.label15, 0, 0);
             this.tableLayoutPanelAngularShapes.Controls.Add(this.label16, 2, 0);
             this.tableLayoutPanelAngularShapes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,7 +122,7 @@
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel9.Controls.Add(this.listBoxRimMarkers, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.listBoxRims, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.flowLayoutPanel5, 0, 0);
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 13);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
@@ -132,19 +132,19 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(162, 162);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
-            // listBoxRimMarkers
+            // listBoxRims
             // 
-            this.listBoxRimMarkers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxRims.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxRimMarkers.FormattingEnabled = true;
-            this.listBoxRimMarkers.IntegralHeight = false;
-            this.listBoxRimMarkers.Location = new System.Drawing.Point(33, 3);
-            this.listBoxRimMarkers.Name = "listBoxRimMarkers";
-            this.listBoxRimMarkers.Size = new System.Drawing.Size(126, 156);
-            this.listBoxRimMarkers.TabIndex = 0;
-            this.listBoxRimMarkers.SelectedIndexChanged += new System.EventHandler(this.listBoxRimMarkers_SelectedIndexChanged);
-            this.listBoxRimMarkers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxRimMarkers_MouseDoubleClick);
+            this.listBoxRims.FormattingEnabled = true;
+            this.listBoxRims.IntegralHeight = false;
+            this.listBoxRims.Location = new System.Drawing.Point(33, 3);
+            this.listBoxRims.Name = "listBoxRims";
+            this.listBoxRims.Size = new System.Drawing.Size(126, 156);
+            this.listBoxRims.TabIndex = 0;
+            this.listBoxRims.SelectedIndexChanged += new System.EventHandler(this.listBoxRims_SelectedIndexChanged);
+            this.listBoxRims.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxRims_MouseDoubleClick);
             // 
             // flowLayoutPanel5
             // 
@@ -189,8 +189,8 @@
             // 
             this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel2.AutoSize = true;
-            this.flowLayoutPanel2.Controls.Add(this.buttonAddRimMarker);
-            this.flowLayoutPanel2.Controls.Add(this.buttonRemoveRimMarker);
+            this.flowLayoutPanel2.Controls.Add(this.buttonAddRim);
+            this.flowLayoutPanel2.Controls.Add(this.buttonRemoveRim);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(165, 36);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -198,41 +198,41 @@
             this.flowLayoutPanel2.TabIndex = 9;
             this.flowLayoutPanel2.WrapContents = false;
             // 
-            // buttonAddRimMarker
+            // buttonAddRim
             // 
-            this.buttonAddRimMarker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddRimMarker.Location = new System.Drawing.Point(3, 3);
-            this.buttonAddRimMarker.Name = "buttonAddRimMarker";
-            this.buttonAddRimMarker.Size = new System.Drawing.Size(52, 52);
-            this.buttonAddRimMarker.TabIndex = 8;
-            this.buttonAddRimMarker.Text = "<<<";
-            this.buttonAddRimMarker.UseVisualStyleBackColor = true;
-            this.buttonAddRimMarker.Click += new System.EventHandler(this.buttonAddRimMarker_Click);
+            this.buttonAddRim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddRim.Location = new System.Drawing.Point(3, 3);
+            this.buttonAddRim.Name = "buttonAddRim";
+            this.buttonAddRim.Size = new System.Drawing.Size(52, 52);
+            this.buttonAddRim.TabIndex = 8;
+            this.buttonAddRim.Text = "<<<";
+            this.buttonAddRim.UseVisualStyleBackColor = true;
+            this.buttonAddRim.Click += new System.EventHandler(this.buttonAddRim_Click);
             // 
-            // buttonRemoveRimMarker
+            // buttonRemoveRim
             // 
-            this.buttonRemoveRimMarker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRemoveRimMarker.Location = new System.Drawing.Point(3, 61);
-            this.buttonRemoveRimMarker.Name = "buttonRemoveRimMarker";
-            this.buttonRemoveRimMarker.Size = new System.Drawing.Size(52, 52);
-            this.buttonRemoveRimMarker.TabIndex = 11;
-            this.buttonRemoveRimMarker.Text = ">>>";
-            this.buttonRemoveRimMarker.UseVisualStyleBackColor = true;
-            this.buttonRemoveRimMarker.Click += new System.EventHandler(this.buttonRemoveRimMarker_Click);
+            this.buttonRemoveRim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRemoveRim.Location = new System.Drawing.Point(3, 61);
+            this.buttonRemoveRim.Name = "buttonRemoveRim";
+            this.buttonRemoveRim.Size = new System.Drawing.Size(52, 52);
+            this.buttonRemoveRim.TabIndex = 11;
+            this.buttonRemoveRim.Text = ">>>";
+            this.buttonRemoveRim.UseVisualStyleBackColor = true;
+            this.buttonRemoveRim.Click += new System.EventHandler(this.buttonRemoveRim_Click);
             // 
-            // listBoxRimMarkersAvailable
+            // listBoxRimsAvailable
             // 
-            this.listBoxRimMarkersAvailable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxRimsAvailable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxRimMarkersAvailable.DisplayMember = "Name";
-            this.listBoxRimMarkersAvailable.FormattingEnabled = true;
-            this.listBoxRimMarkersAvailable.IntegralHeight = false;
-            this.listBoxRimMarkersAvailable.Location = new System.Drawing.Point(229, 16);
-            this.listBoxRimMarkersAvailable.Name = "listBoxRimMarkersAvailable";
-            this.listBoxRimMarkersAvailable.Size = new System.Drawing.Size(156, 156);
-            this.listBoxRimMarkersAvailable.TabIndex = 0;
-            this.listBoxRimMarkersAvailable.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxRimMarkersAvailable_MouseDoubleClick);
+            this.listBoxRimsAvailable.DisplayMember = "Name";
+            this.listBoxRimsAvailable.FormattingEnabled = true;
+            this.listBoxRimsAvailable.IntegralHeight = false;
+            this.listBoxRimsAvailable.Location = new System.Drawing.Point(229, 16);
+            this.listBoxRimsAvailable.Name = "listBoxRimsAvailable";
+            this.listBoxRimsAvailable.Size = new System.Drawing.Size(156, 156);
+            this.listBoxRimsAvailable.TabIndex = 0;
+            this.listBoxRimsAvailable.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxRimsAvailable_MouseDoubleClick);
             // 
             // label15
             // 
@@ -252,12 +252,12 @@
             this.label16.TabIndex = 10;
             this.label16.Text = "Available";
             // 
-            // RimMarkersEditor
+            // RimsEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "RimMarkersEditor";
+            this.Name = "RimsEditor";
             this.Size = new System.Drawing.Size(400, 600);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBoxAngularShapes.ResumeLayout(false);
@@ -275,18 +275,18 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PropertyGrid propertyGridAngularShapes;
+        private System.Windows.Forms.PropertyGrid propertyGridRims;
         private System.Windows.Forms.GroupBox groupBoxAngularShapes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelAngularShapes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.ListBox listBoxRimMarkers;
+        private System.Windows.Forms.ListBox listBoxRims;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Button buttonAngularUp;
         private System.Windows.Forms.Button buttonAngularDown;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button buttonAddRimMarker;
-        private System.Windows.Forms.Button buttonRemoveRimMarker;
-        private System.Windows.Forms.ListBox listBoxRimMarkersAvailable;
+        private System.Windows.Forms.Button buttonAddRim;
+        private System.Windows.Forms.Button buttonRemoveRim;
+        private System.Windows.Forms.ListBox listBoxRimsAvailable;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
     }

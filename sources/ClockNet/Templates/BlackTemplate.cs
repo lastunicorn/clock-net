@@ -35,7 +35,7 @@ namespace DustInTheWind.ClockNet.Templates
             };
         }
 
-        protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
+        protected override IEnumerable<IRim> EnumerateRims()
         {
             yield return new Ticks
             {
@@ -64,7 +64,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Font = new Font("Vivaldi", 6.25F, FontStyle.Italic)
             };
 
-            yield return new StringRimMarker
+            yield return new StringRim
             {
                 Name = "Minutes",
                 Angle = 30f,

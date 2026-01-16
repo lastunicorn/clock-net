@@ -20,45 +20,52 @@ using System.Net;
 namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
-    /// An Angular Shape class that draws a polygon.
+    /// An Angular Shape class that draws a rectangle.
     /// </summary>
-    [Shape("71a33ee6-a877-4e30-b51e-8566f4bc1920")]
-    public class PolygonRimMarker : VectorialRimMarkerBase
+    [Shape("0808673f-f263-4540-817c-0f131ece871a")]
+    public class RectangleRim : VectorialRimBase
     {
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string DefaultName = "Polygon Rim Marker";
+        public const string DefaultName = "Rectangle Rim";
 
         /// <summary>
-        /// The points that defines the polygon.
+        /// The rectangle that is drawn.
         /// </summary>
-        protected PointF[] points;
+        protected RectangleF rectangle;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonRimMarker"/> class with
+        /// The same rectangle rounded to integer coordinates. It is necessary for the
+        /// <see cref="Graphics.DrawRectangle(Pen, Rectangle)"/> method that does not accepts a <see cref="RectangleF"/>.
+        /// </summary>
+        protected Rectangle roundedRectangle;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RectangleRim"/> class with
         /// default values.
         /// </summary>
-        public PolygonRimMarker()
-            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
+        public RectangleRim()
+            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonRimMarker"/> class.
+        /// Initializes a new instance of the <see cref="RectangleRim"/> class.
         /// </summary>
-        /// <param name="points">The points defining the polygon that will be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
-        /// <param name="fillColor">The color used to fill the path's interior.</param>
+        /// <param name="rectangle">The rectangle that will be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the rectangle.</param>
+        /// <param name="fillColor">The color used to fill the rectangle's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
         /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
         /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
         /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
-        public PolygonRimMarker(PointF[] points, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
+        public RectangleRim(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
             this.Name = DefaultName;
-            this.points = points;
+            this.rectangle = rectangle;
+            this.roundedRectangle = Rectangle.Round(rectangle);
         }
 
         /// <summary>
@@ -69,7 +76,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && points != null && points.Length >= 2;
+            return base.AllowToDraw() && !rectangle.IsEmpty;
         }
 
         /// <summary>
@@ -80,10 +87,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         protected override void DrawItem(Graphics g, int index)
         {
             if (!FillColor.IsEmpty)
-                g.FillPolygon(Brush, points);
+                g.FillRectangle(Brush, rectangle);
 
             if (!OutlineColor.IsEmpty)
-                g.DrawPolygon(Pen, points);
+                g.DrawRectangle(Pen, roundedRectangle);
         }
     }
 }

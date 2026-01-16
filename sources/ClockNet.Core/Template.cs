@@ -28,9 +28,9 @@ namespace DustInTheWind.ClockNet
             return Enumerable.Empty<IBackground>();
         }
 
-        protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
+        protected override IEnumerable<IRim> EnumerateRims()
         {
-            return Enumerable.Empty<IRimMarker>();
+            return Enumerable.Empty<IRim>();
         }
 
         protected override IEnumerable<IHand> EnumerateHands()

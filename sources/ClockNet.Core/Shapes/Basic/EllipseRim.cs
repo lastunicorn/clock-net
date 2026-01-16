@@ -1,4 +1,4 @@
-﻿// ClockNet
+﻿// ClockControl
 // Copyright (C) 2010 Dust in the Wind
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -14,51 +14,50 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System.ComponentModel;
 using System.Drawing;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
-    /// An Rim Marker Shape class that draws a line between two points.
+    /// A Rim Shape class that draws ellipse items.
     /// </summary>
-    [Shape("52d7515b-c6c6-44af-bf84-ffdd82238d31")]
-    public class LineRimMarker : VectorialRimMarkerBase
+    [Shape("840bf574-faff-4bc8-a660-90af9a66b71f")]
+    public class EllipseRim : VectorialRimBase
     {
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string DefaultName = "Line Rim Marker";
+        public const string DefaultName = "Ellipse Rim";
 
         /// <summary>
-        /// Gets or sets the location of the start of the line.
+        /// The rectangle defining the ellipse that is drawn.
         /// </summary>
-        protected PointF StartPoint { get; set; }
+        protected RectangleF rectangle;
 
         /// <summary>
-        /// Gets or sets the location of the end of the line.
+        /// Initializes a new instance of the <see cref="EllipseRim"/> class with
+        /// default values.
         /// </summary>
-        protected PointF EndPoint { get; set; }
-
-
-        /// <summary>
-        /// Not used.
-        /// </summary>
-        [Browsable(false)]
-        public override Color FillColor
+        public EllipseRim()
+            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
-            get => base.FillColor;
-            set => base.FillColor = value;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LineRimMarker"/> class with
-        /// default values.
+        /// Initializes a new instance of the <see cref="EllipseRim"/> class.
         /// </summary>
-        public LineRimMarker()
+        /// <param name="rectangle">The rectangle defining the ellipse that will be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the ellipse.</param>
+        /// <param name="fillColor">The color used to fill the ellipse's interior.</param>
+        /// <param name="lineWidth">The width of the outline.</param>
+        /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
+        /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
+        /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
+        public EllipseRim(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
+            : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
             Name = DefaultName;
+            this.rectangle = rectangle;
         }
 
         /// <summary>
@@ -69,7 +68,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && !OutlineColor.IsEmpty;
+            return base.AllowToDraw() && !rectangle.IsEmpty;
         }
 
         /// <summary>
@@ -79,7 +78,11 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <param name="index">The zero-based index of the item to be drawn.</param>
         protected override void DrawItem(Graphics g, int index)
         {
-            g.DrawLine(Pen, StartPoint, EndPoint);
+            if (!FillColor.IsEmpty)
+                g.FillEllipse(Brush, rectangle);
+
+            if (!OutlineColor.IsEmpty)
+                g.DrawEllipse(Pen, rectangle);
         }
     }
 }

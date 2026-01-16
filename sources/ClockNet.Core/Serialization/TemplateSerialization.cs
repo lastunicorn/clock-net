@@ -31,7 +31,7 @@ namespace DustInTheWind.ClockNet.Core.Serialization
     public class TemplateSerialization
     {
         private const string BackgroundsElementName = "Backgrounds";
-        private const string RimMarkersElementName = "RimMarkers";
+        private const string RimsElementName = "Rims";
         private const string HandsElementName = "Hands";
 
         private readonly Dictionary<Guid, Type> shapeTypesByGuid = new Dictionary<Guid, Type>();
@@ -83,7 +83,7 @@ namespace DustInTheWind.ClockNet.Core.Serialization
                 writer.WriteStartElement("ClockTemplate");
 
                 WriteShapeArray(writer, BackgroundsElementName, template.Backgrounds);
-                WriteShapeArray(writer, RimMarkersElementName, template.RimMarkers);
+                WriteShapeArray(writer, RimsElementName, template.Rims);
                 WriteShapeArray(writer, HandsElementName, template.Hands);
 
                 writer.WriteEndElement();
@@ -129,11 +129,11 @@ namespace DustInTheWind.ClockNet.Core.Serialization
                 template.Backgrounds.AddRange(backgrounds);
             }
 
-            XmlNode rimMarkerNode = doc.SelectSingleNode("/ClockTemplate/" + RimMarkersElementName);
-            if (rimMarkerNode != null)
+            XmlNode rimNode = doc.SelectSingleNode("/ClockTemplate/" + RimsElementName);
+            if (rimNode != null)
             {
-                IRimMarker[] rimMarkers = ReadShapes<IRimMarker>(rimMarkerNode);
-                template.RimMarkers.AddRange(rimMarkers);
+                IRim[] rims = ReadShapes<IRim>(rimNode);
+                template.Rims.AddRange(rims);
             }
 
             XmlNode handNode = doc.SelectSingleNode("/ClockTemplate/" + HandsElementName);

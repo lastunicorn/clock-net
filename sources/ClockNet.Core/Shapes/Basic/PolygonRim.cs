@@ -15,63 +15,50 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Net;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
-    /// A Rim Marker Shape class that draws a <see cref="GraphicsPath"/>.
+    /// An Angular Shape class that draws a polygon.
     /// </summary>
-    [Shape("6f0b8ee9-2bb3-464d-ac30-d4bc7aceb611")]
-    public class PathRimMarker : VectorialRimMarkerBase
+    [Shape("71a33ee6-a877-4e30-b51e-8566f4bc1920")]
+    public class PolygonRim : VectorialRimBase
     {
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string DefaultName = "Path Rim Marker";
+        public const string DefaultName = "Polygon Rim";
 
         /// <summary>
-        /// The path that is drawn.
+        /// The points that defines the polygon.
         /// </summary>
-        protected GraphicsPath path;
+        protected PointF[] points;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PathRimMarker"/> class with
+        /// Initializes a new instance of the <see cref="PolygonRim"/> class with
         /// default values.
         /// </summary>
-        public PathRimMarker()
+        public PolygonRim()
             : this(null, DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
-
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PathRimMarker"/> class.
+        /// Initializes a new instance of the <see cref="PolygonRim"/> class.
         /// </summary>
-        /// <param name="path">The path that should be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
-        /// <param name="fillColor">The color used to fill the path's interior.</param>
-        public PathRimMarker(GraphicsPath path, Color outlineColor, Color fillColor)
-            : this(path, outlineColor, fillColor, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PathRimMarker"/> class.
-        /// </summary>
-        /// <param name="path">The path that should be drawn.</param>
+        /// <param name="points">The points defining the polygon that will be drawn.</param>
         /// <param name="outlineColor">The color used to draw the outline of the path.</param>
         /// <param name="fillColor">The color used to fill the path's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
         /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
         /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
         /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
-        public PathRimMarker(GraphicsPath path, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
+        public PolygonRim(PointF[] points, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
             this.Name = DefaultName;
-            this.path = path;
+            this.points = points;
         }
 
         /// <summary>
@@ -82,7 +69,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && path != null;
+            return base.AllowToDraw() && points != null && points.Length >= 2;
         }
 
         /// <summary>
@@ -93,25 +80,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         protected override void DrawItem(Graphics g, int index)
         {
             if (!FillColor.IsEmpty)
-                g.FillPath(Brush, path);
+                g.FillPolygon(Brush, points);
 
             if (!OutlineColor.IsEmpty)
-                g.DrawPath(Pen, path);
-        }
-
-        /// <summary>
-        /// Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
-        /// </summary>
-        /// <param name="disposing">Speifies if the managed resources should be disposed, too.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (path != null)
-                    path.Dispose();
-            }
-
-            base.Dispose(disposing);
+                g.DrawPolygon(Pen, points);
         }
     }
 }

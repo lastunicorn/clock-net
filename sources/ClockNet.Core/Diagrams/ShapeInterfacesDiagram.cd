@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Interface Name="DustInTheWind.ClockNet.Core.Shapes.IRimMarker">
-    <Position X="3" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAEMAAAAAAAA=</HashCode>
-      <FileName>Shapes\IRimMarker.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="DustInTheWind.ClockNet.Core.Shapes.IHand">
     <Position X="5.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
@@ -17,7 +10,7 @@
   <Interface Name="DustInTheWind.ClockNet.Core.Shapes.IShape">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAABAAAAAQAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgAABAAAAAQAAAAAAAAIAAAAAAAIAAA=</HashCode>
       <FileName>Shapes\IShape.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -26,6 +19,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Shapes\IBackground.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DustInTheWind.ClockNet.Core.Shapes.IRim">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEIAAAAAAAA=</HashCode>
+      <FileName>Shapes\IRim.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

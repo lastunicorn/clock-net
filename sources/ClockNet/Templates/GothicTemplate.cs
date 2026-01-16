@@ -57,9 +57,9 @@ namespace DustInTheWind.ClockNet.Templates
             };
         }
 
-        protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
+        protected override IEnumerable<IRim> EnumerateRims()
         {
-            return Enumerable.Empty<IRimMarker>();
+            return Enumerable.Empty<IRim>();
         }
     }
 }

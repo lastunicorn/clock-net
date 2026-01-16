@@ -25,7 +25,7 @@ namespace DustInTheWind.ClockNet
     /// <summary>
     /// Provides a user interface that can edit most types of collections at design
     /// time and offeres additional support for collections containing items of types
-    /// <see cref="IRimMarker"/>, <see cref="IHand"/> and <see cref="IBackground"/>.
+    /// <see cref="IRim"/>, <see cref="IHand"/> and <see cref="IBackground"/>.
     /// </summary>
     public class ShapeCollectionEditor : CollectionEditor
     {
@@ -44,12 +44,12 @@ namespace DustInTheWind.ClockNet
             {
                 return new Type[0];
             }
-            else if (CollectionItemType.Equals(typeof(IRimMarker)))
+            else if (CollectionItemType.Equals(typeof(IRim)))
             {
                 List<Type> types = new List<Type>();
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
-                string interfaceName = typeof(IRimMarker).FullName;
+                string interfaceName = typeof(IRim).FullName;
 
                 foreach (Type type in assembly.GetTypes())
                 {

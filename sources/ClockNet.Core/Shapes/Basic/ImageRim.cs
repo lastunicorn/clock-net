@@ -21,15 +21,15 @@ using System.Drawing;
 namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
-    /// An Rim Marker Shape class that draws a bitmap image.
+    /// A Rim Shape class that draws bitmap image for items.
     /// </summary>
     [Shape("062f2c94-2c81-4241-8938-00d98741c4ab")]
-    public class ImageRimMarker : RimMarkerBase
+    public class ImageRim : RimBase
     {
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string DefaultName = "Image Rim Marker";
+        public const string DefaultName = "Image Rim";
 
         private Image image;
         private PointF location;
@@ -67,32 +67,32 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageRimMarker"/> class with
+        /// Initializes a new instance of the <see cref="ImageRim"/> class with
         /// default values.
         /// </summary>
-        public ImageRimMarker()
+        public ImageRim()
             : this(null, PointF.Empty, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageRimMarker"/> class.
+        /// Initializes a new instance of the <see cref="ImageRim"/> class.
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
-        public ImageRimMarker(Image image)
+        public ImageRim(Image image)
             : this(image, PointF.Empty, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageRimMarker"/> class.
+        /// Initializes a new instance of the <see cref="ImageRim"/> class.
         /// </summary>
         /// <param name="image">The image to be drawn.</param>
         /// <param name="location">The location of the upper left corner of the image.</param>
         /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
         /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
         /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
-        public ImageRimMarker(Image image, PointF location, float angle, bool repeat, float positionOffset)
+        public ImageRim(Image image, PointF location, float angle, bool repeat, float positionOffset)
             : base(angle, repeat, positionOffset)
         {
             Name = DefaultName;

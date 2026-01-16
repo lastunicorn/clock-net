@@ -56,13 +56,9 @@ namespace DustInTheWind.ClockNet.Demo
 
             checkBoxKeepProportions.Checked = analogClockDemo.KeepProportions;
 
-            // Backgrounds
+            // Shapes
             backgroundsEditor1.AnalogClock = analogClockDemo;
-
-            // Rim Markers
-            rimMarkersEditor1.AnalogClock = analogClockDemo;
-
-            // Hands
+            rimsEditor1.AnalogClock = analogClockDemo;
             handsEditor1.AnalogClock = analogClockDemo;
 
             // Time Provider

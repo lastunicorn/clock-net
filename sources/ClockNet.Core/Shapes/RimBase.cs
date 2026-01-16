@@ -21,13 +21,12 @@ using System.Drawing;
 namespace DustInTheWind.ClockNet.Core.Shapes
 {
     /// <summary>
-    /// The base implementation of the <see cref="IRimMarker"/> interface.
-    /// Provides common functionality for all the Rim Marker Shapes.
-    /// A Rim Marker is a graphical elemet (may be also numbers or text) that is displayed
-    /// repeatedley around the clock's dial.
+    /// The base implementation of the <see cref="IRim"/> interface.
+    /// Provides common functionality for all the Rim Shapes.
+    /// A Rim is a series of graphical elemets that are displayed repeatedley around the clock's dial.
     /// Examples: the hour numbers, the minute markers, etc.
     /// </summary>
-    public abstract class RimMarkerBase : ShapeBase, IRimMarker
+    public abstract class RimBase : ShapeBase, IRim
     {
         /// <summary>
         /// The default value of the position offset.
@@ -57,21 +56,21 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <summary>
         /// The default value of the shape's orientation.
         /// </summary>
-        public const RimMarkerOrientation DefaultOrientation = RimMarkerOrientation.FaceCenter;
+        public const RimItemOrientation DefaultOrientation = RimItemOrientation.FaceCenter;
 
         private float distanceFromEdge = DefaultDistanceFromEdge;
         private float offsetAngle = DefaultOffsetAngle;
         private float angle = DefaultAngle;
         private bool repeat = DefaultRepeat;
-        private RimMarkerOrientation orientation = DefaultOrientation;
+        private RimItemOrientation orientation = DefaultOrientation;
 
         /// <summary>
-        /// Gets or sets the distance between the edge of the dial and the marker.
+        /// Gets or sets the distance between the edge of the dial and the items.
         /// Default value: <see cref="DefaultDistanceFromEdge"/>
         /// </summary>
         [Category("Layout")]
         [DefaultValue(DefaultDistanceFromEdge)]
-        [Description("The distance between the edge of the dial and the marker.")]
+        [Description("The distance between the edge of the dial and the items.")]
         public virtual float DistanceFromEdge
         {
             get => distanceFromEdge;
@@ -84,13 +83,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         }
 
         /// <summary>
-        /// Gets or sets the angle, in degrees, between north and the first instance of the marker that is displayed.
+        /// Gets or sets the angle, in degrees, between north and the first item that is displayed.
         /// Default value: <see cref="DefaultOffsetAngle"/>
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">The offset angle should be a number greater or equal with zero.</exception>
         [Category("Layout")]
         [DefaultValue(DefaultOffsetAngle)]
-        [Description("The angle, in degrees, between north and the first instance of the marker that is displayed.")]
+        [Description("The angle, in degrees, between north and the first item that is displayed.")]
         public virtual float OffsetAngle
         {
             get => offsetAngle;
@@ -168,7 +167,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         [Category("Layout")]
         [DefaultValue(DefaultOrientation)]
         [Description("Specifies the orientation of the shape.")]
-        public virtual RimMarkerOrientation Orientation
+        public virtual RimItemOrientation Orientation
         {
             get => orientation;
             set
@@ -179,22 +178,22 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RimMarkerBase"/> class with
+        /// Initializes a new instance of the <see cref="RimBase"/> class with
         /// default values.
         /// </summary>
-        public RimMarkerBase()
+        public RimBase()
             : this(DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RimMarkerBase"/> class.
+        /// Initializes a new instance of the <see cref="RimBase"/> class.
         /// </summary>
         /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
         /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
         /// <param name="distanceFromEdge">The position offset relativelly to the edge of the dial.</param>
         /// <exception cref="ArgumentOutOfRangeException">The angle between two consecutive drawns of the shape should be a positive number.</exception>
-        public RimMarkerBase(float angle, bool repeat, float distanceFromEdge)
+        public RimBase(float angle, bool repeat, float distanceFromEdge)
             : base()
         {
             if (angle <= 0)

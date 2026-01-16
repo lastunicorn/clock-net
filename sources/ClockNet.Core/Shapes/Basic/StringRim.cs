@@ -25,12 +25,12 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the numbers representing the hours.
     /// </summary>
     [Shape("fdc94554-15c6-4f2a-9033-9349f1471013")]
-    public class StringRimMarker : VectorialRimMarkerBase
+    public class StringRim : VectorialRimBase
     {
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string DefaultName = "String Rim Marker";
+        public const string DefaultName = "String Rim";
 
         /// <summary>
         /// The default value of the position offset.
@@ -81,21 +81,21 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StringRimMarker"/> class with
+        /// Initializes a new instance of the <see cref="StringRim"/> class with
         /// default values.
         /// </summary>
-        public StringRimMarker()
+        public StringRim()
             : this(Color.Black, DefaultFont, DefaultPositionOffset)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StringRimMarker"/> class.
+        /// Initializes a new instance of the <see cref="StringRim"/> class.
         /// </summary>
         /// <param name="color">The color used to draw the text.</param>
         /// <param name="font">The font to be used to draw the numbers.</param>
         /// <param name="distanceFromEdge">The position offset relativelly to the edge of the dial.</param>
-        public StringRimMarker(Color color, Font font, float distanceFromEdge)
+        public StringRim(Color color, Font font, float distanceFromEdge)
             : base(Color.Empty, color, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, distanceFromEdge)
         {
             Name = DefaultName;

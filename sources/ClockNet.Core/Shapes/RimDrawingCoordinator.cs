@@ -41,7 +41,7 @@ internal class RimDrawingCoordinator
 
     public float DistanceFromEdge { get; set; }
 
-    public RimMarkerOrientation Orientation { get; set; }
+    public RimItemOrientation Orientation { get; set; }
 
     public int Index { get; private set; }
 
@@ -102,15 +102,15 @@ internal class RimDrawingCoordinator
     {
         switch (Orientation)
         {
-            case RimMarkerOrientation.FaceCenter:
+            case RimItemOrientation.FaceCenter:
                 break;
 
-            case RimMarkerOrientation.FaceOut:
+            case RimItemOrientation.FaceOut:
                 Graphics.RotateTransform(180);
                 break;
 
             default:
-            case RimMarkerOrientation.Normal:
+            case RimItemOrientation.Normal:
                 Graphics.RotateTransform(-angleDegrees);
                 break;
         }

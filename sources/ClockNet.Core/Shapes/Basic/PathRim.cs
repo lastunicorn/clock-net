@@ -15,57 +15,62 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Drawing;
-using System.Net;
+using System.Drawing.Drawing2D;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Basic
 {
     /// <summary>
-    /// An Angular Shape class that draws a rectangle.
+    /// A Rim Shape class that draws <see cref="GraphicsPath"/> as items.
     /// </summary>
-    [Shape("0808673f-f263-4540-817c-0f131ece871a")]
-    public class RectangleRimMarker : VectorialRimMarkerBase
+    [Shape("6f0b8ee9-2bb3-464d-ac30-d4bc7aceb611")]
+    public class PathRim : VectorialRimBase
     {
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string DefaultName = "Rectangle Rim Marker";
+        public const string DefaultName = "Path Rim";
 
         /// <summary>
-        /// The rectangle that is drawn.
+        /// The path that is drawn.
         /// </summary>
-        protected RectangleF rectangle;
+        protected GraphicsPath path;
 
         /// <summary>
-        /// The same rectangle rounded to integer coordinates. It is necessary for the
-        /// <see cref="Graphics.DrawRectangle(Pen, Rectangle)"/> method that does not accepts a <see cref="RectangleF"/>.
-        /// </summary>
-        protected Rectangle roundedRectangle;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RectangleRimMarker"/> class with
+        /// Initializes a new instance of the <see cref="PathRim"/> class with
         /// default values.
         /// </summary>
-        public RectangleRimMarker()
-            : this(RectangleF.Empty, DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
+        public PathRim()
+            : this(null, DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PathRim"/> class.
+        /// </summary>
+        /// <param name="path">The path that should be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
+        /// <param name="fillColor">The color used to fill the path's interior.</param>
+        public PathRim(GraphicsPath path, Color outlineColor, Color fillColor)
+            : this(path, outlineColor, fillColor, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, DefaultDistanceFromEdge)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RectangleRimMarker"/> class.
+        /// Initializes a new instance of the <see cref="PathRim"/> class.
         /// </summary>
-        /// <param name="rectangle">The rectangle that will be drawn.</param>
-        /// <param name="outlineColor">The color used to draw the outline of the rectangle.</param>
-        /// <param name="fillColor">The color used to fill the rectangle's interior.</param>
+        /// <param name="path">The path that should be drawn.</param>
+        /// <param name="outlineColor">The color used to draw the outline of the path.</param>
+        /// <param name="fillColor">The color used to fill the path's interior.</param>
         /// <param name="lineWidth">The width of the outline.</param>
         /// <param name="angle">The angle between two consecutive drawns of the shape.</param>
         /// <param name="repeat">A value specifying if the shape should be repeated all around the clock's dial.</param>
         /// <param name="positionOffset">The position offset relativelly to the edge of the dial.</param>
-        public RectangleRimMarker(RectangleF rectangle, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
+        public PathRim(GraphicsPath path, Color outlineColor, Color fillColor, float lineWidth, float angle, bool repeat, float positionOffset)
             : base(outlineColor, fillColor, lineWidth, angle, repeat, positionOffset)
         {
             this.Name = DefaultName;
-            this.rectangle = rectangle;
-            this.roundedRectangle = Rectangle.Round(rectangle);
+            this.path = path;
         }
 
         /// <summary>
@@ -76,7 +81,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <returns>true if the <see cref="IShape.Draw"/> method is allowed to be executed; false otherwise.</returns>
         protected override bool AllowToDraw()
         {
-            return base.AllowToDraw() && !rectangle.IsEmpty;
+            return base.AllowToDraw() && path != null;
         }
 
         /// <summary>
@@ -87,10 +92,25 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         protected override void DrawItem(Graphics g, int index)
         {
             if (!FillColor.IsEmpty)
-                g.FillRectangle(Brush, rectangle);
+                g.FillPath(Brush, path);
 
             if (!OutlineColor.IsEmpty)
-                g.DrawRectangle(Pen, roundedRectangle);
+                g.DrawPath(Pen, path);
+        }
+
+        /// <summary>
+        /// Releases the unmanaged resources used by the current instance and optionally releases the managed resources.
+        /// </summary>
+        /// <param name="disposing">Speifies if the managed resources should be disposed, too.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (path != null)
+                    path.Dispose();
+            }
+
+            base.Dispose(disposing);
         }
     }
 }

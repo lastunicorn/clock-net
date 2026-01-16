@@ -82,11 +82,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RimMarkersEditor.cs">
+    <Compile Include="RimsEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RimMarkersEditor.Designer.cs">
-      <DependentUpon>RimMarkersEditor.cs</DependentUpon>
+    <Compile Include="RimsEditor.Designer.cs">
+      <DependentUpon>RimsEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="TimeProvidersEditor.cs">
       <SubType>UserControl</SubType>
@@ -113,8 +113,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="RimMarkersEditor.resx">
-      <DependentUpon>RimMarkersEditor.cs</DependentUpon>
+    <EmbeddedResource Include="RimsEditor.resx">
+      <DependentUpon>RimsEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TimeProvidersEditor.resx">
       <DependentUpon>TimeProvidersEditor.cs</DependentUpon>

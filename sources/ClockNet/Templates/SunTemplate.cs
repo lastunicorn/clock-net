@@ -57,22 +57,22 @@ namespace DustInTheWind.ClockNet.Templates
             };
         }
 
-        protected override IEnumerable<IRimMarker> EnumerateRimMarkers()
+        protected override IEnumerable<IRim> EnumerateRims()
         {
-            yield return new StringRimMarker
+            yield return new StringRim
             {
                 Name = "Hours",
                 Angle = 30f,
                 OffsetAngle = 30f,
                 DistanceFromEdge = 20f,
                 Font = new Font("Arial", 6.25f),
-                Orientation = RimMarkerOrientation.Normal,
+                Orientation = RimItemOrientation.Normal,
                 Texts = Enumerable.Range(1, 12)
                     .Select(x => x.ToString())
                     .ToArray()
             };
 
-            yield return new StringRimMarker
+            yield return new StringRim
             {
                 Name = "Minutes",
                 DistanceFromEdge = 4f,
