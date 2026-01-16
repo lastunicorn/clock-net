@@ -15,8 +15,8 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Fancy Dial",
                 FillColor = Color.Chocolate,
-                InnerRimWidth = 23f,
-                OuterRimWidth = 7f
+                InnerRimWidth = 46f,
+                OuterRimWidth = 14f
             };
         }
 
@@ -27,11 +27,11 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hour Hand",
                 ComponentToDisplay = TimeComponent.Hour,
                 IntegralValue = true,
-                Length = 31f,
+                Length = 62f,
                 OutlineColor = Color.Black,
                 OutlineWidth = 1f,
                 FillColor = Color.Empty,
-                Radius = 7f
+                Radius = 14f
             };
 
             yield return new DotHand
@@ -39,21 +39,21 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Minute Hand",
                 ComponentToDisplay = TimeComponent.Minute,
                 IntegralValue = true,
-                Length = 46.5f,
+                Length = 93f,
                 OutlineColor = Color.Black,
                 OutlineWidth = 1f,
                 FillColor = Color.Empty,
-                Radius = 3f
+                Radius = 6f
             };
 
             yield return new DotHand
             {
                 Name = "Second Hand",
                 ComponentToDisplay = TimeComponent.Second,
-                Length = 46.5f,
+                Length = 93f,
                 OutlineColor = Color.Black,
                 FillColor = Color.Empty,
-                Radius = 3f
+                Radius = 6f
             };
         }
 
@@ -64,8 +64,8 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hours",
                 Angle = 30f,
                 OffsetAngle = 30f,
-                DistanceFromEdge = 20f,
-                Font = new Font("Arial", 6.25f),
+                DistanceFromEdge = 40f,
+                Font = new Font("Arial", 12.5f),
                 Orientation = RimItemOrientation.Normal,
                 Texts = Enumerable.Range(1, 12)
                     .Select(x => x.ToString())
@@ -75,8 +75,8 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new StringRim
             {
                 Name = "Minutes",
-                DistanceFromEdge = 4f,
-                Font = new Font("Arial", 2.2f),
+                DistanceFromEdge = 8f,
+                Font = new Font("Arial", 4.4f),
                 Texts = Enumerable.Range(1, 60)
                     .Select(x => x.ToString())
                     .ToArray()

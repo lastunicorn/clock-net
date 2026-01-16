@@ -36,12 +36,12 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default value of the outer rim width.
         /// </summary>
-        public const float DefaultOuterRimWidth = 5f;
+        public const float DefaultOuterRimWidth = 10f;
 
         /// <summary>
         /// The default value of the inner rim width.
         /// </summary>
-        public const float DefaultInnerRimWidth = 1f;
+        public const float DefaultInnerRimWidth = 2f;
 
         private float outerRimWidth = DefaultOuterRimWidth;
         private float innerRimWidth = DefaultInnerRimWidth;
@@ -190,7 +190,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         protected override void CalculateLayout()
         {
-            outerRimRectangle = new RectangleF(-50f, -50f, 100, 100);
+            float diameter = 200f;
+            float radius = diameter / 2f;
+
+            outerRimRectangle = new RectangleF(-radius, -radius, diameter, diameter);
             innerRimRectangle = RectangleF.Inflate(outerRimRectangle, -outerRimWidth, -outerRimWidth);
             faceRectangle = RectangleF.Inflate(innerRimRectangle, -innerRimWidth, -innerRimWidth);
         }

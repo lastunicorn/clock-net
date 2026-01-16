@@ -37,17 +37,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default radius of the circle from the middle (or not so middle) of the hand.
         /// </summary>
-        public const float DefaultCircleRadius = 3.5f;
+        public const float DefaultCircleRadius = 7f;
 
         /// <summary>
         /// The default offset position of the center of the circle from the top of the hand.
         /// </summary>
-        public const float DefaultCircleOffset = 12f;
+        public const float DefaultCircleOffset = 24f;
 
         /// <summary>
         /// The default length of the tail of the hand.
         /// </summary>
-        public const float DefaultTailLength = 7f;
+        public const float DefaultTailLength = 14f;
 
         private float circleRadius = DefaultCircleRadius;
         private float circleOffset = DefaultCircleOffset;
@@ -123,25 +123,32 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             path.Reset();
 
-            float circleCenterX = -Length + circleOffset;
+            float diameter = 200f;
+            float radius = diameter / 2;
+            float actualLength = radius * (Length / 100f);
+            float actualCircleOffset = radius * (CircleOffset / 100f);
+            float actualCircleRadius = radius * (CircleRadius / 100f);
+            float actualTailLength = radius * (TailLength / 100f);
+
+            float actualCircleCenterX = -actualLength + actualCircleOffset;
 
             // Base Line
 
-            PointF baseLineStartPoint = new PointF(0f, tailLength);
-            PointF baseLineEndPoint = new PointF(0f, circleCenterX + circleRadius);
+            PointF baseLineStartPoint = new PointF(0f, actualTailLength);
+            PointF baseLineEndPoint = new PointF(0f, actualCircleCenterX + actualCircleRadius);
             path.AddLine(baseLineStartPoint, baseLineEndPoint);
 
             // Circle
 
-            float circleX = -circleRadius;
-            float circleY = circleCenterX - circleRadius;
-            float circleDiameter = circleRadius * 2f;
-            path.AddEllipse(circleX, circleY, circleDiameter, circleDiameter);
+            float circleX = -actualCircleRadius;
+            float circleY = actualCircleCenterX - actualCircleRadius;
+            float actualCircleDiameter = actualCircleRadius * 2f;
+            path.AddEllipse(circleX, circleY, actualCircleDiameter, actualCircleDiameter);
 
             // Tip Line
 
-            PointF tipLineStartPoint = new PointF(0f, circleCenterX - circleRadius);
-            PointF tipLineEndPoint = new PointF(0f, -Length);
+            PointF tipLineStartPoint = new PointF(0f, actualCircleCenterX - actualCircleRadius);
+            PointF tipLineEndPoint = new PointF(0f, -actualLength);
             path.AddLine(tipLineStartPoint, tipLineEndPoint);
         }
     }

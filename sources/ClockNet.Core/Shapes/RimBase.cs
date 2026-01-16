@@ -211,7 +211,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         {
             RimDrawingCoordinator rimDrawingCoordinator = new RimDrawingCoordinator(g)
             {
-                Diameter = 100,
+                Diameter = 200,
                 Angle = Angle,
                 OffsetAngle = OffsetAngle,
                 MaxCoverageCount = MaxCoverageCount,

@@ -93,9 +93,10 @@ internal class RimDrawingCoordinator
     private void ApplyTranslation()
     {
         float radius = Diameter / 2;
-        float distanceFromCenter = radius - DistanceFromEdge;
+        float actualDistanceFromEdge = radius * (DistanceFromEdge / 100f);
+        float actualDistanceFromCenter = radius - actualDistanceFromEdge;
 
-        Graphics.TranslateTransform(0f, -distanceFromCenter);
+        Graphics.TranslateTransform(0f, -actualDistanceFromCenter);
     }
 
     private void ApplyOrientation(float angleDegrees)

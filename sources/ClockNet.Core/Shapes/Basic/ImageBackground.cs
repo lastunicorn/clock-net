@@ -115,7 +115,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
         protected override void OnDraw(Graphics g)
         {
-            float height = 50f;
+            float height = 100f;
 
             if (PinLocation.Y != 0 && height > 0)
             {

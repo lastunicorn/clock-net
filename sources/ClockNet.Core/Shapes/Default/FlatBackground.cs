@@ -36,7 +36,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
         /// <summary>
         /// The default radius of the Dial Shape.
         /// </summary>
-        public const float DefaultRadius = 50f;
+        public const float DefaultRadius = 100f;
 
         private float radius;
         private RectangleF rect;
@@ -125,7 +125,6 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
         {
             rect = new RectangleF(-radius, -radius, radius * 2, radius * 2);
         }
-
 
         /// <summary>
         /// Internal method that draws the Shape unconditioned. 

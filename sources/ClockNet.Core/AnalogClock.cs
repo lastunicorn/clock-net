@@ -501,7 +501,7 @@ namespace DustInTheWind.ClockNet
         /// <summary>
         /// The calculated diameter of the clock.
         /// </summary>
-        private float diameter = 100f;
+        private float diameter = 200f;
 
         /// <summary>
         /// The calculated radius of the clock.

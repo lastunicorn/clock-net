@@ -38,18 +38,18 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// The default length of the slot in the disk.
         /// </summary>
-        public const float DefaultWidth = 5f;
+        public const float DefaultWidth = 10f;
 
         /// <summary>
         /// The default radius of the opaque disk.
         /// </summary>
-        public const float DefaultRadius = 50f;
+        public const float DefaultRadius = 100f;
 
         /// <summary>
         /// The default length of the tail of the hand.
         /// The tail is the length of the rectangle that extends in the other direction beyond the center of the disk.
         /// </summary>
-        public const float DefaultTailLength = 6f;
+        public const float DefaultTailLength = 12f;
 
         private float width;
         private float radius;
@@ -129,23 +129,30 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         {
             path.Reset();
 
+            float diameter = 200f;
+            float radius = diameter / 2;
+            float actualLength = radius * (Length / 100f);
+            float actualTailLength = radius * (TailLength / 100f);
+            float actualWidth = radius * (Width / 100f);
+            float actualHandRadius = radius * (Radius / 100f);
+
             // The circular disk
 
-            float ellipseX = -Radius;
-            float ellipseY = -Radius;
+            float ellipseX = -actualHandRadius;
+            float ellipseY = -actualHandRadius;
 
-            float ellipseWidth = Radius * 2f;
-            float ellipseHeight = Radius * 2f;
+            float ellipseWidth = actualHandRadius * 2f;
+            float ellipseHeight = actualHandRadius * 2f;
 
             path.AddEllipse(ellipseX, ellipseY, ellipseWidth, ellipseHeight);
 
             // The rectangle slot
 
-            float rectangleX = -Width / 2f;
-            float rectangleY = -Length;
+            float rectangleX = -actualWidth / 2f;
+            float rectangleY = -actualLength;
 
-            float rectangleWidth = Width;
-            float rectangleHeight = Length + TailLength;
+            float rectangleWidth = actualWidth;
+            float rectangleHeight = actualLength + actualTailLength;
 
             RectangleF rect = new RectangleF(rectangleX, rectangleY, rectangleWidth, rectangleHeight);
             path.AddRectangle(rect);

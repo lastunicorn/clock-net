@@ -93,10 +93,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
                 clickLocation = points[0];
             }
 
-            return PointInPolygon(clickLocation, points);
+            return IsPointInsidePolygon(clickLocation, points);
         }
 
-        private bool PointInPolygon(PointF point, PointF[] polygon)
+        private bool IsPointInsidePolygon(PointF point, PointF[] polygon)
         {
             int j = polygon.Length - 1;
             bool oddNodes = false;

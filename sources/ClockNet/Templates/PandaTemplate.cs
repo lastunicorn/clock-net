@@ -25,7 +25,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "White Background",
                 FillColor = Color.White,
-                Radius = 48f
+                Radius = 96f
             };
         }
 
@@ -40,8 +40,8 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Hour Hand",
                 FillColor = Color.Black,
-                Length = 25f,
-                Radius = 9f,
+                Length = 50f,
+                Radius = 18f,
                 ComponentToDisplay = TimeComponent.Hour,
                 OutlineColor = Color.FromArgb(0x64, 0x64, 0x64)
             };
@@ -50,8 +50,8 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Minute Hand",
                 FillColor = Color.Black,
-                Length = 30f,
-                Radius = 6f,
+                Length = 60f,
+                Radius = 12f,
                 ComponentToDisplay = TimeComponent.Minute,
                 OutlineColor = Color.FromArgb(0x64, 0x64, 0x64)
             };
@@ -61,7 +61,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Pin",
                 FillColor = Color.Black,
                 OutlineColor = Color.FromArgb(0x64, 0x64, 0x64),
-                Diameter = 2f
+                Diameter = 4f
             };
         }
     }

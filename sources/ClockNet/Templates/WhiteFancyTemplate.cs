@@ -46,8 +46,8 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Hours",
                 FillColor = Color.White,
-                Font = new Font("Arial", 12, FontStyle.Bold, GraphicsUnit.Point),
-                DistanceFromEdge = 23f
+                Font = new Font("Arial", 20, FontStyle.Bold, GraphicsUnit.Point),
+                DistanceFromEdge = 46f
             };
         }
 
@@ -57,9 +57,9 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Hour Hand",
                 FillColor = Color.White,
-                Radius = 49f,
-                Length = 36f,
-                Width = 8f,
+                Radius = 98f,
+                Length = 72f,
+                Width = 16f,
                 ComponentToDisplay = TimeComponent.Hour
             };
 
@@ -67,7 +67,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Minute Hand",
                 OutlineColor = Color.Black,
-                Length = 45f,
+                Length = 90f,
                 OutlineWidth = 3f,
                 TailLength = 0f,
                 ComponentToDisplay = TimeComponent.Minute
@@ -77,9 +77,9 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Second Hand",
                 OutlineColor = Color.Black,
-                Length = 45f,
+                Length = 90f,
                 OutlineWidth = 1f,
-                TailLength = 15f,
+                TailLength = 30f,
                 ComponentToDisplay = TimeComponent.Second
             };
 
@@ -87,7 +87,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Pin",
                 FillColor = Color.Black,
-                Diameter = 10f,
+                Diameter = 20f,
                 OutlineColor = Color.FromArgb(0x64, 0x64, 0x64)
             };
         }

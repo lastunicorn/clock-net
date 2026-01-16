@@ -27,7 +27,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hour Hand",
                 ComponentToDisplay = TimeComponent.Hour,
                 Image = Resources.hour_hand,
-                Length = 34f,
+                Length = 68f,
                 Origin = new PointF(32f, 155f)
             };
 
@@ -36,24 +36,15 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Minute Hand",
                 ComponentToDisplay = TimeComponent.Minute,
                 Image = Resources.minute_hand,
-                Length = 44.5f,
+                Length = 89f,
                 Origin = new PointF(14.5f, 206f)
-            };
-
-            yield return new LineHand
-            {
-                Name = "Second Hand",
-                ComponentToDisplay = TimeComponent.Second,
-                Length = 45.5f,
-                OutlineColor = Color.Red,
-                Visible = false
             };
 
             yield return new Pin
             {
                 Name = "Pin Shape",
                 OutlineColor = Color.DimGray,
-                Diameter = 3f
+                Diameter = 6f
             };
         }
 

@@ -51,7 +51,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <summary>
         /// The maximum width of the rectangle where the text should be drawn.
         /// </summary>
-        public const float DefaultMaxWidth = 50f;
+        public const float DefaultMaxWidth = 100f;
 
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <summary>
         /// The maximum width of the rectangle where the text should be drawn.
         /// </summary>
-        protected float maxWidth = 50;
+        protected float maxWidth = 100;
 
         /// <summary>
         /// Gets or sets the maximum width of the rectangle where the text should be drawn.

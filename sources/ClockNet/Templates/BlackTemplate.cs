@@ -30,8 +30,8 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Title",
                 FillColor = Color.LightGray,
-                Font = new Font("Arial", 2.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
-                Location = new PointF(0F, 15F)
+                Font = new Font("Arial", 4f, FontStyle.Regular, GraphicsUnit.Point, 0),
+                Location = new PointF(0F, 30f)
             };
         }
 
@@ -40,7 +40,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new Ticks
             {
                 Name = "Minute Ticks",
-                DistanceFromEdge = 8f,
+                DistanceFromEdge = 16.5f,
                 Angle = 6f,
                 OffsetAngle = 6f,
                 SkipIndex = 5
@@ -49,9 +49,9 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new Ticks
             {
                 Name = "Hour Ticks",
+                DistanceFromEdge = 16.5f,
                 Angle = 30f,
                 OffsetAngle = 30f,
-                DistanceFromEdge = 8f,
                 OutlineColor = Color.White,
                 OutlineWidth = 1f
             };
@@ -59,9 +59,9 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new Hours
             {
                 Name = "Hours",
-                DistanceFromEdge = 16f,
+                DistanceFromEdge = 32f,
                 FillColor = Color.LightGray,
-                Font = new Font("Vivaldi", 6.25F, FontStyle.Italic)
+                Font = new Font("Vivaldi", 12.5f, FontStyle.Italic)
             };
 
             yield return new StringRim
@@ -69,9 +69,9 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Minutes",
                 Angle = 30f,
                 OffsetAngle = 30f,
-                DistanceFromEdge = 2.7F,
+                DistanceFromEdge = 5.5f,
                 FillColor = Color.DarkGray,
-                Font = new Font("Arial", 2.2F),
+                Font = new Font("Arial", 4.4f),
                 Texts = Enumerable.Range(1, 12)
                     .Select(x => (x * 5).ToString())
                     .ToArray()
@@ -85,7 +85,9 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hour Hand",
                 ComponentToDisplay = TimeComponent.Hour,
                 FillColor = Color.RoyalBlue,
-                Length = 25F
+                Length = 50f,
+                Width = 10f,
+                TailLength = 8f
             };
 
             yield return new DiamondHand
@@ -93,16 +95,16 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Minute Hand",
                 ComponentToDisplay = TimeComponent.Minute,
                 FillColor = Color.LimeGreen,
-                Length = 38F,
-                TailLength = 4F,
-                Width = 4F
+                Length = 76f,
+                Width = 8f,
+                TailLength = 8f
             };
 
             yield return new LineHand
             {
                 Name = "Second Hand",
                 ComponentToDisplay = TimeComponent.Second,
-                Length = 43F,
+                Length = 86f,
                 OutlineColor = Color.Red
             };
 

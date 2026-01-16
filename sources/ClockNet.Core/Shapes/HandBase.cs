@@ -29,7 +29,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <summary>
         /// The default value of the length of the clock's hand..
         /// </summary>
-        public const float DefaultLength = 45f;
+        public const float DefaultLength = 90f;
 
         /// <summary>
         /// The default value of the <see cref="IntegralValue"/>.

@@ -45,9 +45,9 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Minute Ticks",
                 OutlineColor = Color.Black,
-                Length = 3f,
+                Length = 6f,
                 OutlineWidth = 0.3f,
-                DistanceFromEdge = 4f,
+                DistanceFromEdge = 8f,
                 Angle = 6f,
                 OffsetAngle = 6f,
                 SkipIndex = 5
@@ -57,7 +57,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Hour Ticks",
                 OutlineColor = Color.Black,
-                Length = 3f,
+                Length = 6f,
                 OutlineWidth = 1f,
                 Angle = 30f,
                 OffsetAngle = 30f
@@ -66,7 +66,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new Hours
             {
                 Name = "Hours",
-                DistanceFromEdge = 13f
+                DistanceFromEdge = 26f
             };
         }
 
@@ -76,9 +76,9 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Hour Hand",
                 FillColor = Color.Black,
-                Length = 30f,
+                Length = 60f,
                 ComponentToDisplay = TimeComponent.Hour,
-                Width = 5f,
+                Width = 10f,
                 OutlineColor = Color.FromArgb(0x60, 0x60, 0x60),
                 OutlineWidth = 1.5f
             };
@@ -89,14 +89,14 @@ namespace DustInTheWind.ClockNet.Templates
                 ComponentToDisplay = TimeComponent.Minute,
                 OutlineColor = Color.FromArgb(0x60, 0x60, 0x60),
                 OutlineWidth = 1.5f,
-                Length = 43f
+                Length = 86f
             };
 
             yield return new FancySweepHand
             {
                 Name = "Second Hand",
                 ComponentToDisplay = TimeComponent.Second,
-                Length = 43f
+                Length = 86f
             };
 
             yield return new Pin

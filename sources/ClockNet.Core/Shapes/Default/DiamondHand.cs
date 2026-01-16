@@ -35,12 +35,12 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// <summary>
         /// The default value of the <see cref="Width"/>.
         /// </summary>
-        public const float DefaultWidth = 5f;
+        public const float DefaultWidth = 10f;
 
         /// <summary>
         /// The default value of the <see cref="TailLength"/>.
         /// </summary>
-        public const float DefaultTailLength = 6f;
+        public const float DefaultTailLength = 12f;
 
         private float tailLength;
         private float width;
@@ -111,14 +111,19 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// </summary>
         protected override void CalculateLayout()
         {
-            float halfWidth = width / 2f;
+            float diameter = 200f;
+            float radius = diameter / 2;
+            float actualLength = radius * (Length / 100f);
+            float actualTailLength = radius * (TailLength / 100f);
+            float actualWidth = radius * (Width / 100f);
+            float actualHalfWidth = actualWidth / 2f;
 
             points = new PointF[]
             {
-                new PointF(0f, tailLength),
-                new PointF(-halfWidth, 0f),
-                new PointF(0F, -Length),
-                new PointF(halfWidth, 0f)
+                new PointF(0f, actualTailLength),
+                new PointF(-actualHalfWidth, 0f),
+                new PointF(0F, -actualLength),
+                new PointF(actualHalfWidth, 0f)
             };
         }
     }

@@ -35,8 +35,8 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new StringBackground
             {
                 Name = "Title",
-                Location = new PointF(0f, 15f),
-                Font = new Font("Arial", 2.25f, FontStyle.Regular, GraphicsUnit.Point),
+                Location = new PointF(0f, 30f),
+                Font = new Font("Arial", 4f, FontStyle.Regular, GraphicsUnit.Point),
                 FillColor = Color.DarkSlateGray,
                 Text = "Dust in the Wind",
             };
@@ -48,7 +48,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Minute Ticks",
                 OutlineWidth = 0.3f,
-                DistanceFromEdge = 3f,
+                DistanceFromEdge = 6f,
                 Angle = 6f,
                 OffsetAngle = 6f,
                 SkipIndex = 5
@@ -58,7 +58,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Hour Ticks",
                 OutlineWidth = 1f,
-                DistanceFromEdge = 3f,
+                DistanceFromEdge = 6f,
                 Angle = 30f,
                 OffsetAngle = 30f
             };
@@ -66,7 +66,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new Hours
             {
                 Name = "Hours",
-                DistanceFromEdge = 13f
+                DistanceFromEdge = 26f
             };
         }
 
@@ -78,9 +78,9 @@ namespace DustInTheWind.ClockNet.Templates
                 ComponentToDisplay = TimeComponent.Hour,
                 FillColor = Color.Empty,
                 OutlineColor = Color.DarkGray,
-                Length = 24f,
-                Width = 5f,
-                TailLength = 6f,
+                Length = 48f,
+                Width = 10f,
+                TailLength = 12f,
                 IntegralValue = true
             };
 
@@ -89,9 +89,9 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hour Hand",
                 ComponentToDisplay = TimeComponent.Hour,
                 FillColor = Color.RoyalBlue,
-                Length = 24f,
-                Width = 5f,
-                TailLength = 6f
+                Length = 48f,
+                Width = 10f,
+                TailLength = 12f
             };
 
             yield return new DiamondHand(Color.Empty, Color.LimeGreen, 37f, 4f, 4f)
@@ -100,9 +100,9 @@ namespace DustInTheWind.ClockNet.Templates
                 ComponentToDisplay = TimeComponent.Minute,
                 FillColor = Color.Empty,
                 OutlineColor = Color.DarkGray,
-                Length = 37f,
-                Width = 4f,
-                TailLength = 4f,
+                Length = 74f,
+                Width = 8f,
+                TailLength = 8f,
                 IntegralValue = true
             };
 
@@ -111,9 +111,9 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Minute Hand",
                 ComponentToDisplay = TimeComponent.Minute,
                 FillColor = Color.LimeGreen,
-                Length = 37f,
-                Width = 4f,
-                TailLength = 4f
+                Length = 74f,
+                Width = 8f,
+                TailLength = 8f
             };
 
             yield return new LineHand
@@ -121,7 +121,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Second Hand Shadow",
                 ComponentToDisplay = TimeComponent.Second,
                 OutlineColor = Color.DarkGray,
-                Length = 42.5f,
+                Length = 85f,
                 IntegralValue = true
             };
 
@@ -130,7 +130,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Second Hand",
                 ComponentToDisplay = TimeComponent.Second,
                 OutlineColor = Color.Red,
-                Length = 42.5f
+                Length = 85f
             };
 
             yield return new Pin

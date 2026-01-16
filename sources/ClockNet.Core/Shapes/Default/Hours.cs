@@ -13,8 +13,8 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
             Texts = Enumerable.Range(1, 12)
                 .Select(x => x.ToString())
                 .ToArray();
-            Font = new Font("Arial", 6.25f, FontStyle.Regular, GraphicsUnit.Point);
-            DistanceFromEdge = 15f;
+            Font = new Font("Arial", 12.5f, FontStyle.Regular, GraphicsUnit.Point);
+            DistanceFromEdge = 26f;
             Angle = 30f;
             OffsetAngle = 30f;
             Orientation = RimItemOrientation.Normal;
