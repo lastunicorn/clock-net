@@ -103,29 +103,27 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <summary>
         /// Determines whether drawing should proceed based on the current state and the provided graphics context.
         /// </summary>
-        /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
+        protected override bool OnBeforeDraw(ClockDrawingContext context)
         {
             if (size.IsEmpty)
                 return false;
 
-            return base.OnBeforeDraw(g, time);
+            return base.OnBeforeDraw(context);
         }
 
         /// <summary>
         /// Renders the shape onto the specified graphics surface, filling and outlining the ellipse as configured.
         /// </summary>
-        /// <param name="g">The graphics surface on which to draw the shape.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
-        protected override void OnDraw(Graphics g, TimeSpan time)
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        protected override void OnDraw(ClockDrawingContext context)
         {
             if (!FillColor.IsEmpty)
-                g.FillEllipse(Brush, rectangle);
+                context.Graphics.FillEllipse(Brush, rectangle);
 
             if (!OutlineColor.IsEmpty)
-                g.DrawEllipse(Pen, rectangle);
+                context.Graphics.DrawEllipse(Pen, rectangle);
         }
     }
 }

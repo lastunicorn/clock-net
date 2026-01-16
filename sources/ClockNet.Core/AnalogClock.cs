@@ -662,10 +662,12 @@ namespace DustInTheWind.ClockNet
             IEnumerable<IBackground> backgroundShapesNotNull = backgrounds
                 .Where(x => x != null);
 
+            ClockDrawingContext context = new ClockDrawingContext(g, Time);
+
             foreach (IBackground backgroundShape in backgroundShapesNotNull)
             {
                 g.Transform = initialMatrix;
-                backgroundShape.Draw(g, TimeSpan.Zero);
+                backgroundShape.Draw(context);
             }
         }
 
@@ -674,10 +676,12 @@ namespace DustInTheWind.ClockNet
             IEnumerable<IRim> angularShapesNotNull = rims
                 .Where(x => x != null);
 
+            ClockDrawingContext context = new ClockDrawingContext(g, Time);
+
             foreach (IRim angularShape in angularShapesNotNull)
             {
                 g.Transform = initialMatrix;
-                angularShape.Draw(g, TimeSpan.Zero);
+                angularShape.Draw(context);
             }
         }
 
@@ -686,11 +690,13 @@ namespace DustInTheWind.ClockNet
             IEnumerable<IHand> handShapesNotNull = hands
                 .Where(x => x != null);
 
+            ClockDrawingContext context = new ClockDrawingContext(g, Time);
+
             foreach (IHand handShape in handShapesNotNull)
             {
                 g.Transform = initialMatrix;
 
-                handShape.Draw(g, time);
+                handShape.Draw(context);
             }
         }
 

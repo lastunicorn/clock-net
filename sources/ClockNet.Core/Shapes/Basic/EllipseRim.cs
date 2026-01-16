@@ -64,15 +64,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <summary>
         /// Determines whether drawing should proceed based on the current rectangle state.
         /// </summary>
-        /// <param name="g">The graphics context to use for drawing operations.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
         /// <returns>true if the rectangle is not empty and drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
+        protected override bool OnBeforeDraw(ClockDrawingContext context)
         {
             if (rectangle.IsEmpty)
                 return false;
 
-            return base.OnBeforeDraw(g, time);
+            return base.OnBeforeDraw(context);
         }
 
         /// <summary>

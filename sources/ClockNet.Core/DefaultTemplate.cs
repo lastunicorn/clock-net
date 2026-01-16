@@ -43,7 +43,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new StringBackground
             {
                 Name = "Title",
-                Location = new PointF(0f, 15f),
+                Location = new PointF(0f, 30f),
                 Font = new Font("Arial", 4f, FontStyle.Regular, GraphicsUnit.Point),
                 FillColor = Color.DarkSlateGray,
                 Text = "Dust in the Wind",

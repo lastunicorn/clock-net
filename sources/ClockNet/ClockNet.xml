@@ -98,24 +98,22 @@
             <param name="color">The color used to draw the text.</param>
             <param name="font">The font used to draw the text.</param>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnBeforeDraw(System.Drawing.Graphics,System.TimeSpan)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnBeforeDraw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)">
             <summary>
             Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
             </summary>
-            <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
-            <param name="time">The time to be displayed by the shape.</param>
+            <param name="context">The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/> containing the graphics context and time information.</param>
             <returns>true if drawing should continue; otherwise, false.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnDraw(System.Drawing.Graphics,System.TimeSpan)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnDraw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)">
             <summary>
             Internal method that draws the Shape unconditioned. 
             </summary>
             <remarks>
-            The <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics,System.TimeSpan)"/> method checks if the Shape should be drawn or not, transforms the
-            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnDraw(System.Drawing.Graphics,System.TimeSpan)"/> method.
+            The <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)"/> method checks if the Shape should be drawn or not, transforms the
+            coordinate's system if necessary the and then calls <see cref="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.OnDraw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)"/> method.
             </remarks>
-            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the shape.</param>
-            <param name="time">The time to be displayed by the shape.</param>
+            <param name="context">The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/> containing the graphics context and time information.</param>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DigitalHand.HitTest(System.Drawing.PointF,System.TimeSpan)">
             <summary>
@@ -158,14 +156,13 @@
             default values.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.OnBeforeDraw(System.Drawing.Graphics,System.TimeSpan)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.OnBeforeDraw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)">
             <summary>
             Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
             </summary>
             <remarks>Drawing is permitted only when both the radius and length are greater than zero, and
             the base class also allows drawing.</remarks>
-            <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
-            <param name="time">The time to be displayed by the shape.</param>
+            <param name="context">The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/> containing the graphics context and time information.</param>
             <returns>true if drawing is allowed based on the object's state and base class conditions; otherwise, false.</returns>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.CalculateLayout">
@@ -175,12 +172,11 @@
             This method should be called every time when is set a property that changes the physical dimensions.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.OnDraw(System.Drawing.Graphics,System.TimeSpan)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.OnDraw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)">
             <summary>
-            Draws the hour hand using the provided <see cref="T:System.Drawing.Graphics"/> object.
+            Draws the hour hand using the provided <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/>.
             </summary>
-            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the dot.</param>
-            <param name="time">The time to be displayed by the shape.</param>
+            <param name="context">The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/> containing the graphics context and time information.</param>
             <remarks>
             The hand is drawn in vertical position from the origin of the coordinate system.
             Before this method beeng called, the coordinate system has to be rotated in the corect position.
@@ -262,20 +258,18 @@
             This method should be called every time when is set a property that changes the physical dimensions.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OnBeforeDraw(System.Drawing.Graphics,System.TimeSpan)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OnBeforeDraw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)">
             <summary>
             Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
             </summary>
-            <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
-            <param name="time">The time to be displayed by the shape.</param>
+            <param name="context">The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/> containing the graphics context and time information.</param>
             <returns>true if drawing should continue; otherwise, false.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OnDraw(System.Drawing.Graphics,System.TimeSpan)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OnDraw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)">
             <summary>
-            Draws the dial's background using the provided <see cref="T:System.Drawing.Graphics"/> object.
+            Draws the dial's background using the provided <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/>.
             </summary>
-            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the dial.</param>
-            <param name="time">The time to be displayed by the shape.</param>
+            <param name="context">The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/> containing the graphics context and time information.</param>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.Dispose(System.Boolean)">
             <summary>
@@ -332,7 +326,7 @@
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.CalculateLayout">
             <summary>
             Calculates additional values and creates the <see cref="T:System.Drawing.Drawing2D.GraphicsPath"/> that will be displayed
-            by the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(System.Drawing.Graphics,System.TimeSpan)"/> method.
+            by the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)"/> method.
             </summary>
         </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.NibHand">
@@ -373,12 +367,11 @@
             This method should be called every time when is set a property that changes the physical dimensions.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.OnDraw(System.Drawing.Graphics,System.TimeSpan)">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.OnDraw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)">
             <summary>
-            Draws the hour hand using the provided <see cref="T:System.Drawing.Graphics"/> object.
+            Draws the hour hand using the provided <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/>.
             </summary>
-            <param name="g">The <see cref="T:System.Drawing.Graphics"/> on which to draw the dot.</param>
-            <param name="time">The time to be displayed by the shape.</param>
+            <param name="context">The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/> containing the graphics context and time information.</param>
             <remarks>
             The hand is drawn in vertical position from the origin of the coordinate system.
             Before this method beeng called, the coordinate system has to be rotated in the corect position.

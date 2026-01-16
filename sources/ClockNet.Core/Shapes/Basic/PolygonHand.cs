@@ -67,18 +67,17 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
         /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
-        protected override void OnDraw(Graphics g, TimeSpan time)
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        protected override void OnDraw(ClockDrawingContext context)
         {
             if (points == null || points.Length < 2)
                 return;
 
             if (!FillColor.IsEmpty)
-                g.FillPolygon(Brush, points);
+                context.Graphics.FillPolygon(Brush, points);
 
             if (!OutlineColor.IsEmpty)
-                g.DrawPolygon(Pen, points);
+                context.Graphics.DrawPolygon(Pen, points);
         }
 
         public override bool HitTest(PointF point, TimeSpan time)

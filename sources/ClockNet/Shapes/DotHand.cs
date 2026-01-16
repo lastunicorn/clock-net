@@ -79,15 +79,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         /// <remarks>Drawing is permitted only when both the radius and length are greater than zero, and
         /// the base class also allows drawing.</remarks>
-        /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
         /// <returns>true if drawing is allowed based on the object's state and base class conditions; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
+        protected override bool OnBeforeDraw(ClockDrawingContext context)
         {
             if (radius <= 0 || Length <= 0)
                 return false;
 
-            return base.OnBeforeDraw(g, time);
+            return base.OnBeforeDraw(context);
         }
 
         /// <summary>
@@ -108,21 +107,20 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
 
 
         /// <summary>
-        /// Draws the hour hand using the provided <see cref="Graphics"/> object.
+        /// Draws the hour hand using the provided <see cref="ClockDrawingContext"/>.
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the dot.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
         /// <remarks>
         /// The hand is drawn in vertical position from the origin of the coordinate system.
         /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
         /// </remarks>
-        protected override void OnDraw(Graphics g, TimeSpan time)
+        protected override void OnDraw(ClockDrawingContext context)
         {
             if (!FillColor.IsEmpty)
-                g.FillEllipse(Brush, dotRectangle);
+                context.Graphics.FillEllipse(Brush, dotRectangle);
 
             if (!OutlineColor.IsEmpty)
-                g.DrawEllipse(Pen, dotRectangle);
+                context.Graphics.DrawEllipse(Pen, dotRectangle);
         }
 
         public override bool HitTest(PointF point, TimeSpan time)

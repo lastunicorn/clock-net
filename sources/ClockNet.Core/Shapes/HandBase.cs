@@ -161,21 +161,20 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         }
 
         /// <summary>
-        /// Draws the shape using the provided <see cref="Graphics"/> object.
+        /// Draws the shape using the provided <see cref="ClockDrawingContext"/>.
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        /// <param name="time">The time to be displayed by the hand.</param>
-        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        protected override bool OnBeforeDraw(ClockDrawingContext context)
         {
-            bool allowToDraw = base.OnBeforeDraw(g, time);
+            bool allowToDraw = base.OnBeforeDraw(context);
 
             if (!allowToDraw)
                 return false;
 
-            float degrees = GetRotationDegrees(time);
+            float degrees = GetRotationDegrees(context.Time);
 
             if (degrees != 0)
-                g.RotateTransform(degrees);
+                context.Graphics.RotateTransform(degrees);
 
             return true;
         }

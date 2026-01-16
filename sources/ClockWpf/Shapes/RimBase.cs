@@ -110,9 +110,9 @@ public abstract class RimBase : Shape
 
     #endregion
 
-    public override void DoRender(DrawingContext drawingContext, double diameter, TimeSpan time)
+    public override void DoRender(ClockDrawingContext context)
     {
-        double radius = diameter / 2;
+        double radius = context.ClockDiameter / 2;
         double actualDistanceFromEdge = radius * DistanceFromEdge / 100.0;
         double itemRadius = radius - actualDistanceFromEdge;
 
@@ -127,7 +127,7 @@ public abstract class RimBase : Shape
             if (MaxCoverageAngle > 0 && angleDegrees - OffsetAngle >= MaxCoverageAngle)
                 break;
 
-            drawingContext.CreateDrawingPlan()
+            context.DrawingContext.CreateDrawingPlan()
                 .WithTransform(() => new RotateTransform(angleDegrees, 0, 0))
                 .WithTransform(() => new TranslateTransform(0, -itemRadius))
                 .WithTransform(() => CreateOrientationTransform(index))

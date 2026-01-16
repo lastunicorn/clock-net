@@ -41,17 +41,17 @@ public class SimpleHand : HandBase
 
     #endregion
 
-    public override void DoRender(DrawingContext drawingContext, double diameter, TimeSpan time)
+    public override void DoRender(ClockDrawingContext context)
     {
-        drawingContext.CreateDrawingPlan()
+        context.DrawingContext.CreateDrawingPlan()
             .WithTransform(() =>
             {
-                double angleDegrees = CalculateHandAngle(time);
+                double angleDegrees = CalculateHandAngle(context.Time);
                 return new RotateTransform(angleDegrees, 0, 0);
             })
             .Draw(dc =>
             {
-                double radius = diameter / 2;
+                double radius = context.ClockDiameter / 2;
 
                 DrawHandLine(dc, radius);
                 DrawPin(dc, radius);

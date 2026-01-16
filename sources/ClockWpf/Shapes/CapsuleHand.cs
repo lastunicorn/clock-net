@@ -40,12 +40,12 @@ public class CapsuleHand : HandBase
 
     #endregion
 
-    public override void DoRender(DrawingContext drawingContext, double diameter, TimeSpan time)
+    public override void DoRender(ClockDrawingContext context)
     {
-        drawingContext.CreateDrawingPlan()
+        context.DrawingContext.CreateDrawingPlan()
             .WithTransform(() =>
             {
-                double angleDegrees = CalculateHandAngle(time);
+                double angleDegrees = CalculateHandAngle(context.Time);
                 return new RotateTransform(angleDegrees, 0, 0);
             })
             .Draw(dc =>
@@ -53,9 +53,9 @@ public class CapsuleHand : HandBase
                 if (Fill == null && StrokePen == null)
                     return;
 
-                PathGeometry capsuleGeometry = CreateCapsuleGeometry(diameter);
+                PathGeometry capsuleGeometry = CreateCapsuleGeometry(context.ClockDiameter);
 
-                drawingContext.DrawGeometry(Fill, StrokePen, capsuleGeometry);
+                context.DrawingContext.DrawGeometry(Fill, StrokePen, capsuleGeometry);
             });
     }
 

@@ -53,6 +53,7 @@
     <Compile Include="Design\PointFConverter.cs" />
     <Compile Include="Design\RectangleFConverter.cs" />
     <Compile Include="Serialization\Converters\StringArrayValueConverter.cs" />
+    <Compile Include="Shapes\ClockDrawingContext.cs" />
     <Compile Include="Shapes\Default\FlatBackground.cs" />
     <Compile Include="Serialization\ISerializable.cs" />
     <Compile Include="Serialization\Converters\ColorValueConverter.cs" />

@@ -174,20 +174,19 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         }
 
         /// <summary>
-        /// Draws the hour hand using the provided <see cref="Graphics"/> object.
+        /// Draws the hour hand using the provided <see cref="ClockDrawingContext"/>.
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the dot.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
         /// <remarks>
         /// The hand is drawn in vertical position from the origin of the coordinate system.
         /// Before this method beeng called, the coordinate system has to be rotated in the corect position.
         /// </remarks>
-        protected override void OnDraw(Graphics g, TimeSpan time)
+        protected override void OnDraw(ClockDrawingContext context)
         {
             if (keepProportions && Length > 0)
             {
                 float scaleFactorY = Length / 280f;
-                g.ScaleTransform(scaleFactorY, scaleFactorY);
+                context.Graphics.ScaleTransform(scaleFactorY, scaleFactorY);
             }
             else
             {
@@ -199,10 +198,10 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                     ? width / 30f 
                     : 1f;
 
-                g.ScaleTransform(scaleFactorX, scaleFactorY);
+                context.Graphics.ScaleTransform(scaleFactorX, scaleFactorY);
             }
 
-            base.OnDraw(g, time);
+            base.OnDraw(context);
         }
 
         public override bool HitTest(PointF point, TimeSpan time)

@@ -49,10 +49,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         event EventHandler Changed;
 
         /// <summary>
-        /// Draws the shape using the provided <see cref="Graphics"/> object.
+        /// Draws the shape using the provided <see cref="ClockDrawingContext"/>.
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
-        void Draw(Graphics g, TimeSpan time);
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        void Draw(ClockDrawingContext context);
     }
 }

@@ -154,10 +154,9 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// Determines whether drawing should proceed by performing pre-draw checks using the specified graphics context.
         /// </summary>
-        /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
+        protected override bool OnBeforeDraw(ClockDrawingContext context)
         {
             if (font == null)
                 return false;
@@ -165,7 +164,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             if (FillColor.IsEmpty)
                 return false;
 
-            return base.OnBeforeDraw(g, time);
+            return base.OnBeforeDraw(context);
         }
 
         /// <summary>
@@ -175,23 +174,22 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
         /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
-        protected override void OnDraw(Graphics g, TimeSpan time)
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        protected override void OnDraw(ClockDrawingContext context)
         {
-            string text = time.Ticks < 0
+            string text = context.Time.Ticks < 0
                 ? "-"
                 : string.Empty;
 
-            text += new DateTime(time.Duration().Ticks).ToString(format);
+            text += new DateTime(context.Time.Duration().Ticks).ToString(format);
 
             if (text.Length > 0)
             {
-                SizeF textSize = g.MeasureString(text, font);
+                SizeF textSize = context.Graphics.MeasureString(text, font);
                 PointF textLocation = new PointF(-textSize.Width / 2F, VerticalLocation);
                 RectangleF textRectangle = new RectangleF(textLocation, textSize);
 
-                g.DrawString(text, font, Brush, textRectangle, stringFormat);
+                context.Graphics.DrawString(text, font, Brush, textRectangle, stringFormat);
             }
         }
 

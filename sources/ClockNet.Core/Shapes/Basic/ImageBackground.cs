@@ -101,15 +101,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// <remarks>This method checks whether the image to be drawn is available before delegating to
         /// the base implementation. Override this method to customize pre-draw validation logic in derived
         /// classes.</remarks>
-        /// <param name="g">The graphics context to use for drawing operations. Cannot be null.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
         /// <returns>true if drawing should continue; otherwise, false.</returns>
-        protected override bool OnBeforeDraw(Graphics g, TimeSpan time)
+        protected override bool OnBeforeDraw(ClockDrawingContext context)
         {
             if (image == null)
                 return false;
 
-            return base.OnBeforeDraw(g, time);
+            return base.OnBeforeDraw(context);
         }
 
         /// <summary>
@@ -119,19 +118,18 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
         /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
         /// </remarks>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
-        protected override void OnDraw(Graphics g, TimeSpan time)
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        protected override void OnDraw(ClockDrawingContext context)
         {
             float height = 100f;
 
             if (PinLocation.Y != 0 && height > 0)
             {
                 float scaleFactor = height / PinLocation.Y;
-                g.ScaleTransform(scaleFactor, scaleFactor);
+                context.Graphics.ScaleTransform(scaleFactor, scaleFactor);
             }
 
-            g.DrawImage(Image, -PinLocation.X, -PinLocation.Y, Image.Width, Image.Height);
+            context.Graphics.DrawImage(Image, -PinLocation.X, -PinLocation.Y, Image.Width, Image.Height);
         }
     }
 }

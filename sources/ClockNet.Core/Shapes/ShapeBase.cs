@@ -138,16 +138,15 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         }
 
         /// <summary>
-        /// Draws the shape using the provided <see cref="Graphics"/> object.
+        /// Draws the shape using the provided <see cref="ClockDrawingContext"/>.
         /// </summary>
-        /// <param name="g">The <see cref="Graphics"/> on which to draw the shape.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
-        public void Draw(Graphics g, TimeSpan time)
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        public void Draw(ClockDrawingContext context)
         {
             if (!Visible)
                 return;
 
-            bool allowToDraw = OnBeforeDraw(g, time);
+            bool allowToDraw = OnBeforeDraw(context);
             if (!allowToDraw)
                 return;
 
@@ -157,9 +156,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes
                 isLayoutValid = true;
             }
 
-            OnDraw(g, time);
+            OnDraw(context);
 
-            OnAfterDraw(g);
+            OnAfterDraw(context);
         }
 
         /// <summary>
@@ -177,32 +176,28 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <remarks>Override this method in a derived class to implement custom logic that determines
         /// whether the drawing operation should continue. Returning <c>false</c> will prevent the drawing from
         /// occurring.</remarks>
-        /// <param name="g">The <see cref="Graphics"/> context used for drawing. Cannot be <c>null</c>.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
         /// <returns><c>true</c> if drawing should proceed; otherwise, <c>false</c>.</returns>
-        protected virtual bool OnBeforeDraw(Graphics g, TimeSpan time)
+        protected virtual bool OnBeforeDraw(ClockDrawingContext context)
         {
             return true;
         }
 
         /// <summary>
-        /// Performs custom drawing operations using the specified graphics surface.
+        /// Performs custom drawing operations using the specified drawing context.
         /// </summary>
-        /// <remarks>Override this method in a derived class to implement custom rendering logic. The
-        /// provided <paramref name="g"/> parameter represents the drawing surface for the current paint
-        /// operation.</remarks>
-        /// <param name="g">The <see cref="Graphics"/> object used to render drawing commands. Cannot be <c>null</c>.</param>
-        /// <param name="time">The time to be displayed by the shape.</param>
-        protected abstract void OnDraw(Graphics g, TimeSpan time);
+        /// <remarks>Override this method in a derived class to implement custom rendering logic.</remarks>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        protected abstract void OnDraw(ClockDrawingContext context);
 
         /// <summary>
         /// Called after the drawing operation is completed, allowing for custom post-draw logic.
         /// </summary>
         /// <remarks>Override this method in a derived class to perform additional actions after the main
-        /// drawing routine has finished. This method is called with the same graphics context used during
+        /// drawing routine has finished. This method is called with the same drawing context used during
         /// drawing.</remarks>
-        /// <param name="g">The <see cref="Graphics"/> context used for drawing. Cannot be <c>null</c>.</param>
-        protected virtual void OnAfterDraw(Graphics g)
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        protected virtual void OnAfterDraw(ClockDrawingContext context)
         {
         }
 

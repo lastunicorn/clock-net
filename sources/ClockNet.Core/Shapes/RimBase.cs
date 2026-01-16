@@ -288,9 +288,9 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             this.distanceFromEdge = distanceFromEdge;
         }
 
-        protected override void OnDraw(Graphics g, TimeSpan time)
+        protected override void OnDraw(ClockDrawingContext context)
         {
-            RimDrawingCoordinator rimDrawingCoordinator = new RimDrawingCoordinator(g)
+            RimDrawingCoordinator rimDrawingCoordinator = new RimDrawingCoordinator(context.Graphics)
             {
                 Diameter = 200,
                 Angle = Angle,
