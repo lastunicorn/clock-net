@@ -81,6 +81,8 @@ public abstract class Shape : DependencyObject
 
     #endregion
 
+    #region StrokePen Property
+
     private Pen strokePen;
 
     protected Pen StrokePen
@@ -91,6 +93,15 @@ public abstract class Shape : DependencyObject
             return strokePen;
         }
     }
+
+    private Pen CreateStrokePen()
+    {
+        return StrokeThickness > 0 && Stroke != null
+            ? new(Stroke, StrokeThickness)
+            : null;
+    }
+
+    #endregion
 
     public void Render(ClockDrawingContext context)
     {
@@ -113,12 +124,5 @@ public abstract class Shape : DependencyObject
 
     protected virtual void OnRendered(ClockDrawingContext context)
     {
-    }
-
-    private Pen CreateStrokePen()
-    {
-        return StrokeThickness > 0 && Stroke != null
-            ? new(Stroke, StrokeThickness)
-            : null;
     }
 }
