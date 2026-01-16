@@ -33,18 +33,18 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public const string DefaultName = "Fancy Background";
 
+        private RectangleF outerRimRectangle;
+        private RectangleF innerRimRectangle;
+        private RectangleF faceRectangle;
+
+        #region OuterRimWidth Property
+
         /// <summary>
         /// The default value of the outer rim width.
         /// </summary>
         public const float DefaultOuterRimWidth = 10f;
 
-        /// <summary>
-        /// The default value of the inner rim width.
-        /// </summary>
-        public const float DefaultInnerRimWidth = 2f;
-
         private float outerRimWidth = DefaultOuterRimWidth;
-        private float innerRimWidth = DefaultInnerRimWidth;
 
         /// <summary>
         /// Gets or sets the width of the outer-most rim.
@@ -63,6 +63,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             }
         }
 
+        #endregion
+
+        #region InnerRimWidth Property
+
+        /// <summary>
+        /// The default value of the inner rim width.
+        /// </summary>
+        public const float DefaultInnerRimWidth = 2f;
+
+        private float innerRimWidth = DefaultInnerRimWidth;
+
         /// <summary>
         /// Gets or sets the width of the second rim.
         /// </summary>
@@ -79,6 +90,64 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
+
+        #region OuterRimBrush Property (protected)
+
+        private LinearGradientBrush outerRimBrush;
+
+        /// <summary>
+        /// Gets or sets the linear gradient brush used to render the outer rim of the control.
+        /// </summary>
+        /// <remarks>The brush is created using a gradient based on the current fill color and the bounds
+        /// of the outer rim. The brush is lazily initialized and updated when the property is set.</remarks>
+        protected LinearGradientBrush OuterRimBrush
+        {
+            get
+            {
+                if (outerRimBrush == null)
+                {
+                    Color outerRimColor1 = FillColor.ShiftBrighness(100f);
+                    Color outerRimColor2 = FillColor.ShiftBrighness(-100f);
+
+                    outerRimBrush = new LinearGradientBrush(outerRimRectangle, outerRimColor1, outerRimColor2, 45f);
+                }
+
+                return outerRimBrush;
+            }
+            private set => outerRimBrush = value;
+        }
+
+        #endregion
+
+        #region InnerRimBrush Property (protected)
+
+        private LinearGradientBrush innerRimBrush;
+
+        /// <summary>
+        /// Gets the linear gradient brush used to render the inner rim of the control.
+        /// </summary>
+        /// <remarks>The brush is created based on the current fill color and is cached for subsequent
+        /// accesses. The gradient direction and colors are determined by the control's visual state.</remarks>
+        protected LinearGradientBrush InnerRimBrush
+        {
+            get
+            {
+                if (innerRimBrush == null)
+                {
+                    Color innerRimColor1 = FillColor.ShiftBrighness(-100f);
+                    Color innerRimColor2 = FillColor.ShiftBrighness(100f);
+
+                    innerRimBrush = new LinearGradientBrush(innerRimRectangle, innerRimColor1, innerRimColor2, 45f);
+                }
+
+                return innerRimBrush;
+            }
+            private set => innerRimBrush = value;
+        }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FancyBackground"/> class with
@@ -130,58 +199,6 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
 
             base.DisposeDrawingTools();
         }
-
-        private LinearGradientBrush outerRimBrush;
-
-        /// <summary>
-        /// Gets or sets the linear gradient brush used to render the outer rim of the control.
-        /// </summary>
-        /// <remarks>The brush is created using a gradient based on the current fill color and the bounds
-        /// of the outer rim. The brush is lazily initialized and updated when the property is set.</remarks>
-        protected LinearGradientBrush OuterRimBrush
-        {
-            get
-            {
-                if (outerRimBrush == null)
-                {
-                    Color outerRimColor1 = FillColor.ShiftBrighness(100f);
-                    Color outerRimColor2 = FillColor.ShiftBrighness(-100f);
-
-                    outerRimBrush = new LinearGradientBrush(outerRimRectangle, outerRimColor1, outerRimColor2, 45f);
-                }
-
-                return outerRimBrush;
-            }
-            private set => outerRimBrush = value;
-        }
-
-        private LinearGradientBrush innerRimBrush;
-
-        /// <summary>
-        /// Gets the linear gradient brush used to render the inner rim of the control.
-        /// </summary>
-        /// <remarks>The brush is created based on the current fill color and is cached for subsequent
-        /// accesses. The gradient direction and colors are determined by the control's visual state.</remarks>
-        protected LinearGradientBrush InnerRimBrush
-        {
-            get
-            {
-                if (innerRimBrush == null)
-                {
-                    Color innerRimColor1 = FillColor.ShiftBrighness(-100f);
-                    Color innerRimColor2 = FillColor.ShiftBrighness(100f);
-
-                    innerRimBrush = new LinearGradientBrush(innerRimRectangle, innerRimColor1, innerRimColor2, 45f);
-                }
-
-                return innerRimBrush;
-            }
-            private set => innerRimBrush = value;
-        }
-
-        private RectangleF outerRimRectangle;
-        private RectangleF innerRimRectangle;
-        private RectangleF faceRectangle;
 
         /// <summary>
         /// Calculates additional values that are necessary by the drawing process, but that remain constant for every

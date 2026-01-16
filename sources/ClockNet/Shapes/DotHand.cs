@@ -33,14 +33,16 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public const string DefaultName = "Dot Hand";
 
+        private RectangleF dotRectangle;
+
+        #region Radius Property
+
         /// <summary>
         /// The default value of the dot's radius.
         /// </summary>
         public const float DefaultRadius = 5f;
 
         private float radius;
-
-        private RectangleF dotRectangle;
 
         /// <summary>
         /// Gets or sets the radius of the dot.
@@ -62,6 +64,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DotHand"/> class with

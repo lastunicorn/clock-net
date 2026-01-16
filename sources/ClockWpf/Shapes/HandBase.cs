@@ -45,8 +45,35 @@ public abstract class HandBase : Shape, IHand
 
     #endregion
 
+    #region IntegralValue DependencyProperty
+
+    public static readonly DependencyProperty IntegralValueProperty = DependencyProperty.Register(
+        nameof(IntegralValue),
+        typeof(bool),
+        typeof(HandBase),
+        new FrameworkPropertyMetadata(false));
+
+    public bool IntegralValue
+    {
+        get => (bool)GetValue(IntegralValueProperty);
+        set => SetValue(IntegralValueProperty, value);
+    }
+
+    #endregion
+
     protected double CalculateHandAngle(TimeSpan time)
     {
+        if (IntegralValue)
+        {
+            return ComponentToDisplay switch
+            {
+                TimeComponent.Hour => (time.Hours % 12) * 30.0,
+                TimeComponent.Minute => time.Minutes * 6.0,
+                TimeComponent.Second => time.Seconds * 6.0,
+                _ => time.Seconds * 6.0
+            };
+        }
+
         double value = ComponentToDisplay switch
         {
             TimeComponent.Hour => time.TotalHours % 12,

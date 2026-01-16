@@ -197,20 +197,34 @@
             The default value of the outer rim width.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.DefaultInnerRimWidth">
-            <summary>
-            The default value of the inner rim width.
-            </summary>
-        </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OuterRimWidth">
             <summary>
             Gets or sets the width of the outer-most rim.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.DefaultInnerRimWidth">
+            <summary>
+            The default value of the inner rim width.
             </summary>
         </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.InnerRimWidth">
             <summary>
             Gets or sets the width of the second rim.
             </summary>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OuterRimBrush">
+            <summary>
+            Gets or sets the linear gradient brush used to render the outer rim of the control.
+            </summary>
+            <remarks>The brush is created using a gradient based on the current fill color and the bounds
+            of the outer rim. The brush is lazily initialized and updated when the property is set.</remarks>
+        </member>
+        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.InnerRimBrush">
+            <summary>
+            Gets the linear gradient brush used to render the inner rim of the control.
+            </summary>
+            <remarks>The brush is created based on the current fill color and is cached for subsequent
+            accesses. The gradient direction and colors are determined by the control's visual state.</remarks>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.#ctor">
             <summary>
@@ -236,20 +250,6 @@
             <remarks>This method disposes of any managed resources related to drawing, such as brushes,
             and should be called when the object is no longer needed to free up system resources. Overrides the base
             implementation to ensure all custom drawing resources are properly released.</remarks>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.OuterRimBrush">
-            <summary>
-            Gets or sets the linear gradient brush used to render the outer rim of the control.
-            </summary>
-            <remarks>The brush is created using a gradient based on the current fill color and the bounds
-            of the outer rim. The brush is lazily initialized and updated when the property is set.</remarks>
-        </member>
-        <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.InnerRimBrush">
-            <summary>
-            Gets the linear gradient brush used to render the inner rim of the control.
-            </summary>
-            <remarks>The brush is created based on the current fill color and is cached for subsequent
-            accesses. The gradient direction and colors are determined by the control's visual state.</remarks>
         </member>
         <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.CalculateLayout">
             <summary>
