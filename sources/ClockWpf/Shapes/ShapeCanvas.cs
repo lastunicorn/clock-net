@@ -152,9 +152,14 @@ public class ShapeCanvas : Canvas
         IEnumerable<Shape> visibleShapes = Shapes
             .Where(x => x != null && x.IsVisible);
 
-        TimeSpan time = Time;
+        ClockDrawingContext clockDrawingContext = new()
+        {
+            DrawingContext = drawingContext,
+            ClockDiameter = diameter,
+            Time = Time
+        };
 
         foreach (Shape shape in visibleShapes)
-            shape.Render(drawingContext, diameter, time);
+            shape.Render(clockDrawingContext);
     }
 }

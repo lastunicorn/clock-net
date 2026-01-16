@@ -31,10 +31,10 @@ public class Ticks : RimBase
 
     private double radius;
 
-    protected override bool OnRendering(double diameter)
+    protected override bool OnRendering(ClockDrawingContext context)
     {
-        radius = diameter / 2;
-        return base.OnRendering(diameter);
+        radius = context.ClockDiameter / 2;
+        return base.OnRendering(context);
     }
 
     protected override void RenderItem(DrawingContext drawingContext, int index)

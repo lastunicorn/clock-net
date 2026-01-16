@@ -92,33 +92,26 @@ public abstract class Shape : DependencyObject
         }
     }
 
-    public void Render(DrawingContext drawingContext, double diameter, TimeSpan time)
+    public void Render(ClockDrawingContext context)
     {
-        bool allowToRender = OnRendering(diameter);
+        bool allowToRender = OnRendering(context);
 
         if (!allowToRender)
             return;
 
-        ClockDrawingContext clockDrawingContext = new()
-        {
-            DrawingContext = drawingContext,
-            ClockDiameter = diameter,
-            Time = time
-        };
+        DoRender(context);
 
-        DoRender(clockDrawingContext);
-
-        OnRendered();
+        OnRendered(context);
     }
 
-    protected virtual bool OnRendering(double diameter)
+    protected virtual bool OnRendering(ClockDrawingContext context)
     {
         return true;
     }
 
     public abstract void DoRender(ClockDrawingContext context);
 
-    protected virtual void OnRendered()
+    protected virtual void OnRendered(ClockDrawingContext context)
     {
     }
 

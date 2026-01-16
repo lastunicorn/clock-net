@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
 
@@ -75,7 +76,7 @@ public class TextRim : RimBase
 
     private Typeface typeface;
 
-    protected override bool OnRendering(double diameter)
+    protected override bool OnRendering(ClockDrawingContext context)
     {
         string[] texts = Texts;
 
@@ -84,7 +85,7 @@ public class TextRim : RimBase
 
         typeface = new(FontFamily, FontStyles.Normal, FontWeight, FontStretches.Normal);
 
-        return base.OnRendering(diameter);
+        return base.OnRendering(context);
     }
 
     protected override void RenderItem(DrawingContext drawingContext, int index)
