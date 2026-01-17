@@ -1,4 +1,4 @@
-﻿namespace ClockWpf.Demo;
+﻿namespace DustInTheWind.ClockWpf.Demo;
 
 public partial class MainWindow
 {

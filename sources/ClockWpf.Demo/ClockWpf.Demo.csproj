@@ -11,7 +11,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Include="icon.ico" />
+		<Content Include="icon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Extended.Wpf.Toolkit" Version="5.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>

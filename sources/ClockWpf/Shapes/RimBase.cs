@@ -19,7 +19,7 @@ public abstract class RimBase : Shape
     public static readonly DependencyProperty DistanceFromEdgeProperty = DependencyProperty.Register(
         nameof(DistanceFromEdge),
         typeof(double),
-        typeof(TextRim),
+        typeof(RimBase),
         new FrameworkPropertyMetadata(0.0));
 
     public double DistanceFromEdge
@@ -35,7 +35,7 @@ public abstract class RimBase : Shape
     public static readonly DependencyProperty AngleProperty = DependencyProperty.Register(
         nameof(Angle),
         typeof(double),
-        typeof(TextRim),
+        typeof(RimBase),
         new FrameworkPropertyMetadata(30.0));
 
     public double Angle
@@ -51,7 +51,7 @@ public abstract class RimBase : Shape
     public static readonly DependencyProperty OffsetAngleProperty = DependencyProperty.Register(
         nameof(OffsetAngle),
         typeof(double),
-        typeof(TextRim),
+        typeof(RimBase),
         new FrameworkPropertyMetadata(0.0));
 
     public double OffsetAngle

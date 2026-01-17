@@ -70,26 +70,16 @@ public abstract class HandBase : Shape, IHand
                 TimeComponent.Hour => (time.Hours % 12) * 30.0,
                 TimeComponent.Minute => time.Minutes * 6.0,
                 TimeComponent.Second => time.Seconds * 6.0,
-                _ => time.Seconds * 6.0
+                _ => 0
             };
         }
 
-        double value = ComponentToDisplay switch
+        return ComponentToDisplay switch
         {
-            TimeComponent.Hour => time.TotalHours % 12,
-            TimeComponent.Minute => time.TotalMinutes % 60,
-            TimeComponent.Second => time.TotalSeconds % 60,
-            _ => time.TotalSeconds % 60
+            TimeComponent.Hour => (time.TotalHours % 12 / 12) * 360.0,
+            TimeComponent.Minute => (time.TotalMinutes % 60 / 60) * 360.0,
+            TimeComponent.Second => (time.TotalSeconds % 60 / 60) * 360.0,
+            _ => 0
         };
-
-        double divisor = ComponentToDisplay switch
-        {
-            TimeComponent.Hour => 12.0,
-            TimeComponent.Minute => 60.0,
-            TimeComponent.Second => 60.0,
-            _ => 60.0
-        };
-
-        return (value / divisor) * 360.0;
     }
 }

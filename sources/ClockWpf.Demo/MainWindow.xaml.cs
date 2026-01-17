@@ -1,22 +1,43 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using DustInTheWind.ClockWpf.Shapes;
 using DustInTheWind.ClockWpf.Templates;
 using DustInTheWind.ClockWpf.TimeProviders;
 
-namespace ClockWpf.Demo;
+namespace DustInTheWind.ClockWpf.Demo;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow : Window
+public partial class MainWindow : Window, INotifyPropertyChanged
 {
     private readonly ObservableCollection<TemplateInfo> availableTemplates = [];
+    private Shape selectedShape;
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    public Shape SelectedShape
+    {
+        get => selectedShape;
+        set
+        {
+            if (selectedShape != value)
+            {
+                selectedShape = value;
+                OnPropertyChanged();
+            }
+        }
+    }
 
     public MainWindow()
     {
         InitializeComponent();
+
+        DataContext = this;
 
         PopulateTemplateComboBox();
 
@@ -78,5 +99,10 @@ public partial class MainWindow : Window
             ClockTemplate template = (ClockTemplate)Activator.CreateInstance(selectedTemplate.Type);
             analogClock1.ApplyClockTemplate(template);
         }
+    }
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

@@ -26,7 +26,7 @@ public abstract class Shape : DependencyObject
     public static readonly DependencyProperty FillProperty = DependencyProperty.Register(
         nameof(Fill),
         typeof(Brush),
-        typeof(HandBase),
+        typeof(Shape),
         new FrameworkPropertyMetadata(Brushes.CornflowerBlue));
 
     public Brush Fill
@@ -42,13 +42,16 @@ public abstract class Shape : DependencyObject
     public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register(
         nameof(Stroke),
         typeof(Brush),
-        typeof(HandBase),
+        typeof(Shape),
         new FrameworkPropertyMetadata(Brushes.Black, HandleStrokeChanged));
 
     private static void HandleStrokeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is Shape shape)
+        {
             shape.strokePen = null;
+            shape.isStrokePenCreated = false;
+        }
     }
 
     public Brush Stroke
@@ -64,13 +67,16 @@ public abstract class Shape : DependencyObject
     public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register(
         nameof(StrokeThickness),
         typeof(double),
-        typeof(HandBase),
+        typeof(Shape),
         new FrameworkPropertyMetadata(1.0, HandleStrokeThicknessChanged));
 
     private static void HandleStrokeThicknessChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is Shape shape)
+        {
             shape.strokePen = null;
+            shape.isStrokePenCreated = false;
+        }
     }
 
     public double StrokeThickness
@@ -84,12 +90,18 @@ public abstract class Shape : DependencyObject
     #region StrokePen Property
 
     private Pen strokePen;
+    private bool isStrokePenCreated;
 
     protected Pen StrokePen
     {
         get
         {
-            strokePen ??= CreateStrokePen();
+            if (!isStrokePenCreated)
+            {
+                strokePen = CreateStrokePen();
+                isStrokePenCreated = true;
+            }
+
             return strokePen;
         }
     }
