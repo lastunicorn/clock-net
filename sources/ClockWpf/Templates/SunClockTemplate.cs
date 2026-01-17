@@ -3,13 +3,12 @@ using DustInTheWind.ClockWpf.Shapes;
 
 namespace DustInTheWind.ClockWpf.Templates;
 
-public class SunTemplate : ClockTemplate
+public class SunClockTemplate : ClockTemplate
 {
     protected override IEnumerable<Shape> CreateShapes()
     {
         yield return new FancyBackground
         {
-            Fill = Brushes.Chocolate,
             InnerRimWidth = 46,
             OuterRimWidth = 14
         };
@@ -23,7 +22,7 @@ public class SunTemplate : ClockTemplate
             OffsetAngle = 30,
             DistanceFromEdge = 38.5,
             FontFamily = new FontFamily("Arial"),
-            FontSize = 14,
+            FontSize = 17,
             Orientation = RimItemOrientation.Normal,
             Fill = Brushes.Black
         };
@@ -35,7 +34,7 @@ public class SunTemplate : ClockTemplate
                 .ToArray(),
             Angle = 6,
             OffsetAngle = 6,
-            DistanceFromEdge = 8,
+            DistanceFromEdge = 7.5,
             FontFamily = new FontFamily("Arial"),
             FontSize = 4.4,
             Fill = Brushes.Black

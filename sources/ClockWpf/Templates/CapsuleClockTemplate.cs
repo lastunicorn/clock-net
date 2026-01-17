@@ -3,12 +3,11 @@ using DustInTheWind.ClockWpf.Shapes;
 
 namespace DustInTheWind.ClockWpf.Templates;
 
-public class DefaultClockTemplate : ClockTemplate
+public class CapsuleClockTemplate : ClockTemplate
 {
     protected override IEnumerable<Shape> CreateShapes()
     {
         yield return new FlatBackground();
-
         yield return new Hours();
 
         yield return new Ticks
@@ -23,7 +22,7 @@ public class DefaultClockTemplate : ClockTemplate
             StrokeThickness = 2
         };
 
-        yield return new DiamondHand
+        yield return new CapsuleHand
         {
             ComponentToDisplay = TimeComponent.Hour,
             Length = 48,
@@ -33,7 +32,7 @@ public class DefaultClockTemplate : ClockTemplate
             Fill = Brushes.RoyalBlue
         };
 
-        yield return new DiamondHand
+        yield return new CapsuleHand
         {
             ComponentToDisplay = TimeComponent.Minute,
             Length = 74,

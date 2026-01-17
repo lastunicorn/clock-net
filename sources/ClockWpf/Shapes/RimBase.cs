@@ -110,6 +110,22 @@ public abstract class RimBase : Shape
 
     #endregion
 
+    #region SkipIndex DependencyProperty
+
+    public static readonly DependencyProperty SkipIndexProperty = DependencyProperty.Register(
+        nameof(SkipIndex),
+        typeof(int),
+        typeof(RimBase),
+        new FrameworkPropertyMetadata(0));
+
+    public int SkipIndex
+    {
+        get => (int)GetValue(SkipIndexProperty);
+        set => SetValue(SkipIndexProperty, value);
+    }
+
+    #endregion
+
     public override void DoRender(ClockDrawingContext context)
     {
         double radius = context.ClockDiameter / 2;
@@ -127,11 +143,16 @@ public abstract class RimBase : Shape
             if (MaxCoverageAngle > 0 && angleDegrees - OffsetAngle >= MaxCoverageAngle)
                 break;
 
-            context.DrawingContext.CreateDrawingPlan()
-                .WithTransform(() => new RotateTransform(angleDegrees, 0, 0))
-                .WithTransform(() => new TranslateTransform(0, -itemRadius))
-                .WithTransform(() => CreateOrientationTransform(index))
-                .Draw(cd => RenderItem(cd, index));
+            bool shouldSkip = SkipIndex > 0 && (index + 1) % SkipIndex == 0;
+
+            if (!shouldSkip)
+            {
+                context.DrawingContext.CreateDrawingPlan()
+                    .WithTransform(() => new RotateTransform(angleDegrees, 0, 0))
+                    .WithTransform(() => new TranslateTransform(0, -itemRadius))
+                    .WithTransform(() => CreateOrientationTransform(index))
+                    .Draw(cd => RenderItem(cd, index));
+            }
 
             index++;
             angleDegrees = OffsetAngle + (index * Angle);

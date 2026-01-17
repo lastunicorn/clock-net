@@ -17,7 +17,6 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -25,111 +24,34 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Shapes added from code behind -->
-
-        <TextBlock
+        <clockWpf:AnalogClock
             Grid.Row="0"
             Grid.Column="0"
-            Text="Shapes added from code behind"
-            Margin="0 10"
-            FontSize="16"/>
-
-        <Viewbox
-            Grid.Row="1"
-            Grid.Column="0">
-
-            <clockWpf:AnalogClock
-                x:Name="analogClock1" />
-        </Viewbox>
+            x:Name="analogClock1"/>
 
         <clockWpf:PerformaceView
-            Grid.Row="1"
+            Grid.Row="0"
             Grid.Column="0"
-            DataContext="{Binding ElementName=analogClock1}" />
+            DataContext="{Binding ElementName=analogClock1}"/>
 
-        <!-- Shapes added from xaml -->
-
-        <TextBlock
+        <DockPanel
             Grid.Row="0"
             Grid.Column="1"
-            Text="Shapes added from xaml"
-            Margin="0 10"
-            FontSize="16"/>
+            Margin="10">
 
-        <clockWpf:AnalogClock
-            Grid.Row="1"
-            Grid.Column="1"
-            x:Name="analogClock2">
+            <ComboBox
+                DockPanel.Dock="Top"
+                x:Name="templateComboBox"
+                Margin="10"
+                SelectionChanged="TemplateComboBox_SelectionChanged"
+                DisplayMemberPath="Name"/>
 
-            <clockWpf:AnalogClock.Shapes>
+            <Control/>
+            
+        </DockPanel>
 
-                <shapes:FlatBackground />
-
-                <shapes:Hours/>
-
-                <shapes:Ticks/>
-
-                <shapes:DiamondHand
-                    ComponentToDisplay="Hour"
-                    Length="48"
-                    Width="10"
-                    TailLength="12"
-                    StrokeThickness="0"
-                    Fill="RoyalBlue" />
-
-                <shapes:DiamondHand
-                    ComponentToDisplay="Minute"
-                    Length="74"
-                    Width="8"
-                    TailLength="8"
-                    StrokeThickness="0"
-                    Fill="LimeGreen" />
-
-                <shapes:SimpleHand
-                    ComponentToDisplay="Second"
-                    Length="85"
-                    TailLength="14"
-                    Stroke="Red"
-                    StrokeThickness="1" />
-
-            </clockWpf:AnalogClock.Shapes>
-
-        </clockWpf:AnalogClock>
-
-        <clockWpf:PerformaceView
-            Grid.Row="1"
-            Grid.Column="1"
-            DataContext="{Binding ElementName=analogClock2}"/>
-
-        <!-- Shapes added from template -->
-
-        <TextBlock
-            Grid.Row="0"
-            Grid.Column="2"
-            Text="Shapes added from template"
-            Margin="0 10"
-            FontSize="16"/>
-
-        <clockWpf:AnalogClock
-            Grid.Row="1"
-            Grid.Column="2"
-            x:Name="analogClock3"/>
-
-        <clockWpf:PerformaceView
-            Grid.Row="1"
-            Grid.Column="2"
-            DataContext="{Binding ElementName=analogClock3}"/>
-
-        <ComboBox
-            Grid.Row="2"
-            Grid.Column="2"
-            x:Name="templateComboBox"
-            Margin="10"
-            SelectionChanged="TemplateComboBox_SelectionChanged"
-            DisplayMemberPath="Name"/>
     </Grid>
 
 </Window>
