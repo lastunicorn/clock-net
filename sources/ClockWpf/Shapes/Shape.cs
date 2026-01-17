@@ -21,26 +21,26 @@ public abstract class Shape : DependencyObject
 
     #endregion
 
-    #region Fill DependencyProperty
+    #region FillBrush DependencyProperty
 
-    public static readonly DependencyProperty FillProperty = DependencyProperty.Register(
-        nameof(Fill),
+    public static readonly DependencyProperty FillBrushProperty = DependencyProperty.Register(
+        nameof(FillBrush),
         typeof(Brush),
         typeof(Shape),
         new FrameworkPropertyMetadata(Brushes.CornflowerBlue));
 
-    public Brush Fill
+    public Brush FillBrush
     {
-        get => (Brush)GetValue(FillProperty);
-        set => SetValue(FillProperty, value);
+        get => (Brush)GetValue(FillBrushProperty);
+        set => SetValue(FillBrushProperty, value);
     }
 
     #endregion
 
-    #region Stroke DependencyProperty
+    #region StrokeBrush DependencyProperty
 
-    public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register(
-        nameof(Stroke),
+    public static readonly DependencyProperty StrokeBrushProperty = DependencyProperty.Register(
+        nameof(StrokeBrush),
         typeof(Brush),
         typeof(Shape),
         new FrameworkPropertyMetadata(Brushes.Black, HandleStrokeChanged));
@@ -54,10 +54,10 @@ public abstract class Shape : DependencyObject
         }
     }
 
-    public Brush Stroke
+    public Brush StrokeBrush
     {
-        get => (Brush)GetValue(StrokeProperty);
-        set => SetValue(StrokeProperty, value);
+        get => (Brush)GetValue(StrokeBrushProperty);
+        set => SetValue(StrokeBrushProperty, value);
     }
 
     #endregion
@@ -106,14 +106,10 @@ public abstract class Shape : DependencyObject
         }
     }
 
-    private Pen CreateStrokePen()
+    protected virtual Pen CreateStrokePen()
     {
-        return StrokeThickness > 0 && Stroke != null
-            ? new(Stroke, StrokeThickness)
-            {
-                StartLineCap = PenLineCap.Round,
-                EndLineCap = PenLineCap.Round
-            }
+        return StrokeThickness > 0 && StrokeBrush != null
+            ? new(StrokeBrush, StrokeThickness)
             : null;
     }
 

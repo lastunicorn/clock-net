@@ -109,7 +109,7 @@ public class TextRim : RimBase
             FlowDirection.LeftToRight,
             typeface,
             FontSize,
-            Fill,
+            FillBrush,
             1.0);
 
         double textX = -formattedText.Width / 2;

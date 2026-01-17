@@ -41,6 +41,20 @@ public class SimpleHand : HandBase
 
     #endregion
 
+    protected override Pen CreateStrokePen()
+    {
+        Pen pen = base.CreateStrokePen();
+
+        if (pen != null)
+        {
+
+            pen.StartLineCap = PenLineCap.Round;
+            pen.EndLineCap = PenLineCap.Round;
+        }
+
+        return pen;
+    }
+
     public override void DoRender(ClockDrawingContext context)
     {
         context.DrawingContext.CreateDrawingPlan()
@@ -77,7 +91,7 @@ public class SimpleHand : HandBase
 
     private void DrawPin(DrawingContext drawingContext, double radius)
     {
-        if (Stroke == null)
+        if (StrokeBrush == null)
             return;
 
         if (PinDiameter <= 0)
@@ -86,6 +100,6 @@ public class SimpleHand : HandBase
         double pinRadius = radius * (PinDiameter / 100.0) / 2;
 
         Point center = new(0, 0);
-        drawingContext.DrawEllipse(Stroke, null, center, pinRadius, pinRadius);
+        drawingContext.DrawEllipse(StrokeBrush, null, center, pinRadius, pinRadius);
     }
 }

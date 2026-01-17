@@ -3,7 +3,7 @@ using DustInTheWind.ClockWpf.Shapes;
 
 namespace DustInTheWind.ClockWpf.Templates;
 
-public class SunClockTemplate : ClockTemplate
+public class SunTemplate : ClockTemplate
 {
     protected override IEnumerable<Shape> CreateShapes()
     {
@@ -24,7 +24,7 @@ public class SunClockTemplate : ClockTemplate
             FontFamily = new FontFamily("Arial"),
             FontSize = 17,
             Orientation = RimItemOrientation.Normal,
-            Fill = Brushes.Black
+            FillBrush = Brushes.Black
         };
 
         yield return new TextRim
@@ -37,15 +37,15 @@ public class SunClockTemplate : ClockTemplate
             DistanceFromEdge = 7.5,
             FontFamily = new FontFamily("Arial"),
             FontSize = 4.4,
-            Fill = Brushes.Black
+            FillBrush = Brushes.Black
         };
 
         yield return new DotHand
         {
             ComponentToDisplay = TimeComponent.Hour,
             Length = 62,
-            Fill = null,
-            Stroke = Brushes.Black,
+            FillBrush = null,
+            StrokeBrush = Brushes.Black,
             StrokeThickness = 1,
             Radius = 14,
             IntegralValue = true
@@ -55,8 +55,8 @@ public class SunClockTemplate : ClockTemplate
         {
             ComponentToDisplay = TimeComponent.Minute,
             Length = 93,
-            Fill = null,
-            Stroke = Brushes.Black,
+            FillBrush = null,
+            StrokeBrush = Brushes.Black,
             StrokeThickness = 1,
             Radius = 6,
             IntegralValue = true
@@ -66,8 +66,8 @@ public class SunClockTemplate : ClockTemplate
         {
             ComponentToDisplay = TimeComponent.Second,
             Length = 93,
-            Fill = null,
-            Stroke = Brushes.Black,
+            FillBrush = null,
+            StrokeBrush = Brushes.Black,
             StrokeThickness = 0.5,
             Radius = 6
         };

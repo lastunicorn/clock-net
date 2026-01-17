@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Configuration;
+using System.Reflection;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using DustInTheWind.ClockWpf.Templates;
@@ -12,17 +16,65 @@ namespace DustInTheWind.ClockWpf.ClearClock;
 public partial class MainWindow : Window
 {
     private bool areControlsVisible = false;
+    private readonly ObservableCollection<TemplateInfo> availableTemplates = [];
 
     public MainWindow()
     {
         InitializeComponent();
 
-        AnalogClock1.ApplyClockTemplate(new SunClockTemplate());
+        PopulateTemplateComboBox();
+
+        AnalogClock1.ApplyClockTemplate(new SunTemplate());
 
         LocalTimeProvider timeProvider = new();
         timeProvider.Start();
 
         AnalogClock1.TimeProvider = timeProvider;
+    }
+
+    private void PopulateTemplateComboBox()
+    {
+        IEnumerable<TemplateInfo> clockTemplates = EnumerateClockTemplates()
+            .OrderBy(x => x.Name)
+            .ToList();
+
+        foreach (TemplateInfo template in clockTemplates)
+            availableTemplates.Add(template);
+
+        templateComboBox.ItemsSource = availableTemplates;
+
+        if (availableTemplates.Count > 0)
+        {
+            TemplateInfo initialTemplateInfo = availableTemplates
+                .FirstOrDefault(x => x.Type == typeof(PlayfulTemplate));
+
+            int capsuleIndex = availableTemplates.IndexOf(initialTemplateInfo);
+
+            templateComboBox.SelectedIndex = capsuleIndex >= 0
+                ? capsuleIndex
+                : 0;
+        }
+    }
+
+    private static IEnumerable<TemplateInfo> EnumerateClockTemplates()
+    {
+        Assembly clockWpfAssembly = typeof(ClockTemplate).Assembly;
+
+        Type[] types = clockWpfAssembly.GetTypes();
+
+        foreach (Type type in types)
+        {
+            if (type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(ClockTemplate)))
+            {
+                yield return new TemplateInfo
+                {
+                    Name = type.Name
+                        .Replace("ClockTemplate", "")
+                        .Replace("Template", ""),
+                    Type = type
+                };
+            }
+        }
     }
 
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -31,7 +83,7 @@ public partial class MainWindow : Window
         DragMove();
     }
 
-    private void Grid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+    private void AnalogClock_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
     {
         areControlsVisible = !areControlsVisible;
 
@@ -52,7 +104,7 @@ public partial class MainWindow : Window
 
     private void SettingsButton_Click(object sender, RoutedEventArgs e)
     {
-
+        SettingsPage.Visibility = Visibility.Visible;
     }
 
     private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -74,6 +126,17 @@ public partial class MainWindow : Window
         {
             AnalogClock1.Width = size;
             AnalogClock1.Height = size;
+        }
+    }
+
+    private void TemplateComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (templateComboBox.SelectedItem is TemplateInfo selectedTemplate)
+        {
+            ClockTemplate template = (ClockTemplate)Activator.CreateInstance(selectedTemplate.Type);
+            AnalogClock1.ApplyClockTemplate(template);
+
+            SettingsPage.Visibility = Visibility.Collapsed;
         }
     }
 }

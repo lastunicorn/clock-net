@@ -50,12 +50,12 @@ public class CapsuleHand : HandBase
             })
             .Draw(dc =>
             {
-                if (Fill == null && StrokePen == null)
+                if (FillBrush == null && StrokePen == null)
                     return;
 
                 PathGeometry capsuleGeometry = CreateCapsuleGeometry(context.ClockDiameter);
 
-                context.DrawingContext.DrawGeometry(Fill, StrokePen, capsuleGeometry);
+                context.DrawingContext.DrawGeometry(FillBrush, StrokePen, capsuleGeometry);
             });
     }
 

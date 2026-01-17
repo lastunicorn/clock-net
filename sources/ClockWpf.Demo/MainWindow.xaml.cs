@@ -61,7 +61,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (availableTemplates.Count > 0)
         {
             TemplateInfo initialTemplateInfo = availableTemplates
-                .FirstOrDefault(x => x.Type == typeof(CapsuleClockTemplate));
+                .FirstOrDefault(x => x.Type == typeof(PlayfulTemplate));
 
             int capsuleIndex = availableTemplates.IndexOf(initialTemplateInfo);
 

@@ -99,7 +99,7 @@ public class FancyBackground : BackgroundBase
 
     static FancyBackground()
     {
-        FillProperty.OverrideMetadata(typeof(FancyBackground), new FrameworkPropertyMetadata(CreateDefaultFaceBrush()));
+        FillBrushProperty.OverrideMetadata(typeof(FancyBackground), new FrameworkPropertyMetadata(CreateDefaultFaceBrush()));
         StrokeThicknessProperty.OverrideMetadata(typeof(FancyBackground), new FrameworkPropertyMetadata(0.0));
     }
 
@@ -119,7 +119,7 @@ public class FancyBackground : BackgroundBase
 
     protected override bool OnRendering(ClockDrawingContext context)
     {
-        if (OuterRimBrush == null && InnerRimBrush == null && Fill == null)
+        if (OuterRimBrush == null && InnerRimBrush == null && FillBrush == null)
             return false;
 
         return base.OnRendering(context);
@@ -138,7 +138,7 @@ public class FancyBackground : BackgroundBase
         if (InnerRimBrush != null)
             context.DrawingContext.DrawEllipse(InnerRimBrush, null, center, innerRimRadius, innerRimRadius);
 
-        if (Fill != null)
-            context.DrawingContext.DrawEllipse(Fill, StrokePen, center, faceRadius, faceRadius);
+        if (FillBrush != null)
+            context.DrawingContext.DrawEllipse(FillBrush, StrokePen, center, faceRadius, faceRadius);
     }
 }

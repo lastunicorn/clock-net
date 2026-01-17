@@ -34,7 +34,7 @@ public class DotHand : HandBase
             })
             .Draw(dc =>
             {
-                if (Fill == null && StrokePen == null)
+                if (FillBrush == null && StrokePen == null)
                     return;
 
                 if (Radius <= 0 || Length <= 0)
@@ -46,7 +46,7 @@ public class DotHand : HandBase
 
                 Point center = new(0, -handLength);
 
-                dc.DrawEllipse(Fill, StrokePen, center, dotRadius, dotRadius);
+                dc.DrawEllipse(FillBrush, StrokePen, center, dotRadius, dotRadius);
             });
     }
 }

@@ -50,12 +50,12 @@ public class DiamondHand : HandBase
             })
             .Draw(dc =>
             {
-                if (Fill == null && StrokePen == null)
+                if (FillBrush == null && StrokePen == null)
                     return;
 
                 PathGeometry diamondGeometry = CreateDiamondGeometry(context.ClockDiameter);
 
-                context.DrawingContext.DrawGeometry(Fill, StrokePen, diamondGeometry);
+                context.DrawingContext.DrawGeometry(FillBrush, StrokePen, diamondGeometry);
             });
     }
 

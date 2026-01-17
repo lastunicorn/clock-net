@@ -16,12 +16,13 @@
     Background="Transparent"
     ResizeMode="CanResize">
 
-    <Grid MouseRightButtonDown="Grid_MouseRightButtonDown">
+    <Grid>
 
         <clockWpf:AnalogClock
             x:Name="AnalogClock1"
             Width="400"
-            Height="400" />
+            Height="400"
+            MouseRightButtonDown="AnalogClock_MouseRightButtonDown"/>
 
         <controls:CornerButton
             x:Name="SettingsButton"
@@ -55,9 +56,13 @@
             HoverBackground="Red">
 
             <Path
-                Data="M 0,0 L 15,15 M 15,0 L 0,15"
+                Data="M 0,0 L 1,1 M 1,0 L 0,1"
                 Stroke="White"
-                StrokeThickness="2"/>
+                StrokeThickness="3"
+                StrokeStartLineCap="Round"
+                StrokeEndLineCap="Round"
+                Stretch="Uniform"
+                Width="18"/>
 
         </controls:CornerButton>
 
@@ -68,6 +73,34 @@
             Style="{StaticResource OverlayThumbStyle}"
             Visibility="Collapsed"
             DragDelta="ResizeGrip_DragDelta" />
+
+        <Border
+            x:Name="SettingsPage"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="Beige"
+            Visibility="Collapsed"
+            Padding="20">
+
+            <DockPanel>
+
+                <TextBlock
+                    DockPanel.Dock="Top"
+                    Text="Templates:"
+                    FontWeight="DemiBold" />
+
+                <ComboBox
+                    DockPanel.Dock="Top"
+                    x:Name="templateComboBox"
+                    SelectionChanged="TemplateComboBox_SelectionChanged"
+                    DisplayMemberPath="Name"
+                    Margin="0 5 0 0"/>
+
+                <Control/>
+
+            </DockPanel>
+
+        </Border>
     </Grid>
 
 </Window>
