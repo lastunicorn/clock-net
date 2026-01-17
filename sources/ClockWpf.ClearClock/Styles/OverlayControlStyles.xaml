@@ -48,6 +48,10 @@
     </Style>
 
     <Style x:Key="OverlayThumbStyle" TargetType="Thumb">
+        <Setter Property="Cursor" Value="SizeNWSE" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">

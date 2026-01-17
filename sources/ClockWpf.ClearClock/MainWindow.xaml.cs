@@ -35,8 +35,13 @@ public partial class MainWindow : Window
     {
         areControlsVisible = !areControlsVisible;
 
-        CloseButton.Visibility = areControlsVisible ? Visibility.Visible : Visibility.Collapsed;
-        ResizeGrip.Visibility = areControlsVisible ? Visibility.Visible : Visibility.Collapsed;
+        CloseButton.Visibility = areControlsVisible
+            ? Visibility.Visible
+            : Visibility.Collapsed;
+
+        ResizeGrip.Visibility = areControlsVisible
+            ? Visibility.Visible
+            : Visibility.Collapsed;
 
         e.Handled = true;
     }
