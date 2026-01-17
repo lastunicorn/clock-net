@@ -9,24 +9,11 @@ public class SunTemplate : ClockTemplate
     {
         yield return new FancyBackground
         {
-            InnerRimWidth = 46,
-            OuterRimWidth = 14
+            OuterRimWidth = 14,
+            InnerRimWidth = 46
         };
 
-        yield return new TextRim
-        {
-            Texts = Enumerable.Range(1, 12)
-                .Select(x => x.ToString())
-                .ToArray(),
-            Angle = 30,
-            OffsetAngle = 30,
-            DistanceFromEdge = 38.5,
-            FontFamily = new FontFamily("Arial"),
-            FontSize = 17,
-            Orientation = RimItemOrientation.Normal,
-            FillBrush = Brushes.Black
-        };
-
+        // Minutes
         yield return new TextRim
         {
             Texts = Enumerable.Range(1, 60)
@@ -34,16 +21,32 @@ public class SunTemplate : ClockTemplate
                 .ToArray(),
             Angle = 6,
             OffsetAngle = 6,
-            DistanceFromEdge = 7.5,
+            DistanceFromEdge = 7,
             FontFamily = new FontFamily("Arial"),
             FontSize = 4.4,
             FillBrush = Brushes.Black
         };
 
+        // Hours
+        yield return new TextRim
+        {
+            Texts = Enumerable.Range(1, 12)
+                .Select(x => x.ToString())
+                .ToArray(),
+            Angle = 30,
+            OffsetAngle = 30,
+            DistanceFromEdge = 37,
+            FontFamily = new FontFamily("Arial"),
+            FontSize = 17,
+            Orientation = RimItemOrientation.Normal,
+            FillBrush = Brushes.Black
+        };
+
+        // Hour Hand
         yield return new DotHand
         {
             ComponentToDisplay = TimeComponent.Hour,
-            Length = 62,
+            Length = 63,
             FillBrush = null,
             StrokeBrush = Brushes.Black,
             StrokeThickness = 1,
@@ -51,6 +54,7 @@ public class SunTemplate : ClockTemplate
             IntegralValue = true
         };
 
+        // Minute Hand
         yield return new DotHand
         {
             ComponentToDisplay = TimeComponent.Minute,
@@ -62,6 +66,7 @@ public class SunTemplate : ClockTemplate
             IntegralValue = true
         };
 
+        // Second Hand
         yield return new DotHand
         {
             ComponentToDisplay = TimeComponent.Second,

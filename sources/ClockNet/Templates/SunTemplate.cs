@@ -76,7 +76,7 @@ namespace DustInTheWind.ClockNet.Templates
             {
                 Name = "Minutes",
                 DistanceFromEdge = 8f,
-                Font = new Font("Arial", 4.4f),
+                Font = new Font("Arial", 4f),
                 Texts = Enumerable.Range(1, 60)
                     .Select(x => x.ToString())
                     .ToArray()
