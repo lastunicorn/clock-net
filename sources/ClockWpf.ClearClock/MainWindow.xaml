@@ -18,15 +18,15 @@
     <Grid MouseRightButtonDown="Grid_MouseRightButtonDown">
         
         <clockWpf:AnalogClock
-            x:Name="analogClock1"
+            x:Name="AnalogClock1"
             Width="400"
             Height="400" />
         
         <Button
             x:Name="CloseButton"
             Content="✕"
-            Width="{Binding ActualWidth, ElementName=analogClock1, Converter={StaticResource QuarterSizeConverter}}"
-            Height="{Binding ActualHeight, ElementName=analogClock1, Converter={StaticResource QuarterSizeConverter}}"
+            Width="{Binding ActualWidth, ElementName=AnalogClock1, Converter={StaticResource QuarterSizeConverter}}"
+            Height="{Binding ActualHeight, ElementName=AnalogClock1, Converter={StaticResource QuarterSizeConverter}}"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
@@ -39,8 +39,8 @@
         
         <Thumb
             x:Name="ResizeGrip"
-            Width="{Binding ActualWidth, ElementName=analogClock1, Converter={StaticResource QuarterSizeConverter}}"
-            Height="{Binding ActualHeight, ElementName=analogClock1, Converter={StaticResource QuarterSizeConverter}}"
+            Width="{Binding ActualWidth, ElementName=AnalogClock1, Converter={StaticResource QuarterSizeConverter}}"
+            Height="{Binding ActualHeight, ElementName=AnalogClock1, Converter={StaticResource QuarterSizeConverter}}"
             Style="{StaticResource OverlayThumbStyle}"
             Visibility="Collapsed"
             DragDelta="ResizeGrip_DragDelta" />

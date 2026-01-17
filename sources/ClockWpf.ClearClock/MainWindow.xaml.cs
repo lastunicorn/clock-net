@@ -17,12 +17,12 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        analogClock1.ApplyClockTemplate(new SunClockTemplate());
+        AnalogClock1.ApplyClockTemplate(new SunClockTemplate());
 
         LocalTimeProvider timeProvider = new();
         timeProvider.Start();
 
-        analogClock1.TimeProvider = timeProvider;
+        AnalogClock1.TimeProvider = timeProvider;
     }
 
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -53,8 +53,8 @@ public partial class MainWindow : Window
 
     private void ResizeGrip_DragDelta(object sender, DragDeltaEventArgs e)
     {
-        double newWidth = analogClock1.Width + e.HorizontalChange;
-        double newHeight = analogClock1.Height + e.VerticalChange;
+        double newWidth = AnalogClock1.Width + e.HorizontalChange;
+        double newHeight = AnalogClock1.Height + e.VerticalChange;
 
         double minSize = 100;
         double maxSize = 1000;
@@ -63,8 +63,8 @@ public partial class MainWindow : Window
 
         if (size >= minSize && size <= maxSize)
         {
-            analogClock1.Width = size;
-            analogClock1.Height = size;
+            AnalogClock1.Width = size;
+            AnalogClock1.Height = size;
         }
     }
 }
