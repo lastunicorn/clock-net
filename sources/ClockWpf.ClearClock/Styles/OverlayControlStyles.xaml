@@ -8,10 +8,9 @@
                 <ControlTemplate TargetType="Button">
                     <Viewbox
                         x:Name="PART_Container"
-                            Opacity="0.5">
+                        Opacity="0.5">
 
                         <Grid
-                            Background="Transparent"
                             Width="100"
                             Height="100">
 
@@ -29,7 +28,8 @@
                             <ContentPresenter
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Top"
-                                Margin="10"/>
+                                Margin="10"
+                                IsHitTestVisible="False"/>
 
                         </Grid>
                     </Viewbox>
@@ -53,14 +53,14 @@
                 <ControlTemplate TargetType="Thumb">
                     <Viewbox
                         x:Name="PART_Container"
-                            Opacity="0.5">
+                        Opacity="0.5">
 
                         <Grid
-                            Background="Transparent"
                             Width="100"
                             Height="100">
 
                             <Path
+                                x:Name="PART_BackgroundPath"
 							    Data="M 0,1 A 2,2 0 0 0 1,0 L 1,1 Z"
 							    Fill="#909090"
 							    Stroke="#909090"
@@ -78,7 +78,8 @@
 							    StrokeEndLineCap="Round"
 							    HorizontalAlignment="Right"
 							    VerticalAlignment="Bottom"
-							    Margin="10"/>
+							    Margin="10"
+							    IsHitTestVisible="False"/>
                         </Grid>
                     </Viewbox>
 
