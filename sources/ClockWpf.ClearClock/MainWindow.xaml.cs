@@ -4,7 +4,8 @@ using System.Windows.Input;
 using DustInTheWind.ClockWpf.Templates;
 using DustInTheWind.ClockWpf.TimeProviders;
 
-namespace ClockWpf.ClearClock;
+namespace DustInTheWind.ClockWpf.ClearClock;
+
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
