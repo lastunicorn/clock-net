@@ -6,15 +6,16 @@
     xmlns:local="clr-namespace:DustInTheWind.ClockWpf.ClearClock"
     
     StartupUri="MainWindow.xaml">
-    
+
     <Application.Resources>
         <ResourceDictionary>
             <local:QuarterSizeConverter x:Key="QuarterSizeConverter"/>
-            
+
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/CornerButtonStyles.xaml"/>
                 <ResourceDictionary Source="Styles/OverlayControlStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
-    
+
 </Application>

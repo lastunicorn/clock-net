@@ -43,7 +43,16 @@ public partial class MainWindow : Window
             ? Visibility.Visible
             : Visibility.Collapsed;
 
+        SettingsButton.Visibility = areControlsVisible
+            ? Visibility.Visible
+            : Visibility.Collapsed;
+
         e.Handled = true;
+    }
+
+    private void SettingsButton_Click(object sender, RoutedEventArgs e)
+    {
+
     }
 
     private void CloseButton_Click(object sender, RoutedEventArgs e)

@@ -6,6 +6,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:clockWpf="clr-namespace:DustInTheWind.ClockWpf;assembly=DustInTheWind.ClockWpf"
+    xmlns:controls="clr-namespace:DustInTheWind.ClockWpf.ClearClock.Controls"
     
     mc:Ignorable="d"
     Title="Clear Clock"
@@ -16,27 +17,50 @@
     ResizeMode="CanResize">
 
     <Grid MouseRightButtonDown="Grid_MouseRightButtonDown">
-        
+
         <clockWpf:AnalogClock
             x:Name="AnalogClock1"
             Width="400"
             Height="400" />
-        
-        <Button
+
+        <controls:CornerButton
+            x:Name="SettingsButton"
+            Width="{Binding ActualWidth, ElementName=AnalogClock1, Converter={StaticResource QuarterSizeConverter}}"
+            Height="{Binding ActualHeight, ElementName=AnalogClock1, Converter={StaticResource QuarterSizeConverter}}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Cursor="Hand"
+            Visibility="Collapsed"
+            Click="SettingsButton_Click"
+            Corner="TopLeft">
+
+            <Path
+                Data="M 12,0 L 14,0 L 14.5,2.5 L 17,3.5 L 19,2 L 20.5,3.5 L 19,5.5 L 20.5,8 L 23,8.5 L 23,10.5 L 20.5,11 L 19,13.5 L 20.5,15.5 L 19,17 L 17,15.5 L 14.5,16.5 L 14,19 L 12,19 L 11.5,16.5 L 9,15.5 L 7,17 L 5.5,15.5 L 7,13.5 L 5.5,11 L 3,10.5 L 3,8.5 L 5.5,8 L 7,5.5 L 5.5,3.5 L 7,2 L 9,3.5 L 11.5,2.5 Z M 13,6 A 3.5,3.5 0 1 0 13,13 A 3.5,3.5 0 1 0 13,6 Z"
+                Fill="White"
+                Stretch="Uniform"
+                Width="25"/>
+
+        </controls:CornerButton>
+
+        <controls:CornerButton
             x:Name="CloseButton"
-            Content="✕"
             Width="{Binding ActualWidth, ElementName=AnalogClock1, Converter={StaticResource QuarterSizeConverter}}"
             Height="{Binding ActualHeight, ElementName=AnalogClock1, Converter={StaticResource QuarterSizeConverter}}"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            FontSize="16"
-            FontWeight="Bold"
-            Foreground="White"
             Cursor="Hand"
-            Style="{StaticResource OverlayButtonStyle}"
             Visibility="Collapsed"
-            Click="CloseButton_Click" />
-        
+            Click="CloseButton_Click"
+            Corner="TopRight"
+            HoverBackground="Red">
+
+            <Path
+                Data="M 0,0 L 15,15 M 15,0 L 0,15"
+                Stroke="White"
+                StrokeThickness="2"/>
+
+        </controls:CornerButton>
+
         <Thumb
             x:Name="ResizeGrip"
             Width="{Binding ActualWidth, ElementName=AnalogClock1, Converter={StaticResource QuarterSizeConverter}}"
