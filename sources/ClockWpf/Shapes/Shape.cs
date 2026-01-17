@@ -110,6 +110,10 @@ public abstract class Shape : DependencyObject
     {
         return StrokeThickness > 0 && Stroke != null
             ? new(Stroke, StrokeThickness)
+            {
+                StartLineCap = PenLineCap.Round,
+                EndLineCap = PenLineCap.Round
+            }
             : null;
     }
 
