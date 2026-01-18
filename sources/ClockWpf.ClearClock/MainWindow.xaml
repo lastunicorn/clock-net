@@ -90,9 +90,8 @@
                     HorizontalAlignment="Right">
 
                     <Button
-                        Width="30"
-                        Height="30"
-                        Cursor="Hand"
+                        Width="25"
+                        Height="25"
                         Click="CloseSettingsButton_Click"
                         Background="Red">
 
