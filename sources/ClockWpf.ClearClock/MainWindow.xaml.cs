@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Configuration;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,6 +29,15 @@ public partial class MainWindow : Window
         timeProvider.Start();
 
         AnalogClock1.TimeProvider = timeProvider;
+
+        SetVersionInfo();
+    }
+
+    private void SetVersionInfo()
+    {
+        Assembly assembly = Assembly.GetExecutingAssembly();
+        Version version = assembly.GetName().Version;
+        VersionTextBlock.Text = $"Version {version.Major}.{version.Minor}.{version.Build}";
     }
 
     private void PopulateTemplateComboBox()
@@ -138,5 +146,10 @@ public partial class MainWindow : Window
 
             SettingsPage.Visibility = Visibility.Collapsed;
         }
+    }
+
+    private void CloseSettingsButton_Click(object sender, RoutedEventArgs e)
+    {
+        SettingsPage.Visibility = Visibility.Collapsed;
     }
 }

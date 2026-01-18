@@ -34,24 +34,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public new const string DefaultName = "Fancy Sweep Hand";
 
+        #region CircleRadius Property
+
         /// <summary>
         /// The default radius of the circle from the middle (or not so middle) of the hand.
         /// </summary>
         public const float DefaultCircleRadius = 7f;
 
-        /// <summary>
-        /// The default offset position of the center of the circle from the top of the hand.
-        /// </summary>
-        public const float DefaultCircleOffset = 24f;
-
-        /// <summary>
-        /// The default length of the tail of the hand.
-        /// </summary>
-        public const float DefaultTailLength = 14f;
-
         private float circleRadius = DefaultCircleRadius;
-        private float circleOffset = DefaultCircleOffset;
-        private float tailLength = DefaultTailLength;
 
         /// <summary>
         /// Gets or sets the radius of the circle from the middle (or not so middle) of the hand.
@@ -70,6 +60,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             }
         }
 
+        #endregion
+
+        #region CircleOffset Property
+
+        /// <summary>
+        /// The default offset position of the center of the circle from the top of the hand.
+        /// </summary>
+        public const float DefaultCircleOffset = 24f;
+
+        private float circleOffset = DefaultCircleOffset;
+
         /// <summary>
         /// Gets or sets the offset position of the center of the circle from the top of the hand.
         /// </summary>
@@ -85,6 +86,17 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
+
+        #region TailLength Property
+
+        /// <summary>
+        /// The default length of the tail of the hand.
+        /// </summary>
+        public const float DefaultTailLength = 14f;
+
+        private float tailLength = DefaultTailLength;
 
         /// <summary>
         /// Gets or sets the length of the tail of the hand.
@@ -102,6 +114,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FancySweepHand"/> class with

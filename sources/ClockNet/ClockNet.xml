@@ -292,24 +292,24 @@
             The default radius of the circle from the middle (or not so middle) of the hand.
             </summary>
         </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.DefaultCircleOffset">
-            <summary>
-            The default offset position of the center of the circle from the top of the hand.
-            </summary>
-        </member>
-        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.DefaultTailLength">
-            <summary>
-            The default length of the tail of the hand.
-            </summary>
-        </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.CircleRadius">
             <summary>
             Gets or sets the radius of the circle from the middle (or not so middle) of the hand.
             </summary>
         </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.DefaultCircleOffset">
+            <summary>
+            The default offset position of the center of the circle from the top of the hand.
+            </summary>
+        </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.CircleOffset">
             <summary>
             Gets or sets the offset position of the center of the circle from the top of the hand.
+            </summary>
+        </member>
+        <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.DefaultTailLength">
+            <summary>
+            The default length of the tail of the hand.
             </summary>
         </member>
         <member name="P:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.TailLength">

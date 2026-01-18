@@ -11,7 +11,15 @@ public class Pin : Shape
         nameof(Diameter),
         typeof(double),
         typeof(Pin),
-        new FrameworkPropertyMetadata(4.0));
+        new FrameworkPropertyMetadata(4.0, HandleDiameterChanged));
+
+    private static void HandleDiameterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is Pin pin)
+        {
+            pin.InvalidateLayout();
+        }
+    }
 
     [Category("Appearance")]
     [DefaultValue(4.0)]

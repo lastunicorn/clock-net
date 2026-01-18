@@ -34,13 +34,14 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// </summary>
         public new const string DefaultName = "Nib Hand";
 
+        #region Width Property
+
         /// <summary>
         /// The default length of the width of the hand.
         /// </summary>
         public const float DefaultWidth = 5f;
 
         private float width;
-        private bool keepProportions = true;
 
         /// <summary>
         /// Gets or sets the width of the slot carved inside the disk.
@@ -59,6 +60,12 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             }
         }
 
+        #endregion
+
+        #region KeepProportions Property
+
+        private bool keepProportions = true;
+
         /// <summary>
         /// Gets or sets a value specifying if the hand should keep its proportions when its length is changed.
         /// </summary>
@@ -72,6 +79,8 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                 OnChanged(EventArgs.Empty);
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NibHand"/> class with
@@ -195,7 +204,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                     : 1f;
 
                 float scaleFactorX = width > 0
-                    ? width / 30f 
+                    ? width / 30f
                     : 1f;
 
                 context.Graphics.ScaleTransform(scaleFactorX, scaleFactorY);
