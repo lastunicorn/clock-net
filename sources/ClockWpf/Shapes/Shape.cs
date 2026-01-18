@@ -5,6 +5,8 @@ namespace DustInTheWind.ClockWpf.Shapes;
 
 public abstract class Shape : DependencyObject
 {
+    private bool isLayoutValid;
+
     #region IsVisilbe DependencyProperty
 
     public static readonly DependencyProperty IsVisibleProperty = DependencyProperty.Register(
@@ -117,10 +119,18 @@ public abstract class Shape : DependencyObject
 
     public void Render(ClockDrawingContext context)
     {
-        bool allowToRender = OnRendering(context);
+        if (!IsVisible)
+            return;
 
+        bool allowToRender = OnRendering(context);
         if (!allowToRender)
             return;
+
+        if (!isLayoutValid)
+        {
+            CalculateLayout(context);
+            isLayoutValid = true;
+        }
 
         DoRender(context);
 
@@ -130,6 +140,10 @@ public abstract class Shape : DependencyObject
     protected virtual bool OnRendering(ClockDrawingContext context)
     {
         return true;
+    }
+
+    protected virtual void CalculateLayout(ClockDrawingContext context)
+    {
     }
 
     public abstract void DoRender(ClockDrawingContext context);

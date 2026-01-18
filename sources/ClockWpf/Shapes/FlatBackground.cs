@@ -11,14 +11,19 @@ public class FlatBackground : BackgroundBase
         StrokeThicknessProperty.OverrideMetadata(typeof(FlatBackground), new FrameworkPropertyMetadata(0.0));
     }
 
-    public override void DoRender(ClockDrawingContext context)
+    protected override bool OnRendering(ClockDrawingContext context)
     {
         if (FillBrush == null && StrokePen == null)
-            return;
+            return false;
 
+        return base.OnRendering(context);
+    }
+
+    public override void DoRender(ClockDrawingContext context)
+    {
         Point center = new(0, 0);
-        double radius = (context.ClockDiameter - StrokeThickness) / 2;
+        double backgroundRadius = (context.ClockDiameter - StrokeThickness) / 2;
 
-        context.DrawingContext.DrawEllipse(FillBrush, StrokePen, center, radius, radius);
+        context.DrawingContext.DrawEllipse(FillBrush, StrokePen, center, backgroundRadius, backgroundRadius);
     }
 }
