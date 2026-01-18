@@ -85,12 +85,17 @@
 
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding}"/>
+                                <TextBlock>
+                                    <Run Text="{Binding Name, Mode=OneWay}" />
+                                    <Run Text=" (" Foreground="Gray" />
+                                    <Run Text="{Binding Mode=OneWay}" Foreground="Gray" />
+                                    <Run Text=")" Foreground="Gray" />
+                                </TextBlock>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
 
                     </ListBox>
-                    
+
                 </DockPanel>
 
             </DockPanel>
@@ -119,7 +124,7 @@
                     ShowSearchBox="True"
                     ShowSummary="True"
                     ShowAdvancedOptions="True"/>
-                    
+
             </DockPanel>
 
         </Grid>

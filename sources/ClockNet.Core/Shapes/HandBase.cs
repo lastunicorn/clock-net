@@ -96,7 +96,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// </summary>
         [Category("Behavior")]
         [DefaultValue(DefaultIntegralValue)]
-        [Description("Specifies if the hand will hide the fractional part of the value that it displayes.")]
+        [Description("Specifies if the hand will display only the integral part of the value.")]
         public bool IntegralValue
         {
             get => integralValue;

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
@@ -17,6 +18,9 @@ public class SimpleHand : HandBase
         typeof(SimpleHand),
         new FrameworkPropertyMetadata(0.0));
 
+    [Category("Appearance")]
+    [DefaultValue(0.0)]
+    [Description("The hand's length of the tail as percentage from the clock's radius.")]
     public double TailLength
     {
         get => (double)GetValue(TailLengthProperty);
@@ -33,6 +37,9 @@ public class SimpleHand : HandBase
         typeof(SimpleHand),
         new FrameworkPropertyMetadata(4.0));
 
+    [Category("Appearance")]
+    [DefaultValue(4.0)]
+    [Description("The diameter of the pin as percentage from the clock's radius.")]
     public double PinDiameter
     {
         get => (double)GetValue(PinDiameterProperty);

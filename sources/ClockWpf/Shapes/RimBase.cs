@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
@@ -22,6 +23,9 @@ public abstract class RimBase : Shape
         typeof(RimBase),
         new FrameworkPropertyMetadata(0.0));
 
+    [Category("Appearance")]
+    [DefaultValue(6.0)]
+    [Description("The hand's length of the tail as percentage from the clock's radius.")]
     public double DistanceFromEdge
     {
         get => (double)GetValue(DistanceFromEdgeProperty);
@@ -38,6 +42,9 @@ public abstract class RimBase : Shape
         typeof(RimBase),
         new FrameworkPropertyMetadata(30.0));
 
+    [Category("Layout")]
+    [DefaultValue(30)]
+    [Description("The angle, in degrees, between two consecutive instances of the shape.")]
     public double Angle
     {
         get => (double)GetValue(AngleProperty);
@@ -54,6 +61,9 @@ public abstract class RimBase : Shape
         typeof(RimBase),
         new FrameworkPropertyMetadata(0.0));
 
+    [Category("Layout")]
+    [DefaultValue(0.0)]
+    [Description("The angle, in degrees, between north and the first item that is displayed.")]
     public double OffsetAngle
     {
         get => (double)GetValue(OffsetAngleProperty);
@@ -68,8 +78,11 @@ public abstract class RimBase : Shape
         nameof(MaxCoverageCount),
         typeof(uint),
         typeof(RimBase),
-        new FrameworkPropertyMetadata(uint.MaxValue));
+        new FrameworkPropertyMetadata((uint)0));
 
+    [Category("Behavior")]
+    [DefaultValue((uint)0)]
+    [Description("The maximum number of items to be drawn around the dial.")]
     public uint MaxCoverageCount
     {
         get => (uint)GetValue(MaxCoverageCountProperty);
@@ -86,6 +99,9 @@ public abstract class RimBase : Shape
         typeof(RimBase),
         new FrameworkPropertyMetadata((uint)360));
 
+    [Category("Layout")]
+    [DefaultValue((uint)360)]
+    [Description("The maximum angle, in degrees, that items should cover around the dial.")]
     public uint MaxCoverageAngle
     {
         get => (uint)GetValue(MaxCoverageAngleProperty);
@@ -102,6 +118,9 @@ public abstract class RimBase : Shape
         typeof(RimBase),
         new FrameworkPropertyMetadata(RimItemOrientation.FaceCenter));
 
+    [Category("Layout")]
+    [DefaultValue(RimItemOrientation.FaceCenter)]
+    [Description("Specifies the orientation of an item.")]
     public RimItemOrientation Orientation
     {
         get => (RimItemOrientation)GetValue(OrientationProperty);
@@ -118,6 +137,9 @@ public abstract class RimBase : Shape
         typeof(RimBase),
         new FrameworkPropertyMetadata(0));
 
+    [Category("Behavior")]
+    [DefaultValue(0)]
+    [Description("The index of the item that should not be skiped. Also, the multiples of this index are skipped.")]
     public int SkipIndex
     {
         get => (int)GetValue(SkipIndexProperty);

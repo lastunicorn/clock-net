@@ -9,13 +9,14 @@ public class SunTemplate : ClockTemplate
     {
         yield return new FancyBackground
         {
+            Name = "Background",
             OuterRimWidth = 14,
             InnerRimWidth = 46
         };
 
-        // Minutes
         yield return new TextRim
         {
+            Name = "Minutes",
             Texts = Enumerable.Range(1, 60)
                 .Select(x => x.ToString())
                 .ToArray(),
@@ -27,9 +28,9 @@ public class SunTemplate : ClockTemplate
             FillBrush = Brushes.Black
         };
 
-        // Hours
         yield return new TextRim
         {
+            Name = "Hours",
             Texts = Enumerable.Range(1, 12)
                 .Select(x => x.ToString())
                 .ToArray(),
@@ -42,9 +43,9 @@ public class SunTemplate : ClockTemplate
             FillBrush = Brushes.Black
         };
 
-        // Hour Hand
         yield return new DotHand
         {
+            Name = "Hour Hand",
             ComponentToDisplay = TimeComponent.Hour,
             Length = 63,
             FillBrush = null,
@@ -54,9 +55,9 @@ public class SunTemplate : ClockTemplate
             IntegralValue = true
         };
 
-        // Minute Hand
         yield return new DotHand
         {
+            Name = "Minute Hand",
             ComponentToDisplay = TimeComponent.Minute,
             Length = 93,
             FillBrush = null,
@@ -66,9 +67,9 @@ public class SunTemplate : ClockTemplate
             IntegralValue = true
         };
 
-        // Second Hand
         yield return new DotHand
         {
+            Name = "Second Hand",
             ComponentToDisplay = TimeComponent.Second,
             Length = 93,
             FillBrush = null,

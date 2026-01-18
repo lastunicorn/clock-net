@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Media;
 
 namespace DustInTheWind.ClockWpf.Shapes;
@@ -6,6 +7,34 @@ namespace DustInTheWind.ClockWpf.Shapes;
 public abstract class Shape : DependencyObject
 {
     private bool isLayoutValid;
+
+    #region Name Property
+
+    private string name = "Shape";
+
+    /// <summary>
+    /// An user friendly name. Used only to be displayed to the user. Does not influence the
+    /// way the shape is rendered.
+    /// </summary>
+    /// <exception cref="ArgumentNullException"></exception>
+    [Description("An user friendly name. Used only to be displayed to the user. Does not influence the way the shape is rendered.")]
+    public string Name
+    {
+        get => name;
+        set
+        {
+            if (value == null)
+                throw new ArgumentNullException("value");
+
+            if (name == value)
+                return;
+
+            name = value;
+            OnNameChanged(EventArgs.Empty);
+        }
+    }
+
+    #endregion
 
     #region IsVisilbe DependencyProperty
 
@@ -15,6 +44,9 @@ public abstract class Shape : DependencyObject
         typeof(Shape),
         new PropertyMetadata(true));
 
+    [Category("Behavior")]
+    [DefaultValue(true)]
+    [Description("A value specifying if the shape should be rendered or not.")]
     public bool IsVisible
     {
         get => (bool)GetValue(IsVisibleProperty);
@@ -31,6 +63,9 @@ public abstract class Shape : DependencyObject
         typeof(Shape),
         new FrameworkPropertyMetadata(Brushes.CornflowerBlue));
 
+    [Category("Appearance")]
+    [DefaultValue(typeof(SolidColorBrush), "CornflowerBlue")]
+    [Description("Gets or sets the brush used to draw the filling of the shape.")]
     public Brush FillBrush
     {
         get => (Brush)GetValue(FillBrushProperty);
@@ -56,6 +91,9 @@ public abstract class Shape : DependencyObject
         }
     }
 
+    [Category("Appearance")]
+    [DefaultValue(typeof(SolidColorBrush), "Black")]
+    [Description("Gets or sets the brush used to draw the stroke of the shape.")]
     public Brush StrokeBrush
     {
         get => (Brush)GetValue(StrokeBrushProperty);
@@ -78,9 +116,14 @@ public abstract class Shape : DependencyObject
         {
             shape.strokePen = null;
             shape.isStrokePenCreated = false;
+
+            shape.InvalidateLayout();
         }
     }
 
+    [Category("Appearance")]
+    [DefaultValue(1.0)]
+    [Description("The width of the outline.")]
     public double StrokeThickness
     {
         get => (double)GetValue(StrokeThicknessProperty);
@@ -113,6 +156,24 @@ public abstract class Shape : DependencyObject
         return StrokeThickness > 0 && StrokeBrush != null
             ? new(StrokeBrush, StrokeThickness)
             : null;
+    }
+
+    #endregion
+
+    #region Event NameChanged
+
+    /// <summary>
+    /// Event raised when the <see cref="Name"/> property is changed.
+    /// </summary>
+    public event EventHandler NameChanged;
+
+    /// <summary>
+    /// Raises the <see cref="NameChanged"/> event.
+    /// </summary>
+    /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+    protected virtual void OnNameChanged(EventArgs e)
+    {
+        NameChanged?.Invoke(this, e);
     }
 
     #endregion
@@ -150,5 +211,10 @@ public abstract class Shape : DependencyObject
 
     protected virtual void OnRendered(ClockDrawingContext context)
     {
+    }
+
+    protected void InvalidateLayout()
+    {
+        isLayoutValid = false;
     }
 }

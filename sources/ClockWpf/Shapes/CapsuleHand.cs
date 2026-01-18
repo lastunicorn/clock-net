@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 
@@ -16,6 +17,9 @@ public class CapsuleHand : HandBase
         typeof(CapsuleHand),
         new FrameworkPropertyMetadata(4.0));
 
+    [Category("Appearance")]
+    [DefaultValue(4.0)]
+    [Description("The width of the hand.")]
     public double Width
     {
         get => (double)GetValue(WidthProperty);
@@ -32,6 +36,9 @@ public class CapsuleHand : HandBase
         typeof(CapsuleHand),
         new FrameworkPropertyMetadata(2.0));
 
+    [Category("Appearance")]
+    [DefaultValue(2.0)]
+    [Description("The hand's length of the tail as percentage from the clock's radius.")]
     public double TailLength
     {
         get => (double)GetValue(TailLengthProperty);
@@ -39,6 +46,14 @@ public class CapsuleHand : HandBase
     }
 
     #endregion
+
+    protected override bool OnRendering(ClockDrawingContext context)
+    {
+        if (Length <= 0 || Width <= 0)
+            return false;
+
+        return base.OnRendering(context);
+    }
 
     public override void DoRender(ClockDrawingContext context)
     {
@@ -53,15 +68,15 @@ public class CapsuleHand : HandBase
                 if (FillBrush == null && StrokePen == null)
                     return;
 
-                PathGeometry capsuleGeometry = CreateCapsuleGeometry(context.ClockDiameter);
+                PathGeometry capsuleGeometry = CreateCapsuleGeometry(context);
 
                 context.DrawingContext.DrawGeometry(FillBrush, StrokePen, capsuleGeometry);
             });
     }
 
-    private PathGeometry CreateCapsuleGeometry(double diameter)
+    private PathGeometry CreateCapsuleGeometry(ClockDrawingContext context)
     {
-        double radius = diameter / 2;
+        double radius = context.ClockRadius;
         double handLength = radius * (Length / 100.0);
         double tailLength = radius * (TailLength / 100.0);
         double halfWidth = radius * (Width / 100.0) / 2.0;

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 
@@ -21,6 +22,9 @@ public class Ticks : RimBase
         typeof(Ticks),
         new FrameworkPropertyMetadata(5.0));
 
+    [Category("Appearance")]
+    [DefaultValue(5.0)]
+    [Description("The length of the ticks as a percentage from the clock's radius.")]
     public double Length
     {
         get => (double)GetValue(LengthProperty);
@@ -33,7 +37,7 @@ public class Ticks : RimBase
 
     protected override bool OnRendering(ClockDrawingContext context)
     {
-        radius = context.ClockDiameter / 2;
+        radius = context.ClockRadius;
         return base.OnRendering(context);
     }
 

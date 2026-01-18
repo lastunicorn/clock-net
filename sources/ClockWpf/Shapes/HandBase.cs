@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 
 namespace DustInTheWind.ClockWpf.Shapes;
@@ -21,6 +22,10 @@ public abstract class HandBase : Shape, IHand
         typeof(HandBase),
         new FrameworkPropertyMetadata(95.0));
 
+
+    [Category("Appearance")]
+    [DefaultValue(95.0)]
+    [Description("The length of the hand from the pin to the its top as percentage from the radius of the clock.")]
     public double Length
     {
         get => (double)GetValue(LengthProperty);
@@ -37,6 +42,9 @@ public abstract class HandBase : Shape, IHand
         typeof(HandBase),
         new FrameworkPropertyMetadata(TimeComponent.Second));
 
+    [DefaultValue(typeof(TimeComponent), "None")]
+    [Category("Behavior")]
+    [Description("Specifies the component that is displayed from the time value.")]
     public TimeComponent ComponentToDisplay
     {
         get => (TimeComponent)GetValue(ComponentToDisplayProperty);
@@ -53,6 +61,9 @@ public abstract class HandBase : Shape, IHand
         typeof(HandBase),
         new FrameworkPropertyMetadata(false));
 
+    [Category("Behavior")]
+    [DefaultValue(false)]
+    [Description("Specifies if the hand will display only the integral part of the value.")]
     public bool IntegralValue
     {
         get => (bool)GetValue(IntegralValueProperty);

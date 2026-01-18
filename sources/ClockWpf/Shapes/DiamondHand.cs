@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 
@@ -16,6 +17,9 @@ public class DiamondHand : HandBase
         typeof(DiamondHand),
         new FrameworkPropertyMetadata(5.0));
 
+    [Category("Appearance")]
+    [DefaultValue(5.0)]
+    [Description("The width of the hand.")]
     public double Width
     {
         get => (double)GetValue(WidthProperty);
@@ -32,6 +36,9 @@ public class DiamondHand : HandBase
         typeof(DiamondHand),
         new FrameworkPropertyMetadata(6.0));
 
+    [Category("Appearance")]
+    [DefaultValue(6.0)]
+    [Description("The hand's length of the tail as percentage from the clock's radius.")]
     public double TailLength
     {
         get => (double)GetValue(TailLengthProperty);

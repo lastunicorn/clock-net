@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 
 namespace DustInTheWind.ClockWpf.Shapes;
@@ -12,6 +13,9 @@ public class Pin : Shape
         typeof(Pin),
         new FrameworkPropertyMetadata(4.0));
 
+    [Category("Appearance")]
+    [DefaultValue(4.0)]
+    [Description("The diameter of the pin as percentage from the clock's radius.")]
     public double Diameter
     {
         get => (double)GetValue(DiameterProperty);

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 
@@ -16,6 +17,9 @@ public class DotHand : HandBase
         typeof(DotHand),
         new FrameworkPropertyMetadata(5.0));
 
+    [Category("Appearance")]
+    [DefaultValue(5.0)]
+    [Description("The radius of the dot.")]
     public double Radius
     {
         get => (double)GetValue(RadiusProperty);

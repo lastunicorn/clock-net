@@ -51,7 +51,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// </summary>
         [Category("Appearance")]
         [DefaultValue(DefaultLength)]
-        [Description("The length of the ticks. This value is given for a clock with diameter of 100px.")]
+        [Description("The length of the ticks as a percentage from the clock's radius.")]
         public virtual float Length
         {
             get => length;

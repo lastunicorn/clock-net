@@ -131,12 +131,12 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         private int skipIndex;
 
         /// <summary>
-        /// Gets or sets the index of the instance that should not be drawn. Also, the multiples of this index are skipped.
+        /// Gets or sets the index of the item that should not be drawn. Also, the multiples of this index are skipped.
         /// Default value: <see cref="DefaultSkipIndex"/>.
         /// </summary>
         [Category("Behavior")]
         [DefaultValue(DefaultSkipIndex)]
-        [Description("The index of the instance that should not be drawn. Also, the multiples of this index are skipped.")]
+        [Description("The index of the item that should not be drawn. Also, the multiples of this index are skipped.")]
         public virtual int SkipIndex
         {
             get => skipIndex;

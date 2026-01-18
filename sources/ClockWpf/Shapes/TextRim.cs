@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
@@ -18,6 +19,8 @@ public class TextRim : RimBase
         typeof(TextRim),
         new FrameworkPropertyMetadata(null));
 
+    [Category("Appearance")]
+    [Description("The array of texts that are rendered.")]
     public string[] Texts
     {
         get => (string[])GetValue(TextsProperty);
@@ -34,6 +37,8 @@ public class TextRim : RimBase
         typeof(TextRim),
         new FrameworkPropertyMetadata(new FontFamily("Arial")));
 
+    [Category("Appearance")]
+    [Description("The font family used to draw the texts.")]
     public FontFamily FontFamily
     {
         get => (FontFamily)GetValue(FontFamilyProperty);
@@ -50,6 +55,8 @@ public class TextRim : RimBase
         typeof(TextRim),
         new FrameworkPropertyMetadata(12.0));
 
+    [Category("Appearance")]
+    [Description("The font size used to draw the texts.")]
     public double FontSize
     {
         get => (double)GetValue(FontSizeProperty);
@@ -66,6 +73,8 @@ public class TextRim : RimBase
         typeof(TextRim),
         new FrameworkPropertyMetadata(FontWeights.Normal));
 
+    [Category("Appearance")]
+    [Description("The font weight used to draw the texts.")]
     public FontWeight FontWeight
     {
         get => (FontWeight)GetValue(FontWeightProperty);

@@ -7,24 +7,33 @@ public class PlayfulTemplate : ClockTemplate
 {
     protected override IEnumerable<Shape> CreateShapes()
     {
-        yield return new FlatBackground();
+        yield return new FlatBackground
+        {
+            Name = "Background"
+        };
 
         yield return new Ticks
         {
+            Name = "Minute Ticks",
             SkipIndex = 5,
         };
 
         yield return new Ticks
         {
+            Name = "Hour Ticks",
             Angle = 30,
             OffsetAngle = 30,
             StrokeThickness = 2
         };
 
-        yield return new Hours();
+        yield return new Hours
+        {
+            Name = "Hours"
+        };
 
         yield return new CapsuleHand
         {
+            Name = "Hour Hand",
             ComponentToDisplay = TimeComponent.Hour,
             Length = 48,
             Width = 10,
@@ -35,6 +44,7 @@ public class PlayfulTemplate : ClockTemplate
 
         yield return new CapsuleHand
         {
+            Name = "Minute Hand",
             ComponentToDisplay = TimeComponent.Minute,
             Length = 74,
             Width = 8,
@@ -45,6 +55,7 @@ public class PlayfulTemplate : ClockTemplate
 
         yield return new SimpleHand
         {
+            Name = "Second Hand",
             ComponentToDisplay = TimeComponent.Second,
             Length = 85,
             TailLength = 14,

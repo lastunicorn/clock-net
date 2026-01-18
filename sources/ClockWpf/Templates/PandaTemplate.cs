@@ -9,6 +9,7 @@ public class PandaTemplate : ClockTemplate
     {
         yield return new FlatBackground
         {
+            Name = "Background",
             FillBrush = Brushes.White,
             StrokeBrush = Brushes.Black,
             StrokeThickness = 2
@@ -16,6 +17,7 @@ public class PandaTemplate : ClockTemplate
 
         yield return new DotHand
         {
+            Name = "Hour Hand",
             ComponentToDisplay = TimeComponent.Hour,
             Length = 50,
             Radius = 18,
@@ -26,6 +28,7 @@ public class PandaTemplate : ClockTemplate
 
         yield return new DotHand
         {
+            Name = "Minute Hand",
             ComponentToDisplay = TimeComponent.Minute,
             Length = 60,
             Radius = 12,
@@ -36,6 +39,7 @@ public class PandaTemplate : ClockTemplate
 
         yield return new Pin
         {
+            Name = "Pin",
             Diameter = 4,
             FillBrush = Brushes.Black,
             StrokeThickness = 0

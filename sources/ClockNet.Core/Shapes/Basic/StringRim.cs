@@ -66,10 +66,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         }
 
         /// <summary>
-        /// Gets the font used to draw the numbers.
+        /// Gets the font used to draw the texts.
         /// </summary>
         [Category("Appearance")]
-        [Description("The font used to draw the numbers.")]
+        [Description("The font used to draw the texts.")]
         public Font Font
         {
             get => font;
