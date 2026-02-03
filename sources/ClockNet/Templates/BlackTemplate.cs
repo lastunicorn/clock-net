@@ -56,7 +56,7 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineWidth = 1f
             };
 
-            yield return new Hours
+            yield return new HourNumerals
             {
                 Name = "Hours",
                 DistanceFromEdge = 32f,

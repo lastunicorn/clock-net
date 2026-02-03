@@ -53,7 +53,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin1 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks1 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks2 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours1 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours1 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.localTimeMovement1 = new DustInTheWind.ClockNet.Core.Movements.LocalTimeMovement();
             this.analogClockDemo = new DustInTheWind.ClockNet.AnalogClock();

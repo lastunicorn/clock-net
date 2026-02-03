@@ -72,7 +72,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             OutlineColor = Color.FromArgb(224, 224, 224);
         }
 
-        protected override void CalculateLayout()
+        protected override void CalculateCache()
         {
             path.Reset();
 

@@ -165,7 +165,7 @@
             <param name="context">The <see cref="T:DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext"/> containing the graphics context and time information.</param>
             <returns>true if drawing is allowed based on the object's state and base class conditions; otherwise, false.</returns>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.CalculateLayout">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.DotHand.CalculateCache">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
@@ -251,7 +251,7 @@
             and should be called when the object is no longer needed to free up system resources. Overrides the base
             implementation to ensure all custom drawing resources are properly released.</remarks>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.CalculateLayout">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancyBackground.CalculateCache">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
@@ -323,7 +323,7 @@
             default values.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.CalculateLayout">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.FancySweepHand.CalculateCache">
             <summary>
             Calculates additional values and creates the <see cref="T:System.Drawing.Drawing2D.GraphicsPath"/> that will be displayed
             by the <see cref="M:DustInTheWind.ClockNet.Core.Shapes.IShape.Draw(DustInTheWind.ClockNet.Core.Shapes.ClockDrawingContext)"/> method.
@@ -360,7 +360,7 @@
             default values.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.CalculateLayout">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.CalculateCache">
             <summary>
             Calculates additional values that are necessary by the drawing process, but that remain constant for every
             successive draw if no parameter is changed.
@@ -425,7 +425,7 @@
             default values.
             </summary>
         </member>
-        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.CalculateLayout">
+        <member name="M:DustInTheWind.ClockNet.Shapes.Advanced.SlotHand.CalculateCache">
             <summary>
             Performs all the necessary calculations based on the public parameters, before drawing the shape.
             </summary>

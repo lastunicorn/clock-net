@@ -133,7 +133,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Calculates additional values and creates the <see cref="GraphicsPath"/> that will be displayed
         /// by the <see cref="IShape.Draw"/> method.
         /// </summary>
-        protected override void CalculateLayout()
+        protected override void CalculateCache()
         {
             path.Reset();
 

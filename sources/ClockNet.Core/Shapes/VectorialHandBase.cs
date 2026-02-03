@@ -173,6 +173,11 @@ namespace DustInTheWind.ClockNet.Core.Shapes
 
         #endregion
 
+        protected VectorialHandBase()
+            : this(DefaultOutlineColor, DefaultFillColor, DefaultOutlineWidth, DefaultLength)
+        {
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorialHandBase"/> class.
         /// </summary>

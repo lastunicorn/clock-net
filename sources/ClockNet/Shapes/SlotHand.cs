@@ -125,7 +125,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// Performs all the necessary calculations based on the public parameters, before drawing the shape.
         /// </summary>
-        protected override void CalculateLayout()
+        protected override void CalculateCache()
         {
             path.Reset();
 

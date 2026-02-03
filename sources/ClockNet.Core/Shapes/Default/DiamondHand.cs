@@ -17,6 +17,7 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
@@ -25,12 +26,14 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
     /// A Shape that draws a clock hand that resembles a distorted diamond.
     /// </summary>
     [Shape("67304439-3fcd-49cd-9aca-fcea79eed26a")]
-    public class DiamondHand : PolygonHand
+    public class DiamondHand : VectorialHandBase
     {
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public new const string DefaultName = "Diamond Hand";
+        public const string DefaultName = "Diamond Hand";
+
+        private PointF[] points;
 
         #region TailLength Property
 
@@ -93,24 +96,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// default values.
         /// </summary>
         public DiamondHand()
-            : this(Color.Empty, Color.RoyalBlue, DefaultLength, DefaultWidth, DefaultTailLength)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DiamondHand"/> class.
-        /// </summary>
-        /// <param name="outlineColor">The color used to draw the outline.</param>
-        /// <param name="fillColor">The color used to fill the shape.</param>
-        /// <param name="length">The length of the hour hand for a clock with the diameter of 100px.</param>
-        /// <param name="tailLength">The width of the hand.</param>
-        /// <param name="width">The length of the the tail that is drawn behind the pin.</param>
-        public DiamondHand(Color outlineColor, Color fillColor, float length, float width, float tailLength)
-            : base(null, outlineColor, fillColor, length, DefaultOutlineWidth)
         {
             Name = DefaultName;
-            this.tailLength = tailLength;
-            this.width = width;
+
+            OutlineColor = Color.Empty;
+            FillColor = Color.RoyalBlue;
+            Width = width;
+            TailLength = tailLength;
         }
 
         /// <summary>
@@ -118,7 +110,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateLayout()
+        protected override void CalculateCache()
         {
             float diameter = 200f;
             float radius = diameter / 2;
@@ -134,6 +126,63 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
                 new PointF(0F, -actualLength),
                 new PointF(actualHalfWidth, 0f)
             };
+        }
+
+        /// <summary>
+        /// Internal method that draws the Shape unconditioned. 
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="IShape.Draw"/> method checks if the Shape should be drawn or not, transforms the
+        /// coordinate's system if necessary the and then calls <see cref="OnDraw"/> method.
+        /// </remarks>
+        /// <param name="context">The <see cref="ClockDrawingContext"/> containing the graphics context and time information.</param>
+        protected override void OnDraw(ClockDrawingContext context)
+        {
+            if (points == null || points.Length < 2)
+                return;
+
+            if (!FillColor.IsEmpty)
+                context.Graphics.FillPolygon(Brush, points);
+
+            if (!OutlineColor.IsEmpty)
+                context.Graphics.DrawPolygon(Pen, points);
+        }
+
+        public override bool HitTest(PointF point, TimeSpan time)
+        {
+            PointF clickLocation;
+
+            using (Matrix matrix = new Matrix())
+            {
+                float angle = GetRotationDegrees(time);
+                matrix.Rotate(-angle);
+
+                PointF[] points = new PointF[] { point };
+                matrix.TransformPoints(points);
+                clickLocation = points[0];
+            }
+
+            return IsPointInsidePolygon(clickLocation, points);
+        }
+
+        private bool IsPointInsidePolygon(PointF point, PointF[] polygon)
+        {
+            int j = polygon.Length - 1;
+            bool oddNodes = false;
+
+            for (int i = 0; i < points.Length; i++)
+            {
+                if (polygon[i].Y < point.Y && polygon[j].Y >= point.Y || polygon[j].Y < point.Y && polygon[i].Y >= point.Y)
+                {
+                    if (polygon[i].X + (point.Y - polygon[i].Y) / (polygon[j].Y - polygon[i].Y) * (polygon[j].X - polygon[i].X) < point.X)
+                    {
+                        oddNodes = !oddNodes;
+                    }
+                }
+                j = i;
+            }
+
+            return oddNodes;
         }
     }
 }

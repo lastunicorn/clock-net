@@ -63,7 +63,7 @@ namespace DustInTheWind.ClockNet.Templates
                 OffsetAngle = 30f
             };
 
-            yield return new Hours
+            yield return new HourNumerals
             {
                 Name = "Hours",
                 DistanceFromEdge = 26f

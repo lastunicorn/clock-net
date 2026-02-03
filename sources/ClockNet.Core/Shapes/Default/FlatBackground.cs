@@ -18,7 +18,6 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using DustInTheWind.ClockNet.Core.Shapes;
 
 namespace DustInTheWind.ClockNet.Core.Shapes.Default
 {
@@ -126,7 +125,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateLayout()
+        protected override void CalculateCache()
         {
             rect = new RectangleF(-radius, -radius, radius * 2, radius * 2);
         }

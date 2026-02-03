@@ -73,7 +73,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Angle = 30f
             };
 
-            yield return new Hours
+            yield return new HourNumerals
             {
                 Name = "Hours",
                 FillColor = Color.Navy,
@@ -93,7 +93,7 @@ namespace DustInTheWind.ClockNet.Templates
                 ComponentToDisplay = TimeComponent.Hour
             };
 
-            yield return new DiamondHand(Color.Empty, Color.LimeGreen, 37f, 4f, 4f)
+            yield return new DiamondHand
             {
                 Name = "Minute Hand",
                 FillColor = Color.RoyalBlue,

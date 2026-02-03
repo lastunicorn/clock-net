@@ -25,17 +25,30 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the ticks that mark the seconds.
     /// </summary>
     [Shape("2350ba42-86a9-4562-a392-e3c66c973bed")]
-    public class Ticks : LineRim
+    public class Ticks : VectorialRimBase
     {
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public new const string DefaultName = "Ticks";
+        public const string DefaultName = "Ticks";
 
         /// <summary>
         /// The default value of the position offset.
         /// </summary>
         public new const float DefaultDistanceFromEdge = 8f;
+
+        private PointF StartPoint;
+        private PointF EndPoint;
+
+        /// <summary>
+        /// Not used.
+        /// </summary>
+        [Browsable(false)]
+        public override Color FillColor
+        {
+            get => base.FillColor;
+            set => base.FillColor = value;
+        }
 
         #region Length Property
 
@@ -84,7 +97,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// <returns>true if drawing should continue; otherwise, false.</returns>
         protected override bool OnBeforeDraw(ClockDrawingContext context)
         {
-            if (Length <= 0)
+            if (OutlineColor.IsEmpty || Length <= 0)
                 return false;
 
             return base.OnBeforeDraw(context);
@@ -95,7 +108,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateLayout()
+        protected override void CalculateCache()
         {
             float diameter = 200;
             float radius = diameter / 2;
@@ -103,6 +116,16 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
 
             StartPoint = new PointF(0, -actualLength / 2);
             EndPoint = new PointF(0, actualLength / 2);
+        }
+
+        /// <summary>
+        /// Draws the item at the specified index onto the provided graphics surface.
+        /// </summary>
+        /// <param name="g">The graphics surface on which to draw the item.</param>
+        /// <param name="index">The zero-based index of the item to be drawn.</param>
+        protected override void DrawItem(Graphics g, int index)
+        {
+            g.DrawLine(Pen, StartPoint, EndPoint);
         }
     }
 }

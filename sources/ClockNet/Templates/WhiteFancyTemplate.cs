@@ -42,7 +42,7 @@ namespace DustInTheWind.ClockNet.Templates
 
         protected override IEnumerable<IRim> EnumerateRims()
         {
-            yield return new Hours
+            yield return new HourNumerals
             {
                 Name = "Hours",
                 FillColor = Color.White,

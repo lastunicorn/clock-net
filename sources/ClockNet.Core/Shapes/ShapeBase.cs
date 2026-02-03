@@ -27,7 +27,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     /// </summary>
     public abstract class ShapeBase : IShape, ISerializable
     {
-        private bool isLayoutValid;
+        private bool isCacheValid;
 
         #region Name Property
 
@@ -134,7 +134,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// flags it for a future update.</remarks>
         protected void InvalidateLayout()
         {
-            isLayoutValid = false;
+            isCacheValid = false;
         }
 
         /// <summary>
@@ -150,10 +150,10 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             if (!allowToDraw)
                 return;
 
-            if (!isLayoutValid)
+            if (!isCacheValid)
             {
-                CalculateLayout();
-                isLayoutValid = true;
+                CalculateCache();
+                isCacheValid = true;
             }
 
             OnDraw(context);
@@ -166,7 +166,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected virtual void CalculateLayout()
+        protected virtual void CalculateCache()
         {
         }
 

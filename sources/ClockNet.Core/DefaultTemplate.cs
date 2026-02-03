@@ -74,7 +74,7 @@ namespace DustInTheWind.ClockNet.Templates
             };
 
             // Hour numbers
-            yield return new Hours
+            yield return new HourNumerals
             {
                 Name = "Hours",
                 DistanceFromEdge = 26f
@@ -95,7 +95,7 @@ namespace DustInTheWind.ClockNet.Templates
             };
 
             // Minute hand
-            yield return new DiamondHand(Color.Empty, Color.LimeGreen, 37f, 4f, 4f)
+            yield return new DiamondHand
             {
                 Name = "Minute Hand",
                 ComponentToDisplay = TimeComponent.Minute,

@@ -205,7 +205,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateLayout()
+        protected override void CalculateCache()
         {
             float diameter = 200f;
             float radius = diameter / 2f;

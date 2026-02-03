@@ -54,7 +54,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin1 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks1 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks2 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours1 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours1 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground2 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand3 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand4 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
@@ -103,7 +103,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin8 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks9 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks10 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours2 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours2 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             DustInTheWind.ClockNet.Core.Shapes.Default.FlatBackground flatBackground2 = new DustInTheWind.ClockNet.Core.Shapes.Default.FlatBackground();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground9 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand17 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
@@ -112,7 +112,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin9 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks11 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks12 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours3 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours3 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground10 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand19 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand20 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
@@ -120,14 +120,14 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks13 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks14 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks15 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours4 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours4 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground11 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand21 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand22 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin11 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks16 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks17 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours5 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours5 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground12 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand23 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand24 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
@@ -135,7 +135,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin12 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks18 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks19 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours6 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours6 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground13 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand25 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand26 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
@@ -143,7 +143,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin13 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks20 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks21 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours7 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours7 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground14 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand27 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand28 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
@@ -151,7 +151,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin14 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks22 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks23 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours8 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours8 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground15 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand29 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand30 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
@@ -159,7 +159,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin15 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks24 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks25 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.Hours hours9 = new DustInTheWind.ClockNet.Core.Shapes.Default.Hours();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours9 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground stringBackground16 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringBackground();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand31 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand diamondHand32 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.DiamondHand();
