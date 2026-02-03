@@ -133,11 +133,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// Calculates additional values and creates the <see cref="GraphicsPath"/> that will be displayed
         /// by the <see cref="IShape.Draw"/> method.
         /// </summary>
-        protected override void CalculateCache()
+        protected override void CalculateCache(ClockDrawingContext context)
         {
             path.Reset();
 
-            float diameter = 200f;
+            float diameter = context.Diameter;
             float radius = diameter / 2;
             float actualLength = radius * (Length / 100f);
             float actualCircleOffset = radius * (CircleOffset / 100f);

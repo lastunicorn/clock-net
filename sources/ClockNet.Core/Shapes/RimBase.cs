@@ -182,7 +182,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <summary>
         /// The default value of one item's orientation.
         /// </summary>
-        public const RimItemOrientation DefaultOrientation = RimItemOrientation.FaceCenter;
+        public const RimItemOrientation DefaultOrientation = RimItemOrientation.FaceIn;
 
         private RimItemOrientation orientation = DefaultOrientation;
 
@@ -292,7 +292,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         {
             RimDrawingCoordinator rimDrawingCoordinator = new RimDrawingCoordinator(context.Graphics)
             {
-                Diameter = 200,
+                Diameter = context.Diameter,
                 Angle = Angle,
                 OffsetAngle = OffsetAngle,
                 MaxCoverageCount = MaxCoverageCount,

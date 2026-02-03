@@ -124,11 +124,11 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
         /// <summary>
         /// Performs all the necessary calculations based on the public parameters, before drawing the shape.
         /// </summary>
-        protected override void CalculateCache()
+        protected override void CalculateCache(ClockDrawingContext context)
         {
             path.Reset();
 
-            float diameter = 200f;
+            float diameter = context.Diameter;
             float radius = diameter / 2;
             float actualLength = radius * (Length / 100f);
             float actualTailLength = radius * (TailLength / 100f);

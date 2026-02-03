@@ -54,7 +54,7 @@ internal class RimDrawingCoordinator
 
     public bool MoveNext()
     {
-        float angleDegrees;
+        float currentAngle;
 
         while (true)
         {
@@ -66,8 +66,8 @@ internal class RimDrawingCoordinator
             if (MaxCoverageCount > 0 && Index + 1 > MaxCoverageCount)
                 return false;
 
-            angleDegrees = OffsetAngle + (Index * Angle);
-            if (MaxCoverageAngle > 0 && angleDegrees - OffsetAngle >= MaxCoverageAngle)
+            currentAngle = OffsetAngle + (Index * Angle);
+            if (MaxCoverageAngle > 0 && currentAngle - OffsetAngle >= MaxCoverageAngle)
                 return false;
 
             bool shouldSkip = SkipIndex > 0 && (Index + 1) % SkipIndex == 0;
@@ -78,9 +78,9 @@ internal class RimDrawingCoordinator
 
         Graphics.Transform = initialMatrix;
 
-        ApplyRotation(angleDegrees);
+        ApplyRotation(currentAngle);
         ApplyTranslation();
-        ApplyOrientation(angleDegrees);
+        ApplyOrientation(currentAngle);
 
         return true;
     }
@@ -103,16 +103,25 @@ internal class RimDrawingCoordinator
     {
         switch (Orientation)
         {
-            case RimItemOrientation.FaceCenter:
+            default:
+            case RimItemOrientation.FaceIn:
                 break;
 
             case RimItemOrientation.FaceOut:
                 Graphics.RotateTransform(180);
                 break;
 
-            default:
             case RimItemOrientation.Normal:
                 Graphics.RotateTransform(-angleDegrees);
+                break;
+
+            case RimItemOrientation.HalfInHalfOut:
+                double currentAngle = angleDegrees;
+                double normalizedAngle = currentAngle % 360;
+
+                if (normalizedAngle > 90 && normalizedAngle < 270)
+                    Graphics.RotateTransform(180);
+
                 break;
         }
     }

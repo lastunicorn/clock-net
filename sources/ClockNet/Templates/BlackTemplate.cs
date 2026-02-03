@@ -55,7 +55,7 @@ namespace DustInTheWind.ClockNet.Templates
 
             yield return new HourNumerals
             {
-                Name = "Hours",
+                Name = "Hour Numerals",
                 DistanceFromEdge = 32f,
                 FillColor = Color.LightGray,
                 Font = new Font("Vivaldi", 12.5f, FontStyle.Italic)

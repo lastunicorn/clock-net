@@ -152,7 +152,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
 
             if (!isCacheValid)
             {
-                CalculateCache();
+                CalculateCache(context);
                 isCacheValid = true;
             }
 
@@ -166,7 +166,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected virtual void CalculateCache()
+        protected virtual void CalculateCache(ClockDrawingContext context)
         {
         }
 

@@ -73,7 +73,7 @@ namespace DustInTheWind.ClockNet.Templates
             // Hour numbers
             yield return new HourNumerals
             {
-                Name = "Hours",
+                Name = "Hour Numerals",
                 DistanceFromEdge = 26f
             };
 

@@ -158,7 +158,7 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Time Provider Property
+        #region Movement Property
 
         /// <summary>
         /// An instance of the <see cref="IMovement"/> that provides the time to be displayed by the timer.
@@ -447,13 +447,13 @@ namespace DustInTheWind.ClockNet
 
         private void DrawShapes(Graphics g, Matrix initialMatrix)
         {
-            IEnumerable<IShape> shapesNotNull = Shapes
-                .Where(x => x != null);
+            ClockDrawingContext context = new ClockDrawingContext(g, Time, diameter);
 
-            ClockDrawingContext context = new ClockDrawingContext(g, Time);
-
-            foreach (IShape shape in shapesNotNull)
+            foreach (IShape shape in Shapes)
             {
+                if (shape == null)
+                    continue;
+
                 g.Transform = initialMatrix;
                 shape.Draw(context);
             }

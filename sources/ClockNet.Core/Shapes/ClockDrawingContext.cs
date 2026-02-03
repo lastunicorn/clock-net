@@ -25,10 +25,13 @@ namespace DustInTheWind.ClockNet.Core.Shapes
 
         public TimeSpan Time { get; }
 
-        public ClockDrawingContext(Graphics graphics, TimeSpan time)
+        public float Diameter{ get; }
+
+        public ClockDrawingContext(Graphics graphics, TimeSpan time, float diameter)
         {
             Graphics = graphics;
             Time = time;
+            Diameter = diameter;
         }
     }
 }

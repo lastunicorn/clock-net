@@ -32,7 +32,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
         /// <summary>
         /// The default name for the Shape.
         /// </summary>
-        public const string DefaultName = "Background Shape";
+        public const string DefaultName = "Flat Background";
 
         #region Radius Property
 
@@ -125,7 +125,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
         /// successive draw if no parameter is changed.
         /// This method should be called every time when is set a property that changes the physical dimensions.
         /// </summary>
-        protected override void CalculateCache()
+        protected override void CalculateCache(ClockDrawingContext context)
         {
             rect = new RectangleF(-radius, -radius, radius * 2, radius * 2);
         }

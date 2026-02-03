@@ -41,7 +41,7 @@ namespace DustInTheWind.ClockNet.Templates
 
             yield return new HourNumerals
             {
-                Name = "Hours",
+                Name = "Hour Numerals",
                 FillColor = Color.White,
                 Font = new Font("Arial", 20, FontStyle.Bold, GraphicsUnit.Point),
                 DistanceFromEdge = 46f
@@ -53,7 +53,8 @@ namespace DustInTheWind.ClockNet.Templates
                 FillColor = Color.White,
                 Radius = 98f,
                 Length = 72f,
-                Width = 16f,
+                Width = 23f,
+                TailLength = 11.5f,
                 ComponentToDisplay = TimeComponent.Hour
             };
 
@@ -62,7 +63,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Minute Hand",
                 OutlineColor = Color.Black,
                 Length = 90f,
-                OutlineWidth = 3f,
+                OutlineWidth = 8f,
                 TailLength = 0f,
                 ComponentToDisplay = TimeComponent.Minute
             };

@@ -72,7 +72,7 @@ namespace DustInTheWind.ClockNet.Templates
 
             yield return new HourNumerals
             {
-                Name = "Hours",
+                Name = "Hour Numerals",
                 FillColor = Color.Navy,
                 DistanceFromEdge = 16f
             };
