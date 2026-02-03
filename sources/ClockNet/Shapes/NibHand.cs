@@ -24,7 +24,7 @@ using DustInTheWind.ClockNet.Core.Shapes.Basic;
 namespace DustInTheWind.ClockNet.Shapes.Advanced
 {
     /// <summary>
-    /// Draws a fancy clock hand that resambles to a nib.
+    /// Draws a fancy clock hand that resembles to a nib.
     /// </summary>
     [Shape("88ab6f71-b94c-452d-a38c-df826032e83d")]
     public class NibHand : PathHand

@@ -331,7 +331,7 @@
         </member>
         <member name="T:DustInTheWind.ClockNet.Shapes.Advanced.NibHand">
             <summary>
-            Draws a fancy clock hand that resambles to a nib.
+            Draws a fancy clock hand that resembles to a nib.
             </summary>
         </member>
         <member name="F:DustInTheWind.ClockNet.Shapes.Advanced.NibHand.DefaultName">
