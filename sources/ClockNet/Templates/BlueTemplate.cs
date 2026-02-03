@@ -32,7 +32,7 @@ namespace DustInTheWind.ClockNet.Templates
     /// representing a typical analog clock layout.</remarks>
     public class BlueTemplate : TemplateBase
     {
-        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        protected override IEnumerable<IShape> EnumerateShapes()
         {
             yield return new FlatBackground
             {
@@ -48,10 +48,7 @@ namespace DustInTheWind.ClockNet.Templates
                 FillColor = Color.DarkSlateGray,
                 Text = "Blue",
             };
-        }
 
-        protected override IEnumerable<IRim> EnumerateRims()
-        {
             yield return new Ticks
             {
                 Name = "Minute Ticks",
@@ -79,10 +76,7 @@ namespace DustInTheWind.ClockNet.Templates
                 FillColor = Color.Navy,
                 DistanceFromEdge = 16f
             };
-        }
-
-        protected override IEnumerable<IHand> EnumerateHands()
-        {
+        
             yield return new DiamondHand
             {
                 Name = "Hour Hand",

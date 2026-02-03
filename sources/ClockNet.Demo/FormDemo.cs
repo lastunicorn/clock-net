@@ -58,8 +58,6 @@ namespace DustInTheWind.ClockNet.Demo
 
             // Shapes
             backgroundsEditor1.AnalogClock = analogClockDemo;
-            rimsEditor1.AnalogClock = analogClockDemo;
-            handsEditor1.AnalogClock = analogClockDemo;
 
             // Time Provider
             movementsEditor1.AnalogClock = analogClockDemo;

@@ -23,7 +23,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
     /// <summary>
     /// Provides common functionality for a vectorial shape.
     /// </summary>
-    public abstract class VectorialBackgroundBase : BackgroundBase
+    public abstract class VectorialShapeBase : ShapeBase
     {
         #region OutlineColor Property
 
@@ -183,21 +183,21 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialBackgroundBase"/> class.
+        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
-        public VectorialBackgroundBase()
+        public VectorialShapeBase()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorialBackgroundBase"/> class.
+        /// Initializes a new instance of the <see cref="VectorialShapeBase"/> class.
         /// </summary>
         /// <param name="outlineColor">The color used to draw the outline of the shape.</param>
         /// <param name="fillColor">The color used to draw the background of the shape.</param>
         /// <param name="outlineWidth">The width of the outline.</param>
-        public VectorialBackgroundBase(Color outlineColor, Color fillColor, float outlineWidth)
+        public VectorialShapeBase(Color outlineColor, Color fillColor, float outlineWidth)
         {
             this.outlineColor = outlineColor;
             this.fillColor = fillColor;

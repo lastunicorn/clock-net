@@ -51,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackgroundsEditor.cs">
+    <Compile Include="ShapesEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BackgroundsEditor.Designer.cs">
-      <DependentUpon>BackgroundsEditor.cs</DependentUpon>
+    <Compile Include="ShapesEditor.Designer.cs">
+      <DependentUpon>ShapesEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDemo.cs">
       <SubType>Form</SubType>
@@ -69,12 +69,6 @@
     <Compile Include="FormExamples.Designer.cs">
       <DependentUpon>FormExamples.cs</DependentUpon>
     </Compile>
-    <Compile Include="HandsEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="HandsEditor.Designer.cs">
-      <DependentUpon>HandsEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -82,20 +76,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RimsEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RimsEditor.Designer.cs">
-      <DependentUpon>RimsEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="MovementsEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MovementsEditor.Designer.cs">
       <DependentUpon>MovementsEditor.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BackgroundsEditor.resx">
-      <DependentUpon>BackgroundsEditor.cs</DependentUpon>
+    <EmbeddedResource Include="ShapesEditor.resx">
+      <DependentUpon>ShapesEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDemo.resx">
       <DependentUpon>FormDemo.cs</DependentUpon>
@@ -105,16 +93,10 @@
       <DependentUpon>FormExamples.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="HandsEditor.resx">
-      <DependentUpon>HandsEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RimsEditor.resx">
-      <DependentUpon>RimsEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MovementsEditor.resx">
       <DependentUpon>MovementsEditor.cs</DependentUpon>

@@ -30,9 +30,7 @@ namespace DustInTheWind.ClockNet.Core.Serialization
     /// </summary>
     public class TemplateSerialization
     {
-        private const string BackgroundsElementName = "Backgrounds";
-        private const string RimsElementName = "Rims";
-        private const string HandsElementName = "Hands";
+        private const string ShapesElementName = "Shapes";
 
         private readonly Dictionary<Guid, Type> shapeTypesByGuid = new Dictionary<Guid, Type>();
         private readonly Dictionary<Type, Guid> guidsByShapeType = new Dictionary<Type, Guid>();
@@ -82,9 +80,7 @@ namespace DustInTheWind.ClockNet.Core.Serialization
                 writer.WriteStartDocument();
                 writer.WriteStartElement("ClockTemplate");
 
-                WriteShapeArray(writer, BackgroundsElementName, template.Backgrounds);
-                WriteShapeArray(writer, RimsElementName, template.Rims);
-                WriteShapeArray(writer, HandsElementName, template.Hands);
+                WriteShapeArray(writer, ShapesElementName, template.Shapes);
 
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
@@ -122,25 +118,11 @@ namespace DustInTheWind.ClockNet.Core.Serialization
 
             Template template = new Template();
 
-            XmlNode backgroundNode = doc.SelectSingleNode("/ClockTemplate/" + BackgroundsElementName);
+            XmlNode backgroundNode = doc.SelectSingleNode("/ClockTemplate/" + ShapesElementName);
             if (backgroundNode != null)
             {
-                IBackground[] backgrounds = ReadShapes<IBackground>(backgroundNode);
-                template.Backgrounds.AddRange(backgrounds);
-            }
-
-            XmlNode rimNode = doc.SelectSingleNode("/ClockTemplate/" + RimsElementName);
-            if (rimNode != null)
-            {
-                IRim[] rims = ReadShapes<IRim>(rimNode);
-                template.Rims.AddRange(rims);
-            }
-
-            XmlNode handNode = doc.SelectSingleNode("/ClockTemplate/" + HandsElementName);
-            if (handNode != null)
-            {
-                IHand[] hands = ReadShapes<IHand>(handNode);
-                template.Hands.AddRange(hands);
+                IShape[] shapes = ReadShapes<IShape>(backgroundNode);
+                template.Shapes.AddRange(shapes);
             }
 
             return template;

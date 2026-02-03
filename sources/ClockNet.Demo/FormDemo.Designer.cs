@@ -53,7 +53,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin pin1 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Pin();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks1 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
             DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks ticks2 = new DustInTheWind.ClockNet.Core.Shapes.Advanced.Ticks();
-            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hours1 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
+            DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals hourNumerals1 = new DustInTheWind.ClockNet.Core.Shapes.Default.HourNumerals();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.localTimeMovement1 = new DustInTheWind.ClockNet.Core.Movements.LocalTimeMovement();
             this.analogClockDemo = new DustInTheWind.ClockNet.AnalogClock();
@@ -79,12 +79,8 @@ namespace DustInTheWind.ClockNet.Demo
             this.labelMovement = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tabPageBackgrounds = new System.Windows.Forms.TabPage();
-            this.backgroundsEditor1 = new DustInTheWind.ClockNet.Demo.BackgroundsEditor();
-            this.tabPageRims = new System.Windows.Forms.TabPage();
-            this.rimsEditor1 = new DustInTheWind.ClockNet.Demo.RimsEditor();
-            this.tabPageHands = new System.Windows.Forms.TabPage();
-            this.handsEditor1 = new DustInTheWind.ClockNet.Demo.HandsEditor();
+            this.tabPageShapes = new System.Windows.Forms.TabPage();
+            this.backgroundsEditor1 = new DustInTheWind.ClockNet.Demo.ShapesEditor();
             this.tabPageMovements = new System.Windows.Forms.TabPage();
             this.movementsEditor1 = new DustInTheWind.ClockNet.Demo.MovementsEditor();
             this.groupBoxTemplates = new System.Windows.Forms.GroupBox();
@@ -105,9 +101,7 @@ namespace DustInTheWind.ClockNet.Demo
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).BeginInit();
             this.groupBoxValue.SuspendLayout();
-            this.tabPageBackgrounds.SuspendLayout();
-            this.tabPageRims.SuspendLayout();
-            this.tabPageHands.SuspendLayout();
+            this.tabPageShapes.SuspendLayout();
             this.tabPageMovements.SuspendLayout();
             this.groupBoxTemplates.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -115,6 +109,11 @@ namespace DustInTheWind.ClockNet.Demo
             // 
             // analogClockDemo
             // 
+            this.tableLayoutPanel2.SetColumnSpan(this.analogClockDemo, 3);
+            this.analogClockDemo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.analogClockDemo.Location = new System.Drawing.Point(3, 3);
+            this.analogClockDemo.Movement = this.localTimeMovement1;
+            this.analogClockDemo.Name = "analogClockDemo";
             flatBackground1.FillColor = System.Drawing.Color.Gainsboro;
             flatBackground1.Name = "Background Shape";
             flatBackground1.OutlineColor = System.Drawing.Color.Empty;
@@ -123,15 +122,13 @@ namespace DustInTheWind.ClockNet.Demo
             stringBackground1.Location = ((System.Drawing.PointF)(resources.GetObject("stringBackground1.Location")));
             stringBackground1.Name = "Copyright";
             stringBackground1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockDemo.Backgrounds.Add(flatBackground1);
-            this.analogClockDemo.Backgrounds.Add(stringBackground1);
-            this.tableLayoutPanel2.SetColumnSpan(this.analogClockDemo, 3);
-            this.analogClockDemo.Dock = System.Windows.Forms.DockStyle.Fill;
             diamondHand1.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Hour;
             diamondHand1.FillColor = System.Drawing.Color.RoyalBlue;
             diamondHand1.Length = 24F;
             diamondHand1.Name = "Hour Hand";
             diamondHand1.OutlineColor = System.Drawing.Color.Empty;
+            diamondHand1.TailLength = 0F;
+            diamondHand1.Width = 0F;
             diamondHand2.ComponentToDisplay = DustInTheWind.ClockNet.Core.Shapes.TimeComponent.Minute;
             diamondHand2.FillColor = System.Drawing.Color.LimeGreen;
             diamondHand2.Length = 37F;
@@ -147,13 +144,6 @@ namespace DustInTheWind.ClockNet.Demo
             pin1.FillColor = System.Drawing.Color.Red;
             pin1.Name = "Pin";
             pin1.OutlineColor = System.Drawing.Color.Empty;
-            this.analogClockDemo.Hands.Add(diamondHand1);
-            this.analogClockDemo.Hands.Add(diamondHand2);
-            this.analogClockDemo.Hands.Add(lineHand1);
-            this.analogClockDemo.Hands.Add(pin1);
-            this.analogClockDemo.Location = new System.Drawing.Point(3, 3);
-            this.analogClockDemo.Movement = this.localTimeMovement1;
-            this.analogClockDemo.Name = "analogClockDemo";
             ticks1.DistanceFromEdge = 4F;
             ticks1.MaxCoverageAngle = ((uint)(360u));
             ticks1.MaxCoverageCount = ((uint)(0u));
@@ -165,16 +155,16 @@ namespace DustInTheWind.ClockNet.Demo
             ticks2.MaxCoverageCount = ((uint)(0u));
             ticks2.Name = "Hour Ticks";
             ticks2.OutlineWidth = 1F;
-            hours1.Angle = 30F;
-            hours1.DistanceFromEdge = 13F;
-            hours1.Font = new System.Drawing.Font("Arial", 6.25F);
-            hours1.MaxCoverageAngle = ((uint)(360u));
-            hours1.MaxCoverageCount = ((uint)(0u));
-            hours1.Name = "Hours";
-            hours1.OffsetAngle = 30F;
-            hours1.Orientation = DustInTheWind.ClockNet.Core.Shapes.RimItemOrientation.Normal;
-            hours1.OutlineColor = System.Drawing.Color.Empty;
-            hours1.Texts = new string[] {
+            hourNumerals1.Angle = 30F;
+            hourNumerals1.DistanceFromEdge = 13F;
+            hourNumerals1.Font = new System.Drawing.Font("Arial", 6.25F);
+            hourNumerals1.MaxCoverageAngle = ((uint)(360u));
+            hourNumerals1.MaxCoverageCount = ((uint)(0u));
+            hourNumerals1.Name = "Hours";
+            hourNumerals1.OffsetAngle = 30F;
+            hourNumerals1.Orientation = DustInTheWind.ClockNet.Core.Shapes.RimItemOrientation.Normal;
+            hourNumerals1.OutlineColor = System.Drawing.Color.Empty;
+            hourNumerals1.Texts = new string[] {
         "1",
         "2",
         "3",
@@ -187,13 +177,19 @@ namespace DustInTheWind.ClockNet.Demo
         "10",
         "11",
         "12"};
-            this.analogClockDemo.Rims.Add(ticks1);
-            this.analogClockDemo.Rims.Add(ticks2);
-            this.analogClockDemo.Rims.Add(hours1);
+            this.analogClockDemo.Shapes.Add(flatBackground1);
+            this.analogClockDemo.Shapes.Add(stringBackground1);
+            this.analogClockDemo.Shapes.Add(diamondHand1);
+            this.analogClockDemo.Shapes.Add(diamondHand2);
+            this.analogClockDemo.Shapes.Add(lineHand1);
+            this.analogClockDemo.Shapes.Add(pin1);
+            this.analogClockDemo.Shapes.Add(ticks1);
+            this.analogClockDemo.Shapes.Add(ticks2);
+            this.analogClockDemo.Shapes.Add(hourNumerals1);
             this.analogClockDemo.Size = new System.Drawing.Size(640, 621);
             this.analogClockDemo.TabIndex = 0;
             this.analogClockDemo.Text = "analogClock1";
-            this.analogClockDemo.Time = System.TimeSpan.Parse("11:57:25.9634162");
+            this.analogClockDemo.Time = System.TimeSpan.Parse("16:03:38.9093729");
             this.analogClockDemo.MovementChanged += new System.EventHandler(this.analogClockDemo_MovementChanged);
             // 
             // tableLayoutPanelProperties
@@ -215,9 +211,7 @@ namespace DustInTheWind.ClockNet.Demo
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPageMiscellaneous);
-            this.tabControl.Controls.Add(this.tabPageBackgrounds);
-            this.tabControl.Controls.Add(this.tabPageRims);
-            this.tabControl.Controls.Add(this.tabPageHands);
+            this.tabControl.Controls.Add(this.tabPageShapes);
             this.tabControl.Controls.Add(this.tabPageMovements);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(3, 64);
@@ -438,16 +432,16 @@ namespace DustInTheWind.ClockNet.Demo
             this.label4.TabIndex = 0;
             this.label4.Text = "Time:";
             // 
-            // tabPageBackgrounds
+            // tabPageShapes
             // 
-            this.tabPageBackgrounds.Controls.Add(this.backgroundsEditor1);
-            this.tabPageBackgrounds.Location = new System.Drawing.Point(4, 22);
-            this.tabPageBackgrounds.Name = "tabPageBackgrounds";
-            this.tabPageBackgrounds.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBackgrounds.Size = new System.Drawing.Size(430, 557);
-            this.tabPageBackgrounds.TabIndex = 9;
-            this.tabPageBackgrounds.Text = "Backgrounds";
-            this.tabPageBackgrounds.UseVisualStyleBackColor = true;
+            this.tabPageShapes.Controls.Add(this.backgroundsEditor1);
+            this.tabPageShapes.Location = new System.Drawing.Point(4, 22);
+            this.tabPageShapes.Name = "tabPageShapes";
+            this.tabPageShapes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageShapes.Size = new System.Drawing.Size(430, 557);
+            this.tabPageShapes.TabIndex = 9;
+            this.tabPageShapes.Text = "Shapes";
+            this.tabPageShapes.UseVisualStyleBackColor = true;
             // 
             // backgroundsEditor1
             // 
@@ -457,46 +451,6 @@ namespace DustInTheWind.ClockNet.Demo
             this.backgroundsEditor1.Name = "backgroundsEditor1";
             this.backgroundsEditor1.Size = new System.Drawing.Size(424, 551);
             this.backgroundsEditor1.TabIndex = 0;
-            // 
-            // tabPageRims
-            // 
-            this.tabPageRims.Controls.Add(this.rimsEditor1);
-            this.tabPageRims.Location = new System.Drawing.Point(4, 22);
-            this.tabPageRims.Name = "tabPageRims";
-            this.tabPageRims.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRims.Size = new System.Drawing.Size(430, 557);
-            this.tabPageRims.TabIndex = 10;
-            this.tabPageRims.Text = "Rims";
-            this.tabPageRims.UseVisualStyleBackColor = true;
-            // 
-            // rimsEditor1
-            // 
-            this.rimsEditor1.AnalogClock = null;
-            this.rimsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rimsEditor1.Location = new System.Drawing.Point(3, 3);
-            this.rimsEditor1.Name = "rimsEditor1";
-            this.rimsEditor1.Size = new System.Drawing.Size(424, 551);
-            this.rimsEditor1.TabIndex = 0;
-            // 
-            // tabPageHands
-            // 
-            this.tabPageHands.Controls.Add(this.handsEditor1);
-            this.tabPageHands.Location = new System.Drawing.Point(4, 22);
-            this.tabPageHands.Name = "tabPageHands";
-            this.tabPageHands.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHands.Size = new System.Drawing.Size(430, 557);
-            this.tabPageHands.TabIndex = 11;
-            this.tabPageHands.Text = "Hands";
-            this.tabPageHands.UseVisualStyleBackColor = true;
-            // 
-            // handsEditor1
-            // 
-            this.handsEditor1.AnalogClock = null;
-            this.handsEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.handsEditor1.Location = new System.Drawing.Point(3, 3);
-            this.handsEditor1.Name = "handsEditor1";
-            this.handsEditor1.Size = new System.Drawing.Size(424, 551);
-            this.handsEditor1.TabIndex = 0;
             // 
             // tabPageMovements
             // 
@@ -635,9 +589,7 @@ namespace DustInTheWind.ClockNet.Demo
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPaddingBottom)).EndInit();
             this.groupBoxValue.ResumeLayout(false);
             this.groupBoxValue.PerformLayout();
-            this.tabPageBackgrounds.ResumeLayout(false);
-            this.tabPageRims.ResumeLayout(false);
-            this.tabPageHands.ResumeLayout(false);
+            this.tabPageShapes.ResumeLayout(false);
             this.tabPageMovements.ResumeLayout(false);
             this.groupBoxTemplates.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -671,12 +623,8 @@ namespace DustInTheWind.ClockNet.Demo
         private System.Windows.Forms.GroupBox groupBoxValue;
         private System.Windows.Forms.DateTimePicker dateTimePickerTime;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TabPage tabPageBackgrounds;
-        private BackgroundsEditor backgroundsEditor1;
-        private System.Windows.Forms.TabPage tabPageRims;
-        private RimsEditor rimsEditor1;
-        private System.Windows.Forms.TabPage tabPageHands;
-        private HandsEditor handsEditor1;
+        private System.Windows.Forms.TabPage tabPageShapes;
+        private ShapesEditor backgroundsEditor1;
         private System.Windows.Forms.TabPage tabPageMovements;
         private MovementsEditor movementsEditor1;
         private System.Windows.Forms.GroupBox groupBoxTemplates;

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Advanced;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
@@ -10,7 +9,7 @@ namespace DustInTheWind.ClockNet.Templates
 {
     public class GothicTemplate : TemplateBase
     {
-        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        protected override IEnumerable<IShape> EnumerateShapes()
         {
             yield return new ImageBackground
             {
@@ -18,10 +17,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Image = Resources.dial,
                 PinLocation = new PointF(242.5f, 242.5f)
             };
-        }
 
-        protected override IEnumerable<IHand> EnumerateHands()
-        {
             yield return new ImageHand
             {
                 Name = "Hour Hand",
@@ -46,11 +42,6 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineColor = Color.DimGray,
                 Diameter = 6f
             };
-        }
-
-        protected override IEnumerable<IRim> EnumerateRims()
-        {
-            return Enumerable.Empty<IRim>();
         }
     }
 }

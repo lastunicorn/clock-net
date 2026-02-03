@@ -31,17 +31,14 @@ namespace DustInTheWind.ClockNet.Templates
     /// line-style minute and second hands, and standard tick marks on a black dial background.</remarks>
     public class WhiteFancyTemplate : TemplateBase
     {
-        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        protected override IEnumerable<IShape> EnumerateShapes()
         {
             yield return new FlatBackground
             {
                 Name = "Background",
                 FillColor = Color.Black
             };
-        }
 
-        protected override IEnumerable<IRim> EnumerateRims()
-        {
             yield return new HourNumerals
             {
                 Name = "Hours",
@@ -49,10 +46,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Font = new Font("Arial", 20, FontStyle.Bold, GraphicsUnit.Point),
                 DistanceFromEdge = 46f
             };
-        }
 
-        protected override IEnumerable<IHand> EnumerateHands()
-        {
             yield return new SlotHand
             {
                 Name = "Hour Hand",

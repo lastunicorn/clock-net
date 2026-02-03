@@ -23,19 +23,9 @@ namespace DustInTheWind.ClockNet
 {
     public class Template : TemplateBase
     {
-        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        protected override IEnumerable<IShape> EnumerateShapes()
         {
-            return Enumerable.Empty<IBackground>();
-        }
-
-        protected override IEnumerable<IRim> EnumerateRims()
-        {
-            return Enumerable.Empty<IRim>();
-        }
-
-        protected override IEnumerable<IHand> EnumerateHands()
-        {
-            return Enumerable.Empty<IHand>();
+            return Enumerable.Empty<IShape>();
         }
     }
 }

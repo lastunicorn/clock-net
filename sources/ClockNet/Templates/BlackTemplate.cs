@@ -18,7 +18,7 @@ namespace DustInTheWind.ClockNet.Templates
     /// HandShapes properties with default values representing a complete analog clock layout.</remarks>
     public class BlackTemplate : TemplateBase
     {
-        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        protected override IEnumerable<IShape> EnumerateShapes()
         {
             yield return new FancyBackground
             {
@@ -33,10 +33,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Font = new Font("Arial", 4f, FontStyle.Regular, GraphicsUnit.Point, 0),
                 Location = new PointF(0F, 30f)
             };
-        }
 
-        protected override IEnumerable<IRim> EnumerateRims()
-        {
             yield return new Ticks
             {
                 Name = "Minute Ticks",
@@ -76,10 +73,7 @@ namespace DustInTheWind.ClockNet.Templates
                     .Select(x => (x * 5).ToString())
                     .ToArray()
             };
-        }
 
-        protected override IEnumerable<IHand> EnumerateHands()
-        {
             yield return new DiamondHand
             {
                 Name = "Hour Hand",

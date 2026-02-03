@@ -24,7 +24,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
     /// A Background Shape representing bitmap image.
     /// </summary>
     [Shape("f8f41461-b01f-44f2-8433-d5eab5678694")]
-    public class ImageBackground : BackgroundBase
+    public class ImageBackground : ShapeBase
     {
         /// <summary>
         /// The default name for the Shape.

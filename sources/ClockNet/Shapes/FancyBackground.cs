@@ -26,7 +26,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
     /// A Background Shape that draws a gradient background with two rims around it.
     /// </summary>
     [Shape("c71e41be-5254-4df4-94b0-81f3cfa6468e")]
-    public class FancyBackground : VectorialBackgroundBase
+    public class FancyBackground : VectorialShapeBase
     {
         /// <summary>
         /// The default name for the Shape.

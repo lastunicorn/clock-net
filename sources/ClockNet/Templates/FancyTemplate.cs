@@ -30,17 +30,14 @@ namespace DustInTheWind.ClockNet.Templates
     /// a fancy sweep hand for seconds, and standard tick marks and background elements.</remarks>
     public class FancyTemplate : TemplateBase
     {
-        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        protected override IEnumerable<IShape> EnumerateShapes()
         {
             yield return new FlatBackground
             {
                 Name = "Background",
                 FillColor = Color.White
             };
-        }
 
-        protected override IEnumerable<IRim> EnumerateRims()
-        {
             yield return new Ticks
             {
                 Name = "Minute Ticks",
@@ -68,10 +65,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hours",
                 DistanceFromEdge = 26f
             };
-        }
 
-        protected override IEnumerable<IHand> EnumerateHands()
-        {
             yield return new NibHand
             {
                 Name = "Hour Hand",

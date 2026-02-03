@@ -71,25 +71,27 @@
     <Compile Include="Serialization\ShapeSerializer.cs" />
     <Compile Include="Serialization\ValueConverterBase.cs" />
     <Compile Include="Serialization\ValueConverterRegistry.cs" />
+    <Compile Include="Shapes\IHand.cs" />
+    <Compile Include="Shapes\IRim.cs" />
     <Compile Include="Shapes\RimDrawingCoordinator.cs" />
     <Compile Include="Template.cs" />
     <Compile Include="TemplateBase.cs" />
-    <Compile Include="ColorExtensions.cs" />
-    <Compile Include="ShapeCollection.cs" />
-    <Compile Include="HsbColor.cs" />
+    <Compile Include="Utils\ColorExtensions.cs" />
+    <Compile Include="Shapes\ShapeCollection.cs" />
+    <Compile Include="Utils\HsbColor.cs" />
     <Compile Include="NullableDateTimePicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="NullableDateTimePicker.Designer.cs">
       <DependentUpon>NullableDateTimePicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="NullableTimeSpanConverter.cs" />
-    <Compile Include="PerformanceInfo.cs" />
-    <Compile Include="PointFConverter.cs" />
+    <Compile Include="Design\NullableTimeSpanConverter.cs" />
+    <Compile Include="Performace\PerformanceInfo.cs" />
+    <Compile Include="Utils\PointFConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShapeAddedEventArgs.cs" />
-    <Compile Include="ShapeCollectionEditor.cs" />
-    <Compile Include="ShapeRemovedEventArgs.cs" />
+    <Compile Include="Shapes\ShapeAddedEventArgs.cs" />
+    <Compile Include="Design\ShapeCollectionEditor.cs" />
+    <Compile Include="Shapes\ShapeRemovedEventArgs.cs" />
     <Compile Include="Shapes\Default\DiamondHand.cs" />
     <Compile Include="Shapes\Default\HourNumerals.cs" />
     <Compile Include="Shapes\Default\Pin.cs" />
@@ -102,18 +104,14 @@
     <Compile Include="Shapes\Basic\PathHand.cs" />
     <Compile Include="Shapes\Basic\StringRim.cs" />
     <Compile Include="Shapes\Basic\StringBackground.cs" />
-    <Compile Include="Shapes\BackgroundBase.cs" />
     <Compile Include="Shapes\HandBase.cs" />
-    <Compile Include="Shapes\IRim.cs" />
-    <Compile Include="Shapes\IBackground.cs" />
-    <Compile Include="Shapes\IHand.cs" />
     <Compile Include="Shapes\IShape.cs" />
     <Compile Include="Shapes\ShapeAttribute.cs" />
     <Compile Include="Shapes\ShapeBase.cs" />
     <Compile Include="Shapes\ShapeConverter.cs" />
     <Compile Include="Shapes\TimeComponent.cs" />
     <Compile Include="Shapes\VectorialRimBase.cs" />
-    <Compile Include="Shapes\VectorialBackgroundBase.cs" />
+    <Compile Include="Shapes\VectorialShapeBase.cs" />
     <Compile Include="Shapes\VectorialHandBase.cs" />
     <Compile Include="Serialization\TemplateSerialization.cs" />
     <Compile Include="Movements\SpeedyMovement.cs" />
@@ -123,7 +121,7 @@
     <Compile Include="Movements\TimeChangedEventArgs.cs" />
     <Compile Include="Movements\MovementBase.cs" />
     <Compile Include="Movements\UtcTimeMovement.cs" />
-    <Compile Include="TimeSpanEditor.cs" />
+    <Compile Include="Design\TimeSpanEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagrams\ShapeInterfacesDiagram.cd" />

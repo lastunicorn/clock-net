@@ -25,7 +25,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Default
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the background of the dial.
     /// </summary>
     [Shape("ac17028b-424c-4b91-b961-72b9f0b4733a")]
-    public class FlatBackground : VectorialBackgroundBase
+    public class FlatBackground : VectorialShapeBase
     {
         private RectangleF rect;
 

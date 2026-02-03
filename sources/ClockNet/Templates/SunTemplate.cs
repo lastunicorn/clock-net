@@ -9,7 +9,7 @@ namespace DustInTheWind.ClockNet.Templates
 {
     public class SunTemplate : TemplateBase
     {
-        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        protected override IEnumerable<IShape> EnumerateShapes()
         {
             yield return new FancyBackground
             {
@@ -18,10 +18,7 @@ namespace DustInTheWind.ClockNet.Templates
                 InnerRimWidth = 46f,
                 OuterRimWidth = 14f
             };
-        }
 
-        protected override IEnumerable<IHand> EnumerateHands()
-        {
             yield return new DotHand
             {
                 Name = "Hour Hand",
@@ -55,10 +52,7 @@ namespace DustInTheWind.ClockNet.Templates
                 FillColor = Color.Empty,
                 Radius = 6f
             };
-        }
 
-        protected override IEnumerable<IRim> EnumerateRims()
-        {
             yield return new StringRim
             {
                 Name = "Hours",

@@ -13,7 +13,7 @@ namespace DustInTheWind.ClockNet.Templates
     /// </summary>
     public class PandaTemplate : TemplateBase
     {
-        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        protected override IEnumerable<IShape> EnumerateShapes()
         {
             yield return new FlatBackground
             {
@@ -27,15 +27,7 @@ namespace DustInTheWind.ClockNet.Templates
                 FillColor = Color.White,
                 Radius = 96f
             };
-        }
 
-        protected override IEnumerable<IRim> EnumerateRims()
-        {
-            return Enumerable.Empty<IRim>();
-        }
-
-        protected override IEnumerable<IHand> EnumerateHands()
-        {
             yield return new DotHand
             {
                 Name = "Hour Hand",

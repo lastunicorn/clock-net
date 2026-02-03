@@ -33,7 +33,7 @@ namespace DustInTheWind.ClockNet.Templates
     /// elements.</remarks>
     public class DefaultTemplate : TemplateBase
     {
-        protected override IEnumerable<IBackground> EnumerateBackgrounds()
+        protected override IEnumerable<IShape> EnumerateShapes()
         {
             yield return new FlatBackground
             {
@@ -48,10 +48,7 @@ namespace DustInTheWind.ClockNet.Templates
                 FillColor = Color.DarkSlateGray,
                 Text = "Dust in the Wind",
             };
-        }
 
-        protected override IEnumerable<IRim> EnumerateRims()
-        {
             // Ticks for minutes
             yield return new Ticks
             {
@@ -79,10 +76,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hours",
                 DistanceFromEdge = 26f
             };
-        }
 
-        protected override IEnumerable<IHand> EnumerateHands()
-        {
             // Hour hand
             yield return new DiamondHand
             {
