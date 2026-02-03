@@ -88,11 +88,11 @@
     <Compile Include="RimsEditor.Designer.cs">
       <DependentUpon>RimsEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="TimeProvidersEditor.cs">
+    <Compile Include="MovementsEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TimeProvidersEditor.Designer.cs">
-      <DependentUpon>TimeProvidersEditor.cs</DependentUpon>
+    <Compile Include="MovementsEditor.Designer.cs">
+      <DependentUpon>MovementsEditor.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BackgroundsEditor.resx">
       <DependentUpon>BackgroundsEditor.cs</DependentUpon>
@@ -116,8 +116,8 @@
     <EmbeddedResource Include="RimsEditor.resx">
       <DependentUpon>RimsEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TimeProvidersEditor.resx">
-      <DependentUpon>TimeProvidersEditor.cs</DependentUpon>
+    <EmbeddedResource Include="MovementsEditor.resx">
+      <DependentUpon>MovementsEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

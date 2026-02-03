@@ -18,12 +18,12 @@ using System;
 using System.ComponentModel;
 using System.Threading;
 
-namespace DustInTheWind.ClockNet.Core.TimeProviders
+namespace DustInTheWind.ClockNet.Core.Movements
 {
     /// <summary>
     /// Implements base functionality for a time provider class.
     /// </summary>
-    public abstract class TimeProviderBase : ITimeProvider
+    public abstract class MovementBase : IMovement
     {
         private readonly Timer timer;
         private int interval = 100;
@@ -62,9 +62,9 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
         public event EventHandler<TimeChangedEventArgs> TimeChanged;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TimeProviderBase"/> class.
+        /// Initializes a new instance of the <see cref="MovementBase"/> class.
         /// </summary>
-        protected TimeProviderBase()
+        protected MovementBase()
         {
             timer = new Timer(HandleTimerCallback, null, Timeout.Infinite, Timeout.Infinite);
         }
@@ -175,7 +175,7 @@ namespace DustInTheWind.ClockNet.Core.TimeProviders
         /// <summary>
         /// Finalizer.
         /// </summary>
-        ~TimeProviderBase()
+        ~MovementBase()
         {
             Dispose(false);
         }

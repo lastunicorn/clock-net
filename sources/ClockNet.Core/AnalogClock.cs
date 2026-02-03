@@ -24,7 +24,7 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Core.Shapes;
-using DustInTheWind.ClockNet.Core.TimeProviders;
+using DustInTheWind.ClockNet.Core.Movements;
 
 namespace DustInTheWind.ClockNet
 {
@@ -52,22 +52,22 @@ namespace DustInTheWind.ClockNet
 
         #endregion
 
-        #region Event TimeProviderChanged
+        #region Event MovementChanged
 
         /// <summary>
-        /// Event raised when the value of the <see cref="TimeProvider"/> property is changed.
+        /// Event raised when the value of the <see cref="Movement"/> property is changed.
         /// </summary>
         [Category("Property Changed")]
-        [Description("Event raised when the value of the TimeProvider property is changed.")]
-        public event EventHandler TimeProviderChanged;
+        [Description("Event raised when the value of the Movement property is changed.")]
+        public event EventHandler MovementChanged;
 
         /// <summary>
-        /// Raises the <see cref="TimeProviderChanged"/> event.
+        /// Raises the <see cref="MovementChanged"/> event.
         /// </summary>
         /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
-        protected virtual void OnTimeProviderChanged(EventArgs e)
+        protected virtual void OnMovementChanged(EventArgs e)
         {
-            TimeProviderChanged?.Invoke(this, e);
+            MovementChanged?.Invoke(this, e);
         }
 
         #endregion
@@ -261,7 +261,7 @@ namespace DustInTheWind.ClockNet
 
         /// <summary>
         /// Gets or sets the time displayed by the clock.
-        /// If the <see cref="TimeProvider"/> property is set, this property is changed almost immetiately.
+        /// If the <see cref="Movement"/> property is set, this property is changed almost immetiately.
         /// </summary>
         [Category("Value")]
         [DefaultValue(typeof(TimeSpan), "0")]
@@ -281,42 +281,42 @@ namespace DustInTheWind.ClockNet
         #region Time Provider Property
 
         /// <summary>
-        /// An instance of the <see cref="ITimeProvider"/> that provides the time to be displayed by the timer.
+        /// An instance of the <see cref="IMovement"/> that provides the time to be displayed by the timer.
         /// </summary>
-        private ITimeProvider timeProvider;
+        private IMovement movement;
 
         /// <summary>
-        /// Gets or sets an instance of the <see cref="ITimeProvider"/> that provides the time to be displayed by the timer.
+        /// Gets or sets an instance of the <see cref="IMovement"/> that provides the time to be displayed by the timer.
         /// </summary>
         [Category("Value")]
         [DefaultValue(null)]
         [Description("Provides the time to be displayed by the timer.")]
-        public ITimeProvider TimeProvider
+        public IMovement Movement
         {
-            get { return timeProvider; }
+            get { return movement; }
             set
             {
-                if (timeProvider != null)
+                if (movement != null)
                 {
-                    timeProvider.Stop();
-                    timeProvider.TimeChanged -= HandleTimeProviderTimeChanged;
+                    movement.Stop();
+                    movement.TimeChanged -= HandleMovementTimeChanged;
                 }
 
-                timeProvider = value;
+                movement = value;
 
-                if (timeProvider != null)
+                if (movement != null)
                 {
-                    timeProvider.TimeChanged += HandleTimeProviderTimeChanged;
-                    timeProvider.Start();
+                    movement.TimeChanged += HandleMovementTimeChanged;
+                    movement.Start();
                 }
 
                 Invalidate();
 
-                OnTimeProviderChanged(EventArgs.Empty);
+                OnMovementChanged(EventArgs.Empty);
             }
         }
 
-        private void HandleTimeProviderTimeChanged(object sender, TimeChangedEventArgs e)
+        private void HandleMovementTimeChanged(object sender, TimeChangedEventArgs e)
         {
             time = e.Time;
             Invalidate();
@@ -772,10 +772,10 @@ namespace DustInTheWind.ClockNet
         {
             if (disposing)
             {
-                if (timeProvider != null)
+                if (movement != null)
                 {
-                    timeProvider.Stop();
-                    timeProvider.TimeChanged -= HandleTimeProviderTimeChanged;
+                    movement.Stop();
+                    movement.TimeChanged -= HandleMovementTimeChanged;
                 }
 
                 foreach (IBackground shape in backgrounds)

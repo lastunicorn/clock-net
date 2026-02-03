@@ -129,13 +129,13 @@
     <Compile Include="Shapes\VectorialBackgroundBase.cs" />
     <Compile Include="Shapes\VectorialHandBase.cs" />
     <Compile Include="Serialization\TemplateSerialization.cs" />
-    <Compile Include="TimeProviders\BrokenTimeProvider.cs" />
-    <Compile Include="TimeProviders\ITimeProvider.cs" />
-    <Compile Include="TimeProviders\LocalTimeProvider.cs" />
-    <Compile Include="TimeProviders\RandomTimeProvider.cs" />
-    <Compile Include="TimeProviders\TimeChangedEventArgs.cs" />
-    <Compile Include="TimeProviders\TimeProviderBase.cs" />
-    <Compile Include="TimeProviders\UtcTimeProvider.cs" />
+    <Compile Include="Movements\SpeedyMovement.cs" />
+    <Compile Include="Movements\IMovement.cs" />
+    <Compile Include="Movements\LocalTimeMovement.cs" />
+    <Compile Include="Movements\RandomTimeMovement.cs" />
+    <Compile Include="Movements\TimeChangedEventArgs.cs" />
+    <Compile Include="Movements\MovementBase.cs" />
+    <Compile Include="Movements\UtcTimeMovement.cs" />
     <Compile Include="TimeSpanEditor.cs" />
   </ItemGroup>
   <ItemGroup>

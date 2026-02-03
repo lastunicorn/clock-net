@@ -17,12 +17,12 @@
 using System;
 using System.ComponentModel;
 
-namespace DustInTheWind.ClockNet.Core.TimeProviders
+namespace DustInTheWind.ClockNet.Core.Movements
 {
     /// <summary>
     /// Provides time values from a time coordinate that is n time faster then the real one.
     /// </summary>
-    public class BrokenTimeProvider : TimeProviderBase
+    public class SpeedyMovement : MovementBase
     {
         /// <summary>
         /// The default value of the time multiplier.

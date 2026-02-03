@@ -168,7 +168,7 @@ namespace DustInTheWind.ClockNet.Demo
             DustInTheWind.ClockNet.Core.Shapes.Basic.StringRim stringRim5 = new DustInTheWind.ClockNet.Core.Shapes.Basic.StringRim();
             this.flowLayoutPanelTicksAndNumbers = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClockDefault = new DustInTheWind.ClockNet.AnalogClock();
-            this.localTimeProvider = new DustInTheWind.ClockNet.Core.TimeProviders.LocalTimeProvider();
+            this.localTimeMovement = new DustInTheWind.ClockNet.Core.Movements.LocalTimeMovement();
             this.analogClockSimple = new DustInTheWind.ClockNet.AnalogClock();
             this.analogClockNoNumbers = new DustInTheWind.ClockNet.AnalogClock();
             this.analogClockRomanNumbers = new DustInTheWind.ClockNet.AnalogClock();
@@ -184,20 +184,20 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDigital = new DustInTheWind.ClockNet.AnalogClock();
             this.analogClockGreen = new DustInTheWind.ClockNet.AnalogClock();
             this.analogClockRandom = new DustInTheWind.ClockNet.AnalogClock();
-            this.randomTimeProvider = new DustInTheWind.ClockNet.Core.TimeProviders.RandomTimeProvider();
+            this.randomTimeMovement = new DustInTheWind.ClockNet.Core.Movements.RandomTimeMovement();
             this.analogClockBroken = new DustInTheWind.ClockNet.AnalogClock();
-            this.brokenTimeProvider1 = new DustInTheWind.ClockNet.Core.TimeProviders.BrokenTimeProvider();
+            this.speedyMovement1 = new DustInTheWind.ClockNet.Core.Movements.SpeedyMovement();
             this.analogClockBroken2 = new DustInTheWind.ClockNet.AnalogClock();
-            this.brokenTimeProvider2 = new DustInTheWind.ClockNet.Core.TimeProviders.BrokenTimeProvider();
+            this.speedyMovement2 = new DustInTheWind.ClockNet.Core.Movements.SpeedyMovement();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageTimeZones = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.analogClockLocalProvider = new DustInTheWind.ClockNet.AnalogClock();
             this.analogClockUTCProvider = new DustInTheWind.ClockNet.AnalogClock();
-            this.utcTimeProvider = new DustInTheWind.ClockNet.Core.TimeProviders.UtcTimeProvider();
+            this.utcTimeMovement = new DustInTheWind.ClockNet.Core.Movements.UtcTimeMovement();
             this.analogClockTokyoProvider = new DustInTheWind.ClockNet.AnalogClock();
-            this.tokyoTimeProvider = new DustInTheWind.ClockNet.Core.TimeProviders.UtcTimeProvider();
+            this.tokyoTimeMovement = new DustInTheWind.ClockNet.Core.Movements.UtcTimeMovement();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPageCompass = new System.Windows.Forms.TabPage();
@@ -314,7 +314,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDefault.TabIndex = 20;
             this.analogClockDefault.Text = "Default";
             this.analogClockDefault.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockDefault.TimeProvider = this.localTimeProvider;
+            this.analogClockDefault.Movement = this.localTimeMovement;
             // 
             // analogClockSimple
             // 
@@ -360,7 +360,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockSimple.TabIndex = 16;
             this.analogClockSimple.Text = "Simple";
             this.analogClockSimple.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockSimple.TimeProvider = this.localTimeProvider;
+            this.analogClockSimple.Movement = this.localTimeMovement;
             // 
             // analogClockNoNumbers
             // 
@@ -412,7 +412,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockNoNumbers.TabIndex = 17;
             this.analogClockNoNumbers.Text = "No Numbers";
             this.analogClockNoNumbers.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockNoNumbers.TimeProvider = this.localTimeProvider;
+            this.analogClockNoNumbers.Movement = this.localTimeMovement;
             // 
             // analogClockRomanNumbers
             // 
@@ -472,7 +472,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockRomanNumbers.TabIndex = 19;
             this.analogClockRomanNumbers.Text = "Roman Numerals";
             this.analogClockRomanNumbers.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockRomanNumbers.TimeProvider = this.localTimeProvider;
+            this.analogClockRomanNumbers.Movement = this.localTimeMovement;
             // 
             // analogClockClear
             // 
@@ -512,7 +512,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockClear.TabIndex = 18;
             this.analogClockClear.Text = "Clear";
             this.analogClockClear.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockClear.TimeProvider = this.localTimeProvider;
+            this.analogClockClear.Movement = this.localTimeMovement;
             // 
             // analogClockNESW
             // 
@@ -570,7 +570,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockNESW.TabIndex = 13;
             this.analogClockNESW.Text = "North East Sourh West";
             this.analogClockNESW.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockNESW.TimeProvider = this.localTimeProvider;
+            this.analogClockNESW.Movement = this.localTimeMovement;
             // 
             // tabControl1
             // 
@@ -723,7 +723,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBlue.TabIndex = 0;
             this.analogClockBlue.Text = "Blue";
             this.analogClockBlue.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockBlue.TimeProvider = this.localTimeProvider;
+            this.analogClockBlue.Movement = this.localTimeMovement;
             // 
             // analogClockDigital
             // 
@@ -803,7 +803,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockDigital.TabIndex = 14;
             this.analogClockDigital.Text = "Digital";
             this.analogClockDigital.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockDigital.TimeProvider = this.localTimeProvider;
+            this.analogClockDigital.Movement = this.localTimeMovement;
             // 
             // analogClockGreen
             // 
@@ -882,7 +882,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockGreen.TabIndex = 11;
             this.analogClockGreen.Text = "Green";
             this.analogClockGreen.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockGreen.TimeProvider = this.localTimeProvider;
+            this.analogClockGreen.Movement = this.localTimeMovement;
             // 
             // analogClockRandom
             // 
@@ -956,7 +956,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockRandom.TabIndex = 21;
             this.analogClockRandom.Text = "Broken\r\n(Random)";
             this.analogClockRandom.Time = System.TimeSpan.Parse("10:44:09");
-            this.analogClockRandom.TimeProvider = this.randomTimeProvider;
+            this.analogClockRandom.Movement = this.randomTimeMovement;
             // 
             // analogClockBroken
             // 
@@ -1023,12 +1023,12 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBroken.TabIndex = 22;
             this.analogClockBroken.Text = "Broken\r\n(Fast)\r\n";
             this.analogClockBroken.Time = System.TimeSpan.Parse("19:40:36.2642840");
-            this.analogClockBroken.TimeProvider = this.brokenTimeProvider1;
+            this.analogClockBroken.Movement = this.speedyMovement1;
             // 
-            // brokenTimeProvider1
+            // speedyMovement1
             // 
-            this.brokenTimeProvider1.InitialTime = System.TimeSpan.Parse("00:00:31.2599960");
-            this.brokenTimeProvider1.TimeMultiplier = 1000F;
+            this.speedyMovement1.InitialTime = System.TimeSpan.Parse("00:00:31.2599960");
+            this.speedyMovement1.TimeMultiplier = 1000F;
             // 
             // analogClockBroken2
             // 
@@ -1101,12 +1101,12 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockBroken2.TabIndex = 23;
             this.analogClockBroken2.Text = "Broken\r\n(Back)";
             this.analogClockBroken2.Time = System.TimeSpan.Parse("-1.12:04:17.2122808");
-            this.analogClockBroken2.TimeProvider = this.brokenTimeProvider2;
+            this.analogClockBroken2.Movement = this.speedyMovement2;
             // 
-            // brokenTimeProvider2
+            // speedyMovement2
             // 
-            this.brokenTimeProvider2.InitialTime = System.TimeSpan.Parse("03:13:45.0371400");
-            this.brokenTimeProvider2.TimeMultiplier = -900F;
+            this.speedyMovement2.InitialTime = System.TimeSpan.Parse("03:13:45.0371400");
+            this.speedyMovement2.TimeMultiplier = -900F;
             // 
             // label2
             // 
@@ -1223,7 +1223,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockLocalProvider.TabIndex = 8;
             this.analogClockLocalProvider.Text = "Local";
             this.analogClockLocalProvider.Time = System.TimeSpan.Parse("12:17:32.0918913");
-            this.analogClockLocalProvider.TimeProvider = this.localTimeProvider;
+            this.analogClockLocalProvider.Movement = this.localTimeMovement;
             // 
             // analogClockUTCProvider
             // 
@@ -1296,7 +1296,7 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockUTCProvider.TabIndex = 7;
             this.analogClockUTCProvider.Text = "UTC";
             this.analogClockUTCProvider.Time = System.TimeSpan.Parse("10:17:32.1075945");
-            this.analogClockUTCProvider.TimeProvider = this.utcTimeProvider;
+            this.analogClockUTCProvider.Movement = this.utcTimeMovement;
             // 
             // analogClockTokyoProvider
             // 
@@ -1369,11 +1369,11 @@ namespace DustInTheWind.ClockNet.Demo
             this.analogClockTokyoProvider.TabIndex = 9;
             this.analogClockTokyoProvider.Text = "Tokyo\r\n+9:00";
             this.analogClockTokyoProvider.Time = System.TimeSpan.Parse("19:17:32.1235276");
-            this.analogClockTokyoProvider.TimeProvider = this.tokyoTimeProvider;
+            this.analogClockTokyoProvider.Movement = this.tokyoTimeMovement;
             // 
-            // tokyoTimeProvider
+            // tokyoTimeMovement
             // 
-            this.tokyoTimeProvider.UtcOffset = System.TimeSpan.Parse("09:00:00");
+            this.tokyoTimeMovement.UtcOffset = System.TimeSpan.Parse("09:00:00");
             // 
             // label6
             // 
@@ -1678,8 +1678,8 @@ namespace DustInTheWind.ClockNet.Demo
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private DustInTheWind.ClockNet.Core.TimeProviders.UtcTimeProvider utcTimeProvider;
-        private DustInTheWind.ClockNet.Core.TimeProviders.UtcTimeProvider tokyoTimeProvider;
+        private DustInTheWind.ClockNet.Core.Movements.UtcTimeMovement utcTimeMovement;
+        private DustInTheWind.ClockNet.Core.Movements.UtcTimeMovement tokyoTimeMovement;
         private AnalogClock analogClockSimple;
         private AnalogClock analogClockNoNumbers;
         private AnalogClock analogClockClear;
@@ -1689,13 +1689,13 @@ namespace DustInTheWind.ClockNet.Demo
         private AnalogClock analogClockTokyoProvider;
         private AnalogClock analogClockDefault;
         private AnalogClock analogClockDigital;
-        private DustInTheWind.ClockNet.Core.TimeProviders.LocalTimeProvider localTimeProvider;
+        private DustInTheWind.ClockNet.Core.Movements.LocalTimeMovement localTimeMovement;
         private AnalogClock analogClockRandom;
-        private DustInTheWind.ClockNet.Core.TimeProviders.RandomTimeProvider randomTimeProvider;
+        private DustInTheWind.ClockNet.Core.Movements.RandomTimeMovement randomTimeMovement;
         private AnalogClock analogClockBroken;
-        private DustInTheWind.ClockNet.Core.TimeProviders.BrokenTimeProvider brokenTimeProvider1;
+        private DustInTheWind.ClockNet.Core.Movements.SpeedyMovement speedyMovement1;
         private AnalogClock analogClockBroken2;
-        private DustInTheWind.ClockNet.Core.TimeProviders.BrokenTimeProvider brokenTimeProvider2;
+        private DustInTheWind.ClockNet.Core.Movements.SpeedyMovement speedyMovement2;
         private System.Windows.Forms.TabPage tabPageCompass;
         private AnalogClock analogClockCompass;
         private System.Windows.Forms.NumericUpDown numericUpDownSeconds;

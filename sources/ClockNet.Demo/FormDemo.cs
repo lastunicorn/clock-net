@@ -19,7 +19,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using DustInTheWind.ClockNet.Core.Serialization;
-using DustInTheWind.ClockNet.Core.TimeProviders;
+using DustInTheWind.ClockNet.Core.Movements;
 using DustInTheWind.ClockNet.Templates;
 
 namespace DustInTheWind.ClockNet.Demo
@@ -62,16 +62,16 @@ namespace DustInTheWind.ClockNet.Demo
             handsEditor1.AnalogClock = analogClockDemo;
 
             // Time Provider
-            timeProvidersEditor1.AnalogClock = analogClockDemo;
+            movementsEditor1.AnalogClock = analogClockDemo;
 
             //
             analogClockDemo.ApplyTemplate(new DefaultTemplate());
         }
 
-        private TimeSpan? GetUtcOffsetFromTimeProvider()
+        private TimeSpan? GetUtcOffsetFromMovement()
         {
-            if (analogClockDemo.TimeProvider is UtcTimeProvider utcTimeProvider)
-                return utcTimeProvider.UtcOffset;
+            if (analogClockDemo.Movement is UtcTimeMovement utcTimeMovement)
+                return utcTimeMovement.UtcOffset;
             return null;
         }
 
@@ -150,12 +150,12 @@ namespace DustInTheWind.ClockNet.Demo
             }
         }
 
-        private void analogClockDemo_TimeProviderChanged(object sender, EventArgs e)
+        private void analogClockDemo_MovementChanged(object sender, EventArgs e)
         {
-            if (analogClockDemo.TimeProvider != null)
+            if (analogClockDemo.Movement != null)
             {
-                labelTimeProvider.Text = analogClockDemo.TimeProvider.GetType().Name;
-                analogClockDemo.TimeProvider.TimeChanged += (s, ev) =>
+                labelMovement.Text = analogClockDemo.Movement.GetType().Name;
+                analogClockDemo.Movement.TimeChanged += (s, ev) =>
                 {
                     if (!IsDisposed && IsHandleCreated)
                     {
@@ -168,7 +168,7 @@ namespace DustInTheWind.ClockNet.Demo
             }
             else
             {
-                labelTimeProvider.Text = "<none>";
+                labelMovement.Text = "<none>";
             }
         }
 

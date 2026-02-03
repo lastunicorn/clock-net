@@ -1,4 +1,4 @@
-// ClockNet
+﻿// ClockNet
 // Copyright (C) 2010 Dust in the Wind
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -16,25 +16,34 @@
 
 using System;
 
-namespace DustInTheWind.ClockNet.Core.TimeProviders
+namespace DustInTheWind.ClockNet.Core.Movements
 {
     /// <summary>
-    /// Contains the event data for the <see cref="ITimeProvider.TimeChanged"/> event.
+    /// Provides random time values.
     /// </summary>
-    public class TimeChangedEventArgs : EventArgs
+    public class RandomTimeMovement : MovementBase
     {
-        /// <summary>
-        /// Gets the time value.
-        /// </summary>
-        public TimeSpan Time { get; }
+        private readonly Random rand;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TimeChangedEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="RandomTimeMovement"/> class.
         /// </summary>
-        /// <param name="time">The time value.</param>
-        public TimeChangedEventArgs(TimeSpan time)
+        public RandomTimeMovement()
         {
-            Time = time;
+            rand = new Random();
+        }
+
+        /// <summary>
+        /// Returns a random time value.
+        /// </summary>
+        /// <returns>A <see cref="TimeSpan"/> object containing a random time value.</returns>
+        protected override TimeSpan GetTime()
+        {
+            int hours = rand.Next(23);
+            int minutes = rand.Next(59);
+            int seconds = rand.Next(59);
+
+            return new TimeSpan(hours, minutes, seconds);
         }
     }
 }
