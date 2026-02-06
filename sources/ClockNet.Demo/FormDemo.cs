@@ -21,6 +21,7 @@ using System.Windows.Forms;
 using DustInTheWind.ClockNet.Core.Serialization;
 using DustInTheWind.ClockNet.Core.Movements;
 using DustInTheWind.ClockNet.Templates;
+using DustInTheWind.ClockNet.Core.Performace;
 
 namespace DustInTheWind.ClockNet.Demo
 {
@@ -64,6 +65,10 @@ namespace DustInTheWind.ClockNet.Demo
 
             //
             analogClockDemo.ApplyTemplate(new DefaultTemplate());
+            
+            PerformanceMeter performanceMeter = new PerformanceMeter();
+            analogClockDemo.PerformanceMeter = performanceMeter;
+            performanceView1.PerformanceMeter = performanceMeter;
         }
 
         private TimeSpan? GetUtcOffsetFromMovement()

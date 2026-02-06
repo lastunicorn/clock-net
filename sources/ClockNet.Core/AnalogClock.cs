@@ -23,8 +23,9 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
-using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Movements;
+using DustInTheWind.ClockNet.Core.Performace;
+using DustInTheWind.ClockNet.Core.Shapes;
 
 namespace DustInTheWind.ClockNet
 {
@@ -41,14 +42,9 @@ namespace DustInTheWind.ClockNet
     //[ToolboxBitmap(typeof(AnalogClock), "icon16.bmp")]
     public class AnalogClock : Control
     {
-        #region Performance Info
+        #region PerformanceMeter Property
 
-#if PERFORMANCE_INFO
-
-        // >> Needed to display performance info.
-        private PerformanceInfo performanceInfo = new PerformanceInfo();
-
-#endif
+        public PerformanceMeter PerformanceMeter { get; set; }
 
         #endregion
 
@@ -405,44 +401,33 @@ namespace DustInTheWind.ClockNet
         /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
+            PerformanceMeter?.StartMeasurement();
 
-#if PERFORMANCE_INFO
-
-            performanceInfo.Start();
-#endif
-
-            base.OnPaint(e);
-
-            if (radius <= 0)
-                return;
-
-            Graphics g = e.Graphics;
-
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.TextRenderingHint = TextRenderingHint.AntiAlias;
-            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
-            Matrix originalMatrix = e.Graphics.Transform;
-
-            g.TranslateTransform(centerX, centerY);
-            g.ScaleTransform(scaleX, scaleY);
-            Matrix centerMatrix = e.Graphics.Transform;
-
-            DrawShapes(g, centerMatrix);
-
-#if PERFORMANCE_INFO
-
-            performanceInfo.Stop();
-
-            g.Transform = originalMatrix;
-            using (Font performanceTestFont = new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point))
+            try
             {
-                string text = performanceInfo.ToString();
-                g.DrawString(text, performanceTestFont, Brushes.Black, 0, 0);
+                base.OnPaint(e);
+
+                if (radius <= 0)
+                    return;
+
+                Graphics g = e.Graphics;
+
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.TextRenderingHint = TextRenderingHint.AntiAlias;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                Matrix originalMatrix = e.Graphics.Transform;
+
+                g.TranslateTransform(centerX, centerY);
+                g.ScaleTransform(scaleX, scaleY);
+                Matrix centerMatrix = e.Graphics.Transform;
+
+                DrawShapes(g, centerMatrix);
             }
-
-#endif
-
+            finally
+            {
+                PerformanceMeter?.EndMeasurement();
+            }
         }
 
         private void DrawShapes(Graphics g, Matrix initialMatrix)

@@ -53,6 +53,13 @@
     <Compile Include="Design\PointFConverter.cs" />
     <Compile Include="Design\RectangleFConverter.cs" />
     <Compile Include="Movements\StaticMovement.cs" />
+    <Compile Include="Performace\PerformanceMeter.cs" />
+    <Compile Include="Performace\PerformanceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Performace\PerformanceView.Designer.cs">
+      <DependentUpon>PerformanceView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Serialization\Converters\StringArrayValueConverter.cs" />
     <Compile Include="Shapes\Basic\ImageRim.cs" />
     <Compile Include="Shapes\ClockDrawingContext.cs" />
@@ -88,7 +95,6 @@
       <DependentUpon>NullableDateTimePicker.cs</DependentUpon>
     </Compile>
     <Compile Include="Design\NullableTimeSpanConverter.cs" />
-    <Compile Include="Performace\PerformanceInfo.cs" />
     <Compile Include="Utils\PointFConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shapes\ShapeAddedEventArgs.cs" />
@@ -137,6 +143,9 @@
     <EmbeddedResource Include="NullableDateTimePicker.resx">
       <DependentUpon>NullableDateTimePicker.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performace\PerformanceView.resx">
+      <DependentUpon>PerformanceView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
