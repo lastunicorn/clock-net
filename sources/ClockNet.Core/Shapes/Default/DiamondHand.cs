@@ -55,7 +55,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
             set
             {
                 tailLength = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -83,7 +83,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
             set
             {
                 width = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }

@@ -65,7 +65,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
             set
             {
                 tailLength = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }

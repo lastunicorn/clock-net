@@ -84,7 +84,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Length = 24f,
                 Width = 5f,
                 TailLength = 6f,
-                ComponentToDisplay = TimeComponent.Hour
+                TimeComponent = TimeComponent.Hour
             };
 
             yield return new DiamondHand
@@ -94,14 +94,14 @@ namespace DustInTheWind.ClockNet.Templates
                 Length = 37f,
                 Width = 4f,
                 TailLength = 4f,
-                ComponentToDisplay = TimeComponent.Minute
+                TimeComponent = TimeComponent.Minute
             };
 
             yield return new LineHand
             {
                 Name = "Second Hand",
                 OutlineColor = Color.DeepSkyBlue,
-                ComponentToDisplay = TimeComponent.Second
+                TimeComponent = TimeComponent.Second
             };
 
             yield return new Pin

@@ -16,7 +16,7 @@ namespace DustInTheWind.ClockNet.Templates
     /// <remarks>Use this class to create a clock template with a standard set of shapes and styles suitable
     /// for a black or dark-themed clock face. The template initializes the BackgroundShapes, AngularShapes, and
     /// HandShapes properties with default values representing a complete analog clock layout.</remarks>
-    public class BlackTemplate : TemplateBase
+    public class SharpTemplate : TemplateBase
     {
         protected override IEnumerable<IShape> EnumerateShapes()
         {
@@ -26,21 +26,14 @@ namespace DustInTheWind.ClockNet.Templates
                 FillColor = Color.Black
             };
 
-            yield return new StringBackground
-            {
-                Name = "Title",
-                FillColor = Color.LightGray,
-                Font = new Font("Arial", 4f, FontStyle.Regular, GraphicsUnit.Point, 0),
-                Location = new PointF(0F, 30f)
-            };
-
             yield return new Ticks
             {
                 Name = "Minute Ticks",
                 DistanceFromEdge = 16.5f,
                 Angle = 6f,
                 OffsetAngle = 6f,
-                SkipIndex = 5
+                SkipIndex = 5,
+                OutlineWidth = 0.3f
             };
 
             yield return new Ticks
@@ -61,9 +54,9 @@ namespace DustInTheWind.ClockNet.Templates
                 Font = new Font("Vivaldi", 12.5f, FontStyle.Italic)
             };
 
-            yield return new StringRim
+            yield return new TextRim
             {
-                Name = "Minutes",
+                Name = "Minute Numerals",
                 Angle = 30f,
                 OffsetAngle = 30f,
                 DistanceFromEdge = 5.5f,
@@ -77,34 +70,39 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new DiamondHand
             {
                 Name = "Hour Hand",
-                ComponentToDisplay = TimeComponent.Hour,
+                TimeComponent = TimeComponent.Hour,
                 FillColor = Color.RoyalBlue,
                 Length = 50f,
                 Width = 10f,
-                TailLength = 8f
+                TailLength = 8f,
+                OutlineWidth = 0f
             };
 
             yield return new DiamondHand
             {
                 Name = "Minute Hand",
-                ComponentToDisplay = TimeComponent.Minute,
+                TimeComponent = TimeComponent.Minute,
                 FillColor = Color.LimeGreen,
                 Length = 76f,
                 Width = 8f,
-                TailLength = 8f
+                TailLength = 8f,
+                OutlineWidth = 0f
             };
 
             yield return new LineHand
             {
                 Name = "Second Hand",
-                ComponentToDisplay = TimeComponent.Second,
+                TimeComponent = TimeComponent.Second,
                 Length = 86f,
-                OutlineColor = Color.Red
+                TailLength = 14f,
+                OutlineColor = Color.Red,
+                OutlineWidth = 0.3f
             };
 
             yield return new Pin
             {
                 Name = "Pin",
+                Diameter = 2f,
                 FillColor = Color.Red
             };
         }

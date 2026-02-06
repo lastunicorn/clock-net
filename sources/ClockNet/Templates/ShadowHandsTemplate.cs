@@ -69,7 +69,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new DiamondHand
             {
                 Name = "Hour Hand Shadow",
-                ComponentToDisplay = TimeComponent.Hour,
+                TimeComponent = TimeComponent.Hour,
                 FillColor = Color.Empty,
                 OutlineColor = Color.DarkGray,
                 Length = 48f,
@@ -81,7 +81,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new DiamondHand
             {
                 Name = "Hour Hand",
-                ComponentToDisplay = TimeComponent.Hour,
+                TimeComponent = TimeComponent.Hour,
                 FillColor = Color.RoyalBlue,
                 Length = 48f,
                 Width = 10f,
@@ -91,7 +91,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new DiamondHand
             {
                 Name = "Minute Hand Shadow",
-                ComponentToDisplay = TimeComponent.Minute,
+                TimeComponent = TimeComponent.Minute,
                 FillColor = Color.Empty,
                 OutlineColor = Color.DarkGray,
                 Length = 74f,
@@ -103,7 +103,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new DiamondHand
             {
                 Name = "Minute Hand",
-                ComponentToDisplay = TimeComponent.Minute,
+                TimeComponent = TimeComponent.Minute,
                 FillColor = Color.LimeGreen,
                 Length = 74f,
                 Width = 8f,
@@ -113,7 +113,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new LineHand
             {
                 Name = "Second Hand Shadow",
-                ComponentToDisplay = TimeComponent.Second,
+                TimeComponent = TimeComponent.Second,
                 OutlineColor = Color.DarkGray,
                 Length = 85f,
                 IntegralValue = true
@@ -122,7 +122,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new LineHand
             {
                 Name = "Second Hand",
-                ComponentToDisplay = TimeComponent.Second,
+                TimeComponent = TimeComponent.Second,
                 OutlineColor = Color.Red,
                 Length = 85f
             };

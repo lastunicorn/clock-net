@@ -29,7 +29,7 @@ namespace DustInTheWind.ClockNet.Templates
     /// </summary>
     /// <remarks>This template supplies a distinctive analog clock appearance with a slot-carved hour hand,
     /// line-style minute and second hands, and standard tick marks on a black dial background.</remarks>
-    public class WhiteFancyTemplate : TemplateBase
+    public class PeepholeTemplate : TemplateBase
     {
         protected override IEnumerable<IShape> EnumerateShapes()
         {
@@ -55,7 +55,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Length = 72f,
                 Width = 23f,
                 TailLength = 11.5f,
-                ComponentToDisplay = TimeComponent.Hour
+                TimeComponent = TimeComponent.Hour
             };
 
             yield return new LineHand
@@ -65,7 +65,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Length = 90f,
                 OutlineWidth = 8f,
                 TailLength = 0f,
-                ComponentToDisplay = TimeComponent.Minute
+                TimeComponent = TimeComponent.Minute
             };
 
             yield return new LineHand
@@ -75,7 +75,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Length = 90f,
                 OutlineWidth = 1f,
                 TailLength = 30f,
-                ComponentToDisplay = TimeComponent.Second
+                TimeComponent = TimeComponent.Second
             };
 
             yield return new Pin

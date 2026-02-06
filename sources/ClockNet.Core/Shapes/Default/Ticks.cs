@@ -71,7 +71,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
             set
             {
                 length = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }

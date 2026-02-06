@@ -21,7 +21,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new ImageHand
             {
                 Name = "Hour Hand",
-                ComponentToDisplay = TimeComponent.Hour,
+                TimeComponent = TimeComponent.Hour,
                 Image = Resources.hour_hand,
                 Length = 68f,
                 Origin = new PointF(32f, 155f)
@@ -30,7 +30,7 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new ImageHand
             {
                 Name = "Minute Hand",
-                ComponentToDisplay = TimeComponent.Minute,
+                TimeComponent = TimeComponent.Minute,
                 Image = Resources.minute_hand,
                 Length = 89f,
                 Origin = new PointF(14.5f, 206f)

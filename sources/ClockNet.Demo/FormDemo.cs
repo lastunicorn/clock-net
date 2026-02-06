@@ -32,10 +32,10 @@ namespace DustInTheWind.ClockNet.Demo
 
             comboBoxClockTemplates.Items.Add(typeof(DefaultTemplate));
             comboBoxClockTemplates.Items.Add(typeof(ShadowHandsTemplate));
-            comboBoxClockTemplates.Items.Add(typeof(BlackTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(SharpTemplate));
             comboBoxClockTemplates.Items.Add(typeof(PandaTemplate));
             comboBoxClockTemplates.Items.Add(typeof(FancyTemplate));
-            comboBoxClockTemplates.Items.Add(typeof(WhiteFancyTemplate));
+            comboBoxClockTemplates.Items.Add(typeof(PeepholeTemplate));
             comboBoxClockTemplates.Items.Add(typeof(SunTemplate));
             comboBoxClockTemplates.Items.Add(typeof(GothicTemplate));
         }

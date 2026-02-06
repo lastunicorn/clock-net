@@ -62,7 +62,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Advanced
                     throw new ArgumentOutOfRangeException("value", "The diameter can not be a negative value.");
 
                 diameter = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }

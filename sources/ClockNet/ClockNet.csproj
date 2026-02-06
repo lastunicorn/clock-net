@@ -60,7 +60,7 @@
     <Compile Include="Shapes\FancySweepHand.cs" />
     <Compile Include="Shapes\NibHand.cs" />
     <Compile Include="Shapes\SlotHand.cs" />
-    <Compile Include="Templates\BlackTemplate.cs" />
+    <Compile Include="Templates\SharpTemplate.cs" />
     <Compile Include="Templates\BlueTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\ShadowHandsTemplate.cs" />
@@ -68,7 +68,7 @@
     <Compile Include="Templates\PandaTemplate.cs" />
     <Compile Include="Templates\FancyTemplate.cs" />
     <Compile Include="Templates\SunTemplate.cs" />
-    <Compile Include="Templates\WhiteFancyTemplate.cs" />
+    <Compile Include="Templates\PeepholeTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

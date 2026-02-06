@@ -58,7 +58,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 outerRimWidth = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -86,7 +86,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 innerRimWidth = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }

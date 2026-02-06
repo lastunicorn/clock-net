@@ -25,7 +25,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
     /// The <see cref="IShape"/> class used by default in <see cref="AnalogClock"/> to draw the numbers representing the hours.
     /// </summary>
     [Shape("fdc94554-15c6-4f2a-9033-9349f1471013")]
-    public class StringRim : VectorialRimBase
+    public class TextRim : VectorialRimBase
     {
         /// <summary>
         /// The default name for the Shape.
@@ -81,21 +81,21 @@ namespace DustInTheWind.ClockNet.Core.Shapes.Basic
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StringRim"/> class with
+        /// Initializes a new instance of the <see cref="TextRim"/> class with
         /// default values.
         /// </summary>
-        public StringRim()
+        public TextRim()
             : this(Color.Black, DefaultFont, DefaultPositionOffset)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StringRim"/> class.
+        /// Initializes a new instance of the <see cref="TextRim"/> class.
         /// </summary>
         /// <param name="color">The color used to draw the text.</param>
         /// <param name="font">The font to be used to draw the numbers.</param>
         /// <param name="distanceFromEdge">The position offset relativelly to the edge of the dial.</param>
-        public StringRim(Color color, Font font, float distanceFromEdge)
+        public TextRim(Color color, Font font, float distanceFromEdge)
             : base(Color.Empty, color, DefaultOutlineWidth, DefaultAngle, DefaultRepeat, distanceFromEdge)
         {
             Name = DefaultName;

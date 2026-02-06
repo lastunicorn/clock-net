@@ -60,7 +60,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
                     throw new ArgumentOutOfRangeException("value", "The radius can not be a negative value.");
 
                 radius = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }

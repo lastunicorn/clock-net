@@ -56,6 +56,7 @@ namespace DustInTheWind.ClockNet.Templates
                 OutlineColor = Color.Black,
                 Length = 6f,
                 OutlineWidth = 1f,
+                DistanceFromEdge = 8f,
                 Angle = 30f,
                 OffsetAngle = 30f
             };
@@ -63,7 +64,8 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new HourNumerals
             {
                 Name = "Hour Numerals",
-                DistanceFromEdge = 26f
+                DistanceFromEdge = 28f,
+                FillColor = Color.Black
             };
 
             yield return new NibHand
@@ -71,7 +73,7 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hour Hand",
                 FillColor = Color.Black,
                 Length = 60f,
-                ComponentToDisplay = TimeComponent.Hour,
+                TimeComponent = TimeComponent.Hour,
                 Width = 10f,
                 OutlineColor = Color.FromArgb(0x60, 0x60, 0x60),
                 OutlineWidth = 1.5f
@@ -80,7 +82,8 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new NibHand
             {
                 Name = "Minute Hand",
-                ComponentToDisplay = TimeComponent.Minute,
+                FillColor = Color.Black,
+                TimeComponent = TimeComponent.Minute,
                 OutlineColor = Color.FromArgb(0x60, 0x60, 0x60),
                 OutlineWidth = 1.5f,
                 Length = 86f
@@ -89,14 +92,18 @@ namespace DustInTheWind.ClockNet.Templates
             yield return new FancySweepHand
             {
                 Name = "Second Hand",
-                ComponentToDisplay = TimeComponent.Second,
-                Length = 86f
+                TimeComponent = TimeComponent.Second,
+                Length = 86f,
+                OutlineColor = Color.Red,
+                OutlineWidth = 0.5f
             };
 
             yield return new Pin
             {
                 Name = "Pin",
-                FillColor = Color.FromArgb(0x64, 0x64, 0x64)
+                FillColor = Color.FromArgb(0x64, 0x64, 0x64),
+                OutlineWidth = 0,
+                Diameter = 4
             };
         }
     }

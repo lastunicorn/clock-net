@@ -50,16 +50,16 @@ namespace DustInTheWind.ClockNet.Core.Shapes
                     return;
 
                 length = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }
 
         #endregion
 
-        #region ComponentToDisplay Property
+        #region TimeComponent Property
 
-        private TimeComponent componentToDisplay;
+        private TimeComponent timeComponent;
 
         /// <summary>
         /// Gets or sets a value that specifies the component that is displayed from the time value.
@@ -67,15 +67,15 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         [DefaultValue(typeof(TimeComponent), "None")]
         [Category("Behavior")]
         [Description("Specifies the component that is displayed from the time value.")]
-        public TimeComponent ComponentToDisplay
+        public TimeComponent TimeComponent
         {
-            get => componentToDisplay;
+            get => timeComponent;
             set
             {
-                if (value == componentToDisplay)
+                if (value == timeComponent)
                     return;
 
-                componentToDisplay = value;
+                timeComponent = value;
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -129,7 +129,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <returns>The degrees by which the hand should be rotated from the vertical position (12 o'clock hour).</returns>
         protected float GetRotationDegrees(TimeSpan time)
         {
-            switch (componentToDisplay)
+            switch (timeComponent)
             {
                 case TimeComponent.Hour:
                     {

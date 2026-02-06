@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Linq;
 using DustInTheWind.ClockNet.Core.Shapes;
 using DustInTheWind.ClockNet.Core.Shapes.Basic;
+using DustInTheWind.ClockNet.Core.Shapes.Default;
 using DustInTheWind.ClockNet.Shapes.Advanced;
 
 namespace DustInTheWind.ClockNet.Templates
@@ -13,67 +14,67 @@ namespace DustInTheWind.ClockNet.Templates
         {
             yield return new FancyBackground
             {
-                Name = "Fancy Dial",
+                Name = "Background",
                 FillColor = Color.Chocolate,
-                InnerRimWidth = 46f,
-                OuterRimWidth = 14f
+                OuterRimWidth = 14f,
+                InnerRimWidth = 46f
+            };
+
+            yield return new HourNumerals
+            {
+                Name = "Hour Numerals",
+                Orientation = RimItemOrientation.Normal,
+                DistanceFromEdge = 37f,
+                Font = new Font("Arial", 12.5f),
+                FillColor = Color.Black
+            };
+
+            yield return new TextRim
+            {
+                Name = "Minute Numerals",
+                Texts = Enumerable.Range(1, 60)
+                    .Select(x => x.ToString())
+                    .ToArray(),
+                Angle = 6f,
+                OffsetAngle = 6f,
+                DistanceFromEdge = 8f,
+                Font = new Font("Arial", 4f),
+                FillColor = Color.Black
             };
 
             yield return new DotHand
             {
                 Name = "Hour Hand",
-                ComponentToDisplay = TimeComponent.Hour,
-                IntegralValue = true,
-                Length = 62f,
+                TimeComponent = TimeComponent.Hour,
+                Length = 63f,
+                FillColor = Color.Empty,
                 OutlineColor = Color.Black,
                 OutlineWidth = 1f,
-                FillColor = Color.Empty,
-                Radius = 14f
+                Radius = 14f,
+                IntegralValue = true
             };
 
             yield return new DotHand
             {
                 Name = "Minute Hand",
-                ComponentToDisplay = TimeComponent.Minute,
-                IntegralValue = true,
+                TimeComponent = TimeComponent.Minute,
                 Length = 93f,
+                FillColor = Color.Empty,
                 OutlineColor = Color.Black,
                 OutlineWidth = 1f,
-                FillColor = Color.Empty,
-                Radius = 6f
+                Radius = 6f,
+                IntegralValue = true
             };
 
             yield return new DotHand
             {
                 Name = "Second Hand",
-                ComponentToDisplay = TimeComponent.Second,
+                TimeComponent = TimeComponent.Second,
                 Length = 93f,
-                OutlineColor = Color.Black,
                 FillColor = Color.Empty,
+                OutlineColor = Color.Black,
+                OutlineWidth = 0.5f,
                 Radius = 6f
-            };
-
-            yield return new StringRim
-            {
-                Name = "Hours",
-                Angle = 30f,
-                OffsetAngle = 30f,
-                DistanceFromEdge = 40f,
-                Font = new Font("Arial", 12.5f),
-                Orientation = RimItemOrientation.Normal,
-                Texts = Enumerable.Range(1, 12)
-                    .Select(x => x.ToString())
-                    .ToArray()
-            };
-
-            yield return new StringRim
-            {
-                Name = "Minutes",
-                DistanceFromEdge = 8f,
-                Font = new Font("Arial", 4f),
-                Texts = Enumerable.Range(1, 60)
-                    .Select(x => x.ToString())
-                    .ToArray()
             };
         }
     }

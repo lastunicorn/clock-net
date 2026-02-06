@@ -132,7 +132,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
         /// <remarks>Call this method when changes occur that affect the layout, so that the layout system
         /// can recalculate positions and sizes as needed. This method does not immediately update the layout; it only
         /// flags it for a future update.</remarks>
-        protected void InvalidateLayout()
+        protected void InvalidateCache()
         {
             isCacheValid = false;
         }

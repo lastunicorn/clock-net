@@ -50,7 +50,7 @@ namespace DustInTheWind.ClockNet.Core.Shapes
             set
             {
                 distanceFromEdge = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }

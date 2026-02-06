@@ -430,7 +430,7 @@
             Performs all the necessary calculations based on the public parameters, before drawing the shape.
             </summary>
         </member>
-        <member name="T:DustInTheWind.ClockNet.Templates.BlackTemplate">
+        <member name="T:DustInTheWind.ClockNet.Templates.SharpTemplate">
             <summary>
             Provides a predefined clock template with a black-themed design, including default background, angular, and hand
             shapes.
@@ -460,7 +460,7 @@
             <remarks>This template supplies an elegant analog clock appearance with nib-style hour and minute hands,
             a fancy sweep hand for seconds, and standard tick marks and background elements.</remarks>
         </member>
-        <member name="T:DustInTheWind.ClockNet.Templates.WhiteFancyTemplate">
+        <member name="T:DustInTheWind.ClockNet.Templates.PeepholeTemplate">
             <summary>
             Provides a white fancy visual template for rendering a clock, featuring a slot-style hour hand and elegant design.
             </summary>

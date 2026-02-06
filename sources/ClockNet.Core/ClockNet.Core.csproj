@@ -79,6 +79,7 @@
     <Compile Include="TemplateBase.cs" />
     <Compile Include="Utils\ColorExtensions.cs" />
     <Compile Include="Shapes\ShapeCollection.cs" />
+    <Compile Include="Utils\DoubleExtensions.cs" />
     <Compile Include="Utils\HsbColor.cs" />
     <Compile Include="NullableDateTimePicker.cs">
       <SubType>UserControl</SubType>
@@ -103,7 +104,7 @@
     <Compile Include="Shapes\Basic\ImageHand.cs" />
     <Compile Include="Shapes\Basic\LineHand.cs" />
     <Compile Include="Shapes\Basic\PathHand.cs" />
-    <Compile Include="Shapes\Basic\StringRim.cs" />
+    <Compile Include="Shapes\Basic\TextRim.cs" />
     <Compile Include="Shapes\Basic\StringBackground.cs" />
     <Compile Include="Shapes\HandBase.cs" />
     <Compile Include="Shapes\IShape.cs" />

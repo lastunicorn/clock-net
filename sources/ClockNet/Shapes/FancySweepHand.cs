@@ -55,7 +55,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 circleRadius = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -82,7 +82,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 circleOffset = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }
@@ -110,7 +110,7 @@ namespace DustInTheWind.ClockNet.Shapes.Advanced
             set
             {
                 tailLength = value;
-                InvalidateLayout();
+                InvalidateCache();
                 OnChanged(EventArgs.Empty);
             }
         }

@@ -17,15 +17,10 @@ namespace DustInTheWind.ClockNet.Templates
         {
             yield return new FlatBackground
             {
-                Name = "Black Margin",
-                FillColor = Color.Black
-            };
-
-            yield return new FlatBackground
-            {
-                Name = "White Background",
+                Name = "Background",
                 FillColor = Color.White,
-                Radius = 96f
+                OutlineColor = Color.Black,
+                OutlineWidth = 2
             };
 
             yield return new DotHand
@@ -33,9 +28,10 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Hour Hand",
                 FillColor = Color.Black,
                 Length = 50f,
-                Radius = 18f,
-                ComponentToDisplay = TimeComponent.Hour,
-                OutlineColor = Color.FromArgb(0x64, 0x64, 0x64)
+                Radius = 25f,
+                TimeComponent = TimeComponent.Hour,
+                OutlineColor = Color.FromArgb(0x64, 0x64, 0x64),
+                OutlineWidth = 1
             };
 
             yield return new DotHand
@@ -43,17 +39,10 @@ namespace DustInTheWind.ClockNet.Templates
                 Name = "Minute Hand",
                 FillColor = Color.Black,
                 Length = 60f,
-                Radius = 12f,
-                ComponentToDisplay = TimeComponent.Minute,
-                OutlineColor = Color.FromArgb(0x64, 0x64, 0x64)
-            };
-
-            yield return new Pin
-            {
-                Name = "Pin",
-                FillColor = Color.Black,
+                Radius = 15f,
+                TimeComponent = TimeComponent.Minute,
                 OutlineColor = Color.FromArgb(0x64, 0x64, 0x64),
-                Diameter = 4f
+                OutlineWidth = 1
             };
         }
     }
