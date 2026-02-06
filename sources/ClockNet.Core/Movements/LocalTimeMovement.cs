@@ -27,7 +27,7 @@ namespace DustInTheWind.ClockNet.Core.Movements
         /// Returns the system's local time from the moment of the request.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        protected override TimeSpan GetTime()
+        protected override TimeSpan GenerateNewTime()
         {
             return DateTime.Now.TimeOfDay;
         }

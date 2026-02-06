@@ -24,19 +24,33 @@ namespace DustInTheWind.ClockNet.Core.Movements
     /// </summary>
     public class UtcTimeMovement : MovementBase
     {
+        private TimeSpan utcOffset;
+
         /// <summary>
-        /// Gets or sets the offset time used to decalates the system's UTC time value provided.
+        /// Gets or sets the offset time used to adjust the system's UTC time value.
         /// </summary>
-        [Category("Value")]
-        [DefaultValue(typeof(TimeSpan), "0")]
-        [Description("The offset time used to decalates the system's UTC time value provided.")]
-        public TimeSpan UtcOffset { get; set; }
+        [Category("Behavior")]
+        [DefaultValue(typeof(TimeSpan), "00:00:00")]
+        [Description("The offset time used to adjust the system's UTC time value.")]
+        public TimeSpan UtcOffset
+        {
+            get => utcOffset;
+            set
+            {
+                if (utcOffset == value)
+                    return;
+
+                utcOffset = value;
+                OnModified();
+                ForceTick();
+            }
+        }
 
         /// <summary>
         /// Returns the system's UTC time added with the offset value.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        protected override TimeSpan GetTime()
+        protected override TimeSpan GenerateNewTime()
         {
             return UtcOffset == TimeSpan.Zero
                 ? DateTime.UtcNow.TimeOfDay

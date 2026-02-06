@@ -26,40 +26,69 @@ namespace DustInTheWind.ClockNet.Core.Movements
     public abstract class MovementBase : IMovement
     {
         private readonly Timer timer;
-        private int interval = 100;
-        private bool isRunning;
 
         [Browsable(false)]
         public ISite Site { get; set; }
+
+        #region TickInterval Property
+
+        private int tickInterval = 100;
 
         /// <summary>
         /// Gets or sets the interval in milliseconds at which the time provider generates time values.
         /// </summary>
         [Category("Behavior")]
         [DefaultValue(100)]
-        [Description("The interval in milliseconds at which the time provider generates time values.")]
-        public int Interval
+        [Description("The interval in milliseconds at which the time current instance generates time values.")]
+        public int TickInterval
         {
-            get => interval;
+            get => tickInterval;
             set
             {
-                interval = value;
+                if (tickInterval == value)
+                    return;
 
-                if (isRunning)
-                    timer.Change(interval, interval);
+                tickInterval = value;
+
+                if (IsRunning)
+                {
+                    if (tickInterval > 0)
+                        timer.Change(0, tickInterval);
+                    else
+                        timer.Change(Timeout.Infinite, Timeout.Infinite);
+                }
+
+                OnModified();
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Gets a value indicating whether the time provider is currently running.
         /// </summary>
         [Browsable(false)]
-        public bool IsRunning => isRunning;
+        public bool IsRunning { get; private set; }
+
+        /// <summary>
+        /// Gets the most recently provided value.
+        /// </summary>
+        [Browsable(false)]
+        public TimeSpan LastTick { get; private set; }
+
+        /// <summary>
+        /// Occurs when the object is modified.
+        /// </summary>
+        /// <remarks>
+        /// Subscribers can use this event to respond to changes in the object's state or content. The
+        /// event is typically raised after a modification operation completes.
+        /// </remarks>
+        public event EventHandler Modified;
 
         /// <summary>
         /// Event raised when the time provider produces a new time value.
         /// </summary>
-        public event EventHandler<TimeChangedEventArgs> TimeChanged;
+        public event EventHandler<TickEventArgs> Tick;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MovementBase"/> class.
@@ -71,26 +100,32 @@ namespace DustInTheWind.ClockNet.Core.Movements
 
         private void HandleTimerCallback(object state)
         {
-            TimeSpan time = GetTime();
-            OnTimeChanged(new TimeChangedEventArgs(time));
+            LastTick = GenerateNewTime();
+            OnTick(new TickEventArgs(LastTick));
         }
 
         /// <summary>
         /// Returns the current time value. This method is called internally by the timer.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        protected abstract TimeSpan GetTime();
+        protected abstract TimeSpan GenerateNewTime();
 
         /// <summary>
         /// Starts the time provider. The time provider will begin generating time values.
         /// </summary>
         public void Start()
         {
-            TimeSpan time = GetTime();
-            OnTimeChanged(new TimeChangedEventArgs(time));
+            if (tickInterval > 0)
+            {
+                timer.Change(0, tickInterval);
+            }
+            else
+            {
+                timer.Change(Timeout.Infinite, Timeout.Infinite);
+                ForceTick();
+            }
 
-            timer.Change(interval, interval);
-            isRunning = true;
+            IsRunning = true;
         }
 
         /// <summary>
@@ -99,16 +134,42 @@ namespace DustInTheWind.ClockNet.Core.Movements
         public void Stop()
         {
             timer.Change(Timeout.Infinite, Timeout.Infinite);
-            isRunning = false;
+            IsRunning = false;
         }
 
         /// <summary>
-        /// Raises the <see cref="TimeChanged"/> event.
+        /// Forces the timer to perform a tick operation immediately, updating the last tick time and raising the tick
+        /// event.
         /// </summary>
-        /// <param name="e">A <see cref="TimeChangedEventArgs"/> object that contains the event data.</param>
-        protected virtual void OnTimeChanged(TimeChangedEventArgs e)
+        /// <remarks>
+        /// This method bypasses any scheduled timing and triggers the tick logic as if the timer
+        /// interval had elapsed. It can be used to manually advance the timer state or to simulate a tick for testing or
+        /// synchronization purposes.
+        /// </remarks>
+        protected void ForceTick()
         {
-            TimeChanged?.Invoke(this, e);
+            LastTick = GenerateNewTime();
+            OnTick(new TickEventArgs(LastTick));
+        }
+
+        /// <summary>
+        /// Raises the Modified event to notify subscribers that the object has been changed.
+        /// </summary>
+        /// <remarks>Derived classes can override this method to provide additional behavior when the object is
+        /// modified. This method is typically called after a change to the object's state that should trigger
+        /// notification.</remarks>
+        protected virtual void OnModified()
+        {
+            Modified?.Invoke(this, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="Tick"/> event.
+        /// </summary>
+        /// <param name="e">A <see cref="TickEventArgs"/> object that contains the event data.</param>
+        protected virtual void OnTick(TickEventArgs e)
+        {
+            Tick?.Invoke(this, e);
         }
 
         #region IDisposable Members
@@ -160,7 +221,7 @@ namespace DustInTheWind.ClockNet.Core.Movements
                 {
                     timer.Change(Timeout.Infinite, Timeout.Infinite);
                     timer.Dispose();
-                    isRunning = false;
+                    IsRunning = false;
                 }
 
                 // Call the appropriate methods to clean up unmanaged resources here.

@@ -24,14 +24,11 @@ namespace DustInTheWind.ClockNet.Core.Movements
     /// </summary>
     public class SpeedyMovement : MovementBase
     {
-        /// <summary>
-        /// The default value of the time multiplier.
-        /// </summary>
-        public const float DefaultTimeMultiplier = 10;
+        private DateTime initialRealTime = DateTime.UtcNow;
+
+        #region InitialTime Property
 
         private TimeSpan initialTime = DateTime.Now.TimeOfDay;
-        private DateTime initialRealTime = DateTime.UtcNow;
-        private float timeMultiplier = DefaultTimeMultiplier;
 
         /// <summary>
         /// Gets or sets the last value of the time provided by the current instance.
@@ -52,6 +49,17 @@ namespace DustInTheWind.ClockNet.Core.Movements
             }
         }
 
+        #endregion
+
+        #region TimeMultiplier Property
+
+        /// <summary>
+        /// The default value of the time multiplier.
+        /// </summary>
+        public const float DefaultTimeMultiplier = 10;
+
+        private float timeMultiplier = DefaultTimeMultiplier;
+
         /// <summary>
         /// Gets or sets the time multiplier that specifies how much faster is the provided time
         /// compared to the real one.
@@ -63,19 +71,26 @@ namespace DustInTheWind.ClockNet.Core.Movements
             get => timeMultiplier;
             set
             {
-                Stop();
-                initialTime = GetTime();
+                if (timeMultiplier == value)
+                    return;
+
+                initialTime = GenerateNewTime();
                 initialRealTime = DateTime.UtcNow;
+
                 timeMultiplier = value;
-                Start();
+                OnModified();
+
+                ForceTick();
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Returns a new time value.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing the time value.</returns>
-        protected override TimeSpan GetTime()
+        protected override TimeSpan GenerateNewTime()
         {
             DateTime currentRealTime = DateTime.UtcNow;
             long realDeltaTicks = currentRealTime.Ticks - initialRealTime.Ticks;

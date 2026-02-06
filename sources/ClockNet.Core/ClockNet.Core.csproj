@@ -52,6 +52,7 @@
     <Compile Include="DefaultTemplate.cs" />
     <Compile Include="Design\PointFConverter.cs" />
     <Compile Include="Design\RectangleFConverter.cs" />
+    <Compile Include="Movements\StaticMovement.cs" />
     <Compile Include="Serialization\Converters\StringArrayValueConverter.cs" />
     <Compile Include="Shapes\Basic\ImageRim.cs" />
     <Compile Include="Shapes\ClockDrawingContext.cs" />
@@ -118,7 +119,7 @@
     <Compile Include="Movements\IMovement.cs" />
     <Compile Include="Movements\LocalTimeMovement.cs" />
     <Compile Include="Movements\RandomTimeMovement.cs" />
-    <Compile Include="Movements\TimeChangedEventArgs.cs" />
+    <Compile Include="Movements\TickEventArgs.cs" />
     <Compile Include="Movements\MovementBase.cs" />
     <Compile Include="Movements\UtcTimeMovement.cs" />
     <Compile Include="Design\TimeSpanEditor.cs" />

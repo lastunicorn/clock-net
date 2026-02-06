@@ -179,14 +179,14 @@ namespace DustInTheWind.ClockNet
                 if (movement != null)
                 {
                     movement.Stop();
-                    movement.TimeChanged -= HandleMovementTimeChanged;
+                    movement.Tick -= HandleMovementTimeChanged;
                 }
 
                 movement = value;
 
                 if (movement != null)
                 {
-                    movement.TimeChanged += HandleMovementTimeChanged;
+                    movement.Tick += HandleMovementTimeChanged;
                     movement.Start();
                 }
 
@@ -196,7 +196,7 @@ namespace DustInTheWind.ClockNet
             }
         }
 
-        private void HandleMovementTimeChanged(object sender, TimeChangedEventArgs e)
+        private void HandleMovementTimeChanged(object sender, TickEventArgs e)
         {
             time = e.Time;
             Invalidate();
@@ -520,7 +520,7 @@ namespace DustInTheWind.ClockNet
                 if (movement != null)
                 {
                     movement.Stop();
-                    movement.TimeChanged -= HandleMovementTimeChanged;
+                    movement.Tick -= HandleMovementTimeChanged;
                 }
 
                 foreach (IShape shape in shapes)

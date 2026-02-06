@@ -153,7 +153,7 @@ namespace DustInTheWind.ClockNet.Demo
             if (analogClockDemo.Movement != null)
             {
                 labelMovement.Text = analogClockDemo.Movement.GetType().Name;
-                analogClockDemo.Movement.TimeChanged += (s, ev) =>
+                analogClockDemo.Movement.Tick += (s, ev) =>
                 {
                     if (!IsDisposed && IsHandleCreated)
                     {

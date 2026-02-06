@@ -37,7 +37,7 @@ namespace DustInTheWind.ClockNet.Core.Movements
         /// Returns a random time value.
         /// </summary>
         /// <returns>A <see cref="TimeSpan"/> object containing a random time value.</returns>
-        protected override TimeSpan GetTime()
+        protected override TimeSpan GenerateNewTime()
         {
             int hours = rand.Next(23);
             int minutes = rand.Next(59);
