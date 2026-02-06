@@ -40,15 +40,6 @@ namespace DustInTheWind.ClockNet.Templates
                 FillColor = Color.Gainsboro
             };
 
-            yield return new StringBackground
-            {
-                Name = "Title",
-                Location = new PointF(0f, 30f),
-                Font = new Font("Arial", 4f, FontStyle.Regular, GraphicsUnit.Point),
-                FillColor = Color.DarkSlateGray,
-                Text = "Dust in the Wind",
-            };
-
             // Ticks for minutes
             yield return new Ticks
             {
